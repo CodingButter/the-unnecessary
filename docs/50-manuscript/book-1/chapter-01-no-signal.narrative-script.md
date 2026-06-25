@@ -35,6 +35,8 @@ Pacing philosophy: ground everything, slow the weight onto the words that carry 
 
 ## Performance Script
 
+[measured] Chapter One. ... No Signal.
+
 [weary] [measured] The phone woke... before he did.
 
 [quiet] It was the habit of years, ... not the alarm. [flat] Eli's thumb found the glass while the rest of him was still under sleep, ... and the screen came up gray in the gray morning light, ... and he read the status bar the way another man might check the weather through a window. [measured] The time. ... The battery, ... low, ... the way it always was by morning. [slowly] And along the top, where the external bars should have stood, ... [flat] nothing. [quiet] Only the small notched icon for the local mesh, ... lit and steady, ... [weary] a single lamp left burning... in an empty house.

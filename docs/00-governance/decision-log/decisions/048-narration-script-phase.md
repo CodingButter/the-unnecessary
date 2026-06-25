@@ -23,7 +23,7 @@ Every chapter gets a fifth authorship phase, after adjudication: a **narration s
 
 The script is produced by a **3-part pass that mirrors the chapter pipeline**: Opus directs it like an audiobook director in detailed, line-by-line markup (pacing, pauses, emotion, and distinct registers for Eli, the flat administrative notices, and a clipped tense Lena); Gemini critiques the performance (as an audiobook director, judging fidelity, direction density, register distinction, pacing, tag craft, and tone fit); Opus then revises, applying the notes it agrees with and logging each in a `## Narration Adjudication Log`. The standard is rich, purposeful direction that clearly differs from a flat read, while still serving the book's grounded register. Sparse, under-directed markup is a defect.
 
-The script has three parts: YAML front matter (`document_type: "narration-script"`), a `## Voice Direction` section of overall direction to the narrator (not spoken), and a `## Performance Script` section (the tagged prose, the only part read aloud).
+The script has three parts: YAML front matter (`document_type: "narration-script"`), a `## Voice Direction` section of overall direction to the narrator (not spoken), and a `## Performance Script` section that opens with a spoken chapter-title line and then the tagged prose (the only part read aloud).
 
 `scripts/narrate-chapter.py` auto-detects a narration script and narrates it with `eleven_v3` (which interprets the audio tags); plain chapter prose still narrates with `eleven_multilingual_v2`. **Audio generation is a separate, author-triggered step:** the narration script is generated and reviewed first, and audio is only (re)generated on the author's go.
 
