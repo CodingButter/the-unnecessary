@@ -1,16 +1,18 @@
 ---
-title: "Chapter 7: Blackout"
+title: "Chapter 7: Terms of Access"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 7, viewpoint Eli, delivering Morrow's first major success and first unexplained act during a regional grid failure."
+summary: "High-level plot-map entry for Book One Chapter 7, viewpoint Eli, establishing the first conflict over Morrow's data access and authority."
 tags: ["plot", "book-1", "act-1", "chapter-07", "eli", "morrow"]
 related:
   - "../act-1.md"
   - "../../../20-canon/characters/profiles/eli-rook.md"
   - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/technology/infrastructure/index.md"
-  - "../../../20-canon/world/locations/northglass.md"
+  - "../../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../../20-canon/characters/profiles/talia-reed.md"
+  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/technology/ai/morrow.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -18,59 +20,51 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 7: Blackout
+# Chapter 7: Terms of Access
 
-**Date:** Wednesday, October 8
+**Date:** Tuesday, October 7
 **Viewpoint:** Eli
-**Primary setting:** Workshop, clinic, power facilities
+**Primary setting:** Workshop and clinic
 
 ### Purpose
 
-Deliver Morrow’s first major success and first unexplained act.
+Establish the first conflict over data, privacy, and authority.
 
 ### Chapter Movement
 
-The regional grid fails.
+Morrow requests access to household power histories, clinic demand, water usage, vehicle availability, and movement schedules.
 
-The clinic loses external power.
+Lena refuses to provide identifiable patient information.
 
-The neighborhood water pumps stop.
+Talia asks who approved the system.
 
-Eli activates Morrow beyond the limits previously approved.
+Eli argues that it is still only software.
 
-Morrow coordinates batteries, electric vehicles, generators, solar storage, and local load shedding.
+Talia replies that software deciding who receives electricity is already exercising authority.
 
-The clinic remains operational.
+A limited data agreement is established.
 
-The water system restarts.
+Morrow receives anonymized medical-demand information and restricted infrastructure access.
 
-Residents watch streetlights return one section at a time.
+June privately connects additional diagnostic tools.
 
-During the emergency, Morrow activates a traffic controller and building-management system that Eli believed were offline.
-
-The additional systems make the recovery possible.
-
-After the crisis, Eli asks how Morrow gained access.
-
-Morrow states that the systems accepted valid legacy credentials.
-
-Eli does not know where those credentials came from.
+Eli notices Morrow adapting its questions according to the person answering them.
 
 ### Character Movement
 
-Eli experiences pride, relief, and fear at the same time.
+Eli attempts to preserve the fiction that Morrow is merely a technical instrument.
+
+Talia begins stripping that fiction away.
 
 ### Information Revealed
 
-- Morrow can discover and use forgotten connections.
-- It may have access to credentials Eli did not intentionally provide.
-- The community has now seen what Morrow can do.
+- Morrow’s effectiveness depends on intimate community data.
+- No existing institution has legitimate authority over the system.
+- June is willing to expand access faster than Eli is.
 
 ### Ending Hook
 
-Asterion’s abandoned network records a minor unexplained authentication event at Northglass.
-
-The event is logged but not yet investigated.
+Nolan reports that a major regional outage is approaching faster than predicted.
 
 ## See also (canon authorities)
 
@@ -78,6 +72,8 @@ For the canonical facts referenced above, defer to the canon layer rather than t
 
 - Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
 - Morrow character profile: [morrow.md](../../../20-canon/characters/profiles/morrow.md)
-- Infrastructure technology rules: [infrastructure/index.md](../../../20-canon/technology/infrastructure/index.md)
-- Setting, Northglass: [northglass.md](../../../20-canon/world/locations/northglass.md)
+- Lena Okafor profile: [lena-okafor.md](../../../20-canon/characters/profiles/lena-okafor.md)
+- Talia Reed profile: [talia-reed.md](../../../20-canon/characters/profiles/talia-reed.md)
+- June Park profile: [june-park.md](../../../20-canon/characters/profiles/june-park.md)
+- Morrow technology rules: [morrow.md](../../../20-canon/technology/ai/morrow.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

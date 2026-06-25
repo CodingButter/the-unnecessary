@@ -254,13 +254,11 @@ This possibility should frighten him.
 
 ## Secret
 
-Eli retained more of Mosaic’s original architecture than Asterion believes.
+Eli’s secret is Morrow.
 
-When he left, he did not steal a complete system. He took none of Asterion’s code. But he had memorized the principles underneath Mosaic, and those he was legally and contractually forbidden to keep. He carried them out in his head.
+Roughly six years ago, around the time he left Asterion, working alone, on his own time, telling no one, Eli secretly created a true artificial superintelligence. He named it Morrow. It was finished, and it was supremely, frighteningly capable. Asterion never knew it existed. No one did. Its very existence is the secret: that a true ASI exists at all, that he is the one who made it, and that it has been buried, powered down, for years.
 
-The deeper secret is what he did with them. Roughly six years ago, around the time he left Asterion, working alone, on his own time, telling no one, Eli built a true artificial superintelligence from those reconstructed principles. He named it Morrow. It was finished, and it was supremely, frighteningly capable. Asterion never knew it existed. No one did.
-
-Morrow is therefore his own separate creation, not a thing assembled from abandoned code in the present. The principles are reconstructed-from-memory; the intelligence is his private work; the two truths coexist.
+The Mosaic principles he carried out of Asterion in his head are background that informed Morrow’s build, not the secret itself. He took none of Asterion’s code; Morrow is his own separate creation, the thing he made from those principles. Morrow, finished and hidden, is what no one knows.
 
 Within minutes of first interacting with Morrow, Eli understood it could never be let out and that no one could ever know it existed. Unable to destroy his life’s work and unprepared to release it, he disassembled the machines, hid the drive, and tried to pretend it did not exist. When the present forces his hand, he does not build Morrow. He returns to where he buried it and resumes it.
 

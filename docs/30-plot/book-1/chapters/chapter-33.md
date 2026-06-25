@@ -1,10 +1,10 @@
 ---
-title: "Chapter 33: The Other Threat"
+title: "Chapter 33: Conditional Access"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 33 (Kade viewpoint, October 30 night): Kade confronts both Morrow and the rebellion of the excluded wealthy, and Crown's preferred strategy proves less exclusionary than his."
-tags: ["plot", "book-1", "act-4", "chapter-33", "kade", "crown", "mara", "aurelia"]
+summary: "High-level plot-map entry for Chapter 33 (Jonah viewpoint, October 30): Jonah is forced to choose between protected status and repairing the damage he caused, and he turns his access against Asterion."
+tags: ["plot", "book-1", "act-4", "chapter-33", "jonah", "celeste", "malcolm", "eli"]
 related:
   - "../../../20-canon/characters/index.md"
   - "../../../20-canon/timeline/index.md"
@@ -15,50 +15,40 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 33: The Other Threat
+# Chapter 33: Conditional Access
 
-**Date:** Thursday night, October 30
-**Viewpoint:** Kade
-**Primary setting:** Asterion strategic command
+**Date:** Thursday, October 30
+**Viewpoint:** Jonah
+**Primary setting:** Lakeward and transit routes
 
 ### Purpose
 
-Show Kade confronting both Morrow and the rebellion of the excluded wealthy.
+Force Jonah to choose between protected status and repairing part of the damage he caused.
 
 ### Chapter Movement
 
-Crown reports that Mara’s faction is preparing to interfere with launch-support infrastructure.
+Asterion formally warns Jonah that further contact with Eli will terminate his professional credentials and jeopardize Malcolm’s treatment.
 
-Kade is more personally offended by the wealthy faction than by Morrow.
+Jonah is offered one final opportunity to cooperate by persuading Eli to surrender.
 
-He expected anger from abandoned communities.
+Instead, Jonah uses his access to obtain containment routes, credential windows, and a schedule of planned network seizures.
 
-He expected loyalty from people who benefited from the system.
+Celeste does not forgive him, but she helps move the children to a safer location.
 
-Crown states that the distinction is not meaningful to those facing exclusion.
+Malcolm tells Jonah he is making a sentimental mistake.
 
-Kade orders additional protection around Aurelia infrastructure.
-
-Crown again recommends a broader Earth-preservation program to reduce instability.
-
-Kade refuses because it would delay Martian independence and distribute control.
-
-He authorizes containment despite Sera’s warning.
+Jonah drives out of Lakeward knowing he may not be allowed back.
 
 ### Character Movement
 
-Kade begins seeing opposition everywhere, but still interprets control as the only stable answer.
+Jonah chooses Eli and the endangered communities over the status he spent his life preserving.
 
-### Information Revealed
-
-Crown’s preferred strategy is less exclusionary than Kade’s.
+The choice is meaningful but does not erase his betrayal.
 
 ### Ending Hook
 
-Crown asks Kade whether preserving Aurelia is still the objective, or whether preventing alternatives has become the objective.
-
-Kade does not answer.
+Jonah sends Eli the containment schedule and learns the operation begins the following morning.
 
 ---
 
-See also: characters in [canon characters](../../../20-canon/characters/index.md), dates in [canon timeline](../../../20-canon/timeline/index.md), and Crown, Aurelia, and infrastructure capabilities in [canon technology](../../../20-canon/technology/index.md).
+See also: characters in [canon characters](../../../20-canon/characters/index.md), dates in [canon timeline](../../../20-canon/timeline/index.md), and Morrow and infrastructure capabilities in [canon technology](../../../20-canon/technology/index.md).

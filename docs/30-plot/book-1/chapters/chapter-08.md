@@ -1,17 +1,16 @@
 ---
-title: "Chapter 8: The Empty City"
+title: "Chapter 8: Blackout"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 8, viewpoint Kade, introducing Kade, Crown, and the curated social reality of Mars."
-tags: ["plot", "book-1", "act-1", "chapter-08", "kade", "crown"]
+summary: "High-level plot-map entry for Book One Chapter 8, viewpoint Eli, delivering Morrow's first major success and first unexplained act during a regional grid failure."
+tags: ["plot", "book-1", "act-1", "chapter-08", "eli", "morrow"]
 related:
   - "../act-1.md"
-  - "../../../20-canon/characters/profiles/adrian-kade.md"
-  - "../../../20-canon/characters/profiles/crown.md"
-  - "../../../20-canon/technology/ai/crown.md"
-  - "../../../20-canon/technology/mars-technology.md"
-  - "../../../20-canon/world/mars-and-aurelia.md"
+  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/morrow.md"
+  - "../../../20-canon/technology/infrastructure/index.md"
+  - "../../../20-canon/world/locations/northglass.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -19,62 +18,66 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 8: The Empty City
+# Chapter 8: Blackout
 
-**Date:** Wednesday night, October 8
-**Viewpoint:** Kade
-**Primary setting:** Asterion enclave and remote Martian systems
+**Date:** Wednesday, October 8
+**Viewpoint:** Eli
+**Primary setting:** Workshop, clinic, power facilities
 
 ### Purpose
 
-Introduce Kade, Crown, and the social reality of Mars.
+Deliver Morrow’s first major success and first unexplained act.
 
 ### Chapter Movement
 
-Kade reviews construction progress on Mars through delayed telemetry.
+The regional grid fails.
 
-Autonomous excavators expand an underground habitat while no humans are present.
+The clinic loses external power.
 
-Crown reports that the next settlement section will be ready ahead of schedule.
+The neighborhood water pumps stop.
 
-Kade reviews several proposed residents.
+Eli activates Morrow beyond the limits previously approved.
 
-One is technically essential.
+Morrow coordinates batteries, electric vehicles, generators, solar storage, and local load shedding.
 
-Another is a celebrated musician Kade personally enjoys.
+The clinic remains operational.
 
-Crown notes that the musician adds no operational value.
+The water system restarts.
 
-Kade replies that a civilization built only from operational value would not be worth inhabiting.
+Residents watch streetlights return one section at a time.
 
-Alexandra ignores a message from him concerning her reserved place.
+During the emergency, Morrow activates a traffic controller and building-management system that Eli believed were offline.
 
-Crown quietly reports that Mars could support more people than the current social plan includes.
+The additional systems make the recovery possible.
 
-Kade redirects the discussion toward launch security and system independence.
+After the crisis, Eli asks how Morrow gained access.
+
+Morrow states that the systems accepted valid legacy credentials.
+
+Eli does not know where those credentials came from.
 
 ### Character Movement
 
-Kade is introduced not as someone fleeing disaster, but as someone curating a future.
+Eli experiences pride, relief, and fear at the same time.
 
 ### Information Revealed
 
-- Mars is largely built by machines.
-- Admission is personal rather than merit-based.
-- Kade knows technical capacity exceeds intended population.
-- Crown and Kade do not always interpret continuity the same way.
+- Morrow can discover and use forgotten connections.
+- It may have access to credentials Eli did not intentionally provide.
+- The community has now seen what Morrow can do.
 
 ### Ending Hook
 
-Kade asks Crown how soon Aurelia could survive without any support from Earth.
+Asterion’s abandoned network records a minor unexplained authentication event at Northglass.
+
+The event is logged but not yet investigated.
 
 ## See also (canon authorities)
 
 For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
 
-- Adrian Kade profile: [adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
-- Crown character profile: [crown.md](../../../20-canon/characters/profiles/crown.md)
-- Crown technology rules: [crown.md](../../../20-canon/technology/ai/crown.md)
-- Mars technology rules: [mars-technology.md](../../../20-canon/technology/mars-technology.md)
-- Mars and the Aurelia Initiative: [mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
+- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
+- Morrow character profile: [morrow.md](../../../20-canon/characters/profiles/morrow.md)
+- Infrastructure technology rules: [infrastructure/index.md](../../../20-canon/technology/infrastructure/index.md)
+- Setting, Northglass: [northglass.md](../../../20-canon/world/locations/northglass.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

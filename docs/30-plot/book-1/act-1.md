@@ -21,7 +21,7 @@ source_documents:
 
 # Act One: Service Terminated
 
-## Chapters 1 through 8
+## Chapters 1 through 9
 
 ## Dates
 

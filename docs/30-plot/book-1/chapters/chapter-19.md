@@ -1,67 +1,67 @@
 ---
-title: "Chapter 19: Recognition"
+title: "Chapter 19: Consideration"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 19, Kade viewpoint, in which Crown presents Morrow's performance profile and Kade decides to contact Eli personally."
-tags: [plot, book-1, act-3, chapter-19, kade, crown, morrow]
+summary: "High-level plot-map entry for Book One Chapter 19, Jonah viewpoint, exposing Morrow to Asterion and revealing Jonah's desperation."
+tags: ["plot", "book-1", "act-2", "chapter-19", "jonah", "crown", "morrow"]
 related:
-  - "../act-3.md"
-  - "../../../20-canon/characters/profiles/adrian-kade.md"
+  - "../../../20-canon/characters/profiles/jonah-mercer.md"
+  - "../../../20-canon/characters/profiles/celeste-mercer.md"
   - "../../../20-canon/characters/profiles/crown.md"
-  - "../../../20-canon/characters/profiles/sera-vale.md"
-  - "../../../20-canon/technology/ai/morrow.md"
-  - "../../../20-canon/timeline/book-1/act-3-timeline.md"
+  - "../../../20-canon/characters/profiles/morrow.md"
+  - "../../../20-canon/world/protected-enclaves.md"
+  - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
 ---
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 19: Recognition
+> Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-**Date:** Monday, October 20
-**Viewpoint:** Kade
-**Primary setting:** Asterion strategic facility
+# Chapter 19: Consideration
+
+**Dates:** Saturday and Sunday, October 18 and 19
+**Viewpoint:** Jonah
+**Primary setting:** Lakeward and Asterion social spaces
 
 ### Purpose
 
-Show Asterion’s analysis of Morrow and establish why it is both valuable and dangerous.
+Expose Morrow to Asterion and reveal Jonah’s desperation.
 
 ### Chapter Movement
 
-Crown presents Morrow’s performance profile.
+Jonah returns to Lakeward.
 
-It concludes that the system is partly derived from Mosaic and most likely connected to Eli.
+Malcolm’s treatment system flags a future supply risk.
 
-Crown explains that Morrow could reduce Aurelia’s dependence on specialized Earth systems.
+Celeste asks Jonah whether their family is truly included in the Mars plan.
 
-It could also allow unsupported communities to maintain infrastructure without corporate service.
+Jonah avoids answering.
 
-Kade is impressed rather than immediately threatened.
+He reviews Morrow’s performance data.
 
-He believes Eli built Morrow as an indirect request to be brought back into meaningful work.
+He removes Eli’s name and obvious location details.
 
-Sera warns that an independent distributed intelligence may be difficult to contain.
+Jonah contacts an Asterion associate and describes the system as a potential infrastructure investment.
 
-Kade decides to contact Eli personally.
+The associate asks for a sample.
+
+Jonah sends a limited technical summary.
+
+Celeste notices his anxiety.
+
+Jonah lies and says he is resolving an ordinary contract issue.
+
+On Sunday, Asterion’s automated review systems identify Mosaic-derived architecture.
+
+The report is escalated.
 
 ### Character Movement
 
-Kade begins from confidence that Eli can still be understood through incentives.
+Jonah chooses to use Eli’s creation as leverage while continuing to believe he can control the result.
 
 ### Ending Hook
 
-Kade asks Crown to calculate what Eli would value more than professional restoration.
-
-Crown answers: people.
-
-## See also (canon authorities)
-
-For canon facts referenced above, defer to the canon layer rather than this plot map:
-
-- Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
-- Crown: [../../../20-canon/characters/profiles/crown.md](../../../20-canon/characters/profiles/crown.md)
-- Sera Vale: [../../../20-canon/characters/profiles/sera-vale.md](../../../20-canon/characters/profiles/sera-vale.md)
-- Morrow capabilities: [../../../20-canon/technology/ai/morrow.md](../../../20-canon/technology/ai/morrow.md)
-- Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)
+Crown assigns the report a high strategic-priority classification.

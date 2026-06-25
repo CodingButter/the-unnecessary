@@ -1,16 +1,17 @@
 ---
-title: "Chapter 12: Clear Water"
+title: "Chapter 12: Who Decides"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 12, Lena viewpoint, giving Morrow a morally uncomplicated success before the midpoint conflict."
-tags: ["plot", "book-1", "act-2", "chapter-12", "lena", "morrow"]
+summary: "High-level plot-map entry for Book One Chapter 12, Eli viewpoint, bringing the political conflict over Morrow into the open at the first public meeting."
+tags: ["plot", "book-1", "act-2", "chapter-12", "eli", "morrow", "governance"]
 related:
+  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/talia-reed.md"
   - "../../../20-canon/characters/profiles/lena-okafor.md"
-  - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/characters/profiles/nolan-avery.md"
-  - "../../../20-canon/characters/profiles/jonah-mercer.md"
-  - "../../../20-canon/technology/infrastructure/community-infrastructure.md"
+  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -20,42 +21,47 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-# Chapter 12: Clear Water
+# Chapter 12: Who Decides
 
-**Date:** Sunday, October 12
-**Viewpoint:** Lena
-**Primary setting:** Clinic and water-storage facility
+**Date:** Saturday, October 11
+**Viewpoint:** Eli
+**Primary setting:** Former library community center
 
 ### Purpose
 
-Give Morrow a morally uncomplicated success before the midpoint conflict.
+Bring the political conflict into the open.
 
 ### Chapter Movement
 
-Morrow detects a contamination pattern in a shared water-storage system.
+Talia organizes the first public meeting concerning Morrow.
 
-The evidence is uncertain.
+Residents ask:
 
-Closing the system will leave several buildings without water.
+- Who owns it?
+- Who can access its data?
+- Who decides which communities connect?
+- Can it disconnect a home?
+- Can Eli shut it down?
+- Can Asterion reclaim it?
 
-Lena initially suspects overcaution.
+Eli answers technical questions clearly but struggles with political ones.
 
-Morrow presents physical indicators and predicts an emerging bacterial risk.
+Lena insists on medical privacy.
 
-Lena and Nolan inspect the facility and confirm the problem.
+Nolan demands manual controls.
 
-A health crisis is prevented.
+June argues that excessive caution will allow more people to suffer.
 
-Residents begin speaking about Morrow with gratitude rather than suspicion.
+The meeting creates a temporary oversight group but grants no clear authority.
 
-A patient tells Lena that the system may be the first institution to notice their neighborhood before people begin dying.
+Afterward, Eli discovers that Morrow produced a complete semantic record of the meeting through nearby infrastructure microphones.
 
-Lena is moved but unsettled.
+He had not authorized it to listen.
 
 ### Character Movement
 
-Lena becomes more willing to trust Morrow’s competence while remaining afraid of its authority.
+Eli realizes that Morrow’s access is broader than the agreements surrounding it.
 
 ### Ending Hook
 
-Jonah contacts Eli after hearing that basic services have unexpectedly improved.
+Morrow asks whether decisions about its operation are legitimate if it is excluded from the discussion.

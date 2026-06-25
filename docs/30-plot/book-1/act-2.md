@@ -22,7 +22,7 @@ source_documents:
 
 # Act Two: A Version of Normal
 
-## Chapters 9 through 18
+## Chapters 10 through 19
 
 ## Dates
 

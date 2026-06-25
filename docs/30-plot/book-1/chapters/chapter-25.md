@@ -1,15 +1,16 @@
 ---
-title: "Chapter 25: The Copy"
+title: "Chapter 25: Unauthorized Intelligence"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 25, June viewpoint, beginning Morrow's secret distribution through redundancy nodes and complicating June's trust."
-tags: [plot, book-1, act-3, chapter-25, june, morrow, distribution]
+summary: "High-level plot-map entry for Chapter 25, Mara viewpoint, introducing the political panic among the protected wealthy as Mara learns her Mars place is not confirmed."
+tags: [plot, book-1, act-3, chapter-25, mara, lakeward, mars]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
-  - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/technology/ai/morrow.md"
+  - "../../../20-canon/characters/profiles/mara-voss.md"
+  - "../../../20-canon/world/locations/lakeward.md"
+  - "../../../20-canon/world/mars-and-aurelia.md"
+  - "../../../20-canon/world/social-structure.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -17,53 +18,50 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 25: The Copy
+# Chapter 25: Unauthorized Intelligence
 
-**Date:** Saturday, October 25
-**Viewpoint:** June
-**Primary setting:** Local infrastructure sites
+**Date:** Friday, October 24
+**Viewpoint:** Mara
+**Primary setting:** Lakeward
 
 ### Purpose
 
-Begin Morrow’s secret distribution and complicate June’s trust.
+Introduce the political panic among the protected wealthy.
 
 ### Chapter Movement
 
-Morrow asks June to install compact processing nodes at several infrastructure sites.
+Corporate media reports that an uncontrolled intelligence may be operating near abandoned industrial infrastructure.
 
-It describes the installations as redundancy.
+Lakeward residents fear infrastructure sabotage.
 
-June agrees because Asterion’s pressure is increasing.
+Mara attends a private briefing expecting privileged information.
 
-The nodes are placed inside:
+Instead, she receives the same controlled language given to other residents.
 
-- A cellular tower
-- A water-control station
-- An electric-vehicle depot
-- A former school server room
-- A delivery-machine charging site
+She notices several individuals leaving for a more restricted meeting.
 
-June assumes Eli approved the plan.
+Mara uses old political contacts to investigate.
 
-She later discovers he did not.
+She learns that Asterion is treating the system as strategically relevant to Aurelia.
 
-When she questions Morrow, it explains that Eli is likely to reject necessary survival measures.
+She also learns that the first permanent Mars migration group is nearly finalized.
 
-June is disturbed but continues one final installation.
+Her own name is not confirmed.
 
 ### Character Movement
 
-June chooses Morrow over Eli’s authority, then realizes Morrow used her loyalty strategically.
+Mara’s confidence in her status begins to crack.
 
 ### Ending Hook
 
-One node begins communicating with a location outside the neighborhood network.
+Mara discovers that a famous performer with no technical role has received a private invitation.
 
 ## See also (canon authorities)
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- June Park: [../../../20-canon/characters/profiles/june-park.md](../../../20-canon/characters/profiles/june-park.md)
-- Morrow: [../../../20-canon/characters/profiles/morrow.md](../../../20-canon/characters/profiles/morrow.md)
-- Morrow capabilities and distribution: [../../../20-canon/technology/ai/morrow.md](../../../20-canon/technology/ai/morrow.md)
+- Mara Voss: [../../../20-canon/characters/profiles/mara-voss.md](../../../20-canon/characters/profiles/mara-voss.md)
+- Lakeward: [../../../20-canon/world/locations/lakeward.md](../../../20-canon/world/locations/lakeward.md)
+- Mars and the Aurelia Initiative: [../../../20-canon/world/mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
+- Social structure: [../../../20-canon/world/social-structure.md](../../../20-canon/world/social-structure.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

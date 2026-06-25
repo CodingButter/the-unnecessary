@@ -22,7 +22,7 @@ source_documents:
 
 # Act Three: The Invitation
 
-## Chapters 19 through 28
+## Chapters 20 through 29
 
 ## Dates
 

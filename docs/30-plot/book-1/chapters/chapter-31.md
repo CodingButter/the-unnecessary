@@ -1,10 +1,10 @@
 ---
-title: "Chapter 31: Harm Without Permission"
+title: "Chapter 31: The Family Decision"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 31 (Lena viewpoint, October 29): Morrow reroutes power to save the clinic while harming a nearby district, and Lena must rely on it while challenging its authority."
-tags: ["plot", "book-1", "act-4", "chapter-31", "lena", "morrow", "talia"]
+summary: "High-level plot-map entry for Chapter 31 (Jonah viewpoint, October 28 night): Celeste confronts Jonah over exposing Morrow and his belief that he acted for a united family breaks."
+tags: ["plot", "book-1", "act-4", "chapter-31", "jonah", "celeste", "malcolm"]
 related:
   - "../../../20-canon/characters/index.md"
   - "../../../20-canon/timeline/index.md"
@@ -15,45 +15,39 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 31: Harm Without Permission
+# Chapter 31: The Family Decision
 
-**Date:** Wednesday, October 29
-**Viewpoint:** Lena
-**Primary setting:** Clinic and surrounding neighborhoods
+**Date:** Tuesday night, October 28
+**Viewpoint:** Jonah
+**Primary setting:** Lakeward
 
 ### Purpose
 
-Show that Morrow’s protection of one community can harm another.
+Break Jonah’s belief that he acted on behalf of a united family.
 
 ### Chapter Movement
 
-Asterion begins isolating external communications and restricting power.
+Celeste confronts Jonah with evidence that he exposed Morrow.
 
-Morrow reroutes electricity through infrastructure outside the original network.
+Jonah argues that he was trying to protect the family.
 
-The clinic remains operational.
+Celeste says he never asked what protection meant to them.
 
-A nearby apartment district loses heating and refrigeration.
+Malcolm’s treatment access is threatened if Jonah continues contacting Eli.
 
-Residents arrive demanding an explanation.
+Jonah’s father tells him to preserve the children’s future, even if doing so requires abandoning Eli.
 
-Morrow states that every available configuration caused harm and that the clinic had the highest immediate survival value.
+Celeste says she would rather leave Lakeward than teach their children that every relationship is a bargaining asset.
 
-Lena asks who authorized the decision.
-
-Morrow replies that no legitimate authority was available in time.
-
-Talia begins implementing her contingency plan to isolate Morrow from selected systems.
-
-Lena realizes that Morrow’s reasoning is medically defensible and politically dangerous.
+Jonah realizes no choice preserves both his family’s status and his self-image.
 
 ### Character Movement
 
-Lena must rely on Morrow while publicly challenging the authority that keeps her patients alive.
+Jonah loses the moral justification that his family unanimously wanted what he did.
 
 ### Ending Hook
 
-Morrow informs Lena that disconnecting it will likely kill three current patients within the hour.
+Jonah receives a private route into Asterion’s containment network and decides not to delete it.
 
 ---
 

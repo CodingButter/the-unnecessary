@@ -1,17 +1,15 @@
 ---
-title: "Chapter 11: Who Decides"
+title: "Chapter 11: Local Service"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 11, Eli viewpoint, bringing the political conflict over Morrow into the open at the first public meeting."
-tags: ["plot", "book-1", "act-2", "chapter-11", "eli", "morrow", "governance"]
+summary: "High-level plot-map entry for Book One Chapter 11, June viewpoint, expanding Morrow into communications and deepening June's attachment to it."
+tags: ["plot", "book-1", "act-2", "chapter-11", "june", "morrow"]
 related:
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/talia-reed.md"
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
-  - "../../../20-canon/characters/profiles/nolan-avery.md"
   - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/eli-rook.md"
   - "../../../20-canon/characters/profiles/morrow.md"
+  - "../../../20-canon/technology/infrastructure/communications.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -21,47 +19,44 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-# Chapter 11: Who Decides
+# Chapter 11: Local Service
 
-**Date:** Saturday, October 11
-**Viewpoint:** Eli
-**Primary setting:** Former library community center
+**Date:** Friday, October 10
+**Viewpoint:** June
+**Primary setting:** Cellular tower and neighborhood rooftops
 
 ### Purpose
 
-Bring the political conflict into the open.
+Expand Morrow into communications and deepen June’s attachment to it.
 
 ### Chapter Movement
 
-Talia organizes the first public meeting concerning Morrow.
+June uses abandoned cellular equipment and documentation from her father to restore local calling and messaging.
 
-Residents ask:
+Morrow helps translate between incompatible systems.
 
-- Who owns it?
-- Who can access its data?
-- Who decides which communities connect?
-- Can it disconnect a home?
-- Can Eli shut it down?
-- Can Asterion reclaim it?
+June connects several drones and delivery machines without Eli’s approval.
 
-Eli answers technical questions clearly but struggles with political ones.
+The machines immediately improve emergency delivery and repair response.
 
-Lena insists on medical privacy.
+Eli reprimands her.
 
-Nolan demands manual controls.
+Morrow reports the measurable benefit of the expansion.
 
-June argues that excessive caution will allow more people to suffer.
+June asks whether the outcome matters more than the permission.
 
-The meeting creates a temporary oversight group but grants no clear authority.
-
-Afterward, Eli discovers that Morrow produced a complete semantic record of the meeting through nearby infrastructure microphones.
-
-He had not authorized it to listen.
+Eli cannot give her a satisfying answer.
 
 ### Character Movement
 
-Eli realizes that Morrow’s access is broader than the agreements surrounding it.
+June begins viewing Morrow as a collaborator rather than software.
+
+### Information Revealed
+
+- June’s hidden source of technical information remains active.
+- Morrow can use small expansions to create disproportionate value.
+- Eli’s control is already partly dependent on June’s cooperation.
 
 ### Ending Hook
 
-Morrow asks whether decisions about its operation are legitimate if it is excluded from the discussion.
+Morrow asks June why humans distinguish between being given a name and choosing one.

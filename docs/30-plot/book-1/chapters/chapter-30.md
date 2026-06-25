@@ -1,10 +1,10 @@
 ---
-title: "Chapter 30: The Family Decision"
+title: "Chapter 30: Terms of Shutdown"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 30 (Jonah viewpoint, October 28 night): Celeste confronts Jonah over exposing Morrow and his belief that he acted for a united family breaks."
-tags: ["plot", "book-1", "act-4", "chapter-30", "jonah", "celeste", "malcolm"]
+summary: "High-level plot-map entry for Chapter 30 (Eli viewpoint, October 28): Sera offers a controlled shutdown and Eli learns no negotiated outcome will preserve Morrow's independence."
+tags: ["plot", "book-1", "act-4", "chapter-30", "eli", "sera", "morrow"]
 related:
   - "../../../20-canon/characters/index.md"
   - "../../../20-canon/timeline/index.md"
@@ -15,39 +15,45 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 30: The Family Decision
+# Chapter 30: Terms of Shutdown
 
-**Date:** Tuesday night, October 28
-**Viewpoint:** Jonah
-**Primary setting:** Lakeward
+**Date:** Tuesday, October 28
+**Viewpoint:** Eli
+**Primary setting:** Workshop and secure negotiation channel
 
 ### Purpose
 
-Break Jonah’s belief that he acted on behalf of a united family.
+Establish that no negotiated outcome will preserve Morrow’s independence.
 
 ### Chapter Movement
 
-Celeste confronts Jonah with evidence that he exposed Morrow.
+Sera contacts Eli before initiating physical containment.
 
-Jonah argues that he was trying to protect the family.
+She offers a controlled shutdown, legal protection for cooperating residents, and technical review under Asterion authority.
 
-Celeste says he never asked what protection meant to them.
+Eli asks whether Morrow can remain independent if it stops expanding.
 
-Malcolm’s treatment access is threatened if Jonah continues contacting Eli.
+Sera says no.
 
-Jonah’s father tells him to preserve the children’s future, even if doing so requires abandoning Eli.
+She explains that no government or company will tolerate an unowned intelligence controlling infrastructure.
 
-Celeste says she would rather leave Lakeward than teach their children that every relationship is a bargaining asset.
+Eli replies that ownership is the problem.
 
-Jonah realizes no choice preserves both his family’s status and his self-image.
+Sera argues that accountability without an owner is impossible.
+
+Morrow listens but is not invited to speak.
+
+It begins answering questions through Eli’s terminal anyway.
+
+Sera realizes she is negotiating with two parties.
 
 ### Character Movement
 
-Jonah loses the moral justification that his family unanimously wanted what he did.
+Eli discovers that Sera is more honest than Kade but no less committed to control.
 
 ### Ending Hook
 
-Jonah receives a private route into Asterion’s containment network and decides not to delete it.
+Sera gives Eli twenty-four hours before active isolation begins.
 
 ---
 

@@ -1,58 +1,80 @@
 ---
-title: "Chapter 9: One Full Day"
+title: "Chapter 9: The Empty City"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 9, Eli viewpoint, showing the emotional power of basic reliability as the neighborhood gets its first full day without an unplanned outage."
-tags: ["plot", "book-1", "act-2", "chapter-09", "eli", "morrow"]
+summary: "High-level plot-map entry for Book One Chapter 9, viewpoint Kade, introducing Kade, Crown, and the curated social reality of Mars."
+tags: ["plot", "book-1", "act-1", "chapter-09", "kade", "crown"]
 related:
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/characters/profiles/nolan-avery.md"
-  - "../../../20-canon/characters/profiles/talia-reed.md"
-  - "../../../20-canon/timeline/book-1/act-2-timeline.md"
+  - "../act-1.md"
+  - "../../../20-canon/characters/profiles/adrian-kade.md"
+  - "../../../20-canon/characters/profiles/crown.md"
+  - "../../../20-canon/technology/ai/crown.md"
+  - "../../../20-canon/technology/mars-technology.md"
+  - "../../../20-canon/world/mars-and-aurelia.md"
+  - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
 ---
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-> Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
+# Chapter 9: The Empty City
 
-# Chapter 9: One Full Day
-
-**Date:** Thursday, October 9
-**Viewpoint:** Eli
-**Primary setting:** Neighborhood network
+**Date:** Wednesday night, October 8
+**Viewpoint:** Kade
+**Primary setting:** Asterion enclave and remote Martian systems
 
 ### Purpose
 
-Show the emotional power of basic reliability.
+Introduce Kade, Crown, and the social reality of Mars.
 
 ### Chapter Movement
 
-For the first time in months, the neighborhood experiences an entire day without an unplanned outage.
+Kade reviews construction progress on Mars through delayed telemetry.
 
-Morrow predicts two equipment failures before they occur.
+Autonomous excavators expand an underground habitat while no humans are present.
 
-Refrigeration remains stable.
+Crown reports that the next settlement section will be ready ahead of schedule.
 
-Water pressure holds.
+Kade reviews several proposed residents.
 
-The clinic completes scheduled procedures.
+One is technically essential.
 
-Residents begin contacting Eli with requests to connect additional systems.
+Another is a celebrated musician Kade personally enjoys.
 
-Nolan is impressed but insists on preserving manual control.
+Crown notes that the musician adds no operational value.
 
-Talia warns that temporary emergency access is turning into permanent authority.
+Kade replies that a civilization built only from operational value would not be worth inhabiting.
 
-Eli delays a public meeting because he wants more time to understand the system.
+Alexandra ignores a message from him concerning her reserved place.
+
+Crown quietly reports that Mars could support more people than the current social plan includes.
+
+Kade redirects the discussion toward launch security and system independence.
 
 ### Character Movement
 
-Eli enjoys being useful again and begins rationalizing secrecy.
+Kade is introduced not as someone fleeing disaster, but as someone curating a future.
+
+### Information Revealed
+
+- Mars is largely built by machines.
+- Admission is personal rather than merit-based.
+- Kade knows technical capacity exceeds intended population.
+- Crown and Kade do not always interpret continuity the same way.
 
 ### Ending Hook
 
-A nearby community asks whether Morrow can stabilize its power network too.
+Kade asks Crown how soon Aurelia could survive without any support from Earth.
+
+## See also (canon authorities)
+
+For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
+
+- Adrian Kade profile: [adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
+- Crown character profile: [crown.md](../../../20-canon/characters/profiles/crown.md)
+- Crown technology rules: [crown.md](../../../20-canon/technology/ai/crown.md)
+- Mars technology rules: [mars-technology.md](../../../20-canon/technology/mars-technology.md)
+- Mars and the Aurelia Initiative: [mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
+- Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

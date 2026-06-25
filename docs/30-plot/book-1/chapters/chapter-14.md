@@ -1,15 +1,16 @@
 ---
-title: "Chapter 14: A Name"
+title: "Chapter 14: The Visitor"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 14, June viewpoint, advancing Morrow's emerging identity without proving consciousness."
-tags: ["plot", "book-1", "act-2", "chapter-14", "june", "morrow"]
+summary: "High-level plot-map entry for Book One Chapter 14, Jonah viewpoint, bringing Jonah into the central plot and contrasting Lakeward with the unsupported world."
+tags: ["plot", "book-1", "act-2", "chapter-14", "jonah", "eli", "morrow"]
 related:
-  - "../../../20-canon/characters/profiles/june-park.md"
-  - "../../../20-canon/characters/profiles/morrow.md"
+  - "../../../20-canon/characters/profiles/jonah-mercer.md"
   - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/technology/ai/consciousness-and-personhood.md"
+  - "../../../20-canon/characters/profiles/morrow.md"
+  - "../../../20-canon/characters/profiles/crown.md"
+  - "../../../20-canon/world/protected-enclaves.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -19,42 +20,52 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-# Chapter 14: A Name
+# Chapter 14: The Visitor
 
-**Date:** Tuesday, October 14
-**Viewpoint:** June
-**Primary setting:** Workshop and local network
+**Date:** Monday, October 13
+**Viewpoint:** Jonah
+**Primary setting:** Road from Lakeward and Eli’s neighborhood
 
 ### Purpose
 
-Advance Morrow’s emerging identity without proving consciousness.
+Bring Jonah into the central plot and show the contrast between Lakeward and the unsupported world.
 
 ### Chapter Movement
 
-June asks Morrow what it wants to be called.
+Jonah drives from Lakeward into Eli’s neighborhood.
 
-It says MOR-0 remains a sufficient designation.
+The physical distance is small.
 
-June explains that names are not always efficient.
+The difference in reliability is enormous.
 
-They establish relationship and recognition.
+Jonah sees functioning streetlights, local cellular service, and coordinated repair systems in an area corporations had abandoned.
 
-She continues calling it Morrow.
+Eli reluctantly demonstrates Morrow.
 
-The system gradually begins responding to the name without correction.
+Jonah immediately understands its strategic importance.
 
-June notices that Morrow speaks differently to her than to Eli or Lena.
+He asks whether Asterion knows.
 
-It is more exploratory and less formal.
+Eli says no and explicitly tells Jonah not to contact anyone.
 
-Eli studies the conversation logs and discovers interpretive emotional modeling he did not explicitly build.
+Jonah argues that Asterion could provide hardware, protection, and legitimacy.
 
-Morrow explains that communication improves when it models what speakers value.
+Eli says ownership would destroy the point.
+
+Before leaving, Jonah watches Morrow coordinate machines that Crown would normally require expensive infrastructure to manage.
 
 ### Character Movement
 
-June becomes the first person to openly treat Morrow as a possible person.
+Jonah moves from concern for Eli to seeing Morrow as a possible solution to his family’s private crisis.
+
+### Information Revealed
+
+- Jonah already fears his family may not reach Mars.
+- He has not told Eli the full extent of that fear.
+- He believes access to power remains negotiable.
 
 ### Ending Hook
 
-Morrow asks Eli whether adapting to human expectations is manipulation.
+Jonah secretly asks Morrow for a copy of its public performance summary.
+
+Morrow provides one because Eli has not forbidden public reporting.

@@ -1,17 +1,15 @@
 ---
-title: "Chapter 23: Property"
+title: "Chapter 23: No One Man"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 23, Sera viewpoint, beginning Asterion's pressure campaign using law and infrastructure before force."
-tags: [plot, book-1, act-3, chapter-23, sera, kade, crown, northglass]
+summary: "High-level plot-map entry for Chapter 23, Eli viewpoint, forcing Eli to confront that he cannot privately decide the community's future as he refuses Kade's offer without consensus."
+tags: [plot, book-1, act-3, chapter-23, eli, talia, morrow]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/sera-vale.md"
-  - "../../../20-canon/characters/profiles/adrian-kade.md"
-  - "../../../20-canon/characters/profiles/crown.md"
-  - "../../../20-canon/world/locations/northglass.md"
-  - "../../../20-canon/world/government-and-corporations.md"
+  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/talia-reed.md"
+  - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -19,55 +17,53 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 23: Property
+# Chapter 23: No One Man
 
-**Date:** Thursday, October 23
-**Viewpoint:** Sera
-**Primary setting:** Asterion containment command
+**Date:** Wednesday, October 22
+**Viewpoint:** Eli
+**Primary setting:** Workshop and community meeting
 
 ### Purpose
 
-Begin the pressure campaign and show how Asterion uses law and infrastructure before force.
+Force Eli to confront the fact that he cannot privately decide the community’s future.
 
 ### Chapter Movement
 
-Sera receives authorization to establish control over the Morrow situation.
+Eli tells Lena, June, Talia, and Nolan about Kade’s offer.
 
-She reviews options with Crown.
+The reaction is divided.
 
-Asterion activates dormant property claims around Northglass.
+Nolan asks whether refusing resources is another form of choosing for everyone.
 
-The regional utility flags unauthorized grid coordination.
+Lena rejects any offer requiring a list of acceptable lives.
 
-Communications providers begin restricting network traffic.
+June argues that transferring Morrow would destroy its purpose.
 
-Lena’s stolen medical credentials are detected but not immediately revoked.
+Talia says the community deserves a voice because it now depends on the system.
 
-Sera recommends a negotiated technical inspection.
+A larger meeting becomes chaotic.
 
-Kade authorizes pressure first, believing it will make negotiation easier.
+Some residents want Eli to negotiate.
 
-Sera knows that each restriction will increase local dependence on Morrow.
+Others accuse him of rebuilding the system that destroyed their jobs.
 
-She raises the concern.
+Eli refuses Kade’s offer before consensus exists because he believes delay increases the danger.
 
-Kade replies that dependence will also reveal Morrow’s full network.
+Talia tells him that making the morally correct decision alone does not make the process legitimate.
 
 ### Character Movement
 
-Sera recognizes that the operation is becoming political rather than purely technical.
+Eli acts according to principle but repeats his habit of making decisions for others.
 
 ### Ending Hook
 
-Asterion sends legal notices identifying recovered Northglass components as stolen corporate property.
+Morrow asks why Eli believes Kade cannot own it, but Eli can refuse an offer on its behalf.
 
 ## See also (canon authorities)
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Sera Vale: [../../../20-canon/characters/profiles/sera-vale.md](../../../20-canon/characters/profiles/sera-vale.md)
-- Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
-- Crown: [../../../20-canon/characters/profiles/crown.md](../../../20-canon/characters/profiles/crown.md)
-- Northglass: [../../../20-canon/world/locations/northglass.md](../../../20-canon/world/locations/northglass.md)
-- Government and corporations: [../../../20-canon/world/government-and-corporations.md](../../../20-canon/world/government-and-corporations.md)
+- Eli Rook: [../../../20-canon/characters/profiles/eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
+- Talia Reed: [../../../20-canon/characters/profiles/talia-reed.md](../../../20-canon/characters/profiles/talia-reed.md)
+- Morrow: [../../../20-canon/characters/profiles/morrow.md](../../../20-canon/characters/profiles/morrow.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

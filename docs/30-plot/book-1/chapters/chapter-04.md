@@ -1,16 +1,17 @@
 ---
-title: "Chapter 4: Northglass"
+title: "Chapter 4: Priority Tier"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 4, viewpoint June, revealing the abandoned corporate wealth of Northglass and June's hidden documentation."
-tags: ["plot", "book-1", "act-1", "chapter-04", "june"]
+summary: "High-level plot-map entry for Book One Chapter 4, viewpoint Eli, turning service withdrawal into a physical grid crisis and committing Eli to enter Northglass."
+tags: ["plot", "book-1", "act-1", "chapter-04", "eli"]
 related:
   - "../act-1.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
   - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/nolan-avery.md"
+  - "../../../20-canon/characters/profiles/talia-reed.md"
+  - "../../../20-canon/characters/profiles/june-park.md"
   - "../../../20-canon/world/locations/northglass.md"
-  - "../../../20-canon/technology/northglass.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -18,72 +19,63 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-> **[FLAG — placement, needs author ruling]** Under the Act One revision, Morrow is **resumed,
-> not built**: it already exists, finished, on a hidden 128 TB drive buried at Northglass, and
-> the **drive-retrieval scene with the six-years-ago escape flashback lands LATE, near the turn-on**
-> (revision brief sections 3 and 5), not in this early chapter. This entry is therefore now the
-> **early reconnaissance visit** (June's treasure field, Eli's graveyard), which surfaces general
-> orchestration salvage but **not** the buried drive. Whether the early visit and the later
-> drive-retrieval are the same trip or two separate trips is **not resolved by the brief**
-> (it leaves exact chapter assignments as [CONFIRM]); raised here as a question. Kept reveal-safe:
-> nothing about the buried ASI surfaces in this chapter.
+# Chapter 4: Priority Tier
 
-# Chapter 4: Northglass
-
-**Date:** Sunday, October 5
-**Viewpoint:** June
-**Primary setting:** Northglass research campus
+**Date:** Saturday, October 4
+**Viewpoint:** Eli
+**Primary setting:** Neighborhood power facilities and clinic
 
 ### Purpose
 
-Reveal the abandoned technological wealth of the old corporate world and establish June’s relationship with Eli.
+Turn the service withdrawal into an immediate physical crisis.
 
 ### Chapter Movement
 
-June and Eli enter Northglass through a damaged utility corridor.
+Eli and Nolan attempt to coordinate residential solar systems, electric vehicles, generators, and commercial batteries.
 
-June experiences the campus as a treasure field.
+The equipment was produced by different companies and depends on incompatible cloud platforms.
 
-Eli experiences it as a graveyard of his former life.
+Talia demands to know who has authority to disconnect homes in order to preserve the clinic.
 
-They pass inactive laboratories, flooded tunnels, stripped server rooms, and robots still following obsolete instructions.
+Eli treats the question as a technical necessity.
 
-June uses restricted documentation secretly provided by her father to bypass a security barrier.
+Talia insists it is a political decision.
 
-She hides the source from Eli.
+The grid destabilizes again.
 
-They discover an old laboratory containing prototype hardware from Mosaic’s development.
+A power surge damages equipment near the clinic.
 
-The most valuable processors are gone.
+Nolan admits that manual coordination cannot continue indefinitely.
 
-Experimental low-power orchestration components remain. (These support the neighborhood's coordination needs; they are not, under the revision, the stock from which Morrow is built, because Morrow is not built. The buried "Morrow" drive is not found on this visit.)
+June suggests entering Northglass, the abandoned Asterion campus, for orchestration capability the neighborhood no longer has any other way to get.
 
-June copies archived files beyond what Eli authorizes.
+Eli refuses, ostensibly because Northglass may still report activity to Asterion. The refusal is harder than the stated reason warrants; there is something at Northglass he does not name, and does not want to go back to. (Reveal-safe: the buried project is not hinted to June or the reader here beyond his disproportionate reluctance.)
 
-A maintenance system briefly transmits activity outside the campus.
+A second clinic system loses authentication.
+
+Eli changes his mind.
 
 ### Character Movement
 
-June’s excitement clashes with Eli’s fear.
-
-She begins to understand that Northglass is personally painful for him, not merely technically dangerous.
+Eli is forced to choose between remaining hidden and using the knowledge that makes him dangerous.
 
 ### Information Revealed
 
-- June has access to information she should not possess.
-- Eli worked directly with systems housed at Northglass.
-- Abandoned infrastructure may still be connected to Asterion.
+- Nolan’s practical expertise is essential.
+- Talia will not allow technical urgency to erase community consent.
+- Northglass still contains abandoned Asterion systems.
 
 ### Ending Hook
 
-Before leaving, June notices one recovered component identifying Eli by his former Asterion credentials.
+Eli tells June to meet him before sunrise.
 
 ## See also (canon authorities)
 
 For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
 
-- June Park profile: [june-park.md](../../../20-canon/characters/profiles/june-park.md)
 - Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
+- Nolan Avery profile: [nolan-avery.md](../../../20-canon/characters/profiles/nolan-avery.md)
+- Talia Reed profile: [talia-reed.md](../../../20-canon/characters/profiles/talia-reed.md)
+- June Park profile: [june-park.md](../../../20-canon/characters/profiles/june-park.md)
 - Setting, Northglass: [northglass.md](../../../20-canon/world/locations/northglass.md)
-- Northglass technology rules: [northglass.md](../../../20-canon/technology/northglass.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

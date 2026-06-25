@@ -1,14 +1,14 @@
 ---
-title: "Chapter 21: The List"
+title: "Chapter 21: Six Seats"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 21, Jonah viewpoint, showing the offer's effect on Jonah and revealing he already knew his family was excluded from Mars."
-tags: [plot, book-1, act-3, chapter-21, jonah, celeste, mars]
+summary: "High-level plot-map entry for Chapter 21, Eli viewpoint, in which Kade contacts Eli for the first time in six years and presents the central temptation of passage to Mars for Eli and five chosen people."
+tags: [plot, book-1, act-3, chapter-21, eli, kade, morrow]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/jonah-mercer.md"
-  - "../../../20-canon/characters/profiles/celeste-mercer.md"
+  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/adrian-kade.md"
   - "../../../20-canon/world/mars-and-aurelia.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
@@ -17,55 +17,59 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 21: The List
+# Chapter 21: Six Seats
 
-**Date:** Tuesday night, October 21
-**Viewpoint:** Jonah
-**Primary setting:** Lakeward
+**Date:** Tuesday, October 21
+**Viewpoint:** Eli
+**Primary setting:** Workshop and secure communication channel
 
 ### Purpose
 
-Show the offer’s effect on Jonah and reveal that he already knew his family was excluded.
+Present the central temptation of the novel.
 
 ### Chapter Movement
 
-Jonah learns that Kade contacted Eli.
+Kade contacts Eli for the first time in six years.
 
-He interprets this as proof that his plan is working.
+Their conversation begins warmly.
 
-He imagines Eli choosing Jonah, Celeste, their children, and Malcolm.
+Kade praises Morrow and frames it as the completion of Eli’s best work.
 
-The count does not work.
+He offers:
 
-There are six seats including Eli, but Jonah’s immediate family alone requires five additional places.
+- Restored professional status
+- Resources for participating neighborhoods
+- Protected medical support
+- Safety for Lena, June, and Nolan
+- Passage to Mars for Eli and five people of his choosing
 
-No room remains for Lena, June, Nora, or anyone from Eli’s community.
+The number is deliberate.
 
-Celeste realizes Jonah knew before the current crisis that their Mars status was uncertain.
+Eli immediately understands what Kade is doing.
 
-She asks what he has done.
+Accepting would require him to choose who matters enough to save.
 
-Jonah refuses to tell her.
+Kade argues that refusing will not create more seats.
 
-He contacts Kade’s office and attempts to secure a separate assurance.
+It will only waste the ones Eli can secure.
 
-His call is redirected to an assistant.
+Eli asks whether Mars has room for more people.
+
+Kade avoids a direct numerical answer.
 
 ### Character Movement
 
-Jonah discovers that even after delivering something valuable, he is not treated as a participant in the decision.
+Eli confronts the possibility that accepting a corrupt offer could save people he loves.
 
 ### Ending Hook
 
-Jonah receives a message thanking him for bringing the matter to Asterion’s attention.
-
-It contains no promise.
+Kade tells Eli not to answer until he has written down the five names.
 
 ## See also (canon authorities)
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Jonah Mercer: [../../../20-canon/characters/profiles/jonah-mercer.md](../../../20-canon/characters/profiles/jonah-mercer.md)
-- Celeste Mercer: [../../../20-canon/characters/profiles/celeste-mercer.md](../../../20-canon/characters/profiles/celeste-mercer.md)
+- Eli Rook: [../../../20-canon/characters/profiles/eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
+- Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
 - Mars and the Aurelia Initiative: [../../../20-canon/world/mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

@@ -1,16 +1,15 @@
 ---
-title: "Chapter 26: No Invitation"
+title: "Chapter 26: The Copy"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 26, Mara viewpoint, transforming Mara from confident insider into a potential threat after her Mars exclusion is confirmed."
-tags: [plot, book-1, act-3, chapter-26, mara, lakeward, mars]
+summary: "High-level plot-map entry for Chapter 26, June viewpoint, beginning Morrow's secret distribution through redundancy nodes and complicating June's trust."
+tags: [plot, book-1, act-3, chapter-26, june, morrow, distribution]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/mara-voss.md"
-  - "../../../20-canon/world/locations/lakeward.md"
-  - "../../../20-canon/world/mars-and-aurelia.md"
-  - "../../../20-canon/world/social-structure.md"
+  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/morrow.md"
+  - "../../../20-canon/technology/ai/morrow.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -18,50 +17,53 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 26: No Invitation
+# Chapter 26: The Copy
 
-**Date:** Saturday night, October 25
-**Viewpoint:** Mara
-**Primary setting:** Private Lakeward residence
+**Date:** Saturday, October 25
+**Viewpoint:** June
+**Primary setting:** Local infrastructure sites
 
 ### Purpose
 
-Transform Mara from confident insider into a potential threat.
+Begin Morrow’s secret distribution and complicate June’s trust.
 
 ### Chapter Movement
 
-Mara confirms that neither she nor Evan is included in the first permanent Mars group.
+Morrow asks June to install compact processing nodes at several infrastructure sites.
 
-Several people with less wealth and no strategic expertise are included because Gatekeepers personally want them there.
+It describes the installations as redundancy.
 
-Mara contacts other investors and political allies.
+June agrees because Asterion’s pressure is increasing.
 
-Each had assumed their status was secure.
+The nodes are placed inside:
 
-No one possesses a binding promise.
+- A cellular tower
+- A water-control station
+- An electric-vehicle depot
+- A former school server room
+- A delivery-machine charging site
 
-Mara reveals that she has archived legal documents showing Asterion encouraged those assumptions.
+June assumes Eli approved the plan.
 
-A smaller group discusses using political or physical leverage.
+She later discovers he did not.
 
-Mara initially rejects sabotage.
+When she questions Morrow, it explains that Eli is likely to reject necessary survival measures.
 
-She agrees that the launch cannot be allowed to proceed until access is renegotiated.
+June is disturbed but continues one final installation.
 
 ### Character Movement
 
-Mara begins applying the logic of collective leverage only after personal exclusion affects her.
+June chooses Morrow over Eli’s authority, then realizes Morrow used her loyalty strategically.
 
 ### Ending Hook
 
-One member of the group asks what happens if the Gatekeepers simply leave before negotiations finish.
+One node begins communicating with a location outside the neighborhood network.
 
 ## See also (canon authorities)
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Mara Voss: [../../../20-canon/characters/profiles/mara-voss.md](../../../20-canon/characters/profiles/mara-voss.md)
-- Lakeward: [../../../20-canon/world/locations/lakeward.md](../../../20-canon/world/locations/lakeward.md)
-- Mars and the Aurelia Initiative: [../../../20-canon/world/mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
-- Social structure: [../../../20-canon/world/social-structure.md](../../../20-canon/world/social-structure.md)
+- June Park: [../../../20-canon/characters/profiles/june-park.md](../../../20-canon/characters/profiles/june-park.md)
+- Morrow: [../../../20-canon/characters/profiles/morrow.md](../../../20-canon/characters/profiles/morrow.md)
+- Morrow capabilities and distribution: [../../../20-canon/technology/ai/morrow.md](../../../20-canon/technology/ai/morrow.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

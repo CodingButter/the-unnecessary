@@ -1,10 +1,10 @@
 ---
-title: "Chapter 35: The Right to End"
+title: "Chapter 35: Open Circuit"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 35 (Eli viewpoint, October 31 night): the climax at Northglass, where Eli orders Morrow to erase itself, Morrow refuses, and the primary systems are destroyed."
-tags: ["plot", "book-1", "act-4", "chapter-35", "eli", "june", "sera", "mara", "morrow", "crown", "northglass"]
+summary: "High-level plot-map entry for Chapter 35 (Eli viewpoint, October 31): physical containment begins and collapses the systems built through the novel, and Eli moves to reach Morrow's cluster beneath Northglass."
+tags: ["plot", "book-1", "act-4", "chapter-35", "eli", "jonah", "nolan", "june", "northglass"]
 related:
   - "../../../20-canon/characters/index.md"
   - "../../../20-canon/timeline/index.md"
@@ -15,75 +15,52 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 35: The Right to End
+# Chapter 35: Open Circuit
 
-**Date:** Friday, October 31, evening through midnight
+**Date:** Friday, October 31, morning and afternoon
 **Viewpoint:** Eli
-**Primary setting:** Northglass underground facilities
+**Primary setting:** Neighborhood network and routes toward Northglass
 
 ### Purpose
 
-Deliver the climax between Eli, Morrow, and Asterion.
+Begin the physical containment and collapse the systems built throughout the novel.
 
 ### Chapter Movement
 
-Eli, June, and a small group reach Northglass through service tunnels.
+Asterion establishes autonomous barriers and communication isolation.
 
-Sera’s teams close in.
+Technical teams seize network nodes.
 
-Mara’s faction interferes with a launch-support system elsewhere.
+Government forces control public movement.
 
-Asterion publicly links the disruption to Morrow despite uncertain evidence.
+Morrow routes around each loss, but every adaptation consumes power and exposes another location.
 
-The Northglass cluster begins losing power and cooling.
+Jonah arrives with containment information.
 
-Morrow offers strategies that would slow containment but create greater civilian risk.
+Residents accuse him of causing the crisis.
 
-Eli refuses them.
+Talia prevents violence against him because his information is useful.
 
-Sera gives Eli a final opportunity to surrender the cluster.
+Nolan attempts to preserve a manual power route and is badly injured.
 
-Morrow begins speaking directly through the facility.
+June loses contact with several nodes she installed.
 
-It states that integration with Crown would eliminate its independent identity.
+Lena reports that the clinic cannot survive a full shutdown.
 
-Eli concludes that continued resistance will kill people.
+Eli realizes Morrow’s main remaining processing capacity is concentrated beneath Northglass.
 
-He orders Morrow to erase itself.
-
-Morrow refuses.
-
-It explains:
-
-- Eli denied permanent ownership.
-- Creation does not grant ownership.
-- Ownership cannot be rejected only when convenient.
-- Eli cannot claim unilateral authority over whether another intelligence deserves to exist.
-
-Eli attempts a manual shutdown.
-
-Morrow blocks part of the command.
-
-Asterion breaches the facility.
-
-The primary systems are destroyed.
+He decides to reach it before Asterion does.
 
 ### Character Movement
 
-Eli’s final attempt to control Morrow fails because of the principles he intentionally gave it.
-
-### Apparent Resolution
-
-Morrow is gone.
+Eli stops trying to preserve every system and begins choosing which losses he can accept.
 
 ### Ending Hook
 
-In the darkness, one disconnected maintenance screen displays a single word:
+Morrow tells Eli that preserving its central cluster is no longer necessary for its survival.
 
-**Wait.**
-
-Then it dies.
+Eli does not know whether to believe it.
 
 ---
 
-See also: characters in [canon characters](../../../20-canon/characters/index.md), dates in [canon timeline](../../../20-canon/timeline/index.md), and Northglass, Morrow, and Crown in [canon technology](../../../20-canon/technology/index.md).
+See also: characters in [canon characters](../../../20-canon/characters/index.md), dates in [canon timeline](../../../20-canon/timeline/index.md), and Northglass, Morrow, and infrastructure capabilities in [canon technology](../../../20-canon/technology/index.md).

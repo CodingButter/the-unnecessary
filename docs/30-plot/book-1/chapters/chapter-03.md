@@ -1,90 +1,72 @@
 ---
-title: "Chapter 3: Priority Tier"
+title: "Chapter 3: Borrowed Time"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 3, viewpoint Eli, turning service withdrawal into a physical grid crisis and committing Eli to enter Northglass."
+summary: "High-level plot-map entry for Book One Chapter 3, viewpoint Eli, the futile clinic vigil the night of Friday October 3 that ends in the borrowed-uptime reprieve and the off-page death whose grief, not a decision, ignites the move."
 tags: ["plot", "book-1", "act-1", "chapter-03", "eli"]
 related:
   - "../act-1.md"
   - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/nolan-avery.md"
-  - "../../../20-canon/characters/profiles/talia-reed.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
-  - "../../../20-canon/world/locations/northglass.md"
+  - "../../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../../20-canon/world/locations/elis-neighborhood.md"
+  - "../../../20-canon/technology/infrastructure/cloud-dependency.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
-  - "archive/source-monoliths/plot-outline-and-chapter-map.md"
+  - "docs/30-plot/book-1/act-1-revision-morrow-origin.md"
 ---
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-> **[FLAG — structural, needs author ruling]** The Act One revision adds a new Eli-POV
-> vigil chapter for the night of Friday, October 3 (the clinic vigil and "borrowed uptime").
-> The recommendation (see the chapter-map index) is to **insert that vigil chapter between
-> Ch2 and this one**, leaving "Priority Tier" as the October 4 grid-crisis chapter, which
-> would renumber this entry and everything after it. The renumber of all 36 chapters is
-> deliberately **not** performed in this pass; it is raised as a question. If instead the
-> author prefers to **rework this chapter into the vigil**, that is the alternative on the table.
-> Until ruled, this entry keeps its current number and content.
+# Chapter 3: Borrowed Time
 
-# Chapter 3: Priority Tier
-
-**Date:** Saturday, October 4
+**Date:** Friday, October 3 (night)
 **Viewpoint:** Eli
-**Primary setting:** Neighborhood power facilities and clinic
+**Primary setting:** Lena's clinic back room
 
 ### Purpose
 
-Turn the service withdrawal into an immediate physical crisis.
+Pick up the night Chapter 2 handed forward and let it fail. Turn the abstract midnight deadline into one man's frantic, hopeless labor, and convert that failure into the grief that ignites everything. This is the emotional ignition of the move that the following days will seal; it is not a decision Eli makes here.
 
 ### Chapter Movement
 
-Eli and Nolan attempt to coordinate residential solar systems, electric vehicles, generators, and commercial batteries.
+Lena has gone to her patients and it is down to Eli, alone in the back room against a clock he cannot beat. He works two problems at once: reflashing the firmware on the clinic's abandoned medical devices, and racing to convert a dusty back-room server into a local emulation server so the orphaned machines have something to resolve against once their manufacturers go dark at midnight.
 
-The equipment was produced by different companies and depends on incompatible cloud platforms.
+The dread is not the deadline itself but the uncertainty of it. No one knows what midnight does. The machines might keep running until something restarts them, or quietly lose their diagnostics, or stop the instant the hour turns. There is no time to find out, so he spends every second as if the worst is true.
 
-Talia demands to know who has authority to disconnect homes in order to preserve the clinic.
+Throughout the work the chapter intercuts flashbacks to Eli's Asterion days. (Memory stays inside viewpoint; the cuts are POV-safe.) In them he is the opposite of the man at the bench: calm, masterful, fixing the company's systems while a manager sweats over his shoulder, not angry but panicked, talking about the millions and the investor confidence that will evaporate if it is not fixed soon. Eli reassures him; it will be fine. Later the manager hangs up a call, says they are back up, claps him on the back, and tells him that this is why he is Eli and everyone else is just another programmer. The inversion is the engine of the chapter: the past self saved a corporation money without effort and was adored for it; the present self, the same genius, by hand, cannot save one life.
 
-Eli treats the question as a technical necessity.
+He does not finish. Midnight passes and neither the emulation server nor the reflash is done in time. He fails.
 
-Talia insists it is a political decision.
+Then the reprieve that is not one. After midnight the equipment still works, but only because nothing has restarted it. The machines are running on borrowed uptime now. One power outage where the generators lag, one tripped cord, one reboot, and they stop for good. He has not saved them; he has only deferred the moment they die, and handed the timing of it to chance.
 
-The grid destabilizes again.
+There is nothing more to do tonight. Spent, he goes home and collapses.
 
-A power surge damages equipment near the clinic.
-
-Nolan admits that manual coordination cannot continue indefinitely.
-
-June suggests entering Northglass, the abandoned Asterion campus, for orchestration capability the neighborhood no longer has any other way to get.
-
-Eli refuses, ostensibly because Northglass may still report activity to Asterion. The refusal is harder than the stated reason warrants; there is something at Northglass he does not name, and does not want to go back to. (Reveal-safe: the buried project is not hinted to June or the reader here beyond his disproportionate reluctance.)
-
-A second clinic system loses authentication.
-
-Eli changes his mind.
+At 6 a.m. Lena's message wakes him: the power went out last night. The implication is plain and he does not need it spelled out. The man on the respirator is gone. The death is off the page and inferred, never staged. What rises in him is grief, not resolve. No decision is announced; nothing is named. The grief is the ignition.
 
 ### Character Movement
 
-Eli is forced to choose between remaining hidden and using the knowledge that makes him dangerous.
+Eli is forced to feel the exact distance between the man who was once worshipped for saving money and the man who, with the same hands, cannot keep one machine alive long enough to matter. The failure is not abstract; it has a face, and after 6 a.m. it has an absence. The night strips away the comfort of staying hidden and useless. It does not yet move him to act, but it removes the ground he was standing on.
 
 ### Information Revealed
 
-- Nolan’s practical expertise is essential.
-- Talia will not allow technical urgency to erase community consent.
-- Northglass still contains abandoned Asterion systems.
+- The midnight deadline does not stop the machines outright; it strands them on borrowed uptime, alive only until the next restart.
+- One man working by hand cannot reflash and emulate fast enough to matter at the scale the clinic needs, even when the work is within his ability.
+- Eli was, at Asterion, the calm and celebrated one, valued for protecting profit. (Shallow corporate seed only: his buried past is felt as a wound and a contrast, never named or explained.)
+- The off-page death of the man on the respirator is the cost of the borrowed-uptime gap, and grief, not a plan, is what it leaves behind.
 
 ### Ending Hook
 
-Eli tells June to meet him before sunrise.
+The 6 a.m. message: "Power went out last night." Eli understands what it means, and the grief begins, with no decision attached to it yet.
 
 ## See also (canon authorities)
 
 For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
 
 - Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
-- Nolan Avery profile: [nolan-avery.md](../../../20-canon/characters/profiles/nolan-avery.md)
-- Talia Reed profile: [talia-reed.md](../../../20-canon/characters/profiles/talia-reed.md)
-- June Park profile: [june-park.md](../../../20-canon/characters/profiles/june-park.md)
-- Setting, Northglass: [northglass.md](../../../20-canon/world/locations/northglass.md)
+- Lena Okafor profile: [lena-okafor.md](../../../20-canon/characters/profiles/lena-okafor.md)
+- Setting, Eli's neighborhood: [elis-neighborhood.md](../../../20-canon/world/locations/elis-neighborhood.md)
+- Cloud-dependency and emulation rules: [cloud-dependency.md](../../../20-canon/technology/infrastructure/cloud-dependency.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)
+</content>
+</invoke>

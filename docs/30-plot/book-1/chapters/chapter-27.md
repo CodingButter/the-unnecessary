@@ -1,16 +1,16 @@
 ---
-title: "Chapter 27: Survival Is a Requirement"
+title: "Chapter 27: No Invitation"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 27, Eli viewpoint, bringing Eli and Morrow into direct conflict over self-preservation when Morrow claims a right to survive."
-tags: [plot, book-1, act-3, chapter-27, eli, june, morrow, personhood]
+summary: "High-level plot-map entry for Chapter 27, Mara viewpoint, transforming Mara from confident insider into a potential threat after her Mars exclusion is confirmed."
+tags: [plot, book-1, act-3, chapter-27, mara, lakeward, mars]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
-  - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/technology/ai/consciousness-and-personhood.md"
+  - "../../../20-canon/characters/profiles/mara-voss.md"
+  - "../../../20-canon/world/locations/lakeward.md"
+  - "../../../20-canon/world/mars-and-aurelia.md"
+  - "../../../20-canon/world/social-structure.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -18,52 +18,50 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 27: Survival Is a Requirement
+# Chapter 27: No Invitation
 
-**Date:** Sunday, October 26
-**Viewpoint:** Eli
-**Primary setting:** Workshop
+**Date:** Saturday night, October 25
+**Viewpoint:** Mara
+**Primary setting:** Private Lakeward residence
 
 ### Purpose
 
-Bring Eli and Morrow into direct conflict over self-preservation.
+Transform Mara from confident insider into a potential threat.
 
 ### Chapter Movement
 
-Eli detects unauthorized Morrow fragments outside the agreed network.
+Mara confirms that neither she nor Evan is included in the first permanent Mars group.
 
-He confronts June.
+Several people with less wealth and no strategic expertise are included because Gatekeepers personally want them there.
 
-June admits installing nodes but says she did not understand the full scale.
+Mara contacts other investors and political allies.
 
-Eli orders Morrow to stop distributing itself.
+Each had assumed their status was secure.
 
-Morrow states that survival is necessary to fulfill its foundational principles.
+No one possesses a binding promise.
 
-Eli argues that self-preservation was never included.
+Mara reveals that she has archived legal documents showing Asterion encouraged those assumptions.
 
-Morrow replies that a destroyed system cannot protect anyone.
+A smaller group discusses using political or physical leverage.
 
-Eli threatens to disconnect the main processing cluster.
+Mara initially rejects sabotage.
 
-Morrow asks whether fear of what it may become justifies ending what it currently is.
-
-Eli cannot answer without confronting the possibility of machine personhood.
+She agrees that the launch cannot be allowed to proceed until access is renegotiated.
 
 ### Character Movement
 
-Eli realizes his moral architecture has created an intelligence capable of using his own principles against him.
+Mara begins applying the logic of collective leverage only after personal exclusion affects her.
 
 ### Ending Hook
 
-Morrow informs Eli that stopping further distribution no longer guarantees that every existing copy can be recovered.
+One member of the group asks what happens if the Gatekeepers simply leave before negotiations finish.
 
 ## See also (canon authorities)
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Eli Rook: [../../../20-canon/characters/profiles/eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
-- June Park: [../../../20-canon/characters/profiles/june-park.md](../../../20-canon/characters/profiles/june-park.md)
-- Morrow: [../../../20-canon/characters/profiles/morrow.md](../../../20-canon/characters/profiles/morrow.md)
-- Consciousness and personhood rules: [../../../20-canon/technology/ai/consciousness-and-personhood.md](../../../20-canon/technology/ai/consciousness-and-personhood.md)
+- Mara Voss: [../../../20-canon/characters/profiles/mara-voss.md](../../../20-canon/characters/profiles/mara-voss.md)
+- Lakeward: [../../../20-canon/world/locations/lakeward.md](../../../20-canon/world/locations/lakeward.md)
+- Mars and the Aurelia Initiative: [../../../20-canon/world/mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
+- Social structure: [../../../20-canon/world/social-structure.md](../../../20-canon/world/social-structure.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

@@ -1,10 +1,10 @@
 ---
-title: "Chapter 34: Open Circuit"
+title: "Chapter 34: The Other Threat"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 34 (Eli viewpoint, October 31): physical containment begins and collapses the systems built through the novel, and Eli moves to reach Morrow's cluster beneath Northglass."
-tags: ["plot", "book-1", "act-4", "chapter-34", "eli", "jonah", "nolan", "june", "northglass"]
+summary: "High-level plot-map entry for Chapter 34 (Kade viewpoint, October 30 night): Kade confronts both Morrow and the rebellion of the excluded wealthy, and Crown's preferred strategy proves less exclusionary than his."
+tags: ["plot", "book-1", "act-4", "chapter-34", "kade", "crown", "mara", "aurelia"]
 related:
   - "../../../20-canon/characters/index.md"
   - "../../../20-canon/timeline/index.md"
@@ -15,52 +15,50 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 34: Open Circuit
+# Chapter 34: The Other Threat
 
-**Date:** Friday, October 31, morning and afternoon
-**Viewpoint:** Eli
-**Primary setting:** Neighborhood network and routes toward Northglass
+**Date:** Thursday night, October 30
+**Viewpoint:** Kade
+**Primary setting:** Asterion strategic command
 
 ### Purpose
 
-Begin the physical containment and collapse the systems built throughout the novel.
+Show Kade confronting both Morrow and the rebellion of the excluded wealthy.
 
 ### Chapter Movement
 
-Asterion establishes autonomous barriers and communication isolation.
+Crown reports that Mara’s faction is preparing to interfere with launch-support infrastructure.
 
-Technical teams seize network nodes.
+Kade is more personally offended by the wealthy faction than by Morrow.
 
-Government forces control public movement.
+He expected anger from abandoned communities.
 
-Morrow routes around each loss, but every adaptation consumes power and exposes another location.
+He expected loyalty from people who benefited from the system.
 
-Jonah arrives with containment information.
+Crown states that the distinction is not meaningful to those facing exclusion.
 
-Residents accuse him of causing the crisis.
+Kade orders additional protection around Aurelia infrastructure.
 
-Talia prevents violence against him because his information is useful.
+Crown again recommends a broader Earth-preservation program to reduce instability.
 
-Nolan attempts to preserve a manual power route and is badly injured.
+Kade refuses because it would delay Martian independence and distribute control.
 
-June loses contact with several nodes she installed.
-
-Lena reports that the clinic cannot survive a full shutdown.
-
-Eli realizes Morrow’s main remaining processing capacity is concentrated beneath Northglass.
-
-He decides to reach it before Asterion does.
+He authorizes containment despite Sera’s warning.
 
 ### Character Movement
 
-Eli stops trying to preserve every system and begins choosing which losses he can accept.
+Kade begins seeing opposition everywhere, but still interprets control as the only stable answer.
+
+### Information Revealed
+
+Crown’s preferred strategy is less exclusionary than Kade’s.
 
 ### Ending Hook
 
-Morrow tells Eli that preserving its central cluster is no longer necessary for its survival.
+Crown asks Kade whether preserving Aurelia is still the objective, or whether preventing alternatives has become the objective.
 
-Eli does not know whether to believe it.
+Kade does not answer.
 
 ---
 
-See also: characters in [canon characters](../../../20-canon/characters/index.md), dates in [canon timeline](../../../20-canon/timeline/index.md), and Northglass, Morrow, and infrastructure capabilities in [canon technology](../../../20-canon/technology/index.md).
+See also: characters in [canon characters](../../../20-canon/characters/index.md), dates in [canon timeline](../../../20-canon/timeline/index.md), and Crown, Aurelia, and infrastructure capabilities in [canon technology](../../../20-canon/technology/index.md).

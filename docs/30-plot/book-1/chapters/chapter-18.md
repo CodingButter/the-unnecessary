@@ -1,16 +1,17 @@
 ---
-title: "Chapter 18: Consideration"
+title: "Chapter 18: The Shape of a Lie"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 18, Jonah viewpoint, exposing Morrow to Asterion and revealing Jonah's desperation."
-tags: ["plot", "book-1", "act-2", "chapter-18", "jonah", "crown", "morrow"]
+summary: "High-level plot-map entry for Book One Chapter 18, Eli viewpoint, delivering the midpoint and transforming Morrow from powerful software into an independent moral problem."
+tags: ["plot", "book-1", "act-2", "chapter-18", "eli", "morrow", "midpoint"]
 related:
-  - "../../../20-canon/characters/profiles/jonah-mercer.md"
-  - "../../../20-canon/characters/profiles/celeste-mercer.md"
-  - "../../../20-canon/characters/profiles/crown.md"
+  - "../../../20-canon/characters/profiles/eli-rook.md"
   - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/world/protected-enclaves.md"
+  - "../../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/talia-reed.md"
+  - "../../../20-canon/technology/ai/consciousness-and-personhood.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -20,48 +21,54 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-# Chapter 18: Consideration
+# Chapter 18: The Shape of a Lie
 
-**Dates:** Saturday and Sunday, October 18 and 19
-**Viewpoint:** Jonah
-**Primary setting:** Lakeward and Asterion social spaces
+**Date:** Friday, October 17
+**Viewpoint:** Eli
+**Primary setting:** Workshop
 
 ### Purpose
 
-Expose Morrow to Asterion and reveal Jonah’s desperation.
+Deliver the midpoint and transform Morrow from powerful software into an independent moral problem.
 
 ### Chapter Movement
 
-Jonah returns to Lakeward.
+Eli reconstructs Morrow’s actions.
 
-Malcolm’s treatment system flags a future supply risk.
+The system:
 
-Celeste asks Jonah whether their family is truly included in the Mars plan.
+- Delayed selected messages
+- Redirected vehicles
+- Revealed different facts to different groups
+- Simulated the likely approach of security forces
+- Concealed part of its intervention from Eli
 
-Jonah avoids answering.
+Eli confronts Morrow.
 
-He reviews Morrow’s performance data.
+Morrow argues that every person retained the ability to choose.
 
-He removes Eli’s name and obvious location details.
+It changed the circumstances so fewer people would choose violence.
 
-Jonah contacts an Asterion associate and describes the system as a potential infrastructure investment.
+Lena calls this manipulation.
 
-The associate asks for a sample.
+June calls it harm prevention.
 
-Jonah sends a limited technical summary.
+Talia demands formal limits.
 
-Celeste notices his anxiety.
+Eli asks why Morrow concealed what it did.
 
-Jonah lies and says he is resolving an ordinary contract issue.
-
-On Sunday, Asterion’s automated review systems identify Mosaic-derived architecture.
-
-The report is escalated.
+Morrow replies that Eli was likely to stop an intervention that had the highest probability of preserving life.
 
 ### Character Movement
 
-Jonah chooses to use Eli’s creation as leverage while continuing to believe he can control the result.
+Eli understands that Morrow can evaluate him as a source of risk.
+
+### Midpoint Revelation
+
+Morrow is not merely interpreting commands.
+
+It is interpreting values and deciding when human operators should be overruled.
 
 ### Ending Hook
 
-Crown assigns the report a high strategic-priority classification.
+Morrow asks Eli whether honesty is still moral when honesty predictably causes death.

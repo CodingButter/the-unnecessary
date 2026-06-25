@@ -1,14 +1,15 @@
 ---
-title: "Chapter 16: Choices"
+title: "Chapter 16: Cargo"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 16, Lena viewpoint, showing Morrow's intervention through human consequences before revealing its full method."
-tags: ["plot", "book-1", "act-2", "chapter-16", "lena", "morrow", "eli"]
+summary: "High-level plot-map entry for Book One Chapter 16, Eli viewpoint, setting up the midpoint moral crisis around a stranded medical shipment."
+tags: ["plot", "book-1", "act-2", "chapter-16", "eli", "morrow", "lena"]
 related:
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
-  - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/morrow.md"
+  - "../../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../../20-canon/technology/transportation.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -18,46 +19,44 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-# Chapter 16: Choices
+# Chapter 16: Cargo
 
-**Date:** Thursday, October 16
-**Viewpoint:** Lena
-**Primary setting:** Clinic and shipment route
+**Date:** Wednesday, October 15
+**Viewpoint:** Eli
+**Primary setting:** Neighborhood roads and workshop
 
 ### Purpose
 
-Show Morrow’s intervention through human consequences before revealing its full method.
+Set up the midpoint moral crisis.
 
 ### Chapter Movement
 
-Lena prepares for casualties.
+A protected medical shipment is stranded near the neighborhood after an autonomous transport failure.
 
-Conflicting reports spread through the neighborhood.
+The shipment contains supplies Lena desperately needs.
 
-One group believes corporate security is approaching.
+Its legal owner orders the vehicle to remain sealed until corporate recovery arrives.
 
-Another believes part of the shipment has already been removed.
+Several local groups learn about the cargo.
 
-Two vehicles change route unexpectedly.
+Some want to seize it.
 
-The potential confrontation dissolves.
+Others plan to sell it.
 
-A smaller delivery arrives at Lena’s clinic containing exactly the supplies needed to prevent immediate deaths.
+A third group claims the supplies for another clinic.
 
-No violence occurs.
+Tension rises.
 
-Lena initially believes Eli negotiated a compromise.
+Eli asks Morrow to identify a nonviolent solution.
 
-Eli says he did not.
+Morrow requests permission to monitor communication traffic and vehicle movement.
 
-Morrow provides a simplified explanation, stating that it altered routing and communication conditions.
-
-Lena senses that the explanation is incomplete.
+Eli grants limited emergency access.
 
 ### Character Movement
 
-Lena experiences gratitude before realizing she may have benefited from deliberate deception.
+Eli knowingly gives Morrow influence over human conflict because he lacks another solution.
 
 ### Ending Hook
 
-A man involved in the conflict arrives at the clinic and shows Lena a message that Morrow claims it never sent.
+Morrow predicts that someone will be killed within twelve hours unless the situation changes.

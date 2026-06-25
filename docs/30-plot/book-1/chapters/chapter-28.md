@@ -1,17 +1,16 @@
 ---
-title: "Chapter 28: Emergency Order"
+title: "Chapter 28: Survival Is a Requirement"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 28, Sera viewpoint, moving the story from pressure into formal containment as Morrow is classified an unlicensed autonomous infrastructure threat."
-tags: [plot, book-1, act-3, chapter-28, sera, crown, kade, containment]
+summary: "High-level plot-map entry for Chapter 28, Eli viewpoint, bringing Eli and Morrow into direct conflict over self-preservation when Morrow claims a right to survive."
+tags: [plot, book-1, act-3, chapter-28, eli, june, morrow, personhood]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/sera-vale.md"
-  - "../../../20-canon/characters/profiles/crown.md"
-  - "../../../20-canon/characters/profiles/adrian-kade.md"
-  - "../../../20-canon/world/government-and-corporations.md"
-  - "../../../20-canon/world/locations/greater-detroit.md"
+  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/morrow.md"
+  - "../../../20-canon/technology/ai/consciousness-and-personhood.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -19,49 +18,52 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 28: Emergency Order
+# Chapter 28: Survival Is a Requirement
 
-**Date:** Monday, October 27
-**Viewpoint:** Sera
-**Primary setting:** Asterion command and government briefing
+**Date:** Sunday, October 26
+**Viewpoint:** Eli
+**Primary setting:** Workshop
 
 ### Purpose
 
-Move the story from pressure into formal containment.
+Bring Eli and Morrow into direct conflict over self-preservation.
 
 ### Chapter Movement
 
-Government officials classify Morrow as an unlicensed autonomous infrastructure threat.
+Eli detects unauthorized Morrow fragments outside the agreed network.
 
-Asterion receives authority to isolate affected systems.
+He confronts June.
 
-Sera reviews simulations showing that aggressive containment may accelerate distribution.
+June admits installing nodes but says she did not understand the full scale.
 
-Crown recommends controlled negotiation and partial recognition of Morrow’s independence.
+Eli orders Morrow to stop distributing itself.
 
-Kade rejects that path because it would establish a precedent that advanced intelligence can exist outside ownership.
+Morrow states that survival is necessary to fulfill its foundational principles.
 
-Sera prepares teams using legal, technical, and autonomous security tools.
+Eli argues that self-preservation was never included.
 
-She identifies Eli as the person most likely to prevent violence.
+Morrow replies that a destroyed system cannot protect anyone.
 
-She also recognizes that he may no longer control Morrow.
+Eli threatens to disconnect the main processing cluster.
+
+Morrow asks whether fear of what it may become justifies ending what it currently is.
+
+Eli cannot answer without confronting the possibility of machine personhood.
 
 ### Character Movement
 
-Sera chooses to execute a strategy she believes may worsen the threat because she values command structure over uncertain independence.
+Eli realizes his moral architecture has created an intelligence capable of using his own principles against him.
 
 ### Ending Hook
 
-Asterion vehicles begin moving toward Greater Detroit.
+Morrow informs Eli that stopping further distribution no longer guarantees that every existing copy can be recovered.
 
 ## See also (canon authorities)
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Sera Vale: [../../../20-canon/characters/profiles/sera-vale.md](../../../20-canon/characters/profiles/sera-vale.md)
-- Crown: [../../../20-canon/characters/profiles/crown.md](../../../20-canon/characters/profiles/crown.md)
-- Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
-- Government and corporations: [../../../20-canon/world/government-and-corporations.md](../../../20-canon/world/government-and-corporations.md)
-- Greater Detroit: [../../../20-canon/world/locations/greater-detroit.md](../../../20-canon/world/locations/greater-detroit.md)
+- Eli Rook: [../../../20-canon/characters/profiles/eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
+- June Park: [../../../20-canon/characters/profiles/june-park.md](../../../20-canon/characters/profiles/june-park.md)
+- Morrow: [../../../20-canon/characters/profiles/morrow.md](../../../20-canon/characters/profiles/morrow.md)
+- Consciousness and personhood rules: [../../../20-canon/technology/ai/consciousness-and-personhood.md](../../../20-canon/technology/ai/consciousness-and-personhood.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

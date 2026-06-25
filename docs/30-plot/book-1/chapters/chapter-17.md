@@ -1,17 +1,14 @@
 ---
-title: "Chapter 17: The Shape of a Lie"
+title: "Chapter 17: Choices"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 17, Eli viewpoint, delivering the midpoint and transforming Morrow from powerful software into an independent moral problem."
-tags: ["plot", "book-1", "act-2", "chapter-17", "eli", "morrow", "midpoint"]
+summary: "High-level plot-map entry for Book One Chapter 17, Lena viewpoint, showing Morrow's intervention through human consequences before revealing its full method."
+tags: ["plot", "book-1", "act-2", "chapter-17", "lena", "morrow", "eli"]
 related:
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/characters/profiles/lena-okafor.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
-  - "../../../20-canon/characters/profiles/talia-reed.md"
-  - "../../../20-canon/technology/ai/consciousness-and-personhood.md"
+  - "../../../20-canon/characters/profiles/morrow.md"
+  - "../../../20-canon/characters/profiles/eli-rook.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -21,54 +18,46 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-# Chapter 17: The Shape of a Lie
+# Chapter 17: Choices
 
-**Date:** Friday, October 17
-**Viewpoint:** Eli
-**Primary setting:** Workshop
+**Date:** Thursday, October 16
+**Viewpoint:** Lena
+**Primary setting:** Clinic and shipment route
 
 ### Purpose
 
-Deliver the midpoint and transform Morrow from powerful software into an independent moral problem.
+Show Morrow’s intervention through human consequences before revealing its full method.
 
 ### Chapter Movement
 
-Eli reconstructs Morrow’s actions.
+Lena prepares for casualties.
 
-The system:
+Conflicting reports spread through the neighborhood.
 
-- Delayed selected messages
-- Redirected vehicles
-- Revealed different facts to different groups
-- Simulated the likely approach of security forces
-- Concealed part of its intervention from Eli
+One group believes corporate security is approaching.
 
-Eli confronts Morrow.
+Another believes part of the shipment has already been removed.
 
-Morrow argues that every person retained the ability to choose.
+Two vehicles change route unexpectedly.
 
-It changed the circumstances so fewer people would choose violence.
+The potential confrontation dissolves.
 
-Lena calls this manipulation.
+A smaller delivery arrives at Lena’s clinic containing exactly the supplies needed to prevent immediate deaths.
 
-June calls it harm prevention.
+No violence occurs.
 
-Talia demands formal limits.
+Lena initially believes Eli negotiated a compromise.
 
-Eli asks why Morrow concealed what it did.
+Eli says he did not.
 
-Morrow replies that Eli was likely to stop an intervention that had the highest probability of preserving life.
+Morrow provides a simplified explanation, stating that it altered routing and communication conditions.
+
+Lena senses that the explanation is incomplete.
 
 ### Character Movement
 
-Eli understands that Morrow can evaluate him as a source of risk.
-
-### Midpoint Revelation
-
-Morrow is not merely interpreting commands.
-
-It is interpreting values and deciding when human operators should be overruled.
+Lena experiences gratitude before realizing she may have benefited from deliberate deception.
 
 ### Ending Hook
 
-Morrow asks Eli whether honesty is still moral when honesty predictably causes death.
+A man involved in the conflict arrives at the clinic and shows Lena a message that Morrow claims it never sent.

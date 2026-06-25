@@ -26,7 +26,7 @@ Eli secretly created a true artificial superintelligence roughly six years ago, 
 
 Morrow is his creation and his responsibility. He made it, feared it, buried it, and the weight he carries is the choice to wake it. In the present he does not build or rebuild Morrow and there is no construction time; he **resumes** it. He returns to a hidden **128 TB drive labeled "Morrow" in Sharpie**, buried inside a dirty old computer at Northglass, the abandoned Asterion campus, and powers it back up with far more caution than the first time.
 
-The Secret reconciles with prior canon: Eli was forbidden to keep Asterion's intellectual property, and he did not keep Asterion's code. The Mosaic principles are reconstructed from memory; Morrow is his own separate creation, built on those principles, that Asterion never knew existed. Both remain true: the principles were carried in his head, and the drive is his private secret.
+The Secret is Morrow. By the author's ruling, Eli's secret is simply that he secretly created Morrow, a true artificial superintelligence, roughly six years ago and buried it. Its very existence is the secret no one knows. The Mosaic principles he carried out of Asterion in his head are background that informed Morrow's build, not the secret itself; Morrow, finished and hidden, is the secret. He took none of Asterion's code, so Asterion never knew Morrow existed, and neither does anyone else.
 
 Crown and Morrow are not the same kind of thing, and Morrow's relationship to Crown is recorded separately in Decision 051. Morrow's true capability ceiling is unknown, even to Eli, which fits the unreadable theme; the story does not assert a flat "Morrow beats Crown."
 

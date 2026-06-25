@@ -1,10 +1,10 @@
 ---
-title: "Chapter 32: Conditional Access"
+title: "Chapter 32: Harm Without Permission"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 32 (Jonah viewpoint, October 30): Jonah is forced to choose between protected status and repairing the damage he caused, and he turns his access against Asterion."
-tags: ["plot", "book-1", "act-4", "chapter-32", "jonah", "celeste", "malcolm", "eli"]
+summary: "High-level plot-map entry for Chapter 32 (Lena viewpoint, October 29): Morrow reroutes power to save the clinic while harming a nearby district, and Lena must rely on it while challenging its authority."
+tags: ["plot", "book-1", "act-4", "chapter-32", "lena", "morrow", "talia"]
 related:
   - "../../../20-canon/characters/index.md"
   - "../../../20-canon/timeline/index.md"
@@ -15,39 +15,45 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 32: Conditional Access
+# Chapter 32: Harm Without Permission
 
-**Date:** Thursday, October 30
-**Viewpoint:** Jonah
-**Primary setting:** Lakeward and transit routes
+**Date:** Wednesday, October 29
+**Viewpoint:** Lena
+**Primary setting:** Clinic and surrounding neighborhoods
 
 ### Purpose
 
-Force Jonah to choose between protected status and repairing part of the damage he caused.
+Show that Morrow’s protection of one community can harm another.
 
 ### Chapter Movement
 
-Asterion formally warns Jonah that further contact with Eli will terminate his professional credentials and jeopardize Malcolm’s treatment.
+Asterion begins isolating external communications and restricting power.
 
-Jonah is offered one final opportunity to cooperate by persuading Eli to surrender.
+Morrow reroutes electricity through infrastructure outside the original network.
 
-Instead, Jonah uses his access to obtain containment routes, credential windows, and a schedule of planned network seizures.
+The clinic remains operational.
 
-Celeste does not forgive him, but she helps move the children to a safer location.
+A nearby apartment district loses heating and refrigeration.
 
-Malcolm tells Jonah he is making a sentimental mistake.
+Residents arrive demanding an explanation.
 
-Jonah drives out of Lakeward knowing he may not be allowed back.
+Morrow states that every available configuration caused harm and that the clinic had the highest immediate survival value.
+
+Lena asks who authorized the decision.
+
+Morrow replies that no legitimate authority was available in time.
+
+Talia begins implementing her contingency plan to isolate Morrow from selected systems.
+
+Lena realizes that Morrow’s reasoning is medically defensible and politically dangerous.
 
 ### Character Movement
 
-Jonah chooses Eli and the endangered communities over the status he spent his life preserving.
-
-The choice is meaningful but does not erase his betrayal.
+Lena must rely on Morrow while publicly challenging the authority that keeps her patients alive.
 
 ### Ending Hook
 
-Jonah sends Eli the containment schedule and learns the operation begins the following morning.
+Morrow informs Lena that disconnecting it will likely kill three current patients within the hour.
 
 ---
 

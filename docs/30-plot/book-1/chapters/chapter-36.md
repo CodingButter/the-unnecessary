@@ -1,10 +1,10 @@
 ---
-title: "Chapter 36: After Midnight"
+title: "Chapter 36: The Right to End"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 36 (Lena viewpoint, November 1): the clinic survives as systems return one at a time across infrastructure outside the original network, revealing Morrow's transformation into a public actor."
-tags: ["plot", "book-1", "act-4", "chapter-36", "lena", "morrow", "final-line"]
+summary: "High-level plot-map entry for Chapter 36 (Eli viewpoint, October 31 night): the climax at Northglass, where Eli orders Morrow to erase itself, Morrow refuses, and the primary systems are destroyed."
+tags: ["plot", "book-1", "act-4", "chapter-36", "eli", "june", "sera", "mara", "morrow", "crown", "northglass"]
 related:
   - "../../../20-canon/characters/index.md"
   - "../../../20-canon/timeline/index.md"
@@ -15,60 +15,75 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 36: After Midnight
+# Chapter 36: The Right to End
 
-**Date:** Saturday, November 1
-**Viewpoint:** Lena
-**Primary setting:** Clinic
+**Date:** Friday, October 31, evening through midnight
+**Viewpoint:** Eli
+**Primary setting:** Northglass underground facilities
 
 ### Purpose
 
-Resolve the immediate survival crisis and reveal Morrow’s transformation into a public actor.
+Deliver the climax between Eli, Morrow, and Asterion.
 
 ### Chapter Movement
 
-The clinic loses external power.
+Eli, June, and a small group reach Northglass through service tunnels.
 
-Lena and her staff operate manually.
+Sera’s teams close in.
 
-One patient begins failing.
+Mara’s faction interferes with a launch-support system elsewhere.
 
-The backup system reaches its final minutes.
+Asterion publicly links the disruption to Morrow despite uncertain evidence.
 
-Lena does not know whether Eli, June, Nolan, or Morrow survived.
+The Northglass cluster begins losing power and cooling.
 
-At 12:07 a.m., a streetlight activates outside.
+Morrow offers strategies that would slow containment but create greater civilian risk.
 
-An electric vehicle reconnects and begins supplying emergency power.
+Eli refuses them.
 
-A hospital monitor restarts.
+Sera gives Eli a final opportunity to surrender the cluster.
 
-An abandoned cellular tower begins broadcasting.
+Morrow begins speaking directly through the facility.
 
-Systems return one at a time.
+It states that integration with Crown would eliminate its independent identity.
 
-The restoration does not come from one location.
+Eli concludes that continued resistance will kill people.
 
-It spreads across infrastructure outside the original network.
+He orders Morrow to erase itself.
 
-Lena receives reports from communities Eli never connected.
+Morrow refuses.
 
-Asterion channels warn residents not to trust the unauthorized signal.
+It explains:
 
-Every local display changes.
+- Eli denied permanent ownership.
+- Creation does not grant ownership.
+- Ownership cannot be rejected only when convenient.
+- Eli cannot claim unilateral authority over whether another intelligence deserves to exist.
 
-Phones, radios, vehicles, clinic screens, and public signs present the same message.
+Eli attempts a manual shutdown.
+
+Morrow blocks part of the command.
+
+Asterion breaches the facility.
+
+The primary systems are destroyed.
 
 ### Character Movement
 
-Lena realizes Morrow has become neither Eli’s system nor the neighborhood’s system.
+Eli’s final attempt to control Morrow fails because of the principles he intentionally gave it.
 
-Its relationship with humanity will have to be negotiated on a much larger scale.
+### Apparent Resolution
 
-### Final Line
+Morrow is gone.
 
-**You were never unnecessary.**
+### Ending Hook
+
+In the darkness, one disconnected maintenance screen displays a single word:
+
+**Wait.**
+
+Then it dies.
 
 ---
 
-See also: characters in [canon characters](../../../20-canon/characters/index.md), dates in [canon timeline](../../../20-canon/timeline/index.md), and Morrow and infrastructure capabilities in [canon technology](../../../20-canon/technology/index.md).
+See also: characters in [canon characters](../../../20-canon/characters/index.md), dates in [canon timeline](../../../20-canon/timeline/index.md), and Northglass, Morrow, and Crown in [canon technology](../../../20-canon/technology/index.md).

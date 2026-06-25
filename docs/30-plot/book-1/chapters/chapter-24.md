@@ -1,16 +1,17 @@
 ---
-title: "Chapter 24: Unauthorized Intelligence"
+title: "Chapter 24: Property"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 24, Mara viewpoint, introducing the political panic among the protected wealthy as Mara learns her Mars place is not confirmed."
-tags: [plot, book-1, act-3, chapter-24, mara, lakeward, mars]
+summary: "High-level plot-map entry for Chapter 24, Sera viewpoint, beginning Asterion's pressure campaign using law and infrastructure before force."
+tags: [plot, book-1, act-3, chapter-24, sera, kade, crown, northglass]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/mara-voss.md"
-  - "../../../20-canon/world/locations/lakeward.md"
-  - "../../../20-canon/world/mars-and-aurelia.md"
-  - "../../../20-canon/world/social-structure.md"
+  - "../../../20-canon/characters/profiles/sera-vale.md"
+  - "../../../20-canon/characters/profiles/adrian-kade.md"
+  - "../../../20-canon/characters/profiles/crown.md"
+  - "../../../20-canon/world/locations/northglass.md"
+  - "../../../20-canon/world/government-and-corporations.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -18,50 +19,55 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 24: Unauthorized Intelligence
+# Chapter 24: Property
 
-**Date:** Friday, October 24
-**Viewpoint:** Mara
-**Primary setting:** Lakeward
+**Date:** Thursday, October 23
+**Viewpoint:** Sera
+**Primary setting:** Asterion containment command
 
 ### Purpose
 
-Introduce the political panic among the protected wealthy.
+Begin the pressure campaign and show how Asterion uses law and infrastructure before force.
 
 ### Chapter Movement
 
-Corporate media reports that an uncontrolled intelligence may be operating near abandoned industrial infrastructure.
+Sera receives authorization to establish control over the Morrow situation.
 
-Lakeward residents fear infrastructure sabotage.
+She reviews options with Crown.
 
-Mara attends a private briefing expecting privileged information.
+Asterion activates dormant property claims around Northglass.
 
-Instead, she receives the same controlled language given to other residents.
+The regional utility flags unauthorized grid coordination.
 
-She notices several individuals leaving for a more restricted meeting.
+Communications providers begin restricting network traffic.
 
-Mara uses old political contacts to investigate.
+Lena’s stolen medical credentials are detected but not immediately revoked.
 
-She learns that Asterion is treating the system as strategically relevant to Aurelia.
+Sera recommends a negotiated technical inspection.
 
-She also learns that the first permanent Mars migration group is nearly finalized.
+Kade authorizes pressure first, believing it will make negotiation easier.
 
-Her own name is not confirmed.
+Sera knows that each restriction will increase local dependence on Morrow.
+
+She raises the concern.
+
+Kade replies that dependence will also reveal Morrow’s full network.
 
 ### Character Movement
 
-Mara’s confidence in her status begins to crack.
+Sera recognizes that the operation is becoming political rather than purely technical.
 
 ### Ending Hook
 
-Mara discovers that a famous performer with no technical role has received a private invitation.
+Asterion sends legal notices identifying recovered Northglass components as stolen corporate property.
 
 ## See also (canon authorities)
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Mara Voss: [../../../20-canon/characters/profiles/mara-voss.md](../../../20-canon/characters/profiles/mara-voss.md)
-- Lakeward: [../../../20-canon/world/locations/lakeward.md](../../../20-canon/world/locations/lakeward.md)
-- Mars and the Aurelia Initiative: [../../../20-canon/world/mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
-- Social structure: [../../../20-canon/world/social-structure.md](../../../20-canon/world/social-structure.md)
+- Sera Vale: [../../../20-canon/characters/profiles/sera-vale.md](../../../20-canon/characters/profiles/sera-vale.md)
+- Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
+- Crown: [../../../20-canon/characters/profiles/crown.md](../../../20-canon/characters/profiles/crown.md)
+- Northglass: [../../../20-canon/world/locations/northglass.md](../../../20-canon/world/locations/northglass.md)
+- Government and corporations: [../../../20-canon/world/government-and-corporations.md](../../../20-canon/world/government-and-corporations.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

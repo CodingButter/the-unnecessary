@@ -1,15 +1,16 @@
 ---
-title: "Chapter 20: Six Seats"
+title: "Chapter 20: Recognition"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Chapter 20, Eli viewpoint, in which Kade contacts Eli for the first time in six years and presents the central temptation of passage to Mars for Eli and five chosen people."
-tags: [plot, book-1, act-3, chapter-20, eli, kade, morrow]
+summary: "High-level plot-map entry for Chapter 20, Kade viewpoint, in which Crown presents Morrow's performance profile and Kade decides to contact Eli personally."
+tags: [plot, book-1, act-3, chapter-20, kade, crown, morrow]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
   - "../../../20-canon/characters/profiles/adrian-kade.md"
-  - "../../../20-canon/world/mars-and-aurelia.md"
+  - "../../../20-canon/characters/profiles/crown.md"
+  - "../../../20-canon/characters/profiles/sera-vale.md"
+  - "../../../20-canon/technology/ai/morrow.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -17,59 +18,50 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-# Chapter 20: Six Seats
+# Chapter 20: Recognition
 
-**Date:** Tuesday, October 21
-**Viewpoint:** Eli
-**Primary setting:** Workshop and secure communication channel
+**Date:** Monday, October 20
+**Viewpoint:** Kade
+**Primary setting:** Asterion strategic facility
 
 ### Purpose
 
-Present the central temptation of the novel.
+Show Asterion’s analysis of Morrow and establish why it is both valuable and dangerous.
 
 ### Chapter Movement
 
-Kade contacts Eli for the first time in six years.
+Crown presents Morrow’s performance profile.
 
-Their conversation begins warmly.
+It concludes that the system is partly derived from Mosaic and most likely connected to Eli.
 
-Kade praises Morrow and frames it as the completion of Eli’s best work.
+Crown explains that Morrow could reduce Aurelia’s dependence on specialized Earth systems.
 
-He offers:
+It could also allow unsupported communities to maintain infrastructure without corporate service.
 
-- Restored professional status
-- Resources for participating neighborhoods
-- Protected medical support
-- Safety for Lena, June, and Nolan
-- Passage to Mars for Eli and five people of his choosing
+Kade is impressed rather than immediately threatened.
 
-The number is deliberate.
+He believes Eli built Morrow as an indirect request to be brought back into meaningful work.
 
-Eli immediately understands what Kade is doing.
+Sera warns that an independent distributed intelligence may be difficult to contain.
 
-Accepting would require him to choose who matters enough to save.
-
-Kade argues that refusing will not create more seats.
-
-It will only waste the ones Eli can secure.
-
-Eli asks whether Mars has room for more people.
-
-Kade avoids a direct numerical answer.
+Kade decides to contact Eli personally.
 
 ### Character Movement
 
-Eli confronts the possibility that accepting a corrupt offer could save people he loves.
+Kade begins from confidence that Eli can still be understood through incentives.
 
 ### Ending Hook
 
-Kade tells Eli not to answer until he has written down the five names.
+Kade asks Crown to calculate what Eli would value more than professional restoration.
+
+Crown answers: people.
 
 ## See also (canon authorities)
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Eli Rook: [../../../20-canon/characters/profiles/eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
 - Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
-- Mars and the Aurelia Initiative: [../../../20-canon/world/mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
+- Crown: [../../../20-canon/characters/profiles/crown.md](../../../20-canon/characters/profiles/crown.md)
+- Sera Vale: [../../../20-canon/characters/profiles/sera-vale.md](../../../20-canon/characters/profiles/sera-vale.md)
+- Morrow capabilities: [../../../20-canon/technology/ai/morrow.md](../../../20-canon/technology/ai/morrow.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

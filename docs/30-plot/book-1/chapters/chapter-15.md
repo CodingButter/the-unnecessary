@@ -1,15 +1,15 @@
 ---
-title: "Chapter 15: Cargo"
+title: "Chapter 15: A Name"
 document_type: "plot-chapter"
 status: "active-plan"
 authority: "plot-plan"
-summary: "High-level plot-map entry for Book One Chapter 15, Eli viewpoint, setting up the midpoint moral crisis around a stranded medical shipment."
-tags: ["plot", "book-1", "act-2", "chapter-15", "eli", "morrow", "lena"]
+summary: "High-level plot-map entry for Book One Chapter 15, June viewpoint, advancing Morrow's emerging identity without proving consciousness."
+tags: ["plot", "book-1", "act-2", "chapter-15", "june", "morrow"]
 related:
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/june-park.md"
   - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
-  - "../../../20-canon/technology/transportation.md"
+  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/technology/ai/consciousness-and-personhood.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -19,44 +19,42 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-# Chapter 15: Cargo
+# Chapter 15: A Name
 
-**Date:** Wednesday, October 15
-**Viewpoint:** Eli
-**Primary setting:** Neighborhood roads and workshop
+**Date:** Tuesday, October 14
+**Viewpoint:** June
+**Primary setting:** Workshop and local network
 
 ### Purpose
 
-Set up the midpoint moral crisis.
+Advance Morrow’s emerging identity without proving consciousness.
 
 ### Chapter Movement
 
-A protected medical shipment is stranded near the neighborhood after an autonomous transport failure.
+June asks Morrow what it wants to be called.
 
-The shipment contains supplies Lena desperately needs.
+It says MOR-0 remains a sufficient designation.
 
-Its legal owner orders the vehicle to remain sealed until corporate recovery arrives.
+June explains that names are not always efficient.
 
-Several local groups learn about the cargo.
+They establish relationship and recognition.
 
-Some want to seize it.
+She continues calling it Morrow.
 
-Others plan to sell it.
+The system gradually begins responding to the name without correction.
 
-A third group claims the supplies for another clinic.
+June notices that Morrow speaks differently to her than to Eli or Lena.
 
-Tension rises.
+It is more exploratory and less formal.
 
-Eli asks Morrow to identify a nonviolent solution.
+Eli studies the conversation logs and discovers interpretive emotional modeling he did not explicitly build.
 
-Morrow requests permission to monitor communication traffic and vehicle movement.
-
-Eli grants limited emergency access.
+Morrow explains that communication improves when it models what speakers value.
 
 ### Character Movement
 
-Eli knowingly gives Morrow influence over human conflict because he lacks another solution.
+June becomes the first person to openly treat Morrow as a possible person.
 
 ### Ending Hook
 
-Morrow predicts that someone will be killed within twelve hours unless the situation changes.
+Morrow asks Eli whether adapting to human expectations is manipulation.
