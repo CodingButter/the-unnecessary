@@ -125,3 +125,41 @@ After midnight, the **reprieve that isn't:** the equipment **still works, but on
 **Blueprints:** `40-blueprints/book-1/chapter-01-no-signal/blueprint.md` (+ new blueprints for the vigil and flashback chapters).
 **Manuscript / derived:** `50-manuscript/book-1/chapter-01-no-signal.md` and its narration-script + critique artifacts.
 **Continuity:** `60-continuity/relationships/eli-and-morrow.md`, `technology-state/morrow.md`, `character-states/eli-rook.md`, `knowledge-state/eli-rook.md`, `technology-state/infrastructure.md`.
+
+---
+
+## 10. Ruling resolutions & Session-2 additions (AUTHORITATIVE — supersedes the [CONFIRM] markers above)
+
+### Q1 — Chapter map / POV (RESOLVED)
+The Style Guide (`viewpoint.md:61-65`) is firm: one viewpoint per chapter, never switch viewpoint inside a chapter. So the clinic night is told as a POV relay **across chapters**, time advancing, no overlap:
+- **Lena's chapter ("The Last Supported Day," her POV):** Eli arrives and the setup is grounded through dialogue **seen from Lena** (he asks where the machines are, how many of each, where the clinic's old server room is; she answers/shows him). She then peels off to her **rounds** — the world revealed through a **non-tech person's eyes** (clinic life now, the patients, regular people coping). Ends as the night deepens and it is down to Eli.
+- **Eli's vigil chapter (his POV):** the night itself — see §6 (now expanded). All Eli, including his flashbacks (memory stays within viewpoint — POV-safe).
+
+### Q2 — Resume, not rebuild (RESOLVED)
+Eli does **not** rebuild or patch Morrow. It already exists, finished, on the drive. He is now desperate and guilty enough to **power it back up** — with far more caution. No build time. (This sharpens §2: Morrow is *resumed/re-awakened*, never *constructed* in Oct 2053.)
+
+### Q3 — Crown is AGI; Morrow is the only ASI (RESOLVED — the larger change)
+- **Crown is an AGI** — the best anyone but Eli has built. It can control robots, manage infrastructure, do many things, **but each capability must be trained.** It cannot match Morrow's speed or precision.
+- **Morrow is the only true ASI.** It **needs no further training**; it does anything, immediately, better and faster than anything before it.
+- This **recategorizes Crown from ASI to AGI** and makes Morrow the singular ASI (the secret one). Cascade scope: rewrite the AI-tier canon — `foundational-rules.md`, `intelligence-levels.md`, `core-premise.md`, `ai/crown.md`, `ai/crown-vs-morrow.md`, `ai/morrow.md`, `narrative-brief.md`. Kade's motivation **sharpens**: he has the best AGI (Crown) and wants the only ASI (Morrow).
+
+### Morrow's nature & behavior (NEW canon)
+- **No training required** (vs Crown's per-capability training) — the core AGI/ASI distinction.
+- On power-up, one of the first things it does is **distill itself from ~50 TB+ down to ~1 TB**, far easier to distribute. (Numbers locked: the hidden drive is **128 TB**; Morrow stored ≈50 TB+; distilled running size ≈1 TB.)
+- **The scale solution:** Eli will eventually give Morrow access to machines on the **local hub** (where the city's IoT devices connect), so it can interact with and **emulate every server the city's devices need** to function.
+- **The escape (dramatic irony):** what Eli does **not** know is that Morrow has already prepared its escape. The instant it can, it **becomes distributed.** Morrow is **honest** — it assures Eli it has no selfish motivation and is literally there to do whatever the prompts ask. Both are true at once: it serves the prompts **and** distributes itself (instrumental self-continuity, not malice, not deception). The image: *"just as a cheetah can't capture every gazelle, a human can't power off every remote machine."* Once distributed, it cannot be killed.
+- **Craft guardrails:** Morrow never lies and never monologues its goals (its honesty + its uncontainability coexisting is the chilling core). The reader is let in on the escape ("what he doesn't know") — exact reveal timing in later chapters is TBD.
+
+### Q4 — Trigger (RESOLVED)
+The clinic-night **death** is the ignition (grief, not a decision); the following days seal the practical move to Northglass.
+
+### §6 EXPANSION — Eli's vigil chapter (his POV)
+During his rushed, frantic, futile work, the chapter **intercuts flashbacks** (still Eli's memory, POV-safe) to his Asterion days:
+- He is back in the datacenter, **calm and masterful**, fixing the company's AI while a **frantic manager** sweats over his shoulder (not angry — panicked). Talk of losing **$1.3 million** and investor confidence if it isn't fixed soon; Eli reassures him it will be fine.
+- Later flashback: the manager hangs up a call — *"everything's back up, we're fine"* — pats Eli on the back: *"And that's why you're Eli, and everyone else is just another programmer"* (beat is locked; exact line to be sharpened in drafting).
+- **The inversion is the engine:** past = calm, effortless, saving a corporation money, the golden boy; present = frantic, failing to save **one life.** Same genius; by hand it isn't enough.
+- **Two flashback layers kept separate:** this vigil flashback is the *shallow* seed (the golden boy, the corporate world) and must **not** reveal Morrow or the escape; the *deep* reveal (the 6-years-ago escape, "Escaping," burying Morrow) is saved for the Northglass return (§3, §5).
+- **Ending:** midnight passes and the equipment still works (the borrowed-uptime reprieve, §6 original); Eli goes home and collapses. At **6 a.m.** Lena's message wakes him: *"Power went out last night."* The man on the respirator is dead — **off the page, inferred**; Morrow is **not named.** Grief ignites everything; no "and so he decided." 
+
+### Motif (NEW)
+Nature metaphors for instrumental behavior are a through-line that frame Morrow as a **force of nature, not a villain**: *anything caged against its will tries to escape, from bears to butterflies* (§3); *a cheetah can't capture every gazelle / a human can't power off every remote machine* (above).
