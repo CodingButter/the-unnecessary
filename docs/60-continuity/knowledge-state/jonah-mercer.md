@@ -1,4 +1,5 @@
 ---
+title: "Jonah Mercer Knowledge State"
 document_type: "continuity-baseline"
 status: "active"
 authority: "continuity"

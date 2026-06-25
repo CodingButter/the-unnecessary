@@ -9,7 +9,7 @@ tags:
   - character
   - kade
 related:
-  - "../../../20-canon/characters/adrian-kade.md"
+  - "../../../20-canon/characters/profiles/adrian-kade.md"
   - "../index.md"
 source_documents:
   - "Creative Decision Log.md"

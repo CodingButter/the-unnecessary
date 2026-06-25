@@ -8,7 +8,7 @@ tags:
   - decision
   - timeline
 related:
-  - "../../../20-canon/timeline/master-timeline.md"
+  - "../../../20-canon/timeline/index.md"
   - "../index.md"
 source_documents:
   - "Creative Decision Log.md"

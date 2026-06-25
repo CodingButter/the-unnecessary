@@ -10,7 +10,7 @@ tags:
   - social-structure
   - mara
 related:
-  - "../../../20-canon/characters/mara-voss.md"
+  - "../../../20-canon/characters/profiles/mara-voss.md"
   - "../index.md"
 source_documents:
   - "Creative Decision Log.md"

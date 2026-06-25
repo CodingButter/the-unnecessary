@@ -1,4 +1,5 @@
 ---
+title: "Sera Vale Character State"
 document_type: "continuity-baseline"
 status: "active"
 authority: "continuity"

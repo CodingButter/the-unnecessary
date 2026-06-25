@@ -9,7 +9,7 @@ tags:
   - character
   - eli
 related:
-  - "../../../20-canon/characters/eli-rook.md"
+  - "../../../20-canon/characters/profiles/eli-rook.md"
   - "../index.md"
 source_documents:
   - "Creative Decision Log.md"

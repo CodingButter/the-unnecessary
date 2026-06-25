@@ -9,7 +9,7 @@ tags:
   - character
   - lena
 related:
-  - "../../../20-canon/characters/lena.md"
+  - "../../../20-canon/characters/profiles/lena-okafor.md"
   - "../index.md"
 source_documents:
   - "Creative Decision Log.md"

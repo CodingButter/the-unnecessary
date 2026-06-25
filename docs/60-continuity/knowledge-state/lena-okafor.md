@@ -1,4 +1,5 @@
 ---
+title: "Lena Okafor Knowledge State"
 document_type: "continuity-baseline"
 status: "active"
 authority: "continuity"

@@ -10,7 +10,7 @@ tags:
   - plot
   - jonah
 related:
-  - "../../../20-canon/characters/jonah.md"
+  - "../../../20-canon/characters/profiles/jonah-mercer.md"
   - "../index.md"
 source_documents:
   - "Creative Decision Log.md"
