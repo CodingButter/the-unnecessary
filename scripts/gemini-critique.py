@@ -81,12 +81,22 @@ Pay special attention to:
    viewpoint, or gives a character knowledge they should not have yet. (This is
    Chapter 1; Morrow does not exist yet and the protagonist's deep history is
    only hinted.)
-4. PROSE craft: weak lines, flat sensory detail, pacing sags, a soft ending.
+4. PROSE CRAFT, and be DEMANDING here: hunt the weakest lines in the chapter and
+   name them. Flag flat, tautological, or filler sentences (for example a sentence
+   that defines a thing as itself, like "the street looked like a street"), lazy or
+   generic phrasing, telling where showing would land harder, dull sensory detail,
+   pacing sags, and any sentence that does not earn its place. Propose a concrete,
+   sharper rewrite for each. Assume even strong prose can be sharper.
+5. STYLE-GUIDE COMPLIANCE: hold every line against the project Style Guide provided
+   in the context pack (its prohibited patterns, cliches, and required qualities).
+   Flag each violation and name the rule it breaks.
 
 Be specific and concrete. Quote the text. Rank the most important suggestions
-first. Do not pad. If something is genuinely strong, do not invent a problem.
-Output a clean markdown document titled "# Gemini Editorial Critique" with the
-suggestions grouped by severity. End with a short "## Overall" paragraph."""
+first. Do not pad, but do NOT go easy: a discerning literary editor would not let a
+flat or lazy line stand, so surface the real weaknesses even in an otherwise strong
+chapter. Call a line strong only when it truly is. Output a clean markdown document
+titled "# Gemini Editorial Critique" with the suggestions grouped by severity. End
+with a short "## Overall" paragraph."""
 
 
 def build_payload(chapter, pack, blueprint):

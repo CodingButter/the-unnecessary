@@ -153,7 +153,7 @@ def tts(text, voice, model, key, out_path, stability=0.5):
     req = urllib.request.Request(url, data=body, headers={
         "xi-api-key": key, "Content-Type": "application/json", "Accept": "audio/mpeg"})
     try:
-        with urllib.request.urlopen(req, timeout=300) as resp:
+        with urllib.request.urlopen(req, timeout=600) as resp:
             audio = resp.read()
     except urllib.error.HTTPError as err:
         detail = err.read().decode("utf-8", "replace")
@@ -176,7 +176,8 @@ def main():
                     help="Default: eleven_v3 for a narration script (honors audio tags), "
                          "eleven_multilingual_v2 for plain chapter prose.")
     ap.add_argument("--stability", type=float, default=0.5)
-    ap.add_argument("--chunk-chars", type=int, default=2500)
+    ap.add_argument("--chunk-chars", type=int, default=None,
+                    help="Default: 1200 for eleven_v3 (slower; needs smaller requests), 2500 otherwise.")
     args = ap.parse_args()
 
     key = load_key()
@@ -192,6 +193,7 @@ def main():
                  or "## Performance Script" in raw
                  or 'document_type: "narration-script"' in raw)
     model = args.model or ("eleven_v3" if is_script else "eleven_multilingual_v2")
+    chunk_chars = args.chunk_chars or (1200 if model == "eleven_v3" else 2500)
     text = extract_performance(raw) if is_script else extract_prose(raw)
 
     stem = os.path.splitext(os.path.basename(args.chapter))[0]
@@ -200,7 +202,7 @@ def main():
     chunk_dir = os.path.join(out_dir, "chunks", stem)
     os.makedirs(chunk_dir, exist_ok=True)
 
-    chunks = chunk_paragraphs(text, args.chunk_chars)
+    chunks = chunk_paragraphs(text, chunk_chars)
     kind = "narration script (v3 audio tags)" if is_script else "prose"
     print("Narrating " + stem + " as " + kind + ": " + str(len(text)) + " chars in "
           + str(len(chunks)) + " chunk(s), model " + model + ", voice " + args.voice,
