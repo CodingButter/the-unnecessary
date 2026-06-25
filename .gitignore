@@ -14,3 +14,7 @@
 
 # Generated chapter narration (regenerable)
 audio/
+
+# python bytecode
+__pycache__/
+*.pyc
