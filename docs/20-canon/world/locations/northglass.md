@@ -30,7 +30,7 @@ The campus still holds Asterion server facilities, robotics laboratories, protot
 
 ## Morrow's origin at Northglass
 
-Eli recovers enough of Asterion's abandoned systems on this campus that Northglass serves as the physical base from which Morrow is built. The single authority for the Morrow-origin-at-Northglass material is [technology/ai/morrow.md](../../technology/ai/morrow.md).
+Northglass is where Eli hid Morrow. Years ago he secretly created Morrow on his own, and rather than destroy it he buried the drive holding it inside an old machine on this abandoned campus. He does not build Morrow here during the story; he returns to Northglass to retrieve that hidden drive and resume the intelligence already on it. The single authority for the Morrow-origin-at-Northglass material is [technology/ai/morrow.md](../../technology/ai/morrow.md).
 
 ## See also
 

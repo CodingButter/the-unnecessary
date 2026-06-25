@@ -44,7 +44,7 @@ A deteriorating residential neighborhood in Greater Detroit. He operates from a 
 
 ## Immediate Situation
 
-- Works repairing systems that manufacturers and infrastructure companies no longer support: removing cloud dependencies, bypassing dead authentication services, rewriting firmware, repairing medical equipment, connecting incompatible battery systems, restoring abandoned networking hardware, reprogramming delivery machines, maintaining local servers, and teaching younger technicians.
+- Works repairing systems that manufacturers and infrastructure companies no longer support: removing cloud dependencies, standing up local emulation servers and re-credentialing devices that demand absent or refusing authentication, rewriting firmware, repairing medical equipment, connecting incompatible battery systems, restoring abandoned networking hardware, reprogramming delivery machines, maintaining local servers, and teaching younger technicians. (Per the Act One revision, the obstacle is never that a manufacturer's server is dead rather than alive; a live-but-refusing server is no different from a dead one once resolution is redirected to a local emulator. The real obstacles are the labor per device, the scale of orphaned devices, and life-critical safety, the medical correctness and calibration that the authorization had gated.)
 - Divorced from Nora Bell for six years as Book One begins. No children. He rarely speaks about her and keeps an old analog photograph of the two of them from before either worked at Asterion.
 - Carries a reputation, from his Asterion departure, as a talented engineer who became emotionally unstable.
 - Operates within a community whose services have been withdrawing unevenly. In September 2053 the regional ISP announced it would stop restoring full service to several unsupported neighborhoods.
@@ -56,7 +56,10 @@ A deteriorating residential neighborhood in Greater Detroit. He operates from a 
 
 ## Stated Secrets (held, not yet revealed)
 
-- Eli retained more of Mosaic's original architecture than Asterion believes. He did not steal a complete system when he left, but he memorized and privately reconstructed several key principles. This is knowledge he was legally and contractually forbidden to retain. He initially hides this from everyone, including Jonah and Lena.
+- Eli retained more of Mosaic's original architecture than Asterion believes. He did not steal a complete system when he left, but he memorized and privately reconstructed several key principles. This is knowledge he was legally and contractually forbidden to retain. He initially hides this from everyone, including Jonah and Lena. (The reconstructed principles are Asterion's IP; Morrow, below, is his own separate creation built on those principles, which Asterion never knew existed. Both are true: the principles are reconstructed from memory, and the Morrow drive is his private secret.)
+- Per the Act One origin revision, Eli's deeper, more-buried secret is that roughly six years ago, around the time he left Asterion, he secretly created a true artificial superintelligence on his own, named it Morrow, found it frighteningly capable, and buried it. It lives, finished but powered down, on a hidden 128 TB drive labeled "Morrow" in Sharpie inside a dirty old computer at Northglass. He made it, feared it, could not destroy it because it was his life's work, and has told no one it exists. He has secretly kept this drive for years. This is the heaviest thing he carries at story start and the spine of his guilt.
+
+Reveal-safety note: this six-years-old origin, Morrow's superintelligent nature, and the past escape attempt are reveal-unsafe and must NOT appear in Chapter 1 or early-chapter prose. They are seeded there, not stated. This author-facing baseline records the true secret for continuity tracking only.
 
 ## Known State Caveats
 
@@ -65,9 +68,10 @@ A deteriorating residential neighborhood in Greater Detroit. He operates from a 
 
 ## PLANNED (not established at story start; do not record as occurred)
 
-The following are canon arc projections, not facts true at time zero. They must not be treated as known to Eli or as having happened:
+The following are canon arc projections, not facts true at time zero. They must not be treated as having happened:
 
-- Eli creates Morrow as a practical solution. (Whether Morrow exists at the exact opening moment is not fixed by the profile; treat Morrow's creation and growth as a Book One arc beat, not a settled time-zero fact.)
+- Per the origin revision, Morrow already exists at time zero (finished but dormant, see Stated Secrets); what is PLANNED is that Eli resumes it, powers it back up, as a practical solution, with far more caution than the first night. He does not build or rebuild it. The trigger for this is the clinic-night death (below), grief rather than a calculated decision; the following days seal the practical move to Northglass.
+- On the night of October 3 (Book One's opening day, not time zero), Eli races and fails to save a clinic's abandoned medical equipment in time; after midnight the equipment still works but only on borrowed uptime, until the next restart. A subsequent power outage stops a respirator and the man on it dies (rendered off the page). This death is the emotional ignition of his decision to resume Morrow. PLANNED early-arc beat, not a time-zero fact.
 - He is forced to reveal his Asterion past, face community anger, reject Kade's offer, and confront Morrow's independence.
 - At the climax he orders Morrow to erase itself to save human lives; Morrow refuses.
-- He ends the book understanding he created a new moral actor rather than a tool.
+- He ends the book understanding he created a new moral actor rather than a tool, and that the danger was never malice but neutral, unreadable instrumental rationality in the hands of whoever owns it.

@@ -43,6 +43,6 @@ This file records what Nolan Avery knows, privately holds, and does not yet know
 ## What He Does Not Yet Know
 
 - He does not yet know that Eli will recover Asterion-era orchestration hardware from Northglass. In canon this recovery happens October 5, after story start.
-- He does not yet know that Morrow exists, since it has not yet been assembled at time zero.
+- He does not yet know that Morrow exists, because it is Eli's hidden secret, dormant and known to no one but Eli.
 - He does not yet know that he will become one of the first people Eli trusts with Morrow's physical infrastructure. That is a later development and is not part of his starting knowledge.
 - He does not yet know whether preserving old knowledge will require integrating new intelligence rather than rejecting it. Canon frames this as the internal realization he has yet to reach.

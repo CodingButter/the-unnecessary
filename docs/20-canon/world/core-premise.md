@@ -99,7 +99,7 @@ Others disappear.
 
 ## Core Premise
 
-Humanity succeeds in creating artificial superintelligence and autonomous machines capable of performing almost every form of economically useful labor.
+Humanity succeeds in creating advanced general machine intelligence and autonomous machines capable of performing almost every form of economically useful labor. The most powerful sanctioned system, Crown, is the best artificial general intelligence anyone has built; true superintelligence, faster and more capable still and requiring no training, exists only as a single secret no one knows about. The world does not need superintelligence to make most people unnecessary; its general machines are enough.
 
 Artificial intelligence can design buildings, medicines, machines, entertainment, and software.
 
@@ -165,7 +165,7 @@ The old social order ends because artificial intelligence succeeds, and the abun
 
 The first novel begins in **2053**.
 
-The date is distant enough for artificial superintelligence, mature robotics, and autonomous Martian construction to exist.
+The date is distant enough for advanced general machine intelligence, mature robotics, and autonomous Martian construction to exist.
 
 It remains close enough that the physical world still resembles the present day.
 

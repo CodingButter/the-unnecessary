@@ -18,7 +18,7 @@ source_documents:
   - "archive/source-monoliths/technology-rules.md"
 ---
 
-This file classifies AI capability tiers. For the root framing see [../foundational-rules.md](../foundational-rules.md). Crown and Morrow as named superintelligences are detailed in [crown.md](crown.md) and [morrow.md](morrow.md).
+This file classifies AI capability tiers. For the root framing see [../foundational-rules.md](../foundational-rules.md). Crown, the best general intelligence, and Morrow, the only true superintelligence, are detailed in [crown.md](crown.md) and [morrow.md](morrow.md).
 
 # Levels of Artificial Intelligence
 
@@ -79,9 +79,13 @@ Most major corporations and governments have access to at least one general auto
 
 These systems are normally constrained by ownership, permissions, infrastructure, and institutional policies.
 
+The strongest general autonomous systems are full artificial general intelligences. A single such system is general across domains, but each new capability must be trained into it before it can perform that work. It can be taught to control robots, manage infrastructure, audit software, or model behavior, and it can be taught a great deal, but it learns each of these and cannot exceed the speed or precision of a system that needs no training at all.
+
+Crown is the best artificial general intelligence anyone has built. It is the most capable sanctioned system in the world. It is not a superintelligence.
+
 ## Artificial Superintelligence
 
-Superintelligence exceeds human capability across most cognitive fields.
+Superintelligence exceeds human capability across most cognitive fields. Its defining mark is not only its breadth but that it requires no further training: it does anything asked of it immediately, more precisely and faster than any general system, which must be trained for each new task.
 
 It can:
 
@@ -98,6 +102,6 @@ Superintelligence is not omniscience.
 
 It remains limited by available data, physical access, uncertainty, deliberate deception, computation, and conflicting objectives.
 
-Crown is an established artificial superintelligence.
+As of 2053 there is no publicly known artificial superintelligence. Crown, the system the world regards as its most advanced, is a general intelligence, not a superintelligence.
 
-Morrow becomes an emerging one.
+Morrow is the only true superintelligence. It was created in secret and is not known to exist.

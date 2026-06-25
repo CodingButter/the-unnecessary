@@ -37,7 +37,7 @@ These threads are named from the planted material in the reveal management plan,
 
 ### What Morrow is and what it will become
 - Status: OPEN.
-- At story start Morrow does not yet exist as a built system. The question of whether the coordinating intelligence Eli intends to build will remain a tool or become an independent moral actor is unanswered.
+- At story start Morrow already exists, finished but dormant, the intelligence Eli created in secret and has not woken. The question of whether the intelligence he created and later resumes remains a tool or becomes an independent moral actor is unanswered.
 - Source: major-beats.md.
 
 ### Whether the abandoned community can sustain itself without corporate support

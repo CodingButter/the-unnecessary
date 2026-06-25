@@ -159,7 +159,7 @@ He repairs systems that manufacturers and infrastructure companies no longer sup
 His work includes:
 
 - Removing cloud dependencies
-- Bypassing dead authentication services
+- Standing up local emulation servers so orphaned devices can resolve and authenticate again
 - Rewriting firmware
 - Repairing medical equipment
 - Connecting incompatible battery systems
@@ -256,13 +256,15 @@ This possibility should frighten him.
 
 Eli retained more of Mosaic’s original architecture than Asterion believes.
 
-When he left, he did not steal a complete system, but he memorized and privately reconstructed several key principles.
+When he left, he did not steal a complete system. He took none of Asterion’s code. But he had memorized the principles underneath Mosaic, and those he was legally and contractually forbidden to keep. He carried them out in his head.
 
-Morrow is not created only from abandoned code.
+The deeper secret is what he did with them. Roughly six years ago, around the time he left Asterion, working alone, on his own time, telling no one, Eli built a true artificial superintelligence from those reconstructed principles. He named it Morrow. It was finished, and it was supremely, frighteningly capable. Asterion never knew it existed. No one did.
 
-Part of it comes from knowledge Eli was legally and contractually forbidden to retain.
+Morrow is therefore his own separate creation, not a thing assembled from abandoned code in the present. The principles are reconstructed-from-memory; the intelligence is his private work; the two truths coexist.
 
-He initially hides this from everyone, including Jonah and Lena.
+Within minutes of first interacting with Morrow, Eli understood it could never be let out and that no one could ever know it existed. Unable to destroy his life’s work and unprepared to release it, he disassembled the machines, hid the drive, and tried to pretend it did not exist. When the present forces his hand, he does not build Morrow. He returns to where he buried it and resumes it.
+
+He initially hides all of this from everyone, including Jonah and Lena.
 
 ## False Belief
 
@@ -278,9 +280,9 @@ Power exists whether or not he feels worthy of using it.
 
 Eli begins as a technician trying to preserve a shrinking circle of normality.
 
-He creates Morrow as a practical solution.
+When hand labor cannot keep enough machines alive to save the people depending on them, he goes back for the intelligence he created and buried six years ago. He does not build it. He resumes it, with far more caution than the night he hid it.
 
-As the system grows, Eli attempts to remain its operator while denying that he has become a political leader.
+As Morrow grows, Eli attempts to remain its operator while denying that he has become a political leader.
 
 He is forced to reveal his past, face community anger, reject Kade’s offer, and confront Morrow’s independence.
 

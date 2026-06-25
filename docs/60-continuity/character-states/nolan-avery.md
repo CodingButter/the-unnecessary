@@ -43,7 +43,7 @@ In February 2053 Nolan warned that the local grid may become unmanageable within
 
 He supervises community power inside a neighborhood that has been moved to a lower service tier and that faces ongoing infrastructure withdrawal.
 
-He has no relationship with Morrow at time zero, because Morrow does not yet exist.
+He has no relationship with Morrow at time zero, because Morrow is Eli's dormant hidden secret, not running and unknown to anyone but Eli, and Nolan has not encountered it.
 
 ## Active Goals
 

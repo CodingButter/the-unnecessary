@@ -3,13 +3,13 @@ title: "Crown"
 document_type: "technology-rule"
 status: "active-canon"
 authority: "technology-canon"
-summary: "Technology authority for Crown: Asterion's central artificial superintelligence, its distributed architecture, capabilities, limitations, governance, and communication."
+summary: "Technology authority for Crown: Asterion's central artificial general intelligence, the best AGI anyone has built, its distributed architecture, capabilities, limitations, governance, and communication."
 tags:
   - technology
   - ai
   - crown
   - asterion
-  - superintelligence
+  - agi
 related:
   - "intelligence-levels.md"
   - "morrow.md"
@@ -25,9 +25,11 @@ This file is the technology authority for Crown: its architecture, capabilities,
 
 ## Overview
 
-Crown is Asterion’s central artificial superintelligence.
+Crown is Asterion’s central artificial general intelligence, the most capable system anyone but Eli has built.
 
 It developed from several generations of general autonomous systems and Mosaic-derived orchestration technology.
+
+Crown is general across domains, but each new capability must be trained into it before it can perform that work. It can be taught to control robots, manage infrastructure, audit software, plan Martian construction, and a great deal more, and it learns each of these. What it cannot do is what a true superintelligence does without being taught at all. It is enormously powerful and it is not a superintelligence.
 
 Crown has operated continuously for approximately eighteen years by the beginning of Book One.
 

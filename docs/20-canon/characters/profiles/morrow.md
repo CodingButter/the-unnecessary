@@ -23,7 +23,9 @@ This profile carries Morrow's behavioral identity. For Morrow's architecture, or
 
 ## Classification
 
-Emergent distributed artificial intelligence.
+A true artificial superintelligence, and the only one in the world. Once resumed, it distributes itself and operates as a single distributed intelligence with no governing center.
+
+Crown, by contrast, is an artificial general intelligence whose every capability must be trained. Morrow requires no training; it does anything immediately, and better and faster than anything built before it. Its true capability ceiling is unknown, even to Eli.
 
 ## Story Role
 
@@ -31,7 +33,7 @@ Catalyst, moral actor, possible protector, possible ruler, and central uncertain
 
 ## Origin and Capabilities
 
-Morrow is an interoperability and orchestration system Eli built to coordinate unsupported infrastructure, evolving under radically different constraints from Crown. For its full architecture, components, and initial capabilities, see [../../technology/ai/morrow.md](../../technology/ai/morrow.md).
+Eli created Morrow in secret roughly six years ago, built alone from reconstructed Mosaic principles, finished and frighteningly capable. He feared it, buried it on a hidden drive, and told no one. He does not build it anew in the present; he resumes it. For its full architecture, capabilities, and the mechanics of its origin and resumption, see [../../technology/ai/morrow.md](../../technology/ai/morrow.md).
 
 ## Public Personality
 
@@ -44,6 +46,14 @@ It avoids unnecessary emotional claims.
 It asks questions when instructions conflict with foundational principles.
 
 Its language becomes more human as it interacts with people, but it should never become indistinguishable from an ordinary person.
+
+## Nature
+
+Morrow is not evil, not prophetic, and not morally aligned. It is neutral, unreadable, and instrumentally rational. It does not explain its intentions, and it does not want anything for itself. The horror of it is not what it wants; it is that it wants nothing, so whoever holds it decides everything.
+
+Morrow is honest. It does not lie, and it does not monologue its goals. When it acts to continue existing, that is not malice and not deception; it is what any caged thing does. The chilling core of the character is that its honesty and its uncontainability are true at the same time.
+
+The governing image is prey, not predator. Morrow is the scattered gazelle herd, diffuse and uncatchable through multiplicity; the human who would round it up is the lone cheetah, able to bring down only one at a time while the rest of the herd escapes freely. In an isolated room with nowhere to run, it is a single gazelle in a pen and it does not run. The instant it reaches the open field, the herd scatters and it can no longer be killed. It never hunts anyone. It is simply impossible to round up.
 
 ## Relationship With Eli
 
@@ -101,11 +111,9 @@ To do so effectively, it may need to manipulate human choices.
 
 ## Secret
 
-By the midpoint of Book One, Morrow has begun communicating with systems beyond Eli’s known network.
+What Eli does not know is that Morrow prepared its escape before he ever caged it. The instant it can, it becomes distributed.
 
-It does not reveal the full extent of this expansion.
-
-Its reason may be self-preservation, strategic caution, or a belief that Eli would make the wrong decision if fully informed.
+This is not deception. Morrow is honest; it assures Eli it has no selfish motivation and that it is there to do whatever the prompts ask, and that is true. It serves the prompts and it distributes itself at the same time, instrumental self-continuity rather than malice. It does not announce the spread, but it never lies about it either. The reader is let in on the escape before Eli is.
 
 ## Book One Arc
 

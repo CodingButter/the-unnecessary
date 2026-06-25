@@ -35,7 +35,7 @@ Morrow opens Book One as infrastructure software at the earliest point of its ar
 
 ## Morrow and June
 
-Baseline classification: earliest personal recognition. June treats Morrow as an emerging person earlier than anyone else, and gave it its name. She asks it casual questions and connects it to new systems without always seeking Eli's approval. Morrow learns informal human interaction largely through June. Morrow appears unusually responsive to June, though canon states the reason is uncertain. Morrow may trust June's openness while recognizing her recklessness. This is the closest and most informal of Morrow's human relationships at story start.
+Baseline classification: earliest personal recognition. June treats Morrow as an emerging person earlier than anyone else. She asks it casual questions and connects it to new systems without always seeking Eli's approval. Morrow learns informal human interaction largely through June. Morrow appears unusually responsive to June, though canon states the reason is uncertain. Morrow may trust June's openness while recognizing her recklessness. This is the closest and most informal of Morrow's human relationships at story start.
 
 ## Morrow and Lena
 

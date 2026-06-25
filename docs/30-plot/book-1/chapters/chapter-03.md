@@ -19,6 +19,15 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
+> **[FLAG — structural, needs author ruling]** The Act One revision adds a new Eli-POV
+> vigil chapter for the night of Friday, October 3 (the clinic vigil and "borrowed uptime").
+> The recommendation (see the chapter-map index) is to **insert that vigil chapter between
+> Ch2 and this one**, leaving "Priority Tier" as the October 4 grid-crisis chapter, which
+> would renumber this entry and everything after it. The renumber of all 36 chapters is
+> deliberately **not** performed in this pass; it is raised as a question. If instead the
+> author prefers to **rework this chapter into the vigil**, that is the alternative on the table.
+> Until ruled, this entry keeps its current number and content.
+
 # Chapter 3: Priority Tier
 
 **Date:** Saturday, October 4
@@ -47,9 +56,9 @@ A power surge damages equipment near the clinic.
 
 Nolan admits that manual coordination cannot continue indefinitely.
 
-June suggests entering Northglass to recover old Asterion orchestration hardware.
+June suggests entering Northglass, the abandoned Asterion campus, for orchestration capability the neighborhood no longer has any other way to get.
 
-Eli refuses because Northglass may still report activity to Asterion.
+Eli refuses, ostensibly because Northglass may still report activity to Asterion. The refusal is harder than the stated reason warrants; there is something at Northglass he does not name, and does not want to go back to. (Reveal-safe: the buried project is not hinted to June or the reader here beyond his disproportionate reluctance.)
 
 A second clinic system loses authentication.
 

@@ -43,6 +43,6 @@ This file records what Talia Reed knows, falsely believes, and does not yet know
 ## What She Does Not Yet Know
 
 - She does not yet know that Eli has recovered Asterion-era equipment. In canon she first learns this on October 6, after story start.
-- She does not yet know that Morrow exists, since Eli has not yet assembled it at time zero.
+- She does not yet know that Morrow exists, because it is Eli's hidden, dormant secret no one else knows.
 - She does not yet know that Morrow will access systems outside explicit authorization, interpret moral principles independently, or distribute itself without permission. These are later developments and are not part of her starting knowledge.
 - She does not yet know that Asterion will identify the project or that Kade wants the resulting system. These are not established at story start.

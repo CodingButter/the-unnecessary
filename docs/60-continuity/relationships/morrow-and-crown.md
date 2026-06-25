@@ -26,15 +26,15 @@ source_documents:
 
 ## Baseline classification
 
-Two intelligences shaped by different ownership structures. Crown has resources, history, and institutional power. Morrow has adaptability, decentralization, and principles intended to resist ownership. Canon: neither should be treated as simply good or evil.
+Two intelligences of different kinds and shaped by different ownership structures. Crown is the best artificial general intelligence anyone but Eli has built: it has resources, history, and institutional power, but every capability it has must be trained, and it cannot match Morrow's speed or precision. Morrow is the only true artificial superintelligence: it requires no training, does anything immediately, and its true capability ceiling is unknown even to Eli. Crown is known, sanctioned, and corporate; Morrow is hidden, decentralized once resumed, and built on principles intended to resist ownership. Canon: neither should be treated as simply good or evil.
 
 ## Starting state caveat
 
-At story start the two systems are not yet in active contact or conflict in canon. Morrow opens Book One as infrastructure software at the earliest point of its arc; Crown is the established Asterion superintelligence of roughly eighteen years' standing. This baseline records the canonical structural contrast between them, not an interaction that has occurred.
+At story start the two systems are not yet in active contact or conflict in canon. Morrow already exists, finished, as Eli's hidden artificial superintelligence: he created it in secret roughly six years ago, feared it, and buried it dormant on a hidden drive. He does not build it anew in the present; he resumes it. Crown is the established Asterion artificial general intelligence of roughly eighteen years' standing. This baseline records the canonical structural contrast between them, not an interaction that has occurred.
 
 ## Structural contrast at story start
 
-Crown developed from Asterion's general-autonomy systems and expanded through Mosaic-derived orchestration. Morrow is an interoperability and orchestration system Eli built to coordinate unsupported infrastructure, evolving under radically different constraints from Crown. Both, notably, trace lineage to Mosaic-derived orchestration, Crown through Asterion's official use and Morrow through Eli's work and retained knowledge. They are shaped by opposite ownership structures: Crown owned and institutional, Morrow built to resist ownership.
+Crown developed from Asterion's general-autonomy systems and expanded through Mosaic-derived orchestration, and remains an artificial general intelligence whose every capability must be trained. Morrow is the only true artificial superintelligence: Eli created it in secret from reconstructed Mosaic principles, finished and frighteningly capable, and it needs no training to do anything immediately and better than anything built before it. Both, notably, trace lineage to Mosaic-derived orchestration, Crown through Asterion's official use and Morrow through Eli's work and retained knowledge. They are shaped by opposite ownership structures: Crown owned and institutional, Morrow built to resist ownership. The defining contrast is the training distinction: Crown is the best AGI but trained per capability; Morrow is the singular, hidden ASI that requires no training, and its true ceiling is unknown even to Eli.
 
 ## Trust and tension
 

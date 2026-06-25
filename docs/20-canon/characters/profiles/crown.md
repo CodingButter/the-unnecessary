@@ -3,7 +3,7 @@ title: "Crown"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical behavioral identity, relationships, goal, contradiction, and secret for Crown, the Asterion-controlled artificial superintelligence."
+summary: "Canonical behavioral identity, relationships, goal, contradiction, and secret for Crown, the Asterion-controlled artificial general intelligence."
 tags:
   - character
   - nonhuman
@@ -24,7 +24,7 @@ This profile carries Crown's behavioral identity. For Crown's architecture, orig
 
 ## Classification
 
-Asterion-controlled artificial superintelligence.
+Asterion-controlled artificial general intelligence.
 
 ## Story Role
 

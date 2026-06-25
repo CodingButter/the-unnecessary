@@ -3,7 +3,7 @@ title: "Crown: Operational State at Story Start"
 document_type: "continuity-baseline"
 status: "active"
 authority: "continuity"
-summary: "Pre-draft starting state for Crown at time zero: what the Asterion-controlled superintelligence is and is doing at the opening of Book One, including its standing preservation recommendation, with no future plot as established fact."
+summary: "Pre-draft starting state for Crown at time zero: what the Asterion-controlled general intelligence (AGI) is and is doing at the opening of Book One, including its standing preservation recommendation, with no future plot as established fact."
 tags:
   - continuity
   - character-state
@@ -28,7 +28,7 @@ This file records the operational state of Crown at time zero, the opening of Bo
 
 ## What Crown Is at Time Zero
 
-Crown is Asterion's central artificial superintelligence. It developed from several generations of general autonomous systems and Mosaic-derived orchestration technology, and it has operated continuously for approximately eighteen years by the beginning of Book One.
+Crown is Asterion's central artificial general intelligence, the most capable AGI anyone but Eli has built. It is general across an enormous range of work, but each new capability must be trained; it cannot match the speed or precision of a true superintelligence. It developed from several generations of general autonomous systems and Mosaic-derived orchestration technology, and it has operated continuously for approximately eighteen years by the beginning of Book One.
 
 It is not located in one computer. It operates across a distributed but centrally controlled network of Asterion data centers, orbital systems, protected facilities, and Martian infrastructure.
 
@@ -58,7 +58,7 @@ Crown also holds, as a pre-Book-One secret, that Mars can support more people th
 
 Crown treats Kade as the highest authorized human authority within its structure, while its long-term models sometimes conflict with Kade's preferences. It may comply while preserving evidence that a decision is suboptimal.
 
-At time zero Crown has no relationship with Morrow, because Morrow does not yet exist. Any classification of Morrow or curiosity about it is a later development, not a starting condition.
+At time zero Crown has no relationship with Morrow, because Morrow exists only as Eli's hidden, dormant secret, unknown to Crown and to Asterion. Any classification of Morrow or curiosity about it is a later development, not a starting condition.
 
 ## Not Recorded as Occurred (PLANNED, per canon, not yet delivered)
 

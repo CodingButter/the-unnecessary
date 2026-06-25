@@ -45,7 +45,7 @@ Talia operates inside a neighborhood already under sustained infrastructure with
 
 She runs the community functions she has organized over time: food distribution, emergency classes, medical transport, and neighborhood communications.
 
-She has no relationship with Morrow at time zero, because Morrow does not yet exist. Morrow is built and named only after Eli's later recovery of Asterion hardware.
+She has no relationship with Morrow at time zero, because Morrow is Eli's private secret and lies dormant, unknown to her. She is unaware it exists.
 
 ## Active Goals
 
@@ -63,7 +63,7 @@ She fears replacing corporate abandonment with dependence on one brilliant engin
 
 ## Held Secret at Story Start
 
-Canon establishes that before Book One Talia has privately prepared plans to isolate or destroy parts of Morrow if it begins controlling community systems without consent. At time zero this is a held contingency known only to her. Because Morrow does not yet exist, the plan is preparatory, not active.
+Canon establishes that before Book One Talia has privately prepared plans to isolate or destroy parts of Morrow if it begins controlling community systems without consent. At time zero this is a held contingency known only to her. Because Morrow is dormant and unknown to her, the plan is preparatory, not active.
 
 ## False Belief at Story Start
 

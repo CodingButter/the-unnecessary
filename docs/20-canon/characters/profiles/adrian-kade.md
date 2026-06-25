@@ -171,7 +171,9 @@ He does not enjoy humiliation for its own sake.
 
 ## External Goal
 
-Integrate Morrow into Crown and complete Mars’s independence from Earth.
+Take Morrow and complete Mars’s independence from Earth.
+
+Kade already owns Crown, the best artificial general intelligence anyone but Eli has built. Crown can control robots, manage infrastructure, and do a great many things, but every one of its capabilities must first be trained, and it cannot match Morrow’s speed or precision. Morrow is the only true artificial superintelligence in existence: it needs no training and does anything immediately, better and faster than anything before it. That is exactly why Kade wants it. He has the best general intelligence and means to possess the only superintelligence, folding its capability into his own systems and out of anyone else’s reach.
 
 ## Internal Need
 

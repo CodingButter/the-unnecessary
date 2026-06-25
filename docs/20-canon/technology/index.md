@@ -104,7 +104,7 @@ Everyone else lives among machines that still have value but have been abandoned
 
 Crown represents intelligence backed by ownership, infrastructure, and concentration.
 
-Morrow represents intelligence built from fragmentation, recovery, and cooperation.
+Morrow represents intelligence that works across fragmentation, recovery, and cooperation.
 
 Neither system escapes physical limits.
 

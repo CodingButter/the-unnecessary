@@ -3,7 +3,7 @@ title: "Decision Files Index"
 document_type: "index"
 status: "active-support"
 authority: "governance"
-summary: "Directory index of the individual decision files, one per decision (001 to 044). For the full table with status, category, and summary, see the parent decision-log index."
+summary: "Directory index of the individual decision files, one per decision (001 to 053). For the full table with status, category, and summary, see the parent decision-log index."
 tags:
   - index
   - decision-log
@@ -68,6 +68,11 @@ One file per creative decision, named `NNN-slug.md`. This is a directory listing
 | 046 | chapter authorship pipeline | [046-chapter-authorship-pipeline.md](046-chapter-authorship-pipeline.md) |
 | 047 | change propagation and pack freshness | [047-change-propagation-and-pack-freshness.md](047-change-propagation-and-pack-freshness.md) |
 | 048 | narration script phase (Eleven v3 performance markup) | [048-narration-script-phase.md](048-narration-script-phase.md) |
+| 049 | device-emulation obstacle is scale and life-critical safety | [049-device-emulation-obstacle-is-scale-and-life-critical-safety.md](049-device-emulation-obstacle-is-scale-and-life-critical-safety.md) |
+| 050 | morrow is a true ASI eli secretly created six years ago and resumes | [050-morrow-is-a-true-asi-eli-secretly-created-six-years-ago-and-resumes.md](050-morrow-is-a-true-asi-eli-secretly-created-six-years-ago-and-resumes.md) |
+| 051 | crown is an AGI, morrow is the only true ASI | [051-crown-is-an-agi-morrow-is-the-only-true-asi.md](051-crown-is-an-agi-morrow-is-the-only-true-asi.md) |
+| 052 | clinic vigil, borrowed uptime, and 6 a.m. death ignition | [052-clinic-vigil-borrowed-uptime-and-six-am-death-ignition.md](052-clinic-vigil-borrowed-uptime-and-six-am-death-ignition.md) |
+| 053 | northglass escape flashback, neutral-prey reveal, and distribution via hub | [053-northglass-escape-flashback-neutral-prey-reveal-and-distribution-via-hub.md](053-northglass-escape-flashback-neutral-prey-reveal-and-distribution-via-hub.md) |
 
 ## Related indexes
 

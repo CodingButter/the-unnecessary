@@ -39,7 +39,7 @@ canon, chiefly the character-knowledge timeline and the secret timeline.
 | [june-park.md](june-park.md) | June Park | Known, falsely believed, and not-yet-known at story start. |
 | [lena-okafor.md](lena-okafor.md) | Lena Okafor | Known, falsely believed, and not-yet-known at story start. |
 | [mara-voss.md](mara-voss.md) | Mara Voss | Known, falsely believed, and not-yet-known at story start. |
-| [morrow.md](morrow.md) | Morrow | Records that Morrow does not yet exist at time zero; its emergence and later knowledge are planned and not-yet-occurred. |
+| [morrow.md](morrow.md) | Morrow | Records that Morrow already exists but lies dormant and powered down at time zero, holding no active knowledge; it is resumed, not created, during Book One. |
 | [nolan-avery.md](nolan-avery.md) | Nolan Avery | What he knows, what he privately holds, and what he does not yet know at story start. |
 | [nora-bell.md](nora-bell.md) | Nora Bell | What she knows, what she falsely believes, and what she does not yet know at story start. |
 | [sera-vale.md](sera-vale.md) | Sera Vale | Known, falsely believed, and not-yet-known at story start. |

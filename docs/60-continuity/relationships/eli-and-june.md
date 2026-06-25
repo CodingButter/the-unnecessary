@@ -38,7 +38,7 @@ June admires Eli and is angry that he wasted years hiding what he knows. She cha
 
 ## Alliance and debt
 
-An active working alliance: June is Morrow's primary physical-network builder and helps Eli construct and spread the system. The mentorship runs one direction in instruction, but June already operates with significant independence, connecting systems without always seeking Eli's approval.
+An active working alliance: June is the primary builder of Morrow's physical network and helps Eli spread and distribute the resumed system across machines. The mentorship runs one direction in instruction, but June already operates with significant independence, connecting systems without always seeking Eli's approval.
 
 ## Concealed access (baseline state)
 

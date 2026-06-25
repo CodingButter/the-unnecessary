@@ -59,13 +59,13 @@ Each organization sends a professional termination notice.
 
 A power-management failure threatens the clinic and the neighborhood water system.
 
-Eli lacks the computing capacity and software access required to coordinate the available batteries, vehicles, generators, and solar equipment.
+Eli works through the night to keep the clinic’s orphaned medical equipment alive, but the obstacle defeats him. One person with a screwdriver cannot reverse-engineer and re-host every abandoned device by hand, at the scale of an entire community, fast enough. Forging a device’s authorization is the easy part. Reproducing the medical correctness that authorization gated, the calibration and the dosing envelope and the safety record, cannot be hand-built in time.
 
-He enters Northglass looking for abandoned Asterion hardware.
+He fails before midnight. The equipment survives the deadline but now runs on borrowed uptime, alive only until something restarts it. When the power lags one night, a man on a respirator dies.
 
-Inside, he discovers prototype Mosaic components and dormant systems that were never fully removed.
+Grief and guilt drive Eli back to Northglass, to a secret he buried years ago: a hidden drive, planted inside an old machine on the abandoned campus, holding Morrow, the intelligence he built alone and could not bring himself to destroy.
 
-He begins constructing Morrow.
+He does not construct Morrow now. He resumes it.
 
 Morrow stabilizes the power network and keeps Lena’s clinic functioning.
 

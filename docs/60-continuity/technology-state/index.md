@@ -32,6 +32,6 @@ plot-driven future changes.
 
 | File | System | Summary |
 |---|---|---|
-| [crown.md](crown.md) | Crown | Operational state of Asterion's central superintelligence: what is up, what constrains it, and what it cannot do at story start. |
+| [crown.md](crown.md) | Crown | Operational state of Asterion's central AGI (best general intelligence anyone but Eli has built, trained per capability): what is up, what constrains it, and what it cannot do at story start. |
 | [infrastructure.md](infrastructure.md) | Infrastructure | State of energy, communications, cloud dependency, and identity and access at story start: what is up, degraded, or failed under canon failure rules. |
-| [morrow.md](morrow.md) | Morrow | Pre-existence state: Morrow does not yet exist as a running system at story start; its emergence is a Book One event, not a starting condition. |
+| [morrow.md](morrow.md) | Morrow | Dormant state: Morrow already exists as a finished but powered-down artificial superintelligence on a hidden drive at story start; its resumption (not creation) is a Book One event, not a starting condition. |

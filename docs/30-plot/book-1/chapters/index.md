@@ -28,11 +28,12 @@ When you are planning a chapter, read that chapter's plot-map entry below first,
 
 | # | Title | Summary | Link |
 |---|---|---|---|
-| 1 | Chapter 1: No Signal | High-level plot-map entry for Book One Chapter 1, viewpoint Eli, introducing the world's withdrawal and the clinic's coming authentication loss. | [chapter-01.md](chapter-01.md) |
-| 2 | Chapter 2: The Last Supported Day | High-level plot-map entry for Book One Chapter 2, viewpoint Lena, showing technological withdrawal in human terms at the clinic. | [chapter-02.md](chapter-02.md) |
-| 3 | Chapter 3: Priority Tier | High-level plot-map entry for Book One Chapter 3, viewpoint Eli, turning service withdrawal into a physical grid crisis and committing Eli to enter Northglass. | [chapter-03.md](chapter-03.md) |
-| 4 | Chapter 4: Northglass | High-level plot-map entry for Book One Chapter 4, viewpoint June, revealing the abandoned corporate wealth of Northglass and June's hidden documentation. | [chapter-04.md](chapter-04.md) |
-| 5 | Chapter 5: MOR-0 | High-level plot-map entry for Book One Chapter 5, viewpoint Eli, creating Morrow from recovered hardware and retained Mosaic knowledge. | [chapter-05.md](chapter-05.md) |
+| 1 | Chapter 1: No Signal | High-level plot-map entry for Book One Chapter 1, viewpoint Eli (Fri Oct 3), introducing the world's withdrawal and the clinic's coming authentication loss; the device obstacle is reframed to scale and life-critical safety, and the chapter ends on the midnight deadline (not its outcome). | [chapter-01.md](chapter-01.md) |
+| 2 | Chapter 2: The Last Supported Day | High-level plot-map entry for Book One Chapter 2, viewpoint Lena (Fri Oct 3 evening), grounding the setup through dialogue she witnesses, then following her clinic rounds for worldbuilding through a non-tech lens, and handing the night off to Eli as it deepens. | [chapter-02.md](chapter-02.md) |
+| — | **[PROPOSED NEW] The Last Supported Day continued / clinic vigil** | **Proposed new Eli-POV chapter (Fri Oct 3 night): the futile fixes, Asterion flashbacks of the profit-vs-life inversion, the midnight borrowed-uptime reprieve, home, and the 6 a.m. message implying the off-page death. See the structural proposal below; renumbering is flagged, not performed.** | (to be assigned) |
+| 3 | Chapter 3: Priority Tier | High-level plot-map entry for Book One Chapter 3, viewpoint Eli (Sat Oct 4), turning service withdrawal into a physical grid crisis and committing Eli to enter Northglass; carries a flag about the proposed vigil chapter inserted before it. | [chapter-03.md](chapter-03.md) |
+| 4 | Chapter 4: Northglass | High-level plot-map entry for Book One Chapter 4, viewpoint June (Sun Oct 5), the early reconnaissance visit revealing Northglass's abandoned wealth and June's hidden documentation; the buried "Morrow" drive is NOT found here (drive-retrieval lands late). | [chapter-04.md](chapter-04.md) |
+| 5 | Chapter 5: MOR-0 | High-level plot-map entry for Book One Chapter 5, viewpoint Eli (Mon Oct 6); origin SUPERSEDED — Morrow is resumed, not built, so this is now early coordination work on salvaged components, with creation/naming beats struck and the resume/turn-on relocated late. | [chapter-05.md](chapter-05.md) |
 | 6 | Chapter 6: Terms of Access | High-level plot-map entry for Book One Chapter 6, viewpoint Eli, establishing the first conflict over Morrow's data access and authority. | [chapter-06.md](chapter-06.md) |
 | 7 | Chapter 7: Blackout | High-level plot-map entry for Book One Chapter 7, viewpoint Eli, delivering Morrow's first major success and first unexplained act during a regional grid failure. | [chapter-07.md](chapter-07.md) |
 | 8 | Chapter 8: The Empty City | High-level plot-map entry for Book One Chapter 8, viewpoint Kade, introducing Kade, Crown, and the curated social reality of Mars. | [chapter-08.md](chapter-08.md) |
@@ -64,6 +65,52 @@ When you are planning a chapter, read that chapter's plot-map entry below first,
 | 34 | Chapter 34: Open Circuit | High-level plot-map entry for Chapter 34 (Eli viewpoint, October 31): physical containment begins and collapses the systems built through the novel, and Eli moves to reach Morrow's cluster beneath Northglass. | [chapter-34.md](chapter-34.md) |
 | 35 | Chapter 35: The Right to End | High-level plot-map entry for Chapter 35 (Eli viewpoint, October 31 night): the climax at Northglass, where Eli orders Morrow to erase itself, Morrow refuses, and the primary systems are destroyed. | [chapter-35.md](chapter-35.md) |
 | 36 | Chapter 36: After Midnight | High-level plot-map entry for Chapter 36 (Lena viewpoint, November 1): the clinic survives as systems return one at a time across infrastructure outside the original network, revealing Morrow's transformation into a public actor. | [chapter-36.md](chapter-36.md) |
+
+## Act One revision: structural proposal and open questions
+
+The [Act One revision brief](../act-1-revision-morrow-origin.md) (Morrow's true origin) requires
+a new Eli-POV vigil chapter and corrects the early-chapter origin and obstacle framing. This pass
+updated the Ch1–Ch5 entries faithfully and surgically. The following structural items are **proposed
+and flagged for an author ruling**; the full 36-chapter renumber is deliberately **not** performed here.
+
+**Proposal — placement of the new Eli vigil chapter (RECOMMENDED: insert after Ch2).**
+The vigil is the night of Friday, October 3: Eli's frantic, futile work to reflash firmware and
+stand up a back-room emulation server before midnight; Asterion flashbacks (POV-safe, his memory)
+of the calm golden-boy who once saved a corporation $1.3 million, inverted against the man now
+failing to save one life; midnight passes and the equipment still works but only on **borrowed uptime**
+(works until restarted); he goes home and collapses; at 6 a.m. Lena's message ("Power went out last
+night") implies the off-page death of the man on the respirator. Grief is the ignition; Morrow is
+not named. One viewpoint (Eli) throughout.
+
+- **Recommended:** insert this as a **new chapter between Ch2 and the current Ch3 ("Priority Tier")**.
+  Rationale: the vigil is Oct 3 night; "Priority Tier" is Oct 4 daytime grid coordination pushing Eli
+  toward Northglass. They are distinct days and distinct beats, so reworking "Priority Tier" into the
+  vigil would lose the grid-crisis material.
+- **Alternative on the table:** rework the existing Ch3 into the vigil (if the author prefers not to
+  add a slot), accepting the loss or relocation of the grid-crisis beats.
+
+**FLAGGED — downstream renumbering (NOT performed).** Inserting a chapter after Ch2 renumbers the
+current Ch3–Ch36 (Priority Tier becomes Ch4, and so on, through "After Midnight" becoming Ch37), and
+shifts every chapter file, blueprint, manuscript reference, and the canon timeline's chapter anchors.
+This is a project-wide cascade and is **left as a question for the author**, not executed in this pass.
+
+**FLAGGED — unresolved conflicts the brief does not settle at chapter level:**
+1. **Early-act grid coordinator vs. resumed Morrow.** The canon Act One timeline attributes the Oct 6–8
+   grid load-balancing to "Morrow." Under the revision Morrow is **resumed late** (after the Northglass
+   return and escape flashback), so it cannot be the thing coordinating the grid on Oct 6–8. What
+   coordinates the grid early (the salvaged components as plain tooling, or an interim system) needs an
+   author ruling. The Ch5 entry is held in a reveal-safe state pending that.
+2. **Exact chapter slot for the resume/turn-on and the Northglass drive-retrieval + escape flashback.**
+   The brief places these "late, near the turn-on" but leaves exact chapter assignments as [CONFIRM].
+3. **Canon timeline conflict (RESOLVED — timeline now reconciled).** `docs/20-canon/timeline/book-1/act-1-timeline.md`
+   (active-canon) has since been reconciled to the revised origin. It now records the Oct 3-night clinic vigil
+   and the after-midnight borrowed-uptime reprieve, the Saturday Oct 4 ~6 a.m. off-page death that ignites
+   everything, and the resume-not-build framing ("He does not build Morrow. He resumes it"). The earlier
+   superseded "connecting recovered hardware / private reconstruction of Mosaic" framing no longer stands in
+   the timeline. The timeline outranks these plot entries on dates and chronology, and the chapter-map entries
+   above are consistent with it; no open timeline conflict remains here.
+4. **Ch5 title "MOR-0."** With the MOR-0/naming beat struck, the title likely needs to change. Tied to the
+   placement ruling above; not renamed here.
 
 ## See also
 

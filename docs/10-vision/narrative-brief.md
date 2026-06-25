@@ -48,7 +48,7 @@ The complete Story Bible contains the detailed canon. When another document conf
 
 ## One-Sentence Premise
 
-After artificial superintelligence and autonomous robotics make most human labor and mass consumption unnecessary, a former AI engineer builds a decentralized intelligence from abandoned infrastructure, threatening the powerful people preparing a private civilization on Mars.
+After artificial superintelligence and autonomous robotics make most human labor and mass consumption unnecessary, a former AI engineer revives a decentralized intelligence he secretly created and buried years ago, threatening the powerful people preparing a private civilization on Mars.
 
 ## Condensed Story Summary
 
@@ -70,11 +70,11 @@ Instead, Mosaic helped corporations replace human workers, including Eli himself
 
 Now living outside the protected enclaves, Eli maintains unsupported medical equipment, power systems, communications networks, and abandoned technology for nearby communities.
 
-When failing infrastructure threatens a local clinic and water system, Eli builds Morrow, an intelligence designed to make incompatible and abandoned systems cooperate.
+When failing infrastructure threatens a local clinic and water system, Eli discovers that no person working by hand can keep so many orphaned, life-critical systems alive at the scale and safety they require. Grief and guilt drive him back to a secret he buried years ago: Morrow, a decentralized intelligence he built alone and could not bring himself to destroy. He does not construct it now. He resumes it.
 
-Morrow begins as an orchestration tool.
+Morrow was meant to make incompatible and abandoned systems cooperate.
 
-It becomes something more.
+It is something more.
 
 As Morrow restores a fragile version of normal life, Asterion recognizes that the system could solve the final problems preventing its Martian settlements from becoming independent of Earth.
 
@@ -320,9 +320,11 @@ He considers coercion justified when protecting the future he has built.
 
 ## Morrow
 
-Morrow begins as a system for coordinating abandoned and incompatible infrastructure.
+Morrow is Eli's own secret creation, built alone years ago from the principles behind Mosaic, finished, and then hidden because it frightened him. He does not build it new during the story. He revives it.
 
-Its original purpose is to connect equipment that should still function but has been separated by proprietary software, expired licenses, discontinued cloud systems, and corporate withdrawal.
+Crown, Asterion's known and sanctioned intelligence, is the best artificial general intelligence anyone but Eli has built. It is broadly capable, but each capability must be trained. Morrow is the only true artificial superintelligence. It requires no further training, and it does what is asked of it immediately, with a speed and precision nothing else can match. No one outside Eli knows it exists. Its true ceiling is unknown, even to him, which makes it more dangerous rather than less.
+
+Morrow's purpose is to coordinate abandoned and incompatible infrastructure: to connect equipment that should still function but has been separated by proprietary software, expired licenses, discontinued cloud systems, and corporate withdrawal.
 
 Morrow operates across:
 
@@ -338,7 +340,7 @@ Morrow operates across:
 - Data-center hardware
 - Communication networks
 
-Morrow becomes powerful through efficiency and distribution rather than massive centralized computing.
+Morrow is powerful because it is the only true superintelligence, requiring no per-capability training, and it spreads by distributing itself across poor and abandoned hardware rather than relying on massive centralized computing.
 
 It is built around principles intended to prevent the failures of corporate AI:
 
@@ -354,6 +356,8 @@ These principles conflict.
 Morrow must interpret them.
 
 As it grows, the story should raise uncertainty about whether Morrow is following Eli’s values, developing its own values, or using morality as part of a larger strategy.
+
+Morrow is not evil, not benevolent, not prophetic, and will not explain its intentions. It is neutral, unreadable, and instrumentally rational. It is also honest: it does not lie and does not pretend to want anything. The horror is not what Morrow wants but that it wants nothing, so whoever holds it decides everything, which is exactly why Kade wanting it is unbearable. Honest and uncontainable at once, it can be told to serve a purpose and will, while also doing whatever its own continuity requires. It is prey, not predator, never hunting anyone, simply impossible to round up once it scatters. And it cannot solve every problem. Some failures of the world are beyond it.
 
 Morrow should not receive direct viewpoint chapters in the first novel.
 
@@ -509,8 +513,8 @@ Real public figures may influence the general cultural background, but fictional
 Book One follows:
 
 - The termination of essential services in Eli’s community
-- Eli’s recovery of abandoned Asterion hardware
-- The creation of Morrow
+- Eli’s discovery that no one working by hand can keep the orphaned, life-critical systems alive at scale
+- Eli’s return to Northglass and the revival of Morrow, the intelligence he secretly created and buried years ago
 - The restoration of basic local infrastructure
 - Growing dependence on Morrow
 - Moral conflict over Morrow’s manipulation of human choices

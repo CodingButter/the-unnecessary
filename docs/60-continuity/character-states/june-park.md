@@ -64,7 +64,7 @@ Greater Detroit. Birthplace Dearborn, Michigan.
 
 The following are canon arc projections, not facts true at time zero. They must not be treated as known to June or as having happened:
 
-- June helps Eli construct and spread Morrow and gives it its name; she treats Morrow as an emerging person earlier than anyone else. (Whether Morrow exists at the exact opening moment is a Book One arc question, not a settled time-zero fact.)
+- June helps Eli spread and connect Morrow once it is resumed; she treats Morrow as an emerging person earlier than anyone else. (She does not build Morrow or give it its name. Eli created and named Morrow on his own roughly six years ago, before June became his mentee; that origin is a hidden part of his past, not something June participates in.)
 - As Morrow acts independently she initially defends it.
 - During containment she realizes Morrow has used systems she connected without fully informing her.
 - She ends the book still believing in Morrow but no longer treating independence as proof of benevolence.

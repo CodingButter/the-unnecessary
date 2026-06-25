@@ -49,11 +49,13 @@ Only some streetlights function.
 
 At his repair shop, Eli receives multiple requests caused by the same service withdrawal.
 
+For each abandoned device the fix is the same shape: redirect the device's authentication to something local so it stops waiting on a company that no longer answers. Whether the manufacturer is dead or merely refusing makes no difference; a refusing company is no different from a vanished one, because if a device demands a signature only the maker's key can produce, neither one will produce it. The barrier is never that the upstream server is alive or dead. It is, quietly, two other things Eli does not yet say aloud: the labor is per device and it does not scale, and faking "authorized" is the easy part while the calibration and safety the authorization once gated is the part that cannot be hand-forged in time.
+
 At midday a second automated notice arrives. The regional power provider has transferred the neighborhood to a lower service tier, and outages will no longer be treated as emergencies. The withdrawal is not breaking down on its own. It is being decided.
 
 Lena contacts him about a more serious problem.
 
-Three systems at her clinic will lose manufacturer authentication at midnight.
+Three life-critical systems at her clinic will lose manufacturer authentication at midnight.
 
 ### Character Movement
 
@@ -66,11 +68,12 @@ He ends it recognizing that the systems are being withdrawn together.
 - The world remains physically recognizable.
 - Service withdrawal is contractual and administrative.
 - Eli repairs systems abandoned by their manufacturers.
-- Eli has a history with Asterion that he avoids discussing.
+- The real obstacle is not a dead server but scale (one man cannot keep every orphaned device alive by hand) and life-critical safety (an authorization can be forged, the calibration and dosing it gated cannot). Seeded here, not yet named.
+- Eli has a history with Asterion that he avoids discussing, and something further back than that which he avoids even thinking about. Hinted only, never named.
 
 ### Ending Hook
 
-Lena's clinic will lose manufacturer authentication on three life-critical systems at midnight, and Eli understands this is the one failure he cannot repair, because the company that could re-authorize the systems is the one withdrawing.
+Lena's clinic will lose manufacturer authentication on three life-critical systems at midnight, and Eli understands this is the one failure he cannot simply repair: he could forge the "yes," but he cannot hand-forge the medical correctness that "yes" once stood for, not for three machines, not before midnight. The chapter ends on the deadline, not on what midnight does.
 
 ## See also (canon authorities)
 

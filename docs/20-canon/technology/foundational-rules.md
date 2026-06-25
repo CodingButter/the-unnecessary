@@ -57,11 +57,13 @@ By 2053, humanity has achieved three major breakthroughs.
 
 Advanced systems can reason across many fields, learn unfamiliar tasks, form long-term plans, use tools, coordinate other systems, and adapt to changing environments.
 
+The most capable of these is artificial general intelligence: a single system, general across domains, that must nonetheless be trained for each new capability before it can perform it. Crown is the best example anyone has built. It is enormously powerful, but it is not superintelligence.
+
 ## Artificial Superintelligence
 
-A small number of systems can outperform the best human experts across most intellectual disciplines.
+A true superintelligence outperforms the best human experts across most intellectual disciplines and, unlike general intelligence, requires no further training to do so. It does anything asked of it immediately, more precisely and faster than anything before it.
 
-Crown is the most powerful established example.
+Superintelligence of this kind is exceptionally rare. As of 2053 there is no sanctioned, publicly known example. The corporate systems the world treats as its most advanced, Crown foremost among them, are general intelligences, not superintelligences.
 
 Superintelligence is rare because it requires immense infrastructure, carefully controlled training, specialized hardware, and access to high-quality physical feedback.
 

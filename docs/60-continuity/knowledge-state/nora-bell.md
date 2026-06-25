@@ -39,6 +39,6 @@ This file records what Dr. Nora Bell knows, falsely believes, and does not yet k
 ## What She Does Not Yet Know
 
 - She does not yet know whether her influence inside Crown and Aurelia has become self-deception. Canon frames this as the internal recognition she has yet to reach.
-- She does not yet know that Eli will build an independent intelligence, since Morrow does not yet exist at time zero.
+- She does not know that Eli secretly created an independent intelligence years ago. Morrow already exists at story start, but it is his hidden, dormant secret, and she has no awareness of it.
 - She does not yet know the eventual fate of the internal Crown and Aurelia records she has preserved. Canon marks the wider exposure of those records as material for later books, not story start.
 - She does not yet know the outcome of the conflict between Crown's preservation recommendations and Kade's public claims. That outcome is unresolved at story start.

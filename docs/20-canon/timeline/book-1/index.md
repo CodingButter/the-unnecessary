@@ -31,7 +31,7 @@ Read this index before loading individual Book One timeline files. It carries th
 
 Book One spans thirty days.
 
-The first twenty days show Morrow’s creation and expansion.
+The first twenty days show Morrow’s resumption and expansion.
 
 The final ten days show discovery, coercion, containment, and distribution.
 
@@ -52,7 +52,7 @@ gantt
     section Act One
     Service terminations and clinic crisis    :a1, 2053-10-03, 2d
     Northglass recovery mission               :a2, 2053-10-05, 2d
-    Morrow assembled and activated            :a3, 2053-10-07, 2d
+    Northglass drive retrieved and Morrow resumed :a3, 2053-10-07, 2d
 
     section Act Two
     Local infrastructure restoration          :b1, 2053-10-09, 5d
@@ -123,7 +123,7 @@ It cannot eliminate physical labor.
 | File | Subject | Authority | Read when |
 | --- | --- | --- | --- |
 | [pre-book-2053.md](./pre-book-2053.md) | The final months before Book One, January to September 2053 | timeline-canon | You need the conditions and character setups leading into the opening day |
-| [act-1-timeline.md](./act-1-timeline.md) | Act One day-by-day, October 3 to October 8, 2053 (service terminations through Morrow's first emergency activation) | timeline-canon | Any Act One chapter or blueprint |
+| [act-1-timeline.md](./act-1-timeline.md) | Act One day-by-day, October 3 to October 8, 2053 (service terminations through Morrow's resumption and first emergency activation) | timeline-canon | Any Act One chapter or blueprint |
 | [act-2-timeline.md](./act-2-timeline.md) | Act Two day-by-day, October 9 to October 19, 2053 (a version of normal through Jonah's disclosure) | timeline-canon | Any Act Two chapter or blueprint |
 | [act-3-timeline.md](./act-3-timeline.md) | Act Three day-by-day, October 20 to October 26, 2053 (the invitation through secret expansion) | timeline-canon | Any Act Three chapter or blueprint |
 | [act-4-timeline.md](./act-4-timeline.md) | Act Four day-by-day, October 27 to November 1, 2053 (containment through Morrow's reappearance) | timeline-canon | Any Act Four chapter or blueprint, and the climax end state |

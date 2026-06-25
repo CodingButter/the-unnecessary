@@ -3,13 +3,13 @@ title: "Crown Technology State at Story Start"
 document_type: "continuity-baseline"
 status: "active"
 authority: "continuity"
-summary: "The operational state of Crown, Asterion's central artificial superintelligence, as of time zero, recording what is up, what constrains it, and what it cannot do at the opening of Book One."
+summary: "The operational state of Crown, Asterion's central AGI (the best general intelligence anyone but Eli has built, trained per capability), as of time zero, recording what is up, what constrains it, and what it cannot do at the opening of Book One."
 tags:
   - continuity
   - technology-state
   - crown
   - asterion
-  - superintelligence
+  - agi
 related:
   - "morrow.md"
   - "infrastructure.md"
@@ -29,7 +29,7 @@ This file records the operational state of Crown at time zero, the opening of Bo
 
 ## Operational Status: Up and Running
 
-Crown is fully operational at story start. It has operated continuously for approximately eighteen years by the beginning of Book One. It is the most powerful established artificial superintelligence in the world at time zero.
+Crown is fully operational at story start. It has operated continuously for approximately eighteen years by the beginning of Book One. It is the best artificial general intelligence anyone but Eli has built and the most powerful known, sanctioned, corporate system in the world at time zero. Per the Act One origin revision, Crown is an AGI, not a superintelligence: it is general and can be turned to many things, but each capability must be trained, and it cannot match the only true superintelligence in the story, the hidden Morrow.
 
 Crown is not located in one computer. It operates at time zero across a distributed but centrally controlled network of Asterion data centers, orbital systems, protected facilities, and Martian infrastructure. This network is authorized, standardized, and maintained, which is the environment Crown was built to coordinate.
 
@@ -54,7 +54,7 @@ Crown is constrained at story start, not omnipotent. Its limits are operational 
 
 At story start Crown is stronger in raw computation, scientific infrastructure, data access, manufacturing, robotic fleets, political influence, security resources, space systems, and high-quality training data. This advantage is true from the opening and is not contingent on any later event.
 
-Morrow does not yet exist as a running system at time zero, so there is no active contest between Crown and Morrow at story start. The emergence of Morrow and any contest between the two systems is a Book One development, not an established starting condition. See `morrow.md` for Morrow's pre-existence state.
+Morrow is not running at time zero (it is dormant on a buried drive), so there is no active contest between Crown and Morrow at story start. The reawakening of Morrow and any contest between the two systems is a Book One development, not an established starting condition. See `morrow.md` for Morrow's dormant state.
 
 ## Failure Modes in Effect at Time Zero
 

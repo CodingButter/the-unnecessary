@@ -39,7 +39,7 @@ intelligences in the cast; their fuller capability state lives under
 | [june-park.md](june-park.md) | June Park | Starting conditions: location, condition, situation, goals, and stated secrets at time zero. |
 | [lena-okafor.md](lena-okafor.md) | Dr. Lena Okafor | Starting conditions: location, condition, situation, goals, and stated secrets at time zero. |
 | [mara-voss.md](mara-voss.md) | Mara Voss | Starting conditions: location, condition, situation, goals, and stated secrets at time zero. |
-| [morrow.md](morrow.md) | Morrow | Records that Morrow does not yet exist at the opening of Book One, plus the precondition of its later assembly, with no future plot as fact. |
+| [morrow.md](morrow.md) | Morrow | Records that Morrow already exists at story start as Eli's finished but dormant hidden ASI (resumed, not assembled, during Book One), with no future plot as fact. |
 | [nolan-avery.md](nolan-avery.md) | Nolan Avery | Starting state: location, condition, immediate situation, goals, and held secret at the opening of Book One. |
 | [nora-bell.md](nora-bell.md) | Dr. Nora Bell | Starting state at Asterion: location, role, immediate situation, goals, false belief, and held secret at the opening of Book One. |
 | [sera-vale.md](sera-vale.md) | Sera Vale | Starting conditions: location, condition, situation, goals, and stated secrets at time zero. |

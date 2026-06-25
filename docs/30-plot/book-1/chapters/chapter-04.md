@@ -18,6 +18,16 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
+> **[FLAG — placement, needs author ruling]** Under the Act One revision, Morrow is **resumed,
+> not built**: it already exists, finished, on a hidden 128 TB drive buried at Northglass, and
+> the **drive-retrieval scene with the six-years-ago escape flashback lands LATE, near the turn-on**
+> (revision brief sections 3 and 5), not in this early chapter. This entry is therefore now the
+> **early reconnaissance visit** (June's treasure field, Eli's graveyard), which surfaces general
+> orchestration salvage but **not** the buried drive. Whether the early visit and the later
+> drive-retrieval are the same trip or two separate trips is **not resolved by the brief**
+> (it leaves exact chapter assignments as [CONFIRM]); raised here as a question. Kept reveal-safe:
+> nothing about the buried ASI surfaces in this chapter.
+
 # Chapter 4: Northglass
 
 **Date:** Sunday, October 5
@@ -42,11 +52,11 @@ June uses restricted documentation secretly provided by her father to bypass a s
 
 She hides the source from Eli.
 
-They discover an old laboratory containing prototype hardware used during Mosaic’s development.
+They discover an old laboratory containing prototype hardware from Mosaic’s development.
 
 The most valuable processors are gone.
 
-Experimental low-power orchestration components remain.
+Experimental low-power orchestration components remain. (These support the neighborhood's coordination needs; they are not, under the revision, the stock from which Morrow is built, because Morrow is not built. The buried "Morrow" drive is not found on this visit.)
 
 June copies archived files beyond what Eli authorizes.
 
