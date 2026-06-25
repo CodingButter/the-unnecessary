@@ -22,6 +22,7 @@ is never printed.
 import argparse
 import json
 import os
+import subprocess
 import sys
 import urllib.request
 import urllib.error
@@ -138,7 +139,24 @@ def main():
     ap.add_argument("--blueprint", default=None)
     ap.add_argument("--out", default=None)
     ap.add_argument("--model", default="gemini-2.5-pro")
+    ap.add_argument("--manifest", default=None,
+                    help="If given, REBUILD the pack from this manifest first so the "
+                         "critique can never run against a stale snapshot.")
     args = ap.parse_args()
+
+    # Freshness guarantee: rebuild the pack from its manifest before critiquing,
+    # so an out-of-date snapshot can never be reviewed as if it were current.
+    if args.manifest:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        builder = os.path.join(script_dir, "build-context-pack.py")
+        print("Rebuilding pack from manifest before critique (freshness guarantee)...",
+              file=sys.stderr)
+        rebuilt = subprocess.run([sys.executable, builder, args.manifest],
+                                 capture_output=True, text=True)
+        if rebuilt.returncode != 0:
+            print("ERROR rebuilding pack: " + (rebuilt.stderr or rebuilt.stdout)[:400],
+                  file=sys.stderr)
+            return 1
 
     key = load_key()
     if not key:

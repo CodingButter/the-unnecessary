@@ -116,6 +116,7 @@ The decisions are grouped in the source under eight categories: Foundational Sto
 | 044 | mem0 Knowledge Graph Is On, With the Bibles as Higher Authority | Locked for Current Workflow | Workflow and tooling | The mem0 knowledge graph is on with Gemini extraction into Neo4j; the bibles outrank it and links are recall hints. | [044](./decisions/044-mem0-knowledge-graph-is-on-with-the-bibles-as-higher-authority.md) |
 | 045 | Chapter 1 Ends on the Clinic Midnight Deadline, Not the Power-Tier Downgrade | Locked for Current Draft | Plot and structure | Chapter 1 closes on the clinic midnight authentication deadline; the power-tier downgrade is the midday thematic turn, reconciling the plot-map with the Master Timeline order. | [045](./decisions/045-chapter-1-ends-on-clinic-midnight-deadline.md) |
 | 046 | Chapter Authorship Pipeline (Opus Writes, Gemini Critiques, Opus Adjudicates, Author Approves) | Locked for Current Workflow | Workflow and tooling | Prose chapters: Opus drafts, gemini-2.5-pro critiques against project rules, Opus adjudicates, the author approves; Opus is the sole writer. | [046](./decisions/046-chapter-authorship-pipeline.md) |
+| 047 | Change Propagation and Pack-Freshness Discipline | Locked for Current Workflow | Workflow and tooling | When a fact changes, update its owner and all Affected Documents and rebuild any context pack; packs are never trusted stale, and tooling enforces freshness. | [047](./decisions/047-change-propagation-and-pack-freshness.md) |
 
 ## Related references
 

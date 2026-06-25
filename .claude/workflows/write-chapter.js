@@ -69,7 +69,8 @@ const draft = await agent(
 phase('Critique')
 const crit = await agent(
   `Run EXACTLY this command from ${NOVEL} and report the result:\n` +
-  `  python3 scripts/gemini-critique.py ${manuscript} --pack ${pack} --blueprint ${blueprint} --out ${critique}\n` +
+  `  python3 scripts/gemini-critique.py ${manuscript} --pack ${pack} --blueprint ${blueprint} --out ${critique} --manifest ${manifest}\n` +
+  `(The --manifest flag rebuilds the pack first so the critique can never run against a stale snapshot.)\n` +
   `This sends the drafted chapter to gemini-2.5-pro for an editorial critique that lands in ${critique} (a SEPARATE file; the prose is not touched). After it succeeds, READ ${critique} and return a concise summary of the highest-value suggestions grouped by severity, plus the total number of suggestions. If the command fails, report the exact error and do not invent a critique.`,
   { label: `ch${num}:critique`, phase: 'Critique', effort: 'low', schema: REPORT }
 )
