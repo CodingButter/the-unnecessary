@@ -497,10 +497,10 @@ The agents flagged decisions that the orchestrator reserves. The orchestrator ha
 - `version`, `scope`, and `last_reviewed` are optional, preserved where known, and never invented.
 - Process and operational governance docs (`CLAUDE.md`, the development guide, `memory-conventions`, context-loading and canon-hierarchy guides) carry `authority: governance` and `status: active`, never `active-canon`, since they govern process rather than story facts.
 
-### Held for human confirmation before Phase 03 binds tooling
+### Decided by the orchestrator (user delegated these calls; binding for the migration)
 
-- Memory Conventions.md destination: recommended `docs/00-governance/memory-conventions.md`; alternative is keeping it at the repository root next to `CLAUDE.md`. The file is not moved until a later phase, so this remains safely confirmable.
-- The exact spellings of the `status`, `authority`, and `document_type` enums in section 4. `validate-metadata.py` will hard-reject off-list values, so these strings should be confirmed or amended before Phase 03 writes the validator and templates.
-- The four-way active-status split (`active-canon` / `active-plan` / `active-support` / `active`): confirm this granularity versus a coarser set.
+- Memory Conventions.md relocates to `docs/00-governance/memory-conventions.md` (it is process governance, grouped with the development guide and canon hierarchy). The move happens in a later phase; the destination is fixed.
+- The `status`, `authority`, and `document_type` enums in section 4 are adopted as written. Later phases bind front matter and `validate-metadata.py` to these exact strings.
+- The four-way active-status split (`active-canon` / `active-plan` / `active-support` / `active`) is adopted.
 
-None of these open items blocks the Phase 02 checkpoint, which records architecture shape only. They are decision points for the phases that fill the structure.
+These were originally held for human confirmation; the user delegated all remaining migration decisions to the orchestrator, so they are now settled. The path convention is also fixed: `related` paths are document-relative (resolved from the file's own location), while `source_documents` paths are repository-root-relative (matching the spec's `archive/source-monoliths/...` example). The validators bind to that convention.

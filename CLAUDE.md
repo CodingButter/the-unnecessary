@@ -1,3 +1,20 @@
+---
+title: "The Unnecessary, Project Instructions"
+document_type: "governance-guide"
+status: "active"
+authority: "governance"
+summary: "Per-session entry layer for the novel: what the project is, where authority lives, the per-session story rules, the task-routing table, and the mem0 operating protocol."
+tags:
+  - governance
+  - entry-point
+  - mem0
+related:
+  - "docs/00-governance/context-loading-guide.md"
+  - "docs/00-governance/canon-hierarchy.md"
+source_documents:
+  - "migration/REPOSITORY-REORGANIZATION-SPEC.md"
+---
+
 # The Unnecessary — Project Instructions
 
 > Loaded into every session. This file is the **entry / operational layer**, not a
@@ -44,10 +61,44 @@ Two non-negotiable principles inherited from the Canon Guide:
    and a recommended resolution — then follow the Canon Guide's process. Do not average
    two versions together.
 
-The project is mid-**migration** toward a structured tree (`canon/`, `planning/`,
-`chapter-blueprints/`, `manuscript/`, `continuity/`, `research/`, `archive/`). Work happens
-on the `migration` branch and integrates to `main`. Folder names may shift; the
-separation-of-responsibilities is the load-bearing part.
+The project is mid-**migration** toward a structured `docs/` tree (`docs/00-governance/`,
+`docs/10-vision/`, `docs/20-canon/`, `docs/30-plot/`, `docs/40-blueprints/`,
+`docs/50-manuscript/`, `docs/60-continuity/`, `docs/70-research/`), with `context-manifests/`,
+`scripts/`, and `archive/` alongside. Work happens on the `migration` branch and integrates
+to `main`. The separation-of-responsibilities is the load-bearing part.
+
+## Working on the novel (per-session rules)
+
+This is a novel project, not a software product. Before any story work, read
+`docs/00-governance/context-loading-guide.md`. Never load the whole repository by default;
+start from the appropriate context manifest in `context-manifests/`. Then:
+
+- Treat approved manuscript as established canon.
+- Treat active canon files (`docs/20-canon/**`) as authoritative by subject.
+- Treat plot files and blueprints as approved plans, not already-established events.
+- Never use archived files (`archive/**`) as active canon.
+- Flag conflicts instead of silently resolving them.
+- Do not change canon unless explicitly asked.
+- Avoid em dashes in drafted prose.
+- Preserve viewpoint and reveal timing.
+- Update continuity after approved manuscript changes.
+- Record major revisions in the Decision Log.
+- Do not expose future reveals in earlier chapter work.
+- Do not give Morrow or Crown unestablished capabilities.
+
+## Task routing
+
+Start each task from its context manifest (the manifest files are created in a later
+migration phase; until then, treat these as the intended entry points):
+
+| Task | Start with |
+| --- | --- |
+| Create chapter blueprint | `context-manifests/create-chapter-blueprint.yaml` |
+| Draft chapter | `context-manifests/draft-chapter.yaml` |
+| Revise chapter | `context-manifests/revise-chapter.yaml` |
+| Check continuity | `context-manifests/continuity-check.yaml` |
+| Revise canon | `context-manifests/canon-revision.yaml` |
+| Research technology | `context-manifests/technology-research.yaml` |
 
 ---
 

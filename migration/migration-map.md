@@ -195,3 +195,19 @@ The following routing calls are the orchestrator's recommendation and are flagge
 - Timeline travel rules, continuity rules, and open questions kept in the timeline index (some open questions may seed research).
 
 No conflict is resolved by this map itself. Conflicts C1 through C6 were resolved post-audit under user authorization, with each fix recorded in `migration/conflicts-found.md`; duplicates D1 through D10 remain for link-consolidation in Phase 12, not handled by this map.
+
+## 5. Phase 03 governance files created (appended)
+
+Phase 01 remains the sole author of sections 1 through 4 above. Phase 03 created the governance layer below; these are new destinations, not relocations of a source monolith.
+
+| Destination | Origin | Note |
+|---|---|---|
+| `CLAUDE.md` (root) | updated in place | mem0 protocol preserved; added spec Phase 8 per-session rules and the six-row task-routing table |
+| `README.md` (root) | new (Phase 03) | concise intro pointing to CLAUDE.md and docs/00-governance/ |
+| `docs/00-governance/context-loading-guide.md` | derived from `Development and Canon Guide.md` | short reading guide; four focuses |
+| `docs/00-governance/canon-hierarchy.md` | derived from `Development and Canon Guide.md` and spec Phase 12 | ranked authority order, per-domain ownership, conflict rule |
+| `docs/00-governance/index.md` | new (Phase 03) | governance directory index |
+| `docs/00-governance/_templates/index-template.md` | derived from spec Phase 5 | the one reusable index template (distinct from the Phase 02 docs/_templates/ scaffolding) |
+| `project-status.md` (root) | seeded per spec Phase 14 | Phase 09 later updates it |
+
+Orchestrator decision now confirmed (user delegated): `Memory Conventions.md` will relocate to `docs/00-governance/memory-conventions.md` in a later phase. The full `Development and Canon Guide.md` relocation to `docs/00-governance/novel-development-guide.md` remains a later-phase action (Phase 03 only derived the shorter guides from it).
