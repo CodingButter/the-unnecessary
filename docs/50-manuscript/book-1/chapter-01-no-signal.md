@@ -28,7 +28,7 @@ The floor was cold when he put his feet down. The room held the silence of a pla
 
 The bars did not come back.
 
-He had lived through enough of these mornings not to feel anything sharper than a low, familiar irritation, the irritation of a man whose tools have failed him before he has had coffee. The mesh was up, which meant the library hub still had power, which meant the neighborhood could talk to itself. It just could not talk to anyone past its own edge.
+He had lived through enough of these mornings to take it the way he took a tool that failed in his hand before coffee, with a small flat patience and no surprise left in it. The mesh was up, which meant the library hub still had power, which meant the neighborhood could talk to itself. It just could not talk to anyone past its own edge.
 
 He opened the local board. Messages had come in over the mesh in the night, all short, all inside the neighborhood.
 
@@ -54,7 +54,7 @@ He set the phone face down and reached for his jacket. The notice went into the 
 
 The street outside looked like a street.
 
-That was the thing he was careful not to notice too closely. Eli came down the steps into an ordinary October morning, cool and dry, the light flat and white off a sky that had not been told anything was wrong. Cars in the driveways. Leaves coming down out of the maples that nobody owned now and nobody cut, going gold and red the way they had always gone. If you stood here and looked without knowing, you would think you were looking at any street in any year.
+He let his eyes slide over it and kept them moving. Eli came down the steps into an ordinary October morning, cool and dry, the light flat and white off a sky that had not been told anything was wrong. Cars in the driveways. Leaves coming down out of the maples that nobody owned now and nobody cut, going gold and red the way they had always gone. If you stood here and looked without knowing, you would think you were looking at any street in any year.
 
 You had to know where to look.
 
@@ -68,7 +68,7 @@ The dairy case along the back wall was dark. Not all of it. The first two doors 
 
 "Compressor on the long case quit Tuesday," Marisol said, following his eyes, the way you would say it had rained Tuesday. "Nolan looked at it. It's not the compressor. It's the controller wants to call home and nobody's home." She rang up his coffee. "You want it, I'd take it today. I don't know how long I hold the two."
 
-"I'll take it." He paid her in the soft worn bills that still moved hand to hand for things like coffee, and he thought, *controller wants to call home and nobody's home,* and filed it, and did not yet lay it beside the notice in his pocket. They were two things. He was good at keeping things separate. It was one of the few things he was sure he was good at.
+"I'll take it." He paid her in the soft worn bills that still moved hand to hand for things like coffee, and he thought, *controller wants to call home and nobody's home,* and filed it, and did not yet lay it beside the notice in his pocket. They were two things, and he kept them two things, the notice in one pocket of his mind and the dark case in another, the way he kept everything, separate and labeled and not touching.
 
 "Everybody's house thinks something now," Marisol said as he turned, almost smiling, and he said something back, and went out into the cold with the day's list already longer than it had been.
 
@@ -158,7 +158,7 @@ Eli closed his eyes a second.
 
 She read it. It was the same voice. He had known it would be. *Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third.* The same threshold, the same thank-you, applied this time not to a doorbell or a dairy case but to a scanner that found the thing wrong inside a person, a unit that decided how much of a drug went into a body and when, and a controller that kept a set of lungs breathing that could not, on their own, anymore, do the work.
 
-"All right." He could feel himself reaching for the bench, for the shape of it, the way he reached for everything, because the walking through was the only place he knew how to stand. "Tell me what stops. Physically. At midnight, when the authentication goes."
+"All right." He reached for the bench, for the shape of it, the way he reached for everything, because the walking through was the only place he knew how to stand. "Tell me what stops. Physically. At midnight, when the authentication goes."
 
 "The scanner won't boot. Checks a license at startup, the server stops answering, it stops booting." Her voice came and went. "The med unit, I don't know yet, it might keep the doses already loaded and refuse new ones, or just lock. The respiratory controller is the one that frightens me." The link dropped her and brought her back. "It runs continuous. Phones home on a cycle to confirm it's authorized. If it can't confirm, the safest thing they could have programmed it to do is keep running and complain, and the likeliest thing they actually programmed is degrade or stop. I won't know which until midnight, and I am not going to find out at midnight with somebody on it."
 
@@ -198,6 +198,17 @@ The shop was very quiet after.
 
 The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed and left, the last thing on it, the notice she had read him, the three names of the three machines in plain type, and the time beside them, *23:59,* a number that was, when he made himself count it, a little under twelve hours away.
 
-He did not move for a while. He had spent the whole day teaching machines to live without permission, standing in for the dead, forging the small yeses that let stranded things run. It was no answer here. Here the thing was not stranded. It was being held, alive and ready, and refused, on purpose, by a hand that was not going to open, and under that refusal, breathing on borrowed time, a sixty-one-year-old man with a name that Lena was keeping.
+He did not move for a while. He had spent the whole day teaching machines to live without permission, standing in for the dead, forging the small yeses that let stranded things run. It was no answer here. Here the thing was not stranded. It was being held, alive and ready, and refused, on purpose, by a hand that was not going to open, and under that refusal, breathing on borrowed time, a sixty-one-year-old man with a name Lena was keeping back.
 
 He looked at the three names, and the single time beneath them, and understood, fully and without any way back, that this was the one he could not fix.
+
+---
+
+## Adjudication Log
+
+- **continuity (HIGH):** RESOLVED, no change. The claimed contradiction (plot-map ending hook vs. clinic-deadline blueprint) was already fixed by Decision 045, which reconciled `docs/30-plot/book-1/chapters/chapter-01.md` to the clinic midnight deadline; its Ending Hook now matches the chapter. The critique ran against a stale context pack since rebuilt. The chapter is correct as written.
+- **style / filtering (MEDIUM):** ACCEPT. Tightened all three flagged instances to direct perception or action: "careful not to notice too closely" became letting his eyes slide over it and keeping them moving; "good at keeping things separate" became the act of keeping the two notices separate and labeled in his mind; "could feel himself reaching for the bench" became "He reached for the bench."
+- **prose, opening emotion (LOW):** ACCEPT. Reworked the named "low, familiar irritation" into a habituated, externalized response (a small flat patience, no surprise left), grounding the feeling without the critique's flatter literal rewrite.
+- **dialogue, "That's somewhere real" (LOW):** REJECT. The fragmented escalation is deliberate: the old man's instinct circling toward a word he cannot name. The proposed flattening to "That's from a real company" would erase the rising-from-instinct rhythm and the restraint.
+- **prose, "a name that Lena was keeping" (LOW):** ACCEPT. Sharpened the limp final phrase to "a name Lena was keeping back," giving the verb a clear object and direction while holding the chapter's plain register over the more melodramatic alternative.
+- **reveal-safety (LOW):** CONFIRMATION, no change. Acknowledged. The memory-shape hint stays restrained; no forbidden corporate or system specifics added.
