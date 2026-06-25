@@ -1,0 +1,53 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=ygmdkoqdvxgxdbyxiate"
+    },
+    "voice": {
+      "type": "http",
+      "url": "http://tts.codingbutter.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${VOICE_BEARER_TOKEN}",
+        "X-Voice": "Bay_Area_Buggs",
+        "X-Preset": "conversational"
+      }
+    },
+    "playwright": {
+      "command": "/home/codingbutter/.nvm/versions/node/v25.2.1/bin/node",
+      "args": [
+        "/home/codingbutter/.local/lib/playwright-mcp/node_modules/@playwright/mcp/cli.js"
+      ]
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {}
+    },
+    "mem0": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/elvismdev/mem0-mcp-selfhosted.git@a4f538afc60ca13a9f5975e6a11fd36e578393ac",
+        "--with",
+        "mem0ai[graph,llms]<2",
+        "mem0-mcp-selfhosted"
+      ],
+      "env": {
+        "MEM0_PROVIDER": "anthropic",
+        "MEM0_EMBED_PROVIDER": "ollama",
+        "MEM0_EMBED_MODEL": "nomic-embed-text",
+        "MEM0_EMBED_DIMS": "768",
+        "MEM0_OLLAMA_URL": "http://localhost:11434",
+        "MEM0_QDRANT_URL": "http://localhost:6333",
+        "MEM0_COLLECTION": "verifieddraws_memory",
+        "MEM0_USER_ID": "verifieddraws"
+      }
+    }
+  }
+}
