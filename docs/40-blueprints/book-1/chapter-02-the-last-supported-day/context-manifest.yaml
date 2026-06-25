@@ -1,0 +1,207 @@
+# Per-chapter context manifest for Book One, Chapter 2 ("The Last Supported Day").
+# Scoped to Chapter 2 only. Mirrors the Chapter 1 manifest structure, narrowed to
+# Chapter 2's actual cast (Lena, Eli) and systems (the clinic's three machines,
+# cloud-dependency, medicine).
+# All paths are repository-root-relative and were verified to exist on disk.
+# Never reference any archive/ path. Optional or possibly-absent paths go under optional_files.
+
+task_name: "blueprint-chapter-02-the-last-supported-day"
+
+purpose: >
+  Load only the canon, plot, style, continuity, and decision context needed to
+  create or draft the Chapter 2 blueprint. Chapter 2 is Lena Okafor's viewpoint on
+  Friday, October 3, 2053, evening into night: a single close-third POV chapter at
+  her independent community clinic that shows technological withdrawal in human
+  terms through a non-engineer, grounds the clinic's three losing-authentication
+  systems through Lena's eyes as Eli arrives, has her triage named patients against
+  the midnight deadline without knowing what midnight does, and hands the night
+  forward to Eli alone in the back room. This manifest deliberately excludes Mars
+  material, later-act timelines, Jonah and Kade material, and anything that would
+  expose Morrow, the buried-ASI secret, or the borrowed-uptime / death outcome that
+  belongs to Eli's later vigil chapter.
+
+required_files:
+  # Entry and routing layer
+  - CLAUDE.md
+  - docs/00-governance/context-loading-guide.md
+
+  # Vision read-first
+  - docs/10-vision/narrative-brief.md
+
+  # World canon relevant to Chapter 2 (clinic, neighborhood, uneven decline)
+  - docs/20-canon/world/core-premise.md
+  - docs/20-canon/world/infrastructure-decline.md
+  - docs/20-canon/world/locations/greater-detroit.md
+  - docs/20-canon/world/locations/elis-neighborhood.md
+
+  # Character canon: only the characters present or named in Chapter 2
+  - docs/20-canon/characters/profiles/lena-okafor.md
+  - docs/20-canon/characters/profiles/eli-rook.md
+  - docs/20-canon/characters/viewpoint-rules.md
+  - docs/20-canon/characters/relationship-map.md
+
+  # Technology canon driving the chapter (clinic equipment and withdrawal mechanism)
+  - docs/20-canon/technology/medicine.md
+  - docs/20-canon/technology/infrastructure/cloud-dependency.md
+  - docs/20-canon/technology/infrastructure/energy.md
+  - docs/20-canon/technology/infrastructure/communications.md
+
+  # Timeline canon for the Friday October 3 evening and night
+  - docs/20-canon/timeline/book-1/pre-book-2053.md
+  - docs/20-canon/timeline/book-1/act-1-timeline.md
+
+  # Plot plan: Act One, this chapter, and the adjacent chapters for the hand-off
+  - docs/30-plot/book-1/act-1.md
+  - docs/30-plot/book-1/chapters/chapter-01.md
+  - docs/30-plot/book-1/chapters/chapter-02.md
+  - docs/30-plot/book-1/chapters/chapter-03.md
+  # Reveal-safety control: what must NOT surface in Chapter 2 (Morrow origin,
+  # borrowed uptime, death) and the POV-relay resolution that bounds this chapter.
+  - docs/30-plot/book-1/act-1-revision-morrow-origin.md
+
+  # Style files relevant to Lena's voice, viewpoint discipline, exposition, and tone
+  - docs/10-vision/style/viewpoint.md
+  - docs/10-vision/style/character-voices.md
+  - docs/10-vision/style/technology-in-prose.md
+  - docs/10-vision/style/pacing-and-structure.md
+  - docs/10-vision/style/prohibited-patterns.md
+  - docs/10-vision/style/emotion-and-moral-content.md
+
+  # Planning template and the format/quality model (Chapter 1 blueprint)
+  - docs/40-blueprints/_templates/chapter-blueprint-template.md
+  - docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md
+
+  # The approved previous chapter, for continuity and established facts
+  # (the three systems, the 23:59 / midnight deadline, the failing link, the date,
+  # the man aged 61 on the respiratory controller, the book's voice and register)
+  - docs/50-manuscript/book-1/chapter-01-no-signal.md
+
+  # Continuity starting conditions relevant to Chapter 2
+  - docs/60-continuity/global-continuity.md
+  - docs/60-continuity/character-states/lena-okafor.md
+  - docs/60-continuity/setups-and-payoffs.md
+  - docs/60-continuity/unresolved-threads.md
+
+  # Relevant decisions: viewpoint, tone, Lena, the clinic-night structure, style
+  - docs/00-governance/decision-log/decisions/002-world-declines-through-withdrawal-not-one-apocalypse.md
+  - docs/00-governance/decision-log/decisions/003-ordinary-world-remains-visually-recognizable.md
+  - docs/00-governance/decision-log/decisions/005-collapse-is-uneven.md
+  - docs/00-governance/decision-log/decisions/024-lena-is-a-moral-counterweight-not-the-automatic-moral-authority.md
+  - docs/00-governance/decision-log/decisions/030-novel-uses-close-third-person-with-multiple-viewpoints.md
+  - docs/00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md
+  - docs/00-governance/decision-log/decisions/038-avoid-exaggerated-cyberpunk-aesthetics.md
+  - docs/00-governance/decision-log/decisions/039-avoid-em-dashes-in-drafted-prose-and-project-copy.md
+  - docs/00-governance/decision-log/decisions/045-chapter-1-ends-on-clinic-midnight-deadline.md
+  - docs/00-governance/decision-log/decisions/052-clinic-vigil-borrowed-uptime-and-six-am-death-ignition.md
+
+optional_files:
+  # Decision-log index, useful for locating further decisions if a planning
+  # question reaches beyond the curated set above. Loaded only if needed.
+  - docs/00-governance/decision-log/decisions/index.md
+  # Eli complicity and responsibility-versus-ownership decisions. Eli is seen only
+  # through Lena here, so these are background, not central. Load if needed to keep
+  # his behavior in character.
+  - docs/00-governance/decision-log/decisions/020-eli-is-complicit-not-an-early-whistleblower.md
+  - docs/00-governance/decision-log/decisions/021-elis-core-conflict-is-responsibility-versus-ownership.md
+
+exclude_files:
+  # Out-of-scope canon for Chapter 2. Do not load these when blueprinting or
+  # drafting Chapter 2. The first group is the same Mars/later-act scope excluded
+  # for Chapter 1. The Morrow profile and Eli's secret are excluded as REVEAL-UNSAFE:
+  # Chapter 2 is strictly inside Lena's knowledge and must not hint at Morrow, the
+  # buried project, or what midnight does to the machines.
+  - docs/20-canon/world/mars-and-aurelia.md
+  - docs/20-canon/technology/mars-technology.md
+  - docs/20-canon/characters/profiles/mara-voss.md
+  - docs/20-canon/characters/profiles/jonah-mercer.md
+  - docs/20-canon/characters/profiles/adrian-kade.md
+  - docs/20-canon/timeline/book-1/act-2-timeline.md
+  - docs/20-canon/timeline/book-1/act-3-timeline.md
+  - docs/20-canon/timeline/book-1/act-4-timeline.md
+  - docs/20-canon/technology/ai/morrow.md
+  - docs/20-canon/technology/ai/crown.md
+
+loading_order:
+  # Read the entry and routing layer first, then vision, then canon by subject,
+  # then plot (including the reveal-safety control), then style, then the template
+  # and the Chapter 1 model, then the approved Chapter 1 manuscript, then continuity
+  # and decisions.
+  - CLAUDE.md
+  - docs/00-governance/context-loading-guide.md
+  - docs/10-vision/narrative-brief.md
+  - docs/20-canon/world/core-premise.md
+  - docs/20-canon/world/infrastructure-decline.md
+  - docs/20-canon/world/locations/greater-detroit.md
+  - docs/20-canon/world/locations/elis-neighborhood.md
+  - docs/20-canon/characters/profiles/lena-okafor.md
+  - docs/20-canon/characters/profiles/eli-rook.md
+  - docs/20-canon/characters/viewpoint-rules.md
+  - docs/20-canon/characters/relationship-map.md
+  - docs/20-canon/technology/medicine.md
+  - docs/20-canon/technology/infrastructure/cloud-dependency.md
+  - docs/20-canon/technology/infrastructure/energy.md
+  - docs/20-canon/technology/infrastructure/communications.md
+  - docs/20-canon/timeline/book-1/pre-book-2053.md
+  - docs/20-canon/timeline/book-1/act-1-timeline.md
+  - docs/30-plot/book-1/act-1.md
+  - docs/30-plot/book-1/chapters/chapter-01.md
+  - docs/30-plot/book-1/chapters/chapter-02.md
+  - docs/30-plot/book-1/chapters/chapter-03.md
+  - docs/30-plot/book-1/act-1-revision-morrow-origin.md
+  - docs/10-vision/style/viewpoint.md
+  - docs/10-vision/style/character-voices.md
+  - docs/10-vision/style/technology-in-prose.md
+  - docs/10-vision/style/pacing-and-structure.md
+  - docs/10-vision/style/prohibited-patterns.md
+  - docs/10-vision/style/emotion-and-moral-content.md
+  - docs/40-blueprints/_templates/chapter-blueprint-template.md
+  - docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md
+  - docs/50-manuscript/book-1/chapter-01-no-signal.md
+  - docs/60-continuity/global-continuity.md
+  - docs/60-continuity/character-states/lena-okafor.md
+  - docs/60-continuity/setups-and-payoffs.md
+  - docs/60-continuity/unresolved-threads.md
+  - docs/00-governance/decision-log/decisions/002-world-declines-through-withdrawal-not-one-apocalypse.md
+  - docs/00-governance/decision-log/decisions/003-ordinary-world-remains-visually-recognizable.md
+  - docs/00-governance/decision-log/decisions/005-collapse-is-uneven.md
+  - docs/00-governance/decision-log/decisions/024-lena-is-a-moral-counterweight-not-the-automatic-moral-authority.md
+  - docs/00-governance/decision-log/decisions/030-novel-uses-close-third-person-with-multiple-viewpoints.md
+  - docs/00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md
+  - docs/00-governance/decision-log/decisions/038-avoid-exaggerated-cyberpunk-aesthetics.md
+  - docs/00-governance/decision-log/decisions/039-avoid-em-dashes-in-drafted-prose-and-project-copy.md
+  - docs/00-governance/decision-log/decisions/045-chapter-1-ends-on-clinic-midnight-deadline.md
+  - docs/00-governance/decision-log/decisions/052-clinic-vigil-borrowed-uptime-and-six-am-death-ignition.md
+
+expected_output: >
+  A Chapter 2 blueprint at
+  docs/40-blueprints/book-1/chapter-02-the-last-supported-day/blueprint.md,
+  authored from the chapter-blueprint template and modeled on the Chapter 1
+  blueprint, covering scene beats, single close-third Lena viewpoint discipline,
+  the setup-through-Lena hand-off, the unsupported-care worldbuilding, the
+  named-patient triage decision made without knowing what midnight does, and the
+  ending hand-off to Eli alone in the back room. The blueprint is a plan, not prose,
+  and must not advance reveals beyond what Chapter 2 establishes.
+
+canon_rules:
+  - "The bibles outrank memory, the graph, and any index in every conflict."
+  - "Treat plot files and blueprints as approved plans, not already-established events."
+  - "Treat active canon files as authoritative by subject. Treat any approved manuscript as established canon."
+  - "Never use archived files as active canon. No archive/ path may be loaded here."
+  - "Flag document conflicts; never silently resolve or average them."
+  - "Single close-third viewpoint: Lena, the entire chapter. Never head-hop to Eli; see Eli only through Lena; never enter the back room. One viewpoint per chapter."
+  - "Do not give Morrow or Crown capabilities not yet established. Morrow does not appear and is not implied in Chapter 2."
+  - "REVEAL-SAFETY: Lena does not know about Morrow, the buried-ASI secret, the resume-the-project plot, or what midnight does to the machines. Do not expose any of these. Eli's work reads as unauthorized authentication-forgery and repair, nothing more."
+  - "Do not pre-empt the borrowed-uptime outcome or the off-page death; those belong to Eli's later vigil chapter (Decision 052). Chapter 2 ends before midnight and before any outcome."
+  - "Do not expose Lena's stolen, traceable credentials; held as texture only (Decision 024)."
+  - "Lena is a moral counterweight, not the automatic moral authority; she can be wrong, secretive, and forced into compromise (Decision 024)."
+  - "Avoid em dashes in drafted prose and project copy."
+  - "Keep service withdrawal contractual and administrative, not apocalyptic. The world stays physically recognizable."
+  - "Continuity must be exact with Chapter 1: the three systems by name (diagnostic scanner, medication-management unit, respiratory controller), the 23:59 / midnight deadline, the October 3 date, the failing mesh link, the midday power-tier drop, the man aged 61 on the respiratory controller."
+
+relevant_validation_checks:
+  - "validate-links.py: every path in this manifest resolves on disk."
+  - "validate-metadata.py: every loaded active document carries required metadata fields."
+  - "Archive safety: no archive/ path appears in required_files, optional_files, or loading_order."
+  - "Scope check: the exclude_files entries (Mars, later-act timelines, Jonah/Kade/Mara, Morrow/Crown AI profiles) are absent from the loaded set."
+  - "Reveal-safety check: no loaded file forces a Morrow / buried-ASI / borrowed-uptime / midnight-outcome reveal into Chapter 2's scope; the Morrow-origin revision is loaded only as a control on what must NOT surface."
+  - "build-context-pack.py: fails on any missing required file and warns on any missing optional file."

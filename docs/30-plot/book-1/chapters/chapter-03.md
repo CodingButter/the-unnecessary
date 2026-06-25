@@ -68,5 +68,3 @@ For the canonical facts referenced above, defer to the canon layer rather than t
 - Setting, Eli's neighborhood: [elis-neighborhood.md](../../../20-canon/world/locations/elis-neighborhood.md)
 - Cloud-dependency and emulation rules: [cloud-dependency.md](../../../20-canon/technology/infrastructure/cloud-dependency.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)
-</content>
-</invoke>
