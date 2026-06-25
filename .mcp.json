@@ -48,6 +48,18 @@
         "MEM0_COLLECTION": "verifieddraws_memory",
         "MEM0_USER_ID": "verifieddraws"
       }
+    },
+    "elevenlabs": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "elevenlabs-mcp"
+      ],
+      "env": {
+        "ELEVENLABS_API_KEY": "${ELEVENLABS_API_KEY}",
+        "ELEVENLABS_MCP_BASE_PATH": "/home/codingbutter/Novel/.audio",
+        "ELEVENLABS_MCP_OUTPUT_MODE": "files"
+      }
     }
   }
 }

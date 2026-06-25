@@ -8,3 +8,6 @@
 
 # OS/editor cruft
 .DS_Store
+
+# Generated audio (ElevenLabs MCP output)
+.audio/
