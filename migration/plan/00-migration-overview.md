@@ -127,7 +127,7 @@ Phase 00 is complete and valid only when all of the following hold:
 ## 11. Human Review Points
 
 - Confirm the overall goal and completion definition match the author's intent for the novel project before any later phase runs.
-- Confirm the phase-boundary adjustments in section "Phase-Boundary Adjustments" are acceptable, in particular the placement of the Narrative Brief in Phase 05 and the parallelism of Phase 07 with Phase 06.
+- Confirm the phase-boundary adjustments in section "Phase-Boundary Adjustments" are acceptable, in particular the parallelism of Phase 07 with Phase 06. The placement of the Narrative Brief in Phase 05 has been confirmed by the orchestrator.
 - Confirm the master spec is the intended single authority and that no phase runbook is expected to override it.
 - Approve the dependency graph as the binding execution order.
 
@@ -303,7 +303,7 @@ One row per phase. Status is "planned" for all phases because this is a planning
 | 02 | Target Architecture | 01 | planned | The target `docs/` tree plus naming, metadata, index, and manifest schemas, and canon-ownership rules. |
 | 03 | Governance and Indexes | 02 | planned | Root `CLAUDE.md`, governance docs (canon hierarchy, context-loading guide), the reusable index template, `project-status.md`, and migration tracking files. |
 | 04 | Canon Migration | 03 | planned | World, character, technology, and timeline canon split into focused files with indexes, sources left untouched, archival deferred to Phase 09. |
-| 05 | Planning and Style Migration | 04 | planned | Plot outline, style guide, decision log, and blueprint template split and relocated, with the narrative brief folded in pending orchestrator confirmation. |
+| 05 | Planning and Style Migration | 04 | planned | Plot outline, style guide, decision log, and blueprint template split and relocated, with the narrative brief folded in (confirmed by orchestrator). |
 | 06 | Context Manifests and Tooling | 03, 04, 05 | planned | `context-manifests/*.yaml`, the Chapter 1 manifest, and four stdlib-only scripts (build-context-pack, validate-links, validate-metadata, check-duplicate-headings). |
 | 07 | Continuity Bootstrap | 04 | planned | Lightweight pre-draft continuity files covering all seven continuity dimensions, stating no chapters are approved yet. |
 | 08 | Validation | 03, 04, 05, 06, 07 | planned | Independent read-only validation across all required checks, with orchestrator-written reports that gate Phase 09. |
@@ -313,7 +313,7 @@ One row per phase. Status is "planned" for all phases because this is a planning
 
 These adjustments deviate from the task spec's suggested phase boundaries. Each is recorded with its reason so the orchestrator can confirm or revert.
 
-- Narrative Brief placement. The task spec does not explicitly assign "Narrative Brief.md" to a phase. It is folded into Phase 05 (Planning and Style Migration), pending orchestrator confirmation. Reason: the Narrative Brief is short and meant to be read first, and the master spec Phase 4 says to keep it mostly intact rather than split it. Phase 05 already handles the lighter planning relocations, so the brief sits naturally there as a near-verbatim relocation rather than a canon split. The orchestrator confirms the final home before execution.
+- Narrative Brief placement. The task spec does not explicitly assign "Narrative Brief.md" to a phase. It is folded into Phase 05 (Planning and Style Migration); the orchestrator has confirmed this placement. Reason: the Narrative Brief is short and meant to be read first, and the master spec Phase 4 says to keep it mostly intact rather than split it. Phase 05 already handles the lighter planning relocations, so the brief sits naturally there as a near-verbatim relocation rather than a canon split.
 
 - Phase 07 dependency and parallelism. Phase 07 (Continuity Bootstrap) depends on Phase 04 (canon), not on Phase 06, and may run in parallel with Phase 06. Reason: the continuity bootstrap needs canon to reference (characters, technology, timeline) but does not need the context manifests or scripts that Phase 06 produces. Phase 06 and Phase 07 touch disjoint files (manifests and tooling versus continuity files), so running them concurrently violates no coordination rule and shortens the critical path. Phase 08 still waits for both.
 

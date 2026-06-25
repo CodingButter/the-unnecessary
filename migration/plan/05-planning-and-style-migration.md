@@ -24,7 +24,7 @@ When executed later, this phase produces:
 - The governance decision log under `docs/00-governance/decision-log/` as one file per decision plus an index table, derived from `Creative Decision Log.md`.
 - The relocated chapter blueprint template at `docs/40-blueprints/_templates/chapter-blueprint-template.md`, derived from `chapter-blueprints/Chapter Blueprint Template.md`.
 - The active governance guide at `docs/00-governance/novel-development-guide.md`, derived from `Development and Canon Guide.md`.
-- As a pending item, the vision-level narrative brief at `docs/10-vision/narrative-brief.md`, derived from `Narrative Brief.md`, kept mostly intact. See Human Review Points; this assignment awaits orchestrator confirmation.
+- The vision-level narrative brief at `docs/10-vision/narrative-brief.md`, derived from `Narrative Brief.md`, kept mostly intact. The orchestrator has confirmed this assignment to Phase 05.
 
 This phase covers master spec Phase 4 for these four named documents (Plot Outline and Chapter Map, Style Guide, Decision Log, Novel Development Guide) plus the template relocation. The Phase 5 index rules in the master spec apply to every directory this phase creates that holds more than three meaningful files.
 
@@ -46,7 +46,7 @@ Existing source documents read by this phase (read-only, never modified here):
 - `Creative Decision Log.md` (repo root). Contains 43 numbered decisions across the categories Foundational Story, Setting and Social Structure, Mars, Artificial Intelligence, Character, Plot and Structure, Style and Tone, and Workflow, plus Explicitly Rejected Concepts and Open Decisions sections.
 - `Development and Canon Guide.md` (repo root). The full novel development and canon operating guide.
 - `chapter-blueprints/Chapter Blueprint Template.md` (repo root subfolder). The blueprint template.
-- `Narrative Brief.md` (repo root). Pending assignment to this phase; see Human Review Points.
+- `Narrative Brief.md` (repo root). Confirmed assignment to this phase.
 
 Governing input:
 
@@ -95,7 +95,7 @@ Template and guide:
 - `docs/40-blueprints/_templates/chapter-blueprint-template.md`
 - `docs/00-governance/novel-development-guide.md`
 
-Pending, awaiting orchestrator confirmation (see Human Review Points):
+Confirmed by the orchestrator (Narrative Brief assigned to this phase):
 
 - `docs/10-vision/narrative-brief.md`
 
@@ -166,9 +166,9 @@ Five agent task streams. Streams A, B, C, D, and E touch disjoint directory subt
 - Files it must not touch: the source files; `docs/40-blueprints/book-1/**`; `docs/00-governance/decision-log/**`; `docs/00-governance/index.md`; any other phase's paths.
 - How the orchestrator verifies: diff template body against source heading-for-heading to confirm the template remains intact; diff the guide body against source to confirm it remains fully represented as active governance.
 
-### Optional Stream F (pending): Narrative brief relocation
+### Stream F: Narrative brief relocation (confirmed)
 
-- Conditional on orchestrator confirmation per Human Review Points. If confirmed, copy `Narrative Brief.md` into `docs/10-vision/narrative-brief.md` mostly intact with front matter, no unnecessary splitting. Files it may touch: `docs/10-vision/narrative-brief.md` only. Files it must not touch: the source; `docs/10-vision/style/**`; `docs/10-vision/index.md`. Verified by full diff against source. If not confirmed, this stream is not dispatched and the narrative brief is left for the orchestrator to assign.
+- The orchestrator has confirmed this stream. Copy `Narrative Brief.md` into `docs/10-vision/narrative-brief.md` mostly intact with front matter, no unnecessary splitting. Files it may touch: `docs/10-vision/narrative-brief.md` only. Files it must not touch: the source; `docs/10-vision/style/**`; `docs/10-vision/index.md`. Verified by full diff against source.
 
 ## 7. Orchestrator Responsibilities
 
@@ -201,7 +201,7 @@ Reserved to the main instance and never delegated:
 - `docs/00-governance/decision-log/`: index plus `decisions/` with one file per decision (43) and the rejected and open material preserved.
 - `docs/40-blueprints/_templates/chapter-blueprint-template.md` (relocated, intact).
 - `docs/00-governance/novel-development-guide.md` (active governance).
-- `docs/10-vision/narrative-brief.md` (pending orchestrator confirmation).
+- `docs/10-vision/narrative-brief.md` (confirmed).
 - No source monolith moved or archived by this phase.
 
 ## 10. Validation
@@ -221,7 +221,7 @@ Concrete checks that must pass before completion:
 
 ## 11. Human Review Points
 
-- NARRATIVE BRIEF ASSIGNMENT (must resolve before Stream F). The task spec does not explicitly assign `Narrative Brief.md` to any phase. It is folded into THIS phase as a pending item, target `docs/10-vision/narrative-brief.md`, kept mostly intact, PENDING orchestrator confirmation. The orchestrator must confirm that the narrative brief belongs to Phase 05 before any narrative-brief file is created. If the orchestrator declines, the brief is left unassigned and untouched.
+- NARRATIVE BRIEF ASSIGNMENT (resolved). The task spec does not explicitly assign `Narrative Brief.md` to any phase. The orchestrator has confirmed it belongs to Phase 05, target `docs/10-vision/narrative-brief.md`, kept mostly intact. Stream F is therefore active.
 - Decision and chapter slug naming. The orchestrator approves the final kebab-case slugs for the 43 decision files and 36 chapter files before they are treated as stable link targets.
 - Any source conflict surfaced by an agent. The orchestrator decides how to record it; nothing is resolved silently.
 - Confirmation that the shorter `context-loading-guide.md` is intentionally out of scope here and owned by a governance phase, so no duplicate governance authority is created.
@@ -257,8 +257,8 @@ Add docs/30-plot/book-1 (spine, beats, subplots, reveals, 4 acts,
 chapters index, 36 high-level chapter-map entries), docs/10-vision/style
 (11 loadable style files plus index), docs/00-governance/decision-log
 (43 decision files plus index), relocated chapter-blueprint-template, and
-novel-development-guide. Narrative brief relocation pending orchestrator
-confirmation. Source monoliths left intact; archival deferred to phase-09.
+novel-development-guide, and relocated narrative brief. Source monoliths
+left intact; archival deferred to phase-09.
 
 Spec: migration/REPOSITORY-REORGANIZATION-SPEC.md
 Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
