@@ -11,3 +11,6 @@
 
 # Generated audio (ElevenLabs MCP output)
 .audio/
+
+# Generated chapter narration (regenerable)
+audio/
