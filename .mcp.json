@@ -45,8 +45,15 @@
         "MEM0_EMBED_DIMS": "768",
         "MEM0_OLLAMA_URL": "http://localhost:11434",
         "MEM0_QDRANT_URL": "http://localhost:6333",
-        "MEM0_COLLECTION": "verifieddraws_memory",
-        "MEM0_USER_ID": "verifieddraws"
+        "MEM0_COLLECTION": "novel_memory",
+        "MEM0_USER_ID": "novel",
+        "MEM0_ENABLE_GRAPH": "true",
+        "MEM0_NEO4J_URL": "bolt://127.0.0.1:7687",
+        "MEM0_NEO4J_USER": "neo4j",
+        "MEM0_NEO4J_PASSWORD": "mem0graph",
+        "MEM0_GRAPH_LLM_PROVIDER": "gemini",
+        "MEM0_GRAPH_LLM_MODEL": "gemini-2.5-flash-lite",
+        "GOOGLE_API_KEY": "${GEMINI_API_KEY}"
       }
     },
     "elevenlabs": {
