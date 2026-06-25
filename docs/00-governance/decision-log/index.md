@@ -115,6 +115,7 @@ The decisions are grouped in the source under eight categories: Foundational Sto
 | 043 | Another AI Does Not Need the Original Conversation | Locked for Current Workflow | AI handoff | Another model should continue the project from the active documents alone, without the original chat. | [043](./decisions/043-another-ai-does-not-need-the-original-conversation.md) |
 | 044 | mem0 Knowledge Graph Is On, With the Bibles as Higher Authority | Locked for Current Workflow | Workflow and tooling | The mem0 knowledge graph is on with Gemini extraction into Neo4j; the bibles outrank it and links are recall hints. | [044](./decisions/044-mem0-knowledge-graph-is-on-with-the-bibles-as-higher-authority.md) |
 | 045 | Chapter 1 Ends on the Clinic Midnight Deadline, Not the Power-Tier Downgrade | Locked for Current Draft | Plot and structure | Chapter 1 closes on the clinic midnight authentication deadline; the power-tier downgrade is the midday thematic turn, reconciling the plot-map with the Master Timeline order. | [045](./decisions/045-chapter-1-ends-on-clinic-midnight-deadline.md) |
+| 046 | Chapter Authorship Pipeline (Opus Writes, Gemini Critiques, Opus Adjudicates, Author Approves) | Locked for Current Workflow | Workflow and tooling | Prose chapters: Opus drafts, gemini-2.5-pro critiques against project rules, Opus adjudicates, the author approves; Opus is the sole writer. | [046](./decisions/046-chapter-authorship-pipeline.md) |
 
 ## Related references
 
