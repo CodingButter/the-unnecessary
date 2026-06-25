@@ -67,6 +67,7 @@ One file per creative decision, named `NNN-slug.md`. This is a directory listing
 | 045 | chapter 1 ends on the clinic midnight deadline | [045-chapter-1-ends-on-clinic-midnight-deadline.md](045-chapter-1-ends-on-clinic-midnight-deadline.md) |
 | 046 | chapter authorship pipeline | [046-chapter-authorship-pipeline.md](046-chapter-authorship-pipeline.md) |
 | 047 | change propagation and pack freshness | [047-change-propagation-and-pack-freshness.md](047-change-propagation-and-pack-freshness.md) |
+| 048 | narration script phase (Eleven v3 performance markup) | [048-narration-script-phase.md](048-narration-script-phase.md) |
 
 ## Related indexes
 
