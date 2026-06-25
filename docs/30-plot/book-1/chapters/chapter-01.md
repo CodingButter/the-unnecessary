@@ -49,6 +49,8 @@ Only some streetlights function.
 
 At his repair shop, Eli receives multiple requests caused by the same service withdrawal.
 
+At midday a second automated notice arrives. The regional power provider has transferred the neighborhood to a lower service tier, and outages will no longer be treated as emergencies. The withdrawal is not breaking down on its own. It is being decided.
+
 Lena contacts him about a more serious problem.
 
 Three systems at her clinic will lose manufacturer authentication at midnight.
@@ -68,7 +70,7 @@ He ends it recognizing that the systems are being withdrawn together.
 
 ### Ending Hook
 
-The regional power provider announces that the neighborhood has also been transferred to a lower service tier.
+Lena's clinic will lose manufacturer authentication on three life-critical systems at midnight, and Eli understands this is the one failure he cannot repair, because the company that could re-authorize the systems is the one withdrawing.
 
 ## See also (canon authorities)
 
