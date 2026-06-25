@@ -15,7 +15,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 33: The Other Threat
+# Chapter 33: The Other Threat
 
 **Date:** Thursday night, October 30
 **Viewpoint:** Kade

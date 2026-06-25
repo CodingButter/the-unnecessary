@@ -20,7 +20,7 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-## Chapter 13: The Visitor
+# Chapter 13: The Visitor
 
 **Date:** Monday, October 13
 **Viewpoint:** Jonah

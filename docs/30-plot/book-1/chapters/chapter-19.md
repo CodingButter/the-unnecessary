@@ -18,7 +18,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 19: Recognition
+# Chapter 19: Recognition
 
 **Date:** Monday, October 20
 **Viewpoint:** Kade

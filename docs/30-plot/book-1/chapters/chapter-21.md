@@ -17,7 +17,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 21: The List
+# Chapter 21: The List
 
 **Date:** Tuesday night, October 21
 **Viewpoint:** Jonah

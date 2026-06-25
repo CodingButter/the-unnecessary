@@ -18,7 +18,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 24: Unauthorized Intelligence
+# Chapter 24: Unauthorized Intelligence
 
 **Date:** Friday, October 24
 **Viewpoint:** Mara

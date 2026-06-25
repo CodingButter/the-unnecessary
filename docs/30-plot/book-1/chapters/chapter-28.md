@@ -19,7 +19,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 28: Emergency Order
+# Chapter 28: Emergency Order
 
 **Date:** Monday, October 27
 **Viewpoint:** Sera

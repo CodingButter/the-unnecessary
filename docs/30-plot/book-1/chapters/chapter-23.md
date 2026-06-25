@@ -19,7 +19,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 23: Property
+# Chapter 23: Property
 
 **Date:** Thursday, October 23
 **Viewpoint:** Sera

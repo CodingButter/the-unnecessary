@@ -17,7 +17,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 22: No One Man
+# Chapter 22: No One Man
 
 **Date:** Wednesday, October 22
 **Viewpoint:** Eli

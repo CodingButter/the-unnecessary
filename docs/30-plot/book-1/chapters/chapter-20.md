@@ -17,7 +17,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 20: Six Seats
+# Chapter 20: Six Seats
 
 **Date:** Tuesday, October 21
 **Viewpoint:** Eli

@@ -15,7 +15,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 32: Conditional Access
+# Chapter 32: Conditional Access
 
 **Date:** Thursday, October 30
 **Viewpoint:** Jonah

@@ -15,7 +15,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 34: Open Circuit
+# Chapter 34: Open Circuit
 
 **Date:** Friday, October 31, morning and afternoon
 **Viewpoint:** Eli

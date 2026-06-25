@@ -20,7 +20,7 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-## Chapter 12: Clear Water
+# Chapter 12: Clear Water
 
 **Date:** Sunday, October 12
 **Viewpoint:** Lena

@@ -15,7 +15,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 30: The Family Decision
+# Chapter 30: The Family Decision
 
 **Date:** Tuesday night, October 28
 **Viewpoint:** Jonah

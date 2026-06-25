@@ -18,7 +18,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 27: Survival Is a Requirement
+# Chapter 27: Survival Is a Requirement
 
 **Date:** Sunday, October 26
 **Viewpoint:** Eli

@@ -17,7 +17,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 25: The Copy
+# Chapter 25: The Copy
 
 **Date:** Saturday, October 25
 **Viewpoint:** June

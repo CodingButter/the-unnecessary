@@ -21,7 +21,7 @@ This is a high-level plot-map entry. The detailed plan lives in the chapter blue
 
 > Character, technology, and date references link to the canon authorities under [../../../20-canon/](../../../20-canon/) rather than restating them.
 
-## Chapter 17: The Shape of a Lie
+# Chapter 17: The Shape of a Lie
 
 **Date:** Friday, October 17
 **Viewpoint:** Eli

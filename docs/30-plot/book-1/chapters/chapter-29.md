@@ -15,7 +15,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 29: Terms of Shutdown
+# Chapter 29: Terms of Shutdown
 
 **Date:** Tuesday, October 28
 **Viewpoint:** Eli

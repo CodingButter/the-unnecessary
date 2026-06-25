@@ -18,7 +18,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 26: No Invitation
+# Chapter 26: No Invitation
 
 **Date:** Saturday night, October 25
 **Viewpoint:** Mara

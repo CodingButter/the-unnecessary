@@ -15,7 +15,7 @@ source_documents:
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.
 
-## Chapter 35: The Right to End
+# Chapter 35: The Right to End
 
 **Date:** Friday, October 31, evening through midnight
 **Viewpoint:** Eli
