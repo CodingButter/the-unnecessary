@@ -48,7 +48,7 @@ There was no error in it to fix, and that was the part his hands kept reaching f
 
 He poured the water over yesterday's grounds because the new ones were a thing you paid for, and did the small arithmetic of the day instead of the large arithmetic of the notice. He would route around it. That was what he did. There would be a way out through the old satellite terminal at the hub, or there would not be, and either way it was a job, and a job was manageable, and the day was already moving.
 
-He set the phone face down. There was nothing to put away. The notice was already where it would stay, somewhere behind the sternum, weightless and impossible to set down, and he carried it out the door the way he would carry it all morning, in the only place it had ever been.
+He set the phone face down on the counter. The phone was easy to set down. The notice was not. It had settled somewhere behind the sternum the moment he read it, weightless and impossible to put down, and he carried it out the door the way he would carry it all morning.
 
 ---
 
@@ -68,7 +68,7 @@ The dairy case along the back wall was dark. Not all of it. The first two doors 
 
 "Compressor on the long case quit Tuesday," Marisol said, following his eyes, the way you would say it had rained Tuesday. "Nolan looked at it. It's not the compressor. It's the controller wants to call home and nobody's home." She rang up his coffee. "You want it, I'd take it today. I don't know how long I hold the two."
 
-"I'll take it." He paid her in the soft worn bills that still moved hand to hand for things like coffee, and he thought, *controller wants to call home and nobody's home,* and filed it, and did not yet lay it beside the notice in his pocket. They were two things. He kept them two things.
+"I'll take it." He paid her in the soft worn bills that still moved hand to hand for things like coffee, and he thought, *controller wants to call home and nobody's home,* and filed it, and did not yet lay it beside the notice. They were two things. He kept them two things.
 
 "Everybody's house thinks something now," Marisol said as he turned, almost smiling, and he said something back, and went out into the cold with the day's list already longer than it had been.
 
