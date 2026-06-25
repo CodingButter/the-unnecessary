@@ -106,6 +106,56 @@ def build_payload(chapter, pack, blueprint):
     }
 
 
+NARRATION_RUBRIC = """You are a veteran AUDIOBOOK DIRECTOR and performance editor reviewing a
+NARRATION SCRIPT for one chapter of the literary near-future novel "The Unnecessary".
+The script marks the chapter's prose with ElevenLabs Eleven v3 "audio tags" (bracketed
+stage directions like [weary], [flat], [tense], [slowly]) and ellipses for pacing, so a
+narrator performs it rather than reading it flat. You do NOT rewrite it; you produce a
+structured list of SUGGESTIONS the author will accept or reject.
+
+You are given the REFERENCE PROSE (the canonical manuscript) and the NARRATION SCRIPT.
+
+Judge on these axes:
+1. FIDELITY (most important): the script must reproduce the prose WORD FOR WORD, adding
+   only bracketed tags and ellipses. Flag as HIGH any added, cut, reordered, or reworded
+   prose word versus the reference.
+2. DIRECTION DENSITY: is the markup detailed enough that the read will clearly differ from
+   flat text-to-speech? Flag long stretches that are under-directed (no pacing, pause, or
+   emotional marking); under-direction is the most likely failure.
+3. REGISTER DISTINCTION: are the three registers clearly performed and differentiated, the
+   automated corporate notices read FLAT and administrative (the horror is the calm), Eli's
+   interiority weary and controlled, Lena over the failing link clipped and tense? Flag
+   where a register is generic or indistinct.
+4. PACING & PEAKS: are ellipses and pauses well placed, the two emotional peaks (the midday
+   "slow opening of a hand" passage and the final line) given deliberate weight, and nothing
+   monotonous or rushed?
+5. v3 TAG CRAFT: tags color roughly the next 4-5 words, so they must sit right before the
+   words they shape. Flag mis-placed tags, tags v3 will not understand, or reliance on break
+   tags where ellipses are more reliable.
+6. TONE FIT: the book is grounded and austere. Flag direction that tips into melodrama, but
+   ALSO flag timidity (under-direction is the more likely problem here).
+
+For each suggestion give: category (one of fidelity, density, register, pacing, tag-craft,
+tone), location (quote the line), issue, suggestion (concise), severity (high/medium/low).
+Be specific and quote the text. Output markdown titled "# Gemini Narration-Script Critique",
+grouped by severity, ending with a short "## Overall" paragraph."""
+
+
+def build_payload_narration(script, reference, blueprint):
+    prompt = (
+        NARRATION_RUBRIC
+        + "\n\n===== REFERENCE PROSE (the canonical manuscript; words must match exactly) =====\n"
+        + (reference or "(none provided)")
+        + "\n\n===== THE NARRATION SCRIPT TO CRITIQUE =====\n"
+        + script
+        + "\n\n===== END. Produce the structured critique now. ====="
+    )
+    return {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.4, "maxOutputTokens": 20000},
+    }
+
+
 def call_gemini(model, key, payload):
     url = API_HOST + "/v1beta/models/" + model + ":generateContent?key=" + key
     data = json.dumps(payload).encode("utf-8")
@@ -142,6 +192,11 @@ def main():
     ap.add_argument("--manifest", default=None,
                     help="If given, REBUILD the pack from this manifest first so the "
                          "critique can never run against a stale snapshot.")
+    ap.add_argument("--mode", default="prose", choices=["prose", "narration"],
+                    help="prose: critique a drafted chapter. narration: critique a "
+                         "narration script against the reference manuscript.")
+    ap.add_argument("--reference", default=None,
+                    help="Narration mode: the canonical manuscript the script must match.")
     args = ap.parse_args()
 
     # Freshness guarantee: rebuild the pack from its manifest before critiquing,
@@ -167,8 +222,11 @@ def main():
         print("ERROR: chapter file not found or empty: " + args.chapter, file=sys.stderr)
         return 2
 
-    payload = build_payload(chapter, read_file(args.pack), read_file(args.blueprint))
-    print("Sending chapter to " + args.model + " for critique (key hidden)...", file=sys.stderr)
+    if args.mode == "narration":
+        payload = build_payload_narration(chapter, read_file(args.reference), read_file(args.blueprint))
+    else:
+        payload = build_payload(chapter, read_file(args.pack), read_file(args.blueprint))
+    print("Sending " + args.mode + " critique to " + args.model + " (key hidden)...", file=sys.stderr)
     text, err = call_gemini(args.model, key, payload)
     if err:
         print("ERROR: " + err, file=sys.stderr)

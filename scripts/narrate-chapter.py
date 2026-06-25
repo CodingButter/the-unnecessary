@@ -95,6 +95,9 @@ def extract_performance(md_text):
     marker = re.search(r'^##\s+Performance Script\s*$', text, re.M)
     if marker:
         text = text[marker.end():]
+        nxt = re.search(r'^##\s+\S', text, re.M)   # stop before any later section (e.g. an adjudication log)
+        if nxt:
+            text = text[:nxt.start()]
     out_lines = []
     for line in text.split("\n"):
         s = line.strip()
