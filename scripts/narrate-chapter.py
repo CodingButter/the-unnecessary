@@ -196,15 +196,17 @@ def main():
     chunk_chars = args.chunk_chars or (1200 if model == "eleven_v3" else 2500)
     text = extract_performance(raw) if is_script else extract_prose(raw)
 
-    stem = os.path.splitext(os.path.basename(args.chapter))[0]
-    out = args.out or os.path.join("audio", "book-1", stem + ".mp3")
+    in_stem = os.path.splitext(os.path.basename(args.chapter))[0]
+    # Default output is named for the CHAPTER, not the narration-script file.
+    out = args.out or os.path.join("audio", "book-1", in_stem.replace(".narrative-script", "") + ".mp3")
     out_dir = os.path.dirname(out) or "."
-    chunk_dir = os.path.join(out_dir, "chunks", stem)
+    out_stem = os.path.splitext(os.path.basename(out))[0]
+    chunk_dir = os.path.join(out_dir, "chunks", out_stem)   # chunks live in a per-chapter subfolder (gitignored)
     os.makedirs(chunk_dir, exist_ok=True)
 
     chunks = chunk_paragraphs(text, chunk_chars)
     kind = "narration script (v3 audio tags)" if is_script else "prose"
-    print("Narrating " + stem + " as " + kind + ": " + str(len(text)) + " chars in "
+    print("Narrating " + out_stem + " as " + kind + ": " + str(len(text)) + " chars in "
           + str(len(chunks)) + " chunk(s), model " + model + ", voice " + args.voice,
           file=sys.stderr)
     if is_script:

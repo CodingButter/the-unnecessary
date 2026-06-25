@@ -12,8 +12,8 @@
 # Generated audio (ElevenLabs MCP output)
 .audio/
 
-# Generated chapter narration (regenerable)
-audio/
+# Narration: ignore regenerable chunk folders, but TRACK the stitched chapter MP3s
+audio/**/chunks/
 
 # python bytecode
 __pycache__/
