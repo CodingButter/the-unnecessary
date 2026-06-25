@@ -15,7 +15,7 @@ related:
   - "./2042-2047-infrastructure-and-support-collapse.md"
   - "../book-1/pre-book-2053.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 # The Preservation Years

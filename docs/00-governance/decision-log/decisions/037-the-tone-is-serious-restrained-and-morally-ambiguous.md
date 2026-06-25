@@ -9,7 +9,7 @@ related:
   - "../../../10-vision/style/index.md"
   - "../../../10-vision/narrative-brief.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 037: The Tone Is Serious, Restrained, and Morally Ambiguous

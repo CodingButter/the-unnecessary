@@ -18,7 +18,7 @@ related:
   - "./act-4.md"
   - "./index.md"
 source_documents:
-  - "Plot Outline and Chapter Map.md"
+  - "archive/source-monoliths/plot-outline-and-chapter-map.md"
 ---
 
 # Major Structural Beats

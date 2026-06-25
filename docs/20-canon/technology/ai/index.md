@@ -14,7 +14,7 @@ related:
   - "../index.md"
   - "../../characters/index.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 # Artificial Intelligence

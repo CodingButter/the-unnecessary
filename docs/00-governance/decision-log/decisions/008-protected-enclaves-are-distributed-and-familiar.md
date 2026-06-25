@@ -14,7 +14,7 @@ related:
   - "../../../20-canon/world/social-structure.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 008: Protected Enclaves Are Distributed and Familiar

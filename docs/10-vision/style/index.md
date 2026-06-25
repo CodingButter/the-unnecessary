@@ -13,7 +13,7 @@ related:
   - "../narrative-brief.md"
   - "../../20-canon/index.md"
 source_documents:
-  - "Style Guide.md"
+  - "archive/source-monoliths/style-guide.md"
 ---
 
 # Style Guide Index

@@ -15,7 +15,7 @@ related:
   - "../../../20-canon/characters/profiles/eli-rook.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 015: Morrow Is Created to Coordinate Abandoned Infrastructure

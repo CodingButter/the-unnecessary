@@ -15,7 +15,7 @@ related:
   - "ai/crown.md"
   - "robotics-and-manufacturing.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the scientific progress technology rules. The acceleration it describes is driven by the superintelligence detailed in [ai/crown.md](ai/crown.md), and the manufacturing and materials constraints that limit deployment are covered in [robotics-and-manufacturing.md](robotics-and-manufacturing.md).

@@ -14,7 +14,7 @@ related:
   - "./secret-timeline.md"
   - "./index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 This file tracks what each character knows across Book One. For facts that are canon but hidden at the start, see the [secret timeline](./secret-timeline.md). For the day-by-day events, see the act timelines starting with [Act One](./act-1-timeline.md).

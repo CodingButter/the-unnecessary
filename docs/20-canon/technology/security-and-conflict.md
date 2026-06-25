@@ -16,7 +16,7 @@ related:
   - "infrastructure/communications.md"
   - "hard-plot-restrictions.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the security, surveillance, weapons, and conflict technology rules. Morrow's coordination access and its privacy implications are owned here; for Morrow's full architecture see [ai/morrow.md](ai/morrow.md). The plot-limiting rule that neither AI can instantly seize systems lives in [hard-plot-restrictions.md](hard-plot-restrictions.md).

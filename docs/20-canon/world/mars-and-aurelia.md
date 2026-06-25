@@ -17,7 +17,7 @@ related:
   - "../technology/mars-technology.md"
   - "../timeline/index.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # Mars

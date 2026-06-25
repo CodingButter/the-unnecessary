@@ -16,7 +16,7 @@ related:
   - "./core-premise.md"
   - "../technology/ai/crown-vs-morrow.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # Series Direction

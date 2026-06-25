@@ -12,7 +12,7 @@ related:
   - "../../../20-canon/characters/profiles/june-park.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 025: June Does Not Represent Automatic Youthful Wisdom

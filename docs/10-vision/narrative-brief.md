@@ -20,7 +20,7 @@ related:
   - "../00-governance/canon-hierarchy.md"
   - "../00-governance/decision-log/index.md"
 source_documents:
-  - "Narrative Brief.md"
+  - "archive/source-monoliths/narrative-brief.md"
 ---
 
 # Narrative Brief

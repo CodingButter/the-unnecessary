@@ -14,7 +14,7 @@ related:
   - "infrastructure/cloud-dependency.md"
   - "hard-plot-restrictions.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the medicine technology rules. The wider cloud-dependency framing that explains why an unsupported clinic cannot reach a vanished vendor lives in [infrastructure/cloud-dependency.md](infrastructure/cloud-dependency.md).

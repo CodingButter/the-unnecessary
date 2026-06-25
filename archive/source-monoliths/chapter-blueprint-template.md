@@ -1,4 +1,11 @@
-# Chapter Blueprint Template
+<!--
+ARCHIVED SOURCE MONOLITH. Historical reference only. NOT active canon.
+Original title: Chapter Blueprint Template
+Original path: chapter-blueprints/Chapter Blueprint Template.md
+Archive date: 2026-06-25
+Replacement index: docs/40-blueprints/_templates/chapter-blueprint-template.md
+Canon status: archived; superseded by the split files under docs/; do not load as active canon.
+--># Chapter Blueprint Template
 
 > Copy this file for each chapter and replace all bracketed placeholders.
 > Suggested filename: `chapter-##-short-title.md`

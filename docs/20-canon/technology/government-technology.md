@@ -15,7 +15,7 @@ related:
   - "infrastructure/identity-and-money.md"
   - "information-and-propaganda.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the government technology rules. The identity and access systems the state depends on are described in [infrastructure/identity-and-money.md](infrastructure/identity-and-money.md), and the language used to frame withdrawal is covered in [information-and-propaganda.md](information-and-propaganda.md).

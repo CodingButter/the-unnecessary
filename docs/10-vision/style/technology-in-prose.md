@@ -15,7 +15,7 @@ related:
   - "./pacing-and-structure.md"
   - "../../20-canon/technology/index.md"
 source_documents:
-  - "Style Guide.md"
+  - "archive/source-monoliths/style-guide.md"
 ---
 
 # Technology in Prose

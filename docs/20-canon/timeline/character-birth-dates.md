@@ -14,7 +14,7 @@ related:
   - "./historical/2026-2034-assistance-and-compression.md"
   - "../characters/index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 # Principal Character Birth Dates

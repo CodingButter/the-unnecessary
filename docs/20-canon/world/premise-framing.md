@@ -16,7 +16,7 @@ related:
   - "../technology/ai/morrow.md"
   - "../characters/profiles/morrow.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # Premise Framing Routing Note

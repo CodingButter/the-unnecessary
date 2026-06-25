@@ -15,7 +15,7 @@ related:
   - "./2026-2034-assistance-and-compression.md"
   - "./2042-2047-infrastructure-and-support-collapse.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 # General Autonomy

@@ -15,7 +15,7 @@ related:
   - "./book-1/index.md"
   - "../index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 Read this index before loading individual timeline period files. It carries the timeline authority rules, the high-level historical and causal progressions, the final chronological standard, the continuity rules, and the open questions verbatim from the Master Timeline. The detailed year-by-year and day-by-day entries live in the linked period files. For Book One specifically, start at the [Book One timeline index](./book-1/index.md). For who the characters are and what is technically possible, defer to the [characters index](../characters/index.md) and the [technology index](../technology/index.md).

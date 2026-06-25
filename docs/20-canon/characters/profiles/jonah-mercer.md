@@ -15,7 +15,7 @@ related:
   - "./eli-rook.md"
   - "./celeste-mercer.md"
 source_documents:
-  - "Character Bible.md"
+  - "archive/source-monoliths/character-bible.md"
 ---
 
 # Jonah Mercer

@@ -16,7 +16,7 @@ related:
   - "hard-plot-restrictions.md"
   - "failure-rules.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the root framing for the technology domain. The levels of artificial intelligence live in [ai/intelligence-levels.md](ai/intelligence-levels.md), and the plot-limiting rules live in [hard-plot-restrictions.md](hard-plot-restrictions.md) and [failure-rules.md](failure-rules.md).

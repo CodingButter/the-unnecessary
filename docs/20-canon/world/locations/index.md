@@ -15,7 +15,7 @@ related:
   - "../../technology/index.md"
   - "../../timeline/index.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # World Locations Index

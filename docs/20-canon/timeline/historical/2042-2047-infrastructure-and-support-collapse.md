@@ -15,7 +15,7 @@ related:
   - "./2035-2041-autonomy-and-labor-break.md"
   - "./2048-2052-preservation-years.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 # Infrastructure Bargains

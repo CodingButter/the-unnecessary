@@ -12,7 +12,7 @@ related:
   - "../../../20-canon/characters/profiles/lena-okafor.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 024: Lena Is a Moral Counterweight, Not the Automatic Moral Authority

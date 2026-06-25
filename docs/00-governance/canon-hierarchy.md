@@ -13,7 +13,7 @@ related:
   - "context-loading-guide.md"
   - "index.md"
 source_documents:
-  - "Development and Canon Guide.md"
+  - "archive/source-monoliths/development-and-canon-guide.md"
 ---
 
 # Canon Hierarchy

@@ -9,7 +9,7 @@ related:
   - "../../../10-vision/narrative-brief.md"
   - "../../../30-plot/book-1/major-beats.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 036: The Final Message Is “You Were Never Unnecessary.”

@@ -1,4 +1,19 @@
-# Memory Conventions (mem0)
+---
+title: "Memory Conventions (mem0)"
+document_type: "governance-guide"
+status: "active"
+authority: "governance"
+summary: "How mem0 persistent memory is used while drafting the novel: what to store, the metadata schema, and the recall-then-draft discipline. Process governance, not story canon."
+tags:
+  - governance
+  - mem0
+  - memory
+related:
+  - "index.md"
+  - "novel-development-guide.md"
+source_documents:
+  - "migration/REPOSITORY-REORGANIZATION-SPEC.md"
+---# Memory Conventions (mem0)
 
 How agents use the semantic memory while drafting this novel. Read this before
 writing or recalling memories.

@@ -15,7 +15,7 @@ related:
   - "./character-voices.md"
   - "../../20-canon/characters/index.md"
 source_documents:
-  - "Style Guide.md"
+  - "archive/source-monoliths/style-guide.md"
 ---
 
 # Narrative Perspective

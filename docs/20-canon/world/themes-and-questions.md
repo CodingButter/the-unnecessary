@@ -14,7 +14,7 @@ related:
   - "./social-structure.md"
   - "./government-and-corporations.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # Central Questions and Thematic Argument

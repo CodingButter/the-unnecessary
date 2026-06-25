@@ -9,7 +9,7 @@ related:
   - "../../../20-canon/index.md"
   - "../../../30-plot/book-1/major-beats.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 033: Asterion Uses Pressure Before Open Force

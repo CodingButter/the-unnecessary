@@ -9,7 +9,7 @@ related:
   - "../../novel-development-guide.md"
   - "../../../40-blueprints/_templates/chapter-blueprint-template.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 041: Chapter Blueprints Are Created One Chapter at a Time

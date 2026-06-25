@@ -16,7 +16,7 @@ related:
   - "ai/crown.md"
   - "ai/morrow.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the Mars and Aurelia Initiative technology rules. The launch and migration cost framing it depends on lives in [transportation.md](transportation.md), and the industrial chain that lets Aurelia expand is described in [robotics-and-manufacturing.md](robotics-and-manufacturing.md). For the world-side overview of Mars and the Aurelia Initiative see [../world/mars-and-aurelia.md](../world/mars-and-aurelia.md).

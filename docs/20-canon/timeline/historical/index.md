@@ -11,7 +11,7 @@ tags:
 related:
   - "../index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 # Historical Timeline Index

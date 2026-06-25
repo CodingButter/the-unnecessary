@@ -15,7 +15,7 @@ related:
   - "./mars-and-aurelia.md"
   - "./locations/lakeward.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # Protected Enclaves

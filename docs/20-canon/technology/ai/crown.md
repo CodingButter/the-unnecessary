@@ -16,7 +16,7 @@ related:
   - "crown-vs-morrow.md"
   - "../../characters/profiles/crown.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file is the technology authority for Crown: its architecture, capabilities, and limitations. For Crown's behavioral identity as a character see the profile at [../../characters/profiles/crown.md](../../characters/profiles/crown.md). The Crown and Morrow comparison lives in [crown-vs-morrow.md](crown-vs-morrow.md).

@@ -17,7 +17,7 @@ related:
   - "./protected-enclaves.md"
   - "./mars-and-aurelia.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # The Shape of Society

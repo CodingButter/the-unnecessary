@@ -16,7 +16,7 @@ related:
   - "./government-and-corporations.md"
   - "./protected-enclaves.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # The Erosion of Ordinary Life

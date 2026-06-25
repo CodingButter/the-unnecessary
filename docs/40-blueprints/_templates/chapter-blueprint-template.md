@@ -13,7 +13,7 @@ related:
   - "../../30-plot/book-1/index.md"
   - "../../00-governance/novel-development-guide.md"
 source_documents:
-  - "chapter-blueprints/Chapter Blueprint Template.md"
+  - "archive/source-monoliths/chapter-blueprint-template.md"
 ---
 
 # Chapter Blueprint Template

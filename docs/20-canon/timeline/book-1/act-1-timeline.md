@@ -14,7 +14,7 @@ related:
   - "./act-2-timeline.md"
   - "./index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 This file holds the Act One day-by-day timeline. For the months leading in, see the [pre-book 2053 timeline](./pre-book-2053.md). The act continues in the [Act Two timeline](./act-2-timeline.md). The Book One calendar overview lives in the [book-1 index](./index.md).

@@ -15,7 +15,7 @@ related:
   - "morrow.md"
   - "consciousness-and-personhood.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file classifies AI capability tiers. For the root framing see [../foundational-rules.md](../foundational-rules.md). Crown and Morrow as named superintelligences are detailed in [crown.md](crown.md) and [morrow.md](morrow.md).

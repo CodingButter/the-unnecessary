@@ -9,7 +9,7 @@ related:
   - "./index.md"
   - "./open-decisions.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 # Explicitly Rejected Concepts

@@ -12,7 +12,7 @@ related:
   - "../../../20-canon/technology/transportation.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
-  - "Plot Outline and Chapter Map.md"
+  - "archive/source-monoliths/plot-outline-and-chapter-map.md"
 ---
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.

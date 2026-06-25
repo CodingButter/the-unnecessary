@@ -14,7 +14,7 @@ related:
   - "adrian-kade.md"
   - "eli-rook.md"
 source_documents:
-  - "Character Bible.md"
+  - "archive/source-monoliths/character-bible.md"
 ---
 
 # Sera Vale

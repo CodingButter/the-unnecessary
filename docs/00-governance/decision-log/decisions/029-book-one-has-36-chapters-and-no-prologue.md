@@ -11,7 +11,7 @@ related:
   - "../../../30-plot/book-1/index.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 029: Book One Has 36 Chapters and No Prologue

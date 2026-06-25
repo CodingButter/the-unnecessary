@@ -15,7 +15,7 @@ related:
   - "./viewpoint.md"
   - "../../20-canon/characters/index.md"
 source_documents:
-  - "Style Guide.md"
+  - "archive/source-monoliths/style-guide.md"
 ---
 
 # Character Voice Guide

@@ -15,7 +15,7 @@ related:
   - "./reveal-management.md"
   - "./index.md"
 source_documents:
-  - "Plot Outline and Chapter Map.md"
+  - "archive/source-monoliths/plot-outline-and-chapter-map.md"
 ---
 
 # Subplot Map

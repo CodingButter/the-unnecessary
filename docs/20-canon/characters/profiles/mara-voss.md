@@ -13,7 +13,7 @@ related:
   - "../relationship-map.md"
   - "../viewpoint-rules.md"
 source_documents:
-  - "Character Bible.md"
+  - "archive/source-monoliths/character-bible.md"
 ---
 
 # Mara Voss

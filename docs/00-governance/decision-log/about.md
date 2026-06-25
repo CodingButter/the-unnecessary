@@ -14,7 +14,7 @@ related:
   - "./open-decisions.md"
   - "../novel-development-guide.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 # How to Use This Document

@@ -14,7 +14,7 @@ related:
   - "ai/morrow.md"
   - "../world/locations/northglass.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file is the technology-side authority for the Northglass facility. For the world-domain location view of Northglass see [../world/locations/northglass.md](../world/locations/northglass.md). The Morrow-origin-at-Northglass material is owned by [ai/morrow.md](ai/morrow.md) and is summarized below rather than copied: Eli recovers Mosaic-related components and orchestration hardware at Northglass, but the facility provides capability and not a finished mind, so Morrow remains his own creation. The full origin account lives in [ai/morrow.md](ai/morrow.md).

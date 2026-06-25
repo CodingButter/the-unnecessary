@@ -15,7 +15,7 @@ related:
   - "hard-plot-restrictions.md"
   - "infrastructure/community-infrastructure.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the robotics and manufacturing technology rules. The matching plot-limiting rules that robots cannot repair everything and that advanced hardware cannot be created anywhere live in [hard-plot-restrictions.md](hard-plot-restrictions.md). The Mars-side industrial chain is covered in [mars-technology.md](mars-technology.md).

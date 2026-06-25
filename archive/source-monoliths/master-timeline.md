@@ -1,4 +1,11 @@
-# The Unnecessary
+<!--
+ARCHIVED SOURCE MONOLITH. Historical reference only. NOT active canon.
+Original title: The Unnecessary, Master Timeline, Version 1.0
+Original path: Master Timeline.md
+Archive date: 2026-06-25
+Replacement index: docs/20-canon/timeline/index.md
+Canon status: archived; superseded by the split files under docs/; do not load as active canon.
+--># The Unnecessary
 
 ## Master Timeline, Version 1.0
 

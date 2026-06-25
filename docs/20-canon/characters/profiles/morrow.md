@@ -14,7 +14,7 @@ related:
   - "./eli-rook.md"
   - "../../technology/ai/morrow.md"
 source_documents:
-  - "Character Bible.md"
+  - "archive/source-monoliths/character-bible.md"
 ---
 
 # Morrow

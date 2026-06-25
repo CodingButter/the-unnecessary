@@ -15,7 +15,7 @@ related:
   - "hard-plot-restrictions.md"
   - "failure-rules.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the scene-writing and continuity-checklist guidance for technical scenes. It is kept in the technology domain for now and a later phase may relocate it to style. The plot-limiting rules a scene must respect live in [hard-plot-restrictions.md](hard-plot-restrictions.md), and the visible failure modes a scene can draw on are listed in [failure-rules.md](failure-rules.md).

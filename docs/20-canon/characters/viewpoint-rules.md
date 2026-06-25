@@ -14,12 +14,12 @@ related:
   - "profiles/eli-rook.md"
   - "../../10-vision/style/character-voices.md"
 source_documents:
-  - "Character Bible.md"
+  - "archive/source-monoliths/character-bible.md"
 ---
 
 # Viewpoint Guidance and Dialogue Differentiation
 
-This file owns the rules for point-of-view allocation across Book One and for how each character is distinguished in dialogue. For per-character identity and arc, see the profiles under profiles/. For pairwise relationship dynamics, see relationship-map.md. For prose-level voice and style conventions beyond character dialogue, defer to the style guide at ../../meta/style-guide.md.
+This file owns the rules for point-of-view allocation across Book One and for how each character is distinguished in dialogue. For per-character identity and arc, see the profiles under profiles/. For pairwise relationship dynamics, see relationship-map.md. For prose-level voice and style conventions beyond character dialogue, defer to the style guide at ../../10-vision/style/index.md.
 
 # Viewpoint Guidance
 

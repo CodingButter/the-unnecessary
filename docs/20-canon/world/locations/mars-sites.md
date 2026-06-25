@@ -14,7 +14,7 @@ related:
   - "../../world/mars-and-aurelia.md"
   - "../../world/index.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 ## Mars

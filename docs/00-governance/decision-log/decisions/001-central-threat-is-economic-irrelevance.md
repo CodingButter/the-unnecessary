@@ -15,7 +15,7 @@ related:
   - "../../../20-canon/world/themes-and-questions.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 001: The Central Threat Is Economic Irrelevance

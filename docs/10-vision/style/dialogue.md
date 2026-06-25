@@ -15,7 +15,7 @@ related:
   - "./ai-dialogue.md"
   - "./emotion-and-moral-content.md"
 source_documents:
-  - "Style Guide.md"
+  - "archive/source-monoliths/style-guide.md"
 ---
 
 # Dialogue

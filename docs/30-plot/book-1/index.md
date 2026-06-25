@@ -21,7 +21,7 @@ related:
   - "./chapters/index.md"
   - "../../20-canon/timeline/"
 source_documents:
-  - "Plot Outline and Chapter Map.md"
+  - "archive/source-monoliths/plot-outline-and-chapter-map.md"
 ---
 
 # Book One Plot Layer

@@ -14,7 +14,7 @@ related:
   - "./act-3-timeline.md"
   - "./index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 This file holds the Act Two day-by-day timeline. It follows the [Act One timeline](./act-1-timeline.md) and continues in the [Act Three timeline](./act-3-timeline.md).

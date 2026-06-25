@@ -15,7 +15,7 @@ related:
   - "government-technology.md"
   - "security-and-conflict.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the information and propaganda technology rules. The enforcement and administration framing it pairs with lives in [government-technology.md](government-technology.md), and the authentication and surveillance systems it touches are covered in [security-and-conflict.md](security-and-conflict.md).

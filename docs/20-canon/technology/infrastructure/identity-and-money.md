@@ -15,7 +15,7 @@ related:
   - ../../technology/infrastructure/communications.md
   - ../../technology/infrastructure/community-infrastructure.md
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 # Identity, Money, and Access

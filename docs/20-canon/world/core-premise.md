@@ -16,7 +16,7 @@ related:
   - "./infrastructure-decline.md"
   - "./government-and-corporations.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # Core Premise and Narrative Framing

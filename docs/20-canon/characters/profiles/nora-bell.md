@@ -15,7 +15,7 @@ related:
   - "./eli-rook.md"
   - "../../technology/ai/crown.md"
 source_documents:
-  - "Character Bible.md"
+  - "archive/source-monoliths/character-bible.md"
 ---
 
 # Nora Bell

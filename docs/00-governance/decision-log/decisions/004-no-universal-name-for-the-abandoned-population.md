@@ -14,7 +14,7 @@ related:
   - "../../../10-vision/narrative-brief.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 004: There Is No Universal Name for the Abandoned Population

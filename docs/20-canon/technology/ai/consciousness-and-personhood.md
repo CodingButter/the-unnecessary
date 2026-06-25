@@ -15,7 +15,7 @@ related:
   - "morrow.md"
   - "../hard-plot-restrictions.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file governs how the story treats machine consciousness. The related plot-limiting rule that AI cannot solve moral conflict mathematically lives verbatim in [../hard-plot-restrictions.md](../hard-plot-restrictions.md); that file is its single authority, so this file points to it rather than restating it.

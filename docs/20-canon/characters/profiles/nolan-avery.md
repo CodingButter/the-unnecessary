@@ -13,7 +13,7 @@ related:
   - "../relationship-map.md"
   - "eli-rook.md"
 source_documents:
-  - "Character Bible.md"
+  - "archive/source-monoliths/character-bible.md"
 ---
 
 # Nolan Avery

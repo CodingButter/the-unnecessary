@@ -16,7 +16,7 @@ related:
   - "../characters/profiles/eli-rook.md"
   - "../characters/profiles/jonah-mercer.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # Book One Broad Arc

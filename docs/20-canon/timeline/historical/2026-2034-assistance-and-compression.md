@@ -14,7 +14,7 @@ related:
   - "../character-birth-dates.md"
   - "./2035-2041-autonomy-and-labor-break.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 # Before the Transformation

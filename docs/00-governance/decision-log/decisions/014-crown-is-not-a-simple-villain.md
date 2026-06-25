@@ -14,7 +14,7 @@ related:
   - "../../../20-canon/technology/ai/crown.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 014: Crown Is Not a Simple Villain

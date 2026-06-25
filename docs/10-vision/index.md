@@ -12,7 +12,7 @@ related:
   - "narrative-brief.md"
   - "style/index.md"
 source_documents:
-  - "Narrative Brief.md"
+  - "archive/source-monoliths/narrative-brief.md"
 ---
 
 # Vision Index

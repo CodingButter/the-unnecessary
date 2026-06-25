@@ -14,7 +14,7 @@ related:
   - "mars-technology.md"
   - "infrastructure/energy.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file holds the transportation technology rules. The Mars launch and migration dependencies that follow from spaceflight cost are covered in [mars-technology.md](mars-technology.md).

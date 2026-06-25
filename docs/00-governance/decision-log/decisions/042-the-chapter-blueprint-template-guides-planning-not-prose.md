@@ -9,7 +9,7 @@ related:
   - "../../../40-blueprints/_templates/chapter-blueprint-template.md"
   - "../../novel-development-guide.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 042: The Chapter Blueprint Template Guides Planning, Not Prose

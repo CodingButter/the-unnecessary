@@ -14,7 +14,7 @@ related:
   - "./character-knowledge-timeline.md"
   - "./index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 This file holds the Act Four day-by-day timeline and the Book One end state. It follows the [Act Three timeline](./act-3-timeline.md). For what each character knows by the close, see the [character knowledge timeline](./character-knowledge-timeline.md).

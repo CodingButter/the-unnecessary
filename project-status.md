@@ -21,10 +21,12 @@ This is the live status record for the novel "The Unnecessary". It names where t
 project currently stands so a reader or a future session can orient quickly. It is
 governance scaffolding, not story canon. It establishes nothing about the story; for
 any load-bearing fact, defer to the canon authorities named in
-`docs/00-governance/canon-hierarchy.md` (pending: created in a later phase).
+`docs/00-governance/canon-hierarchy.md`.
 
-Phase 03 seeds this file. A later phase updates it in place rather than overwriting it,
-preserving the accumulated content below.
+Phase 03 seeded this file. Phase 09 (finalization) updated it in place at migration
+completion, preserving the accumulated content below. The repository reorganization is
+complete: the ten source monoliths are archived under `archive/source-monoliths/` and the
+navigable `docs/` tree is the active authority.
 
 ## Current status
 
@@ -42,25 +44,25 @@ next_task: "Create the Chapter 1 blueprint"
 
 ## Active document versions
 
-The active source documents at the repository root carry version labels as follows.
-Seven state "Version 1.0" on their title line. The Narrative Brief and the Chapter
-Blueprint Template state no version.
+The ten source monoliths have been archived to `archive/source-monoliths/` with archive
+headers, byte-faithful to the originals, and their stated version labels are preserved
+there. The active authority is now the split `docs/` tree, where each file carries its own
+status metadata and a `source_documents` link back to the archived monolith it derives
+from. Eight monoliths stated "Version 1.0"; the Narrative Brief and the Chapter Blueprint
+Template stated no version.
 
-| Document | Stated version |
-| --- | --- |
-| `Story Bible.md` | Version 1.0 |
-| `Character Bible.md` | Version 1.0 |
-| `Technology Rules.md` | Version 1.0 |
-| `Master Timeline.md` | Version 1.0 |
-| `Plot Outline and Chapter Map.md` | Version 1.0 |
-| `Style Guide.md` | Version 1.0 |
-| `Creative Decision Log.md` | Version 1.0 |
-| `Development and Canon Guide.md` | Version 1.0 |
-| `Narrative Brief.md` | no version stated |
-| `chapter-blueprints/Chapter Blueprint Template.md` | no version stated |
-
-These are the current source monoliths. Later phases derive structured canon from them;
-those derived files will record their own version and source in front matter.
+| Archived monolith | Stated version | Active replacement index |
+| --- | --- | --- |
+| `archive/source-monoliths/story-bible.md` | Version 1.0 | `docs/20-canon/world/index.md` |
+| `archive/source-monoliths/character-bible.md` | Version 1.0 | `docs/20-canon/characters/index.md` |
+| `archive/source-monoliths/technology-rules.md` | Version 1.0 | `docs/20-canon/technology/index.md` |
+| `archive/source-monoliths/master-timeline.md` | Version 1.0 | `docs/20-canon/timeline/index.md` |
+| `archive/source-monoliths/plot-outline-and-chapter-map.md` | Version 1.0 | `docs/30-plot/book-1/index.md` |
+| `archive/source-monoliths/style-guide.md` | Version 1.0 | `docs/10-vision/style/index.md` |
+| `archive/source-monoliths/creative-decision-log.md` | Version 1.0 | `docs/00-governance/decision-log/index.md` |
+| `archive/source-monoliths/development-and-canon-guide.md` | Version 1.0 | `docs/00-governance/novel-development-guide.md` |
+| `archive/source-monoliths/narrative-brief.md` | no version stated | `docs/10-vision/narrative-brief.md` |
+| `archive/source-monoliths/chapter-blueprint-template.md` | no version stated | `docs/40-blueprints/_templates/chapter-blueprint-template.md` |
 
 ## Known unresolved conflicts
 
@@ -78,9 +80,11 @@ statements are preserved exactly and the conflict is logged, never silently merg
 ## Recommended context manifest for the next task
 
 For the next task, "Create the Chapter 1 blueprint", load
-`context-manifests/create-chapter-blueprint.yaml` (pending: created in a later phase).
-That manifest names exactly which canon and planning files to read for blueprinting a
-chapter, so a session loads only what the task needs rather than the whole repository.
+`context-manifests/create-chapter-blueprint.yaml`. That manifest names exactly which canon
+and planning files to read for blueprinting a chapter, so a session loads only what the
+task needs rather than the whole repository. For Chapter 1 specifically, the scoped
+manifest at `docs/40-blueprints/book-1/chapter-01-no-signal/context-manifest.yaml` builds a
+self-sufficient context pack of about 45,000 tokens.
 
 ## Date of last project reorganization
 

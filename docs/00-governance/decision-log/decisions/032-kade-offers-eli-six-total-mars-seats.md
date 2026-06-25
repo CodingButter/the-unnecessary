@@ -9,7 +9,7 @@ related:
   - "../../../30-plot/book-1/major-beats.md"
   - "../../../20-canon/characters/index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 032: Kade Offers Eli Six Total Mars Seats

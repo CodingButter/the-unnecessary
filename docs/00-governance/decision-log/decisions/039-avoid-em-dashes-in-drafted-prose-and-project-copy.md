@@ -9,7 +9,7 @@ related:
   - "../../../10-vision/style/formatting.md"
   - "../../../10-vision/style/index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 039: Avoid Em Dashes in Drafted Prose and Project Copy

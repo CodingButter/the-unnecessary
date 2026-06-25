@@ -14,7 +14,7 @@ related:
   - "./act-4-timeline.md"
   - "./index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 This file lists the Book One secrets. For what each character openly knows and when, see the [character knowledge timeline](./character-knowledge-timeline.md).

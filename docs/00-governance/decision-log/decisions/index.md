@@ -11,7 +11,7 @@ tags:
 related:
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 # Decision Files Index

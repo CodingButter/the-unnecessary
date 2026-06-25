@@ -18,7 +18,7 @@ related:
   - "../characters/profiles/adrian-kade.md"
   - "../technology/ai/crown.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # Government and Corporate Power

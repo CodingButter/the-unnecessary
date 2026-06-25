@@ -15,7 +15,7 @@ related:
   - ../../technology/infrastructure/identity-and-money.md
   - ../../technology/infrastructure/cloud-dependency.md
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 # Community Infrastructure

@@ -14,7 +14,7 @@ related:
   - "../historical/2048-2052-preservation-years.md"
   - "../index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 This file covers the final months of 2053 leading into Book One. For the Book One calendar overview and the opening day, see the [Act One timeline](./act-1-timeline.md). For the years immediately preceding, see the [preservation years](../historical/2048-2052-preservation-years.md).

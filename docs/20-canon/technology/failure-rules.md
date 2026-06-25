@@ -13,7 +13,7 @@ related:
   - "foundational-rules.md"
   - "hard-plot-restrictions.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file is the single authority for the failure rules, including the rule that every important technology should have at least one visible failure mode. The companion plot-limiting restrictions live in [hard-plot-restrictions.md](hard-plot-restrictions.md).

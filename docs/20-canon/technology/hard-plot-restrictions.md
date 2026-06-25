@@ -15,7 +15,7 @@ related:
   - "ai/morrow.md"
   - "ai/consciousness-and-personhood.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file is the single authority for the hard plot restrictions, including the rule that AI cannot solve moral conflict mathematically. The AI files reference these restrictions by link rather than restating them; see [ai/morrow.md](ai/morrow.md) and [ai/consciousness-and-personhood.md](ai/consciousness-and-personhood.md). The companion visible-failure rules live in [failure-rules.md](failure-rules.md).

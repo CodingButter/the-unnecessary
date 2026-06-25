@@ -13,7 +13,7 @@ related:
   - "../act-4.md"
   - "../../../40-blueprints/_templates/chapter-blueprint-template.md"
 source_documents:
-  - "Plot Outline and Chapter Map.md"
+  - "archive/source-monoliths/plot-outline-and-chapter-map.md"
 ---
 
 # Book One Chapter-Map Index

@@ -9,7 +9,7 @@ related:
   - "../../../10-vision/style/index.md"
   - "../../../20-canon/index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 038: Avoid Exaggerated Cyberpunk Aesthetics

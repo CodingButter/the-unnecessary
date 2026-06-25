@@ -10,7 +10,7 @@ related:
   - "../../../20-canon/timeline/index.md"
   - "../../../20-canon/technology/index.md"
 source_documents:
-  - "Plot Outline and Chapter Map.md"
+  - "archive/source-monoliths/plot-outline-and-chapter-map.md"
 ---
 
 This is a high-level plot-map entry. The detailed plan lives in the chapter blueprint.

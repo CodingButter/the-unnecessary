@@ -12,7 +12,7 @@ related:
   - "../relationship-map.md"
   - "jonah-mercer.md"
 source_documents:
-  - "Character Bible.md"
+  - "archive/source-monoliths/character-bible.md"
 ---
 
 # Celeste Mercer

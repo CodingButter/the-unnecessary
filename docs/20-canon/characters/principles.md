@@ -6,7 +6,7 @@ authority: character-canon
 summary: Framing sections of the Character Bible that govern all character profiles. Holds the core character principles, cast and nonhuman section framing, the final character standard, and the continuity fields list. The live continuity baseline derived from the continuity fields lives under docs/60-continuity/.
 tags: [characters, principles, framing, continuity, canon]
 related: ["./relationship-map.md", "./viewpoint-rules.md"]
-source_documents: ["Character Bible.md"]
+source_documents: ["archive/source-monoliths/character-bible.md"]
 ---
 
 # Core Character Principles

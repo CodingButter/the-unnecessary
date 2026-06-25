@@ -15,7 +15,7 @@ related:
   - "../world/index.md"
   - "../timeline/index.md"
 source_documents:
-  - "Character Bible.md"
+  - "archive/source-monoliths/character-bible.md"
 ---
 
 # Characters Canon Index

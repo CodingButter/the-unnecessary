@@ -14,7 +14,7 @@ related:
   - "../../../20-canon/world/locations/mars-sites.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 010: Mars Is Still Being Prepared During Book One

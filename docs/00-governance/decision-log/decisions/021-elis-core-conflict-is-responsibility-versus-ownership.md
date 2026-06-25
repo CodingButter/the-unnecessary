@@ -13,7 +13,7 @@ related:
   - "../../../20-canon/characters/profiles/eli-rook.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 021: Eli’s Core Conflict Is Responsibility Versus Ownership

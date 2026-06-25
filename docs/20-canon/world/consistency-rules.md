@@ -16,7 +16,7 @@ related:
   - "../technology/hard-plot-restrictions.md"
   - "../technology/ai/morrow.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 # Rules for Consistency

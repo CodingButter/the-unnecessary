@@ -15,7 +15,7 @@ related:
   - ../../technology/infrastructure/identity-and-money.md
   - ../../technology/infrastructure/energy.md
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 # Cloud Dependency and Digital Ownership

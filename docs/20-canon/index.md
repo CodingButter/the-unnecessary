@@ -14,10 +14,10 @@ related:
   - "technology/index.md"
   - "timeline/index.md"
 source_documents:
-  - "Story Bible.md"
-  - "Character Bible.md"
-  - "Technology Rules.md"
-  - "Master Timeline.md"
+  - "archive/source-monoliths/story-bible.md"
+  - "archive/source-monoliths/character-bible.md"
+  - "archive/source-monoliths/technology-rules.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 # Canon Index

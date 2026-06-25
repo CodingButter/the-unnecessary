@@ -15,7 +15,7 @@ related:
   - "../../../20-canon/technology/mars-technology.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 011: Mars Is a Network, Not One City

@@ -15,7 +15,7 @@ related:
   - "./emotion-and-moral-content.md"
   - "./revision-checklist.md"
 source_documents:
-  - "Style Guide.md"
+  - "archive/source-monoliths/style-guide.md"
 ---
 
 # Prose Habits to Avoid

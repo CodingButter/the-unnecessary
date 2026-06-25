@@ -14,7 +14,7 @@ related:
   - "./act-1-timeline.md"
   - "../index.md"
 source_documents:
-  - "Master Timeline.md"
+  - "archive/source-monoliths/master-timeline.md"
 ---
 
 Read this index before loading individual Book One timeline files. It carries the Book One calendar, the overview gantt, and the timing and travel rules verbatim from the Master Timeline. The day-by-day events live in the four act timeline files, and the knowledge and secret structures live in their own files. For the months leading into Book One, see the [pre-book conditions](./pre-book-2053.md). For the wider chronology and the timeline authority rules, see the [timeline index](../index.md).

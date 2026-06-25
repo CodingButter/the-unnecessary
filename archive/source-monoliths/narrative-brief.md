@@ -1,4 +1,11 @@
-# Narrative Brief
+<!--
+ARCHIVED SOURCE MONOLITH. Historical reference only. NOT active canon.
+Original title: Narrative Brief
+Original path: Narrative Brief.md
+Archive date: 2026-06-25
+Replacement index: docs/10-vision/narrative-brief.md
+Canon status: archived; superseded by the split files under docs/; do not load as active canon.
+--># Narrative Brief
 
 ## Project Title
 

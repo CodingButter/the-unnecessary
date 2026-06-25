@@ -14,7 +14,7 @@ related:
   - "../../../20-canon/technology/ai/morrow.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 005: Collapse Is Uneven

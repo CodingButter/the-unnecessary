@@ -9,7 +9,7 @@ related:
   - "../../../30-plot/book-1/major-beats.md"
   - "../../../20-canon/index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 035: Morrow Survives Through Distribution

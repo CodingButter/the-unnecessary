@@ -49,7 +49,7 @@ authorities below — do not reason from this paragraph.
 | Authority | Document | Owns |
 |---|---|---|
 | **Operating manual** | `Development and Canon Guide.md` | The canon hierarchy, conflict-handling rules, drafting discipline, context packages, workflow phases, folder structure, versioning. **Defer to it on all process and conflict questions.** |
-| **Memory spec** | `Memory Conventions.md` | How mem0 is used while drafting — what to store, the metadata schema, recall-then-draft discipline. **Defer to it on memory practice.** |
+| **Memory spec** | `docs/00-governance/memory-conventions.md` | How mem0 is used while drafting — what to store, the metadata schema, recall-then-draft discipline. **Defer to it on memory practice.** |
 | Canon (by subject) | `Narrative Brief.md`, `Story Bible.md`, `Character Bible.md`, `Technology Rules.md`, `Master Timeline.md`, `Plot Outline and Chapter Map.md`, `Style Guide.md`, `Creative Decision Log.md` | Authoritative story facts. The bibles win every conflict against memory. |
 
 Two non-negotiable principles inherited from the Canon Guide:
@@ -105,7 +105,7 @@ migration phase; until then, treat these as the intended entry points):
 # mem0 — Operating Protocol (MANDATORY)
 
 We run a **self-hosted mem0** as persistent, cross-session memory. Use it on every task.
-This section is the operational protocol; `Memory Conventions.md` is the fuller spec on
+This section is the operational protocol; `docs/00-governance/memory-conventions.md` is the fuller spec on
 *what* to store and *how to phrase it* — defer to it.
 
 ## What it is (architecture)

@@ -15,7 +15,7 @@ related:
   - ../../technology/infrastructure/cloud-dependency.md
   - ../../technology/infrastructure/community-infrastructure.md
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 # Communications

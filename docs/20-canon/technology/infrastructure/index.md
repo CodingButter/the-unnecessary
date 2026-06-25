@@ -11,7 +11,7 @@ tags:
 related:
   - "../index.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 # Infrastructure Technology Index

@@ -16,7 +16,7 @@ related:
   - "./prohibited-patterns.md"
   - "./viewpoint.md"
 source_documents:
-  - "Style Guide.md"
+  - "archive/source-monoliths/style-guide.md"
 ---
 
 # Drafting With Another AI

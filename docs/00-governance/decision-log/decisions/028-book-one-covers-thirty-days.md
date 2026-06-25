@@ -12,7 +12,7 @@ related:
   - "../../../20-canon/timeline/index.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 028: Book One Covers Thirty Days

@@ -18,7 +18,7 @@ related:
   - "../hard-plot-restrictions.md"
   - "../../characters/profiles/morrow.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file is the technology authority for Morrow and the single owner of the Morrow-origin-at-Northglass material. For Morrow's behavioral identity as a character see the profile at [../../characters/profiles/morrow.md](../../characters/profiles/morrow.md). For the wider Northglass facility context see [../northglass.md](../northglass.md). Morrow's moral architecture below references the separate plot-limiting rule that AI cannot solve moral conflict mathematically; that rule is owned verbatim by [../hard-plot-restrictions.md](../hard-plot-restrictions.md), so this file links to it rather than restating it.

@@ -9,7 +9,7 @@ related:
   - "../../novel-development-guide.md"
   - "../index.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 ## Decision 043: Another AI Does Not Need the Original Conversation

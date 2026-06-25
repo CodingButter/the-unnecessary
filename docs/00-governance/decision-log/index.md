@@ -14,7 +14,7 @@ related:
   - "./decisions/001-central-threat-is-economic-irrelevance.md"
   - "../novel-development-guide.md"
 source_documents:
-  - "Creative Decision Log.md"
+  - "archive/source-monoliths/creative-decision-log.md"
 ---
 
 # Decision Log Index

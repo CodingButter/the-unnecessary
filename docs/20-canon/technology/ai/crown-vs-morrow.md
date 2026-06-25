@@ -15,7 +15,7 @@ related:
   - "morrow.md"
   - "intelligence-levels.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 This file compares the two named superintelligences. Their individual technology authorities are [crown.md](crown.md) and [morrow.md](morrow.md).

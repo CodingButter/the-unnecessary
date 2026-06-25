@@ -15,7 +15,7 @@ related:
   - "infrastructure/index.md"
   - "../world/index.md"
 source_documents:
-  - "Technology Rules.md"
+  - "archive/source-monoliths/technology-rules.md"
 ---
 
 # Technology Canon

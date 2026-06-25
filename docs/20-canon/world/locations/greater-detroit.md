@@ -17,7 +17,7 @@ related:
   - "./mars-sites.md"
   - "../../world/index.md"
 source_documents:
-  - "Story Bible.md"
+  - "archive/source-monoliths/story-bible.md"
 ---
 
 ## Primary Setting
