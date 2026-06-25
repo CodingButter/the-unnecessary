@@ -68,6 +68,10 @@ The decision should be treated as canon while developing the current version of 
 
 It can still be changed deliberately, but should not be casually contradicted.
 
+## Locked for Current Workflow
+
+The decision governs the current development workflow, tooling, and document organization rather than story canon. It should be treated as fixed while that workflow is in use, and revised deliberately only when the workflow itself changes.
+
 ## Active but Revisable
 
 The decision currently guides development, but may change without requiring a complete reconstruction of the project.

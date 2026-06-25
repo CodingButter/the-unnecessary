@@ -99,7 +99,7 @@ timeline
 
     2050 : Autonomous Martian industry becomes partially self-expanding
 
-    2052 : Mars passes its first long-duration habitability trial
+    2052 : Aurelia sustains a six-month simulated population load
          : Wealthy families expect invitations
 
     2053 : Ordinary infrastructure continues eroding

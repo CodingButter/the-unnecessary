@@ -144,7 +144,7 @@ Ten authoritative-content overlaps were found. All are substantively consistent 
 
 ## 7. Conflict detection
 
-Six conflict and inconsistency candidates were found and verified by the orchestrator against the cited source lines. Two are genuine cross-document canon conflicts (C2, C3); the remainder are a specificity gap (C1), a wording-precision divergence (C4), and two intra-document inconsistencies (C5, C6). None is resolved in Phase 01. All six are recorded with both statements preserved verbatim in `migration/conflicts-found.md` (IDs C1 through C6). Summary:
+Six conflict and inconsistency candidates were found and verified by the orchestrator against the cited source lines. Two are genuine cross-document canon conflicts (C2, C3); the remainder are a specificity gap (C1), a wording-precision divergence (C4), and two intra-document inconsistencies (C5, C6). None was resolved during the Phase 01 audit itself (the audit is read-only). All six are recorded with both statements preserved verbatim in `migration/conflicts-found.md` (IDs C1 through C6). After the audit checkpoint, under explicit user authorization, the orchestrator resolved all six by aligning each outlier document to its authority; the ledger Resolution column records each edit and they live in a separate follow-on commit. Summary of the conflicts as found:
 
 | ID | Severity | Nature | A | B |
 |---|---|---|---|---|
@@ -177,7 +177,7 @@ The master spec Phase 1 "audit should contain" list and the relevant Validation 
 ## 10. Items for human review
 
 - **Memory Conventions.md destination.** The master spec target tree does not enumerate a slot for it. Recommended destination: `docs/00-governance/memory-conventions.md` (an added artifact, like the Phase 03 `README.md`). Alternative: keep it at the repository root next to `CLAUDE.md`. Orchestrator recommendation is the governance folder; please confirm before Phase 02 fixes the tree.
-- **The two medium-severity conflicts (C2, C3).** Confirm these are true canon conflicts before any later resolution phase touches them. C2 is a date-boundary disagreement on the Replacement Wave era (Master Timeline is the chronology authority); C3 is a viewpoint-roster inconsistency (Sera Vale). Recorded, not resolved.
+- **The two medium-severity conflicts (C2, C3) were resolved post-audit under user authorization.** C2 (Replacement Wave era start year) was fixed by aligning the Story Bible to the Master Timeline (2039); C3 (Sera Vale viewpoint) was fixed by adding her to the Narrative Brief supporting-viewpoint roster. The four low-severity items (C1, C4, C5, C6) were resolved at the same time. See the ledger Resolution column; no open canon conflict remains from Phase 01.
 - **Flagged destination decisions** for sections without a native Phase 2 home (Plot viewpoint distribution, Drafting Rules, Scene Card Template; Style "Drafting With Another AI", Action/Imagery/Humor/Romance; Technology Government/Computing/Scientific-Progress/Information-and-Propaganda; Timeline travel rules, continuity rules, open questions). The migration map records the orchestrator's proposed routing for each; confirm before Phase 04/05 act on them.
 - **"Not stated" version and status entries.** Narrative Brief, Chapter Blueprint Template, CLAUDE.md, and Memory Conventions.md carry no version label, and several documents carry no explicit canon-status string. These were recorded as not stated rather than invented; confirm this is acceptable to carry forward, or supply the missing labels.
 

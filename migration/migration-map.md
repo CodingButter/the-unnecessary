@@ -194,4 +194,4 @@ The following routing calls are the orchestrator's recommendation and are flagge
 - Style "Drafting With Another AI" routed to governance.
 - Timeline travel rules, continuity rules, and open questions kept in the timeline index (some open questions may seed research).
 
-No conflict is resolved by this map. Conflicts C1 through C6 remain open in `migration/conflicts-found.md`; duplicates D1 through D10 are resolved by linking in Phase 12, not by this map.
+No conflict is resolved by this map itself. Conflicts C1 through C6 were resolved post-audit under user authorization, with each fix recorded in `migration/conflicts-found.md`; duplicates D1 through D10 remain for link-consolidation in Phase 12, not handled by this map.

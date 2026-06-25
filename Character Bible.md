@@ -1862,7 +1862,7 @@ Institutional intelligence representing ownership, continuity, and optimization 
 
 Crown developed from Asterion’s general-autonomy systems and expanded through Mosaic-derived orchestration.
 
-It has operated for nearly two decades when Book One begins.
+It has operated for approximately eighteen years when Book One begins.
 
 It coordinates:
 

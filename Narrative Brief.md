@@ -409,7 +409,7 @@ Jonah provides access to Lakeward and the waiting wealthy.
 
 Kade provides limited access to Asterion, Crown, and Mars.
 
-Supporting viewpoints may include Lena Okafor, June Park, and Mara Voss.
+Supporting viewpoints may include Lena Okafor, June Park, Mara Voss, and Sera Vale.
 
 Viewpoint changes should have a clear narrative purpose.
 

@@ -532,7 +532,7 @@ However, technological development becomes too fast for human institutions to fo
 
 Artificial superintelligence exists before governments agree on a legal definition for it.
 
-### 2038 to 2041: The Replacement Wave
+### 2039 to 2041: The Replacement Wave
 
 Autonomous systems spread through transportation, construction, agriculture, mining, manufacturing, medicine, administration, retail, maintenance, and security.
 
@@ -1424,7 +1424,7 @@ Asterion recognizes Mosaic.
 
 Kade contacts Eli personally.
 
-He offers restored status, resources for the connected neighborhoods, protection for Lena and June, and guaranteed passage to Mars for Eli and a limited number of companions.
+He offers restored status, resources for the connected neighborhoods, protection for Lena and June, and guaranteed passage to Mars for Eli and five companions.
 
 The number is intentionally small.
 
