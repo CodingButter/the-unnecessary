@@ -1,0 +1,101 @@
+task_name: "draft-chapter"
+purpose: >
+  Draft the prose of a single chapter from its approved blueprint for Book One of
+  The Unnecessary. This manifest names the prose-craft style files (core prose,
+  viewpoint, dialogue), the relevant character voices and profiles, the relevant
+  technology files, current continuity, and the chapter's plot-map entry. It loads
+  only the files relevant to one chapter and does not auto-load every profile,
+  technology file, or chapter. The approved blueprint is the primary input; because
+  no blueprint is approved yet, the blueprint and the previous approved manuscript
+  chapter are listed under optional_files until they exist on disk. Once approved,
+  the blueprint becomes the de facto required entry point for this task.
+
+required_files:
+  # Entry and operating layer
+  - "CLAUDE.md"
+  - "docs/00-governance/context-loading-guide.md"
+  # 2. Core prose guide
+  - "docs/10-vision/style/core-prose.md"
+  # 3. Viewpoint guide
+  - "docs/10-vision/style/viewpoint.md"
+  # 4. Dialogue guide
+  - "docs/10-vision/style/dialogue.md"
+  # 5. Relevant character voices
+  - "docs/10-vision/style/character-voices.md"
+  # 6. Relevant character profiles (representative: Chapter 1 cast; narrowed per chapter)
+  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  # 7. Relevant technology files (representative only; narrowed per chapter)
+  - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
+  - "docs/20-canon/technology/medicine.md"
+  # 8. Current continuity (pre-draft starting conditions)
+  - "docs/60-continuity/global-continuity.md"
+  - "docs/60-continuity/setups-and-payoffs.md"
+  - "docs/60-continuity/unresolved-threads.md"
+  # 10. Relevant plot-map entry (representative: Chapter 1; swap per chapter)
+  - "docs/30-plot/book-1/chapters/chapter-01.md"
+
+optional_files:
+  # 1. Approved blueprint for THIS chapter (the primary input). No blueprint is
+  #    approved yet, so the book-1 blueprint folder holds no chapter file. This is a
+  #    placeholder path the context-pack builder resolves via {chapter_number} and
+  #    {chapter_slug}; absent today, so the builder warns rather than fails. It
+  #    becomes the de facto required entry point once the blueprint is approved.
+  - "docs/40-blueprints/book-1/chapter-{chapter_number}-{chapter_slug}/blueprint.md"
+  # 9. Previous approved manuscript chapter, when one exists. None is approved yet,
+  #    so the book-1 manuscript folder is empty. Placeholder resolved via
+  #    {previous_chapter_number}; warns when absent.
+  - "docs/50-manuscript/book-1/chapter-{previous_chapter_number}.md"
+  # AI dialogue craft, when Morrow or Crown speak in the chapter
+  - "docs/10-vision/style/ai-dialogue.md"
+  # Technology-in-prose craft, when systems are described on the page
+  - "docs/10-vision/style/technology-in-prose.md"
+  # Prohibited patterns and formatting, useful during drafting
+  - "docs/10-vision/style/prohibited-patterns.md"
+  - "docs/10-vision/style/formatting.md"
+  # Relationship context for the chapter's cast
+  - "docs/20-canon/characters/relationship-map.md"
+
+exclude_files:
+  - "docs/20-canon/characters/profiles/  (do not load every profile; name only the chapter's cast)"
+  - "docs/20-canon/technology/  (do not load every technology file; name only relevant systems)"
+  - "docs/30-plot/book-1/chapters/  (do not load every chapter plot file; load only this chapter's entry)"
+  - "docs/20-canon/world/mars-and-aurelia.md  (exclude Mars detail unless the chapter is set there)"
+  - "archive/  (archived monoliths are historical reference only; never load as canon)"
+
+loading_order:
+  - "CLAUDE.md"
+  - "docs/00-governance/context-loading-guide.md"
+  - "docs/30-plot/book-1/chapters/chapter-01.md"
+  - "docs/10-vision/style/core-prose.md"
+  - "docs/10-vision/style/viewpoint.md"
+  - "docs/10-vision/style/dialogue.md"
+  - "docs/10-vision/style/character-voices.md"
+  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
+  - "docs/20-canon/technology/medicine.md"
+  - "docs/60-continuity/global-continuity.md"
+  - "docs/60-continuity/setups-and-payoffs.md"
+  - "docs/60-continuity/unresolved-threads.md"
+
+expected_output: >
+  A complete prose draft of one chapter, faithful to its approved blueprint, written
+  to docs/50-manuscript/book-1/chapter-XX-title.md. The draft holds close-third
+  viewpoint, honors established character voices and technology rules, and exposes no
+  future reveal. It is a draft pending review, not yet approved canon.
+
+canon_rules:
+  - "The approved blueprint governs scene order, beats, and reveal timing; do not invent new plot."
+  - "The bibles outrank memory and the graph; never silently resolve a conflict, flag it."
+  - "Hold the chapter viewpoint character's voice; do not head-hop outside close third."
+  - "Do not give Morrow or Crown capabilities not established in their technology and character files."
+  - "Avoid em dashes in drafted prose."
+  - "Do not expose reveals scheduled for later chapters."
+  - "Treat continuity files as pre-draft starting conditions until a manuscript chapter is approved."
+
+relevant_validation_checks:
+  - "build-context-pack.py resolves every required path and warns on the absent blueprint and manuscript folders."
+  - "validate-links.py reports zero broken relative links across referenced files."
+  - "No path under archive/ appears anywhere in this manifest."
+  - "This manifest names only relevant style, profile, and technology files and does not glob whole directories."

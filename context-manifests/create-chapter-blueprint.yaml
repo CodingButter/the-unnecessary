@@ -1,0 +1,112 @@
+task_name: "create-chapter-blueprint"
+purpose: >
+  Plan a single chapter blueprint for Book One of The Unnecessary. This manifest
+  names the entry layer, the relevant plot and act context, the blueprint template,
+  and a representative slice of canon (characters, technology, timeline) plus current
+  continuity and the decisions that govern setting, tone, and viewpoint. It loads
+  only the files relevant to one chapter. It deliberately does NOT auto-load every
+  character profile, every technology file, or every chapter. The representative
+  paths below are stand-ins for the chapter under work; the per-chapter manifest at
+  docs/40-blueprints/book-1/chapter-XX-title/context-manifest.yaml narrows these to
+  the exact files that chapter needs and is the authority on the final per-chapter set.
+
+required_files:
+  # 1. Entry and operating layer
+  - "CLAUDE.md"
+  # 2. Context-loading guide (which files to read for which task)
+  - "docs/00-governance/context-loading-guide.md"
+  # 3. Narrative Brief (read first, short)
+  - "docs/10-vision/narrative-brief.md"
+  # 4. Relevant plot chapter file (representative: Chapter 1; swap per chapter)
+  - "docs/30-plot/book-1/chapters/chapter-01.md"
+  # 5. Relevant act file (representative: Act One; swap per chapter)
+  - "docs/30-plot/book-1/act-1.md"
+  # 6. Chapter Blueprint Template
+  - "docs/40-blueprints/_templates/chapter-blueprint-template.md"
+  # 7. Relevant character profiles (representative only; narrowed per chapter)
+  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  # 8. Relevant technology files (representative only; narrowed per chapter)
+  - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
+  - "docs/20-canon/technology/medicine.md"
+  # 9. Relevant timeline files (representative only; narrowed per chapter)
+  - "docs/20-canon/timeline/book-1/act-1-timeline.md"
+  # 10. Current continuity files (pre-draft starting conditions)
+  - "docs/60-continuity/global-continuity.md"
+  - "docs/60-continuity/setups-and-payoffs.md"
+  - "docs/60-continuity/unresolved-threads.md"
+  # 13. Relevant decisions (setting, tone, viewpoint that bind every chapter)
+  - "docs/00-governance/decision-log/decisions/index.md"
+  - "docs/00-governance/decision-log/decisions/030-novel-uses-close-third-person-with-multiple-viewpoints.md"
+  - "docs/00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md"
+
+optional_files:
+  # Supporting relationship and viewpoint context for the chapter's cast
+  - "docs/20-canon/characters/relationship-map.md"
+  - "docs/20-canon/characters/viewpoint-rules.md"
+  # 11. Previous chapter blueprint, when one exists. None is approved yet, so the
+  #     book-1 blueprint folder holds no chapter file. This is a placeholder path the
+  #     context-pack builder resolves via {previous_chapter_number}; absent today, so
+  #     the builder warns rather than fails. Do not add it to loading_order until it
+  #     resolves.
+  - "docs/40-blueprints/book-1/chapter-{previous_chapter_number}/blueprint.md"
+  # 12. Previous approved manuscript chapter, when one exists. None is approved yet,
+  #     so the book-1 manuscript folder holds no chapter file. Placeholder path the
+  #     builder resolves via {previous_chapter_number}; warns when absent.
+  - "docs/50-manuscript/book-1/chapter-{previous_chapter_number}.md"
+  # Additional representative timeline context for chapters that need pre-book grounding
+  - "docs/20-canon/timeline/book-1/pre-book-2053.md"
+  # Setting and withdrawal decisions commonly relevant to early chapters
+  - "docs/00-governance/decision-log/decisions/006-greater-detroit-is-the-primary-setting.md"
+  - "docs/00-governance/decision-log/decisions/002-world-declines-through-withdrawal-not-one-apocalypse.md"
+  - "docs/00-governance/decision-log/decisions/005-collapse-is-uneven.md"
+
+exclude_files:
+  # Do not auto-load whole directories of profiles, technology, or chapters.
+  - "docs/20-canon/characters/profiles/  (do not load every profile; name only the chapter's cast)"
+  - "docs/20-canon/technology/  (do not load every technology file; name only relevant systems)"
+  - "docs/30-plot/book-1/chapters/  (do not load every chapter plot file; load only this chapter and adjacent ones)"
+  - "docs/20-canon/world/mars-and-aurelia.md  (exclude Mars detail unless the chapter is set there)"
+  - "docs/20-canon/technology/mars-technology.md  (exclude Mars technical detail unless the chapter needs it)"
+  - "archive/  (archived monoliths are historical reference only; never load as canon)"
+
+loading_order:
+  - "CLAUDE.md"
+  - "docs/00-governance/context-loading-guide.md"
+  - "docs/10-vision/narrative-brief.md"
+  - "docs/00-governance/decision-log/decisions/index.md"
+  - "docs/00-governance/decision-log/decisions/030-novel-uses-close-third-person-with-multiple-viewpoints.md"
+  - "docs/00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md"
+  - "docs/30-plot/book-1/act-1.md"
+  - "docs/30-plot/book-1/chapters/chapter-01.md"
+  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
+  - "docs/20-canon/technology/medicine.md"
+  - "docs/20-canon/timeline/book-1/act-1-timeline.md"
+  - "docs/60-continuity/global-continuity.md"
+  - "docs/60-continuity/setups-and-payoffs.md"
+  - "docs/60-continuity/unresolved-threads.md"
+  - "docs/40-blueprints/_templates/chapter-blueprint-template.md"
+
+expected_output: >
+  A single chapter blueprint document filling out the chapter blueprint template:
+  scene plan, viewpoint, beats, character goals and turns, technology and continuity
+  touchpoints, setups and payoffs, and reveal timing for one chapter. The blueprint
+  is an approved plan, not established manuscript. It is written to
+  docs/40-blueprints/book-1/chapter-XX-title/blueprint.md and must not alter canon.
+
+canon_rules:
+  - "The bibles outrank memory and the graph on every canon conflict; never silently resolve a conflict, flag it."
+  - "Treat plot files and act files as approved plans, not as already-established events."
+  - "Treat continuity files as pre-draft starting conditions; no manuscript chapter is approved yet."
+  - "Do not give Morrow or Crown capabilities not established in their technology and character files."
+  - "Preserve viewpoint discipline (close third) and do not expose future reveals in earlier chapter work."
+  - "Avoid em dashes in any drafted prose or planning copy."
+  - "Load only the files relevant to the chapter under work; never load the whole repository."
+
+relevant_validation_checks:
+  - "build-context-pack.py resolves every required path and warns on any missing optional path."
+  - "validate-links.py reports zero broken relative links across referenced files."
+  - "No path under archive/ appears anywhere in this manifest."
+  - "This manifest names only representative relevant files and does not glob whole profile, technology, or chapter directories."

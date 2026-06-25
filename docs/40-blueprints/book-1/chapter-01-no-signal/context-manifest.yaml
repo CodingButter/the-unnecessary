@@ -1,0 +1,156 @@
+# Per-chapter context manifest for Book One, Chapter 1 ("No Signal").
+# Scoped to Chapter 1 only. Authored per spec Phase 7.
+# All paths are repository-root-relative and were verified to exist on disk.
+# Never reference any archive/ path. Optional or possibly-absent paths go under optional_files.
+
+task_name: "blueprint-chapter-01-no-signal"
+
+purpose: >
+  Load only the canon, plot, style, continuity, and decision context needed to
+  create the Chapter 1 blueprint. Chapter 1 is Eli's viewpoint on Friday,
+  October 3, 2053: it introduces the world's withdrawal, the difference between
+  destruction and abandonment, Eli's repair work, and the clinic's coming loss of
+  manufacturer authentication. This manifest deliberately excludes Mars material,
+  later-act timelines, Mara's profile, and unrelated chapters.
+
+required_files:
+  # Entry and routing layer
+  - CLAUDE.md
+  - docs/00-governance/context-loading-guide.md
+
+  # Vision read-first
+  - docs/10-vision/narrative-brief.md
+
+  # World canon relevant to Chapter 1
+  - docs/20-canon/world/core-premise.md
+  - docs/20-canon/world/infrastructure-decline.md
+  - docs/20-canon/world/locations/greater-detroit.md
+  - docs/20-canon/world/locations/elis-neighborhood.md
+
+  # Character canon: only the characters present or named in Chapter 1
+  - docs/20-canon/characters/profiles/eli-rook.md
+  - docs/20-canon/characters/profiles/lena-okafor.md
+  - docs/20-canon/characters/profiles/nolan-avery.md
+  - docs/20-canon/characters/profiles/talia-reed.md
+  - docs/20-canon/characters/relationship-map.md
+
+  # Technology canon driving the chapter's service-withdrawal events
+  - docs/20-canon/technology/infrastructure/energy.md
+  - docs/20-canon/technology/infrastructure/communications.md
+  - docs/20-canon/technology/infrastructure/cloud-dependency.md
+  - docs/20-canon/technology/medicine.md
+
+  # Timeline canon for the pre-story state and Act One chronology
+  - docs/20-canon/timeline/book-1/pre-book-2053.md
+  - docs/20-canon/timeline/book-1/act-1-timeline.md
+
+  # Plot plan: Act One and the Chapter 1 plot-map entry
+  - docs/30-plot/book-1/act-1.md
+  - docs/30-plot/book-1/chapters/chapter-01.md
+
+  # Style files relevant to Eli's voice, exposition, viewpoint, and openings
+  - docs/10-vision/style/viewpoint.md
+  - docs/10-vision/style/character-voices.md
+  - docs/10-vision/style/technology-in-prose.md
+  - docs/10-vision/style/pacing-and-structure.md
+
+  # Planning template
+  - docs/40-blueprints/_templates/chapter-blueprint-template.md
+
+  # Continuity starting conditions relevant to Chapter 1
+  - docs/60-continuity/global-continuity.md
+  - docs/60-continuity/character-states/eli-rook.md
+
+  # Relevant decisions: setting, service withdrawal, Eli, tone, and style
+  - docs/00-governance/decision-log/decisions/002-world-declines-through-withdrawal-not-one-apocalypse.md
+  - docs/00-governance/decision-log/decisions/003-ordinary-world-remains-visually-recognizable.md
+  - docs/00-governance/decision-log/decisions/005-collapse-is-uneven.md
+  - docs/00-governance/decision-log/decisions/006-greater-detroit-is-the-primary-setting.md
+  - docs/00-governance/decision-log/decisions/020-eli-is-complicit-not-an-early-whistleblower.md
+  - docs/00-governance/decision-log/decisions/021-elis-core-conflict-is-responsibility-versus-ownership.md
+  - docs/00-governance/decision-log/decisions/030-novel-uses-close-third-person-with-multiple-viewpoints.md
+  - docs/00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md
+  - docs/00-governance/decision-log/decisions/038-avoid-exaggerated-cyberpunk-aesthetics.md
+  - docs/00-governance/decision-log/decisions/039-avoid-em-dashes-in-drafted-prose-and-project-copy.md
+
+optional_files:
+  # Decision-log index, useful for locating further decisions if a planning
+  # question reaches beyond the curated set above. Loaded only if needed.
+  - docs/00-governance/decision-log/decisions/index.md
+
+exclude_files:
+  # Out-of-scope canon for Chapter 1. Do not load these when blueprinting Chapter 1.
+  - docs/20-canon/world/mars-and-aurelia.md
+  - docs/20-canon/technology/mars-technology.md
+  - docs/20-canon/characters/profiles/mara-voss.md
+  - docs/20-canon/timeline/book-1/act-2-timeline.md
+  - docs/20-canon/timeline/book-1/act-3-timeline.md
+  - docs/20-canon/timeline/book-1/act-4-timeline.md
+
+loading_order:
+  # Read the entry and routing layer first, then vision, then canon by subject,
+  # then plot, then style, then the template, then continuity and decisions.
+  - CLAUDE.md
+  - docs/00-governance/context-loading-guide.md
+  - docs/10-vision/narrative-brief.md
+  - docs/20-canon/world/core-premise.md
+  - docs/20-canon/world/infrastructure-decline.md
+  - docs/20-canon/world/locations/greater-detroit.md
+  - docs/20-canon/world/locations/elis-neighborhood.md
+  - docs/20-canon/characters/profiles/eli-rook.md
+  - docs/20-canon/characters/profiles/lena-okafor.md
+  - docs/20-canon/characters/profiles/nolan-avery.md
+  - docs/20-canon/characters/profiles/talia-reed.md
+  - docs/20-canon/characters/relationship-map.md
+  - docs/20-canon/technology/infrastructure/energy.md
+  - docs/20-canon/technology/infrastructure/communications.md
+  - docs/20-canon/technology/infrastructure/cloud-dependency.md
+  - docs/20-canon/technology/medicine.md
+  - docs/20-canon/timeline/book-1/pre-book-2053.md
+  - docs/20-canon/timeline/book-1/act-1-timeline.md
+  - docs/30-plot/book-1/act-1.md
+  - docs/30-plot/book-1/chapters/chapter-01.md
+  - docs/10-vision/style/viewpoint.md
+  - docs/10-vision/style/character-voices.md
+  - docs/10-vision/style/technology-in-prose.md
+  - docs/10-vision/style/pacing-and-structure.md
+  - docs/40-blueprints/_templates/chapter-blueprint-template.md
+  - docs/60-continuity/global-continuity.md
+  - docs/60-continuity/character-states/eli-rook.md
+  - docs/00-governance/decision-log/decisions/002-world-declines-through-withdrawal-not-one-apocalypse.md
+  - docs/00-governance/decision-log/decisions/003-ordinary-world-remains-visually-recognizable.md
+  - docs/00-governance/decision-log/decisions/005-collapse-is-uneven.md
+  - docs/00-governance/decision-log/decisions/006-greater-detroit-is-the-primary-setting.md
+  - docs/00-governance/decision-log/decisions/020-eli-is-complicit-not-an-early-whistleblower.md
+  - docs/00-governance/decision-log/decisions/021-elis-core-conflict-is-responsibility-versus-ownership.md
+  - docs/00-governance/decision-log/decisions/030-novel-uses-close-third-person-with-multiple-viewpoints.md
+  - docs/00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md
+  - docs/00-governance/decision-log/decisions/038-avoid-exaggerated-cyberpunk-aesthetics.md
+  - docs/00-governance/decision-log/decisions/039-avoid-em-dashes-in-drafted-prose-and-project-copy.md
+
+expected_output: >
+  A Chapter 1 blueprint at docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md,
+  authored from the chapter-blueprint template, covering scene beats, viewpoint
+  discipline, the service-withdrawal events, the clinic authentication deadline at
+  midnight, and the ending hook (the neighborhood's transfer to a lower power tier).
+  The blueprint is a plan, not prose, and must not advance reveals beyond what
+  Chapter 1 establishes.
+
+canon_rules:
+  - "The bibles outrank memory, the graph, and any index in every conflict."
+  - "Treat plot files and blueprints as approved plans, not already-established events."
+  - "Treat active canon files as authoritative by subject. Treat any approved manuscript as established canon."
+  - "Never use archived files as active canon. No archive/ path may be loaded here."
+  - "Flag document conflicts; never silently resolve or average them."
+  - "Do not give Morrow or Crown capabilities not yet established. Morrow does not appear in Chapter 1."
+  - "Preserve viewpoint and reveal timing. Do not expose future reveals in Chapter 1 work."
+  - "Do not change canon unless explicitly asked. Record major revisions in the decision log."
+  - "Avoid em dashes in drafted prose and project copy."
+  - "Keep service withdrawal contractual and administrative, not apocalyptic. The world stays physically recognizable."
+
+relevant_validation_checks:
+  - "validate-links.py: every path in this manifest resolves on disk."
+  - "validate-metadata.py: every loaded active document carries required metadata fields."
+  - "Archive safety: no archive/ path appears in required_files, optional_files, or loading_order."
+  - "Scope check: the exclude_files entries (Mars, Mara, later-act timelines) are absent from the loaded set."
+  - "build-context-pack.py: fails on any missing required file and warns on any missing optional file."

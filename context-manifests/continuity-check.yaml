@@ -1,0 +1,132 @@
+task_name: "continuity-check"
+purpose: >
+  Verify that a chapter blueprint or drafted chapter is consistent with
+  established continuity. Cross-check character states, what each character
+  knows at a given point, relationship status, technology state, and the
+  ledger of setups and payoffs against the canonical timeline. Surface any
+  contradiction with the authority that controls it rather than resolving it
+  silently. No manuscript chapters are approved yet, so the manuscript files
+  are optional and the continuity files hold pre-draft starting conditions.
+
+required_files:
+  # Continuity index and global starting conditions read first.
+  - "docs/60-continuity/index.md"
+  - "docs/60-continuity/global-continuity.md"
+  # Per-character continuity states.
+  - "docs/60-continuity/character-states/index.md"
+  - "docs/60-continuity/character-states/eli-rook.md"
+  - "docs/60-continuity/character-states/jonah-mercer.md"
+  - "docs/60-continuity/character-states/adrian-kade.md"
+  - "docs/60-continuity/character-states/lena-okafor.md"
+  - "docs/60-continuity/character-states/june-park.md"
+  - "docs/60-continuity/character-states/mara-voss.md"
+  - "docs/60-continuity/character-states/talia-reed.md"
+  - "docs/60-continuity/character-states/nolan-avery.md"
+  - "docs/60-continuity/character-states/sera-vale.md"
+  - "docs/60-continuity/character-states/celeste-mercer.md"
+  - "docs/60-continuity/character-states/nora-bell.md"
+  - "docs/60-continuity/character-states/morrow.md"
+  - "docs/60-continuity/character-states/crown.md"
+  # Knowledge state: who knows what, when. Critical for reveal management.
+  - "docs/60-continuity/knowledge-state/index.md"
+  - "docs/60-continuity/knowledge-state/eli-rook.md"
+  - "docs/60-continuity/knowledge-state/jonah-mercer.md"
+  - "docs/60-continuity/knowledge-state/adrian-kade.md"
+  - "docs/60-continuity/knowledge-state/lena-okafor.md"
+  - "docs/60-continuity/knowledge-state/june-park.md"
+  - "docs/60-continuity/knowledge-state/mara-voss.md"
+  - "docs/60-continuity/knowledge-state/talia-reed.md"
+  - "docs/60-continuity/knowledge-state/nolan-avery.md"
+  - "docs/60-continuity/knowledge-state/sera-vale.md"
+  - "docs/60-continuity/knowledge-state/celeste-mercer.md"
+  - "docs/60-continuity/knowledge-state/nora-bell.md"
+  - "docs/60-continuity/knowledge-state/morrow.md"
+  - "docs/60-continuity/knowledge-state/crown.md"
+  # Relationship continuity.
+  - "docs/60-continuity/relationships/index.md"
+  - "docs/60-continuity/relationships/eli-and-jonah.md"
+  - "docs/60-continuity/relationships/eli-and-june.md"
+  - "docs/60-continuity/relationships/eli-and-kade.md"
+  - "docs/60-continuity/relationships/eli-and-lena.md"
+  - "docs/60-continuity/relationships/eli-and-morrow.md"
+  - "docs/60-continuity/relationships/eli-and-nora.md"
+  - "docs/60-continuity/relationships/eli-and-talia.md"
+  - "docs/60-continuity/relationships/jonah-and-celeste.md"
+  - "docs/60-continuity/relationships/jonah-and-kade.md"
+  - "docs/60-continuity/relationships/kade-and-crown.md"
+  - "docs/60-continuity/relationships/kade-and-mara.md"
+  - "docs/60-continuity/relationships/morrow-and-community.md"
+  - "docs/60-continuity/relationships/morrow-and-crown.md"
+  # Technology state of the world over the chapter span.
+  - "docs/60-continuity/technology-state/index.md"
+  - "docs/60-continuity/technology-state/crown.md"
+  - "docs/60-continuity/technology-state/morrow.md"
+  - "docs/60-continuity/technology-state/infrastructure.md"
+  # Open threads and the setup-to-payoff ledger.
+  - "docs/60-continuity/unresolved-threads.md"
+  - "docs/60-continuity/setups-and-payoffs.md"
+  # Canonical timeline: the authority continuity is checked against.
+  - "docs/20-canon/timeline/index.md"
+  - "docs/20-canon/timeline/book-1/index.md"
+  - "docs/20-canon/timeline/book-1/pre-book-2053.md"
+  - "docs/20-canon/timeline/book-1/act-1-timeline.md"
+  - "docs/20-canon/timeline/book-1/act-2-timeline.md"
+  - "docs/20-canon/timeline/book-1/act-3-timeline.md"
+  - "docs/20-canon/timeline/book-1/act-4-timeline.md"
+  - "docs/20-canon/timeline/book-1/character-knowledge-timeline.md"
+  - "docs/20-canon/timeline/book-1/secret-timeline.md"
+
+optional_files:
+  # Approved manuscript is the strongest continuity authority once it exists.
+  # No chapters are approved yet, so the manuscript index is optional. When a
+  # chapter is approved, add its file under 50-manuscript/book-1/ here.
+  - "docs/50-manuscript/.gitkeep"
+  # Historical timeline periods, loaded only when a check reaches back before 2053.
+  - "docs/20-canon/timeline/historical/index.md"
+  - "docs/20-canon/timeline/historical/2026-2034-assistance-and-compression.md"
+  - "docs/20-canon/timeline/historical/2035-2041-autonomy-and-labor-break.md"
+  - "docs/20-canon/timeline/historical/2042-2047-infrastructure-and-support-collapse.md"
+  - "docs/20-canon/timeline/historical/2048-2052-preservation-years.md"
+  - "docs/20-canon/timeline/character-birth-dates.md"
+
+exclude_files:
+  # Style and prose guides are irrelevant to a state-versus-timeline check.
+  - "docs/10-vision/style/**"
+  # Do not pull whole character or technology canon profiles; continuity state
+  # files plus the timeline are the authority for this task.
+  - "docs/20-canon/characters/profiles/**"
+  - "docs/20-canon/technology/**"
+  # Archived material is historical reference only and must never be loaded.
+  - "archive/**"
+
+loading_order:
+  - "docs/60-continuity/index.md"
+  - "docs/60-continuity/global-continuity.md"
+  - "docs/20-canon/timeline/index.md"
+  - "docs/20-canon/timeline/book-1/index.md"
+  - "docs/60-continuity/knowledge-state/index.md"
+  - "docs/60-continuity/character-states/index.md"
+  - "docs/60-continuity/relationships/index.md"
+  - "docs/60-continuity/technology-state/index.md"
+  - "docs/60-continuity/setups-and-payoffs.md"
+  - "docs/60-continuity/unresolved-threads.md"
+
+expected_output: >
+  A continuity report listing each checked state against the timeline:
+  confirmed-consistent items, contradictions found, and any setup whose payoff
+  is missing or mistimed. Every contradiction names the authority that controls
+  the disputed fact and is flagged, never silently resolved. When manuscript
+  chapters are approved later, continuity files are updated to reflect them.
+
+canon_rules:
+  - "Approved manuscript chapters, once they exist, are the strongest continuity authority; until then the continuity files hold pre-draft starting conditions only."
+  - "The canonical timeline under docs/20-canon/timeline/ controls dates and ordering. Continuity state files defer to it on any date conflict."
+  - "Knowledge state governs reveal timing. Do not let a chapter expose what a viewpoint character cannot yet know."
+  - "Do not treat planned future events as already-established continuity."
+  - "Flag any contradiction with its controlling authority. Never average two versions or silently resolve a conflict."
+  - "Never load or cite any file under archive/ as active continuity."
+
+relevant_validation_checks:
+  - "validate-links.py: every referenced continuity and timeline path resolves."
+  - "validate-metadata.py: continuity and timeline documents carry required metadata fields."
+  - "check-duplicate-headings.py: continuity state files do not silently duplicate timeline authority."

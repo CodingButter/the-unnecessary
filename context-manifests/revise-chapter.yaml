@@ -1,0 +1,84 @@
+task_name: "revise-chapter"
+purpose: >
+  Revise an existing chapter draft against its approved blueprint and the style
+  revision checklist for Book One of The Unnecessary. This manifest names the
+  revision checklist, the chapter's approved blueprint, the drafted chapter, the
+  relevant continuity, and the relevant canon the revision must stay faithful to. It
+  loads only the files relevant to one chapter. The approved blueprint and the
+  drafted chapter are the working pair for this task; because no blueprint is
+  approved and no chapter is drafted yet, both are listed under optional_files until
+  they exist on disk, and become the de facto required inputs once present.
+
+required_files:
+  # Entry and operating layer
+  - "CLAUDE.md"
+  - "docs/00-governance/context-loading-guide.md"
+  # Style revision checklist (the spine of the revision pass)
+  - "docs/10-vision/style/revision-checklist.md"
+  # Relevant continuity to verify against (pre-draft starting conditions for now)
+  - "docs/60-continuity/global-continuity.md"
+  - "docs/60-continuity/setups-and-payoffs.md"
+  - "docs/60-continuity/unresolved-threads.md"
+  # Relevant canon the revision must not contradict (representative: Chapter 1 cast
+  # and the plot-map entry; narrowed per chapter)
+  - "docs/30-plot/book-1/chapters/chapter-01.md"
+  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/lena-okafor.md"
+
+optional_files:
+  # Approved blueprint for THIS chapter (one half of the working pair). No blueprint
+  # is approved yet, so the book-1 blueprint folder holds no chapter file. Placeholder
+  # path the context-pack builder resolves via {chapter_number} and {chapter_slug};
+  # absent today, so the builder warns rather than fails.
+  - "docs/40-blueprints/book-1/chapter-{chapter_number}-{chapter_slug}/blueprint.md"
+  # The drafted chapter under revision (the other half of the working pair). No
+  # chapter is drafted yet, so the book-1 manuscript folder is empty. Placeholder
+  # resolved via {chapter_number} and {chapter_slug}; warns when absent.
+  - "docs/50-manuscript/book-1/chapter-{chapter_number}-{chapter_slug}.md"
+  # Prose-craft references the revision may consult
+  - "docs/10-vision/style/core-prose.md"
+  - "docs/10-vision/style/viewpoint.md"
+  - "docs/10-vision/style/dialogue.md"
+  - "docs/10-vision/style/prohibited-patterns.md"
+  - "docs/10-vision/style/emotion-and-moral-content.md"
+  # Relevant technology canon, when the chapter depicts systems on the page
+  - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
+  - "docs/20-canon/technology/medicine.md"
+
+exclude_files:
+  - "docs/20-canon/characters/profiles/  (do not load every profile; name only the chapter's cast)"
+  - "docs/20-canon/technology/  (do not load every technology file; name only relevant systems)"
+  - "docs/30-plot/book-1/chapters/  (do not load every chapter plot file; load only this chapter's entry)"
+  - "archive/  (archived monoliths are historical reference only; never load as canon)"
+
+loading_order:
+  - "CLAUDE.md"
+  - "docs/00-governance/context-loading-guide.md"
+  - "docs/30-plot/book-1/chapters/chapter-01.md"
+  - "docs/10-vision/style/revision-checklist.md"
+  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  - "docs/60-continuity/global-continuity.md"
+  - "docs/60-continuity/setups-and-payoffs.md"
+  - "docs/60-continuity/unresolved-threads.md"
+
+expected_output: >
+  A revised chapter draft that resolves every item flagged by the style revision
+  checklist while staying faithful to the approved blueprint and the relevant canon.
+  Revisions are written back to the chapter's manuscript file, and any material
+  change to plan or canon is recorded in the revision log and the Decision Log rather
+  than applied silently.
+
+canon_rules:
+  - "Revise toward the approved blueprint and canon; do not introduce new plot or new capabilities."
+  - "The bibles outrank memory and the graph; never silently resolve a conflict, flag it."
+  - "Hold close-third viewpoint and keep reveal timing intact through the revision."
+  - "Avoid em dashes in revised prose."
+  - "Record major revisions in the Decision Log; do not change canon unless explicitly asked."
+  - "Update continuity only after a manuscript chapter is approved, not from a draft in revision."
+
+relevant_validation_checks:
+  - "build-context-pack.py resolves every required path and warns on the absent blueprint and manuscript folders."
+  - "validate-links.py reports zero broken relative links across referenced files."
+  - "No path under archive/ appears anywhere in this manifest."
+  - "This manifest names only relevant style, profile, and continuity files and does not glob whole directories."

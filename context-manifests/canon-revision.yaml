@@ -1,0 +1,113 @@
+task_name: "canon-revision"
+purpose: >
+  Make a deliberate, recorded change to canon. Load the narrative brief and the
+  canon hierarchy first so the change respects the order of authority, then the
+  specific canon files affected, the decision-log index and the specific
+  decisions touched, and finally the plot, manuscript, and continuity files that
+  the change would ripple into. The goal is a single sourced revision plus the
+  decision record that justifies it, never a silent edit and never a duplicated
+  fact. Research files are optional supporting evidence only and do not exist
+  yet.
+
+required_files:
+  # Read first: short vision and the rule that orders all authority.
+  - "docs/10-vision/narrative-brief.md"
+  - "docs/00-governance/canon-hierarchy.md"
+  # Canon indexes used to locate the exact files a revision touches.
+  - "docs/20-canon/index.md"
+  - "docs/20-canon/world/index.md"
+  - "docs/20-canon/characters/index.md"
+  - "docs/20-canon/technology/index.md"
+  - "docs/20-canon/timeline/index.md"
+  # Decision log: the index plus the catalog of existing decisions.
+  - "docs/00-governance/decision-log/index.md"
+  - "docs/00-governance/decision-log/decisions/index.md"
+
+optional_files:
+  # Specific canon files affected by a revision. Load only those the change
+  # touches; this catalog is not loaded wholesale.
+  - "docs/20-canon/world/core-premise.md"
+  - "docs/20-canon/world/social-structure.md"
+  - "docs/20-canon/world/infrastructure-decline.md"
+  - "docs/20-canon/world/protected-enclaves.md"
+  - "docs/20-canon/world/mars-and-aurelia.md"
+  - "docs/20-canon/world/government-and-corporations.md"
+  - "docs/20-canon/world/themes-and-questions.md"
+  - "docs/20-canon/world/book-1-arc.md"
+  - "docs/20-canon/world/series-direction.md"
+  - "docs/20-canon/world/consistency-rules.md"
+  - "docs/20-canon/world/locations/index.md"
+  - "docs/20-canon/characters/relationship-map.md"
+  - "docs/20-canon/characters/viewpoint-rules.md"
+  - "docs/20-canon/technology/foundational-rules.md"
+  - "docs/20-canon/technology/hard-plot-restrictions.md"
+  - "docs/20-canon/technology/failure-rules.md"
+  # Specific decisions the revision revisits. The decisions/ directory holds
+  # one file per decision; load the relevant ones only.
+  - "docs/00-governance/decision-log/decisions/001-central-threat-is-economic-irrelevance.md"
+  - "docs/00-governance/decision-log/decisions/002-world-declines-through-withdrawal-not-one-apocalypse.md"
+  - "docs/00-governance/decision-log/open-decisions.md"
+  - "docs/00-governance/decision-log/rejected-concepts.md"
+  # Affected plot files. A canon change can shift the story spine or beats.
+  - "docs/30-plot/book-1/index.md"
+  - "docs/30-plot/book-1/story-spine.md"
+  - "docs/30-plot/book-1/major-beats.md"
+  - "docs/30-plot/book-1/reveal-management.md"
+  - "docs/30-plot/book-1/chapters/index.md"
+  # Affected continuity. A canon change updates starting conditions.
+  - "docs/60-continuity/index.md"
+  - "docs/60-continuity/global-continuity.md"
+  - "docs/60-continuity/unresolved-threads.md"
+  - "docs/60-continuity/setups-and-payoffs.md"
+  # Affected manuscript. No chapters are approved yet; the index is the only
+  # manuscript target. When a chapter is approved, add its file here.
+  - "docs/50-manuscript/.gitkeep"
+  # Research evidence supporting a revision. None exists yet; this is a
+  # placeholder so the builder warns rather than fails when a revision cites
+  # research that has not been written.
+  - "docs/70-research/.gitkeep"
+
+exclude_files:
+  # Do not load the whole canon or every decision by default; a revision names
+  # only the files it touches.
+  - "docs/20-canon/world/locations/**"
+  - "docs/20-canon/technology/ai/**"
+  - "docs/20-canon/technology/infrastructure/**"
+  - "docs/30-plot/book-1/chapters/chapter-*.md"
+  # Style and per-chapter plot-map detail are out of scope for a canon edit.
+  - "docs/10-vision/style/**"
+  # Archived material is historical reference only.
+  - "archive/**"
+
+loading_order:
+  - "docs/10-vision/narrative-brief.md"
+  - "docs/00-governance/canon-hierarchy.md"
+  - "docs/20-canon/index.md"
+  - "docs/00-governance/decision-log/index.md"
+  - "docs/00-governance/decision-log/decisions/index.md"
+  - "docs/20-canon/world/index.md"
+  - "docs/20-canon/characters/index.md"
+  - "docs/20-canon/technology/index.md"
+  - "docs/20-canon/timeline/index.md"
+
+expected_output: >
+  A scoped canon revision: edits to the specific canon files affected, a new or
+  updated decision-log entry recording what changed and why, and a list of the
+  plot, manuscript, and continuity files that must be reconciled to the change.
+  Any unresolved conflict between two authority files is flagged for human
+  review, not silently merged.
+
+canon_rules:
+  - "Respect the canon hierarchy in docs/00-governance/canon-hierarchy.md. A revision may not let a lower authority override a higher one."
+  - "Every meaningful canon revision is recorded in the decision log. Do not change canon without a decision record."
+  - "Do not change canon unless explicitly asked to. This task is the explicit ask."
+  - "A fact has one home. Edit the authority file and link from elsewhere; do not duplicate the changed fact across documents."
+  - "Reconcile affected plot, manuscript, and continuity files after the canon edit so no stale copy of the old fact remains."
+  - "If two files claim authority over the same fact, flag the conflict and stop; do not average the two versions."
+  - "Never cite or load any file under archive/ as active canon."
+  - "Research files are supporting evidence, not canon, and rank below the bibles."
+
+relevant_validation_checks:
+  - "validate-links.py: links and related paths in edited canon and decision files resolve."
+  - "validate-metadata.py: revised canon and new decision files carry required metadata fields."
+  - "check-duplicate-headings.py: the revision did not introduce a second authoritative copy of the changed fact."

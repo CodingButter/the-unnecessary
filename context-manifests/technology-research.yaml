@@ -1,0 +1,90 @@
+task_name: "technology-research"
+purpose: >
+  Investigate a technical question about the world of the novel and answer it
+  within established rules. Load the technology canon index and the specific
+  technology files the question touches, plus the canon hierarchy so any finding
+  defers to canon. Research notes, when they exist, are supporting evidence that
+  ranks below the technology canon; none exist yet, so all research paths are
+  optional. The output is a plausibility finding plus a recommendation, never a
+  silent change to a technology rule.
+
+required_files:
+  # The rule that orders authority, so research never outranks canon.
+  - "docs/00-governance/canon-hierarchy.md"
+  # Technology canon index, read first to locate the relevant files.
+  - "docs/20-canon/technology/index.md"
+  # Foundational and limiting rules apply to every technology question.
+  - "docs/20-canon/technology/foundational-rules.md"
+  - "docs/20-canon/technology/hard-plot-restrictions.md"
+  - "docs/20-canon/technology/failure-rules.md"
+
+optional_files:
+  # Subsystem indexes, loaded when the question touches that subsystem.
+  - "docs/20-canon/technology/ai/index.md"
+  - "docs/20-canon/technology/infrastructure/index.md"
+  # AI subsystem files.
+  - "docs/20-canon/technology/ai/intelligence-levels.md"
+  - "docs/20-canon/technology/ai/crown.md"
+  - "docs/20-canon/technology/ai/morrow.md"
+  - "docs/20-canon/technology/ai/crown-vs-morrow.md"
+  - "docs/20-canon/technology/ai/consciousness-and-personhood.md"
+  # Infrastructure subsystem files.
+  - "docs/20-canon/technology/infrastructure/energy.md"
+  - "docs/20-canon/technology/infrastructure/communications.md"
+  - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
+  - "docs/20-canon/technology/infrastructure/identity-and-money.md"
+  - "docs/20-canon/technology/infrastructure/community-infrastructure.md"
+  - "docs/20-canon/technology/infrastructure/computing-hardware.md"
+  # Other technology domains, loaded by subject.
+  - "docs/20-canon/technology/robotics-and-manufacturing.md"
+  - "docs/20-canon/technology/medicine.md"
+  - "docs/20-canon/technology/transportation.md"
+  - "docs/20-canon/technology/security-and-conflict.md"
+  - "docs/20-canon/technology/government-technology.md"
+  - "docs/20-canon/technology/information-and-propaganda.md"
+  - "docs/20-canon/technology/scientific-progress.md"
+  - "docs/20-canon/technology/mars-technology.md"
+  - "docs/20-canon/technology/northglass.md"
+  - "docs/20-canon/technology/technology-in-scenes.md"
+  # Research notes. The directory holds no research yet, so these are listed as
+  # optional placeholders; the builder warns rather than fails when absent. As
+  # research is written under docs/70-research/, add the specific files here.
+  - "docs/70-research/.gitkeep"
+
+exclude_files:
+  # Story bible, plot, continuity, and style are out of scope for a technical
+  # plausibility question; the technology canon is the authority.
+  - "docs/20-canon/world/**"
+  - "docs/20-canon/characters/**"
+  - "docs/30-plot/**"
+  - "docs/60-continuity/**"
+  - "docs/10-vision/style/**"
+  # Archived material is historical reference only and must never be loaded.
+  - "archive/**"
+
+loading_order:
+  - "docs/00-governance/canon-hierarchy.md"
+  - "docs/20-canon/technology/index.md"
+  - "docs/20-canon/technology/foundational-rules.md"
+  - "docs/20-canon/technology/hard-plot-restrictions.md"
+  - "docs/20-canon/technology/failure-rules.md"
+
+expected_output: >
+  A plausibility finding answering the technical question within established
+  rules: whether the proposed behavior is allowed, which canon rule governs it,
+  and a recommendation. If the question cannot be answered without changing a
+  technology rule, the finding flags that and routes the change to the
+  canon-revision workflow rather than editing canon here.
+
+canon_rules:
+  - "Technology canon under docs/20-canon/technology/ is the authority for capability questions. Research notes rank below it."
+  - "Do not give Morrow or Crown unestablished capabilities. Respect the hard plot restrictions and failure rules."
+  - "Preserve any rule whose wording limits plot convenience."
+  - "Answer within existing rules. If the answer requires a new or changed rule, escalate to canon-revision; do not edit technology canon in this task."
+  - "Flag any contradiction between two technology files; do not silently resolve it."
+  - "Never cite or load any file under archive/ as active canon."
+
+relevant_validation_checks:
+  - "validate-links.py: every referenced technology and governance path resolves."
+  - "validate-metadata.py: technology canon files carry required metadata fields."
+  - "check-duplicate-headings.py: a finding does not duplicate a technology rule into a second authoritative location."
