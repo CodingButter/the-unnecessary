@@ -1,0 +1,23 @@
+# PLACEHOLDER TEMPLATE, NON-CANON. Phase 02 migration scaffolding.
+# This file documents the context-manifest SHAPE only. It contains zero real paths
+# and zero canonical content. Copy it, fill the placeholders, and replace this header
+# when authoring a real manifest in a later phase. All nine fields are required.
+# Rules (see migration/target-architecture.md section 3):
+#   - reference only files that exist when the manifest is written
+#   - put optional or possibly-absent paths (for example docs/70-research/**) under optional_files
+#   - reference existing validation scripts by name under relevant_validation_checks
+
+task_name:            # field 1: short identifier, for example create-chapter-blueprint
+purpose:              # field 2: one or two sentences on what this task does and why
+required_files:       # field 3: files that MUST exist and load; a missing entry blocks the task
+  - <existing-path>
+optional_files:       # field 4: load if present; an absent entry is acceptable and must not fail validation
+  - <existing-or-absent-path>
+exclude_files:        # field 5: paths the agent must NOT load even when they look relevant
+  - <path-to-suppress>
+loading_order:        # field 6: the order in which the files above should be loaded
+  - <path-in-load-order>
+expected_output:      # field 7: what the task should produce, for example a blueprint or a draft chapter
+canon_rules:          # field 8: the canon and authority constraints the task must respect
+relevant_validation_checks:   # field 9: checks the result should satisfy; reference existing scripts by name
+  - <validation-check-name>
