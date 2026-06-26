@@ -12,13 +12,15 @@ export const meta = {
 
 // ---- Parameters (passed as Workflow args: {number, slug, title}) ----
 const NOVEL = '/home/codingbutter/Novel'
-const ch = args || {}
+let ch = args || {}
+if (typeof ch === 'string') { try { ch = JSON.parse(ch) } catch (e) { ch = {} } }
 if (ch.number === undefined || ch.number === null || !ch.slug) {
   throw new Error('write-chapter requires args {number, slug, title}, for example {"number":2,"slug":"the-last-supported-day","title":"The Last Supported Day"}')
 }
 const num = String(ch.number).padStart(2, '0')
 const slug = ch.slug
 const title = ch.title || ('Chapter ' + ch.number)
+const stopAfter = ch.stopAfter || null   // 'adjudicate' to stop before the narration phase
 
 const bpDir = `docs/40-blueprints/book-1/chapter-${num}-${slug}`
 const manifest = `${bpDir}/context-manifest.yaml`
@@ -88,11 +90,23 @@ const adj = await agent(
   { label: `ch${num}:adjudicate`, phase: 'Adjudicate', schema: REPORT }
 )
 
+if (stopAfter === 'adjudicate' || stopAfter === 'manuscript') {
+  log(`Stopping after Adjudicate (stopAfter="${stopAfter}"); narration script deferred.`)
+  return {
+    chapter: { number: ch.number, slug, title },
+    files: { manuscript, critique, blueprint, pack },
+    prep, draft, critique: crit, adjudicate: adj,
+    next: `Review and approve ${manuscript} per Decision 046 (set status, update docs/60-continuity). ` +
+          `Narration script deferred; generate it separately with the faithful sparse-ellipsis pass when ready.`,
+  }
+}
+
 // ---- Stage 5: Narration Script — director-grade, 3-part (Opus -> Gemini -> Opus), Decision 048 ----
 phase('Narration Script')
-const DIRECTOR = `You are an AUDIOBOOK DIRECTOR marking a performance script for ElevenLabs Eleven v3, which reads bracketed audio tags (like [weary], [flat], [tense], [slowly]) as live stage directions and uses ellipses for pacing. Direct the read in real, line-by-line detail; a flat, sparse markup is a failure.
-INVIOLABLE RULE: the prose WORDS are canon. Reproduce every sentence WORD FOR WORD; add ONLY bracketed tags and ellipses (place ellipses after existing punctuation so no comma is lost). Never reword.
-Direct PACE (slow and weight vs let it move), PAUSES (ellipses; longer holds at scene breaks), EMOTION that shifts as the writing shifts, and DISTINCT REGISTERS: the automated corporate notices read FLAT and administrative (the horror is the calm), Eli weary and controlled, Lena over the failing link clipped and tense with bandwidth catches. Tags color roughly the next 4-5 words, so place them right before the words they shape and re-tag often. Let the direction tighten as the chapter climbs to the midnight deadline; give the two peaks (the midday "slow opening of a hand" passage and the final line) the most deliberate weight. Rich and purposeful, but serving the book's grounded austere register, not theatrics.`
+const DIRECTOR = `You are an AUDIOBOOK DIRECTOR marking a performance script that serves BOTH ElevenLabs Eleven v3 and the self-hosted Chatterbox voice server, which read bracketed audio tags (like [weary], [flat], [tense], [slowly]) as emotional/register direction.
+INVIOLABLE RULE: the prose WORDS are canon. Reproduce every sentence WORD FOR WORD; add ONLY bracketed tags, sparing ellipses, and scene-break structure. Never reword and never re-punctuate the prose.
+TAGS AT REGISTER SHIFTS ONLY: place a tag where the emotional register begins or changes, one tag per register-block. Do NOT repeat the same tag every few words; redundant re-tagging is a defect and the voice server coalesces by register anyway. Mark DISTINCT REGISTERS by content: automated corporate notices read FLAT/administrative (the horror is the calm), the default narration weary and controlled in the viewpoint character's register, dialogue over a failing or tense link clipped and strained.
+ELLIPSES SPARINGLY: use "..." only for a genuine intended beat, a handful per scene at most, always placed after existing punctuation; do NOT pepper clauses with ",..." (the voice server renders runaway multi-second pauses on ellipsis overload, and it reads as melodrama). Let ordinary punctuation and the tags carry the pacing. Let the direction tighten as the chapter climbs to its peak, and give the chapter's emotional peaks and final line the most deliberate weight. Grounded and austere throughout, never theatrical.`
 
 const narrWrite = await agent(
   `${DIRECTOR}\n\nREAD the final prose at ${NOVEL}/${manuscript} (prose body only; ignore the YAML front matter and the "## Adjudication Log"). WRITE ${NOVEL}/${narrativeScript} with exactly: (1) YAML front matter (document_type "narration-script", status "draft", authority "narration", title "${title} (Narration Script)", a one-line summary, tags [narration, book-1, chapter-${num}, performance-script], related ["./chapter-${num}-${slug}.md"], source_documents ["${manuscript}"]); (2) a DETAILED "## Voice Direction" section (overall direction, per-register approach, pacing philosophy, the intensity arc and the two peaks; not spoken); (3) a "## Performance Script" section that OPENS with a spoken chapter-title line (the chapter number spelled as a word, for example "[measured] Chapter Two. ... ${title}.") and then the prose densely and purposefully directed with audio tags and ellipses, scene breaks as lines of ---.\n` +
