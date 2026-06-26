@@ -1,7 +1,7 @@
 ---
 title: "The Last Supported Day"
 document_type: "manuscript-chapter"
-status: "draft"
+status: "approved-canon"
 authority: "manuscript"
 summary: "On the evening of Friday, October 3, 2053, Lena Okafor triages her unsupported clinic against a midnight authentication deadline she did not set, touring 2053's hand-to-hand economy through her patients before handing the decisive work to Eli alone in the back room."
 tags:

@@ -121,3 +121,15 @@ But the systems supporting those places become less reliable each year.
 Their civilization is not replaced by a visibly new one.
 
 It is frozen and slowly eroded.
+
+The loss of mass employment has not emptied these neighborhoods of work.
+
+It has driven work local and informal.
+
+People who once held jobs inside large companies now do small, hands-on, community-facing work instead, and their specialist knowledge is repurposed at neighborhood scale.
+
+A former logistics analyst who once routed freight across a continent keeps a neighborhood food-trade board; someone who held a corporate job keeps chickens or fixes bikes.
+
+What is lost is income, institutional standing, and the assumption that distant systems will provide.
+
+What survives is skill, applied closer to home. (Established Chapter 2.)

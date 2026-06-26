@@ -32,7 +32,7 @@ source_documents:
 
 # Global Continuity: World State at Story Start
 
-> No manuscript chapters have been approved. These files contain pre-draft starting conditions only.
+> Chapters 1 and 2 are approved manuscript. The baseline below remains the story-start (time zero) world state; events established by approved chapters are tracked in the post-chapter section at the end of this file and in the per-character state files.
 
 This file records the state of the world at Book One time zero, derived strictly from approved world canon and the pre-book 2053 timeline. It captures conditions that are true at or before the opening of the story. It does not record the opening crisis beats of Act One, the construction of Morrow, or any later plot event. Those are not yet drafted and are not established continuity. Where the pre-book timeline contains forward-looking warnings about what may happen later, those warnings are recorded below only as states of knowledge or unresolved threads, never as events that have already occurred.
 
@@ -148,3 +148,15 @@ The following summarizes the baseline operational state of the ordinary world ou
 ## Boundaries of This Baseline
 
 The Act One opening events are not recorded here as established continuity. At story start, the service-termination notices that open the novel have not yet been delivered as scenes, the clinic authentication loss has not yet occurred, no character has yet entered Northglass to recover Asterion hardware, and Morrow does not yet exist. Northglass is abandoned. The neighborhood network is uncoordinated. These are the conditions from which the first drafted chapter will proceed, and they are tracked forward from this baseline rather than treated as already drafted.
+
+## Post-Chapter Advances
+
+State established by approved manuscript chapters, advanced from the time-zero baseline above. Only facts shown on the page enter here; reveal-protected material does not.
+
+### Chapter 2, "The Last Supported Day" (Friday, October 3, 2053, evening into night; Lena POV)
+
+- The afternoon manufacturer notice is now an established event: three of Lena's clinic systems (the diagnostic scanner, the medication-management unit, and the respiratory-support controller) lose remote authentication at 23:59 (midnight) on October 3. The notice arrived in the same clean corporate register as the cellular and power notices.
+- The midday power-tier drop established in Chapter 1 is paid off here from inside the clinic: the neighborhood, the clinic included, is on the low tier with no emergency restore, only standard maintenance windows. If the grid sags and the batteries take it, back-room work is lost; the respiratory controller has its own backup for a while, then does not.
+- The 2053 everyday economy is shown on the page and now canonized (see the world bible): post-employment localism, the barter and trade economy as the everyday norm, and the collapse of insurance and institutional healthcare. Concrete anchors established this chapter: a former freight-logistics analyst (Dembélé) keeps the neighborhood food-trade board; patients pay in kind (a dozen brown eggs left where a payment terminal used to sit); the clinic has not billed anyone in two years because there is no institution left to bill; an insurer pulled out of the district two winters before, a public plan and then a state program followed and were quietly defunded.
+- Eli arrived at the clinic in person (first time on the page, after four years of a thin, dropping mesh link) and was handed the clinic's old back-room server space and the night's decisive work. He stated, in clinical terms Lena could use, that he can forge the machines' permission (make them stop waiting on the withdrawn company by standing up a local stand-in) but cannot restore the manufacturer's vouching for medical correctness, and cannot cover all three machines by midnight: one well, maybe two, not all three.
+- Chapter ends before midnight. What midnight does to the three machines is not established here; it remains open into Chapter 3.

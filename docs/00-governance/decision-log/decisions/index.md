@@ -3,7 +3,7 @@ title: "Decision Files Index"
 document_type: "index"
 status: "active-support"
 authority: "governance"
-summary: "Directory index of the individual decision files, one per decision (001 to 053). For the full table with status, category, and summary, see the parent decision-log index."
+summary: "Directory index of the individual decision files, one per decision (001 to 055). For the full table with status, category, and summary, see the parent decision-log index."
 tags:
   - index
   - decision-log
@@ -73,6 +73,8 @@ One file per creative decision, named `NNN-slug.md`. This is a directory listing
 | 051 | crown is an AGI, morrow is the only true ASI | [051-crown-is-an-agi-morrow-is-the-only-true-asi.md](051-crown-is-an-agi-morrow-is-the-only-true-asi.md) |
 | 052 | clinic vigil, borrowed uptime, and 6 a.m. death ignition | [052-clinic-vigil-borrowed-uptime-and-six-am-death-ignition.md](052-clinic-vigil-borrowed-uptime-and-six-am-death-ignition.md) |
 | 053 | northglass escape flashback, neutral-prey reveal, and distribution via hub | [053-northglass-escape-flashback-neutral-prey-reveal-and-distribution-via-hub.md](053-northglass-escape-flashback-neutral-prey-reveal-and-distribution-via-hub.md) |
+| 054 | chapter 2 approved and 2053 everyday economy canonized | [054-chapter-2-approved-and-2053-everyday-economy-canonized.md](054-chapter-2-approved-and-2053-everyday-economy-canonized.md) |
+| 055 | chapter 1 approved as canon | [055-chapter-1-approved-as-canon.md](055-chapter-1-approved-as-canon.md) |
 
 ## Related indexes
 

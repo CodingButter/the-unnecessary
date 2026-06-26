@@ -22,7 +22,7 @@ source_documents:
 
 # Setups and Payoffs at Story Start
 
-> No manuscript chapters have been approved. These files contain pre-draft starting conditions only.
+> Chapters 1 and 2 are approved manuscript. The setup/payoff pairs below remain the story-start plants; setups planted and payoffs delivered by approved chapters are tracked in the post-chapter section at the end of this file.
 
 This file pairs each planted setup with its intended payoff. At time zero, only the setups exist as conditions of the story world or as hidden canon facts. Every payoff below is labeled PLANNED and not yet delivered. No payoff in this file has occurred, and none may be read as established continuity. The payoffs are named so that future drafting can be tracked against them, not because they have happened.
 
@@ -133,3 +133,27 @@ These are the structural plants named in the major beats. At story start only th
 - Setup, present at story start: The premise that the intelligence may distribute itself to survive is planted but not enacted at time zero.
 - Intended payoff: PLANNED, not yet delivered. Canon plans the resolution in which the known central systems are destroyed and the intelligence survives through a distributed network, closing on a dark clinic returning to life one machine at a time.
 - Source: major-beats.md; reveal-management.md.
+
+## Setups Planted and Payoffs Delivered in Approved Chapters
+
+These entries are established by approved manuscript, not pre-draft plants. They record what an approved chapter set up or paid off.
+
+### The clinic's old back-room server space (Chapter 2)
+- Setup, established Chapter 2: Lena hands Eli the clinic's dusty, underpowered back-room server room, the place he needs to stand up a local stand-in, and leaves him alone in it.
+- Intended payoff: this room is the Chapter 3 vigil location; the vigil itself is not yet drafted.
+- Source: chapter-02-the-last-supported-day.md; blueprint Continuity Ledger Updates.
+
+### The midnight authentication deadline, paid off from inside the clinic (Chapter 2)
+- Setup, established Chapter 1: three clinic systems lose remote authentication at 23:59 on October 3.
+- Payoff so far: Chapter 2 grounds the deadline inside the clinic from Lena's POV and ends before midnight. What midnight does to the three machines is NOT delivered here; it remains open (see unresolved-threads.md) into Chapter 3.
+- Source: chapter-01-no-signal.md; chapter-02-the-last-supported-day.md.
+
+### The midday power-tier drop, paid off as clinic backup-power risk (Chapter 2)
+- Setup, established Chapter 1: the neighborhood is moved to a low power tier at midday, outages no longer treated as emergencies.
+- Payoff, delivered Chapter 2: the clinic is on the low tier with no emergency restore; the back-room work and the controller's backup are at risk if the grid sags. The drop is now felt as a concrete clinical hazard.
+- Source: chapter-01-no-signal.md; chapter-02-the-last-supported-day.md.
+
+### The neighborhood food-trade board and pay-in-kind economy (Chapter 2)
+- Setup, established Chapter 2: a former freight-logistics analyst (Dembélé) keeps the neighborhood food-trade board; patients pay the clinic in kind (a dozen brown eggs), and the clinic no longer bills anyone.
+- Intended payoff: these concretize the 2053 community economy now canonized in the world bible; they stand as established texture and recurring world detail rather than a plot device awaiting a single payoff.
+- Source: chapter-02-the-last-supported-day.md; blueprint Continuity Ledger Updates.

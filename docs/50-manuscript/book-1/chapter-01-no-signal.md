@@ -1,7 +1,7 @@
 ---
 title: "Chapter 1: No Signal"
 document_type: "manuscript-chapter"
-status: "draft"
+status: "approved-canon"
 authority: "manuscript"
 summary: "On Friday, October 3, 2053, Eli Rook watches a neighborhood's scattered failures resolve into one deliberate corporate withdrawal, culminating in a clinic authentication deadline he cannot repair his way out of."
 tags:

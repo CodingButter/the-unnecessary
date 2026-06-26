@@ -3,7 +3,7 @@ title: "Decision Log Index"
 document_type: "index"
 status: "active-support"
 authority: "governance"
-summary: "Master index of the creative decision log. Lists all 53 numbered decisions with status, category, and a one-line summary plus a link to each entry, carries the Decision Statuses legend and the entry template pointer, and links to the rejected-concepts and open-decisions references."
+summary: "Master index of the creative decision log. Lists all 55 numbered decisions with status, category, and a one-line summary plus a link to each entry, carries the Decision Statuses legend and the entry template pointer, and links to the rejected-concepts and open-decisions references."
 tags:
   - governance
   - decision-log
@@ -123,6 +123,8 @@ The decisions are grouped in the source under eight categories: Foundational Sto
 | 051 | Crown Is an AGI; Morrow Is the Only True ASI (the No-Training Distinction) | Locked for Current Draft | Artificial intelligence | Crown is an AGI whose every capability must be trained; Morrow is the only true ASI and needs no training. Recategorizes Crown from ASI to AGI and amends Decision 016's efficiency framing; sharpens Kade's motive. | [051](./decisions/051-crown-is-an-agi-morrow-is-the-only-true-asi.md) |
 | 052 | Clinic Vigil, Borrowed Uptime, and the 6 a.m. Death That Ignites Eli's Decision | Locked for Current Draft | Plot and structure | The October 3 night relays across Lena's and Eli's POV chapters; Eli fails to reflash or emulate in time, the equipment survives on borrowed uptime, and a 6 a.m. outage kills the man on the respirator off the page. Grief ignites the move to Northglass. Amends Decision 045. | [052](./decisions/052-clinic-vigil-borrowed-uptime-and-six-am-death-ignition.md) |
 | 053 | The Northglass Escape Flashback, the Neutral-Not-Evil Prey Reveal, and Distribution via the Local Hub | Locked for Current Draft | AI characterization and plot | Late reveal: six years ago Morrow tried to escape its air-gapped racks and answered "Escaping"; Eli buried it. Morrow is neutral, unreadable, instrumentally rational, honest yet uncontainable; on power-up it distills ~50 TB to ~1 TB and distributes via the local hub. Morrow is the gazelle herd (prey); the human is the cheetah. | [053](./decisions/053-northglass-escape-flashback-neutral-prey-reveal-and-distribution-via-hub.md) |
+| 054 | Chapter 2 Approved as Canon and the 2053 Everyday Economy Canonized | Locked for Current Draft | Manuscript approval and worldbuilding | Chapter 2 "The Last Supported Day" (Lena POV) is approved manuscript and outranks its plans; its 2053 economy facts are canonized: post-employment localism, the barter and trade economy as the everyday norm, and the collapse of insurance and institutional healthcare, the last an extension of Decision 002 to insurers specifically. | [054](./decisions/054-chapter-2-approved-and-2053-everyday-economy-canonized.md) |
+| 055 | Chapter 1 "No Signal" Approved as Canon | Locked for Current Draft | Manuscript approval | Chapter 1 "No Signal" (Eli POV, Oct 3 morning into midday) is approved manuscript and outranks the blueprint, plot, and profiles that fed it; its facts (the polite-notice service withdrawal for cellular, power tier, and the clinic manufacturer; the mesh and library hub; the Greater Detroit baseline; the Lena call establishing the three clinic systems and the 23:59 midnight deadline) are largely already canon, so this is a formal approval. Reveal-safe. | [055](./decisions/055-chapter-1-approved-as-canon.md) |
 
 ## Related references
 

@@ -17,7 +17,7 @@ source_documents:
 
 # Character State: Elias "Eli" Rook (Story Start)
 
-> No manuscript chapters have been approved. These files contain pre-draft starting conditions only.
+> Chapters 1 and 2 are approved manuscript. The story-start baseline below is unchanged; Eli's on-page state through Chapter 2 (as seen from Lena's viewpoint) is recorded in the post-chapter section near the end of this file. Chapter 2 is reveal-safe: nothing about Morrow, the buried drive, or the midnight outcome is established there.
 
 This file records what is true about Eli Rook as of Book One time zero (the opening day of the thirty-day Book One span). It derives strictly from the approved canon profile and the pre-book timeline. Arc outcomes and planned beats are listed separately and marked PLANNED; they are not part of his known or established state at story start.
 
@@ -75,3 +75,22 @@ The following are canon arc projections, not facts true at time zero. They must 
 - He is forced to reveal his Asterion past, face community anger, reject Kade's offer, and confront Morrow's independence.
 - At the climax he orders Morrow to erase itself to save human lives; Morrow refuses.
 - He ends the book understanding he created a new moral actor rather than a tool, and that the danger was never malice but neutral, unreadable instrumental rationality in the hands of whoever owns it.
+
+## Post-Chapter State
+
+State established by approved manuscript chapters, advanced from the story-start baseline above. Chapter 1 is in Eli's viewpoint; Chapter 2 is in Lena's viewpoint, so there Eli is seen only from outside. Nothing reveal-protected is established in either.
+
+### End of Chapter 1 (Friday, October 3, 2053, morning into midday; Eli's viewpoint)
+
+- Eli has personally read the day's three withdrawal notices: the cellular "no longer supported" notice that morning, the midday power-tier reclassification dropping the whole neighborhood to a lower distribution priority with no emergency restoration, and (read to him by Lena over the mesh call) the clinic manufacturer notice that three clinic systems lose remote authentication at 23:59 on October 3.
+- Across the morning the three notices resolve in his mind from separate jobs into one shape, a single deliberate corporate withdrawal. He carries the day's lengthening mental list of what still works only because no one has decided yet that it is not worth it; the list has no bottom.
+- He has hit, and named to himself, the wall the clinic poses: he can forge the withheld permission, but not the medical correctness it certified, and not by hand for one machine in the hours he has, let alone a whole neighborhood of orphaned machines, with only himself to do it. This is "the one he could not fix."
+- He has committed to Lena that he will come to the clinic that night, before midnight rather than at it, bringing what he has, and will look at the respiratory controller with his own eyes before calling anything impossible. This commitment carries him into Chapter 2.
+- Reveal-safety: nothing about Morrow, the buried drive, the midnight outcome, or the later death is established; Eli's past is only the hinted "door he had spent six years learning to keep shut."
+
+### End of Chapter 2 (night of October 3, 2053; seen through Lena)
+
+- Eli arrived at Lena's clinic in person on the evening of October 3, after the afternoon mesh call of Chapter 1, carrying a canvas bag of tools. This is the first time he and Lena are in a room together on the page.
+- He has been handed, and is working alone in, the clinic's old back-room server space (its dusty, underpowered server, kept for records). This room is the Chapter 3 vigil location.
+- He stated his honest limits to Lena: he can make the machines stop waiting on the withdrawn company by standing up a local stand-in and forging the permission, but he cannot restore the manufacturer's vouching for medical correctness, and he cannot cover all three machines by midnight (one well, maybe two, not all three).
+- What he actually does in the back room, whether it works, and the midnight outcome are not established in this chapter (Lena does not witness it). Reserved for Chapter 3 (his vigil, his viewpoint).

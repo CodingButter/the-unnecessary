@@ -22,7 +22,7 @@ source_documents:
 
 # Unresolved Threads at Story Start
 
-> No manuscript chapters have been approved. These files contain pre-draft starting conditions only.
+> Chapters 1 and 2 are approved manuscript. The threads below remain open from the story-start baseline; threads opened by approved chapters and still unanswered are tracked in the post-chapter section at the end of this file.
 
 This file records the questions that are open at time zero, before any chapter is drafted. Each entry is a thread that canon plants but does not answer at story start. The status of every thread below is OPEN. None of these questions has an answer recorded as established continuity. Where canon designates an answer for later books, that is noted only to mark the thread as not closing inside Book One, never to record the answer itself.
 
@@ -118,3 +118,12 @@ These threads are open at story start and canon designates that they do not clos
 - Status: OPEN. Canon reserves the answer for later books.
 - The meaning of Morrow's final message is unanswered.
 - Source: reveal-management.md.
+
+## Threads Opened by Approved Chapters
+
+These threads are opened by approved manuscript and remain unanswered as of the latest approved chapter.
+
+### What midnight does to the three clinic machines
+- Status: OPEN, carried out of Chapter 2 into Chapter 3.
+- Chapter 2 ends before 23:59 on October 3 with the diagnostic scanner, the medication-management unit, and the respiratory-support controller still running on borrowed permission. Whether they keep running until restarted, lose only their diagnostics, or stop at once is not established; no character, Eli included, knows. Lena makes irreversible triage calls anyway and keeps Mr. Adeyemi on the controller through the night.
+- Source: chapter-02-the-last-supported-day.md; Decision 052 (the vigil and the borrowed-uptime answer belong to Chapter 3, not yet drafted).
