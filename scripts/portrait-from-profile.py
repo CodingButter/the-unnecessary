@@ -28,12 +28,15 @@ import json
 import os
 import re
 import socket
+import subprocess
 import sys
+import tempfile
 import urllib.error
 import urllib.request
 
 API_HOST = "https://generativelanguage.googleapis.com"
 DEFAULT_MODEL = "gemini-2.5-flash-image"
+DEFAULT_WIDTH = 500
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROFILES_DIR = os.path.join(REPO_ROOT, "docs", "20-canon", "characters", "profiles")
@@ -262,6 +265,32 @@ def call_gemini_image(model, key, prompt):
     return None, "no image in response (finishReason=" + str(reason) + ") " + note
 
 
+def resize_png(png_bytes, out_path, width):
+    """Downscale raw PNG bytes to <width> px wide (aspect preserved) via ffmpeg,
+    writing the result to out_path. ffmpeg is already a repo dependency, so no
+    Pillow/PIL is pulled in. scale=<width>:-2 keeps the height even and the
+    aspect ratio intact. Returns (ok, err)."""
+    with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
+        tmp.write(png_bytes)
+        tmp_path = tmp.name
+    try:
+        proc = subprocess.run(
+            ["ffmpeg", "-y", "-i", tmp_path,
+             "-vf", "scale=" + str(width) + ":-2", out_path],
+            stdout=subprocess.DEVNULL, stderr=subprocess.PIPE,
+        )
+        if proc.returncode != 0:
+            return False, proc.stderr.decode("utf-8", "replace")[-400:]
+        return True, None
+    except Exception as err:  # noqa: BLE001
+        return False, str(err)[:400]
+    finally:
+        try:
+            os.remove(tmp_path)
+        except OSError:
+            pass
+
+
 def embed_in_profile(profile_path, slug, name):
     """Insert the portrait image under the Physical heading. Idempotent: if a
     line already references ../portraits/<slug>.png, leave the file untouched."""
@@ -281,7 +310,7 @@ def embed_in_profile(profile_path, slug, name):
     return "embedded"
 
 
-def generate_for(profile_path, model, key):
+def generate_for(profile_path, model, key, width=DEFAULT_WIDTH):
     """Render one profile. Returns (ok, message)."""
     name = display_name(read_file(profile_path))
     text = read_file(profile_path)
@@ -297,11 +326,15 @@ def generate_for(profile_path, model, key):
         return False, "FAILED " + slug + ": " + err
     os.makedirs(PORTRAITS_DIR, exist_ok=True)
     out_path = os.path.join(PORTRAITS_DIR, slug + ".png")
-    with open(out_path, "wb") as handle:
-        handle.write(png)
+    # Downscale to ~<width>px wide before saving + embedding: the portrait is a
+    # repo artifact, so the full-res model output is needless weight.
+    ok, resize_err = resize_png(png, out_path, width)
+    if not ok:
+        return False, "FAILED " + slug + ": resize: " + resize_err
+    sized = os.path.getsize(out_path)
     status = embed_in_profile(profile_path, slug, name)
     return True, "OK " + slug + ": wrote " + out_path + " (" + str(len(png)) \
-        + " bytes), embed " + status
+        + " bytes src -> " + str(sized) + " bytes @ " + str(width) + "px), embed " + status
 
 
 def main():
@@ -309,6 +342,8 @@ def main():
     ap.add_argument("profile", nargs="?", help="Path to a single character profile .md")
     ap.add_argument("--all", action="store_true", help="Walk every profile in profiles/")
     ap.add_argument("--model", default=DEFAULT_MODEL, help="Gemini image model id")
+    ap.add_argument("--width", type=int, default=DEFAULT_WIDTH,
+                    help="Max portrait width in px; aspect preserved (default %(default)s)")
     args = ap.parse_args()
 
     if not args.all and not args.profile:
@@ -335,7 +370,7 @@ def main():
             print("FAILED: profile not found: " + path, file=sys.stderr)
             failures += 1
             continue
-        ok, message = generate_for(path, args.model, key)
+        ok, message = generate_for(path, args.model, key, args.width)
         print(message, file=sys.stderr)
         if not ok and not message.startswith("skip "):
             failures += 1
