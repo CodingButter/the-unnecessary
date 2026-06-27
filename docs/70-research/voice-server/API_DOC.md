@@ -1,12 +1,18 @@
-# Voice TTS API
+# Voice API
 
-Self-hosted text-to-speech (Chatterbox) with voice cloning, emotion presets, and
-full tuning control. Two ways to get audio:
+Self-hosted **text-to-speech** (Chatterbox, with voice cloning + emotion presets +
+full tuning) **and speech-to-text** (Whisper `large-v3`).
+
+Text → speech:
 
 - **`POST /api/generate`** → a complete **WAV/MP3 file** (one-shot, best quality). Use this for audiobooks / offline rendering.
 - **`POST /api/synthesize`** → a **real-time PCM16 stream**. Use this for live playback.
 
-Both share the exact same control surface (voice + emotion + tuning knobs).
+Both TTS paths share the exact same control surface (voice + emotion + tuning knobs).
+
+Speech → text:
+
+- **`POST /api/transcribe`** → upload an audio file, get the **transcript** back (with optional language auto-detect, segment timestamps, and translate-to-English).
 
 ---
 
@@ -16,20 +22,14 @@ The service listens on port **8080**.
 
 | From | URL |
 |------|-----|
-| **Public (anywhere)** | **`http://tts.codingbutter.com`** |
+| **Public (anywhere)** | **`http://voice.codingbutter.com`** |
 | Same machine | `http://localhost:8080` |
 | Another machine on the LAN | `http://10.0.0.213:8080` |
 
 The public URL is served over a tunnel — use it as-is (no `:8080` port needed). All
-examples below use `localhost`; swap in `http://tts.codingbutter.com` from anywhere else.
+examples below use `localhost`; swap in `http://voice.codingbutter.com` from anywhere else.
 
-> **⚠️ Security:** the `/api/*` routes have **no built-in authentication**. Since
-> `tts.codingbutter.com` is public, anyone who knows the hostname can use your GPU to
-> generate speech. Put access control at the tunnel/edge (e.g. Cloudflare Access, a
-> reverse-proxy auth, or an IP allowlist) if that matters. (The separate `/mcp`
-> endpoint is API-key gated and is for MCP clients, not these REST calls.)
-
-Quick health check:
+Quick health check (public, no auth):
 
 ```bash
 curl http://localhost:8080/healthz
@@ -37,6 +37,50 @@ curl http://localhost:8080/healthz
 ```
 
 Interactive OpenAPI docs (auto-generated): **`http://localhost:8080/docs`**
+
+---
+
+## Authentication
+
+The `/api/*` data routes (voices, synthesize, generate, transcribe, voice-preview)
+require a login. Accounts live in **`users.json`** at the project root:
+
+```json
+[
+  { "username": "admin", "password": "change-me" }
+]
+```
+
+There are **two ways to authenticate**, both backed by that file:
+
+**1. Browser — session cookie.** The web UI shows a login page; on success the
+server sets a signed, HttpOnly cookie and you use the app normally (with a Log out
+button). Scripts can do the same:
+
+```bash
+# Log in, save the cookie, then call protected routes with it
+curl -c cookies.txt -X POST http://localhost:8080/api/login \
+  -H 'Content-Type: application/json' \
+  -d '{"username":"admin","password":"change-me"}'
+curl -b cookies.txt http://localhost:8080/api/voices
+```
+
+**2. Scripts / CLI — HTTP Basic auth.** Simplest for `curl` and the MCP shim — just
+send the same username/password:
+
+```bash
+curl -u admin:change-me http://localhost:8080/api/voices
+```
+
+> Public (no auth): `/` (login page), `/healthz`, `/docs`. The `/mcp` endpoint has
+> its own API-key gate. Unauthenticated `/api/*` calls return **401**.
+>
+> **All `curl` examples below need auth** — add `-u <user>:<password>` (or a login
+> cookie). They're omitted from each example for brevity.
+
+Auth endpoints: `POST /api/login` `{username,password}` → sets cookie; `POST
+/api/logout` → clears it; `GET /api/me` → 200 + `{username}` when authenticated,
+else 401.
 
 ---
 
@@ -172,15 +216,76 @@ curl -sN -X POST http://localhost:8080/api/synthesize -H 'Content-Type: applicat
 
 ---
 
+## `POST /api/transcribe` — speech to text
+
+Upload an audio file and get the transcript back. Powered by Whisper
+(`large-v3` via faster-whisper). The model decodes the container itself, so you
+can send **WAV, MP3, M4A, OGG, FLAC, or WebM** directly — no client-side
+conversion. This is a **`multipart/form-data`** request (not JSON).
+
+### Fields
+
+| Field | Type | Default | What it does |
+|-------|------|---------|--------------|
+| `file` | file | *required* | The audio to transcribe (any common container, up to 100 MB). |
+| `language` | string | auto | Force the source language (ISO code, e.g. `en`, `es`). Omit to auto-detect. |
+| `task` | `transcribe` \| `translate` | `transcribe` | `transcribe` keeps the spoken language; `translate` outputs **English** text. |
+| `timestamps` | bool | `false` | Also return per-segment start/end times. |
+
+### Response
+
+JSON:
+
+```jsonc
+{
+  "text": "The full transcript as one string.",
+  "language": "en",              // detected (or forced) language
+  "language_probability": 0.99,  // detector confidence
+  "duration": 12.34,             // seconds of audio
+  "segments": [                  // only present when timestamps=true
+    {"start": 0.0, "end": 3.2, "text": "The full transcript"},
+    {"start": 3.2, "end": 6.1, "text": "as one string."}
+  ]
+}
+```
+
+### Examples
+
+```bash
+# Basic transcription
+curl -X POST http://localhost:8080/api/transcribe \
+  -F file=@meeting.m4a
+
+# Force language + segment timestamps (for subtitles)
+curl -X POST http://localhost:8080/api/transcribe \
+  -F file=@clip.mp3 -F language=en -F timestamps=true
+
+# Translate foreign-language speech to English text
+curl -X POST http://localhost:8080/api/transcribe \
+  -F file=@spanish.wav -F task=translate
+```
+
+> First-time setup: the Whisper weights must be cached on disk before the first
+> request (the service runs HuggingFace in offline mode so cold boots can't hang).
+> Run `python scripts/preload_whisper.py` once after install. The model size is
+> set by `WHISPER_MODEL` (default `large-v3`); `WHISPER_DEVICE` / `WHISPER_COMPUTE_TYPE`
+> control placement (`cuda` + `float16` on GPU).
+
+---
+
 ## Other endpoints
 
-| Method | Path | Purpose |
-|--------|------|---------|
-| `GET` | `/` | Browser UI (pick a voice, type, hear it). |
-| `GET` | `/api/voices` | List voices, emotions, ranges. |
-| `GET` | `/api/voice-preview/{id}` | Download the raw reference clip for a voice. |
-| `GET` | `/healthz` | Liveness + device. |
-| `GET` | `/docs` | Interactive OpenAPI docs. |
+| Method | Path | Auth | Purpose |
+|--------|------|------|---------|
+| `GET` | `/` | public | Browser UI (login gate + TTS + speech-to-text). |
+| `POST` | `/api/login` | public | Log in `{username,password}` → sets session cookie. |
+| `POST` | `/api/logout` | public | Clear the session cookie. |
+| `GET` | `/api/me` | yes | `{username}` when authenticated, else 401. |
+| `GET` | `/api/voices` | yes | List voices, emotions, ranges. |
+| `GET` | `/api/voice-preview/{id}` | yes | Download the raw reference clip for a voice. |
+| `POST` | `/api/transcribe` | yes | Speech to text (Whisper). |
+| `GET` | `/healthz` | public | Liveness + device. |
+| `GET` | `/docs` | public | Interactive OpenAPI docs. |
 
 ---
 
@@ -199,7 +304,8 @@ from pathlib import Path
 
 import requests  # pip install requests
 
-API   = "http://tts.codingbutter.com"   # public URL (or http://10.0.0.213:8080 on the LAN)
+API   = "http://voice.codingbutter.com"   # public URL (or http://10.0.0.213:8080 on the LAN)
+AUTH  = ("admin", "change-me")     # (username, password) from users.json
 VOICE = "Will_Wheaton"
 EMOTION = "narrator"               # or None, or per-chapter
 FORMAT = "mp3"                     # "mp3" or "wav"
@@ -232,7 +338,7 @@ def generate(text: str, out: Path):
     payload = {"voice": VOICE, "text": text, "emotion": EMOTION,
                "format": FORMAT, "normalize": True,
                **{k: v for k, v in TUNING.items() if v is not None}}
-    r = requests.post(f"{API}/api/generate", json=payload, timeout=900)
+    r = requests.post(f"{API}/api/generate", json=payload, auth=AUTH, timeout=900)
     r.raise_for_status()
     out.write_bytes(r.content)
     secs = float(r.headers.get("X-Duration-Seconds", 0))
@@ -287,9 +393,10 @@ JSON `{"detail": "..."}` with status:
 | Status | Meaning |
 |--------|---------|
 | `404` | Unknown `voice`. |
-| `400` | Unknown `emotion`, or bad `format`. |
-| `422` | Empty text / no audio produced. |
-| `500` | Synthesis failed. |
+| `400` | Unknown `emotion`, bad `format`, or invalid `task`. |
+| `413` | Uploaded audio too large (transcribe; max 100 MB). |
+| `422` | Empty text/upload, or no audio produced. |
+| `500` | Synthesis or transcription failed. |
 
 Out-of-range tuning values are **clamped**, not rejected.
 
@@ -298,6 +405,8 @@ Out-of-range tuning values are **clamped**, not rejected.
 ## MCP server (optional, for AI agents)
 
 The same engine is exposed as an MCP server at `POST /mcp` (Streamable HTTP) with
-tools `synthesize`, `list_voices`, `upload_voice`. It supports `X-Play-Local: true`
-to play on the server's own speakers. This is for MCP clients (e.g. Claude Code) and
-is gated by `X-API-Key`; the REST endpoints above are the path for your own scripts.
+tools `synthesize`, `transcribe`, `list_voices`, `upload_voice`. `synthesize`
+supports `X-Play-Local: true` to play on the server's own speakers; `transcribe`
+takes audio as `audio_base64` or a `source_url` and returns the text. This is for
+MCP clients (e.g. Claude Code) and is gated by `X-API-Key`; the REST endpoints
+above are the path for your own scripts.

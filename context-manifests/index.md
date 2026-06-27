@@ -16,8 +16,6 @@ related:
   - "./continuity-check.yaml"
   - "./canon-revision.yaml"
   - "./technology-research.yaml"
-source_documents:
-  - "/home/codingbutter/Novel/migration/REPOSITORY-REORGANIZATION-SPEC.md"
 ---
 
 # Context Manifests Index

@@ -18,8 +18,6 @@ related:
   - "./technology-state/index.md"
   - "./unresolved-threads.md"
   - "./setups-and-payoffs.md"
-source_documents:
-  - "migration/REPOSITORY-REORGANIZATION-SPEC.md"
 ---
 
 # Continuity Index

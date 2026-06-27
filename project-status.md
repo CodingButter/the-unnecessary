@@ -10,9 +10,6 @@ tags:
   - chapter-blueprinting
 related:
   - "docs/00-governance/index.md"
-  - "migration/conflicts-found.md"
-source_documents:
-  - "migration/REPOSITORY-REORGANIZATION-SPEC.md"
 ---
 
 # Project Status

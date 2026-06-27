@@ -10,8 +10,6 @@ tags:
 related:
   - "../20-canon/index.md"
   - "../10-vision/index.md"
-source_documents:
-  - "migration/REPOSITORY-REORGANIZATION-SPEC.md"
 ---
 
 # Governance Index

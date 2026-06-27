@@ -10,8 +10,6 @@ tags:
 related:
   - "docs/00-governance/context-loading-guide.md"
   - "docs/00-governance/canon-hierarchy.md"
-source_documents:
-  - "migration/REPOSITORY-REORGANIZATION-SPEC.md"
 ---
 
 # The Unnecessary — Project Instructions
@@ -59,11 +57,10 @@ Two non-negotiable principles inherited from the Canon Guide:
    and a recommended resolution — then follow the Canon Guide's process. Do not average
    two versions together.
 
-The project is mid-**migration** toward a structured `docs/` tree (`docs/00-governance/`,
+The repository is organized as a structured `docs/` tree (`docs/00-governance/`,
 `docs/10-vision/`, `docs/20-canon/`, `docs/30-plot/`, `docs/40-blueprints/`,
 `docs/50-manuscript/`, `docs/60-continuity/`, `docs/70-research/`), with `context-manifests/`,
-`scripts/`, and `archive/` alongside. Work happens on the `migration` branch and integrates
-to `main`. The separation-of-responsibilities is the load-bearing part.
+`scripts/`, and `archive/` alongside. The separation-of-responsibilities is the load-bearing part.
 
 ## Working on the novel (per-session rules)
 
@@ -86,8 +83,7 @@ start from the appropriate context manifest in `context-manifests/`. Then:
 
 ## Task routing
 
-Start each task from its context manifest (the manifest files are created in a later
-migration phase; until then, treat these as the intended entry points):
+Start each task from its context manifest:
 
 | Task | Start with |
 | --- | --- |
