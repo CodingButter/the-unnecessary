@@ -88,7 +88,7 @@ It started the way it always started, one thing, then another, the door letting 
 
 "I can make it forget it ever had a company." He pulled the board and began the work he had done a thousand times, less repair than amputation, cutting the thing's reach to a sky that would not answer. "It won't do half what it used to. No app, no chimes you pick, no telling you who's at the door from across town. It'll ring. That's all it'll do. Ring. That what you want?"
 
-"That's what we want," the boy said, with a flatness Eli knew and let pass. They wanted the house to know there was somebody in it. The wanting reduced down to the thing itself, stripped of every feature the cleverness had wrapped around it, until all that was left was the animal need a doorbell had been invented to answer. Someone is here. Let me know.
+"That's what we want," the boy said, with a flatness Eli knew and let pass. They wanted the house to know there was somebody at the door. The wanting reduced down to the thing itself, stripped of every feature the cleverness had wrapped around it, until all that was left was the animal need a doorbell had been invented to answer. Someone is here. Let me know.
 
 He fixed it. He took no money for it. The boy left.
 
