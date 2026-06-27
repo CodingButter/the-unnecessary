@@ -212,7 +212,56 @@ references:
     note: "[behavior-only] it was his father's"
 ```
 
-## 9. Diff-driven continuity (fearless revisability)
+## 9. Time and state — entities have lives, not snapshots
+
+The folder tree is a snapshot, but the story moves through time. A couch lovingly
+described in `412-perry/living-room/couch.md` may be carried to Jonah's house partway
+through the book. **We never move the file.** Moving it would erase the couch's history,
+cause exactly the upward churn we banned, and make no sense -- it is the same couch.
+
+Instead, time-varying facts are recorded as a **timeline** in the entity's own fenced
+block, keyed to **in-world story date-time, not chapter number.** This is the crucial
+distinction between *when something happens in the world* (the state axis) and *when the
+reader is told* (the reading order): a flashback chapter is set at an earlier story-date,
+so keyed by date it resolves the couch's *earlier* state correctly, where keying by
+chapter would hand back the wrong one. The **folder is the entity's home**; the
+**timeline is the truth**:
+
+```yaml
+home: 412-perry/living-room          # stable; where the file lives, not a live claim
+timeline:
+  - when: 2053-10-18                  # in-world date (approximate ok: { circa: 2050 })
+    set: { located-in: jonah-house/study }
+    note: "Jonah takes it after the fight."
+  - when: 2053-10-26
+    set: { condition: "water-stained, one leg cracked" }
+```
+
+- **State at any story-moment is derived:** start from the home/initial values and replay
+  the timeline up to that date. "Where is the couch on October 20?" -> Jonah's study.
+- **One date axis holds backstory and on-page events alike.** Eli and Nora's divorce (~6
+  years before Book One) and Daniel Rook's death (alive -> deceased, circa spring 2050)
+  are timeline events at their in-world dates, no different in kind from a couch moving
+  mid-book. This is the **same axis as the Master Timeline**; per-entity timelines are its
+  slices, and the per-character state files under `docs/60-continuity/` are the first,
+  hand-built version of exactly this.
+- **Fixed vs movable.** For a room in a building, home and live location coincide and the
+  timeline stays empty. For movable things (a couch, a person, an object) the folder is
+  the home shelf and the timeline carries the motion -- location, ownership, condition,
+  residence, relationships, and **existence** (built/demolished, alive/dead).
+- **The blueprint pins each scene to its story-date, so it gets the right state for free.**
+  A scene -- even a flashback -- carries an in-world date; the system resolves every
+  referenced entity *as of that date* and hands the writer that state, not the t=0 one and
+  not the latest one.
+- **Time-aware continuity:** the validator and the diff-judge can catch an entity in two
+  states at one story-moment, an object used where it no longer is, or a character on the
+  page after they have died.
+- **Events promote to entities, just-in-time:** a simple change is a `timeline` line; a
+  large or multi-entity beat (a fire that damages a building and injures a person) becomes
+  its own dated `event` file the affected entities reference, and both "this entity's life"
+  and "everything that happened on October 18" are **derived** by walking events.
+
+## 10. Diff-driven continuity (fearless revisability)
 
 Because **every reference is an explicit edge**, any change to any file has a
 **computable blast radius**. This turns continuity from a manual worry into an automatic,
@@ -237,7 +286,7 @@ semantic half costs tokens and runs when you make a revision, reading only what 
 touched. The payoff is the one you named: **make the decision that fits the story better,
 anytime, and the diff tells you everywhere that now has to agree.**
 
-## 10. Validation (the rails)
+## 11. Validation (the rails)
 
 A generalized validator enforces, across all entity types:
 
@@ -253,7 +302,7 @@ A generalized validator enforces, across all entity types:
   not be empty.
 - **Reveal-tagging respected** — `[open]` / `[reveal: Book N]` / `[behavior-only]`.
 
-## 11. Consistency with the character system
+## 12. Consistency with the character system
 
 - `../20-canon/characters/profile-spec.md` is now an **instance** of this
   contract: characters are prose-heavy entities whose relationship edges are this edge
@@ -262,7 +311,7 @@ A generalized validator enforces, across all entity types:
 - The existing fenced relationship blocks (currently a custom `relation: id` line format)
   are standardized to valid `yaml` so a **single parser** serves every entity type.
 
-## 12. The extractable process — adding a new entity type
+## 13. The extractable process — adding a new entity type
 
 The whole point. Every entity family is the same **seven-part kit**: a **spec** section
 (here), a **template**, a shared **parser**, a **validator**, **view generators**, a
