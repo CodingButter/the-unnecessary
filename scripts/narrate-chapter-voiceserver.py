@@ -38,6 +38,7 @@ Usage:
 """
 
 import argparse
+import base64
 import json
 import os
 import re
@@ -48,15 +49,13 @@ import time
 import urllib.request
 import urllib.error
 
-DEFAULT_API = "http://tts.codingbutter.com"
-SAMPLE_RATE = 24000
+# Dedicated opener with an empty ProxyHandler so requests always go DIRECT, never through
+# an injected http_proxy. The voice API is a direct LAN/host call; a proxy is never wanted
+# here. (Harmless when no proxy is set, which is the norm.) Use _OPENER.open(...).
+_OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
-# Silence to keep at each chunk edge after trimming the leading/trailing dead air
-# Chatterbox bakes into every WAV (~0.25-0.34s). Trimming both edges to this small pad
-# is what makes the renderer's DECLARED inter-chunk gaps (register/beat/hold/scene)
-# actually exact: an actual boundary pause becomes ~EDGE_PAD + gap + EDGE_PAD instead
-# of trailing(~0.3s) + gap + leading(~0.3s).
-EDGE_PAD = 0.05
+DEFAULT_API = "http://voice.codingbutter.com"
+SAMPLE_RATE = 24000
 
 # Four REGISTERS anchored on the server's "audiobook" preset. No "emotion" key: the
 # emotion presets (plus repetition_penalty 1.4) manufactured non-speech garble. These
@@ -408,11 +407,37 @@ def build_chunks(items, max_chars, min_chars):
     return out
 
 
+def resolve_credentials(cli_user, cli_password):
+    """(user, password) for HTTP Basic auth, resolved from CLI flags, then the
+    VOICE_API_USER/VOICE_API_PASSWORD env vars, then the voice block in ./.mcp.json
+    (unstaged, holds the same creds). Returns (None, None) if nothing is found."""
+    user = cli_user or os.environ.get("VOICE_API_USER")
+    pw = cli_password or os.environ.get("VOICE_API_PASSWORD")
+    if user and pw:
+        return user, pw
+    try:
+        with open(".mcp.json", "r", encoding="utf-8") as fh:
+            env = json.load(fh)["mcpServers"]["voice"]["env"]
+        user = user or env.get("VOICE_API_USER")
+        pw = pw or env.get("VOICE_API_PASSWORD")
+    except Exception:  # noqa: BLE001  (.mcp.json missing or shaped differently)
+        pass
+    return user, pw
+
+
+def auth_header(user, password):
+    """{'Authorization': 'Basic ...'} for the given creds, or {} when either is missing."""
+    if not (user and password):
+        return {}
+    token = base64.b64encode(("%s:%s" % (user, password)).encode("utf-8")).decode("ascii")
+    return {"Authorization": "Basic " + token}
+
+
 def healthz(api):
     """Return (ok, detail). Hits GET {api}/healthz."""
     url = api.rstrip("/") + "/healthz"
     try:
-        with urllib.request.urlopen(url, timeout=15) as resp:
+        with _OPENER.open(url, timeout=15) as resp:
             body = resp.read().decode("utf-8", "replace")
         try:
             data = json.loads(body)
@@ -424,7 +449,7 @@ def healthz(api):
 
 
 def generate(api, voice, profile, text, out_path, rep_penalty=None,
-             base_temp=0.6, max_temp=0.8):
+             base_temp=0.6, max_temp=0.8, auth=None):
     """POST one chunk to /api/generate -> WAV on disk. Returns (None, duration_secs)
     on success or (error_string, None). Retries on 5xx up to 3 times."""
     url = api.rstrip("/") + "/api/generate"
@@ -449,10 +474,12 @@ def generate(api, voice, profile, text, out_path, rep_penalty=None,
 
     last_err = None
     for attempt in range(1, 4):
-        req = urllib.request.Request(url, data=body, headers={
-            "Content-Type": "application/json", "Accept": "audio/wav"})
+        headers = {"Content-Type": "application/json", "Accept": "audio/wav"}
+        if auth:
+            headers.update(auth)
+        req = urllib.request.Request(url, data=body, headers=headers)
         try:
-            with urllib.request.urlopen(req, timeout=600) as resp:
+            with _OPENER.open(req, timeout=600) as resp:
                 audio = resp.read()
                 dur = resp.headers.get("X-Duration-Seconds")
             if not audio:
@@ -505,88 +532,78 @@ def _wav_duration(path):
         return None
 
 
-def cap_internal_pauses(in_wav, out_wav, cap=0.7):
-    """Tidy one chunk WAV in a SINGLE ffmpeg pass: (1) trim the LEADING and TRAILING
-    dead air Chatterbox bakes into every clip (~0.25-0.34s) down to EDGE_PAD, and
-    (2) shorten every WITHIN-CHUNK silence longer than `cap` seconds back to `cap`.
-    All other audio is left sample-for-sample equivalent. Returns True on success.
+def trim_chunk_edges(in_wav, out_wav, pad=0.05):
+    """Keep ONLY the single contiguous span [onset-pad, offset+pad] of one chunk WAV,
+    shaving the leading/trailing dead air Chatterbox bakes into every clip (~0.25-0.34s)
+    down to `pad`. Returns True on success.
 
-    Trimming the edges is what makes the renderer's DECLARED inter-chunk gaps exact:
-    an actual boundary pause becomes ~EDGE_PAD + gap + EDGE_PAD rather than
-    trailing(~0.3s) + gap + leading(~0.3s) ~= gap + 0.6s.
+    Uses ffmpeg ATRIM, which keeps exactly ONE contiguous range -- it is STRUCTURALLY
+    INCAPABLE of removing audio between the first and last word. (This replaces the old
+    aselect approach, which could excise arbitrary windows from the MIDDLE of a clip and
+    once ate 27-40s of speech from real chunks.)
 
-    Method: silencedetect (noise=-38dB, small d so the ~0.3s edges register too) reports
-    silence_start/silence_end pairs. We build removal windows:
-      * internal: for any silence with dur > cap, remove (dur - cap) from its MIDDLE;
-      * leading:  the silence beginning at ~0.0 (silence_start <= ~0.02) -- its
-                  silence_end is the first-sound onset; remove [0, onset - EDGE_PAD];
-      * trailing: the silence ending at ~duration (silence_end >= duration - ~0.05) --
-                  its silence_start is the last-sound offset; remove
-                  [offset + EDGE_PAD, duration].
-    All windows are unioned, clamped to [0, duration], and degenerate (<=0 length)
-    windows dropped. One aselect drops them all at once; asetpts re-stamps the PTS so
-    kept samples play gaplessly. With no edges and no over-long pause, in_wav is copied.
+    Trimming the edges is what makes the renderer's DECLARED inter-chunk gaps exact: an
+    actual boundary pause becomes ~pad + gap + pad rather than trailing(~0.3s) + gap +
+    leading(~0.3s) ~= gap + 0.6s.
+
+    Detection: silencedetect (noise=-38dB, d=0.08) reports silence_start/silence_end
+    pairs.
+      * onset  = the silence_end of a LEADING silence (silence_start <= 0.03), the
+                 first-sound onset; if there is no leading silence, onset = 0.0.
+      * offset = the silence_start of a TRAILING silence (silence_end >= duration-0.05),
+                 the last-sound offset; if there is none, offset = duration.
+    Then A = max(0.0, onset - pad) and B = min(duration, offset + pad).
+
+    GUARD (belt-and-suspenders): if B <= A, OR the kept span (B - A) is under HALF the
+    chunk -- which genuine edge silence can never cause, so it signals a detection error
+    -- ABORT: copy in_wav to out_wav unchanged and warn on stderr. We never remove more
+    than real edge silence.
+
+    Output is mono, 24000 Hz, pcm_s16le.
     """
-    # Small detection threshold so the short (~0.3s) edge silences also register; the
-    # internal-cap logic below still only acts on silences longer than `cap`.
-    det = min(EDGE_PAD, 0.04)
+    duration = _wav_duration(in_wav)
+    if duration is None:
+        shutil.copyfile(in_wav, out_wav)
+        print("WARNING: edge-trim could not read duration of %s; copied unchanged"
+              % os.path.basename(in_wav), file=sys.stderr)
+        return True
+
     res = subprocess.run(
         ["ffmpeg", "-i", in_wav, "-af",
-         "silencedetect=noise=-38dB:d=%.3f" % det, "-f", "null", "-"],
+         "silencedetect=noise=-38dB:d=0.08", "-f", "null", "-"],
         capture_output=True, text=True)
     log = res.stderr
     starts = [float(x) for x in re.findall(r'silence_start:\s*(-?[0-9.]+)', log)]
     ends = [float(x) for x in re.findall(r'silence_end:\s*(-?[0-9.]+)', log)]
     pairs = list(zip(starts, ends))
 
-    duration = _wav_duration(in_wav)
-
-    windows = []
-
-    # Internal: shave the excess from the middle of any over-long silence.
+    # Leading silence -> first-sound onset (else keep from 0.0).
+    onset = 0.0
     for a, b in pairs:
-        dur = b - a
-        if dur > cap:
-            excess = dur - cap
-            mid = (a + b) / 2.0
-            windows.append((mid - excess / 2.0, mid + excess / 2.0))
-
-    # Leading edge: a silence that begins at the very start of the file.
-    for a, b in pairs:
-        if a <= 0.02:
+        if a <= 0.03:
             onset = b
-            if onset > EDGE_PAD:               # else nothing to trim
-                windows.append((0.0, onset - EDGE_PAD))
             break
 
-    # Trailing edge: a silence that runs to (within ~0.05s of) the end of the file.
-    if duration is not None:
-        for a, b in pairs:
-            if b >= duration - 0.05:
-                offset = a
-                if offset < duration - EDGE_PAD:   # else nothing to trim
-                    windows.append((offset + EDGE_PAD, duration))
-                break
+    # Trailing silence -> last-sound offset (else keep to the end). Only the silence that
+    # runs to EOF has silence_end at ~duration; interior silences end earlier.
+    offset = duration
+    for a, b in pairs:
+        if b >= duration - 0.05:
+            offset = a
+            break
 
-    # Clamp to [0, duration] and drop degenerate / negative-length windows.
-    cleaned = []
-    for w0, w1 in windows:
-        if duration is not None:
-            w0 = max(0.0, min(w0, duration))
-            w1 = max(0.0, min(w1, duration))
-        else:
-            w0 = max(0.0, w0)
-            w1 = max(0.0, w1)
-        if w1 - w0 > 1e-6:
-            cleaned.append((w0, w1))
+    A = max(0.0, onset - pad)
+    B = min(duration, offset + pad)
 
-    if not cleaned:
+    # GUARD: real edge silence can never shrink the kept span below half the chunk; if it
+    # would, detection mis-fired -- pass the chunk through untouched rather than cut speech.
+    if B <= A or (B - A) < 0.5 * duration:
         shutil.copyfile(in_wav, out_wav)
+        print("WARNING: edge-trim aborted for %s (would keep %.2fs of %.2fs); copied unchanged"
+              % (os.path.basename(in_wav), max(0.0, B - A), duration), file=sys.stderr)
         return True
 
-    cleaned.sort()
-    betweens = "+".join("between(t,%.6f,%.6f)" % (w0, w1) for w0, w1 in cleaned)
-    af = "aselect='not(%s)',asetpts=N/SR/TB" % betweens
+    af = "atrim=start=%.6f:end=%.6f,asetpts=N/SR/TB" % (A, B)
     res = subprocess.run(
         ["ffmpeg", "-y", "-i", in_wav, "-af", af,
          "-ar", str(SAMPLE_RATE), "-ac", "1", "-c:a", "pcm_s16le", out_wav],
@@ -655,12 +672,18 @@ def main():
     ap.add_argument("--max-temp", type=float, default=0.8,
                     help="Hard ceiling on every chunk's temperature (>=0.85 gets unstable per "
                          "the API docs); clamps any higher profile temperature down. Default 0.8.")
-    ap.add_argument("--pause-cap", type=float, default=0.7,
-                    help="Cap (seconds) on WITHIN-chunk silences: any internal pause "
-                         "Chatterbox renders longer than this is trimmed back to it from "
-                         "its middle (declared inter-chunk pauses are unaffected). "
-                         "0 disables capping. Default 0.7.")
+    ap.add_argument("--edge-pad", type=float, default=0.05,
+                    help="Silence (seconds) to keep at each chunk edge when trimming the "
+                         "leading/trailing dead air Chatterbox bakes in. The kept audio is "
+                         "the single contiguous span [onset-pad, offset+pad] via ffmpeg "
+                         "atrim, so interior speech is never touched. Default 0.05.")
+    ap.add_argument("--no-edge-trim", action="store_true",
+                    help="Skip edge-trimming and stitch the raw NN.wav chunks directly.")
     ap.add_argument("--api", default=DEFAULT_API)
+    ap.add_argument("--user", default=None,
+                    help="API username for HTTP Basic auth (else VOICE_API_USER env, else .mcp.json).")
+    ap.add_argument("--password", default=None,
+                    help="API password for HTTP Basic auth (else VOICE_API_PASSWORD env, else .mcp.json).")
     ap.add_argument("--dry-run", action="store_true",
                     help="Print the chunk plan and exit without calling the API.")
     args = ap.parse_args()
@@ -694,6 +717,15 @@ def main():
         print("ERROR: no narratable chunks found in performance script", file=sys.stderr)
         return 1
 
+    user, pw = resolve_credentials(args.user, args.password)
+    auth = auth_header(user, pw)
+    if not auth:
+        print("WARNING: no API credentials found (--user/--password, VOICE_API_USER/"
+              "VOICE_API_PASSWORD env, or .mcp.json); protected /api/* calls will 401.",
+              file=sys.stderr)
+    else:
+        print("Auth: HTTP Basic as %s" % user, file=sys.stderr)
+
     ok, detail = healthz(args.api)
     if not ok:
         print("WARNING: health check failed (%s): %s" % (args.api, detail), file=sys.stderr)
@@ -714,7 +746,7 @@ def main():
         print("  chunk %02d/%d  [%s]  %d chars ..."
               % (i, len(chunks), profile_str(prof), len(ch["text"])), file=sys.stderr)
         err, dur = generate(args.api, args.voice, prof, ch["text"], cf, args.repetition_penalty,
-                            args.temperature, args.max_temp)
+                            args.temperature, args.max_temp, auth=auth)
         if err:
             print("ERROR on chunk %d: %s" % (i, err), file=sys.stderr)
             return 1
@@ -722,19 +754,21 @@ def main():
         print("      -> %s (%s)" % (os.path.basename(cf), dur_s), file=sys.stderr)
         chunk_files.append((cf, ch["gap_after"]))
 
-    # Pause-cap pass: tame runaway WITHIN-chunk silences. The raw NN.wav stays
-    # untouched (so resume still works); NN.capped.wav is regenerated each run and is
-    # what gets stitched. --pause-cap 0 disables capping and stitches the raw files.
+    # Edge-trim pass: keep only the single contiguous [onset-pad, offset+pad] span of each
+    # chunk, shaving the leading/trailing dead air so the declared inter-chunk gaps stay
+    # exact. ATRIM keeps ONE range, so it cannot remove interior speech. The raw NN.wav
+    # stays untouched (so resume still works); NN.trimmed.wav is regenerated each run and
+    # is what gets stitched. --no-edge-trim stitches the raw files directly.
     concat_files = []
     for cf, gap in chunk_files:
-        if args.pause_cap and args.pause_cap > 0:
-            capped = cf[:-len(".wav")] + ".capped.wav"
-            if not cap_internal_pauses(cf, capped, args.pause_cap):
-                print("ERROR: pause-cap failed for %s" % os.path.basename(cf), file=sys.stderr)
-                return 1
-            concat_files.append((capped, gap))
-        else:
+        if args.no_edge_trim:
             concat_files.append((cf, gap))
+        else:
+            trimmed = cf[:-len(".wav")] + ".trimmed.wav"
+            if not trim_chunk_edges(cf, trimmed, args.edge_pad):
+                print("ERROR: edge-trim failed for %s" % os.path.basename(cf), file=sys.stderr)
+                return 1
+            concat_files.append((trimmed, gap))
 
     # Build one silence WAV per distinct gap kind actually used (last chunk has no
     # silence after it, so its gap is irrelevant), then the concat list.
