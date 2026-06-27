@@ -32,6 +32,7 @@ chapter_number: [number]
 working_title: "[title]"
 act: "[act number and name]"
 story_date: "[date or date range]"
+story_date_iso: "[YYYY-MM-DD, or a start/end pair for a range]"
 time_of_day: "[morning, afternoon, evening, night, or exact time]"
 primary_viewpoint: "[character]"
 tense: "past"
@@ -288,7 +289,9 @@ Duplicate the following section for every scene.
 
 ```yaml
 date: "[date]"
+date_iso: "[YYYY-MM-DD]"
 start_time: "[time or approximate time]"
+start_iso: "[YYYY-MM-DDTHH:MM, 24h; approximate ok]"
 duration: "[approximate duration]"
 viewpoint: "[character]"
 location: "[specific location]"

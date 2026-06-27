@@ -43,6 +43,7 @@ chapter_number: 1
 working_title: "No Signal"
 act: "Act One: Service Terminated"
 story_date: "Friday, October 3, 2053"
+story_date_iso: "2053-10-03"
 time_of_day: "morning through afternoon"
 primary_viewpoint: "Elias \"Eli\" Rook"
 tense: "past"
@@ -185,7 +186,9 @@ Is this the ordinary intermittent failure the neighborhood already lives with, o
 
 ```yaml
 date: "Friday, October 3, 2053"
+date_iso: "2053-10-03"
 start_time: "early morning, just after waking"
+start_iso: "2053-10-03T06:30"
 duration: "approximately 30 minutes"
 viewpoint: "Eli"
 location: "Eli's home (bedroom, then kitchen)"
@@ -288,7 +291,9 @@ End on Eli setting the phone face-down on the counter and reaching for his jacke
 
 ```yaml
 date: "Friday, October 3, 2053"
+date_iso: "2053-10-03"
 start_time: "mid-morning"
+start_iso: "2053-10-03T09:30"
 duration: "approximately 20 minutes (the walk)"
 viewpoint: "Eli"
 location: "Eli's neighborhood streets, en route to the repair shop"
@@ -393,7 +398,9 @@ End on Eli reaching the shop door, keys in hand, the street behind him quietly i
 
 ```yaml
 date: "Friday, October 3, 2053"
+date_iso: "2053-10-03"
 start_time: "late morning into midday"
+start_iso: "2053-10-03T11:00"
 duration: "approximately 2 hours"
 viewpoint: "Eli"
 location: "Eli's repair shop"
@@ -506,7 +513,9 @@ End on Eli standing over the crowded bench, the power-tier notice still open bes
 
 ```yaml
 date: "Friday, October 3, 2053"
+date_iso: "2053-10-03"
 start_time: "early afternoon"
+start_iso: "2053-10-03T13:30"
 duration: "approximately 30 to 40 minutes"
 viewpoint: "Eli"
 location: "Eli's repair shop (Lena reached over the local mesh; possibly a low-quality voice or text link)"

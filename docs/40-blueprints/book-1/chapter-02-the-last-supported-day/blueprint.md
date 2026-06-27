@@ -52,6 +52,7 @@ chapter_number: 2
 working_title: "The Last Supported Day"
 act: "Act One: Service Terminated"
 story_date: "Friday, October 3, 2053"
+story_date_iso: "2053-10-03"
 time_of_day: "evening into night"
 primary_viewpoint: "Dr. Lena Okafor"
 tense: "past"
@@ -208,7 +209,9 @@ If the machine that keeps this man breathing tonight loses its permission at mid
 
 ```yaml
 date: "Friday, October 3, 2053"
+date_iso: "2053-10-03"
 start_time: "early evening, around 18:30"
+start_iso: "2053-10-03T18:30"
 duration: "approximately 30 minutes"
 viewpoint: "Lena"
 location: "Lena's clinic, the ward and the three machines in their rooms"
@@ -315,7 +318,9 @@ End on Lena lifting her hand from the warm housing of the respiratory controller
 
 ```yaml
 date: "Friday, October 3, 2053"
+date_iso: "2053-10-03"
 start_time: "early evening, around 19:00"
+start_iso: "2053-10-03T19:00"
 duration: "approximately 30 to 40 minutes"
 viewpoint: "Lena"
 location: "Lena's clinic, moving from the entrance through the ward to the old back-room server space"
@@ -419,7 +424,9 @@ End on Lena pulling the back-room door most of the way closed on Eli already ben
 
 ```yaml
 date: "Friday, October 3, 2053"
+date_iso: "2053-10-03"
 start_time: "evening, around 19:45 into mid-evening"
+start_iso: "2053-10-03T19:45"
 duration: "approximately 90 minutes"
 viewpoint: "Lena"
 location: "Lena's clinic ward and patient rooms; a brief step to the street immediately outside"
@@ -544,7 +551,9 @@ End on Lena finishing her rounds at the man on the controller's bedside, the nig
 
 ```yaml
 date: "Friday, October 3, 2053"
+date_iso: "2053-10-03"
 start_time: "late evening, the night deepening toward midnight (well before 23:59)"
+start_iso: "2053-10-03T22:30"
 duration: "approximately 20 minutes"
 viewpoint: "Lena"
 location: "Lena's clinic: the corridor outside the back-room server space, then the ward"
