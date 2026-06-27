@@ -50,71 +50,69 @@ import urllib.error
 DEFAULT_API = "http://tts.codingbutter.com"
 SAMPLE_RATE = 24000
 
-# Map each v3-style narration tag to a voice-server profile. Each value is a dict
-# of {emotion?, exaggeration?, cfg_weight?, temperature?} (any subset), or None for
-# pure-pacing tags that change nothing. Resolution on the server: defaults ->
-# emotion bundle -> individual knobs, so emotion sets a baseline and the knobs nudge
-# it. These are seeded sensibly and meant to be tuned/edited.
+# Four REGISTERS anchored on the server's "audiobook" preset. No "emotion" key: the
+# emotion presets (plus repetition_penalty 1.4) manufactured non-speech garble. These
+# are knobs only, every value inside the stable range (exaggeration <= 0.6,
+# temperature <= 0.75). Each register is a coarse mode the chunker coalesces on; tags
+# map onto these four, and unknown tags fall back to BASE via resolve_profile.
+BASE  = {"register": "base",  "exaggeration": 0.4, "cfg_weight": 0.6,  "temperature": 0.7}   # audiobook preset; the weary, controlled default narration voice
+FLAT  = {"register": "flat",  "exaggeration": 0.3, "cfg_weight": 0.65, "temperature": 0.6}   # automated corporate notices, machine-cold (the calm is the threat)
+TENSE = {"register": "tense", "exaggeration": 0.6, "cfg_weight": 0.55, "temperature": 0.75}  # strained dialogue, the breaking link
+GRAVE = {"register": "grave", "exaggeration": 0.4, "cfg_weight": 0.65, "temperature": 0.55}  # deliberate heavy landings, the final line (slow weight, not volume)
+
+# Map each v3-style narration tag onto one of the four registers (or None for pure
+# pacing). Same tag KEYS as before so existing narration scripts still parse. Use
+# dict(...) copies so a tag run never mutates the shared register dicts at runtime.
 TAG_PRESETS = {
-    # Flat administrative / machine register: serious, low energy, steady.
-    "flat":       {"emotion": "serious", "exaggeration": 0.3, "temperature": 0.55},
-    "monotone":   {"emotion": "serious", "exaggeration": 0.3, "temperature": 0.55},
-    "cold":       {"emotion": "serious", "exaggeration": 0.3, "temperature": 0.55},
-    # Default narration register.
-    "measured":   {"emotion": "narrator", "exaggeration": 0.4, "cfg_weight": 0.6},
-    # Weary / tired / quiet: soft, low energy, a touch looser temp.
-    "weary":      {"emotion": "soft", "exaggeration": 0.4, "temperature": 0.6},
-    "tired":      {"emotion": "soft", "exaggeration": 0.4, "temperature": 0.6},
-    "quiet":      {"emotion": "soft", "exaggeration": 0.4, "temperature": 0.65},
-    "soft":       {"emotion": "soft", "exaggeration": 0.4, "temperature": 0.65},
-    "softly":     {"emotion": "soft", "exaggeration": 0.4, "temperature": 0.65},
-    # Slow deliberate pacing: narrator, very steady.
-    "slowly":     {"emotion": "narrator", "temperature": 0.55},
-    "drawn out":  {"emotion": "narrator", "temperature": 0.55},
-    # Tense / dramatic: dramatic, high energy, livelier temp.
-    "tense":      {"emotion": "dramatic", "exaggeration": 0.7, "temperature": 0.9},
-    # Clipped: serious, a bit more energy than flat.
-    "clipped":    {"emotion": "serious", "exaggeration": 0.6, "temperature": 0.7},
-    # Strained / link breaking up / glitching: fearful, high energy.
-    "strained":     {"emotion": "fearful", "exaggeration": 0.7, "temperature": 0.9},
-    "breaking up":  {"emotion": "fearful", "exaggeration": 0.7, "temperature": 0.9},
-    "glitching":    {"emotion": "fearful", "exaggeration": 0.7, "temperature": 0.9},
-    # Hollow / sad.
-    "hollow":     {"emotion": "sad"},
-    "sad":        {"emotion": "sad"},
-    "grim":       {"emotion": "sad", "exaggeration": 0.5},
-    # Troubled / unsettled / guarded / dry / probing: serious.
-    "troubled":   {"emotion": "serious"},
-    "unsettled":  {"emotion": "serious"},
-    "guarded":    {"emotion": "serious"},
-    "careful":    {"emotion": "serious"},
-    "dry":        {"emotion": "serious"},
-    "dryly":      {"emotion": "serious"},
-    "probing":    {"emotion": "serious"},
-    "insistent":  {"emotion": "serious", "exaggeration": 0.6},
-    "emphatic":   {"emotion": "serious", "exaggeration": 0.65},
-    # Wry.
-    "wryly":      {"emotion": "cheerful"},
-    # Clear / appreciative.
-    "clear":         {"emotion": "calm"},
-    "appreciative":  {"emotion": "calm"},
-    # Steady / observant / matter-of-fact: narrator.
-    "steady":          {"emotion": "narrator"},
-    "observant":       {"emotion": "narrator"},
-    "observing":       {"emotion": "narrator"},
-    "matter-of-fact":  {"emotion": "narrator"},
-    # Heavy: soft.
-    "heavy":      {"emotion": "soft"},
-    # Faint: soft, low.
-    "faint":      {"emotion": "soft", "exaggeration": 0.3},
+    # FLAT: automated corporate / machine register.
+    "flat":            dict(FLAT),
+    "monotone":        dict(FLAT),
+    "cold":            dict(FLAT),
+    # TENSE: strained dialogue, a failing link, clipped insistence.
+    "tense":           dict(TENSE),
+    "strained":        dict(TENSE),
+    "breaking up":     dict(TENSE),
+    "glitching":       dict(TENSE),
+    "clipped":         dict(TENSE),
+    "insistent":       dict(TENSE),
+    "emphatic":        dict(TENSE),
+    "probing":         dict(TENSE),
+    # GRAVE: deliberate heavy landings, the final line.
+    "slowly":          dict(GRAVE),
+    "drawn out":       dict(GRAVE),
+    "heavy":           dict(GRAVE),
+    "hollow":          dict(GRAVE),
+    "sad":             dict(GRAVE),
+    "grim":            dict(GRAVE),
+    "faint":           dict(GRAVE),
+    # BASE: the weary, controlled default narration voice.
+    "measured":        dict(BASE),
+    "steady":          dict(BASE),
+    "observant":       dict(BASE),
+    "observing":       dict(BASE),
+    "matter-of-fact":  dict(BASE),
+    "weary":           dict(BASE),
+    "tired":           dict(BASE),
+    "quiet":           dict(BASE),
+    "soft":            dict(BASE),
+    "softly":          dict(BASE),
+    "clear":           dict(BASE),
+    "appreciative":    dict(BASE),
+    "dry":             dict(BASE),
+    "dryly":           dict(BASE),
+    "careful":         dict(BASE),
+    "troubled":        dict(BASE),
+    "unsettled":       dict(BASE),
+    "guarded":         dict(BASE),
+    "wryly":           dict(BASE),
     # Pure-pacing tags: no profile change.
-    "a beat":     None,
-    "beat":       None,
-    "pause":      None,
+    "a beat":          None,
+    "beat":            None,
+    "pause":           None,
 }
 
-# Fallback for any tag not in TAG_PRESETS.
-DEFAULT_PROFILE = {"emotion": "narrator", "temperature": 0.7, "cfg_weight": 0.5}
+# Fallback for any tag not in TAG_PRESETS: the audiobook base register.
+DEFAULT_PROFILE = dict(BASE)
 
 # Silence durations (seconds) inserted between chunks during stitching.
 GAP_DEFAULT = 0.35
@@ -273,8 +271,8 @@ def _split_sentences(s, limit):
     return pieces
 
 
-def _emotion_of(profile):
-    return (profile or {}).get("emotion", "narrator")
+def _register_of(profile):
+    return (profile or {}).get("register", "base")
 
 
 def _dominant_profile(segs):
@@ -295,7 +293,7 @@ def build_chunks(items, max_chars, min_chars):
     """Coalesce segments into a small number of register-blocks for the voice server.
 
     Pass 1: split on scene breaks; within a block, coalesce consecutive segments that
-    share an EMOTION (the coarse register) up to --max-chars; a single oversized
+    share a REGISTER (the coarse mode) up to --max-chars; a single oversized
     segment is split at sentence boundaries.
     Pass 2: absorb any chunk shorter than --min-chars into its previous neighbour
     (never across a scene break), so single-word tag flickers do not each become an
@@ -304,13 +302,13 @@ def build_chunks(items, max_chars, min_chars):
     Returns list of {profile, text, scene_break_after}.
     """
     raw = []            # each: {"segs": [(profile, prose)], "scene_break_after": bool}
-    cur, cur_emo, cur_len = [], None, 0
+    cur, cur_reg, cur_len = [], None, 0
 
     def flush(scene_break=False):
-        nonlocal cur, cur_emo, cur_len
+        nonlocal cur, cur_reg, cur_len
         if cur:
             raw.append({"segs": cur, "scene_break_after": scene_break})
-        cur, cur_emo, cur_len = [], None, 0
+        cur, cur_reg, cur_len = [], None, 0
 
     for item in items:
         if item[0] == "break":
@@ -329,11 +327,11 @@ def build_chunks(items, max_chars, min_chars):
             for piece in _split_sentences(prose, max_chars):
                 raw.append({"segs": [(prof, piece)], "scene_break_after": False})
             continue
-        emo = _emotion_of(prof)
-        if cur and (emo != cur_emo or cur_len + len(prose) + 1 > max_chars):
+        reg = _register_of(prof)
+        if cur and (reg != cur_reg or cur_len + len(prose) + 1 > max_chars):
             flush()
         cur.append((prof, prose))
-        cur_emo = emo
+        cur_reg = reg
         cur_len += len(prose) + 1
     flush()
 
@@ -382,6 +380,11 @@ def generate(api, voice, profile, text, out_path, rep_penalty=None,
     if rep_penalty is not None:
         payload["repetition_penalty"] = rep_penalty
     payload.update(profile or {})
+    # The /api/generate endpoint only accepts voice/text/format/normalize/exaggeration/
+    # cfg_weight/temperature/repetition_penalty; "register" is our internal coalescing
+    # key (and "emotion" is the retired model). Strip both before sending.
+    payload.pop("register", None)
+    payload.pop("emotion", None)
     # Temperature drives Chatterbox's randomness, and high temperature is where the
     # non-speech "garble" artifacts come from. Give EVERY chunk an explicit, steady
     # temperature: the profile's own value if it set one, else base_temp, then clamp
@@ -443,8 +446,8 @@ def profile_str(profile):
     if not profile:
         return "(none)"
     parts = []
-    if "emotion" in profile:
-        parts.append(profile["emotion"])
+    if "register" in profile:
+        parts.append(profile["register"])
     for k in ("exaggeration", "cfg_weight", "temperature"):
         if k in profile:
             parts.append("%s=%s" % (k[:3], profile[k]))
@@ -488,13 +491,14 @@ def main():
                     choices=["comma", "period", "drop", "dotdot", "keep"],
                     help="How to render '...' (Chatterbox mishandles it as runaway pauses). "
                          "Default comma.")
-    ap.add_argument("--repetition-penalty", type=float, default=1.4,
+    ap.add_argument("--repetition-penalty", type=float, default=1.2,
                     help="Chatterbox repetition_penalty (1.0-2.0). Higher suppresses repeated "
-                         "phrases; too high flattens prosody. Default 1.4 (server default 1.2).")
-    ap.add_argument("--temperature", type=float, default=0.6,
+                         "phrases; too high flattens prosody and manufactured garble artifacts "
+                         "at 1.4. Default 1.2 (the natural value, matching the server default).")
+    ap.add_argument("--temperature", type=float, default=0.7,
                     help="Base sampling temperature for chunks whose tag profile sets none. "
                          "Lower = steadier, fewer garble artifacts (~0.65-0.75 is the stable "
-                         "narration zone). Default 0.6.")
+                         "narration zone). Default 0.7 (the audiobook base).")
     ap.add_argument("--max-temp", type=float, default=0.8,
                     help="Hard ceiling on every chunk's temperature (>=0.85 gets unstable per "
                          "the API docs); clamps any higher profile temperature down. Default 0.8.")
