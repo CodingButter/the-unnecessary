@@ -33,16 +33,6 @@ source_documents:
 
 # Mason Vance
 
-> Status: DRAFT. Generated under `../profile-spec.md` as part of the Eli-neighborhood
-> Chapter 1 walk-on cluster, written together with his father `./vance-marcus.md` so
-> the shared household, the narrow face, and the age ladder cohere by construction.
-> The canon facts are that he is seventeen, that he has "his father's narrow face,"
-> and the full doorbell exchange at Eli's bench, all traced to
-> `chapter-01-no-signal.md` and marked `[canon]`. The given name Mason, his birth
-> date, the single-father household, and his trade are accepted as character canon
-> under Decision 056. Reveal-tagged and behavior-only items remain author-facing.
-> Profile stays draft pending author activation.
-
 ## Basic Information
 
 **Full name:** Mason Vance [canon surname Vance, from "Vance's boy" in Chapter 1]

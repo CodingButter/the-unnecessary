@@ -32,17 +32,6 @@ source_documents:
 
 # Marcus Vance
 
-> Status: DRAFT. Generated under `../profile-spec.md` as part of the Eli-neighborhood
-> Chapter 1 walk-on cluster, written together with his son `./vance-mason.md` so the
-> shared household, the narrow face, and the age ladder cohere by construction.
-> Vance never appears on the page. The canon facts are the surname Vance, his
-> existence as the boy's father, and that the boy has "his father's narrow face,"
-> all traced to `chapter-01-no-signal.md` and marked `[canon]`. The given name
-> Marcus, his age, the single-father household, and the reading that he was a
-> teenage father are accepted as character canon under Decision 056. Reveal-tagged
-> and behavior-only items remain author-facing. Profile stays draft pending author
-> activation.
-
 ## Basic Information
 
 **Full name:** Marcus Vance [canon surname Vance, from "Vance's boy" in Chapter 1]

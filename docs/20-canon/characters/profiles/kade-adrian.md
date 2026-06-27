@@ -3,7 +3,7 @@ title: "Adrian Kade"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical profile, motives, history, voice, secrets, and arc for Adrian Kade, founder of Asterion and primary human antagonist. Migrated to the thirteen-section enrichment schema: all established canon prose is preserved untagged; missing Physical and Identifiers sub-blocks, Daily Life, Private History and Behavioral Roots, and structured machine-readable relationship edges are added, with every invented surface-flavor fact accepted as character canon (Decision 056), and every hidden fact remain reveal-tagged. Reciprocal daughter edge to kade-alexandra added."
+summary: "Canonical profile, motives, history, voice, secrets, and arc for Adrian Kade, founder of Asterion and primary human antagonist."
 tags:
   - character
   - antagonist
@@ -28,16 +28,6 @@ source_documents:
 ---
 
 # Adrian Kade
-
-> Migrated to the `../profile-spec.md` thirteen-section schema. ADDITIVE migration:
-> every sentence of the prior active-canon profile is preserved and untagged.
-> New sub-blocks fill the schema's blanks; each invented surface-flavor fact is
-> accepted as character canon under Decision 056, and each hidden fact carries a
-> reveal tag; behavior-only items remain author-facing and are not cleared. The
-> canon spine is fixed: Adrian Lucien Kade, born September 8, 1992 (age 61 at
-> Book One), founder and executive chairman of Asterion, a Gatekeeper, unmarried,
-> one adult daughter (Alexandra Kade), owner of Crown, primary human antagonist.
-> Profile stays draft pending author activation.
 
 ## Basic Information
 

@@ -3,7 +3,7 @@ title: "Sera Vale"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical profile, history, motives, secret, and voice for Sera Vale, Director of Asterion Continuity Security and operational antagonist. Migrated to the thirteen-section enrichment schema: all established canon prose is preserved untagged; missing Physical and Identifiers sub-blocks, Daily Life, Private History and Behavioral Roots, and structured machine-readable relationship edges are added, with surface-flavor additions accepted as character canon (Decision 056) and every hidden fact reveal-tagged. Reciprocal reports-to edge to kade-adrian added; the index-vs-viewpoint-rules viewpoint discrepancy is flagged, not resolved."
+summary: "Canonical profile, history, motives, secret, and voice for Sera Vale, Director of Asterion Continuity Security and operational antagonist."
 tags:
   - character
   - antagonist
@@ -24,21 +24,6 @@ source_documents:
 ---
 
 # Sera Vale
-
-> Migrated to the `../profile-spec.md` thirteen-section schema. ADDITIVE migration:
-> every sentence of the prior active-canon profile is preserved and untagged.
-> New sub-blocks fill the schema's blanks; surface-flavor additions are accepted
-> as character canon under Decision 056, and each hidden fact carries a reveal tag.
-> The canon spine is fixed: Sera Imogen Vale, born December 2, 2008 (age 44 at
-> Book One), Director of Asterion Continuity Security, prosthetic left leg below
-> the knee from an infrastructure riot, operational antagonist containing Morrow.
->
-> STANDING FLAG (from `../profile-spec.md` Section 11, point 5): a pre-existing
-> viewpoint discrepancy. `profiles/index.md` marks Sera a supporting viewpoint
-> "Yes"; `characters/index.md` and `../viewpoint-rules.md` mark her viewpoint
-> "No". The prior profile prose says "occasional... Chapters 24 and 29." This
-> migration PRESERVES that prose and does not pick a side. The conflict is
-> surfaced for the author and the Reconcile phase, not silently resolved.
 
 ## Basic Information
 

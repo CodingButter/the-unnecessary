@@ -39,16 +39,6 @@ source_documents:
 
 # Elaine Mercer
 
-> Status: DRAFT. Generated under `../profile-spec.md` with the Mercer cluster.
-> Canon facts (traced to `./mercer-jonah.md`) are tagged `[canon]`. Surface-flavor
-> facts not fixed by prior canon are accepted as character canon under Decision 056;
-> reveal-tagged and behavior-only items remain author-facing and are not cleared.
-> Canon here: the surname Mercer, that Elaine is Jonah's mother, and that she
-> worked in healthcare administration. Accepted as character canon under Decision
-> 056: her age, birth date, birthplace, middle name, and her present role as
-> Malcolm's full-time caregiver and the family's medical-contract manager. Profile
-> stays draft pending author activation.
-
 ## Basic Information
 
 **Full name:** Elaine Margaret Mercer (surname **Mercer** [canon, `./mercer-jonah.md`]; given name **Elaine** [canon, `./mercer-jonah.md`]; middle name Margaret)

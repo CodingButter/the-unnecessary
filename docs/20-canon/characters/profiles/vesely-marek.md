@@ -35,15 +35,6 @@ source_documents:
 
 # Marek Vesely
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Chapter 2
-> neighborhood food-network cluster. The canon fact is the Vesely place as the
-> source of "the brown ones," the brown eggs that begin the barter chain;
-> the Vesely place appears offscreen in approved prose. The individual Marek, his
-> given name, birth date, age, birthplace, household, and every physical
-> identifier are accepted as character canon under Decision 056. He is the
-> representative keeper of the smallholding. Reveal-tagged and behavior-only
-> items remain author-facing. Profile stays draft pending author activation.
-
 ## Basic Information
 
 **Full name:** Marek Vesely

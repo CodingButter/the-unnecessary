@@ -3,7 +3,7 @@ title: "Mara Voss"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical profile, history, motives, voice, secret, and arc for Mara Voss, former Governor of Michigan and representative of protected wealth discovering its own disposability. Migrated to the thirteen-section enrichment schema: established canon is preserved untagged; world-consistent additions that fill blanks are accepted as character canon (Decision 056); the reciprocal son edge to Evan Voss is added per the relational spine."
+summary: "Canonical profile, history, motives, voice, secret, and arc for Mara Voss, former Governor of Michigan and representative of protected wealth discovering its own disposability."
 tags:
   - character
   - viewpoint
@@ -31,17 +31,6 @@ source_documents:
 ---
 
 # Mara Voss
-
-> Migration note: this profile was brought up to the thirteen-section schema in
-> `../profile-spec.md`. No established fact was changed or removed. Every line
-> carried over from the prior profile (name, age, birthplace, residence, former
-> and current occupation, viewpoint, story role, her composure and gray hair and
-> formal dress, her political history, her relationship to Asterion, the divorce,
-> her son Evan, her personality, goal, need, fear, contradiction, moral boundary,
-> secret, false belief, arc, voice, and writing rules) stands untagged. New
-> material that fills a schema blank is invention under the spec's Section 6
-> policy, accepted as character canon under Decision 056. Hidden or
-> timing-sensitive facts carry a reveal tag per the spec's Section 5.
 
 ## Basic Information
 

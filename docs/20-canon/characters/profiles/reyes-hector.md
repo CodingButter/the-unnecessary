@@ -35,17 +35,6 @@ source_documents:
 
 # Hector Reyes
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Chapter 2
-> neighborhood food-network cluster. The only canon facts are the ones traced to
-> `chapter-02-the-last-supported-day.md` and marked `[open]`: the Reyes man in
-> the ward with a leg dressed by hand, and "the Reyes place" as a board node that
-> needs the Vesely eggs. The given name Hector, the birth date, the age, the
-> birthplace, the household, and every physical identifier are accepted as
-> character canon under Decision 056. In prose he is "the Reyes man," and the
-> household is "the Reyes place" and "the Reyes family." Reveal-tagged hidden
-> facts and behavior-only items remain author-facing and are not stated on the
-> page.
-
 ## Basic Information
 
 **Full name:** Hector Reyes

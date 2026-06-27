@@ -3,7 +3,7 @@ title: "Jonah Mercer"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Enriched profile, motives, history, voice, secrets, and arc for Jonah Mercer, Eli's oldest friend, social bridge, and unintended betrayer. Migrated to the thirteen-section enrichment schema with the Mercer cluster. All established character-bible facts are preserved verbatim and left untagged; new structural detail filling the schema is accepted as character canon (Decision 056); reveal-tagged and behavior-only items remain author-facing. Reciprocal family edges to Malcolm, Elaine, Julian, and Amelia Mercer are added in this pass."
+summary: "Enriched profile, motives, history, voice, secrets, and arc for Jonah Mercer, Eli's oldest friend, social bridge, and unintended betrayer."
 tags:
   - character
   - viewpoint
@@ -38,13 +38,6 @@ source_documents:
 ---
 
 # Jonah Mercer
-
-> Status: DRAFT enrichment under `../profile-spec.md`, generated with the Mercer
-> cluster. This is an ADDITIVE migration. Every established fact from the
-> character bible is preserved verbatim and left untagged. New structural detail
-> (surface flavor) is accepted as character canon under Decision 056; reveal-tagged
-> and behavior-only items remain author-facing and are not cleared. No established
-> fact was rewritten or dropped. Profile stays draft pending author activation.
 
 ## Basic Information
 

@@ -38,16 +38,6 @@ source_documents:
 
 # Amelia Mercer
 
-> Status: DRAFT. Generated under `../profile-spec.md` with the Mercer cluster.
-> Canon facts are tagged `[canon]`. Surface-flavor facts not fixed by prior canon
-> are accepted as character canon under Decision 056; reveal-tagged and behavior-only
-> items remain author-facing and are not cleared. Canon here: the surname Mercer,
-> that Amelia is the daughter of Jonah and Celeste, her age of eight, and her birth
-> date of September 3, 2045 (`../../timeline/character-birth-dates.md`,
-> `./mercer-jonah.md`). Accepted as character canon under Decision 056: her middle
-> name, birthplace, her companion device, and all personality and physical detail.
-> Profile stays draft pending author activation.
-
 ## Basic Information
 
 **Full name:** Amelia Elaine Mercer (surname **Mercer** and given name **Amelia** [canon, `./mercer-jonah.md`]; middle name Elaine, after her grandmother,)

@@ -33,24 +33,6 @@ source_documents:
 
 # Daniel Rook
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Rook family cluster.
-> Canon facts trace to `rook-eli.md`, the approved Chapter 1 prose, and the
-> historical timeline, and are tagged `[open]`.
->
-> RESOLVED (Decision 056). The prior flag, whether Daniel is living or deceased
-> in 2053, is settled: Daniel is DECEASED as character canon. He died circa
-> spring 2050, at about 67, three years before Book One, at home in the Flint
-> house. The cause is an administrative death: a heart condition, manageable for
-> decades in the old world, whose chain of care was severed one withdrawal at a
-> time as the local cardiology service folded and the medication supply thinned,
-> the same administrative death the manuscript gives the clinic's patients. The
-> transistor radio is an inheritance Eli keeps, which parallels the analog
-> photograph of Nora that Eli keeps in approved canon. The EXACT in-story timing
-> of the death's reveal (when and how the reader learns of it) is deliberately
-> left open as a plot decision and is not pinned here. This resolution is
-> reversible: it is recorded in the Creative Decision Log and the profile remains
-> a draft pending author activation.
-
 ## Basic Information
 
 **Full name:** Daniel Rook [open] (surname Rook is canon; Eli is Elias **Daniel** Rook, named for his father, per `./rook-eli.md`)

@@ -32,17 +32,6 @@ source_documents:
 
 # Priya Sharma
 
-> Status: DRAFT. Generated under `../profile-spec.md` as part of the Riverside
-> clinic cluster (Ch2). The only canon facts are those traced to
-> `chapter-02-the-last-supported-day.md` and marked `[open]`: the given name
-> Priya, that she is clinic staff on the floor overnight, that she is watching
-> the Caldwell girl, and that she is told to watch the child by hand,
-> temperature every two hours, the old way, and to come get Lena and not go to
-> the cabinet if the fever spikes. The surname Sharma, the age, the birth date
-> and birthplace, the pharmacy-technician history, and every physical identifier
-> are accepted as character canon under Decision 056. Reveal-tagged hidden facts
-> and behavior-only items remain author-facing and are not stated on the page.
-
 ## Basic Information
 
 **Full name:** Priya Sharma (given name Priya is [open])

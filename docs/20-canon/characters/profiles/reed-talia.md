@@ -3,7 +3,7 @@ title: "Talia Reed"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical profile, motives, history, voice, secrets, and arc for Talia Reed, community coordinator and political counterweight to technical authority. Migrated to the thirteen-section enrichment schema: established canon is preserved untagged; world-consistent additions that fill blanks are accepted as character canon (Decision 056); the structured community-counterpart edge to Eli Rook is recorded per the relational spine."
+summary: "Canonical profile, motives, history, voice, secrets, and arc for Talia Reed, community coordinator and political counterweight to technical authority."
 tags:
   - character
   - community
@@ -28,18 +28,6 @@ source_documents:
 ---
 
 # Talia Reed
-
-> Migration note: this profile was brought up to the thirteen-section schema in
-> `../profile-spec.md`. No established fact was changed or removed. Every line
-> carried over from the prior profile (name, age, birthplace, residence, former
-> and current occupation, viewpoint, story role, her height and athletic build,
-> her braids, her simple dress, the old tablet of local records, her open
-> expression until she senses evasion, her background, personality, relationship
-> with Eli, goal, need, fear, contradiction, moral boundary, secret, false
-> belief, arc, and speech pattern) stands untagged. New material that fills a
-> schema blank is invention under the spec's Section 6 policy, accepted as
-> character canon under Decision 056. Hidden or timing-sensitive facts carry a
-> reveal tag per the spec's Section 5.
 
 ## Basic Information
 

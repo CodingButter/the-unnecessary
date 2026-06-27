@@ -35,24 +35,6 @@ source_documents:
 
 # Daniel Park
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Park-family cluster.
-> The only fixed facts are those traced to June Park's active-canon profile
-> (`./park-june.md`) and tagged `[open]`: that Daniel Park accepted a
-> robotics-maintenance position inside a protected enclave, that he is
-> contractually restricted from bringing extended family in, that he sends
-> resources home when he can, that June has not seen him in person in six years,
-> and that he has passed her restricted service documentation and security
-> information. Everything else is enrichment: the flavor facts (Korean given name,
-> age, birth date, birthplace, physical identifiers, and surface detail) are
-> accepted as character canon under Decision 056. The mother-in-law's name Han
-> Young-hee and her dementia remain the author's to accept or veto. Behavior-only
-> and reveal-tagged items remain author-facing. The profile stays a draft pending
-> author activation and the enrichment is reversible.
->
-> FLAG, name collision: three Daniels in the cast. `rook-daniel` (Eli's father),
-> Eli's own middle name Daniel, and this `park-daniel`. In prose, bare "Daniel"
-> is ambiguous and must always be disambiguated by surname.
-
 ## Basic Information
 
 **Full name:** Daniel Hyun-woo Park (현우)

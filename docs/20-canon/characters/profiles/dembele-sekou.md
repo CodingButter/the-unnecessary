@@ -36,17 +36,6 @@ source_documents:
 
 # Sékou Dembélé
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Chapter 2
-> neighborhood food-network cluster. Canon facts traced to
-> `chapter-02-the-last-supported-day.md` are marked `[open]`. The given name
-> Sékou, the birth date, the age, the birthplace, the household, and every
-> physical identifier are accepted as character canon under Decision 056. He is
-> also the named instance of the `../../world/social-structure.md`
-> "former logistics analyst keeps a food-trade board" canon, which makes his
-> profile load-bearing for the whole everyday-economy register, not a walk-on.
-> Reveal-tagged and behavior-only items remain author-facing. Profile stays draft
-> pending author activation.
-
 ## Basic Information
 
 **Full name:** Sékou Dembélé

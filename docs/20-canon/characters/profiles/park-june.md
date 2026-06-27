@@ -3,7 +3,7 @@ title: "June Park"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical profile, history, motives, voice, secret, and arc for June Park, hardware scavenger and Morrow's primary physical-network builder. Migrated to the v2 thirteen-section profile schema: all established facts preserved untagged as canon, missing Physical and Identifiers sub-blocks and a Private History and Behavioral Roots section added, machine-readable reciprocal relationship edges added (including father and mother edges to park-daniel and park-soojin), every field filled. The flavor facts (physical identifiers, daily life, hobbies, and preference detail) are accepted as character canon under Decision 056. Behavior-only and reveal-tagged items remain author-facing. The enrichment is reversible and the profile is active-canon."
+summary: "Canonical profile, history, motives, voice, secret, and arc for June Park, hardware scavenger and Morrow's primary physical-network builder."
 tags:
   - character
   - viewpoint
@@ -34,21 +34,6 @@ source_documents:
 ---
 
 # June Park
-
-> Migration note: this active-canon profile was enriched to the v2 thirteen-section
-> schema under `../profile-spec.md`. The migration is additive. Every established
-> fact from the prior profile is preserved here and left UNTAGGED, because it is
-> canon. New fields required by the schema, and any detail not already established,
-> are world-consistent invention accepted as character canon under Decision 056.
-> Hidden or timing-sensitive facts in Sections 10 and 11 carry reveal tags per the
-> spec and remain author-facing. The machine-readable facts owed to sibling files
-> are the reciprocal `- father: park-daniel` and `- mother: park-soojin` edges in
-> Section 7, which match the `- daughter: park-june` edges already authored in
-> `./park-daniel.md` and `./park-soojin.md`.
->
-> FLAG, name collision noted in the cluster: three Daniels in the cast
-> (`rook-daniel`, Eli's middle name Daniel, and `park-daniel`, June's father). In
-> prose, bare "Daniel" is ambiguous and must always be disambiguated by surname.
 
 ## Basic Information
 

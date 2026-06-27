@@ -3,7 +3,7 @@ title: "Celeste Mercer"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Enriched profile, personality, goals, secret, and Book One function for Celeste Mercer, Jonah's moral and emotional counterweight and the Mercer who is quietly building a fallback outside the walls. Migrated to the thirteen-section enrichment schema with the Mercer cluster. All established character-bible facts are preserved verbatim and left untagged; new structural detail filling the schema is accepted as character canon (Decision 056); reveal-tagged and behavior-only items remain author-facing. Reciprocal family edges to Jonah, Malcolm, Elaine, Julian, and Amelia Mercer are added in this pass."
+summary: "Enriched profile, personality, goals, secret, and Book One function for Celeste Mercer, Jonah's moral and emotional counterweight and the Mercer who is quietly building a fallback outside the walls."
 tags:
   - character
   - lakeward
@@ -35,13 +35,6 @@ source_documents:
 ---
 
 # Celeste Mercer
-
-> Status: DRAFT enrichment under `../profile-spec.md`, generated with the Mercer
-> cluster. This is an ADDITIVE migration. Every established fact from the
-> character bible is preserved verbatim and left untagged. New structural detail
-> (surface flavor) is accepted as character canon under Decision 056; reveal-tagged
-> and behavior-only items remain author-facing and are not cleared. No established
-> fact was rewritten or dropped. Profile stays draft pending author activation.
 
 ## Basic Information
 

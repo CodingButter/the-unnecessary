@@ -33,18 +33,6 @@ source_documents:
 
 # Soo-jin Park
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Park-family cluster.
-> The only fixed facts are those traced to June Park's active-canon profile
-> (`./park-june.md`) and tagged `[open]`: that Soo-jin Park is June's mother, that
-> she refused to leave June's grandmother when Daniel took the enclave contract,
-> that the family separated, and that June lives with her mother and grandmother
-> in Greater Detroit. Everything else is enrichment: the flavor facts (maiden name,
-> age, birth date, birthplace, occupation, physical identifiers, and surface detail)
-> are accepted as character canon under Decision 056. The mother's name Han
-> Young-hee and her details remain the author's to accept or veto. Behavior-only
-> and reveal-tagged items remain author-facing. The profile stays a draft pending
-> author activation and the enrichment is reversible.
-
 ## Basic Information
 
 **Full name:** Soo-jin Park (수진); born Han Soo-jin

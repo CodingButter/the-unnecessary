@@ -36,23 +36,6 @@ source_documents:
 
 # Alexandra Kade
 
-> Status: DRAFT. Generated under `../profile-spec.md` as part of the Kade-family
-> cluster (Phase 3). The canon facts are traced to `kade-adrian.md`,
-> `../../timeline/character-birth-dates.md`, and the historical timeline, and are
-> marked `[canon]` or `[open]`. Surface-flavor facts (middle name, birthplace,
-> current residence, physical identifiers, the specifics of her ecological practice,
-> and Section 10 entries) are accepted as character canon under Decision 056;
-> reveal-tagged and behavior-only items remain author-facing and are not cleared.
-> Profile stays draft pending author activation.
->
-> TWO STANDING FLAGS carried from the relational spine, neither resolved here:
-> (1) Alexandra's mother is undefined in canon. Kade is now unmarried; no ex-wife
-> or mother is named. This profile leaves the mother an explicit OPEN slot. It
-> does not invent her name, lineage, or ethnicity. (2) Alexandra's ultimate
-> position on Mars is reserved for later books per `../../../60-continuity/unresolved-threads.md`
-> and the reveal schedule. Her true decision is NOT stated in this file. What is
-> shown is only her established present behavior: avoidance.
-
 ## Basic Information
 
 **Full name:** Alexandra Wren Kade (given and surname `[canon]`; middle name Wren)

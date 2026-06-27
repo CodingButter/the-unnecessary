@@ -34,15 +34,6 @@ source_documents:
 
 # Raymond Dorsey
 
-> Status: DRAFT. Generated under `../profile-spec.md` as part of the Eli-neighborhood
-> Chapter 1 walk-on cluster, written together with the Vance father and son so the
-> shared neighborhood, board, and economy cohere. The canon facts are the surname
-> Dorsey and the single mesh-board post traced to `chapter-01-no-signal.md`,
-> marked `[canon]`. The given name Ray, his age, his birth date, his birthplace,
-> his trade, and his household are accepted as character canon under Decision 056.
-> Reveal-tagged and behavior-only items remain author-facing. Profile stays draft
-> pending author activation.
-
 ## Basic Information
 
 **Full name:** Raymond Dorsey [canon surname Dorsey, the name he signs on the board]

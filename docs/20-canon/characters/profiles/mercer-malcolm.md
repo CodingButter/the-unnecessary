@@ -42,18 +42,6 @@ source_documents:
 
 # Malcolm Mercer
 
-> Status: DRAFT. Generated under `../profile-spec.md` with the Mercer cluster.
-> Canon facts (traced to `./mercer-jonah.md`) are tagged `[canon]`. Surface-flavor
-> facts not fixed by prior canon are accepted as character canon under Decision 056;
-> reveal-tagged and behavior-only items remain author-facing and are not cleared.
-> Canon here: the surname Mercer, that Malcolm built a logistics business and
-> grew wealthy on early investments in autonomous transportation and Asterion,
-> that he lives in Lakeward, and that he has a progressive neurological condition
-> managed by expensive Asterion-linked medical systems. Accepted as character canon
-> under Decision 056: his age, birth date, birthplace, middle name, the company
-> name, and the clinical specifics of the condition. Profile stays draft pending
-> author activation.
-
 ## Basic Information
 
 **Full name:** Malcolm Hale Mercer (surname **Mercer** [canon, `./mercer-jonah.md`]; given name **Malcolm** [canon, `./mercer-jonah.md`]; middle name Hale)

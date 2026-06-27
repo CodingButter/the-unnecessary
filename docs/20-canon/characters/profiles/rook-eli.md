@@ -3,7 +3,7 @@ title: "Elias \"Eli\" Rook"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical profile, motives, history, voice, secrets, and arc for Elias \"Eli\" Rook, protagonist and creator of Morrow. Migrated to the thirteen-section enrichment schema: all established prose preserved, the Physical and Identifiers sub-blocks, Private History and Behavioral Roots, and structured reciprocal relationship edges added. The flavor facts (physical identifiers, household detail, hobbies, and the derived personality fields) are accepted as character canon under Decision 056. Behavior-only and reveal-tagged items remain author-facing. The profile is active-canon and the enrichment is reversible."
+summary: "Canonical profile, motives, history, voice, secrets, and arc for Elias \"Eli\" Rook, protagonist and creator of Morrow."
 tags:
   - character
   - protagonist
@@ -31,14 +31,6 @@ source_documents:
 ---
 
 # Elias “Eli” Rook
-
-> Status: ACTIVE-CANON, enriched in place under `../profile-spec.md`. Every fact
-> from the original profile is preserved verbatim and untagged. Sub-blocks and
-> sections required by the schema that canon did not fix are filled by
-> world-consistent invention, accepted as character canon under Decision 056.
-> Hidden or timing-sensitive facts carry a reveal tag per spec Section 5 and
-> remain author-facing. The existence of Morrow remains the central secret and is
-> gated `[reveal: Book 1]`.
 
 ## Basic Information
 

@@ -3,7 +3,7 @@ title: "Nolan Avery"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical profile, history, motives, voice, secret, and story function for Nolan Avery, infrastructure elder and symbol of retained human knowledge. Migrated to the thirteen-section enrichment schema: established canon is preserved untagged; world-consistent additions that fill blanks are accepted as character canon (Decision 056); the reciprocal edges to Ray Dorsey and Marisol Vega are added to match the edges those walk-on profiles already point at Nolan."
+summary: "Canonical profile, history, motives, voice, secret, and story function for Nolan Avery, infrastructure elder and symbol of retained human knowledge."
 tags:
   - character
   - community
@@ -28,17 +28,6 @@ source_documents:
 ---
 
 # Nolan Avery
-
-> Migration note: this profile was brought up to the thirteen-section schema in
-> `../profile-spec.md`. No established fact was changed or removed. Every line
-> carried over from the prior profile (name, age, birthplace, residence, former
-> and current occupation, viewpoint, story role, his heavyset build, the damaged
-> right knee and the self-repaired metal brace, the gray beard, the deep voice,
-> the permanently stained work gloves, his background, personality, relationship
-> with Eli, goal, need, fear, moral boundary, secret, and story function) stands
-> untagged. New material that fills a schema blank is accepted as character canon
-> under Decision 056. Hidden or timing-sensitive facts carry a reveal tag per
-> the spec's Section 5; behavior-only items remain author-facing.
 
 ## Basic Information
 

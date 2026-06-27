@@ -39,16 +39,6 @@ source_documents:
 
 # Julian Mercer
 
-> Status: DRAFT. Generated under `../profile-spec.md` with the Mercer cluster.
-> Canon facts are tagged `[canon]`. Surface-flavor facts not fixed by prior canon
-> are accepted as character canon under Decision 056; reveal-tagged and behavior-only
-> items remain author-facing and are not cleared. Canon here: the surname Mercer,
-> that Julian is the son of Jonah and Celeste, his age of twelve, and his birth date
-> of April 12, 2041 (`../../timeline/character-birth-dates.md`, `./mercer-jonah.md`).
-> Accepted as character canon under Decision 056: his middle name, birthplace,
-> school, and all personality and physical detail. Profile stays draft pending
-> author activation.
-
 ## Basic Information
 
 **Full name:** Julian Malcolm Mercer (surname **Mercer** and given name **Julian** [canon, `./mercer-jonah.md`]; middle name Malcolm, after his grandfather,)

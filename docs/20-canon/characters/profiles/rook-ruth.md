@@ -33,20 +33,6 @@ source_documents:
 
 # Ruth Rook
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Rook family cluster,
-> together with `./rook-daniel.md`, so shared facts cohere by construction. The
-> core canon facts are her surname, that she "worked in public libraries and
-> community education," the Flint origin, and that she is Eli's mother, all from
-> `./rook-eli.md` and the historical timeline; these are tagged `[open]`.
->
-> RESOLVED (Decision 056). The prior dependent flag is settled: Daniel is
-> deceased (he died circa spring 2050), so Ruth is a WIDOW of about three years,
-> living and 67 in Book One. Her own living status was never in doubt; only her
-> marital state depended on the Daniel decision, and that decision is now made.
-> The death itself is canon; the EXACT in-story timing of its reveal is left open
-> as a plot decision. This resolution is reversible, is recorded in the Creative
-> Decision Log, and the profile remains a draft pending author activation.
-
 ## Basic Information
 
 **Full name:** Ruth Rook [open] (surname Rook is canon, per `./rook-eli.md`). Maiden name Ruth Ellery.

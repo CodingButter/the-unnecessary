@@ -35,15 +35,6 @@ source_documents:
 
 # Aminata Diallo
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Chapter 2
-> neighborhood food-network cluster. The only canon facts are the ones traced to
-> `chapter-02-the-last-supported-day.md` and marked `[open]`. The given name
-> Aminata, the birth date, the age, the birthplace, the household, and every
-> physical identifier are accepted as character canon under Decision 056. In prose
-> she is "Mrs. Diallo," and her husband is quoted but not named or staged.
-> Reveal-tagged hidden facts and behavior-only items remain author-facing and are
-> not stated on the page.
-
 ## Basic Information
 
 **Full name:** Aminata Diallo

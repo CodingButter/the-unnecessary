@@ -34,16 +34,6 @@ source_documents:
 
 # Mr. Adeyemi
 
-> Status: DRAFT. Generated under `../profile-spec.md` as part of the Riverside
-> clinic cluster (Ch2). The only canon facts are those traced to
-> `chapter-02-the-last-supported-day.md` and marked `[open]`: the surname
-> Adeyemi, the age sixty-one, the nocturnal respiratory controller, the
-> withdrawn authentication, the sealed-off daughter, and his dialogue. The given
-> name Bayo, the birth date and birthplace, the industrial-lung history, the
-> widowhood, the daughter's name, and every physical identifier are accepted as
-> character canon under Decision 056. Reveal-tagged hidden facts and behavior-only
-> items remain author-facing and are not stated on the page.
-
 ## Basic Information
 
 **Full name:** Bayo Adeyemi

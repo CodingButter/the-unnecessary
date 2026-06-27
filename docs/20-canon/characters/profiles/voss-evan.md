@@ -36,19 +36,6 @@ source_documents:
 
 # Evan Voss
 
-> Status: DRAFT. Generated under `../profile-spec.md` as the second member of the
-> Voss cluster, written together with the existing `./voss-mara.md` so the shared
-> surname, household, and age ladder cohere by construction. The hard canon is
-> narrow and is tagged `[canon]`: his name Evan Voss, that he is Mara Voss's son,
-> his birth date November 4, 2025, his age 27, that he lives carelessly inside
-> Lakeward, that he assumes Mars access is guaranteed, that he has neither useful
-> expertise nor a personal relationship with a Gatekeeper, and that his mother is
-> divorced. The surface-flavor enrichment, including his middle name, birthplace,
-> physical identifiers, daily life, and interior apparatus, is accepted as
-> character canon under Decision 056; behavior-only and reveal-tagged items remain
-> author-facing. His father is left an open slot per the relational spine and is
-> not invented here.
-
 ## Basic Information
 
 **Full name:** Evan Whitmore Voss (the surname Voss and given name Evan are `[canon, voss-mara.md]`; the middle name Whitmore is accepted as canon (Decision 056) and does not encode the undefined father, who remains an open slot per the relational spine)

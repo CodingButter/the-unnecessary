@@ -32,18 +32,6 @@ source_documents:
 
 # The Caldwell Girl
 
-> Status: DRAFT. Generated under `../profile-spec.md` as part of the Riverside
-> clinic cluster (Ch2). The only canon facts are those traced to
-> `chapter-02-the-last-supported-day.md` and marked `[open]`: the surname
-> Caldwell, that she is a child, that she has a fever holding at one hundred, and
-> that Lena keeps her overnight rather than send her into the cold, watched by
-> hand and not by the machine. The given name Emma, her age, her birth date and
-> birthplace, her parents and household, and every physical identifier are accepted
-> as character canon under Decision 056. Because she is a young child, the
-> interior apparatus in Section 3 is kept age-appropriate and brief. Reveal-tagged
-> hidden facts and behavior-only items remain author-facing and are not stated on
-> the page.
-
 ## Basic Information
 
 **Full name:** Emma Caldwell (surname Caldwell is [open])

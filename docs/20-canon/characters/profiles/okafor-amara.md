@@ -30,19 +30,6 @@ source_documents:
 
 # Amara Okafor
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Okafor cluster. The
-> only fixed canon here is what `./okafor-lena.md` (active-canon) establishes: the
-> name Amara Okafor, her age of seventy-four, the large Nigerian-American family,
-> the parents who ran a small Detroit grocery, the matrilineal naming (Lena's
-> middle name is Amara), the shared single household, and the refused enclave
-> offer that would have taken Amara but excluded two dependent relatives. Those
-> are tagged `[canon]`. Amara does not yet appear in approved manuscript prose;
-> she is named only inside Lena's profile. Everything else is world-consistent
-> flavor invention accepted as character canon under Decision 056. Her birth date,
-> her late husband, the Igbo immigration detail, and the identity of the dependent
-> relatives are accepted as character canon. Reveal-tagged hidden facts and
-> behavior-only items remain author-facing and are not stated on the page.
-
 ## Basic Information
 
 **Full name:** Amara Okafor [canon] (`./okafor-lena.md`: "her mother, Amara Okafor, age seventy-four"). Full given form Amarachi Okafor.

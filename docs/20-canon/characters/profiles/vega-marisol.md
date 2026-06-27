@@ -31,13 +31,6 @@ source_documents:
 
 # Marisol Vega
 
-> Status: DRAFT. Generated under `../profile-spec.md` as the cast exemplar.
-> Canon facts traced to `chapter-01-no-signal.md` are marked `[open]`. The
-> surname Vega, her age, her birth date, her birthplace, and her entire family
-> are accepted as character canon under Decision 056. Reveal-tagged and
-> behavior-only items remain author-facing. Profile stays draft pending author
-> activation.
-
 ## Basic Information
 
 **Full name:** Marisol Vega

@@ -35,15 +35,6 @@ source_documents:
 
 # Ngozi Okonkwo
 
-> Status: DRAFT. Generated under `../profile-spec.md` for the Chapter 2
-> neighborhood food-network cluster. Canon facts traced to
-> `chapter-02-the-last-supported-day.md` are marked `[open]`. The given name
-> Ngozi, the birth date, the age, the birthplace, the household composition, and
-> every physical identifier are accepted as character canon under Decision 056.
-> In the prose she is "Mrs. Okonkwo," and the household is "the Okonkwos."
-> Reveal-tagged and behavior-only items remain author-facing. Profile stays draft
-> pending author activation.
-
 ## Basic Information
 
 **Full name:** Ngozi Okonkwo

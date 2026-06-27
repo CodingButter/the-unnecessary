@@ -34,16 +34,6 @@ source_documents:
 
 # Tomas Herrera
 
-> Status: DRAFT. Generated under `../profile-spec.md` as part of the Riverside
-> clinic cluster (Ch2). The only canon facts are those traced to
-> `chapter-02-the-last-supported-day.md` and marked `[open]`: the given name
-> Tomas, the age thirty, that he is the night nurse and the only other person on
-> the floor, that he relays Priya's question and the Okonkwos' eggs, and that he
-> "can't lie worth anything, his face does it for him." The surname Herrera, the
-> birth date and birthplace, the family, and every physical identifier are accepted
-> as character canon under Decision 056. Reveal-tagged hidden facts and
-> behavior-only items remain author-facing and are not stated on the page.
-
 ## Basic Information
 
 **Full name:** Tomas Herrera (given name Tomas is [open])

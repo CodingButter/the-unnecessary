@@ -3,7 +3,7 @@ title: "Nora Bell"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical profile, history, motives, and secret for Dr. Nora Bell, Eli's former wife and a future bridge into Crown's development. Migrated to the thirteen-section enrichment schema: all established prose preserved, the Physical and Identifiers sub-blocks, Private History and Behavioral Roots, and structured reciprocal relationship edges added; surface-flavor additions accepted as character canon (Decision 056) and hidden facts remain reveal-tagged."
+summary: "Canonical profile, history, motives, and secret for Dr. Nora Bell, Eli's former wife and a future bridge into Crown's development."
 tags:
   - character
   - asterion
@@ -28,13 +28,6 @@ source_documents:
 ---
 
 # Nora Bell
-
-> Status: ACTIVE-CANON, enriched in place under `../profile-spec.md`. Every fact
-> from the original profile is preserved verbatim and untagged. The schema
-> sub-blocks and sections that canon left blank, the entire physical layer
-> chief among them, are filled by world-consistent invention accepted as
-> character canon under Decision 056. Hidden or timing-sensitive facts remain
-> author-facing and carry a reveal tag per spec Section 5.
 
 ## Basic Information
 

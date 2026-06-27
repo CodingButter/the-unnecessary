@@ -3,7 +3,7 @@ title: "Dr. Lena Okafor"
 document_type: "character-profile"
 status: "active-canon"
 authority: "character-canon"
-summary: "Canonical profile, history, motives, voice, secret, and arc for Dr. Lena Okafor, director of an independent community clinic and moral and medical counterweight to Eli and Morrow. Migrated to the v2 thirteen-section profile schema: all established facts preserved untagged as canon, missing Physical and Identifiers sub-blocks and a Private History and Behavioral Roots section added, machine-readable reciprocal relationship edges added (including the mother edge to okafor-amara), every field filled, and each invented load-bearing addition accepted as character canon (Decision 056)."
+summary: "Canonical profile, history, motives, voice, secret, and arc for Dr. Lena Okafor, director of an independent community clinic and moral and medical counterweight to Eli and Morrow."
 tags:
   - character
   - viewpoint
@@ -31,17 +31,6 @@ source_documents:
 ---
 
 # Dr. Lena Okafor
-
-> Migration note: this active-canon profile was enriched to the v2 thirteen-section
-> schema under `../profile-spec.md`. The migration is additive. Every established
-> fact from the prior profile is preserved here and left UNTAGGED, because it is
-> canon. New fields required by the schema, and any detail not already established,
-> are world-consistent flavor facts accepted as character canon under Decision 056.
-> Hidden or timing-sensitive facts in Sections 10 and 11 carry reveal tags per the
-> spec; those items remain author-facing and are not stated on the page. The one
-> machine-readable fact owed to a sibling file is the reciprocal `- mother:
-> okafor-amara` edge in Section 7, which matches the `- daughter: okafor-lena`
-> edge already authored in `./okafor-amara.md`.
 
 ## Basic Information
 
