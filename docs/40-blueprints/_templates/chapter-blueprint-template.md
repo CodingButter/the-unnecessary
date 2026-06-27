@@ -235,6 +235,16 @@ the story, not a quota.
   a quota.
 - The revelation target is qualitative intent in service of the story along the
   entity-appropriate axes. It is explicitly not a checklist to fill.
+- Name attributes, not values — single source of truth. The revelation target names
+  *which* attributes or dimensions the reader should come to know this chapter (the
+  strap, the face, the accents on the face), never their concrete values. The values
+  themselves (a brown strap, an ivory face, three diamonds) live only in the entity's
+  bible file. At drafting time the prose pulls each named attribute's value from that
+  file. This keeps one source of truth: revise a detail in the entity's file and the
+  blueprint's instruction still holds, automatically revealing the new value. The
+  blueprint controls the revelation pacing — which attributes, when; the file controls
+  the truth — their values; the two never duplicate. So a blueprint says "reveal the
+  watch's strap, face, and accents," never "the watch has a brown strap."
 - The levels across chapters compose the entity's focus curve. An entity may be
   a blur in one chapter and crisp in another by design.
 - Deliver revelation image over inventory. A single concrete image earns a level; a
