@@ -24,8 +24,8 @@ required_files:
   # 6. Chapter Blueprint Template
   - "docs/40-blueprints/_templates/chapter-blueprint-template.md"
   # 7. Relevant character profiles (representative only; narrowed per chapter)
-  - "docs/20-canon/characters/profiles/eli-rook.md"
-  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
+  - "docs/20-canon/characters/profiles/okafor-lena.md"
   # 8. Relevant technology files (representative only; narrowed per chapter)
   - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
   - "docs/20-canon/technology/medicine.md"
@@ -79,8 +79,8 @@ loading_order:
   - "docs/00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md"
   - "docs/30-plot/book-1/act-1.md"
   - "docs/30-plot/book-1/chapters/chapter-01.md"
-  - "docs/20-canon/characters/profiles/eli-rook.md"
-  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
+  - "docs/20-canon/characters/profiles/okafor-lena.md"
   - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
   - "docs/20-canon/technology/medicine.md"
   - "docs/20-canon/timeline/book-1/act-1-timeline.md"

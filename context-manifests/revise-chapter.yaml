@@ -22,8 +22,8 @@ required_files:
   # Relevant canon the revision must not contradict (representative: Chapter 1 cast
   # and the plot-map entry; narrowed per chapter)
   - "docs/30-plot/book-1/chapters/chapter-01.md"
-  - "docs/20-canon/characters/profiles/eli-rook.md"
-  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
+  - "docs/20-canon/characters/profiles/okafor-lena.md"
 
 optional_files:
   # Approved blueprint for THIS chapter (one half of the working pair). No blueprint
@@ -56,8 +56,8 @@ loading_order:
   - "docs/00-governance/context-loading-guide.md"
   - "docs/30-plot/book-1/chapters/chapter-01.md"
   - "docs/10-vision/style/revision-checklist.md"
-  - "docs/20-canon/characters/profiles/eli-rook.md"
-  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
+  - "docs/20-canon/characters/profiles/okafor-lena.md"
   - "docs/60-continuity/global-continuity.md"
   - "docs/60-continuity/setups-and-payoffs.md"
   - "docs/60-continuity/unresolved-threads.md"
