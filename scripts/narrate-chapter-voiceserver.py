@@ -41,6 +41,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -49,6 +50,13 @@ import urllib.error
 
 DEFAULT_API = "http://tts.codingbutter.com"
 SAMPLE_RATE = 24000
+
+# Silence to keep at each chunk edge after trimming the leading/trailing dead air
+# Chatterbox bakes into every WAV (~0.25-0.34s). Trimming both edges to this small pad
+# is what makes the renderer's DECLARED inter-chunk gaps (register/beat/hold/scene)
+# actually exact: an actual boundary pause becomes ~EDGE_PAD + gap + EDGE_PAD instead
+# of trailing(~0.3s) + gap + leading(~0.3s).
+EDGE_PAD = 0.05
 
 # Four REGISTERS anchored on the server's "audiobook" preset. No "emotion" key: the
 # emotion presets (plus repetition_penalty 1.4) manufactured non-speech garble. These
@@ -114,9 +122,19 @@ TAG_PRESETS = {
 # Fallback for any tag not in TAG_PRESETS: the audiobook base register.
 DEFAULT_PROFILE = dict(BASE)
 
-# Silence durations (seconds) inserted between chunks during stitching.
-GAP_DEFAULT = 0.35
-GAP_SCENE_BREAK = 1.2
+# PACING ENGINE -- deliberate pauses become CHUNK BOUNDARIES whose silence length is
+# DECLARED by the script. Each boundary has a "gap kind"; the stitch step inserts
+# exactly this much silence between the chunks it separates. Tunable named constants.
+GAP_SECONDS = {
+    "register": 0.15,   # a plain register/size boundary -- near-seamless
+    "beat":     0.4,    # a short breath, marked [beat] (aliases: [a beat], [pause])
+    "hold":     1.0,    # a deliberate weighted pause, marked [hold]
+    "scene":    1.8,    # a --- scene break
+}
+
+# Pause tags (tag name -> gap kind). These mark a deliberate boundary and a declared
+# silence; they do NOT change register. In a single tag run "hold" outranks "beat".
+PAUSE_TAGS = {"beat": "beat", "a beat": "beat", "pause": "beat", "hold": "hold"}
 
 # Matches a single bracketed tag, e.g. [weary] or [breaking up].
 TAG_RE = re.compile(r'\[([^\[\]]+)\]')
@@ -170,17 +188,45 @@ def resolve_profile(tags):
     return merged if saw_real else None
 
 
+def _pause_kind(tags):
+    """Return the heaviest pause gap kind present in a tag run, or None. A run may mix
+    pause tags with registers; only the pause tags are considered, and 'hold' (the
+    weighted pause) outranks 'beat' (the short breath)."""
+    kinds = [PAUSE_TAGS[t.strip().lower()] for t in tags
+             if t.strip().lower() in PAUSE_TAGS]
+    if not kinds:
+        return None
+    return "hold" if "hold" in kinds else "beat"
+
+
 def build_segments(text):
     """Walk the performance text into a list of items. Each item is either:
-      ("break",)                 -- a scene break (`---` on its own line), or
+      ("break",)                 -- a scene break (`---` on its own line),
+      ("pause", kind)            -- a deliberate pause ([beat]/[a beat]/[pause]/[hold]),
       ("seg", profile, prose)    -- prose with its resolved profile dict.
 
-    A run of one or more bracket tags at a point sets the active profile (which
-    persists for the following prose until the next tag run). The very first prose
-    before any tag uses DEFAULT_PROFILE.
+    A run of one or more bracket tags at a point may BOTH declare a pause and set the
+    active register: pause tags emit a ("pause", kind) item at that position, while the
+    non-pause tags update the active profile (which persists for the following prose
+    until the next tag run). resolve_profile already ignores pause tags (mapped to
+    None), so "[hold] [tense] He said" yields ("pause","hold") then a tense seg. The
+    very first prose before any tag uses DEFAULT_PROFILE.
     """
     items = []
     active = dict(DEFAULT_PROFILE)
+
+    def apply_tags(tags):
+        """Emit any pause item for this tag run, then fold its registers into `active`."""
+        nonlocal active
+        if not tags:
+            return
+        kind = _pause_kind(tags)
+        if kind is not None:
+            items.append(("pause", kind))
+        prof = resolve_profile(tags)   # pause tags map to None and are ignored here
+        if prof is not None:
+            active = prof
+
     # Process line by line so `---` boundaries are preserved.
     for raw_line in text.split("\n"):
         line = raw_line.strip()
@@ -196,22 +242,16 @@ def build_segments(text):
             # Prose before this tag (belongs to the currently active profile).
             pre = line[pos:m.start()].strip()
             if pre:
-                # Any tags collected immediately before this prose update the profile.
-                if pending_tags:
-                    prof = resolve_profile(pending_tags)
-                    if prof is not None:
-                        active = prof
-                    pending_tags = []
+                # Any tags collected immediately before this prose apply now.
+                apply_tags(pending_tags)
+                pending_tags = []
                 items.append(("seg", dict(active), pre))
             pending_tags.append(m.group(1))
             pos = m.end()
         # Trailing prose after the last tag on the line.
         tail = line[pos:].strip()
-        if pending_tags:
-            prof = resolve_profile(pending_tags)
-            if prof is not None:
-                active = prof
-            pending_tags = []
+        apply_tags(pending_tags)
+        pending_tags = []
         if tail:
             items.append(("seg", dict(active), tail))
     return items
@@ -299,23 +339,34 @@ def build_chunks(items, max_chars, min_chars):
     (never across a scene break), so single-word tag flickers do not each become an
     API call. Each final chunk's tuning is the profile covering the most characters.
 
-    Returns list of {profile, text, scene_break_after}.
+    A ("break",) forces a boundary with gap_after="scene"; a ("pause", kind) forces a
+    boundary with gap_after=kind ("beat"/"hold"); a normal flush (register change or
+    max-chars) leaves gap_after="register".
+
+    Returns list of {profile, text, gap_after}.
     """
-    raw = []            # each: {"segs": [(profile, prose)], "scene_break_after": bool}
+    raw = []            # each: {"segs": [(profile, prose)], "gap_after": str}
     cur, cur_reg, cur_len = [], None, 0
 
-    def flush(scene_break=False):
+    def flush(gap="register"):
         nonlocal cur, cur_reg, cur_len
         if cur:
-            raw.append({"segs": cur, "scene_break_after": scene_break})
+            raw.append({"segs": cur, "gap_after": gap})
         cur, cur_reg, cur_len = [], None, 0
 
     for item in items:
         if item[0] == "break":
             if cur:
-                flush(scene_break=True)
+                flush(gap="scene")
             elif raw:
-                raw[-1]["scene_break_after"] = True
+                raw[-1]["gap_after"] = "scene"
+            continue
+        if item[0] == "pause":
+            kind = item[1]
+            if cur:
+                flush(gap=kind)
+            elif raw:
+                raw[-1]["gap_after"] = kind
             continue
         _, prof, prose = item
         prose = _strip_tags(prose)
@@ -325,7 +376,7 @@ def build_chunks(items, max_chars, min_chars):
             if cur:
                 flush()
             for piece in _split_sentences(prose, max_chars):
-                raw.append({"segs": [(prof, piece)], "scene_break_after": False})
+                raw.append({"segs": [(prof, piece)], "gap_after": "register"})
             continue
         reg = _register_of(prof)
         if cur and (reg != cur_reg or cur_len + len(prose) + 1 > max_chars):
@@ -335,15 +386,16 @@ def build_chunks(items, max_chars, min_chars):
         cur_len += len(prose) + 1
     flush()
 
-    # Pass 2: absorb sub-min chunks into the previous chunk (not across scene breaks).
+    # Pass 2: absorb sub-min chunks into the previous chunk (only when the boundary
+    # between them is an ordinary "register" gap -- never erase a declared pause/break).
     merged = []
     for ch in raw:
         ch_len = sum(len(p) for _, p in ch["segs"])
         prev_len = sum(len(p) for _, p in merged[-1]["segs"]) if merged else 0
-        if (merged and ch_len < min_chars and not merged[-1]["scene_break_after"]
+        if (merged and ch_len < min_chars and merged[-1]["gap_after"] == "register"
                 and prev_len + ch_len <= max_chars):
             merged[-1]["segs"].extend(ch["segs"])
-            merged[-1]["scene_break_after"] = ch["scene_break_after"]
+            merged[-1]["gap_after"] = ch["gap_after"]
         else:
             merged.append(ch)
 
@@ -352,7 +404,7 @@ def build_chunks(items, max_chars, min_chars):
         text = re.sub(r'\s+', ' ', " ".join(p for _, p in ch["segs"])).strip()
         if text:
             out.append({"profile": _dominant_profile(ch["segs"]),
-                        "text": text, "scene_break_after": ch["scene_break_after"]})
+                        "text": text, "gap_after": ch["gap_after"]})
     return out
 
 
@@ -441,6 +493,107 @@ def make_silence(path, seconds):
     return res.returncode == 0
 
 
+def _wav_duration(path):
+    """Return the duration (seconds) of `path` via ffprobe, or None if it can't be read."""
+    res = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", path],
+        capture_output=True, text=True)
+    try:
+        return float(res.stdout.strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def cap_internal_pauses(in_wav, out_wav, cap=0.7):
+    """Tidy one chunk WAV in a SINGLE ffmpeg pass: (1) trim the LEADING and TRAILING
+    dead air Chatterbox bakes into every clip (~0.25-0.34s) down to EDGE_PAD, and
+    (2) shorten every WITHIN-CHUNK silence longer than `cap` seconds back to `cap`.
+    All other audio is left sample-for-sample equivalent. Returns True on success.
+
+    Trimming the edges is what makes the renderer's DECLARED inter-chunk gaps exact:
+    an actual boundary pause becomes ~EDGE_PAD + gap + EDGE_PAD rather than
+    trailing(~0.3s) + gap + leading(~0.3s) ~= gap + 0.6s.
+
+    Method: silencedetect (noise=-38dB, small d so the ~0.3s edges register too) reports
+    silence_start/silence_end pairs. We build removal windows:
+      * internal: for any silence with dur > cap, remove (dur - cap) from its MIDDLE;
+      * leading:  the silence beginning at ~0.0 (silence_start <= ~0.02) -- its
+                  silence_end is the first-sound onset; remove [0, onset - EDGE_PAD];
+      * trailing: the silence ending at ~duration (silence_end >= duration - ~0.05) --
+                  its silence_start is the last-sound offset; remove
+                  [offset + EDGE_PAD, duration].
+    All windows are unioned, clamped to [0, duration], and degenerate (<=0 length)
+    windows dropped. One aselect drops them all at once; asetpts re-stamps the PTS so
+    kept samples play gaplessly. With no edges and no over-long pause, in_wav is copied.
+    """
+    # Small detection threshold so the short (~0.3s) edge silences also register; the
+    # internal-cap logic below still only acts on silences longer than `cap`.
+    det = min(EDGE_PAD, 0.04)
+    res = subprocess.run(
+        ["ffmpeg", "-i", in_wav, "-af",
+         "silencedetect=noise=-38dB:d=%.3f" % det, "-f", "null", "-"],
+        capture_output=True, text=True)
+    log = res.stderr
+    starts = [float(x) for x in re.findall(r'silence_start:\s*(-?[0-9.]+)', log)]
+    ends = [float(x) for x in re.findall(r'silence_end:\s*(-?[0-9.]+)', log)]
+    pairs = list(zip(starts, ends))
+
+    duration = _wav_duration(in_wav)
+
+    windows = []
+
+    # Internal: shave the excess from the middle of any over-long silence.
+    for a, b in pairs:
+        dur = b - a
+        if dur > cap:
+            excess = dur - cap
+            mid = (a + b) / 2.0
+            windows.append((mid - excess / 2.0, mid + excess / 2.0))
+
+    # Leading edge: a silence that begins at the very start of the file.
+    for a, b in pairs:
+        if a <= 0.02:
+            onset = b
+            if onset > EDGE_PAD:               # else nothing to trim
+                windows.append((0.0, onset - EDGE_PAD))
+            break
+
+    # Trailing edge: a silence that runs to (within ~0.05s of) the end of the file.
+    if duration is not None:
+        for a, b in pairs:
+            if b >= duration - 0.05:
+                offset = a
+                if offset < duration - EDGE_PAD:   # else nothing to trim
+                    windows.append((offset + EDGE_PAD, duration))
+                break
+
+    # Clamp to [0, duration] and drop degenerate / negative-length windows.
+    cleaned = []
+    for w0, w1 in windows:
+        if duration is not None:
+            w0 = max(0.0, min(w0, duration))
+            w1 = max(0.0, min(w1, duration))
+        else:
+            w0 = max(0.0, w0)
+            w1 = max(0.0, w1)
+        if w1 - w0 > 1e-6:
+            cleaned.append((w0, w1))
+
+    if not cleaned:
+        shutil.copyfile(in_wav, out_wav)
+        return True
+
+    cleaned.sort()
+    betweens = "+".join("between(t,%.6f,%.6f)" % (w0, w1) for w0, w1 in cleaned)
+    af = "aselect='not(%s)',asetpts=N/SR/TB" % betweens
+    res = subprocess.run(
+        ["ffmpeg", "-y", "-i", in_wav, "-af", af,
+         "-ar", str(SAMPLE_RATE), "-ac", "1", "-c:a", "pcm_s16le", out_wav],
+        capture_output=True, text=True)
+    return res.returncode == 0
+
+
 def profile_str(profile):
     """Compact human-readable rendering of a profile dict for plan/progress output."""
     if not profile:
@@ -470,7 +623,7 @@ def print_plan(chunks):
         preview = " ".join(words[:8])
         if len(words) > 8:
             preview += " ..."
-        flag = "  <scene-break>" if ch["scene_break_after"] else ""
+        flag = "" if ch["gap_after"] == "register" else "  <%s>" % ch["gap_after"]
         print("  %02d  [%-22s] %5d chars  %s%s"
               % (i, profile_str(ch["profile"]), len(ch["text"]), preview, flag),
               file=sys.stderr)
@@ -502,6 +655,11 @@ def main():
     ap.add_argument("--max-temp", type=float, default=0.8,
                     help="Hard ceiling on every chunk's temperature (>=0.85 gets unstable per "
                          "the API docs); clamps any higher profile temperature down. Default 0.8.")
+    ap.add_argument("--pause-cap", type=float, default=0.7,
+                    help="Cap (seconds) on WITHIN-chunk silences: any internal pause "
+                         "Chatterbox renders longer than this is trimmed back to it from "
+                         "its middle (declared inter-chunk pauses are unaffected). "
+                         "0 disables capping. Default 0.7.")
     ap.add_argument("--api", default=DEFAULT_API)
     ap.add_argument("--dry-run", action="store_true",
                     help="Print the chunk plan and exit without calling the API.")
@@ -551,7 +709,7 @@ def main():
         if os.path.exists(cf):
             print("  chunk %02d/%d  [%s]  skip (exists)"
                   % (i, len(chunks), profile_str(prof)), file=sys.stderr)
-            chunk_files.append((cf, ch["scene_break_after"]))
+            chunk_files.append((cf, ch["gap_after"]))
             continue
         print("  chunk %02d/%d  [%s]  %d chars ..."
               % (i, len(chunks), profile_str(prof), len(ch["text"])), file=sys.stderr)
@@ -562,25 +720,39 @@ def main():
             return 1
         dur_s = ("%.1fs audio" % dur) if dur is not None else "duration unknown"
         print("      -> %s (%s)" % (os.path.basename(cf), dur_s), file=sys.stderr)
-        chunk_files.append((cf, ch["scene_break_after"]))
+        chunk_files.append((cf, ch["gap_after"]))
 
-    # Build the silence WAVs and the concat list.
-    sil_default = os.path.join(chunk_dir, "_sil_default.wav")
-    sil_scene = os.path.join(chunk_dir, "_sil_scene.wav")
-    if not make_silence(sil_default, GAP_DEFAULT):
-        print("ERROR: failed to generate default silence WAV", file=sys.stderr)
-        return 1
-    if not make_silence(sil_scene, GAP_SCENE_BREAK):
-        print("ERROR: failed to generate scene-break silence WAV", file=sys.stderr)
-        return 1
+    # Pause-cap pass: tame runaway WITHIN-chunk silences. The raw NN.wav stays
+    # untouched (so resume still works); NN.capped.wav is regenerated each run and is
+    # what gets stitched. --pause-cap 0 disables capping and stitches the raw files.
+    concat_files = []
+    for cf, gap in chunk_files:
+        if args.pause_cap and args.pause_cap > 0:
+            capped = cf[:-len(".wav")] + ".capped.wav"
+            if not cap_internal_pauses(cf, capped, args.pause_cap):
+                print("ERROR: pause-cap failed for %s" % os.path.basename(cf), file=sys.stderr)
+                return 1
+            concat_files.append((capped, gap))
+        else:
+            concat_files.append((cf, gap))
+
+    # Build one silence WAV per distinct gap kind actually used (last chunk has no
+    # silence after it, so its gap is irrelevant), then the concat list.
+    used_kinds = set(gap for _, gap in concat_files[:-1])
+    sil_paths = {}
+    for kind in sorted(used_kinds):
+        sp = os.path.join(chunk_dir, "_sil_%s.wav" % kind)
+        if not make_silence(sp, GAP_SECONDS[kind]):
+            print("ERROR: failed to generate %s silence WAV" % kind, file=sys.stderr)
+            return 1
+        sil_paths[kind] = sp
 
     listfile = os.path.join(chunk_dir, "concat.txt")
     with open(listfile, "w", encoding="utf-8") as handle:
-        for idx, (cf, scene_break) in enumerate(chunk_files):
+        for idx, (cf, gap) in enumerate(concat_files):
             handle.write("file '" + os.path.abspath(cf) + "'\n")
-            if idx < len(chunk_files) - 1:   # silence between, not after the last
-                sil = sil_scene if scene_break else sil_default
-                handle.write("file '" + os.path.abspath(sil) + "'\n")
+            if idx < len(concat_files) - 1:   # silence between, not after the last
+                handle.write("file '" + os.path.abspath(sil_paths[gap]) + "'\n")
 
     # Concat into the final output, MASTERED with loudnorm: a consistent loudness
     # and a true-peak ceiling so peaks do not overshoot 0 dBFS and clip ("crunch")
