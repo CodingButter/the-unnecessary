@@ -80,6 +80,18 @@ The displaced work of large companies comes home and goes informal, and old spec
 
 This economy is emergent and trust-based, with no institution behind it. It works only at the scale of people who know each other and cannot reach the corporate supply chains it replaced. It is in some ways warmer than the transactional economy it replaced, and it is also a downgrade no one chose. (Established Chapter 2.)
 
+## Local Communications
+
+The neighborhood's communications run on a local mesh hosted at the library hub (the place is
+`../../world/locations/greater-detroit/elis-neighborhood/library-hub.md`; the network rules
+live here). As long as the hub has power the mesh is up, so the neighborhood can talk to
+itself even when it cannot reach anyone past its own edge.
+
+The hub's signal vocabulary is fixed canon: a **double pulse** is a **broadcast**, a message
+sent to everyone at once and to no one in particular; a **single soft note** is a **direct**
+message, addressed to one person alone. A drafter must not invert these or reassign them.
+(Established Chapter 1.)
+
 ## See also
 
 The energy tradeoffs these communities manage are detailed in [energy](./energy.md). For why access matters more than wealth in this world, see [identity, money, and access](./identity-and-money.md).
