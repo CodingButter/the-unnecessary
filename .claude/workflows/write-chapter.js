@@ -65,11 +65,13 @@ if (prep && prep.ok === false) {
 // ---- Stage 2: Draft (Opus) ----
 phase('Draft')
 const draft = await agent(
-  `${RULES}\n\nYou are Opus, the sole prose writer. Read the pack and the blueprint in full, then WRITE the complete prose of "${title}" (chapter ${ch.number}) to a NEW file ${NOVEL}/${manuscript}.\n` +
+  // Role (prose writer, house style, viewpoint, canon-safety, reveal discipline, no-em-dash)
+  // lives in the chapter-drafter crew file; this prompt passes only the per-chapter task.
+  `Authoritative grounding for THIS chapter is the context pack at ${NOVEL}/${pack} and the approved blueprint at ${NOVEL}/${blueprint}; defer to them (the blueprint provides every per-chapter specific: viewpoint, date, scenes, beats, ending). Read the pack and the blueprint in full, then WRITE the complete prose of "${title}" (chapter ${ch.number}) to a NEW file ${NOVEL}/${manuscript}.\n` +
   `Execute the blueprint scene by scene. Add YAML front matter: title "${title}", document_type "manuscript-chapter", status "draft", authority "manuscript", a one-sentence summary, tags (manuscript, book-1, chapter-${num}), related links to ../../../40-blueprints/book-1/chapter-${num}-${slug}/blueprint.md and ../../../30-plot/book-1/chapters/chapter-${num}.md, source_documents the blueprint path.\n` +
   `CHARACTER FOCUS: load the blueprint's "## Character Focus" targets and, for every focused character, pull their "Voice and Speech" section plus their heritage signals (accent under "Movement and voice", "Birthplace" and "Faction or class" in Basic Information, and "Early Life" under History and Background) from their profile in the pack. Render each focused character in that specific voice and bring them to their intended focus level (blur, sketch, sharp, or crisp) along the named axes (physical, emotional, interior). Deliver it image over inventory, never a trait list; respect their reveal tags; and actively write the particularity IN, so no character defaults to the unmarked cultural norm. Do not pad a scene to hit a level: if a target is not motivated by the scene, hold to the lower level.\n` +
   `Write the best chapter you can: precise, restrained, alive on the page. When done, grep the file to confirm ZERO em dashes, confirm the ending matches the blueprint, and confirm no forbidden reveal leaked. Report word count and those confirmations. Do not write memories.`,
-  { label: `ch${num}:draft`, phase: 'Draft', schema: REPORT }
+  { agentType: 'chapter-drafter', label: `ch${num}:draft`, phase: 'Draft', schema: REPORT }
 )
 
 // ---- Stage 3: Critique (Gemini via the script) ----
