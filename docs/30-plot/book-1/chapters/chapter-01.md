@@ -9,7 +9,7 @@ related:
   - "../act-1.md"
   - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/characters/profiles/okafor-lena.md"
-  - "../../../20-canon/world/locations/elis-neighborhood.md"
+  - "../../../20-canon/world/locations/greater-detroit/elis-neighborhood.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -81,5 +81,5 @@ For the canonical facts referenced above, defer to the canon layer rather than t
 
 - Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md)
 - Lena Okafor profile: [lena-okafor.md](../../../20-canon/characters/profiles/okafor-lena.md)
-- Setting, Eli's neighborhood: [elis-neighborhood.md](../../../20-canon/world/locations/elis-neighborhood.md)
+- Setting, Eli's neighborhood: [elis-neighborhood.md](../../../20-canon/world/locations/greater-detroit/elis-neighborhood.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

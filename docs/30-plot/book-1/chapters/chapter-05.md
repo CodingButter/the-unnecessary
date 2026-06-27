@@ -9,7 +9,7 @@ related:
   - "../act-1.md"
   - "../../../20-canon/characters/profiles/park-june.md"
   - "../../../20-canon/characters/profiles/rook-eli.md"
-  - "../../../20-canon/world/locations/northglass.md"
+  - "../../../20-canon/world/locations/greater-detroit/northglass.md"
   - "../../../20-canon/technology/northglass.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
@@ -84,6 +84,6 @@ For the canonical facts referenced above, defer to the canon layer rather than t
 
 - June Park profile: [june-park.md](../../../20-canon/characters/profiles/park-june.md)
 - Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md)
-- Setting, Northglass: [northglass.md](../../../20-canon/world/locations/northglass.md)
+- Setting, Northglass: [northglass.md](../../../20-canon/world/locations/greater-detroit/northglass.md)
 - Northglass technology rules: [northglass.md](../../../20-canon/technology/northglass.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

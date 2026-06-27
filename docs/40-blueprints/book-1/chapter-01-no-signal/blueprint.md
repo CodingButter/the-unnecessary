@@ -12,7 +12,7 @@ related:
   - "../../../10-vision/narrative-brief.md"
   - "../../../20-canon/world/core-premise.md"
   - "../../../20-canon/world/infrastructure-decline.md"
-  - "../../../20-canon/world/locations/elis-neighborhood.md"
+  - "../../../20-canon/world/locations/greater-detroit/elis-neighborhood.md"
   - "../../../20-canon/world/locations/greater-detroit.md"
   - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/characters/profiles/okafor-lena.md"
@@ -932,7 +932,7 @@ After drafting, transfer these facts into the Continuity Ledger.
 Before drafting, verify the chapter against:
 
 - [ ] Narrative Brief, [narrative-brief.md](../../../10-vision/narrative-brief.md)
-- [ ] Story Bible (world canon), [core-premise.md](../../../20-canon/world/core-premise.md), [infrastructure-decline.md](../../../20-canon/world/infrastructure-decline.md), [elis-neighborhood.md](../../../20-canon/world/locations/elis-neighborhood.md), [greater-detroit.md](../../../20-canon/world/locations/greater-detroit.md)
+- [ ] Story Bible (world canon), [core-premise.md](../../../20-canon/world/core-premise.md), [infrastructure-decline.md](../../../20-canon/world/infrastructure-decline.md), [elis-neighborhood.md](../../../20-canon/world/locations/greater-detroit/elis-neighborhood.md), [greater-detroit.md](../../../20-canon/world/locations/greater-detroit.md)
 - [ ] Character Bible, [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md), [lena-okafor.md](../../../20-canon/characters/profiles/okafor-lena.md)
 - [ ] World and Technology Rules, [communications.md](../../../20-canon/technology/infrastructure/communications.md), [energy.md](../../../20-canon/technology/infrastructure/energy.md), [cloud-dependency.md](../../../20-canon/technology/infrastructure/cloud-dependency.md), [medicine.md](../../../20-canon/technology/medicine.md)
 - [ ] Master Timeline, [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md), [pre-book-2053.md](../../../20-canon/timeline/book-1/pre-book-2053.md)

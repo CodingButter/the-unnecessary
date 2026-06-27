@@ -10,7 +10,7 @@ related:
   - "../../../20-canon/characters/profiles/vale-sera.md"
   - "../../../20-canon/characters/profiles/kade-adrian.md"
   - "../../../20-canon/characters/profiles/crown.md"
-  - "../../../20-canon/world/locations/northglass.md"
+  - "../../../20-canon/world/locations/greater-detroit/northglass.md"
   - "../../../20-canon/world/government-and-corporations.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
@@ -68,6 +68,6 @@ For canon facts referenced above, defer to the canon layer rather than this plot
 - Sera Vale: [../../../20-canon/characters/profiles/vale-sera.md](../../../20-canon/characters/profiles/vale-sera.md)
 - Kade: [../../../20-canon/characters/profiles/kade-adrian.md](../../../20-canon/characters/profiles/kade-adrian.md)
 - Crown: [../../../20-canon/characters/profiles/crown.md](../../../20-canon/characters/profiles/crown.md)
-- Northglass: [../../../20-canon/world/locations/northglass.md](../../../20-canon/world/locations/northglass.md)
+- Northglass: [../../../20-canon/world/locations/greater-detroit/northglass.md](../../../20-canon/world/locations/greater-detroit/northglass.md)
 - Government and corporations: [../../../20-canon/world/government-and-corporations.md](../../../20-canon/world/government-and-corporations.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

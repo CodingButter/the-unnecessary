@@ -23,7 +23,7 @@ related:
   - "../../../20-canon/technology/infrastructure/community-infrastructure.md"
   - "../../../20-canon/world/social-structure.md"
   - "../../../20-canon/world/infrastructure-decline.md"
-  - "../../../20-canon/world/locations/elis-neighborhood.md"
+  - "../../../20-canon/world/locations/greater-detroit/elis-neighborhood.md"
   - "../../../20-canon/world/locations/greater-detroit.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
   - "../../../10-vision/style/viewpoint.md"
@@ -986,7 +986,7 @@ After drafting, transfer these facts into the Continuity Ledger.
 Before drafting, verify the chapter against:
 
 - [ ] Narrative Brief, [narrative-brief.md](../../../10-vision/narrative-brief.md)
-- [ ] Story Bible / world canon, [global-continuity.md](../../../60-continuity/global-continuity.md), [elis-neighborhood.md](../../../20-canon/world/locations/elis-neighborhood.md)
+- [ ] Story Bible / world canon, [global-continuity.md](../../../60-continuity/global-continuity.md), [elis-neighborhood.md](../../../20-canon/world/locations/greater-detroit/elis-neighborhood.md)
 - [ ] Character Bible, [lena-okafor.md](../../../20-canon/characters/profiles/okafor-lena.md), [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md), [viewpoint-rules.md](../../../20-canon/characters/viewpoint-rules.md), [relationship-map.md](../../../20-canon/characters/relationship-map.md)
 - [ ] World and Technology Rules, [medicine.md](../../../20-canon/technology/medicine.md), [cloud-dependency.md](../../../20-canon/technology/infrastructure/cloud-dependency.md)
 - [ ] Master Timeline, [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md) (Friday Oct 3 evening and night)

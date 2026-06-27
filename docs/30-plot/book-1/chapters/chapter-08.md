@@ -10,7 +10,7 @@ related:
   - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/technology/infrastructure/index.md"
-  - "../../../20-canon/world/locations/northglass.md"
+  - "../../../20-canon/world/locations/greater-detroit/northglass.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -79,5 +79,5 @@ For the canonical facts referenced above, defer to the canon layer rather than t
 - Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md)
 - Morrow character profile: [morrow.md](../../../20-canon/characters/profiles/morrow.md)
 - Infrastructure technology rules: [infrastructure/index.md](../../../20-canon/technology/infrastructure/index.md)
-- Setting, Northglass: [northglass.md](../../../20-canon/world/locations/northglass.md)
+- Setting, Northglass: [northglass.md](../../../20-canon/world/locations/greater-detroit/northglass.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

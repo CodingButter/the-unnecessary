@@ -11,7 +11,7 @@ tags:
   - visual-identity
 related:
   - "../../../10-vision/narrative-brief.md"
-  - "../../../20-canon/world/locations/elis-neighborhood.md"
+  - "../../../20-canon/world/locations/greater-detroit/elis-neighborhood.md"
   - "../../../20-canon/world/infrastructure-decline.md"
   - "../index.md"
 source_documents:

@@ -23,9 +23,9 @@ source_documents:
   - "docs/20-canon/world/mars-and-aurelia.md"
   - "docs/20-canon/world/consistency-rules.md"
   - "docs/20-canon/world/locations/greater-detroit.md"
-  - "docs/20-canon/world/locations/elis-neighborhood.md"
-  - "docs/20-canon/world/locations/lakeward.md"
-  - "docs/20-canon/world/locations/northglass.md"
+  - "docs/20-canon/world/locations/greater-detroit/elis-neighborhood.md"
+  - "docs/20-canon/world/locations/greater-detroit/lakeward.md"
+  - "docs/20-canon/world/locations/greater-detroit/northglass.md"
   - "docs/20-canon/world/locations/mars-sites.md"
   - "docs/20-canon/timeline/book-1/pre-book-2053.md"
 ---

@@ -11,7 +11,7 @@ related:
   - "../../../20-canon/characters/profiles/avery-nolan.md"
   - "../../../20-canon/characters/profiles/reed-talia.md"
   - "../../../20-canon/characters/profiles/park-june.md"
-  - "../../../20-canon/world/locations/northglass.md"
+  - "../../../20-canon/world/locations/greater-detroit/northglass.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"
@@ -77,5 +77,5 @@ For the canonical facts referenced above, defer to the canon layer rather than t
 - Nolan Avery profile: [nolan-avery.md](../../../20-canon/characters/profiles/avery-nolan.md)
 - Talia Reed profile: [talia-reed.md](../../../20-canon/characters/profiles/reed-talia.md)
 - June Park profile: [june-park.md](../../../20-canon/characters/profiles/park-june.md)
-- Setting, Northglass: [northglass.md](../../../20-canon/world/locations/northglass.md)
+- Setting, Northglass: [northglass.md](../../../20-canon/world/locations/greater-detroit/northglass.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

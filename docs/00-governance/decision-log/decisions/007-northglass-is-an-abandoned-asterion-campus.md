@@ -10,7 +10,7 @@ tags:
   - location
   - technology
 related:
-  - "../../../20-canon/world/locations/northglass.md"
+  - "../../../20-canon/world/locations/greater-detroit/northglass.md"
   - "../../../20-canon/technology/northglass.md"
   - "../../../20-canon/technology/ai/morrow.md"
   - "../index.md"

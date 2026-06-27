@@ -10,7 +10,7 @@ tags:
   - location
   - enclaves
 related:
-  - "../../../20-canon/world/locations/lakeward.md"
+  - "../../../20-canon/world/locations/greater-detroit/lakeward.md"
   - "../../../20-canon/characters/profiles/mercer-jonah.md"
   - "../index.md"
 source_documents:
