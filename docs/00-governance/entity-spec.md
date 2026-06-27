@@ -104,6 +104,28 @@ edges:
   where the file sits) and the file states `parent:` explicitly. The two must agree; the
   validator flags any file whose `parent:` disagrees with its folder home as a misfile.
 
+### When an entity earns a file (the three doors)
+
+A reference is not a file. Most nouns a chapter names stay as **prose inside their
+container**; a thing earns its own file only when at least ONE of these is true:
+
+1. **Canon importance.** The Story Bible, plot, or a Decision establishes it as
+   significant -- a named device, motif, or load-bearing element. (Established *in canon*,
+   not merely known by the author: the radio earns a file because `rook-daniel.md` names
+   it the book's thematic seed, **not** because Chapter 1 mentions it in a simile.)
+2. **Blueprint focus.** A blueprint brings it to `sketch` or above -- a deliberate focus
+   target, so it now has defining strokes.
+3. **On-page attributes.** A chapter renders it with described, contradictable properties
+   (an ivory watch face, a torn cushion).
+
+None of the three -> it stays prose in its container. There is no canon to enforce and no
+detail to pull, so a file would be empty noise that lies to the graph about what matters.
+A bare reference may **link** to a file that already exists, but a reference alone never
+**creates** one. Authorial foreknowledge that something *will* matter, if not yet written
+into canon, lives in the blueprint's setup/foreshadowing -- not a premature file. When a
+thing does cross a door, it is born in its correct containment folder, with its details
+and (if it changes over time) a timeline.
+
 ## 4. Edges — everything that is not containment
 
 A folder tree can only say *inside of*. Everything else is an explicit **edge** in the
