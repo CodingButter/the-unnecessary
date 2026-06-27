@@ -21,7 +21,7 @@ related:
   - "../relationship-map.md"
   - "../viewpoint-rules.md"
   - "../../world/social-structure.md"
-  - "../../world/locations/elis-neighborhood.md"
+  - "../../world/locations/greater-detroit/elis-neighborhood.md"
   - "../../technology/infrastructure/communications.md"
   - "../../technology/infrastructure/identity-and-money.md"
   - "../../timeline/character-birth-dates.md"

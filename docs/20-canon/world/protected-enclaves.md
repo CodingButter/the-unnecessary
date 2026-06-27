@@ -13,7 +13,7 @@ related:
   - "./social-structure.md"
   - "./infrastructure-decline.md"
   - "./mars-and-aurelia.md"
-  - "./locations/lakeward.md"
+  - "./locations/greater-detroit/lakeward.md"
 source_documents:
   - "archive/source-monoliths/story-bible.md"
 ---
@@ -62,4 +62,4 @@ The residents believe their real future is being built on Mars.
 
 ## See also
 
-For the social tiers that define who lives inside these enclaves, see [social structure](./social-structure.md). For the eroding world outside the walls, see [infrastructure decline](./infrastructure-decline.md). For the Mars future the residents are waiting on, see [Mars and Aurelia](./mars-and-aurelia.md). For the canonical example enclave north of Detroit, see [Lakeward](./locations/lakeward.md).
+For the social tiers that define who lives inside these enclaves, see [social structure](./social-structure.md). For the eroding world outside the walls, see [infrastructure decline](./infrastructure-decline.md). For the Mars future the residents are waiting on, see [Mars and Aurelia](./mars-and-aurelia.md). For the canonical example enclave north of Detroit, see [Lakeward](./locations/greater-detroit/lakeward.md).

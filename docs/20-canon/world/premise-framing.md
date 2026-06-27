@@ -48,9 +48,9 @@ subsections already has a dedicated file. Routing it here would let this file
 silently do a locations file's job, which is not permitted.
 
 - Locations index: `./locations/index.md`
-- Eli's Neighborhood: `./locations/elis-neighborhood.md`
-- Lakeward: `./locations/lakeward.md`
-- Northglass: `./locations/northglass.md`
+- Eli's Neighborhood: `./locations/greater-detroit/elis-neighborhood.md`
+- Lakeward: `./locations/greater-detroit/lakeward.md`
+- Northglass: `./locations/greater-detroit/northglass.md`
 - The Neighborhood Network: `../technology/infrastructure/community-infrastructure.md`
 - Mars: `./locations/mars-sites.md`
 - Greater Detroit primary setting: `./locations/greater-detroit.md`

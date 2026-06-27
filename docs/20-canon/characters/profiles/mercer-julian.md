@@ -23,7 +23,7 @@ related:
   - "../relationship-map.md"
   - "../viewpoint-rules.md"
   - "../../world/social-structure.md"
-  - "../../world/locations/lakeward.md"
+  - "../../world/locations/greater-detroit/lakeward.md"
   - "../../world/protected-enclaves.md"
   - "../../world/mars-and-aurelia.md"
   - "../../technology/infrastructure/identity-and-money.md"
@@ -34,7 +34,7 @@ source_documents:
   - "docs/20-canon/characters/profile-spec.md"
   - "docs/20-canon/timeline/character-birth-dates.md"
   - "docs/20-canon/world/social-structure.md"
-  - "docs/20-canon/world/locations/lakeward.md"
+  - "docs/20-canon/world/locations/greater-detroit/lakeward.md"
 ---
 
 # Julian Mercer
@@ -46,9 +46,9 @@ source_documents:
 **Age at the start of Book One:** 12 [canon, `../../timeline/character-birth-dates.md`]
 **Birth date:** April 12, 2041 [canon, `../../timeline/character-birth-dates.md`]
 **Birthplace:** Lakeward, Greater Detroit, in the enclave's private medical facility
-**Current residence:** The Jonah-and-Celeste Mercer home in Lakeward, the protected enclave north of Detroit. [canon that Jonah's family lives in Lakeward, `./mercer-jonah.md`, `../../world/locations/lakeward.md`]
+**Current residence:** The Jonah-and-Celeste Mercer home in Lakeward, the protected enclave north of Detroit. [canon that Jonah's family lives in Lakeward, `./mercer-jonah.md`, `../../world/locations/greater-detroit/lakeward.md`]
 **Household:** Lives with his father **Jonah** (`./mercer-jonah.md`), his mother **Celeste** (`./mercer-celeste.md`), and his younger sister **Amelia** (`./mercer-amelia.md`). His grandparents live a short walk away. [canon family structure, `./mercer-jonah.md`]
-**Occupation:** Student at a private Lakeward school. (school is canon-consistent; Lakeward has private schools, `../../world/locations/lakeward.md`; the specific enrollment is proposed)
+**Occupation:** Student at a private Lakeward school. (school is canon-consistent; Lakeward has private schools, `../../world/locations/greater-detroit/lakeward.md`; the specific enrollment is proposed)
 **Faction or class:** Protected Wealthy, Lakeward, by birth, per `../../world/social-structure.md`. [open]
 **Primary viewpoint:** No. He is never a point-of-view character. (not listed in `../viewpoint-rules.md`)
 **Story role:** Supporting. The enclave-born generation. Julian has never in his life seen a system simply stop. He is the deliberate foil to the children raised outside the walls, like Vance's seventeen-year-old son in Chapter 1, who have never known a system that worked. He is also one of the two human stakes under his father's fear, the child Jonah dreads watching cross from protected life into the abandoned world, and the boy quietly drawn to his grandfather's competence and to his father's oldest friend over the smooth managers of Lakeward.
@@ -191,5 +191,5 @@ Static, immutable. A drafter must not contradict these.
 - Surname Mercer. He is the son of Jonah and Celeste Mercer and the older sibling of Amelia. [canon, `./mercer-jonah.md`]
 - Age 12 at the start of Book One; born April 12, 2041. [canon, `../../timeline/character-birth-dates.md`]
 - His grandfather is Malcolm Mercer, whose neurological decline he has known for most of his life. [canon that Malcolm is ailing, `./mercer-jonah.md`]
-- He lives in Lakeward and has never lived outside a protected enclave. [canon residence, `./mercer-jonah.md`, `../../world/locations/lakeward.md`]
+- He lives in Lakeward and has never lived outside a protected enclave. [canon residence, `./mercer-jonah.md`, `../../world/locations/greater-detroit/lakeward.md`]
 - Accepted as character canon under Decision 056: middle name Malcolm; birthplace Lakeward; left-handedness; the private-school enrollment; the maker's-hobby and chess details; the "Uncle Eli" acquaintance and Julian's fascination with Eli (Eli's reciprocal view remains undefined in canon); and the physical identifiers and behavioral roots of this profile (the behavior-only and reveal-tagged items remain author-facing and are not stated on the page).

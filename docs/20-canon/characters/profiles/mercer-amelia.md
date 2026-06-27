@@ -22,7 +22,7 @@ related:
   - "../relationship-map.md"
   - "../viewpoint-rules.md"
   - "../../world/social-structure.md"
-  - "../../world/locations/lakeward.md"
+  - "../../world/locations/greater-detroit/lakeward.md"
   - "../../world/protected-enclaves.md"
   - "../../world/mars-and-aurelia.md"
   - "../../technology/infrastructure/identity-and-money.md"
@@ -33,7 +33,7 @@ source_documents:
   - "docs/20-canon/characters/profile-spec.md"
   - "docs/20-canon/timeline/character-birth-dates.md"
   - "docs/20-canon/world/social-structure.md"
-  - "docs/20-canon/world/locations/lakeward.md"
+  - "docs/20-canon/world/locations/greater-detroit/lakeward.md"
 ---
 
 # Amelia Mercer
@@ -45,9 +45,9 @@ source_documents:
 **Age at the start of Book One:** 8 [canon, `../../timeline/character-birth-dates.md`]
 **Birth date:** September 3, 2045 [canon, `../../timeline/character-birth-dates.md`]
 **Birthplace:** Lakeward, Greater Detroit, in the enclave's private medical facility
-**Current residence:** The Jonah-and-Celeste Mercer home in Lakeward, the protected enclave north of Detroit. [canon that Jonah's family lives in Lakeward, `./mercer-jonah.md`, `../../world/locations/lakeward.md`]
+**Current residence:** The Jonah-and-Celeste Mercer home in Lakeward, the protected enclave north of Detroit. [canon that Jonah's family lives in Lakeward, `./mercer-jonah.md`, `../../world/locations/greater-detroit/lakeward.md`]
 **Household:** Lives with her father **Jonah** (`./mercer-jonah.md`), her mother **Celeste** (`./mercer-celeste.md`), and her older brother **Julian** (`./mercer-julian.md`). Her grandparents live a short walk away. [canon family structure, `./mercer-jonah.md`]
-**Occupation:** Student in the lower years of a private Lakeward school. (Lakeward has private schools, `../../world/locations/lakeward.md`)
+**Occupation:** Student in the lower years of a private Lakeward school. (Lakeward has private schools, `../../world/locations/greater-detroit/lakeward.md`)
 **Faction or class:** Protected Wealthy, Lakeward, by birth, per `../../world/social-structure.md`. [open]
 **Primary viewpoint:** No. She is never a point-of-view character. (not listed in `../viewpoint-rules.md`)
 **Story role:** Supporting. The fully enclave-native child, with no memory of any world but the maintained one. She is the youngest human stake under her father's fear, the one Jonah is most trying to protect; the child who is unafraid of her grandfather's failing body and sits with him without needing him to answer; and a small, tender image of the book's central tension, a girl bonded to a device that performs love at her while she keeps trying to keep a real living thing alive.
@@ -185,5 +185,5 @@ Static, immutable. A drafter must not contradict these.
 - Surname Mercer. She is the daughter of Jonah and Celeste Mercer and the younger sibling of Julian. [canon, `./mercer-jonah.md`]
 - Age 8 at the start of Book One; born September 3, 2045. [canon, `../../timeline/character-birth-dates.md`]
 - Her grandfather is Malcolm Mercer, ill for the whole of her memory. [canon that Malcolm is ailing, `./mercer-jonah.md`]
-- She lives in Lakeward and has never lived outside a protected enclave. [canon residence, `./mercer-jonah.md`, `../../world/locations/lakeward.md`]
+- She lives in Lakeward and has never lived outside a protected enclave. [canon residence, `./mercer-jonah.md`, `../../world/locations/greater-detroit/lakeward.md`]
 - Accepted as character canon under Decision 056: middle name Elaine; birthplace Lakeward; the companion device Pip; the living-things and drawing hobbies; the lower-school enrollment; and the physical identifiers and behavioral roots of this profile (the behavior-only and reveal-tagged items remain author-facing and are not stated on the page).

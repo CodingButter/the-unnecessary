@@ -1,21 +1,28 @@
 ---
 title: "Eli's Neighborhood"
-document_type: "story-bible-section"
+document_type: "entity"
+entity_type: "district"
 status: "active-canon"
 authority: "world-canon"
-summary: "Canonical world facts for the ordinary residential neighborhood where Eli Rook lives in the Detroit metropolitan area."
+parent: greater-detroit
+summary: "Canonical world facts for the ordinary, canonically unnamed residential neighborhood where Eli Rook lives in Greater Detroit. Promoted to a district entity (spec section 7); carries the withdrawal-status timeline that the early chapters render."
 tags:
   - world
   - location
   - neighborhood
   - eli
+  - district
 related:
-  - "./greater-detroit.md"
+  - "../greater-detroit.md"
   - "./lakeward.md"
   - "./northglass.md"
-  - "../../world/index.md"
+  - "../../../world/index.md"
+  - "../../../../00-governance/entity-spec.md"
 source_documents:
   - "archive/source-monoliths/story-bible.md"
+  - "docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md"
+  - "docs/20-canon/timeline/book-1/act-1-timeline.md"
+  - "docs/20-canon/timeline/book-1/pre-book-2053.md"
 ---
 
 ## Eli's Neighborhood
@@ -48,4 +55,25 @@ Normality requires increasing amounts of technical skill and collective labor.
 
 ## See also
 
-This neighborhood sits inside the wider [Greater Detroit](./greater-detroit.md) setting, which also documents the informal neighborhood network of cooperating communities.
+This neighborhood sits inside the wider [Greater Detroit](../greater-detroit.md) setting, which also documents the informal neighborhood network of cooperating communities.
+
+```yaml
+# District entity. Its buildings are DERIVED by walking the elis-neighborhood/ folder
+# (spec section 3); the street network lives in elis-neighborhood/streets/ as a browse-only
+# bucket (graph-only entities, spec section 7). The neighborhood is canonically UNNAMED.
+facts:
+  named: false                 # residents keep its pre-collapse name (Ch1); no in-world name exists in canon -- do not invent one
+  withdrawal_factor: 0.65      # ESTIMATE for the time-is-politics travel model (spec section 5), not a stated-canon number; rises with each event below
+edges: {}                      # no adjacency edge: canon names no bordering district. Inter-district TRAVEL TIMES live once in
+                               # docs/20-canon/timeline/book-1/index.md and are derived route data (Lakeward ~35-60 min N; Northglass ~20-35 min), never stored here.
+timeline:
+  - when: 2053-01
+    set: { withdrawal_factor: 0.5 }
+    note: "Regional power provider introduces automated priority tiers; the neighborhood is classified BELOW protected, industrial, and government zones (pre-book-2053.md)."
+  - when: 2053-10-03
+    set: { cellular: withdrawn }
+    note: "Regional cellular formally withdrawn, 'no longer supported under current service-continuity thresholds' (Ch1). The local mesh still runs off the library hub."
+  - when: 2053-10-03
+    set: { withdrawal_factor: 0.65, emergency_power_restore: false }
+    note: "Midday reclassification to a lower power distribution tier; outages here are no longer processed as emergency restoration events (Ch1; act-1-timeline.md)."
+```

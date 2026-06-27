@@ -35,9 +35,9 @@ Start with [greater-detroit.md](./greater-detroit.md). It establishes the primar
 | File | Summary |
 |---|---|
 | [greater-detroit.md](./greater-detroit.md) | The primary setting: a former automation boomtown now holding ordinary neighborhoods, autonomous facilities, abandoned campuses, and wealthy enclaves within driving distance, plus the fragile informal neighborhood network that Morrow initially exists to coordinate. |
-| [elis-neighborhood.md](./elis-neighborhood.md) | The ordinary, still-named residential neighborhood in the Detroit metro area where Eli lives, recognizable but quietly degrading, where normal life now requires growing technical skill and collective labor. |
-| [lakeward.md](./lakeward.md) | A protected wealthy enclave north of Detroit, maintained through corporate contracts and resident ownership, home to Jonah Mercer and his family, whose residents wrongly believe their protection is permanent. |
-| [northglass.md](./northglass.md) | Asterion's abandoned Great Lakes research campus, the physical base from which Eli builds Morrow; defers to the technology domain for facility history and Morrow's origin. |
+| [elis-neighborhood.md](./greater-detroit/elis-neighborhood.md) | The ordinary, still-named residential neighborhood in the Detroit metro area where Eli lives, recognizable but quietly degrading, where normal life now requires growing technical skill and collective labor. |
+| [lakeward.md](./greater-detroit/lakeward.md) | A protected wealthy enclave north of Detroit, maintained through corporate contracts and resident ownership, home to Jonah Mercer and his family, whose residents wrongly believe their protection is permanent. |
+| [northglass.md](./greater-detroit/northglass.md) | Asterion's abandoned Great Lakes research campus, the physical base from which Eli builds Morrow; defers to the technology domain for facility history and Morrow's origin. |
 | [mars-sites.md](./mars-sites.md) | How Mars appears in Book One: a machine-inhabited landscape seen through corporate footage, telemetry, and viewpoint scenes, its silence set against the struggling communities on Earth. |
 
 ## Authority and status
@@ -49,9 +49,9 @@ Every file in this subtree carries `authority: world-canon` and `status: active-
 | If you need to | Go to |
 |---|---|
 | Set up the regional geography or the neighborhood network | [greater-detroit.md](./greater-detroit.md) |
-| Write a scene at Eli's home or in his community | [elis-neighborhood.md](./elis-neighborhood.md) |
-| Write inside the wealthy enclave or with the Mercers | [lakeward.md](./lakeward.md) |
-| Stage scenes at the abandoned Asterion campus | [northglass.md](./northglass.md) |
+| Write a scene at Eli's home or in his community | [elis-neighborhood.md](./greater-detroit/elis-neighborhood.md) |
+| Write inside the wealthy enclave or with the Mercers | [lakeward.md](./greater-detroit/lakeward.md) |
+| Stage scenes at the abandoned Asterion campus | [northglass.md](./greater-detroit/northglass.md) |
 | Depict Mars as it appears in Book One | [mars-sites.md](./mars-sites.md) |
 
 ## Related indexes

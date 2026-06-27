@@ -25,7 +25,7 @@ related:
   - "../relationship-map.md"
   - "../viewpoint-rules.md"
   - "../../world/social-structure.md"
-  - "../../world/locations/lakeward.md"
+  - "../../world/locations/greater-detroit/lakeward.md"
   - "../../world/protected-enclaves.md"
   - "../../world/mars-and-aurelia.md"
   - "../../technology/infrastructure/identity-and-money.md"
@@ -36,7 +36,7 @@ source_documents:
   - "docs/20-canon/characters/profile-spec.md"
   - "docs/20-canon/timeline/character-birth-dates.md"
   - "docs/20-canon/world/social-structure.md"
-  - "docs/20-canon/world/locations/lakeward.md"
+  - "docs/20-canon/world/locations/greater-detroit/lakeward.md"
   - "docs/20-canon/technology/infrastructure/identity-and-money.md"
 ---
 

@@ -20,7 +20,7 @@ related:
   - "../../world/social-structure.md"
   - "../../world/protected-enclaves.md"
   - "../../world/mars-and-aurelia.md"
-  - "../../world/locations/lakeward.md"
+  - "../../world/locations/greater-detroit/lakeward.md"
   - "../../technology/infrastructure/identity-and-money.md"
   - "../../timeline/character-birth-dates.md"
 source_documents:
@@ -30,7 +30,7 @@ source_documents:
   - "docs/20-canon/world/social-structure.md"
   - "docs/20-canon/world/mars-and-aurelia.md"
   - "docs/20-canon/world/protected-enclaves.md"
-  - "docs/20-canon/world/locations/lakeward.md"
+  - "docs/20-canon/world/locations/greater-detroit/lakeward.md"
   - "docs/20-canon/technology/infrastructure/identity-and-money.md"
 ---
 
@@ -43,7 +43,7 @@ source_documents:
 **Age at the start of Book One:** 27 [canon, character-birth-dates.md]
 **Birth date:** November 4, 2025 [canon, character-birth-dates.md]
 **Birthplace:** Lansing, Michigan
-**Current residence:** Lakeward, the protected enclave north of Detroit, per `../../world/locations/lakeward.md`. Evan lives carelessly inside Lakeward. [canon, voss-mara.md]
+**Current residence:** Lakeward, the protected enclave north of Detroit, per `../../world/locations/greater-detroit/lakeward.md`. Evan lives carelessly inside Lakeward. [canon, voss-mara.md]
 **Household:** Lives in his own residence within Lakeward, separate from Mara's household but funded through it; staffed and maintained by enclave service contracts and an autonomous household system rather than by Evan. He does not share a roof with his mother. [open]
 **Occupation:** None in any earning sense. He has no profession, no trade, and no institutional role. His days are leisure, socializing, and consumption inside the enclave. [canon that he has no useful expertise, voss-mara.md]
 **Faction or class:** Protected Wealthy, Lakeward, per `../../world/social-structure.md`. [open] He is the inherited, second-generation version of his class: protected by his mother's standing rather than by anything he built.
