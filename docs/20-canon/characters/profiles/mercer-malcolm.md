@@ -66,9 +66,9 @@ Six feet even, the same height his son Jonah carries, though the inch of stoop t
 
 ### Coloring
 
-Fair, ruddy complexion gone pale and papery with indoor years. Hair full but entirely white, kept short and barbered at home now that he cannot easily go out. Pale gray-blue eyes, still quick and tracking, which is the cruelty of the condition: the eyes plainly contain a man who is all there, behind a body that increasingly will not answer him.
+A light brown, warm-toned complexion, freckled across the cheekbones, gone sallow and papery with indoor years. Hair full but entirely white now, kept short and barbered at home now that he cannot easily go out. Light hazel eyes, still quick and tracking, which is the cruelty of the condition: the eyes plainly contain a man who is all there, behind a body that increasingly will not answer him.
 
-**Heritage:** African-American: a Great Migration family from downriver River Rouge with Deep-South roots. He sits at the light-skinned, European-admixed end of the Black spectrum, so the fair, ruddy, light-eyed coloring reads as a very light, light-eyed Black man.
+**Heritage:** African-American: a Great Migration family that came up from the Deep South to downriver River Rouge. Light-skinned and freckled, the coloring of generations of mixed Southern ancestry.
 
 ### Face
 
