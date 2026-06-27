@@ -286,6 +286,30 @@ semantic half costs tokens and runs when you make a revision, reading only what 
 touched. The payoff is the one you named: **make the decision that fits the story better,
 anytime, and the diff tells you everywhere that now has to agree.**
 
+### 10a. Prose as a source — backfilling the timeline (the backward direction)
+
+Continuity also runs **backward**: prose is not only a *consumer* of canon, it is a
+*source* of it. A drafted or revised chapter is read by an AI that knows the scene's
+anchor date (from the blueprint), so it can resolve **relative and implicit** temporal
+claims a script never could — "the couch used to live at the Gormans four months ago,"
+read in an October 2053 scene, becomes "couch `located-in: gorman-house` until ~June
+2053." For each such claim the AI reconciles against the entity's timeline and takes one
+of three actions:
+
+- **Consistent** — the timeline already records it. Nothing to do.
+- **New** — the timeline lacks it. **Backfill it**, tagged with its source (`from:
+  b1-ch7`) so it is auditable and re-checkable. A fact stated in *approved* prose is
+  already canon, so formalizing it into the timeline records canon rather than inventing
+  it; a fact from *draft* prose is written `(proposed)` pending approval.
+- **Contradiction** — the timeline says something else for that date. **Flag it for the
+  author; never silently resolve it** (per the canon-conflict rule). The diff-judge
+  surfaces exactly which prose and which timeline entry disagree.
+
+The payoff: the structured timeline becomes **self-populating from the natural act of
+writing.** The author writes the evocative line because it serves the scene; the world
+model captures it as queryable, dated, validated canon. Structured continuity becomes a
+*byproduct* of good prose, not separate bookkeeping.
+
 ## 11. Validation (the rails)
 
 A generalized validator enforces, across all entity types:
