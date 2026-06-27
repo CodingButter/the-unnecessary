@@ -67,7 +67,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Daniel Rook](../portraits/rook-daniel.png)
+![Portrait of Daniel Rook](../portraits/rook-daniel.jpg)
 
 ### Frame
 

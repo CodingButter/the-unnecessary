@@ -62,7 +62,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Jonah Mercer](../portraits/mercer-jonah.png)
+![Portrait of Jonah Mercer](../portraits/mercer-jonah.jpg)
 
 ### Frame
 

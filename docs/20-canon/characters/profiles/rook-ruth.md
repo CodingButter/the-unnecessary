@@ -63,7 +63,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Ruth Rook](../portraits/rook-ruth.png)
+![Portrait of Ruth Rook](../portraits/rook-ruth.jpg)
 
 ### Frame
 

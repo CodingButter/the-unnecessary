@@ -60,7 +60,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Aminata Diallo](../portraits/diallo-aminata.png)
+![Portrait of Aminata Diallo](../portraits/diallo-aminata.jpg)
 
 ### Frame
 

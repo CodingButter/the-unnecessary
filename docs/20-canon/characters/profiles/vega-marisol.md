@@ -54,7 +54,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Marisol Vega](../portraits/vega-marisol.png)
+![Portrait of Marisol Vega](../portraits/vega-marisol.jpg)
 
 ### Frame
 

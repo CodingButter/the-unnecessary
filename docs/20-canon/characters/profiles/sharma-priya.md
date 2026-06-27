@@ -59,7 +59,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Priya Sharma](../portraits/sharma-priya.png)
+![Portrait of Priya Sharma](../portraits/sharma-priya.jpg)
 
 ### Frame
 

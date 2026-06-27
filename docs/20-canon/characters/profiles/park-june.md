@@ -66,7 +66,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of June Park](../portraits/park-june.png)
+![Portrait of June Park](../portraits/park-june.jpg)
 
 ### Frame
 

@@ -70,7 +70,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Malcolm Mercer](../portraits/mercer-malcolm.png)
+![Portrait of Malcolm Mercer](../portraits/mercer-malcolm.jpg)
 
 ### Frame
 

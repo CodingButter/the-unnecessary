@@ -61,7 +61,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Dr. Lena Okafor](../portraits/okafor-lena.png)
+![Portrait of Dr. Lena Okafor](../portraits/okafor-lena.jpg)
 
 ### Frame
 

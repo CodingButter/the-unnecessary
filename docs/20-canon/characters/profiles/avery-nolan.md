@@ -57,7 +57,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Nolan Avery](../portraits/avery-nolan.png)
+![Portrait of Nolan Avery](../portraits/avery-nolan.jpg)
 
 ### Frame
 

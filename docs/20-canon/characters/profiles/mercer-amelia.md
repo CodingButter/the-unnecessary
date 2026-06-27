@@ -64,7 +64,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Amelia Mercer](../portraits/mercer-amelia.png)
+![Portrait of Amelia Mercer](../portraits/mercer-amelia.jpg)
 
 ### Frame
 

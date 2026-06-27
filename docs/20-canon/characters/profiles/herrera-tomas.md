@@ -60,7 +60,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Tomas Herrera](../portraits/herrera-tomas.png)
+![Portrait of Tomas Herrera](../portraits/herrera-tomas.jpg)
 
 ### Frame
 

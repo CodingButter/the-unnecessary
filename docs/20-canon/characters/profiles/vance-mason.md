@@ -59,7 +59,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Mason Vance](../portraits/vance-mason.png)
+![Portrait of Mason Vance](../portraits/vance-mason.jpg)
 
 ### Frame
 

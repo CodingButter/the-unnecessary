@@ -56,7 +56,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Adrian Kade](../portraits/kade-adrian.png)
+![Portrait of Adrian Kade](../portraits/kade-adrian.jpg)
 
 ### Frame
 

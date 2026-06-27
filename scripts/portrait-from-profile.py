@@ -4,7 +4,7 @@
 A "party trick" derived-artifact tool. The portrait is a downstream RENDER of the
 canon profile, the way the chapter audio is a render of the manuscript: fully
 automatic, no human approval, regenerate any time. The profile is the source of
-truth; this PNG is a disposable output and can always be rebuilt from the file.
+truth; this JPEG is a disposable output and can always be rebuilt from the file.
 
 Reveal-safety is the load-bearing rule. The portrait is a page-visible artifact,
 so it is built ONLY from page-usable appearance facts: facts tagged `[open]` or
@@ -265,18 +265,21 @@ def call_gemini_image(model, key, prompt):
     return None, "no image in response (finishReason=" + str(reason) + ") " + note
 
 
-def resize_png(png_bytes, out_path, width):
-    """Downscale raw PNG bytes to <width> px wide (aspect preserved) via ffmpeg,
+def resize_to_jpeg(png_bytes, out_path, width):
+    """Downscale raw PNG bytes (the model's output) to <width> px wide (aspect
+    preserved) and re-encode as JPEG at quality ~82 in a single ffmpeg pass,
     writing the result to out_path. ffmpeg is already a repo dependency, so no
     Pillow/PIL is pulled in. scale=<width>:-2 keeps the height even and the
-    aspect ratio intact. Returns (ok, err)."""
+    aspect ratio intact; -q:v 4 is ffmpeg's JPEG quality knob (~82, lower is
+    better, 2-31 range). JPEG keeps the repo lean as the image set grows.
+    Returns (ok, err)."""
     with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
         tmp.write(png_bytes)
         tmp_path = tmp.name
     try:
         proc = subprocess.run(
             ["ffmpeg", "-y", "-i", tmp_path,
-             "-vf", "scale=" + str(width) + ":-2", out_path],
+             "-vf", "scale=" + str(width) + ":-2", "-q:v", "4", out_path],
             stdout=subprocess.DEVNULL, stderr=subprocess.PIPE,
         )
         if proc.returncode != 0:
@@ -293,9 +296,9 @@ def resize_png(png_bytes, out_path, width):
 
 def embed_in_profile(profile_path, slug, name):
     """Insert the portrait image under the Physical heading. Idempotent: if a
-    line already references ../portraits/<slug>.png, leave the file untouched."""
+    line already references ../portraits/<slug>.jpg, leave the file untouched."""
     text = read_file(profile_path)
-    rel = "../portraits/" + slug + ".png"
+    rel = "../portraits/" + slug + ".jpg"
     if rel in text:
         return "already embedded"
     embed = "![Portrait of " + name + "](" + rel + ")"
@@ -325,10 +328,11 @@ def generate_for(profile_path, model, key, width=DEFAULT_WIDTH):
     if err:
         return False, "FAILED " + slug + ": " + err
     os.makedirs(PORTRAITS_DIR, exist_ok=True)
-    out_path = os.path.join(PORTRAITS_DIR, slug + ".png")
-    # Downscale to ~<width>px wide before saving + embedding: the portrait is a
-    # repo artifact, so the full-res model output is needless weight.
-    ok, resize_err = resize_png(png, out_path, width)
+    out_path = os.path.join(PORTRAITS_DIR, slug + ".jpg")
+    # Downscale to ~<width>px wide and re-encode as JPEG before saving +
+    # embedding: the portrait is a repo artifact, so the full-res PNG model
+    # output is needless weight, and JPEG keeps the growing image set lean.
+    ok, resize_err = resize_to_jpeg(png, out_path, width)
     if not ok:
         return False, "FAILED " + slug + ": resize: " + resize_err
     sized = os.path.getsize(out_path)

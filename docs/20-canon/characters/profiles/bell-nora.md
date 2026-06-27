@@ -52,7 +52,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Nora Bell](../portraits/bell-nora.png)
+![Portrait of Nora Bell](../portraits/bell-nora.jpg)
 
 The physical layer is absent from canon and is supplied here under the spec's zero-blanks rule; every sub-block is invention.
 

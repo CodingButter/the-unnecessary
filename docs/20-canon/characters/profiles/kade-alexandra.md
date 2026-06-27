@@ -69,7 +69,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Alexandra Kade](../portraits/kade-alexandra.png)
+![Portrait of Alexandra Kade](../portraits/kade-alexandra.jpg)
 
 ### Frame
 

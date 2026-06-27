@@ -69,7 +69,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Daniel Park](../portraits/park-daniel.png)
+![Portrait of Daniel Park](../portraits/park-daniel.jpg)
 
 ### Frame
 

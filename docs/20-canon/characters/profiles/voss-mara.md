@@ -60,7 +60,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Mara Voss](../portraits/voss-mara.png)
+![Portrait of Mara Voss](../portraits/voss-mara.jpg)
 
 ### Frame
 

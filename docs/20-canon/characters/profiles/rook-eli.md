@@ -57,7 +57,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Elias “Eli” Rook](../portraits/rook-eli.png)
+![Portrait of Elias “Eli” Rook](../portraits/rook-eli.jpg)
 
 ### Frame
 

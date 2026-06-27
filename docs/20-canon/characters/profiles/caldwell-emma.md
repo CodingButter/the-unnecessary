@@ -60,7 +60,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of The Caldwell Girl](../portraits/caldwell-emma.png)
+![Portrait of The Caldwell Girl](../portraits/caldwell-emma.jpg)
 
 ### Frame
 

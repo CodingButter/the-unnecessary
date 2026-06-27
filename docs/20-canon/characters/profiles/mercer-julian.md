@@ -65,7 +65,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Julian Mercer](../portraits/mercer-julian.png)
+![Portrait of Julian Mercer](../portraits/mercer-julian.jpg)
 
 ### Frame
 

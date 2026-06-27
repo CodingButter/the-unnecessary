@@ -60,7 +60,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Marek Vesely](../portraits/vesely-marek.png)
+![Portrait of Marek Vesely](../portraits/vesely-marek.jpg)
 
 ### Frame
 

@@ -61,7 +61,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Soo-jin Park](../portraits/park-soojin.png)
+![Portrait of Soo-jin Park](../portraits/park-soojin.jpg)
 
 ### Frame
 

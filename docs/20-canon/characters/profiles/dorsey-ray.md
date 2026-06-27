@@ -59,7 +59,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Raymond Dorsey](../portraits/dorsey-ray.png)
+![Portrait of Raymond Dorsey](../portraits/dorsey-ray.jpg)
 
 ### Frame
 

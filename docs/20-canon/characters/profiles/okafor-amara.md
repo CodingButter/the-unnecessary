@@ -59,7 +59,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Amara Okafor](../portraits/okafor-amara.png)
+![Portrait of Amara Okafor](../portraits/okafor-amara.jpg)
 
 ### Frame
 

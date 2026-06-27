@@ -65,7 +65,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Elaine Mercer](../portraits/mercer-elaine.png)
+![Portrait of Elaine Mercer](../portraits/mercer-elaine.jpg)
 
 ### Frame
 

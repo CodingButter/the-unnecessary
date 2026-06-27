@@ -63,7 +63,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Sékou Dembélé](../portraits/dembele-sekou.png)
+![Portrait of Sékou Dembélé](../portraits/dembele-sekou.jpg)
 
 ### Frame
 

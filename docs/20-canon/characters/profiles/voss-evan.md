@@ -65,7 +65,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Evan Voss](../portraits/voss-evan.png)
+![Portrait of Evan Voss](../portraits/voss-evan.jpg)
 
 ### Frame
 

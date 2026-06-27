@@ -60,7 +60,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Ngozi Okonkwo](../portraits/okonkwo-ngozi.png)
+![Portrait of Ngozi Okonkwo](../portraits/okonkwo-ngozi.jpg)
 
 ### Frame
 

@@ -60,7 +60,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Mr. Adeyemi](../portraits/adeyemi-bayo.png)
+![Portrait of Mr. Adeyemi](../portraits/adeyemi-bayo.jpg)
 
 ### Frame
 

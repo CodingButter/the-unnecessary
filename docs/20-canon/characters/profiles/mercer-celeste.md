@@ -59,7 +59,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Celeste Mercer](../portraits/mercer-celeste.png)
+![Portrait of Celeste Mercer](../portraits/mercer-celeste.jpg)
 
 ### Frame
 

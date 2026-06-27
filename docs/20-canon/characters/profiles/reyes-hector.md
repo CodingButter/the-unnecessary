@@ -62,7 +62,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Hector Reyes](../portraits/reyes-hector.png)
+![Portrait of Hector Reyes](../portraits/reyes-hector.jpg)
 
 ### Frame
 

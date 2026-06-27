@@ -56,7 +56,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Sera Vale](../portraits/vale-sera.png)
+![Portrait of Sera Vale](../portraits/vale-sera.jpg)
 
 ### Frame
 

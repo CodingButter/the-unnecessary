@@ -59,7 +59,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Marcus Vance](../portraits/vance-marcus.png)
+![Portrait of Marcus Vance](../portraits/vance-marcus.jpg)
 
 ### Frame
 

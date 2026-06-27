@@ -58,7 +58,7 @@ source_documents:
 
 ## Physical and Identifiers
 
-![Portrait of Talia Reed](../portraits/reed-talia.png)
+![Portrait of Talia Reed](../portraits/reed-talia.jpg)
 
 ### Frame
 
