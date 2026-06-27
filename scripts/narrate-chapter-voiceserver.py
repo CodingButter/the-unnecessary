@@ -373,7 +373,8 @@ def healthz(api):
         return (False, str(err)[:200])
 
 
-def generate(api, voice, profile, text, out_path, rep_penalty=None):
+def generate(api, voice, profile, text, out_path, rep_penalty=None,
+             base_temp=0.6, max_temp=0.8):
     """POST one chunk to /api/generate -> WAV on disk. Returns (None, duration_secs)
     on success or (error_string, None). Retries on 5xx up to 3 times."""
     url = api.rstrip("/") + "/api/generate"
@@ -381,6 +382,14 @@ def generate(api, voice, profile, text, out_path, rep_penalty=None):
     if rep_penalty is not None:
         payload["repetition_penalty"] = rep_penalty
     payload.update(profile or {})
+    # Temperature drives Chatterbox's randomness, and high temperature is where the
+    # non-speech "garble" artifacts come from. Give EVERY chunk an explicit, steady
+    # temperature: the profile's own value if it set one, else base_temp, then clamp
+    # to max_temp so nothing reaches the unstable >=0.85 zone the API docs warn about.
+    temp = profile.get("temperature") if profile else None
+    if temp is None:
+        temp = base_temp
+    payload["temperature"] = min(float(temp), max_temp)
     body = json.dumps(payload).encode("utf-8")
 
     last_err = None
@@ -482,6 +491,13 @@ def main():
     ap.add_argument("--repetition-penalty", type=float, default=1.4,
                     help="Chatterbox repetition_penalty (1.0-2.0). Higher suppresses repeated "
                          "phrases; too high flattens prosody. Default 1.4 (server default 1.2).")
+    ap.add_argument("--temperature", type=float, default=0.6,
+                    help="Base sampling temperature for chunks whose tag profile sets none. "
+                         "Lower = steadier, fewer garble artifacts (~0.65-0.75 is the stable "
+                         "narration zone). Default 0.6.")
+    ap.add_argument("--max-temp", type=float, default=0.8,
+                    help="Hard ceiling on every chunk's temperature (>=0.85 gets unstable per "
+                         "the API docs); clamps any higher profile temperature down. Default 0.8.")
     ap.add_argument("--api", default=DEFAULT_API)
     ap.add_argument("--dry-run", action="store_true",
                     help="Print the chunk plan and exit without calling the API.")
@@ -535,7 +551,8 @@ def main():
             continue
         print("  chunk %02d/%d  [%s]  %d chars ..."
               % (i, len(chunks), profile_str(prof), len(ch["text"])), file=sys.stderr)
-        err, dur = generate(args.api, args.voice, prof, ch["text"], cf, args.repetition_penalty)
+        err, dur = generate(args.api, args.voice, prof, ch["text"], cf, args.repetition_penalty,
+                            args.temperature, args.max_temp)
         if err:
             print("ERROR on chunk %d: %s" % (i, err), file=sys.stderr)
             return 1
