@@ -53,6 +53,9 @@ import urllib.error
 # an injected http_proxy. The voice API is a direct LAN/host call; a proxy is never wanted
 # here. (Harmless when no proxy is set, which is the norm.) Use _OPENER.open(...).
 _OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+# Cloudflare WAF on the public API (voice.codingbutter.com) 403s the default python-urllib
+# User-Agent; present a browser UA so generation + Whisper transcription work off-LAN too.
+_OPENER.addheaders = [("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")]
 
 DEFAULT_API = "http://voice.codingbutter.com"
 SAMPLE_RATE = 24000
