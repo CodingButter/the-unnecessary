@@ -8,7 +8,7 @@ tags: ["decision", "morrow", "reveal", "theme", "act-1", "reveal-safe", "hazard"
 related:
   - "../../../20-canon/technology/ai/morrow.md"
   - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "./050-morrow-is-a-true-asi-eli-secretly-created-six-years-ago-and-resumes.md"
   - "../index.md"
 source_documents:
@@ -64,7 +64,7 @@ Placing the deep reveal late, on a match-cut into the turn-on, keeps "Escaping" 
 
 - `docs/20-canon/technology/ai/morrow.md`
 - `docs/20-canon/characters/profiles/morrow.md`
-- `docs/20-canon/characters/profiles/eli-rook.md`
+- `docs/20-canon/characters/profiles/rook-eli.md`
 - `docs/30-plot/book-1/chapters/index.md`
 - `docs/40-blueprints/book-1/` (new blueprints for the Northglass and turn-on chapters)
 - `docs/60-continuity/relationships/eli-and-morrow.md`

@@ -10,9 +10,9 @@ tags:
   - jonah-mercer
   - book-1
 related:
-  - "../../20-canon/characters/profiles/jonah-mercer.md"
+  - "../../20-canon/characters/profiles/mercer-jonah.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/jonah-mercer.md"
+  - "docs/20-canon/characters/profiles/mercer-jonah.md"
 ---
 
 # Character State: Jonah Mercer (Story Start)

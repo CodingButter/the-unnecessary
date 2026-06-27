@@ -22,19 +22,19 @@ Read first: the profile of the viewpoint character for the scene you are working
 
 | Character | Role | Viewpoint | File |
 | --- | --- | ---: | --- |
-| Elias "Eli" Rook | Protagonist, Morrow's creator | Yes | [eli-rook.md](eli-rook.md) |
-| Jonah Mercer | Childhood friend, Lakeward access | Yes | [jonah-mercer.md](jonah-mercer.md) |
-| Adrian Kade | Asterion founder, antagonist | Yes | [adrian-kade.md](adrian-kade.md) |
-| Dr. Lena Okafor | Clinic director | Yes | [lena-okafor.md](lena-okafor.md) |
-| June Park | Community organizer | Yes | [june-park.md](june-park.md) |
-| Mara Voss | Asterion insider | Yes | [mara-voss.md](mara-voss.md) |
-| Sera Vale | Supporting viewpoint | Yes | [sera-vale.md](sera-vale.md) |
-| Talia Reed | Supporting cast | No | [talia-reed.md](talia-reed.md) |
-| Nolan Avery | Supporting cast | No | [nolan-avery.md](nolan-avery.md) |
-| Celeste Mercer | Supporting cast | No | [celeste-mercer.md](celeste-mercer.md) |
-| Nora Bell | Supporting cast | No | [nora-bell.md](nora-bell.md) |
-| Morrow | Nonhuman intelligence (Eli's) | No | [morrow.md](morrow.md) |
-| Crown | Nonhuman intelligence (Asterion's) | No | [crown.md](crown.md) |
+| Elias "Eli" Rook | Protagonist, Morrow's creator | Yes | [rook-eli.md](./rook-eli.md) |
+| Jonah Mercer | Childhood friend, Lakeward access | Yes | [mercer-jonah.md](./mercer-jonah.md) |
+| Adrian Kade | Asterion founder, antagonist | Yes | [kade-adrian.md](./kade-adrian.md) |
+| Dr. Lena Okafor | Clinic director | Yes | [okafor-lena.md](./okafor-lena.md) |
+| June Park | Community organizer | Yes | [park-june.md](./park-june.md) |
+| Mara Voss | Asterion insider | Yes | [voss-mara.md](./voss-mara.md) |
+| Sera Vale | Supporting viewpoint | Yes | [vale-sera.md](./vale-sera.md) |
+| Talia Reed | Supporting cast | No | [reed-talia.md](./reed-talia.md) |
+| Nolan Avery | Supporting cast | No | [avery-nolan.md](./avery-nolan.md) |
+| Celeste Mercer | Supporting cast | No | [mercer-celeste.md](./mercer-celeste.md) |
+| Nora Bell | Supporting cast | No | [bell-nora.md](./bell-nora.md) |
+| Morrow | Nonhuman intelligence (Eli's) | No | [morrow.md](./morrow.md) |
+| Crown | Nonhuman intelligence (Asterion's) | No | [crown.md](./crown.md) |
 
 Morrow and Crown carry behavioral identity here; their architecture and capabilities live in the technology AI files ([../../technology/ai/morrow.md](../../technology/ai/morrow.md), [../../technology/ai/crown.md](../../technology/ai/crown.md)).
 

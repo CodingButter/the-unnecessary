@@ -6,9 +6,9 @@ authority: "plot-plan"
 summary: "High-level plot-map entry for Book One Chapter 15, June viewpoint, advancing Morrow's emerging identity without proving consciousness."
 tags: ["plot", "book-1", "act-2", "chapter-15", "june", "morrow"]
 related:
-  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/park-june.md"
   - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/technology/ai/consciousness-and-personhood.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:

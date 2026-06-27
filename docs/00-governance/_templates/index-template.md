@@ -142,8 +142,8 @@ Read this index before loading individual character profiles.
 
 | Character   | Role            | Viewpoint | Load when                                            | File                               |
 | ----------- | --------------- | --------: | ---------------------------------------------------- | ---------------------------------- |
-| Eli Rook    | Protagonist     |       Yes | Any Eli chapter, Morrow creation, Asterion history   | [Profile](profiles/eli-rook.md)    |
-| Lena Okafor | Clinic director |       Yes | Medical ethics, clinic scenes, Morrow accountability | [Profile](profiles/lena-okafor.md) |
+| Eli Rook    | Protagonist     |       Yes | Any Eli chapter, Morrow creation, Asterion history   | [Profile](profiles/rook-eli.md)    |
+| Lena Okafor | Clinic director |       Yes | Medical ethics, clinic scenes, Morrow accountability | [Profile](profiles/okafor-lena.md) |
 -->
 
 <!--

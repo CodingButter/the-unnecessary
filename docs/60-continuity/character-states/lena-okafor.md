@@ -10,9 +10,9 @@ tags:
   - lena-okafor
   - book-1
 related:
-  - "../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../20-canon/characters/profiles/okafor-lena.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/lena-okafor.md"
+  - "docs/20-canon/characters/profiles/okafor-lena.md"
 ---
 
 # Character State: Dr. Lena Okafor (Story Start)

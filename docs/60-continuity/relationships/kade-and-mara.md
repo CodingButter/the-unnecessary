@@ -15,8 +15,8 @@ related:
   - "../knowledge-state/mara-voss.md"
 source_documents:
   - "docs/20-canon/characters/relationship-map.md"
-  - "docs/20-canon/characters/profiles/adrian-kade.md"
-  - "docs/20-canon/characters/profiles/mara-voss.md"
+  - "docs/20-canon/characters/profiles/kade-adrian.md"
+  - "docs/20-canon/characters/profiles/voss-mara.md"
 ---
 
 # Relationship State at Story Start: Kade and Mara

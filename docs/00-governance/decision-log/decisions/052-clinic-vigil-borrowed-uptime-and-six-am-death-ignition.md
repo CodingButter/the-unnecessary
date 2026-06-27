@@ -6,8 +6,8 @@ authority: "governance"
 summary: "Adds the October 3 night sequence. The clinic setup is grounded through Lena's POV chapter; Eli's own POV vigil chapter is the night itself, where he races and fails to reflash firmware and stand up a local emulation server before midnight. After midnight comes the reprieve that isn't: the equipment still works but only until it is restarted, living on borrowed uptime. At 6 a.m. a power outage stops a respirator and the man on it dies, off the page, inferred. Grief, not a decision, ignites Eli's move to resume Morrow; the following days seal it. This amends Decision 045 by moving the midnight outcome off Chapter 1's page."
 tags: ["decision", "plot", "structure", "act-1", "eli", "lena", "continuity"]
 related:
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
+  - "../../../20-canon/characters/profiles/okafor-lena.md"
   - "../../../20-canon/technology/infrastructure/cloud-dependency.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
   - "./045-chapter-1-ends-on-clinic-midnight-deadline.md"

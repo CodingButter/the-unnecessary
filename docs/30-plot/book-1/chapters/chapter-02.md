@@ -7,8 +7,8 @@ summary: "High-level plot-map entry for Book One Chapter 2, viewpoint Lena, show
 tags: ["plot", "book-1", "act-1", "chapter-02", "lena"]
 related:
   - "../act-1.md"
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/okafor-lena.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/technology/medicine.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
@@ -60,7 +60,7 @@ The night deepens, Lena's patients are as settled as she can make them, and it i
 
 For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
 
-- Lena Okafor profile: [lena-okafor.md](../../../20-canon/characters/profiles/lena-okafor.md)
-- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
+- Lena Okafor profile: [lena-okafor.md](../../../20-canon/characters/profiles/okafor-lena.md)
+- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md)
 - Medical technology rules: [medicine.md](../../../20-canon/technology/medicine.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

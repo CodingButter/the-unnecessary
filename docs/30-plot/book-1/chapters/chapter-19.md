@@ -6,8 +6,8 @@ authority: "plot-plan"
 summary: "High-level plot-map entry for Book One Chapter 19, Jonah viewpoint, exposing Morrow to Asterion and revealing Jonah's desperation."
 tags: ["plot", "book-1", "act-2", "chapter-19", "jonah", "crown", "morrow"]
 related:
-  - "../../../20-canon/characters/profiles/jonah-mercer.md"
-  - "../../../20-canon/characters/profiles/celeste-mercer.md"
+  - "../../../20-canon/characters/profiles/mercer-jonah.md"
+  - "../../../20-canon/characters/profiles/mercer-celeste.md"
   - "../../../20-canon/characters/profiles/crown.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/world/protected-enclaves.md"

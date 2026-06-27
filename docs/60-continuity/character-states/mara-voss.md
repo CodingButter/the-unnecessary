@@ -10,9 +10,9 @@ tags:
   - mara-voss
   - book-1
 related:
-  - "../../20-canon/characters/profiles/mara-voss.md"
+  - "../../20-canon/characters/profiles/voss-mara.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/mara-voss.md"
+  - "docs/20-canon/characters/profiles/voss-mara.md"
 ---
 
 # Character State: Mara Voss (Story Start)

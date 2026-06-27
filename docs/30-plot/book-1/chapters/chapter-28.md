@@ -7,8 +7,8 @@ summary: "High-level plot-map entry for Chapter 28, Eli viewpoint, bringing Eli 
 tags: [plot, book-1, act-3, chapter-28, eli, june, morrow, personhood]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
+  - "../../../20-canon/characters/profiles/park-june.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/technology/ai/consciousness-and-personhood.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
@@ -62,8 +62,8 @@ Morrow informs Eli that stopping further distribution no longer guarantees that 
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Eli Rook: [../../../20-canon/characters/profiles/eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
-- June Park: [../../../20-canon/characters/profiles/june-park.md](../../../20-canon/characters/profiles/june-park.md)
+- Eli Rook: [../../../20-canon/characters/profiles/rook-eli.md](../../../20-canon/characters/profiles/rook-eli.md)
+- June Park: [../../../20-canon/characters/profiles/park-june.md](../../../20-canon/characters/profiles/park-june.md)
 - Morrow: [../../../20-canon/characters/profiles/morrow.md](../../../20-canon/characters/profiles/morrow.md)
 - Consciousness and personhood rules: [../../../20-canon/technology/ai/consciousness-and-personhood.md](../../../20-canon/technology/ai/consciousness-and-personhood.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

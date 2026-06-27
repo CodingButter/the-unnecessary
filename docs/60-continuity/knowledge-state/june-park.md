@@ -13,7 +13,7 @@ related:
   - "../global-continuity.md"
   - "../character-states/june-park.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/june-park.md"
+  - "docs/20-canon/characters/profiles/park-june.md"
   - "docs/20-canon/timeline/book-1/character-knowledge-timeline.md"
   - "docs/20-canon/timeline/book-1/secret-timeline.md"
   - "docs/20-canon/timeline/book-1/pre-book-2053.md"

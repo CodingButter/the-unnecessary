@@ -10,9 +10,9 @@ tags:
   - adrian-kade
   - book-1
 related:
-  - "../../20-canon/characters/profiles/adrian-kade.md"
+  - "../../20-canon/characters/profiles/kade-adrian.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/adrian-kade.md"
+  - "docs/20-canon/characters/profiles/kade-adrian.md"
 ---
 
 # Character State: Adrian Kade (Story Start)

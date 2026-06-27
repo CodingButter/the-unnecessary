@@ -13,8 +13,8 @@ related:
   - "../character-states/eli-rook.md"
   - "../character-states/nora-bell.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/eli-rook.md"
-  - "docs/20-canon/characters/profiles/nora-bell.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
+  - "docs/20-canon/characters/profiles/bell-nora.md"
 ---
 
 # Relationship State at Story Start: Eli and Nora

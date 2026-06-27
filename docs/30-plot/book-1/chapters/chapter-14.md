@@ -6,8 +6,8 @@ authority: "plot-plan"
 summary: "High-level plot-map entry for Book One Chapter 14, Jonah viewpoint, bringing Jonah into the central plot and contrasting Lakeward with the unsupported world."
 tags: ["plot", "book-1", "act-2", "chapter-14", "jonah", "eli", "morrow"]
 related:
-  - "../../../20-canon/characters/profiles/jonah-mercer.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/mercer-jonah.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/characters/profiles/crown.md"
   - "../../../20-canon/world/protected-enclaves.md"

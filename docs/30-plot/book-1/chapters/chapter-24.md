@@ -7,8 +7,8 @@ summary: "High-level plot-map entry for Chapter 24, Sera viewpoint, beginning As
 tags: [plot, book-1, act-3, chapter-24, sera, kade, crown, northglass]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/sera-vale.md"
-  - "../../../20-canon/characters/profiles/adrian-kade.md"
+  - "../../../20-canon/characters/profiles/vale-sera.md"
+  - "../../../20-canon/characters/profiles/kade-adrian.md"
   - "../../../20-canon/characters/profiles/crown.md"
   - "../../../20-canon/world/locations/northglass.md"
   - "../../../20-canon/world/government-and-corporations.md"
@@ -65,8 +65,8 @@ Asterion sends legal notices identifying recovered Northglass components as stol
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Sera Vale: [../../../20-canon/characters/profiles/sera-vale.md](../../../20-canon/characters/profiles/sera-vale.md)
-- Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
+- Sera Vale: [../../../20-canon/characters/profiles/vale-sera.md](../../../20-canon/characters/profiles/vale-sera.md)
+- Kade: [../../../20-canon/characters/profiles/kade-adrian.md](../../../20-canon/characters/profiles/kade-adrian.md)
 - Crown: [../../../20-canon/characters/profiles/crown.md](../../../20-canon/characters/profiles/crown.md)
 - Northglass: [../../../20-canon/world/locations/northglass.md](../../../20-canon/world/locations/northglass.md)
 - Government and corporations: [../../../20-canon/world/government-and-corporations.md](../../../20-canon/world/government-and-corporations.md)

@@ -7,7 +7,7 @@ summary: "Revises Morrow's origin. Eli secretly created a true artificial superi
 tags: ["decision", "morrow", "origin", "eli", "act-1", "reveal-safe"]
 related:
   - "../../../20-canon/technology/ai/morrow.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "./015-morrow-is-created-to-coordinate-abandoned-infrastructure.md"
   - "../index.md"
@@ -50,7 +50,7 @@ The moral spine of the story is preserved and deepened. Morrow as a thing Eli ma
 ### Affected Documents
 
 - `docs/20-canon/technology/ai/morrow.md`
-- `docs/20-canon/characters/profiles/eli-rook.md`
+- `docs/20-canon/characters/profiles/rook-eli.md`
 - `docs/20-canon/characters/profiles/morrow.md`
 - `docs/10-vision/narrative-brief.md`
 - `docs/20-canon/timeline/book-1/act-1-timeline.md`

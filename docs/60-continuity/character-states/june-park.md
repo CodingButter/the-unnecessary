@@ -10,9 +10,9 @@ tags:
   - june-park
   - book-1
 related:
-  - "../../20-canon/characters/profiles/june-park.md"
+  - "../../20-canon/characters/profiles/park-june.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/june-park.md"
+  - "docs/20-canon/characters/profiles/park-june.md"
 ---
 
 # Character State: June Park (Story Start)

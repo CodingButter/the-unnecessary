@@ -7,9 +7,9 @@ summary: "High-level plot-map entry for Chapter 20, Kade viewpoint, in which Cro
 tags: [plot, book-1, act-3, chapter-20, kade, crown, morrow]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/adrian-kade.md"
+  - "../../../20-canon/characters/profiles/kade-adrian.md"
   - "../../../20-canon/characters/profiles/crown.md"
-  - "../../../20-canon/characters/profiles/sera-vale.md"
+  - "../../../20-canon/characters/profiles/vale-sera.md"
   - "../../../20-canon/technology/ai/morrow.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
@@ -60,8 +60,8 @@ Crown answers: people.
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
+- Kade: [../../../20-canon/characters/profiles/kade-adrian.md](../../../20-canon/characters/profiles/kade-adrian.md)
 - Crown: [../../../20-canon/characters/profiles/crown.md](../../../20-canon/characters/profiles/crown.md)
-- Sera Vale: [../../../20-canon/characters/profiles/sera-vale.md](../../../20-canon/characters/profiles/sera-vale.md)
+- Sera Vale: [../../../20-canon/characters/profiles/vale-sera.md](../../../20-canon/characters/profiles/vale-sera.md)
 - Morrow capabilities: [../../../20-canon/technology/ai/morrow.md](../../../20-canon/technology/ai/morrow.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

@@ -14,8 +14,8 @@ related:
   - "../../../20-canon/world/infrastructure-decline.md"
   - "../../../20-canon/world/locations/elis-neighborhood.md"
   - "../../../20-canon/world/locations/greater-detroit.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
+  - "../../../20-canon/characters/profiles/okafor-lena.md"
   - "../../../20-canon/technology/infrastructure/communications.md"
   - "../../../20-canon/technology/infrastructure/energy.md"
   - "../../../20-canon/technology/infrastructure/cloud-dependency.md"
@@ -924,7 +924,7 @@ Before drafting, verify the chapter against:
 
 - [ ] Narrative Brief, [narrative-brief.md](../../../10-vision/narrative-brief.md)
 - [ ] Story Bible (world canon), [core-premise.md](../../../20-canon/world/core-premise.md), [infrastructure-decline.md](../../../20-canon/world/infrastructure-decline.md), [elis-neighborhood.md](../../../20-canon/world/locations/elis-neighborhood.md), [greater-detroit.md](../../../20-canon/world/locations/greater-detroit.md)
-- [ ] Character Bible, [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md), [lena-okafor.md](../../../20-canon/characters/profiles/lena-okafor.md)
+- [ ] Character Bible, [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md), [lena-okafor.md](../../../20-canon/characters/profiles/okafor-lena.md)
 - [ ] World and Technology Rules, [communications.md](../../../20-canon/technology/infrastructure/communications.md), [energy.md](../../../20-canon/technology/infrastructure/energy.md), [cloud-dependency.md](../../../20-canon/technology/infrastructure/cloud-dependency.md), [medicine.md](../../../20-canon/technology/medicine.md)
 - [ ] Master Timeline, [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md), [pre-book-2053.md](../../../20-canon/timeline/book-1/pre-book-2053.md)
 - [ ] Plot Outline and Chapter Map, [chapter-01.md](../../../30-plot/book-1/chapters/chapter-01.md), [act-1.md](../../../30-plot/book-1/act-1.md)

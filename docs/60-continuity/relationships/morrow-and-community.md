@@ -20,7 +20,7 @@ related:
 source_documents:
   - "docs/20-canon/characters/relationship-map.md"
   - "docs/20-canon/characters/profiles/morrow.md"
-  - "docs/20-canon/characters/profiles/june-park.md"
+  - "docs/20-canon/characters/profiles/park-june.md"
 ---
 
 # Relationship State at Story Start: Morrow with June, Lena, and Talia

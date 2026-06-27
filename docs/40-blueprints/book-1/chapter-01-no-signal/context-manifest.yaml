@@ -28,10 +28,10 @@ required_files:
   - docs/20-canon/world/locations/elis-neighborhood.md
 
   # Character canon: only the characters present or named in Chapter 1
-  - docs/20-canon/characters/profiles/eli-rook.md
-  - docs/20-canon/characters/profiles/lena-okafor.md
-  - docs/20-canon/characters/profiles/nolan-avery.md
-  - docs/20-canon/characters/profiles/talia-reed.md
+  - docs/20-canon/characters/profiles/rook-eli.md
+  - docs/20-canon/characters/profiles/okafor-lena.md
+  - docs/20-canon/characters/profiles/avery-nolan.md
+  - docs/20-canon/characters/profiles/reed-talia.md
   - docs/20-canon/characters/relationship-map.md
 
   # Technology canon driving the chapter's service-withdrawal events
@@ -82,7 +82,7 @@ exclude_files:
   # Out-of-scope canon for Chapter 1. Do not load these when blueprinting Chapter 1.
   - docs/20-canon/world/mars-and-aurelia.md
   - docs/20-canon/technology/mars-technology.md
-  - docs/20-canon/characters/profiles/mara-voss.md
+  - docs/20-canon/characters/profiles/voss-mara.md
   - docs/20-canon/timeline/book-1/act-2-timeline.md
   - docs/20-canon/timeline/book-1/act-3-timeline.md
   - docs/20-canon/timeline/book-1/act-4-timeline.md
@@ -97,10 +97,10 @@ loading_order:
   - docs/20-canon/world/infrastructure-decline.md
   - docs/20-canon/world/locations/greater-detroit.md
   - docs/20-canon/world/locations/elis-neighborhood.md
-  - docs/20-canon/characters/profiles/eli-rook.md
-  - docs/20-canon/characters/profiles/lena-okafor.md
-  - docs/20-canon/characters/profiles/nolan-avery.md
-  - docs/20-canon/characters/profiles/talia-reed.md
+  - docs/20-canon/characters/profiles/rook-eli.md
+  - docs/20-canon/characters/profiles/okafor-lena.md
+  - docs/20-canon/characters/profiles/avery-nolan.md
+  - docs/20-canon/characters/profiles/reed-talia.md
   - docs/20-canon/characters/relationship-map.md
   - docs/20-canon/technology/infrastructure/energy.md
   - docs/20-canon/technology/infrastructure/communications.md

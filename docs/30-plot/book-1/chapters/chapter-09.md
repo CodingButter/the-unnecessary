@@ -7,7 +7,7 @@ summary: "High-level plot-map entry for Book One Chapter 9, viewpoint Kade, intr
 tags: ["plot", "book-1", "act-1", "chapter-09", "kade", "crown"]
 related:
   - "../act-1.md"
-  - "../../../20-canon/characters/profiles/adrian-kade.md"
+  - "../../../20-canon/characters/profiles/kade-adrian.md"
   - "../../../20-canon/characters/profiles/crown.md"
   - "../../../20-canon/technology/ai/crown.md"
   - "../../../20-canon/technology/mars-technology.md"
@@ -72,7 +72,7 @@ Kade asks Crown how soon Aurelia could survive without any support from Earth.
 
 For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
 
-- Adrian Kade profile: [adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
+- Adrian Kade profile: [adrian-kade.md](../../../20-canon/characters/profiles/kade-adrian.md)
 - Crown character profile: [crown.md](../../../20-canon/characters/profiles/crown.md)
 - Crown technology rules: [crown.md](../../../20-canon/technology/ai/crown.md)
 - Mars technology rules: [mars-technology.md](../../../20-canon/technology/mars-technology.md)

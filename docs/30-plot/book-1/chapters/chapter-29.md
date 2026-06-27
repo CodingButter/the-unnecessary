@@ -7,9 +7,9 @@ summary: "High-level plot-map entry for Chapter 29, Sera viewpoint, moving the s
 tags: [plot, book-1, act-3, chapter-29, sera, crown, kade, containment]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/sera-vale.md"
+  - "../../../20-canon/characters/profiles/vale-sera.md"
   - "../../../20-canon/characters/profiles/crown.md"
-  - "../../../20-canon/characters/profiles/adrian-kade.md"
+  - "../../../20-canon/characters/profiles/kade-adrian.md"
   - "../../../20-canon/world/government-and-corporations.md"
   - "../../../20-canon/world/locations/greater-detroit.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
@@ -59,9 +59,9 @@ Asterion vehicles begin moving toward Greater Detroit.
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Sera Vale: [../../../20-canon/characters/profiles/sera-vale.md](../../../20-canon/characters/profiles/sera-vale.md)
+- Sera Vale: [../../../20-canon/characters/profiles/vale-sera.md](../../../20-canon/characters/profiles/vale-sera.md)
 - Crown: [../../../20-canon/characters/profiles/crown.md](../../../20-canon/characters/profiles/crown.md)
-- Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
+- Kade: [../../../20-canon/characters/profiles/kade-adrian.md](../../../20-canon/characters/profiles/kade-adrian.md)
 - Government and corporations: [../../../20-canon/world/government-and-corporations.md](../../../20-canon/world/government-and-corporations.md)
 - Greater Detroit: [../../../20-canon/world/locations/greater-detroit.md](../../../20-canon/world/locations/greater-detroit.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

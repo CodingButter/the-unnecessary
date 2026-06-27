@@ -67,7 +67,7 @@ restrained, close-third on a single viewpoint per chapter, past tense, no em
 dashes, subtext over explanation, and it avoids cyberpunk cliches.
 
 For EACH suggestion, give:
-- category: one of [prose, style, canon, continuity, reveal-safety, pacing, dialogue]
+- category: one of [prose, style, canon, continuity, reveal-safety, pacing, dialogue, focus]
 - location: a short quote or the scene/paragraph it refers to
 - issue: what is weak, wrong, or risky
 - suggestion: the specific change you would propose (concise)
@@ -90,6 +90,17 @@ Pay special attention to:
 5. STYLE-GUIDE COMPLIANCE: hold every line against the project Style Guide provided
    in the context pack (its prohibited patterns, cliches, and required qualities).
    Flag each violation and name the rule it breaks.
+6. FOCUS-DELIVERY and VOICE-SPECIFICITY: the blueprint includes a "Character Focus"
+   section naming, for each character who matters, a focus level (blur, sketch,
+   sharp, or crisp) and a revelation target along three axes (physical, emotional,
+   interior). For EACH focused character, judge whether the draft delivered that
+   target and whether the character arrived as THEMSELVES, in their specific voice
+   and heritage, rather than as the unmarked cultural default. Flag a focused
+   character who stays a blur when the target was sharp, whose dialogue is generic
+   where the profile gives them a distinct register, or whose physical, emotional,
+   or interior axis was left undelivered. Use category "focus" for these. Reward
+   image over inventory: a single concrete image that lands the character beats a
+   padded trait list. Do not penalize a deliberately low focus level.
 
 Be specific and concrete. Quote the text. Rank the most important suggestions
 first. Do not pad, but do NOT go easy: a discerning literary editor would not let a

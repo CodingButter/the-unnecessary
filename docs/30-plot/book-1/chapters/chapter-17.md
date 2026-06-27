@@ -6,9 +6,9 @@ authority: "plot-plan"
 summary: "High-level plot-map entry for Book One Chapter 17, Lena viewpoint, showing Morrow's intervention through human consequences before revealing its full method."
 tags: ["plot", "book-1", "act-2", "chapter-17", "lena", "morrow", "eli"]
 related:
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../../20-canon/characters/profiles/okafor-lena.md"
   - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"

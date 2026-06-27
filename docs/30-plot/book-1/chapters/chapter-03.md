@@ -7,8 +7,8 @@ summary: "High-level plot-map entry for Book One Chapter 3, viewpoint Eli, the f
 tags: ["plot", "book-1", "act-1", "chapter-03", "eli"]
 related:
   - "../act-1.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
+  - "../../../20-canon/characters/profiles/okafor-lena.md"
   - "../../../20-canon/world/locations/elis-neighborhood.md"
   - "../../../20-canon/technology/infrastructure/cloud-dependency.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
@@ -63,8 +63,8 @@ The 6 a.m. message: "Power went out last night." Eli understands what it means, 
 
 For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
 
-- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
-- Lena Okafor profile: [lena-okafor.md](../../../20-canon/characters/profiles/lena-okafor.md)
+- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md)
+- Lena Okafor profile: [lena-okafor.md](../../../20-canon/characters/profiles/okafor-lena.md)
 - Setting, Eli's neighborhood: [elis-neighborhood.md](../../../20-canon/world/locations/elis-neighborhood.md)
 - Cloud-dependency and emulation rules: [cloud-dependency.md](../../../20-canon/technology/infrastructure/cloud-dependency.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

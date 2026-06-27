@@ -7,11 +7,11 @@ summary: "High-level plot-map entry for Book One Chapter 7, viewpoint Eli, estab
 tags: ["plot", "book-1", "act-1", "chapter-07", "eli", "morrow"]
 related:
   - "../act-1.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
-  - "../../../20-canon/characters/profiles/talia-reed.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/okafor-lena.md"
+  - "../../../20-canon/characters/profiles/reed-talia.md"
+  - "../../../20-canon/characters/profiles/park-june.md"
   - "../../../20-canon/technology/ai/morrow.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
 source_documents:
@@ -70,10 +70,10 @@ Nolan reports that a major regional outage is approaching faster than predicted.
 
 For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
 
-- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
+- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md)
 - Morrow character profile: [morrow.md](../../../20-canon/characters/profiles/morrow.md)
-- Lena Okafor profile: [lena-okafor.md](../../../20-canon/characters/profiles/lena-okafor.md)
-- Talia Reed profile: [talia-reed.md](../../../20-canon/characters/profiles/talia-reed.md)
-- June Park profile: [june-park.md](../../../20-canon/characters/profiles/june-park.md)
+- Lena Okafor profile: [lena-okafor.md](../../../20-canon/characters/profiles/okafor-lena.md)
+- Talia Reed profile: [talia-reed.md](../../../20-canon/characters/profiles/reed-talia.md)
+- June Park profile: [june-park.md](../../../20-canon/characters/profiles/park-june.md)
 - Morrow technology rules: [morrow.md](../../../20-canon/technology/ai/morrow.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

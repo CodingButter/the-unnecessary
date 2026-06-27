@@ -6,10 +6,10 @@ authority: "plot-plan"
 summary: "High-level plot-map entry for Book One Chapter 10, Eli viewpoint, showing the emotional power of basic reliability as the neighborhood gets its first full day without an unplanned outage."
 tags: ["plot", "book-1", "act-2", "chapter-10", "eli", "morrow"]
 related:
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/characters/profiles/nolan-avery.md"
-  - "../../../20-canon/characters/profiles/talia-reed.md"
+  - "../../../20-canon/characters/profiles/avery-nolan.md"
+  - "../../../20-canon/characters/profiles/reed-talia.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
   - "archive/source-monoliths/plot-outline-and-chapter-map.md"

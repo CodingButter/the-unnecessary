@@ -7,8 +7,8 @@ summary: "High-level plot-map entry for Chapter 21, Eli viewpoint, in which Kade
 tags: [plot, book-1, act-3, chapter-21, eli, kade, morrow]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/adrian-kade.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
+  - "../../../20-canon/characters/profiles/kade-adrian.md"
   - "../../../20-canon/world/mars-and-aurelia.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
@@ -69,7 +69,7 @@ Kade tells Eli not to answer until he has written down the five names.
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Eli Rook: [../../../20-canon/characters/profiles/eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
-- Kade: [../../../20-canon/characters/profiles/adrian-kade.md](../../../20-canon/characters/profiles/adrian-kade.md)
+- Eli Rook: [../../../20-canon/characters/profiles/rook-eli.md](../../../20-canon/characters/profiles/rook-eli.md)
+- Kade: [../../../20-canon/characters/profiles/kade-adrian.md](../../../20-canon/characters/profiles/kade-adrian.md)
 - Mars and the Aurelia Initiative: [../../../20-canon/world/mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

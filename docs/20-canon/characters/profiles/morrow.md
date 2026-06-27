@@ -11,7 +11,7 @@ tags:
   - ai
 related:
   - "../relationship-map.md"
-  - "./eli-rook.md"
+  - "./rook-eli.md"
   - "../../technology/ai/morrow.md"
 source_documents:
   - "archive/source-monoliths/character-bible.md"

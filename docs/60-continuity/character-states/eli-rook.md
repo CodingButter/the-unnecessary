@@ -10,9 +10,9 @@ tags:
   - eli-rook
   - book-1
 related:
-  - "../../20-canon/characters/profiles/eli-rook.md"
+  - "../../20-canon/characters/profiles/rook-eli.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
 ---
 
 # Character State: Elias "Eli" Rook (Story Start)

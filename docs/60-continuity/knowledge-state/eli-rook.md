@@ -13,7 +13,7 @@ related:
   - "../global-continuity.md"
   - "../character-states/eli-rook.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
   - "docs/20-canon/timeline/book-1/character-knowledge-timeline.md"
   - "docs/20-canon/timeline/book-1/secret-timeline.md"
   - "docs/20-canon/timeline/book-1/pre-book-2053.md"

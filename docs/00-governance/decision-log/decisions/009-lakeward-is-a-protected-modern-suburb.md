@@ -11,7 +11,7 @@ tags:
   - enclaves
 related:
   - "../../../20-canon/world/locations/lakeward.md"
-  - "../../../20-canon/characters/profiles/jonah-mercer.md"
+  - "../../../20-canon/characters/profiles/mercer-jonah.md"
   - "../index.md"
 source_documents:
   - "archive/source-monoliths/creative-decision-log.md"

@@ -12,7 +12,7 @@ tags:
   - asterion
 related:
   - "../relationship-map.md"
-  - "./adrian-kade.md"
+  - "./kade-adrian.md"
   - "../../technology/ai/crown.md"
 source_documents:
   - "archive/source-monoliths/character-bible.md"

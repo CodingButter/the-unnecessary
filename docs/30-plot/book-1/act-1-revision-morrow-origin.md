@@ -7,12 +7,12 @@ summary: "Authoritative capture of the story-session decisions that revise Morro
 tags: ["revision", "morrow", "origin", "act-1", "design-brief", "eli"]
 related:
   - "../../20-canon/technology/ai/morrow.md"
-  - "../../20-canon/characters/profiles/eli-rook.md"
+  - "../../20-canon/characters/profiles/rook-eli.md"
   - "../../20-canon/technology/infrastructure/cloud-dependency.md"
   - "./chapters/index.md"
 source_documents:
   - "docs/20-canon/technology/ai/morrow.md"
-  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
   - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
   - "docs/20-canon/timeline/book-1/act-1-timeline.md"
 ---
@@ -118,7 +118,7 @@ After midnight, the **reprieve that isn't:** the equipment **still works, but on
 **Decision Log (record first):** new entries for (a) device-obstacle correction, (b) Morrow-created-six-years-ago origin, (c) clinic vigil + borrowed uptime, (d) the escape flashback + neutral reveal; revisit Decisions 015, 016, 020, 021, and **045** (Ch1 still does not show the midnight outcome; the outcome moves to the vigil/later chapters).
 
 **Canon (technology):** `ai/morrow.md`, `ai/crown.md`, `ai/crown-vs-morrow.md`, `ai/intelligence-levels.md`, `foundational-rules.md`, `infrastructure/cloud-dependency.md`.
-**Canon (world/characters):** `world/core-premise.md`, `world/book-1-arc.md`, `characters/profiles/eli-rook.md`, `characters/profiles/morrow.md`, `characters/profiles/adrian-kade.md`, `world/locations/northglass.md`, `technology/northglass.md`.
+**Canon (world/characters):** `world/core-premise.md`, `world/book-1-arc.md`, `characters/profiles/rook-eli.md`, `characters/profiles/morrow.md`, `characters/profiles/kade-adrian.md`, `world/locations/northglass.md`, `technology/northglass.md`.
 **Vision:** `10-vision/narrative-brief.md`.
 **Timeline:** `20-canon/timeline/book-1/act-1-timeline.md`.
 **Plot / chapter map:** `30-plot/book-1/chapters/index.md`, `chapter-01.md`..`chapter-05.md` (and wherever the flashback/turn-on land).

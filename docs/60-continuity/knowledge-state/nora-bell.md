@@ -13,7 +13,7 @@ tags:
 related:
   - "../character-states/nora-bell.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/nora-bell.md"
+  - "docs/20-canon/characters/profiles/bell-nora.md"
   - "docs/20-canon/timeline/book-1/secret-timeline.md"
   - "docs/20-canon/technology/ai/crown.md"
 ---

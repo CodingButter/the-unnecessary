@@ -7,8 +7,8 @@ summary: "High-level plot-map entry for Book One Chapter 6, viewpoint Eli; origi
 tags: ["plot", "book-1", "act-1", "chapter-06", "eli", "morrow"]
 related:
   - "../act-1.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
+  - "../../../20-canon/characters/profiles/park-june.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/technology/ai/morrow.md"
   - "../../../20-canon/timeline/book-1/act-1-timeline.md"
@@ -75,8 +75,8 @@ The salvaged coordination layer identifies a battery-routing solution that Eli's
 
 For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
 
-- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
-- June Park profile: [june-park.md](../../../20-canon/characters/profiles/june-park.md)
+- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md)
+- June Park profile: [june-park.md](../../../20-canon/characters/profiles/park-june.md)
 - Morrow character profile: [morrow.md](../../../20-canon/characters/profiles/morrow.md)
 - Morrow technology rules: [morrow.md](../../../20-canon/technology/ai/morrow.md)
 - Dates and chronology, Act One timeline: [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md)

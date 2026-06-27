@@ -10,7 +10,7 @@ tags:
   - conflict
 related:
   - "viewpoint-rules.md"
-  - "profiles/eli-rook.md"
+  - "profiles/rook-eli.md"
   - "../technology/ai/morrow.md"
   - "../technology/ai/crown.md"
 source_documents:

@@ -13,8 +13,8 @@ tags:
 related:
   - "./series-direction.md"
   - "./core-premise.md"
-  - "../characters/profiles/eli-rook.md"
-  - "../characters/profiles/jonah-mercer.md"
+  - "../characters/profiles/rook-eli.md"
+  - "../characters/profiles/mercer-jonah.md"
 source_documents:
   - "archive/source-monoliths/story-bible.md"
 ---

@@ -6,8 +6,8 @@ authority: "plot-plan"
 summary: "High-level plot-map entry for Book One Chapter 11, June viewpoint, expanding Morrow into communications and deepening June's attachment to it."
 tags: ["plot", "book-1", "act-2", "chapter-11", "june", "morrow"]
 related:
-  - "../../../20-canon/characters/profiles/june-park.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/park-june.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/technology/infrastructure/communications.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"

@@ -10,7 +10,7 @@ tags:
   - theme
   - eli
 related:
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../index.md"
 source_documents:
   - "archive/source-monoliths/creative-decision-log.md"

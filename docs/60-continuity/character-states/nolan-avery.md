@@ -12,7 +12,7 @@ tags:
 related:
   - "talia-reed.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/nolan-avery.md"
+  - "docs/20-canon/characters/profiles/avery-nolan.md"
   - "docs/20-canon/timeline/book-1/pre-book-2053.md"
   - "docs/20-canon/timeline/book-1/act-1-timeline.md"
 ---

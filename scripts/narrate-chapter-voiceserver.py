@@ -623,6 +623,74 @@ def trim_chunk_edges(in_wav, out_wav, pad=0.05):
     return res.returncode == 0
 
 
+def cap_interior_silences(in_wav, out_wav, cap=0.5, detect=0.8, noise="-38dB"):
+    """Compress any silence >= `detect` seconds INSIDE a chunk down to `cap` seconds.
+
+    trim_chunk_edges only shaves the leading/trailing edges, and the pacing engine only sets
+    the DECLARED inter-chunk gaps. Neither touches a pause Chatterbox sometimes invents in the
+    MIDDLE of a chunk (e.g. a 3.5s dead span after a sentence). This finds those gaps with
+    silencedetect and rebuilds the clip with every silence kept to at most `cap` seconds.
+
+    Like trim_chunk_edges it removes ONLY detected-silence excess via ATRIM keep-ranges, so it
+    can never cut into speech; silences shorter than `detect` are left untouched (natural
+    sentence pauses). Runs AFTER edge-trim on the trimmed clip, so the edges are already small.
+    GUARD: if it would remove more than half the clip (detection error), pass through unchanged.
+    Output is mono, 24000 Hz, pcm_s16le. Returns True on success.
+    """
+    duration = _wav_duration(in_wav)
+    if duration is None:
+        shutil.copyfile(in_wav, out_wav)
+        return True
+
+    res = subprocess.run(
+        ["ffmpeg", "-i", in_wav, "-af",
+         "silencedetect=noise=%s:d=%.3f" % (noise, detect), "-f", "null", "-"],
+        capture_output=True, text=True)
+    log = res.stderr
+    starts = [float(x) for x in re.findall(r'silence_start:\s*(-?[0-9.]+)', log)]
+    ends = [float(x) for x in re.findall(r'silence_end:\s*(-?[0-9.]+)', log)]
+    pairs = list(zip(starts, ends))
+
+    # Only gaps longer than the cap need shortening; each loses its excess [s+cap, e].
+    longs = [(s, e) for s, e in pairs if e - s > cap + 0.02]
+    if not longs:
+        shutil.copyfile(in_wav, out_wav)
+        return True
+
+    removed = sum((e - s) - cap for s, e in longs)
+    if removed >= 0.5 * duration:
+        shutil.copyfile(in_wav, out_wav)
+        print("WARNING: interior-cap aborted for %s (would remove %.2fs of %.2fs); copied unchanged"
+              % (os.path.basename(in_wav), removed, duration), file=sys.stderr)
+        return True
+
+    # Keep-ranges = the whole clip minus each long gap's excess.
+    keeps, prev = [], 0.0
+    for s, e in longs:
+        keeps.append((prev, s + cap))
+        prev = e
+    keeps.append((prev, duration))
+
+    parts, labels = [], []
+    for idx, (a, b) in enumerate(keeps):
+        if b - a <= 0.001:
+            continue
+        parts.append("[0:a]atrim=start=%.6f:end=%.6f,asetpts=N/SR/TB[s%d]" % (a, b, idx))
+        labels.append("[s%d]" % idx)
+    filt = ";".join(parts) + ";" + "".join(labels) + ("concat=n=%d:v=0:a=1[out]" % len(labels))
+
+    res = subprocess.run(
+        ["ffmpeg", "-y", "-i", in_wav, "-filter_complex", filt, "-map", "[out]",
+         "-ar", str(SAMPLE_RATE), "-ac", "1", "-c:a", "pcm_s16le", out_wav],
+        capture_output=True, text=True)
+    if res.returncode != 0:
+        shutil.copyfile(in_wav, out_wav)
+        print("WARNING: interior-cap ffmpeg failed for %s; copied unchanged: %s"
+              % (os.path.basename(in_wav), res.stderr[-200:]), file=sys.stderr)
+        return True
+    return True
+
+
 def render_chunk(api, voice, profile, text, out_wav, auth, rep_penalty,
                  base_temp, max_temp, edge_pad=0.05, split_threshold=SPLIT_THRESHOLD):
     """Render ONE chunk to out_wav, PROACTIVELY splitting long text so nothing drops.
@@ -767,7 +835,9 @@ def stitch_chapter(chunks, chunk_dir, out, fmt, edge_pad, no_edge_trim):
             if not trim_chunk_edges(cf, trimmed, edge_pad):
                 print("ERROR: edge-trim failed for %s" % os.path.basename(cf), file=sys.stderr)
                 return False
-            concat_files.append((trimmed, gap))
+            capped = cf[:-len(".wav")] + ".capped.wav"
+            cap_interior_silences(trimmed, capped)        # shave model-invented mid-chunk pauses
+            concat_files.append((capped, gap))
 
     # Build one silence WAV per distinct gap kind actually used (last chunk has no
     # silence after it, so its gap is irrelevant), then the concat list.

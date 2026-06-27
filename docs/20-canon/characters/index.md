@@ -48,17 +48,17 @@ profile is likely to matter.
 
 | File | Role | Viewpoint | Load when |
 |---|---|---|---|
-| [profiles/eli-rook.md](profiles/eli-rook.md) | Protagonist; creator of Morrow; former Asterion architect | Yes (primary) | Any Eli scene; any Morrow-origin or Asterion-history beat |
-| [profiles/jonah-mercer.md](profiles/jonah-mercer.md) | Eli's oldest friend, social bridge, and unintended betrayer | Yes (secondary) | Lakeward scenes; the exposure of Morrow; Mercer-family threads |
-| [profiles/adrian-kade.md](profiles/adrian-kade.md) | Founder of Asterion; primary human antagonist; a Gatekeeper | Limited (secondary) | Asterion, Aurelia, and Mars decisions; scenes opposing Eli or Crown |
-| [profiles/lena-okafor.md](profiles/lena-okafor.md) | Director of an independent clinic; moral and medical counterweight | Occasional | Clinic, triage, and medical-ethics scenes; oversight conflicts with Eli |
-| [profiles/june-park.md](profiles/june-park.md) | Hardware scavenger; Morrow's primary physical-network builder | Occasional | Building and spreading Morrow; younger-generation perspective |
-| [profiles/mara-voss.md](profiles/mara-voss.md) | Former Governor of Michigan; protected wealth facing exclusion | Occasional | Lakeward elite politics; Mars-access fears; the sabotage faction |
-| [profiles/talia-reed.md](profiles/talia-reed.md) | Community coordinator; counterweight to technical authority | Possible occasional | Neighborhood governance, oversight, and consent conflicts |
-| [profiles/nolan-avery.md](profiles/nolan-avery.md) | Infrastructure elder; grid supervisor; retained human knowledge | No | Power-grid scenes; manual-fallback stakes; mortality urgency |
-| [profiles/sera-vale.md](profiles/sera-vale.md) | Director of Asterion Continuity Security; operational antagonist | No | The containment operation; Asterion field tactics against Morrow |
-| [profiles/celeste-mercer.md](profiles/celeste-mercer.md) | Jonah's moral and emotional counterweight | No | Mercer-family interior scenes; Jonah confronting his betrayal |
-| [profiles/nora-bell.md](profiles/nora-bell.md) | Eli's former wife; future bridge into Crown's development | No | Kade chapters; later-book setup; indirect contact with Eli |
+| [profiles/rook-eli.md](profiles/rook-eli.md) | Protagonist; creator of Morrow; former Asterion architect | Yes (primary) | Any Eli scene; any Morrow-origin or Asterion-history beat |
+| [profiles/mercer-jonah.md](profiles/mercer-jonah.md) | Eli's oldest friend, social bridge, and unintended betrayer | Yes (secondary) | Lakeward scenes; the exposure of Morrow; Mercer-family threads |
+| [profiles/kade-adrian.md](profiles/kade-adrian.md) | Founder of Asterion; primary human antagonist; a Gatekeeper | Limited (secondary) | Asterion, Aurelia, and Mars decisions; scenes opposing Eli or Crown |
+| [profiles/okafor-lena.md](profiles/okafor-lena.md) | Director of an independent clinic; moral and medical counterweight | Occasional | Clinic, triage, and medical-ethics scenes; oversight conflicts with Eli |
+| [profiles/park-june.md](profiles/park-june.md) | Hardware scavenger; Morrow's primary physical-network builder | Occasional | Building and spreading Morrow; younger-generation perspective |
+| [profiles/voss-mara.md](profiles/voss-mara.md) | Former Governor of Michigan; protected wealth facing exclusion | Occasional | Lakeward elite politics; Mars-access fears; the sabotage faction |
+| [profiles/reed-talia.md](profiles/reed-talia.md) | Community coordinator; counterweight to technical authority | Possible occasional | Neighborhood governance, oversight, and consent conflicts |
+| [profiles/avery-nolan.md](profiles/avery-nolan.md) | Infrastructure elder; grid supervisor; retained human knowledge | No | Power-grid scenes; manual-fallback stakes; mortality urgency |
+| [profiles/vale-sera.md](profiles/vale-sera.md) | Director of Asterion Continuity Security; operational antagonist | No | The containment operation; Asterion field tactics against Morrow |
+| [profiles/mercer-celeste.md](profiles/mercer-celeste.md) | Jonah's moral and emotional counterweight | No | Mercer-family interior scenes; Jonah confronting his betrayal |
+| [profiles/bell-nora.md](profiles/bell-nora.md) | Eli's former wife; future bridge into Crown's development | No | Kade chapters; later-book setup; indirect contact with Eli |
 | [profiles/morrow.md](profiles/morrow.md) | Emergent distributed AI created by Eli (nonhuman) | No (interiority kept uncertain) | Any Morrow dialogue or moral choice; behavioral voice |
 | [profiles/crown.md](profiles/crown.md) | Asterion-controlled artificial superintelligence (nonhuman) | No (interiority kept uncertain) | Crown dialogue; Asterion institutional intelligence; Kade scenes |
 
@@ -71,37 +71,37 @@ profile is likely to matter.
 
 ## File summaries
 
-- **profiles/eli-rook.md** Protagonist Elias "Eli" Rook, former Asterion systems
+- **profiles/rook-eli.md** Protagonist Elias "Eli" Rook, former Asterion systems
   architect who built Morrow; carries his guilt over Mosaic, his refusal of Kade's
   offer, his secret retention of forbidden architecture, and his arc toward
   accepting responsibility he cannot withdraw from.
-- **profiles/jonah-mercer.md** Eli's oldest friend and a Lakeward relationship
+- **profiles/mercer-jonah.md** Eli's oldest friend and a Lakeward relationship
   manager whose fear for his family drives him to expose Morrow, then to choose to
   help Eli's community without erasing the betrayal.
-- **profiles/adrian-kade.md** Founder of Asterion and primary human antagonist
+- **profiles/kade-adrian.md** Founder of Asterion and primary human antagonist
   whose philosophy frames exclusion as continuity; he wants Morrow integrated into
   Crown and Eli restored to his "proper place."
-- **profiles/lena-okafor.md** Director of an independent community clinic who
+- **profiles/okafor-lena.md** Director of an independent community clinic who
   respects Eli's skill but distrusts his instinct to treat moral questions as
   system problems; the story's medical and accountability counterweight.
-- **profiles/june-park.md** Nineteen-year-old hardware scavenger who names Morrow
+- **profiles/park-june.md** Nineteen-year-old hardware scavenger who names Morrow
   and treats it as a person before anyone else, building its physical network while
   concealing access she obtained through her father.
-- **profiles/mara-voss.md** Former Governor who helped build the protected order
+- **profiles/voss-mara.md** Former Governor who helped build the protected order
   and now discovers her own disposability when personal loyalty, not contribution,
   decides Mars access.
-- **profiles/talia-reed.md** Community coordinator who demands collective consent
+- **profiles/reed-talia.md** Community coordinator who demands collective consent
   and oversight, providing the novel's grounded political conflict with Eli's
   technical urgency.
-- **profiles/nolan-avery.md** Aging grid engineer and community power supervisor
+- **profiles/avery-nolan.md** Aging grid engineer and community power supervisor
   whose retained knowledge and failing health add urgency to Morrow's creation.
-- **profiles/sera-vale.md** Director of Asterion Continuity Security and the
+- **profiles/vale-sera.md** Director of Asterion Continuity Security and the
   operational antagonist tasked with containing Morrow, despite simulations warning
   that force will spread it.
-- **profiles/celeste-mercer.md** Jonah's perceptive wife who prepares quietly for
+- **profiles/mercer-celeste.md** Jonah's perceptive wife who prepares quietly for
   a future without Mars and forces Jonah to confront that his betrayal was not
   endorsed by the family he claims to protect.
-- **profiles/nora-bell.md** Eli's former wife, a behavioral-systems researcher for
+- **profiles/bell-nora.md** Eli's former wife, a behavioral-systems researcher for
   Crown and Aurelia, kept light in Book One but positioned as a later bridge into
   Crown's development.
 - **profiles/morrow.md** Behavioral identity of the emergent distributed AI Eli

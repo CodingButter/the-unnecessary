@@ -15,7 +15,7 @@ related:
   - "./social-structure.md"
   - "./infrastructure-decline.md"
   - "./themes-and-questions.md"
-  - "../characters/profiles/adrian-kade.md"
+  - "../characters/profiles/kade-adrian.md"
   - "../technology/ai/crown.md"
 source_documents:
   - "archive/source-monoliths/story-bible.md"
@@ -39,4 +39,4 @@ The most powerful corporations no longer require mass human employment, and afte
 
 ## Asterion as Corporate Power
 
-Asterion is the dominant artificial intelligence corporation in the story and the owner of the most powerful existing superintelligence. The Story Bible's character and technology overviews of Asterion, Adrian Kade, and Crown are owned by other domains, not duplicated here. For the founder and executive chairman who is one of the Gatekeepers, see the [Adrian Kade profile](../characters/profiles/adrian-kade.md). For Asterion's superintelligence that coordinates corporate resources, robotics, scientific development, political strategy, infrastructure contracts, and much of the Aurelia Initiative, see the [Crown technology file](../technology/ai/crown.md).
+Asterion is the dominant artificial intelligence corporation in the story and the owner of the most powerful existing superintelligence. The Story Bible's character and technology overviews of Asterion, Adrian Kade, and Crown are owned by other domains, not duplicated here. For the founder and executive chairman who is one of the Gatekeepers, see the [Adrian Kade profile](../characters/profiles/kade-adrian.md). For Asterion's superintelligence that coordinates corporate resources, robotics, scientific development, political strategy, infrastructure contracts, and much of the Aurelia Initiative, see the [Crown technology file](../technology/ai/crown.md).

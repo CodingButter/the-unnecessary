@@ -7,7 +7,7 @@ summary: "High-level plot-map entry for Chapter 27, Mara viewpoint, transforming
 tags: [plot, book-1, act-3, chapter-27, mara, lakeward, mars]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/mara-voss.md"
+  - "../../../20-canon/characters/profiles/voss-mara.md"
   - "../../../20-canon/world/locations/lakeward.md"
   - "../../../20-canon/world/mars-and-aurelia.md"
   - "../../../20-canon/world/social-structure.md"
@@ -60,7 +60,7 @@ One member of the group asks what happens if the Gatekeepers simply leave before
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Mara Voss: [../../../20-canon/characters/profiles/mara-voss.md](../../../20-canon/characters/profiles/mara-voss.md)
+- Mara Voss: [../../../20-canon/characters/profiles/voss-mara.md](../../../20-canon/characters/profiles/voss-mara.md)
 - Lakeward: [../../../20-canon/world/locations/lakeward.md](../../../20-canon/world/locations/lakeward.md)
 - Mars and the Aurelia Initiative: [../../../20-canon/world/mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
 - Social structure: [../../../20-canon/world/social-structure.md](../../../20-canon/world/social-structure.md)

@@ -7,7 +7,7 @@ summary: "Corrects a technically false framing: redirecting a device's resolutio
 tags: ["decision", "technology", "infrastructure", "act-1", "morrow", "continuity"]
 related:
   - "../../../20-canon/technology/infrastructure/cloud-dependency.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../index.md"
 source_documents:
   - "docs/30-plot/book-1/act-1-revision-morrow-origin.md"
@@ -46,7 +46,7 @@ The dead-versus-alive distinction does not survive scrutiny and would undercut t
 ### Affected Documents
 
 - `docs/20-canon/technology/infrastructure/cloud-dependency.md`
-- `docs/20-canon/characters/profiles/eli-rook.md`
+- `docs/20-canon/characters/profiles/rook-eli.md`
 - `docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md`
 - `docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md`
 - `docs/60-continuity/technology-state/infrastructure.md`

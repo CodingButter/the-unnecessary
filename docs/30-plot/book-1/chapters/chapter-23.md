@@ -7,8 +7,8 @@ summary: "High-level plot-map entry for Chapter 23, Eli viewpoint, forcing Eli t
 tags: [plot, book-1, act-3, chapter-23, eli, talia, morrow]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/talia-reed.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
+  - "../../../20-canon/characters/profiles/reed-talia.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
@@ -63,7 +63,7 @@ Morrow asks why Eli believes Kade cannot own it, but Eli can refuse an offer on 
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Eli Rook: [../../../20-canon/characters/profiles/eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
-- Talia Reed: [../../../20-canon/characters/profiles/talia-reed.md](../../../20-canon/characters/profiles/talia-reed.md)
+- Eli Rook: [../../../20-canon/characters/profiles/rook-eli.md](../../../20-canon/characters/profiles/rook-eli.md)
+- Talia Reed: [../../../20-canon/characters/profiles/reed-talia.md](../../../20-canon/characters/profiles/reed-talia.md)
 - Morrow: [../../../20-canon/characters/profiles/morrow.md](../../../20-canon/characters/profiles/morrow.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

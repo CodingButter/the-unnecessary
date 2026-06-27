@@ -9,7 +9,7 @@ tags:
   - character
   - june
 related:
-  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/park-june.md"
   - "../index.md"
 source_documents:
   - "archive/source-monoliths/creative-decision-log.md"

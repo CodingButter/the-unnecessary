@@ -6,10 +6,10 @@ authority: "plot-plan"
 summary: "High-level plot-map entry for Book One Chapter 13, Lena viewpoint, giving Morrow a morally uncomplicated success before the midpoint conflict."
 tags: ["plot", "book-1", "act-2", "chapter-13", "lena", "morrow"]
 related:
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
+  - "../../../20-canon/characters/profiles/okafor-lena.md"
   - "../../../20-canon/characters/profiles/morrow.md"
-  - "../../../20-canon/characters/profiles/nolan-avery.md"
-  - "../../../20-canon/characters/profiles/jonah-mercer.md"
+  - "../../../20-canon/characters/profiles/avery-nolan.md"
+  - "../../../20-canon/characters/profiles/mercer-jonah.md"
   - "../../../20-canon/technology/infrastructure/community-infrastructure.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:

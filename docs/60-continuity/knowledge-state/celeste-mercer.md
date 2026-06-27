@@ -13,7 +13,7 @@ tags:
 related:
   - "../character-states/celeste-mercer.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/celeste-mercer.md"
+  - "docs/20-canon/characters/profiles/mercer-celeste.md"
   - "docs/20-canon/timeline/book-1/secret-timeline.md"
 ---
 

@@ -16,8 +16,8 @@ related:
   - "../knowledge-state/celeste-mercer.md"
 source_documents:
   - "docs/20-canon/characters/relationship-map.md"
-  - "docs/20-canon/characters/profiles/jonah-mercer.md"
-  - "docs/20-canon/characters/profiles/celeste-mercer.md"
+  - "docs/20-canon/characters/profiles/mercer-jonah.md"
+  - "docs/20-canon/characters/profiles/mercer-celeste.md"
 ---
 
 # Relationship State at Story Start: Jonah and Celeste

@@ -12,7 +12,7 @@ tags:
 related:
   - "nora-bell.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/celeste-mercer.md"
+  - "docs/20-canon/characters/profiles/mercer-celeste.md"
   - "docs/20-canon/timeline/book-1/pre-book-2053.md"
   - "docs/20-canon/timeline/book-1/secret-timeline.md"
 ---

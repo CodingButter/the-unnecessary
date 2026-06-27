@@ -7,8 +7,8 @@ summary: "High-level plot-map entry for Chapter 22, Jonah viewpoint, showing the
 tags: [plot, book-1, act-3, chapter-22, jonah, celeste, mars]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/jonah-mercer.md"
-  - "../../../20-canon/characters/profiles/celeste-mercer.md"
+  - "../../../20-canon/characters/profiles/mercer-jonah.md"
+  - "../../../20-canon/characters/profiles/mercer-celeste.md"
   - "../../../20-canon/world/mars-and-aurelia.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
 source_documents:
@@ -65,7 +65,7 @@ It contains no promise.
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- Jonah Mercer: [../../../20-canon/characters/profiles/jonah-mercer.md](../../../20-canon/characters/profiles/jonah-mercer.md)
-- Celeste Mercer: [../../../20-canon/characters/profiles/celeste-mercer.md](../../../20-canon/characters/profiles/celeste-mercer.md)
+- Jonah Mercer: [../../../20-canon/characters/profiles/mercer-jonah.md](../../../20-canon/characters/profiles/mercer-jonah.md)
+- Celeste Mercer: [../../../20-canon/characters/profiles/mercer-celeste.md](../../../20-canon/characters/profiles/mercer-celeste.md)
 - Mars and the Aurelia Initiative: [../../../20-canon/world/mars-and-aurelia.md](../../../20-canon/world/mars-and-aurelia.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

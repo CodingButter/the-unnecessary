@@ -11,7 +11,7 @@ tags:
   - voice
 related:
   - "relationship-map.md"
-  - "profiles/eli-rook.md"
+  - "profiles/rook-eli.md"
   - "../../10-vision/style/character-voices.md"
 source_documents:
   - "archive/source-monoliths/character-bible.md"

@@ -7,7 +7,7 @@ summary: "High-level plot-map entry for Book One Chapter 8, viewpoint Eli, deliv
 tags: ["plot", "book-1", "act-1", "chapter-08", "eli", "morrow"]
 related:
   - "../act-1.md"
-  - "../../../20-canon/characters/profiles/eli-rook.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/technology/infrastructure/index.md"
   - "../../../20-canon/world/locations/northglass.md"
@@ -76,7 +76,7 @@ The event is logged but not yet investigated.
 
 For the canonical facts referenced above, defer to the canon layer rather than this plot-map entry:
 
-- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/eli-rook.md)
+- Eli Rook profile: [eli-rook.md](../../../20-canon/characters/profiles/rook-eli.md)
 - Morrow character profile: [morrow.md](../../../20-canon/characters/profiles/morrow.md)
 - Infrastructure technology rules: [infrastructure/index.md](../../../20-canon/technology/infrastructure/index.md)
 - Setting, Northglass: [northglass.md](../../../20-canon/world/locations/northglass.md)

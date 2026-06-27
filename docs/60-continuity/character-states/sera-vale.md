@@ -10,9 +10,9 @@ tags:
   - sera-vale
   - book-1
 related:
-  - "../../20-canon/characters/profiles/sera-vale.md"
+  - "../../20-canon/characters/profiles/vale-sera.md"
 source_documents:
-  - "docs/20-canon/characters/profiles/sera-vale.md"
+  - "docs/20-canon/characters/profiles/vale-sera.md"
 ---
 
 # Character State: Sera Vale (Story Start)

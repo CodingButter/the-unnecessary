@@ -15,7 +15,7 @@ related:
   - "../technology-state/morrow.md"
 source_documents:
   - "docs/20-canon/characters/relationship-map.md"
-  - "docs/20-canon/characters/profiles/eli-rook.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
   - "docs/20-canon/characters/profiles/morrow.md"
 ---
 

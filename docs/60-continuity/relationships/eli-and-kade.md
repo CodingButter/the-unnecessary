@@ -16,8 +16,8 @@ related:
   - "../knowledge-state/adrian-kade.md"
 source_documents:
   - "docs/20-canon/characters/relationship-map.md"
-  - "docs/20-canon/characters/profiles/eli-rook.md"
-  - "docs/20-canon/characters/profiles/adrian-kade.md"
+  - "docs/20-canon/characters/profiles/rook-eli.md"
+  - "docs/20-canon/characters/profiles/kade-adrian.md"
 ---
 
 # Relationship State at Story Start: Eli and Kade

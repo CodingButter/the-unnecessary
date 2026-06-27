@@ -15,7 +15,7 @@ related:
   - "../technology-state/crown.md"
 source_documents:
   - "docs/20-canon/characters/relationship-map.md"
-  - "docs/20-canon/characters/profiles/adrian-kade.md"
+  - "docs/20-canon/characters/profiles/kade-adrian.md"
   - "docs/20-canon/characters/profiles/crown.md"
 ---
 

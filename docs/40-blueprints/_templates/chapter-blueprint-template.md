@@ -166,6 +166,88 @@ Identify mysteries, lies, omissions, or facts that should remain hidden.
 
 ---
 
+## Focus
+
+A single section for every focused entity in this chapter, whether it is a
+character, an item or object, or a location. For each entity that matters, record
+the focus ambition and the revelation target. This is the per-chapter slice of the
+reader's knowledge-state: what the reader should know or feel about this entity by
+the end of the chapter. The levels across chapters compose the entity's focus curve.
+Revelation is motivated by the scene and delivered image over inventory, never
+padded to hit a level. Only entities you deliberately sharpen earn a focus entry; do
+not list everything that appears.
+
+### Levels
+
+The level is a coarse ambition, not a numeric score.
+
+- **blur:** present but barely individuated. A function or a role, glimpsed.
+- **sketch:** a few defining strokes. The reader could pick them out of a crowd.
+- **sharp:** clearly drawn and specific. Voice, body, and want are legible.
+- **crisp:** fully present and dimensional. The reader knows them from the inside.
+
+### Focus Targets
+
+Duplicate the appropriate block below for every focused entity. Each entry carries a
+pointer to the entity's bible file, a Level, and a Revelation target along the axes
+appropriate to its type. The revelation target is qualitative intent in service of
+the story, not a quota.
+
+> Note: item and location bibles may not exist yet. The entity pointer is
+> forward-compatible — point it at the file path the entity will live at, even if
+> that file has not been written, so the reference resolves once the bible exists.
+
+#### Character — [Character]
+
+- **Bible pointer:** [path to this character's profile]
+- **Level:** [blur | sketch | sharp | crisp]
+- **Revelation target:**
+  - **Physical:** [what the reader should know or feel about how this person looks, moves, or sounds]
+  - **Emotional:** [what the reader should feel from or about this person]
+  - **Interior:** [what the reader should understand of this person's inner state, want, or contradiction]
+- **Voice and heritage pointer:** Pull this character's "Voice and Speech" section
+  and their heritage signals (accent under "Movement and voice", "Birthplace" and
+  "Faction or class" in Basic Information, and "Early Life" under History and
+  Background) from their profile, so they are written specifically and never as the
+  cultural default.
+
+#### Item / Object — [Item]
+
+- **Bible pointer:** [path to this item's bible, or the path it will live at]
+- **Level:** [blur | sketch | sharp | crisp]
+- **Revelation target:**
+  - **Appearance:** [the sensory detail of the object — how it looks, feels, sounds, weighs]
+  - **Significance:** [what it means, what it foreshadows, or why it matters in the story]
+  - **Provenance:** [where it came from, who made it, and who holds it now]
+
+#### Location — [Location]
+
+- **Bible pointer:** [path to this location's bible, or the path it will live at]
+- **Level:** [blur | sketch | sharp | crisp]
+- **Revelation target:**
+  - **Physical-spatial:** [the layout, scale, and concrete geography the reader should grasp]
+  - **Atmosphere:** [the mood, light, sound, and feel of being in the place]
+  - **Significance:** [what the place means, what it foreshadows, or why it matters in the story]
+
+### Usage Note
+
+- The level is a coarse ambition (blur, sketch, sharp, crisp), not a score and not
+  a quota.
+- The revelation target is qualitative intent in service of the story along the
+  entity-appropriate axes. It is explicitly not a checklist to fill.
+- The levels across chapters compose the entity's focus curve. An entity may be
+  a blur in one chapter and crisp in another by design.
+- Deliver revelation image over inventory. A single concrete image earns a level; a
+  list of traits does not.
+- Never pad a scene to hit a level. If the scene does not motivate the revelation,
+  the target is wrong, not the prose. Hold to the lower level instead.
+- Only entities you deliberately sharpen earn a focus entry. If you are not choosing
+  to bring an entity into focus, leave it out.
+- Respect the bible's reveal tags (`[open]`, `[reveal: Book N]`, `[behavior-only]`,
+  `(proposed)`) so focus never leaks a gated fact.
+
+---
+
 ## Opening
 
 ### Opening Image

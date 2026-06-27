@@ -7,7 +7,7 @@ summary: "High-level plot-map entry for Chapter 26, June viewpoint, beginning Mo
 tags: [plot, book-1, act-3, chapter-26, june, morrow, distribution]
 related:
   - "../act-3.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/park-june.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/technology/ai/morrow.md"
   - "../../../20-canon/timeline/book-1/act-3-timeline.md"
@@ -63,7 +63,7 @@ One node begins communicating with a location outside the neighborhood network.
 
 For canon facts referenced above, defer to the canon layer rather than this plot map:
 
-- June Park: [../../../20-canon/characters/profiles/june-park.md](../../../20-canon/characters/profiles/june-park.md)
+- June Park: [../../../20-canon/characters/profiles/park-june.md](../../../20-canon/characters/profiles/park-june.md)
 - Morrow: [../../../20-canon/characters/profiles/morrow.md](../../../20-canon/characters/profiles/morrow.md)
 - Morrow capabilities and distribution: [../../../20-canon/technology/ai/morrow.md](../../../20-canon/technology/ai/morrow.md)
 - Dates and sequence: [../../../20-canon/timeline/book-1/act-3-timeline.md](../../../20-canon/timeline/book-1/act-3-timeline.md)

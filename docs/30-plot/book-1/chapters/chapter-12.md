@@ -6,11 +6,11 @@ authority: "plot-plan"
 summary: "High-level plot-map entry for Book One Chapter 12, Eli viewpoint, bringing the political conflict over Morrow into the open at the first public meeting."
 tags: ["plot", "book-1", "act-2", "chapter-12", "eli", "morrow", "governance"]
 related:
-  - "../../../20-canon/characters/profiles/eli-rook.md"
-  - "../../../20-canon/characters/profiles/talia-reed.md"
-  - "../../../20-canon/characters/profiles/lena-okafor.md"
-  - "../../../20-canon/characters/profiles/nolan-avery.md"
-  - "../../../20-canon/characters/profiles/june-park.md"
+  - "../../../20-canon/characters/profiles/rook-eli.md"
+  - "../../../20-canon/characters/profiles/reed-talia.md"
+  - "../../../20-canon/characters/profiles/okafor-lena.md"
+  - "../../../20-canon/characters/profiles/avery-nolan.md"
+  - "../../../20-canon/characters/profiles/park-june.md"
   - "../../../20-canon/characters/profiles/morrow.md"
   - "../../../20-canon/timeline/book-1/act-2-timeline.md"
 source_documents:
