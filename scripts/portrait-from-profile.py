@@ -38,9 +38,19 @@ API_HOST = "https://generativelanguage.googleapis.com"
 DEFAULT_MODEL = "gemini-2.5-flash-image"
 DEFAULT_WIDTH = 500
 
-REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(SCRIPT_DIR)
 PROFILES_DIR = os.path.join(REPO_ROOT, "docs", "20-canon", "characters", "profiles")
 PORTRAITS_DIR = os.path.join(REPO_ROOT, "docs", "20-canon", "characters", "portraits")
+
+# The shared father/mother graph parser lives alongside this script. It is the
+# single reader of the structured `## Relationships` edges, and it already
+# distinguishes blood parents (father/mother) from spouses and other authority
+# edges. We reuse it to topologically order generation and to find the parent
+# portraits that condition each child.
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
+import characters_graph as cg  # noqa: E402  (path set above; stdlib-only module)
 
 # Profiles with no human physical layer (nonhuman intelligences) and index files
 # are skipped under --all, per profile-spec.md Section 2.
@@ -60,6 +70,8 @@ STYLE_PREAMBLE = (
     "Absolutely NOT glossy, NOT a glamour shot, NOT 3D render, NOT illustration, "
     "NOT cyberpunk: no neon, no glowing implants, no holograms, no chrome, no rain-"
     "slicked city. No text, captions, watermarks, logos, or borders in the image. "
+    "Render the subject's ethnicity accurately and recognizably, as a specific real "
+    "person -- never a stereotype or caricature. "
     "Render the following specific person:"
 )
 
@@ -224,43 +236,107 @@ def display_name(text):
     return m.group(1).strip() if m else "Unknown"
 
 
+def age_value(text):
+    """Pull the integer age from the 'Age at the start of Book One:' field.
+
+    The label is variable ('Age', 'Age at the start of Book One'), so match the
+    'Age...:' prefix and read the first number. Returns a string or None."""
+    m = re.search(r"^\*\*Age[^:*]*:\*\*\s*(.+)$", text, re.MULTILINE)
+    if not m:
+        return None
+    num = re.search(r"\d+", m.group(1))
+    return num.group(0) if num else None
+
+
 def build_prompt(text):
     """Assemble the full image prompt, or return (None, reason) if no Physical
-    section exists (e.g. a nonhuman profile)."""
+    section exists (e.g. a nonhuman profile).
+
+    The subject description LEADS with the character's heritage as the first,
+    hardest-weighted descriptor, because the front of an image prompt dominates
+    what the model renders. Putting the stated ethnic and national ancestry first
+    (rather than in a trailing field) makes the correct race come out reliably,
+    instead of being inferred from complexion plus surname."""
     blocks, heritage, dropped = extract_appearance(text)
     if blocks is None:
         return None, "no 'Physical and Identifiers' section (nonhuman or non-profile)", dropped
     name = display_name(text)
     occupation = field_value(text, "Occupation")
     faction = field_value(text, "Faction or class")
-    subject_bits = [name]
+    age = age_value(text)
+    descriptor = []
+    if age:
+        descriptor.append("a " + age + "-year-old")
     if occupation:
-        subject_bits.append(occupation.rstrip("."))
+        descriptor.append(occupation.rstrip("."))
     if faction:
-        subject_bits.append("social class: " + faction.rstrip("."))
-    appearance_lines = ["Subject: " + ". ".join(subject_bits) + "."]
-    # Heritage is rendered explicitly and early, before the coloring sub-blocks,
-    # so the model draws the stated ethnic and national ancestry rather than
-    # inferring it from complexion and surname.
+        descriptor.append("social class " + faction.rstrip("."))
+    detail = ", ".join(descriptor)
     if heritage:
-        appearance_lines.append(
-            "Heritage and ancestry, render the person as this specific heritage: "
-            + heritage)
+        subject = ("Subject -- heritage first, render this ethnicity accurately and "
+                   "recognizably: " + heritage.rstrip(".") + ". This specific person is "
+                   + name + ((", " + detail) if detail else "") + ".")
+    else:
+        subject = "Subject: " + name + ((", " + detail) if detail else "") + "."
+    appearance_lines = [subject]
     for label, prose in blocks:
         appearance_lines.append(label + ": " + prose)
     prompt = STYLE_PREAMBLE + "\n\n" + "\n".join(appearance_lines)
     return prompt, None, dropped
 
 
-def call_gemini_image(model, key, prompt):
+def family_instruction(n, age=None):
+    """The conditioning sentence appended when parent reference portraits are
+    attached. The references exist ONLY to transfer inherited facial genetics;
+    age, pose, wardrobe, framing, and setting must come from the subject's own
+    description and never be copied from the parent photo. Without this hard
+    guard the model reproduces the parent image almost verbatim, aged and posed
+    identically."""
+    noun = "parent" if n == 1 else "parents"
+    img = "image" if n == 1 else "images"
+    is_are = "is a portrait" if n == 1 else "are portraits"
+    age_clause = ""
+    if age:
+        age_clause = (
+            " AGE IS CRITICAL: render this subject as a " + age + "-year-old at "
+            "their own life stage. The " + noun + " in the reference " + img + " may "
+            "look decades older; do NOT age this subject up toward them -- younger "
+            "skin, less or no gray, fewer lines, a younger build."
+        )
+    return (
+        "FAMILY RESEMBLANCE, FACE ONLY: the additional reference " + img + " " + is_are
+        + " of this subject's biological " + noun + ", attached for ONE purpose: to "
+        "carry inherited facial genetics -- bone structure, skin tone, eye and hair "
+        "colour, and a few family features. Use the reference " + img + " for the face "
+        "ONLY. Do NOT copy the " + noun + "'s pose, camera angle, crop, expression, "
+        "clothing, or background; this subject has their own distinct pose, expression, "
+        "wardrobe, and setting from the description above. The result must read as a "
+        "completely separate photograph of a different, younger individual who merely "
+        "resembles the " + noun + " -- not the same person and not the same shot."
+        + age_clause
+    )
+
+
+def call_gemini_image(model, key, prompt, reference_images=None):
     """POST to <model>:generateContent asking for an image; return (png_bytes, err).
 
     Uses the documented image-generation surface: generationConfig.responseModalities
     requesting IMAGE, with the bytes returned base64 in candidates[].content.parts[]
-    .inlineData.data. Matches the auth pattern of scripts/gemini-critique.py."""
+    .inlineData.data. Matches the auth pattern of scripts/gemini-critique.py.
+
+    reference_images is an optional list of (mime_type, raw_bytes) inputs. gemini-
+    2.5-flash-image accepts multiple images in one request, so the parent
+    portrait(s) are attached here as additional inlineData parts alongside the
+    text prompt, which lets a child portrait inherit a family resemblance."""
     url = API_HOST + "/v1beta/models/" + model + ":generateContent?key=" + key
+    parts = [{"text": prompt}]
+    for mime, raw in (reference_images or []):
+        parts.append({"inlineData": {
+            "mimeType": mime,
+            "data": base64.b64encode(raw).decode("ascii"),
+        }})
     payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
+        "contents": [{"parts": parts}],
         "generationConfig": {"responseModalities": ["IMAGE"]},
     }
     data = json.dumps(payload).encode("utf-8")
@@ -341,22 +417,62 @@ def embed_in_profile(profile_path, slug, name):
     return "embedded"
 
 
-def generate_for(profile_path, model, key, width=DEFAULT_WIDTH):
-    """Render one profile. Returns (ok, message)."""
-    name = display_name(read_file(profile_path))
+def parent_references(parent_ids):
+    """Resolve blood-parent character ids to existing portrait JPEGs.
+
+    Returns (refs, attached, missing): refs is a list of (mime, bytes) ready for
+    the image call, attached/missing are the parent ids whose portrait did / did
+    not exist on disk. Only father/mother ids should be passed here; spouses are
+    never references."""
+    refs, attached, missing = [], [], []
+    for pid in (parent_ids or []):
+        p_path = os.path.join(PORTRAITS_DIR, pid + ".jpg")
+        try:
+            with open(p_path, "rb") as handle:
+                refs.append(("image/jpeg", handle.read()))
+            attached.append(pid)
+        except OSError:
+            missing.append(pid)
+    return refs, attached, missing
+
+
+def generate_for(profile_path, model, key, width=DEFAULT_WIDTH,
+                 parent_ids=None, force=False):
+    """Render one profile. Returns (ok, message).
+
+    When the character has profiled blood parent(s) whose portrait already
+    exists, those JPEGs are attached as reference images so the face inherits a
+    family resemblance. An existing portrait is kept unless force is set."""
     text = read_file(profile_path)
+    name = display_name(text)
+    slug = os.path.splitext(os.path.basename(profile_path))[0]
+    out_path = os.path.join(PORTRAITS_DIR, slug + ".jpg")
+    if os.path.exists(out_path) and not force:
+        return True, "EXISTS " + slug + ": kept " + out_path + " (use --force to regenerate)"
     prompt, reason, dropped = build_prompt(text)
     if prompt is None:
         return False, "skip " + os.path.basename(profile_path) + ": " + reason
-    slug = os.path.splitext(os.path.basename(profile_path))[0]
+    refs, attached, missing = parent_references(parent_ids)
+    if refs:
+        prompt = prompt + "\n\n" + family_instruction(len(refs), age_value(text))
     print("Generating portrait for " + name + " [" + slug + "] via " + model
           + " (dropped " + str(dropped) + " reveal/behavior-gated facts; key hidden)...",
           file=sys.stderr)
-    png, err = call_gemini_image(model, key, prompt)
+    if attached:
+        print("  family conditioning: attaching " + str(len(attached))
+              + " parent reference image(s): "
+              + ", ".join(a + ".jpg" for a in attached), file=sys.stderr)
+    if missing:
+        print("  family conditioning: " + str(len(missing))
+              + " profiled parent(s) had no portrait yet, generating without: "
+              + ", ".join(m + ".jpg" for m in missing), file=sys.stderr)
+    if not (parent_ids or []):
+        print("  family conditioning: no profiled blood parents; prompt only (root).",
+              file=sys.stderr)
+    png, err = call_gemini_image(model, key, prompt, refs)
     if err:
         return False, "FAILED " + slug + ": " + err
     os.makedirs(PORTRAITS_DIR, exist_ok=True)
-    out_path = os.path.join(PORTRAITS_DIR, slug + ".jpg")
     # Downscale to ~<width>px wide and re-encode as JPEG before saving +
     # embedding: the portrait is a repo artifact, so the full-res PNG model
     # output is needless weight, and JPEG keeps the growing image set lean.
@@ -365,21 +481,57 @@ def generate_for(profile_path, model, key, width=DEFAULT_WIDTH):
         return False, "FAILED " + slug + ": resize: " + resize_err
     sized = os.path.getsize(out_path)
     status = embed_in_profile(profile_path, slug, name)
+    ref_note = (" [conditioned on " + ", ".join(attached) + "]") if attached else ""
     return True, "OK " + slug + ": wrote " + out_path + " (" + str(len(png)) \
-        + " bytes src -> " + str(sized) + " bytes @ " + str(width) + "px), embed " + status
+        + " bytes src -> " + str(sized) + " bytes @ " + str(width) + "px), embed " \
+        + status + ref_note
+
+
+def topo_order(slugs, parents_map):
+    """Order slugs so every profiled blood parent precedes its child.
+
+    Roots (no profiled blood parent within the selected set) come first in stable
+    sorted order; a child is emitted only once all its in-set parents are placed.
+    Parents outside the selected set do not gate ordering -- their portraits are
+    expected to already exist on disk. Any residual cycle is appended in stable
+    order rather than dropped, so generation never stalls."""
+    sel = set(slugs)
+    placed = set()
+    ordered = []
+    pending = list(slugs)
+    while pending:
+        progressed = False
+        still = []
+        for slug in pending:
+            in_set_parents = [p for p in parents_map.get(slug, []) if p in sel]
+            if all(p in placed for p in in_set_parents):
+                ordered.append(slug)
+                placed.add(slug)
+                progressed = True
+            else:
+                still.append(slug)
+        if not progressed:
+            ordered.extend(still)
+            break
+        pending = still
+    return ordered
 
 
 def main():
     ap = argparse.ArgumentParser(description="Generate and embed a character portrait from a profile.")
-    ap.add_argument("profile", nargs="?", help="Path to a single character profile .md")
+    ap.add_argument("profile", nargs="*",
+                    help="Path(s) to character profile .md; rendered in topological "
+                         "(parents-before-children) order")
     ap.add_argument("--all", action="store_true", help="Walk every profile in profiles/")
     ap.add_argument("--model", default=DEFAULT_MODEL, help="Gemini image model id")
     ap.add_argument("--width", type=int, default=DEFAULT_WIDTH,
                     help="Max portrait width in px; aspect preserved (default %(default)s)")
+    ap.add_argument("--force", action="store_true",
+                    help="Regenerate even if the portrait JPEG already exists")
     args = ap.parse_args()
 
     if not args.all and not args.profile:
-        ap.error("give a profile path or --all")
+        ap.error("give one or more profile paths or --all")
 
     prefer_ipv4()
     key = load_key()
@@ -387,22 +539,37 @@ def main():
         print("ERROR: no GEMINI_API_KEY or GOOGLE_API_KEY in env or .env", file=sys.stderr)
         return 2
 
+    # Build the family graph once. parents_map maps a child slug to its profiled
+    # blood-parent slugs (father/mother only; spouses and other authority edges
+    # are excluded by graph.parents_of). It drives both the topological ordering
+    # and which parent portraits condition each child.
+    graph = cg.build_graph()
+    parents_map = {child: [pid for (pid, _rel) in plist]
+                   for child, plist in graph.parents_of().items()}
+
     if args.all:
-        targets = sorted(
-            os.path.join(PROFILES_DIR, f)
-            for f in os.listdir(PROFILES_DIR)
-            if f.endswith(".md") and f not in SKIP_PROFILES
-        )
+        slugs = [os.path.splitext(f)[0]
+                 for f in sorted(os.listdir(PROFILES_DIR))
+                 if f.endswith(".md") and f not in SKIP_PROFILES]
+        path_for = {s: os.path.join(PROFILES_DIR, s + ".md") for s in slugs}
     else:
-        targets = [args.profile]
+        slugs, path_for = [], {}
+        for p in args.profile:
+            s = os.path.splitext(os.path.basename(p))[0]
+            slugs.append(s)
+            path_for[s] = p
+
+    ordered = topo_order(slugs, parents_map)
 
     failures = 0
-    for path in targets:
+    for slug in ordered:
+        path = path_for.get(slug, os.path.join(PROFILES_DIR, slug + ".md"))
         if not os.path.exists(path):
             print("FAILED: profile not found: " + path, file=sys.stderr)
             failures += 1
             continue
-        ok, message = generate_for(path, args.model, key, args.width)
+        parent_ids = list(parents_map.get(slug, []))
+        ok, message = generate_for(path, args.model, key, args.width, parent_ids, args.force)
         print(message, file=sys.stderr)
         if not ok and not message.startswith("skip "):
             failures += 1

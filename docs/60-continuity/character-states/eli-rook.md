@@ -27,9 +27,9 @@ A deteriorating residential neighborhood in Greater Detroit. He operates from a 
 
 ## Physical Condition
 
-- Age 38. Approximately five feet ten inches tall, narrow, slightly underweight.
-- Dark brown hair he cuts himself, usually grown too long. Short, uneven beard.
-- Gray-green eyes that often appear tired.
+- Age 38. Approximately five feet ten inches tall, lean and wiry; good-looking in an unattended way he pays no mind to.
+- Thick dark brown hair he cuts himself, grown a little too long. Short dark stubble that goes uneven under strain.
+- Striking clear gray-green eyes, usually shadowed with fatigue but quick and sharp.
 - Hands show old burns, cuts, and small scars from years of hardware work.
 - One fingertip on his left hand has reduced sensation after an industrial power-controller accident.
 - Not physically imposing.

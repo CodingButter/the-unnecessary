@@ -53,17 +53,17 @@ source_documents:
 
 ### Frame
 
-Eli is approximately five feet ten inches tall with a narrow, slightly underweight build. He does not look physically imposing. His posture is economical and slightly forward at the shoulders, the carriage of a man who spends his hours bent over open panels and benches.
+Eli is approximately five feet ten inches tall, lean and wiry, with the spare, capable build of a man who works with his hands and forgets to eat, not a man who trains. He does not look physically imposing, but there is an unforced economy to how he moves that reads as a quiet kind of strength. His posture runs slightly forward at the shoulders, the carriage of a man who spends his hours bent over open panels and benches.
 
 ### Coloring
 
-He has dark brown hair that he cuts himself and usually allows to grow too long between trims. His eyes are gray-green and often appear tired rather than expressive. His complexion is pale and uneven, the indoor pallor of bench work crossed with weather from outdoor repairs. The gray-green eyes came from his father.
+He has thick dark brown hair that he cuts himself and lets grow a little too long between trims, which suits him better than he would ever notice. His eyes are a striking clear gray-green, usually shadowed with fatigue but quick and sharp the moment a problem catches them. His complexion is pale, the indoor cast of bench work crossed with weather from outdoor repairs. The gray-green eyes came from his father.
 
 **Heritage:** White American, Flint working-class: Polish, English, and German European, with Anishinaabe (Ojibwe) ancestry from the Michigan nations. The blend reads as weathered working-class white.
 
 ### Face
 
-A long, narrow face. He has a short beard that becomes uneven when he is working through a crisis. His eyes often appear tired rather than expressive. His expression at rest gives very little away. His stillness and attention can make other people feel intensely observed.
+A lean, angular face, good-looking in a way he pays no attention to, with a strong jaw under dark stubble he keeps short and lets go uneven when he is working through a crisis. His expression at rest gives very little away. His stillness and attention can make other people feel intensely observed.
 
 ### Hands and handedness
 
@@ -83,7 +83,7 @@ He moves deliberately and without waste, the unhurry of a man who has learned th
 
 ### Grooming and default dress
 
-He cuts his own hair and lets it run long between trims; the beard goes uneven under strain. He wears practical clothing that can survive dust, oil, heat, and electrical work. His jackets contain more repaired seams than original stitching. Heavy resoled boots and a cloth in a back pocket. He smells of solder, machine oil, and cold metal.
+He cuts his own hair and lets it run long between trims; the beard goes uneven under strain. He wears practical clothing that can survive dust, oil, heat, and electrical work, and wears all of it without a thought for how it looks, which is most of why it sits well on him. His jackets contain more repaired seams than original stitching. Heavy resoled boots and a cloth in a back pocket. He smells of solder, machine oil, and cold metal.
 
 ## Personality
 
