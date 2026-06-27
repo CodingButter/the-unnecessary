@@ -260,6 +260,13 @@ timeline:
   large or multi-entity beat (a fire that damages a building and injures a person) becomes
   its own dated `event` file the affected entities reference, and both "this entity's life"
   and "everything that happened on October 18" are **derived** by walking events.
+- **Dates are canonical and machine-sortable.** Every `when` in a timeline and every
+  blueprint scene/chapter date is written in **ISO 8601** (`2053-10-03`, or
+  `2053-10-03T18:30` when the clock matters), so the resolver orders and compares them
+  deterministically. Approximate values stay explicit and still sortable
+  (`{ circa: 2050 }`, `{ before: 2053-06-15 }`). A human-readable label ("Friday,
+  October 3, 2053") may accompany the canonical field but never replaces it; the existing
+  Book 1 blueprints gain a canonical companion date, losing nothing.
 
 ## 10. Diff-driven continuity (fearless revisability)
 
