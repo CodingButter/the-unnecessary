@@ -57,6 +57,18 @@ _OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 DEFAULT_API = "http://voice.codingbutter.com"
 SAMPLE_RATE = 24000
 
+# PROACTIVE SPLIT: chunks longer than this (chars) intermittently DROP trailing text
+# during Chatterbox generation -- the model speaks part of the chunk, then emits seconds
+# of silence in place of the rest. Short pieces don't drop. render_chunk splits any
+# chunk over this threshold into sentence-groups (each <= threshold), renders each
+# separately, and concatenates them, so every chunk renders in full.
+SPLIT_THRESHOLD = 300
+
+# Silence (seconds) inserted BETWEEN sentence-pieces when render_chunk splits a long
+# chunk. Small -- these are intra-chunk seams within one register block, not declared
+# pauses (which live in GAP_SECONDS and are inserted by the chapter-level stitch).
+INTRA_CHUNK_SILENCE = 0.12
+
 # Four REGISTERS anchored on the server's "audiobook" preset. No "emotion" key: the
 # emotion presets (plus repetition_penalty 1.4) manufactured non-speech garble. These
 # are knobs only, every value inside the stable range (exaggeration <= 0.6,
@@ -611,6 +623,81 @@ def trim_chunk_edges(in_wav, out_wav, pad=0.05):
     return res.returncode == 0
 
 
+def render_chunk(api, voice, profile, text, out_wav, auth, rep_penalty,
+                 base_temp, max_temp, edge_pad=0.05, split_threshold=SPLIT_THRESHOLD):
+    """Render ONE chunk to out_wav, PROACTIVELY splitting long text so nothing drops.
+
+    Chatterbox intermittently DROPS trailing text on long chunks (>~300 chars): it
+    speaks the start, then emits silence in place of the rest. Short pieces don't drop.
+    So:
+      * len(text) <= split_threshold -> a single generate() to out_wav (the unchanged,
+        proven path; identical bytes to before).
+      * len(text)  > split_threshold -> split into sentence-GROUPS each <= threshold
+        (via _split_sentences: split on (?<=[.!?])\\s+, then greedily pack whole
+        sentences up to the threshold; a lone sentence longer than the threshold is
+        NEVER chopped -- it stays whole), generate() each group to a temp wav,
+        trim_chunk_edges each, then ffmpeg-concat the trimmed pieces with a small
+        INTRA_CHUNK_SILENCE seam into out_wav, and delete the temps.
+
+    The split path's out_wav is mono / 24000 Hz / pcm_s16le -- format-identical to
+    generate(), so the caller cannot tell a split chunk from a single one. Returns
+    (None, duration_secs) on success or (error_string, None); the first failing piece's
+    error is returned verbatim.
+    """
+    if len(text) <= split_threshold:
+        return generate(api, voice, profile, text, out_wav, rep_penalty,
+                        base_temp, max_temp, auth=auth)
+
+    groups = _split_sentences(text, split_threshold)
+    tmp_dir = os.path.dirname(out_wav) or "."
+    stem = os.path.splitext(os.path.basename(out_wav))[0]
+    temps = []                  # every temp file to remove afterwards
+    trimmed_pieces = []
+    try:
+        for j, grp in enumerate(groups, 1):
+            raw_p = os.path.join(tmp_dir, "%s._p%02d.wav" % (stem, j))
+            temps.append(raw_p)
+            err, _ = generate(api, voice, profile, grp, raw_p, rep_penalty,
+                              base_temp, max_temp, auth=auth)
+            if err:
+                return (err, None)
+            trimmed_p = os.path.join(tmp_dir, "%s._p%02d.trimmed.wav" % (stem, j))
+            temps.append(trimmed_p)
+            if not trim_chunk_edges(raw_p, trimmed_p, edge_pad):
+                return ("edge-trim failed for piece %d of %s"
+                        % (j, os.path.basename(out_wav)), None)
+            trimmed_pieces.append(trimmed_p)
+
+        sil = os.path.join(tmp_dir, "%s._psil.wav" % stem)
+        temps.append(sil)
+        if not make_silence(sil, INTRA_CHUNK_SILENCE):
+            return ("failed to make intra-chunk silence for %s"
+                    % os.path.basename(out_wav), None)
+
+        listfile = os.path.join(tmp_dir, "%s._pconcat.txt" % stem)
+        temps.append(listfile)
+        with open(listfile, "w", encoding="utf-8") as handle:
+            for idx, tp in enumerate(trimmed_pieces):
+                handle.write("file '" + os.path.abspath(tp) + "'\n")
+                if idx < len(trimmed_pieces) - 1:   # silence between pieces, not after the last
+                    handle.write("file '" + os.path.abspath(sil) + "'\n")
+
+        res = subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listfile,
+             "-ar", str(SAMPLE_RATE), "-ac", "1", "-c:a", "pcm_s16le", out_wav],
+            capture_output=True, text=True)
+        if res.returncode != 0:
+            return ("ffmpeg concat failed for %s: %s"
+                    % (os.path.basename(out_wav), res.stderr[-300:]), None)
+        return (None, _wav_duration(out_wav))
+    finally:
+        for p in temps:
+            try:
+                os.remove(p)
+            except OSError:
+                pass
+
+
 def profile_str(profile):
     """Compact human-readable rendering of a profile dict for plan/progress output."""
     if not profile:
@@ -646,6 +733,79 @@ def print_plan(chunks):
               file=sys.stderr)
 
 
+def stitch_chapter(chunks, chunk_dir, out, fmt, edge_pad, no_edge_trim):
+    """Stitch the already-rendered per-chunk WAVs into the final mastered file.
+
+    Expects the rendered chunks at chunk_dir/NN.wav (01..len(chunks)); each chunk dict
+    carries its 'gap_after' kind. This is exactly what main() used to do inline after
+    rendering, lifted out so an orchestrator can drive render + stitch separately:
+
+      1. Edge-trim each NN.wav -> NN.trimmed.wav (unless no_edge_trim), so the declared
+         inter-chunk gaps stay exact. The raw NN.wav is left untouched (resume-safe);
+         --no-edge-trim stitches the raw files directly.
+      2. Build one silence WAV per distinct gap kind actually used between chunks.
+      3. Write concat.txt interleaving chunk/silence, then ffmpeg-concat + loudnorm
+         master (consistent loudness, true-peak ceiling so peaks never clip) to `out`.
+
+    Returns True on success, False on failure (printing the cause to stderr, matching
+    main()'s previous messages and exit behaviour).
+    """
+    chunk_files = [(os.path.join(chunk_dir, "%02d.wav" % i), ch["gap_after"])
+                   for i, ch in enumerate(chunks, 1)]
+
+    # Edge-trim pass: keep only the single contiguous [onset-pad, offset+pad] span of each
+    # chunk, shaving the leading/trailing dead air so the declared inter-chunk gaps stay
+    # exact. ATRIM keeps ONE range, so it cannot remove interior speech. The raw NN.wav
+    # stays untouched (so resume still works); NN.trimmed.wav is regenerated each run and
+    # is what gets stitched. --no-edge-trim stitches the raw files directly.
+    concat_files = []
+    for cf, gap in chunk_files:
+        if no_edge_trim:
+            concat_files.append((cf, gap))
+        else:
+            trimmed = cf[:-len(".wav")] + ".trimmed.wav"
+            if not trim_chunk_edges(cf, trimmed, edge_pad):
+                print("ERROR: edge-trim failed for %s" % os.path.basename(cf), file=sys.stderr)
+                return False
+            concat_files.append((trimmed, gap))
+
+    # Build one silence WAV per distinct gap kind actually used (last chunk has no
+    # silence after it, so its gap is irrelevant), then the concat list.
+    used_kinds = set(gap for _, gap in concat_files[:-1])
+    sil_paths = {}
+    for kind in sorted(used_kinds):
+        sp = os.path.join(chunk_dir, "_sil_%s.wav" % kind)
+        if not make_silence(sp, GAP_SECONDS[kind]):
+            print("ERROR: failed to generate %s silence WAV" % kind, file=sys.stderr)
+            return False
+        sil_paths[kind] = sp
+
+    listfile = os.path.join(chunk_dir, "concat.txt")
+    with open(listfile, "w", encoding="utf-8") as handle:
+        for idx, (cf, gap) in enumerate(concat_files):
+            handle.write("file '" + os.path.abspath(cf) + "'\n")
+            if idx < len(concat_files) - 1:   # silence between, not after the last
+                handle.write("file '" + os.path.abspath(sil_paths[gap]) + "'\n")
+
+    # Concat into the final output, MASTERED with loudnorm: a consistent loudness
+    # and a true-peak ceiling so peaks do not overshoot 0 dBFS and clip ("crunch")
+    # when the lossy encoder reconstructs a near-full-scale signal.
+    master_af = "loudnorm=I=-18:TP=-2.0:LRA=11"
+    if fmt == "wav":
+        cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listfile,
+               "-af", master_af, "-ar", str(SAMPLE_RATE), "-ac", "1",
+               "-c:a", "pcm_s16le", out]
+    else:
+        cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listfile,
+               "-af", master_af, "-ar", str(SAMPLE_RATE), "-ac", "1",
+               "-codec:a", "libmp3lame", "-q:a", "2", out]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    if res.returncode != 0:
+        print("ffmpeg concat failed: " + res.stderr[-400:], file=sys.stderr)
+        return False
+    return True
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="Narrate a narration-script to one file via the self-hosted voice server (Chatterbox).")
@@ -679,6 +839,12 @@ def main():
                          "atrim, so interior speech is never touched. Default 0.05.")
     ap.add_argument("--no-edge-trim", action="store_true",
                     help="Skip edge-trimming and stitch the raw NN.wav chunks directly.")
+    ap.add_argument("--split-threshold", type=int, default=SPLIT_THRESHOLD,
+                    help="Proactively split any chunk longer than this many characters into "
+                         "sentence-pieces at render time, render each separately, and concat "
+                         "them into one chunk WAV. Long chunks (>~300c) intermittently drop "
+                         "trailing text during Chatterbox generation; short pieces don't. "
+                         "Default %d." % SPLIT_THRESHOLD)
     ap.add_argument("--api", default=DEFAULT_API)
     ap.add_argument("--user", default=None,
                     help="API username for HTTP Basic auth (else VOICE_API_USER env, else .mcp.json).")
@@ -734,75 +900,30 @@ def main():
 
     os.makedirs(chunk_dir, exist_ok=True)
 
-    chunk_files = []
+    # Render each chunk to chunk_dir/NN.wav (resumable: skip any that already exist).
+    # render_chunk proactively splits long chunks into sentence-pieces so nothing drops.
     for i, ch in enumerate(chunks, 1):
         cf = os.path.join(chunk_dir, "%02d.wav" % i)
         prof = ch["profile"]
         if os.path.exists(cf):
             print("  chunk %02d/%d  [%s]  skip (exists)"
                   % (i, len(chunks), profile_str(prof)), file=sys.stderr)
-            chunk_files.append((cf, ch["gap_after"]))
             continue
         print("  chunk %02d/%d  [%s]  %d chars ..."
               % (i, len(chunks), profile_str(prof), len(ch["text"])), file=sys.stderr)
-        err, dur = generate(args.api, args.voice, prof, ch["text"], cf, args.repetition_penalty,
-                            args.temperature, args.max_temp, auth=auth)
+        err, dur = render_chunk(args.api, args.voice, prof, ch["text"], cf, auth,
+                                args.repetition_penalty, args.temperature, args.max_temp,
+                                edge_pad=args.edge_pad, split_threshold=args.split_threshold)
         if err:
             print("ERROR on chunk %d: %s" % (i, err), file=sys.stderr)
             return 1
         dur_s = ("%.1fs audio" % dur) if dur is not None else "duration unknown"
         print("      -> %s (%s)" % (os.path.basename(cf), dur_s), file=sys.stderr)
-        chunk_files.append((cf, ch["gap_after"]))
 
-    # Edge-trim pass: keep only the single contiguous [onset-pad, offset+pad] span of each
-    # chunk, shaving the leading/trailing dead air so the declared inter-chunk gaps stay
-    # exact. ATRIM keeps ONE range, so it cannot remove interior speech. The raw NN.wav
-    # stays untouched (so resume still works); NN.trimmed.wav is regenerated each run and
-    # is what gets stitched. --no-edge-trim stitches the raw files directly.
-    concat_files = []
-    for cf, gap in chunk_files:
-        if args.no_edge_trim:
-            concat_files.append((cf, gap))
-        else:
-            trimmed = cf[:-len(".wav")] + ".trimmed.wav"
-            if not trim_chunk_edges(cf, trimmed, args.edge_pad):
-                print("ERROR: edge-trim failed for %s" % os.path.basename(cf), file=sys.stderr)
-                return 1
-            concat_files.append((trimmed, gap))
-
-    # Build one silence WAV per distinct gap kind actually used (last chunk has no
-    # silence after it, so its gap is irrelevant), then the concat list.
-    used_kinds = set(gap for _, gap in concat_files[:-1])
-    sil_paths = {}
-    for kind in sorted(used_kinds):
-        sp = os.path.join(chunk_dir, "_sil_%s.wav" % kind)
-        if not make_silence(sp, GAP_SECONDS[kind]):
-            print("ERROR: failed to generate %s silence WAV" % kind, file=sys.stderr)
-            return 1
-        sil_paths[kind] = sp
-
-    listfile = os.path.join(chunk_dir, "concat.txt")
-    with open(listfile, "w", encoding="utf-8") as handle:
-        for idx, (cf, gap) in enumerate(concat_files):
-            handle.write("file '" + os.path.abspath(cf) + "'\n")
-            if idx < len(concat_files) - 1:   # silence between, not after the last
-                handle.write("file '" + os.path.abspath(sil_paths[gap]) + "'\n")
-
-    # Concat into the final output, MASTERED with loudnorm: a consistent loudness
-    # and a true-peak ceiling so peaks do not overshoot 0 dBFS and clip ("crunch")
-    # when the lossy encoder reconstructs a near-full-scale signal.
-    master_af = "loudnorm=I=-18:TP=-2.0:LRA=11"
-    if args.format == "wav":
-        cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listfile,
-               "-af", master_af, "-ar", str(SAMPLE_RATE), "-ac", "1",
-               "-c:a", "pcm_s16le", out]
-    else:
-        cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listfile,
-               "-af", master_af, "-ar", str(SAMPLE_RATE), "-ac", "1",
-               "-codec:a", "libmp3lame", "-q:a", "2", out]
-    res = subprocess.run(cmd, capture_output=True, text=True)
-    if res.returncode != 0:
-        print("ffmpeg concat failed: " + res.stderr[-400:], file=sys.stderr)
+    # Stitch the rendered chunks into the final mastered file (edge-trim -> per-gap
+    # silences -> concat + loudnorm). Lifted into stitch_chapter so an orchestrator can
+    # drive render + stitch independently; main() just calls it (behavior-preserving).
+    if not stitch_chapter(chunks, chunk_dir, out, args.format, args.edge_pad, args.no_edge_trim):
         return 1
     print(out)  # stdout: the final file path
     return 0
