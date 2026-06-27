@@ -48,7 +48,7 @@ Start with [core-premise.md](./core-premise.md). It establishes the working titl
 
 ## Authority and status
 
-Every file in this directory carries `authority: world-canon` and `status: active-canon`, and all draw from the `Story Bible.md` monolith. They are authoritative on world facts and outrank both mem0 memory and the knowledge graph in any conflict. This index carries `status: active-support` and establishes nothing on its own. Some topics are deliberately split across domains: government-and-corporations defers to the character and technology domains for Adrian Kade and Crown, mars-and-aurelia defers to the technology domain for Mars engineering and to the timeline for Aurelia milestones, and consistency-rules defers to the technology domain for hard plot restrictions and Morrow behavior.
+Every file in this directory carries `authority: world-canon` and `status: active-canon`, and all draw from the `Story Bible.md` monolith. They are authoritative on world facts. This index carries `status: active-support` and establishes nothing on its own. Some topics are deliberately split across domains: government-and-corporations defers to the character and technology domains for Adrian Kade and Crown, mars-and-aurelia defers to the technology domain for Mars engineering and to the timeline for Aurelia milestones, and consistency-rules defers to the technology domain for hard plot restrictions and Morrow behavior.
 
 ## Common tasks
 

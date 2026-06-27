@@ -1,7 +1,7 @@
 ---
 title: "Decision 044: mem0 Knowledge Graph Is On, With the Bibles as Higher Authority"
 document_type: "decision"
-status: "active"
+status: "superseded"
 authority: "governance"
 summary: "The self-hosted mem0 knowledge graph is on, with relationships extracted by Gemini into Neo4j, while the bibles remain the higher authority and graph links are treated as recall hints requiring periodic pruning."
 tags: ["decision", "workflow", "tooling", "mem0", "knowledge-graph"]

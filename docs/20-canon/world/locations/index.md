@@ -42,7 +42,7 @@ Start with [greater-detroit.md](./greater-detroit.md). It establishes the primar
 
 ## Authority and status
 
-Every file in this subtree carries `authority: world-canon` and `status: active-canon`, and all draw from the `Story Bible.md` monolith. They are authoritative on world facts and outrank both mem0 memory and the knowledge graph in any conflict. This index carries `status: active-support` and establishes nothing on its own. Two files deliberately defer outward: northglass.md hands facility history and Morrow's origin to the technology domain, and mars-sites.md hands the broader Mars and Aurelia treatment to the parent world directory.
+Every file in this subtree carries `authority: world-canon` and `status: active-canon`, and all draw from the `Story Bible.md` monolith. They are authoritative on world facts. This index carries `status: active-support` and establishes nothing on its own. Two files deliberately defer outward: northglass.md hands facility history and Morrow's origin to the technology domain, and mars-sites.md hands the broader Mars and Aurelia treatment to the parent world directory.
 
 ## Common tasks
 
