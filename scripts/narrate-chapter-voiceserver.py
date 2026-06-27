@@ -561,14 +561,18 @@ def main():
                 sil = sil_scene if scene_break else sil_default
                 handle.write("file '" + os.path.abspath(sil) + "'\n")
 
-    # Concat (and convert) into the final output.
+    # Concat into the final output, MASTERED with loudnorm: a consistent loudness
+    # and a true-peak ceiling so peaks do not overshoot 0 dBFS and clip ("crunch")
+    # when the lossy encoder reconstructs a near-full-scale signal.
+    master_af = "loudnorm=I=-18:TP=-2.0:LRA=11"
     if args.format == "wav":
         cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listfile,
-               "-c", "copy", out]
+               "-af", master_af, "-ar", str(SAMPLE_RATE), "-ac", "1",
+               "-c:a", "pcm_s16le", out]
     else:
         cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listfile,
-               "-ar", str(SAMPLE_RATE), "-ac", "1", "-codec:a", "libmp3lame",
-               "-q:a", "2", out]
+               "-af", master_af, "-ar", str(SAMPLE_RATE), "-ac", "1",
+               "-codec:a", "libmp3lame", "-q:a", "2", out]
     res = subprocess.run(cmd, capture_output=True, text=True)
     if res.returncode != 0:
         print("ffmpeg concat failed: " + res.stderr[-400:], file=sys.stderr)
