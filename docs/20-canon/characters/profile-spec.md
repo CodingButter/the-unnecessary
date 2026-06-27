@@ -111,7 +111,16 @@ characters listed there.
 The super-rich physical layer. Eight sub-blocks, each a `###` sub-header:
 
 - **Frame.** Height, weight or build descriptor, build, posture.
-- **Coloring.** Complexion, hair (color, texture, length, upkeep), eyes.
+- **Coloring.** Complexion, hair (color, texture, length, upkeep), eyes. This
+  sub-block also carries a `**Heritage:**` field, present on every human profile,
+  naming the character's specific ethnic and national ancestry (for example
+  "White American: Polish, German, and English European, with Anishinaabe/Ojibwe
+  ancestry", or "African-American, light-skinned end of the Black spectrum"). The
+  complexion wording must be consistent with the stated heritage; where prose and
+  heritage appear to disagree, the heritage field resolves it rather than the
+  complexion being silently rewritten. The portrait renderer reads this field so
+  the rendered heritage is the stated one, not an inference from complexion and
+  surname.
 - **Face.** Shape, notable features, expression at rest.
 - **Hands and handedness.** Dominant hand, condition of the hands, what the
   hands reveal about the work the person does.
@@ -479,6 +488,7 @@ every hidden or invented fact, and leaves nothing blank.
 ## Physical and Identifiers
 ### Frame ...
 ### Coloring ...
+**Heritage:** ...            (specific ethnic/national ancestry; portrait reads this)
 ### Face ...
 ### Hands and handedness ...
 ### Distinguishing marks ...          (each mark: origin stated)

@@ -59,6 +59,8 @@ Five feet five inches, slight and upright, with the careful straight-backed carr
 
 Warm fair complexion, soft and lined, with the high color of someone who walks in cold weather. Hair gone fully white, fine and abundant, worn in a soft twist pinned off her neck, redone without a mirror. Pale blue-gray eyes behind reading glasses she pushes up onto her hair and then hunts for. Eli's gray-green is the father's; from his mother he took the steadiness of the gaze rather than its color.
 
+**Heritage:** White American: English and German European, with a thread of Anishinaabe (Ojibwe) on her line.
+
 ### Face
 
 An open, expressive face, the opposite of Daniel's closed one, lined most at the eyes and the corners of a mouth that has spent decades reading aloud and smiling at children. High cheekbones, a soft jaw. Her resting expression is mild, alert, and faintly inquiring, the face of a woman waiting to hear the real question under the one you asked. This is the reference-desk face, and it is the source of Eli's habit of pressing for the precise question.

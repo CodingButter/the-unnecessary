@@ -65,6 +65,8 @@ Jonah is six feet tall with a broad, well-maintained build. He carries the build
 
 He has warm brown skin, the family coloring his children inherit, close-cropped black hair kept barbered and current, and warm brown eyes. (hair, eyes, and the trustworthy face are established) His coloring reads health and upkeep, the surface of a man whose systems all still work.
 
+**Heritage:** African-American, son of Malcolm and Elaine Mercer. Warm brown skin and brown eyes, unambiguously Black.
+
 ### Face
 
 Jonah has a face people tend to trust quickly. It is open, even-featured, and quick to warmth, the kind of face that makes a stranger feel already known. His expression at rest is attentive and faintly pleased, an alert readiness to be of use. When he is genuinely frightened the warmth stays on the face by habit and only leaves the eyes, which is how Celeste reads him. [behavior-only] (proposed)

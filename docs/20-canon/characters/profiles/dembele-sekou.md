@@ -62,6 +62,8 @@ A tall man folded down by age, six feet once and stooped a hand's width short of
 
 Deep brown complexion, ashier at the knuckles and the shins in the cold ward. Hair gone fully white and cropped close to the skull, the eyebrows still half dark. Brown eyes that have kept the long flat focus of a man who read a continent off a board, quick to settle on a column of figures and slow to leave it. [open, derived from "I can still see a chain when it's in front of me"]
 
+**Heritage:** Malian: Bambara, a Bamako immigrant.
+
 ### Face
 
 A long, deeply lined face, the cheeks fallen in, the jaw still long and definite. His resting expression is attentive and a little amused, the look of a man who is always half watching a system move. When he talks about the wall-sized screen the amusement and the loss sit in the face at the same time and he does not try to keep either out. [open] A reading habit pulls his chin down and his eyes up over absent glasses.

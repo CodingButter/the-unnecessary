@@ -62,6 +62,8 @@ Six feet even, with the easy, unearned good build of a man who has had the best 
 
 Fair, lightly tanned in the even way of a man with leisure and good light, never weathered. Blond hair worn a touch long and expensively careless, thick, kept by a barber who comes to the house, the same blond Mara's has been going gray out of, so the family resemblance reads at a glance. Blue-gray eyes, clear and a little unfocused, the eyes of a person who has never had to watch anything carefully because nothing has ever depended on his watching.
 
+**Heritage:** White American: the same West-Michigan Dutch, German, and Scandinavian line.
+
 ### Face
 
 A pleasant, open, symmetrical face, the kind people decide to like before he has said anything. High color in the cheeks. A wide, ready, slightly lazy smile that he deploys as a first move and a fallback both. His resting expression is mild, unbothered, faintly amused, the look of a man waiting to be entertained. He has Mara's straight nose and good bones under softer flesh; you can see the formidable face his mother has and the comfortable one he has chosen to wear instead.

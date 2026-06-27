@@ -59,6 +59,8 @@ Five feet eleven inches, an inch taller than Eli, with the same narrow build thi
 
 Pale, weathered complexion, reddened across the back of the neck and the forearms from outdoor municipal work in all weather. Dark brown hair gone iron-and-ash gray and thinning at the crown, cut short and plain, often cut by Ruth at the kitchen table (this is the household root of Eli cutting his own hair, an established Eli trait). Gray-green eyes, the exact tired gray-green the chapter gives Eli, which is where Eli's came from.
 
+**Heritage:** White American: Polish and German European, carrying the family's Anishinaabe (Ojibwe) line. The source of Eli's Native ancestry.
+
 ### Face
 
 A long, narrow face, the "narrow face" register the manuscript uses for working fathers, lined deeply at the brow and the mouth. Heavy, level eyebrows. A short gray beard kept close, trimmed without much attention. Expression at rest was attentive and unhurried, a face that gave very little away and watched the work rather than the room. The stillness people find unnerving in Eli is the father's stillness, learned by copying him.

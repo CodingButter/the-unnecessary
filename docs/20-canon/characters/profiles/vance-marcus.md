@@ -58,6 +58,8 @@ Five feet nine or ten, lean and wiry, built for endurance rather than mass, the 
 
 Fair, sallow complexion, chapped and wind-reddened across the face from outdoor labor in the cold. Light brown hair, straight and fine, cut short and a little raggedly, kept down by his own hand or his son's. Pale gray eyes set close. He looks tired in a settled, unremarkable way.
 
+**Heritage:** White American: a working-class European mix, English and Scots-Irish with German.
+
 ### Face
 
 A narrow face. [canon] This is the one canon physical fact: the boy is described as having "his father's narrow face," so the narrowness is fixed for both of them. Long and lean-jawed, sharp-cheeked, a thin straight nose, the features pulled close and vertical. Resting expression is flat and watchful, an economy of expression that the boy has inherited along with the shape. He looks older than thirty-five around the eyes.

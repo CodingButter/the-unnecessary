@@ -61,6 +61,8 @@ June is five feet four inches tall and wiry. She moves quickly and rarely sits n
 
 Warm light-brown complexion, weathered by working outdoors in the cold. She keeps her black hair cut unevenly above her shoulders, hacked shorter herself whenever it gets in the way of the work. Dark brown eyes, direct and quick, the eyes her mother has. A pale flat mole below the left eye, the same mark her mother carries.
 
+**Heritage:** Korean-American: third-generation, Dearborn-born.
+
 ### Face
 
 A round, open, strong-jawed face that is her mother's face. Her expression at rest is alert and faintly impatient, scanning, as if the room were a device with a fault to find. When something delights her, usually a machine doing what it should not, the whole face lights without restraint.

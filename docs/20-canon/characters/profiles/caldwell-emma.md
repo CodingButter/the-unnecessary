@@ -58,6 +58,8 @@ Small for seven, light and slight under the clinic blanket, the way a feverish c
 
 Fair complexion gone pink and damp across the cheeks with the fever. Light-brown hair, fine and flyaway, sweat-stuck to her forehead and temple, usually worn in two short plaits that have half come undone. Blue-gray eyes, bright and over-shiny with the heat in her. [open, that she has a fever] (the eye color is proposed)
 
+**Heritage:** White American: a Detroit family of European-American stock.
+
 ### Face
 
 A round child's face, snub-nosed and freckled across the bridge, the cheeks flushed. At rest, asleep, her expression smooths into the open trust of a child who has decided the adults have it handled. Awake and feverish, her brow knots and unknots.

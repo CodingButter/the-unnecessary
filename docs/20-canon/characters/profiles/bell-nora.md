@@ -57,6 +57,8 @@ Five feet seven inches, slim and upright, the contained posture of someone who s
 
 Fair, well-kept complexion with the even tone of reliable enclave healthcare. Ash-brown hair, straight and fine, kept in a precise shoulder-length cut. Hazel eyes.
 
+**Heritage:** White American: English and Scottish, Anglo-American Ann Arbor academic stock.
+
 ### Face
 
 An oval, composed face with level brows and a controlled, attentive expression at rest, the face of a researcher who watches and weighs before she answers.

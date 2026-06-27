@@ -56,6 +56,8 @@ Kade is tall, lean, and physically disciplined. He stands a little over six feet
 
 His hair is silver and closely cut. His complexion is fair and even, kept healthy rather than tanned. His eyes are a pale, cool gray, steady and slow to move.
 
+**Heritage:** White American: old East-Coast money, Anglo-Dutch old New York, English with Dutch Knickerbocker lineage.
+
 ### Face
 
 A lean, even-featured face. His appearance is maintained through advanced medicine but not made unnaturally youthful, so the age reads as deliberate rather than fought. His expression at rest is composed attention, the look of a man already weighing the next sentence.

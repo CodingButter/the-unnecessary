@@ -60,6 +60,8 @@ Five feet eleven inches, and built broad once, the deep-chested heavy-shouldered
 
 Deep dark-brown complexion, ashened at the lips and the beds of the nails from the chronic shortage of breath. Close-cropped hair gone fully white, kept short because short is easy. A week of white stubble he lets Tomas shave when he has the wind for it. Brown eyes, still quick and amused under heavy lids, the one part of him the illness has not slowed [open, that he is alert and teasing at night].
 
+**Heritage:** Nigerian: Yoruba, a Lagos immigrant.
+
 ### Face
 
 A long face, the cheeks fallen in over good bones, the skin loose now where it was once full. Deep lines from the nose to the mouth. At rest his expression is patient and a little ironic, a man listening for footsteps in a hall and keeping score of them. [open] (He tells Lena, "I know your feet.")

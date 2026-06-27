@@ -56,6 +56,8 @@ Heavyset, with a damaged right knee. [canon] A big, broad, thick-through frame g
 
 Brown skin weathered by decades of outdoor and substation work, lined and sun-marked at the back of the neck and the hands. A gray beard, kept full but not tidy. [canon] Gray, close-cropped or thinning hair under whatever cap is to hand. Dark eyes, hooded and shrewd, the eyes of a man who has been told a system is fine and has learned to go look for himself.
 
+**Heritage:** African-American: a Great Migration family with Alabama roots in Detroit.
+
 ### Face
 
 A broad, heavy, deeply lined face, jowled with age, framed by the gray beard. [canon beard] His notable features are the lines of long squinting at panels and weather and the set of a jaw used to disagreeing. His expression at rest is skeptical and unimpressed, a man waiting to be shown rather than told, which softens, rarely and unmistakably, into dry warmth when someone earns it. [canon-adjacent to his stubborn, generous nature]

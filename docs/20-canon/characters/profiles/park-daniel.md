@@ -61,6 +61,8 @@ Five feet nine inches, lean, with the wiry build June inherited from him, now go
 
 Warm light-brown complexion gone indoor-pale, the particular grayed pallor of a man who lives under filtered artificial light while his daughter works in the cold open air. Black hair, fine and straight, cut short and neat to the enclave's grooming standard, now heavily salted with gray at the temples. Dark brown eyes, deep-set, tired, and watchful.
 
+**Heritage:** Korean-American: second-generation.
+
 ### Face
 
 A narrow, even face with neat regular features and a high straight brow. His expression at rest is careful neutrality, a face trained to give nothing to a lens. When he forgets the cameras, which is rarely, a quick warmth surfaces and vanishes. June has his quickness but her mother's face.

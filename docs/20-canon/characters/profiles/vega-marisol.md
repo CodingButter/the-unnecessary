@@ -57,6 +57,8 @@ Five feet four inches, sturdy and short, with the settled weight of a woman who 
 
 Warm brown complexion, weathered at the hands and the back of the neck from cold work. Dark hair gone iron-gray at the temples, thick and coarse, kept in a low practical knot she redoes without a mirror. Brown eyes, quick, that move to follow where a customer is looking before the customer has said anything. [open] (In Chapter 1 she reads Eli's eyes on the dark case and answers the question he has not asked.)
 
+**Heritage:** Mexican-American, Latina: Detroit-born, southwest-Detroit roots.
+
 ### Face
 
 A broad, open face, lined at the mouth and the outer eyes from a lifetime of an expression that lands just short of a smile. [open] Her resting expression is the "almost smiling" the chapter names: an habitual, held warmth that is half welcome and half armor. Heavy brows. A short straight nose. The face of someone people tell things to.

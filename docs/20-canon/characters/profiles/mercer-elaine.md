@@ -65,6 +65,8 @@ Five feet six, upright, and trim, with the brisk economy of a woman who has been
 
 Light olive complexion that takes the sun, kept out of it now by indoor years at Malcolm's side. Hair silver-gray, well cut to the jaw, colored for decades and now allowed to go honestly gray since she stopped having the time or the wish to maintain the fiction. Clear hazel eyes that go to the middle distance when she is running a calculation, which is often. Reading glasses on a cord, on and off a hundred times a day.
 
+**Heritage:** African-American: a Great Migration family from Lansing. Light-skinned, her olive complexion and hazel eyes sit at the lighter end of the Black spectrum.
+
 ### Face
 
 An even, symmetrical, capable face, faintly lined, that defaults to a pleasant administrative attentiveness she can hold through almost anything. Her expression at rest is composed and reading you, the look of a woman who has delivered bad institutional news to a thousand families and learned to keep her own face steady while she does it. [behavior-only] (proposed) When she is genuinely moved the composure breaks at the eyes first, never the mouth.

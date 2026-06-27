@@ -61,6 +61,8 @@ Five feet nine inches, compact and muscular gone a little soft at the middle in 
 
 Medium brown complexion, tanned darker on the forearms and neck from outdoor work. Black hair going salt-and-pepper, thick, cut short and practical, with a heavy mustache kept trimmed. Dark brown eyes, patient and observant, the eyes of a man who has learned to wait out a slow process.
 
+**Heritage:** Mexican-American, Latino: Detroit-born, working the trades.
+
 ### Face
 
 A square, friendly face, broad through the jaw, lined at the eyes from squinting and laughing both, the resting expression open and a little rueful. The mustache and the smile lines make him read as approachable. Right now there is the gray underweather of someone in low-grade pain and bored by it.

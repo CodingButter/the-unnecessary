@@ -59,6 +59,8 @@ Five feet three inches, small and wiry, the build she passed to June. Her postur
 
 Warm light-brown complexion, weathered at the hands and reddened across the knuckles from cold-house work and cold water. Black hair, straight and thick, going gray at the part, kept shoulder-length and tied back out of the way with whatever is nearest. Dark brown eyes, direct and quick, the eyes June has.
 
+**Heritage:** Korean-American: second-generation, born Han.
+
 ### Face
 
 A round, open, strong-jawed face, lined at the brow from worry and at the mouth from a habit of pressing her lips when she will not say a thing. This is the face June carries. Her expression at rest is composed alertness, a woman listening for a sound from the next room. The composure is a discipline; she has decided her household will not run on her panic.

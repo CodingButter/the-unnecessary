@@ -68,6 +68,8 @@ Six feet even, the same height his son Jonah carries, though the inch of stoop t
 
 Fair, ruddy complexion gone pale and papery with indoor years. Hair full but entirely white, kept short and barbered at home now that he cannot easily go out. Pale gray-blue eyes, still quick and tracking, which is the cruelty of the condition: the eyes plainly contain a man who is all there, behind a body that increasingly will not answer him.
 
+**Heritage:** African-American: a Great Migration family from downriver River Rouge with Deep-South roots. He sits at the light-skinned, European-admixed end of the Black spectrum, so the fair, ruddy, light-eyed coloring reads as a very light, light-eyed Black man.
+
 ### Face
 
 A broad, square, once-commanding face, jowls loosened, the skin slack where the muscle tone has gone. Deep vertical lines between the brows from decades of reading freight schedules and weather over a continent. His expression at rest has flattened into a neutral mask he does not intend; the condition steals the small face muscles first, so that the warmth he feels does not always reach his face, and strangers misread him as cold. [behavior-only] (proposed) Those who know him read the eyes, not the mouth.

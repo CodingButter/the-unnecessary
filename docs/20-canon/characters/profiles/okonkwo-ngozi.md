@@ -61,6 +61,8 @@ Five feet six inches, broad-shouldered and solid, built for carrying, with the p
 
 Dark brown complexion, even and well-kept. Hair worn in neat cornrows or wrapped in a printed headscarf depending on the day, threaded with the first gray at the front and tended without fuss. Dark brown eyes, level and appraising, the eyes of a woman who counts what is in a room.
 
+**Heritage:** Nigerian: Igbo, an Enugu immigrant.
+
 ### Face
 
 A round, strong-boned face, full at the cheeks, with a composed, slightly formal resting expression that softens fast when she is among her own. A small habitual set to the jaw, the look of someone carrying a worry she will not put on you. Lines bracketing the mouth from a smile she gives deliberately rather than constantly.

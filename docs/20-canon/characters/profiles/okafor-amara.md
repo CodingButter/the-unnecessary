@@ -56,6 +56,8 @@ Five feet two inches, small and compact, with the thickened waist and softened s
 
 Deep brown complexion, the skin at her hands and face finely lined, dry and ashen in the cold months of the unheated rooms. Hair fully gray-white, coarse and thick, kept very short and natural under a head wrap she ties fresh each morning, the wrap usually a faded wax-print cloth she has owned for decades. Dark brown eyes, the whites slightly yellowed with age, the left clouding at the edge with an early cataract she has not had touched because the clinic that would touch it no longer exists in any form she could reach.
 
+**Heritage:** Nigerian: Igbo, an Onitsha immigrant.
+
 ### Face
 
 A round, broad face, deeply lined at the brow and around the mouth, with high full cheeks that lift when she is amused. Notable features: a strong jaw, a wide flat nose, a small dark mole high on the left cheek. Expression at rest is watchful and a little severe, the face of a woman who priced stock by reading a customer's coat. The severity breaks completely and suddenly when she laughs, which she does loudly and without warning.

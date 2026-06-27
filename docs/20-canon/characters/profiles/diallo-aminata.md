@@ -61,6 +61,8 @@ Five feet three inches, thin, and grown frail, the thinness of someone who has b
 
 Dark brown complexion, the skin gone a little gray with illness and the cold ward. Hair worn under a headscarf, gray at the edges where it shows, the Fulani way of covering kept all her life. Dark eyes "that were tired and clear," the clarity the thing the prose marks, a woman seeing her situation exactly. [open]
 
+**Heritage:** Guinean: Fulani, Fulbe, a Labe immigrant.
+
 ### Face
 
 A fine-boned, narrow face, the cheeks hollowed by illness and age, deeply lined, with a composed, dignified resting expression that the cough keeps breaking. When she tries to laugh "the laugh turned into the cough." [open] The face is one that has practiced not showing fear and is, tonight, almost past the practice.

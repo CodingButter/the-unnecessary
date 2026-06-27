@@ -58,6 +58,8 @@ Five feet three inches, slight and compact, with the quick economy of someone wh
 
 Brown complexion with a warm undertone. Black hair, fine and very straight, worn in a single practical plait down her back so it stays out of her work. Dark brown eyes, watchful and steady, the eyes of someone counting. A small, careful face that gives little away on purpose.
 
+**Heritage:** Indian-American: Detroit-born to North-Indian immigrant parents.
+
 ### Face
 
 An oval face, neat-featured, composed at rest, with a stillness that reads as competence and sometimes as reserve. She has the trained blank of a person who has learned not to let a patient see her doing arithmetic about them. When she is concentrating, the stillness deepens rather than breaks.

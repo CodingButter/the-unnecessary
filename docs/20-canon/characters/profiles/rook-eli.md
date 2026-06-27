@@ -59,6 +59,8 @@ Eli is approximately five feet ten inches tall with a narrow, slightly underweig
 
 He has dark brown hair that he cuts himself and usually allows to grow too long between trims. His eyes are gray-green and often appear tired rather than expressive. His complexion is pale and uneven, the indoor pallor of bench work crossed with weather from outdoor repairs. The gray-green eyes came from his father.
 
+**Heritage:** White American, Flint working-class: Polish, English, and German European, with Anishinaabe (Ojibwe) ancestry from the Michigan nations. The blend reads as weathered working-class white.
+
 ### Face
 
 A long, narrow face. He has a short beard that becomes uneven when he is working through a crisis. His eyes often appear tired rather than expressive. His expression at rest gives very little away. His stillness and attention can make other people feel intensely observed.

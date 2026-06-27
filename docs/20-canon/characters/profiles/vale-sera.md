@@ -51,6 +51,8 @@ Sera is of average height. Her build is compact and conditioned, the body of som
 
 She has closely cropped dark hair. Her complexion is fair and unfussed, and her eyes are a dark, steady brown.
 
+**Heritage:** Biracial Canadian: a Lebanese, Levantine Arab, mother and a white English-Canadian father, from Toronto. A light Levantine mix.
+
 ### Face
 
 An even, watchful face. Her expression at rest is neutral assessment, the look of someone listening for the fact under the sentence and not yet deciding to react. She rarely shows what she has concluded.

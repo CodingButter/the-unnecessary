@@ -62,6 +62,8 @@ Five feet seven, level and composed, with the still, economical bearing of a wom
 
 Fair-to-olive complexion, a shade her daughter's coloring softens. Dark brown hair, thick, worn at the shoulder in a low-maintenance cut she can push back when she is concentrating, threaded with the first early gray she has not bothered to hide. Steady gray eyes that hold a look a beat longer than is comfortable, the gaze of a former architect reading the lines of a thing.
 
+**Heritage:** White American: rural-Michigan farming stock, German with English and Scots-Irish.
+
 ### Face
 
 An even, contained face that gives away little until she chooses to, with a faint vertical line between the brows from years of close attention. Her expression at rest is calm and assessing, neither warm nor cold, simply taking the measure of the room. When she is moved it shows first at the mouth, a small tightening she controls. [behavior-only] (proposed)

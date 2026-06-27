@@ -59,6 +59,8 @@ Tall, elegant, and carefully composed. [canon] She carries a lean, upright, deli
 
 Fair, evenly kept complexion with the good even light of someone with dependable healthcare and no outdoor labor in her history. Blonde hair beginning to gray, which she refuses to color or treat away because she believes visible age communicates authority. [canon] She wears it well-cut and exactly controlled, never loose. Her eyes are a cool pale gray, level and assessing, the feature people remember as the thing that was reading them.
 
+**Heritage:** White American: West-Michigan Dutch and German with Scandinavian, Grand Rapids stock.
+
 ### Face
 
 A long, fine-boned, symmetrical face that has aged into authority rather than away from it. Her notable feature is control: a face trained over decades of public life to show nothing she has not decided to show. Her expression at rest is composed, attentive, faintly cool, the look of a woman listening for the part of a sentence that commits you to something. [canon that she controls her expressions in public] In private the same face goes blunt and personal when she lets it. [canon that she becomes blunt and personal when privately emotional]

@@ -78,6 +78,11 @@ META_PAREN_RE = re.compile(
 )
 # Inline code spans in these profiles are always repo-relative path references.
 CODE_SPAN_RE = re.compile(r"`[^`]*`")
+# The dedicated **Heritage:** field inside the Coloring sub-block. It is pulled
+# out and rendered explicitly so Gemini draws the stated ethnic/national
+# ancestry, instead of inferring it from complexion plus surname. Reveal-safe:
+# a heritage line carrying a reveal/behavior-only tag is dropped like any fact.
+HERITAGE_LINE_RE = re.compile(r"^\*\*Heritage:\*\*\s*(.+?)\s*$", re.IGNORECASE)
 
 
 def prefer_ipv4():
@@ -149,12 +154,14 @@ def extract_appearance(text):
     """Build the reveal-safe appearance description from Physical and Identifiers.
 
     Walks the sub-blocks, drops any sentence carrying a reveal: or behavior-only
-    tag, cleans the rest, and returns labeled lines plus a flag for whether any
-    reveal-gated fact was filtered (for reporting)."""
+    tag, cleans the rest, and returns labeled lines, the dedicated Heritage value
+    (or None), plus a count of reveal-gated facts that were filtered (for
+    reporting)."""
     body = section_body(text, "Physical and Identifiers")
     if body is None:
-        return None, 0
+        return None, None, 0
     blocks = []          # (label, cleaned prose)
+    heritage = None      # the dedicated **Heritage:** field, rendered explicitly
     state = {"label": None, "buf": [], "dropped": 0}
 
     def flush():
@@ -183,10 +190,24 @@ def extract_appearance(text):
             flush()
             state["label"] = sub.group(1).strip()
             state["buf"] = []
-        elif line.strip():
+            continue
+        herit = HERITAGE_LINE_RE.match(line.strip())
+        if herit:
+            # Pull the Heritage field out of the Coloring prose and render it on
+            # its own labeled line. Drop it if reveal/behavior-gated; otherwise
+            # clean it the same way as any kept page-safe fact.
+            raw = herit.group(1).strip()
+            if REVEAL_DROP_RE.search(raw):
+                state["dropped"] += 1
+            else:
+                cleaned = clean_fact(raw)
+                if cleaned and cleaned != ".":
+                    heritage = cleaned
+            continue
+        if line.strip():
             state["buf"].append(line.strip())
     flush()
-    return blocks, state["dropped"]
+    return blocks, heritage, state["dropped"]
 
 
 def field_value(text, label):
@@ -206,7 +227,7 @@ def display_name(text):
 def build_prompt(text):
     """Assemble the full image prompt, or return (None, reason) if no Physical
     section exists (e.g. a nonhuman profile)."""
-    blocks, dropped = extract_appearance(text)
+    blocks, heritage, dropped = extract_appearance(text)
     if blocks is None:
         return None, "no 'Physical and Identifiers' section (nonhuman or non-profile)", dropped
     name = display_name(text)
@@ -218,6 +239,13 @@ def build_prompt(text):
     if faction:
         subject_bits.append("social class: " + faction.rstrip("."))
     appearance_lines = ["Subject: " + ". ".join(subject_bits) + "."]
+    # Heritage is rendered explicitly and early, before the coloring sub-blocks,
+    # so the model draws the stated ethnic and national ancestry rather than
+    # inferring it from complexion and surname.
+    if heritage:
+        appearance_lines.append(
+            "Heritage and ancestry, render the person as this specific heritage: "
+            + heritage)
     for label, prose in blocks:
         appearance_lines.append(label + ": " + prose)
     prompt = STYLE_PREAMBLE + "\n\n" + "\n".join(appearance_lines)

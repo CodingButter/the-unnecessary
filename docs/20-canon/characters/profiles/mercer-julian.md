@@ -65,6 +65,8 @@ Tall for twelve and still soft in the way of a boy about to stretch, with the lo
 
 Warm brown skin a shade lighter than his father's, the family coloring. His father's dark hair, kept longer than Jonah's close crop because he is twelve and resists the barber. Warm brown eyes, his father's eyes, the kind people trust quickly, though Julian has not yet learned to use that the way Jonah does. [canon that Jonah has warm brown eyes and close-cropped black hair, `./mercer-jonah.md`]
 
+**Heritage:** Biracial: an African-American father, Jonah, and a white mother, Celeste.
+
 ### Face
 
 A round, open boy's face just beginning to find its angles, expressive and unguarded. His expression at rest is curious and slightly watchful, a child who reads the adults' moods more closely than they realize and tries to look like he is not. [behavior-only] (proposed) A scatter of faint freckles across the nose.

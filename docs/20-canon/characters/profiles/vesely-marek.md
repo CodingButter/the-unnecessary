@@ -61,6 +61,8 @@ Five feet ten inches, broad and thickened through the chest and forearms from ou
 
 Fair, weathered complexion, ruddy and chapped across the cheeks and the back of the neck from year-round outdoor work, pale where the collar covers. Hair a faded sandy gray, thinning on top, kept short under a cap; a few days of pale stubble most of the time. Pale blue-gray eyes set in a permanent slight squint from the open sky.
 
+**Heritage:** White American: Czech, grandson of Czech auto-plant immigrants.
+
 ### Face
 
 A broad, heavy face, jowled now, with deep weather lines and a habitually mild, closed expression, the face of a man who talks more easily to animals than to people. A bulbed nose reddened by cold. The resting look is patient and a little wary, warming slowly. He smiles with the eyes before the mouth.

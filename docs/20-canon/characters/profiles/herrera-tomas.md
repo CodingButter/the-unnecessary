@@ -60,6 +60,8 @@ Five feet nine inches, lean and quick, with the unshowy fitness of a man who is 
 
 Warm medium-brown complexion. Black hair, thick and straight, kept short and neat because a night nurse has no time for it otherwise. Dark brown eyes, expressive past his own wishes. A few days' worth of stubble by the end of a run of nights.
 
+**Heritage:** Mexican-American, Latino: Detroit east side.
+
 ### Face
 
 An open, boyish face that looks younger than thirty, broad at the cheekbones, quick to show what he feels. [open] (Mr. Adeyemi: "he can't lie worth anything, his face does it for him.") At rest it is attentive and faintly worried, the face of someone listening down a hall for a change in a sound.

@@ -62,6 +62,8 @@ Tall and lean, about five feet nine inches, with the flat, functional strength o
 
 Fair-to-olive complexion, weathered and sun-touched across the nose, the forearms, and the back of the neck from years of fieldwork rather than from leisure. Dark brown hair, thick, with the first scattered grays she does not color, worn short or pushed back out of the way and cut for function, not style. Gray eyes, level and slow to widen, that her father's people find unnervingly hard to read across a table. Her coloring is kept deliberately unspecified as to maternal lineage, because her mother is an open canonical slot and is not invented here. FLAG.
 
+**Heritage:** Paternal line white East-Coast American, through Adrian Kade. The maternal line is a deliberately open canonical slot, left unassigned and not invented here, consistent with either a white or a part-Mediterranean, Latina, or mixed mother. FLAG.
+
 ### Face
 
 A long, even face with strong brows and a wide, firm mouth. Her resting expression is calm attention, close to her father's controlled stillness but warmer at the eyes, the calm of someone listening rather than waiting to speak. When something genuinely pleases her the whole face opens at once, briefly and completely, then resets. People who have only seen the reset call her cold. People who have earned the open face know better.

@@ -64,6 +64,8 @@ Small and quick for eight, slight, all motion. She is rarely entirely still exce
 
 Warm light-brown skin, the family coloring a shade lighter again than her brother's. Dark wavy hair, long, that she refuses to have cut and that is usually half out of whatever it was put into. Large dark-brown eyes, very expressive, that fill fast and clear fast.
 
+**Heritage:** Biracial: an African-American father, Jonah, and a white mother, Celeste.
+
 ### Face
 
 A small, round, mobile face that broadcasts everything she feels before she says it. Her expression at rest is open and busy, lips moving slightly as she narrates her own play under her breath. [behavior-only] (proposed) A gap where a baby tooth recently came out, which she shows everyone.

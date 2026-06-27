@@ -60,6 +60,8 @@ Lena is five feet seven inches tall with a sturdy build. Her posture communicate
 
 Deep brown complexion, the skin around her eyes shadowed and the hands dry from constant antiseptic washing. She wears her hair in short natural twists that can be easily maintained. The twists are now flecked with gray she does not bother to hide. Dark brown eyes, steady and direct, quick to assess and slow to look away.
 
+**Heritage:** Nigerian-American: Igbo, with Onitsha roots, Detroit-born.
+
 ### Face
 
 A broad, strong-boned face with high cheeks and a firm jaw, carrying a clear family resemblance to her mother Amara. Her expression at rest is composed and faintly stern, the practiced neutral a physician wears so a frightened patient cannot read a prognosis off her face. The sternness gives way to a brief, warm directness when she decides to trust someone.

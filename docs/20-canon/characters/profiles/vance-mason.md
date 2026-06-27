@@ -59,6 +59,8 @@ Five feet nine and still filling out, thin and a little gangly, the build of a w
 
 Fair, sallow complexion like his father's, reddened at the ears and knuckles by the cold. Light brown hair, fine and straight, overlong and pushed out of his eyes, cut at home. Pale gray eyes set close, the same as Marcus's. A faint shadow of first stubble he does not yet shave with any regularity.
 
+**Heritage:** White European on his father's side, Lebanese-American on his mother's. He presents fair like his father; the Levantine line does not surface.
+
 ### Face
 
 A narrow face. [canon] This is the load-bearing canon detail: Chapter 1 names him as having "his father's narrow face," so the narrowness, and its match to Marcus, is fixed for both. Long and lean-jawed, sharp-cheeked, a thin straight nose, the features pulled close and vertical. His resting expression is a guarded flatness, the same economy of expression his father wears, which on a seventeen-year-old reads as a kid who learned early not to show too much. [canon detail: a "flatness Eli knew and let pass"]

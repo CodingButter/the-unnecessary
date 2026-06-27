@@ -60,6 +60,8 @@ Six feet even, lean and long-limbed, with the slight forward stoop of a tall man
 
 Dark brown complexion, the skin at the back of his neck and his forearms weathered darker from outdoor work in all weather. Close-cropped hair gone mostly gray, kept shaved nearly to the scalp because a clipper run is cheaper and surer than a barber the neighborhood no longer has. A short gray-flecked beard kept the same way. Dark brown eyes, a little reddened at the rims from short broken sleep.
 
+**Heritage:** African-American: a Great Migration family with Georgia roots.
+
 ### Face
 
 A long, narrow-jawed face, high forehead, deep vertical lines between the brows from years of squinting at small terminals and night work. Resting expression is watchful and faintly worried, the face of a man already half-listening for the next thing to go quiet. When he laughs it transforms completely and briefly, then settles back to the listening.

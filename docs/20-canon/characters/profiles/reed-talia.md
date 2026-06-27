@@ -56,6 +56,8 @@ Five feet eight inches tall with an athletic build. [canon] She carries the dura
 
 Brown skin, even and unfussed. Dark hair worn in long braids, usually tied back. [canon] The braids are a practical, low-upkeep style she maintains on a barter exchange with a neighbor rather than a salon. Dark brown eyes, direct and steady, that go from open to flat the instant she senses she is being managed. [canon that her expression is open until she senses evasion]
 
+**Heritage:** African-American: a Great Migration family with Mississippi roots.
+
 ### Face
 
 An open, expressive, broad-featured face that reads warmth first and is the reason people trust her in a meeting before she has won the argument. Her notable feature is the legibility of her attention: when she is listening, you know it, and when she stops believing you, the whole face cools at once. [canon that her expression is open until she senses evasion] Her expression at rest is attentive and faintly skeptical, a teacher waiting to see if the answer holds up.
