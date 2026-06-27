@@ -47,7 +47,7 @@ For an index specifically:
     index fronts a governance directory. Example: an index over docs/20-canon/
     characters/ carries authority "character-canon"; an index over
     docs/30-plot/ carries authority "plot-plan". Use the controlled authority
-    vocabulary fixed in Phase 02 (see migration/target-architecture.md section 4).
+    vocabulary enforced by scripts/validate-metadata.py.
 
 ---
 title: "<Directory Name> Index"
@@ -61,7 +61,7 @@ tags:
 related:
   - "<valid relative path to a sibling or parent index, for example ../index.md>"
 source_documents:
-  - "<real existing path this index's directory derived from, for example archive/source-monoliths/character-bible.md, or migration/REPOSITORY-REORGANIZATION-SPEC.md>"
+  - "<real existing path this index's directory derived from, for example archive/source-monoliths/character-bible.md>"
 # Optional fields below: include only when the value is genuinely known. Never invent.
 # version: "<semantic version if known, for example 1.0>"
 # scope: "<for example book-1>"

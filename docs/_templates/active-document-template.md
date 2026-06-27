@@ -4,7 +4,7 @@ This file documents the active-document YAML front-matter SHAPE only.
 It contains zero canonical story content. Copy it, fill the placeholders,
 and replace this comment when authoring a real active document in a later phase.
 Controlled values for `status` and `authority` are defined in
-migration/target-architecture.md section 4. Filenames use lowercase kebab-case.
+the schema enforced by scripts/validate-metadata.py. Filenames use lowercase kebab-case.
 -->
 ---
 title: "<Human readable title>"

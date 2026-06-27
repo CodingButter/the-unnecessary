@@ -10,6 +10,8 @@ tags:
 related:
   - "../20-canon/index.md"
   - "../10-vision/index.md"
+source_documents:
+  - "archive/source-monoliths/development-and-canon-guide.md"
 ---
 
 # Governance Index

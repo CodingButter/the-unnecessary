@@ -2,7 +2,7 @@
 # This file documents the context-manifest SHAPE only. It contains zero real paths
 # and zero canonical content. Copy it, fill the placeholders, and replace this header
 # when authoring a real manifest in a later phase. All nine fields are required.
-# Rules (see migration/target-architecture.md section 3):
+# Rules (lowercase kebab-case filenames; metadata per scripts/validate-metadata.py):
 #   - reference only files that exist when the manifest is written
 #   - put optional or possibly-absent paths (for example docs/70-research/**) under optional_files
 #   - reference existing validation scripts by name under relevant_validation_checks

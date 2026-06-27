@@ -18,6 +18,8 @@ related:
   - "./technology-state/index.md"
   - "./unresolved-threads.md"
   - "./setups-and-payoffs.md"
+source_documents:
+  - "archive/source-monoliths/development-and-canon-guide.md"
 ---
 
 # Continuity Index
