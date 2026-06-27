@@ -6,7 +6,7 @@ authority: "governance"
 summary: "Records that Chapter 2 'The Last Supported Day' (Lena POV) is approved manuscript and ranks above the plans and profiles that fed it, and that the 2053 everyday-economy facts it established are canonized into the world bible: post-employment localism, the barter and trade economy as the everyday norm, and the collapse of insurance and institutional healthcare, the last as a faithful extension of Decision 002's withdrawal logic to insurers and health institutions specifically."
 tags: ["decision", "manuscript", "approval", "worldbuilding", "economy", "continuity", "chapter-02", "lena"]
 related:
-  - "../../../50-manuscript/book-1/chapter-02-the-last-supported-day.md"
+  - "../../../50-manuscript/book-1/chapter-02-the-last-supported-day/chapter-02-the-last-supported-day.md"
   - "../../../40-blueprints/book-1/chapter-02-the-last-supported-day/blueprint.md"
   - "../../../20-canon/technology/infrastructure/identity-and-money.md"
   - "../../../20-canon/world/social-structure.md"
@@ -15,7 +15,7 @@ related:
   - "./046-chapter-authorship-pipeline.md"
   - "../index.md"
 source_documents:
-  - "docs/50-manuscript/book-1/chapter-02-the-last-supported-day.md"
+  - "docs/50-manuscript/book-1/chapter-02-the-last-supported-day/chapter-02-the-last-supported-day.md"
   - "docs/40-blueprints/book-1/chapter-02-the-last-supported-day/blueprint.md"
 ---
 
@@ -55,7 +55,7 @@ The Decision 046 pipeline makes author approval the gate that turns a draft into
 
 ### Affected Documents
 
-- `docs/50-manuscript/book-1/chapter-02-the-last-supported-day.md`
+- `docs/50-manuscript/book-1/chapter-02-the-last-supported-day/chapter-02-the-last-supported-day.md`
 - `docs/20-canon/technology/infrastructure/identity-and-money.md`
 - `docs/20-canon/world/social-structure.md`
 - `docs/20-canon/technology/infrastructure/community-infrastructure.md`

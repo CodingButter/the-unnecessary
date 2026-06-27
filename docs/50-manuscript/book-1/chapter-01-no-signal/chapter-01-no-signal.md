@@ -10,8 +10,8 @@ tags:
   - chapter-01
   - eli
 related:
-  - "../../40-blueprints/book-1/chapter-01-no-signal/blueprint.md"
-  - "../../30-plot/book-1/chapters/chapter-01.md"
+  - "../../../40-blueprints/book-1/chapter-01-no-signal/blueprint.md"
+  - "../../../30-plot/book-1/chapters/chapter-01.md"
 source_documents:
   - "docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md"
 ---

@@ -12,7 +12,7 @@ tags:
 related:
   - "./chapter-01-no-signal.md"
 source_documents:
-  - "docs/50-manuscript/book-1/chapter-01-no-signal.md"
+  - "docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md"
 ---
 
 ## Voice Direction

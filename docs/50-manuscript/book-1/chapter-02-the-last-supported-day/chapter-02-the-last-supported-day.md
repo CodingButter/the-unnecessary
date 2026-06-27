@@ -9,8 +9,8 @@ tags:
   - book-1
   - chapter-02
 related:
-  - "../../40-blueprints/book-1/chapter-02-the-last-supported-day/blueprint.md"
-  - "../../30-plot/book-1/chapters/chapter-02.md"
+  - "../../../40-blueprints/book-1/chapter-02-the-last-supported-day/blueprint.md"
+  - "../../../30-plot/book-1/chapters/chapter-02.md"
 source_documents:
   - "docs/40-blueprints/book-1/chapter-02-the-last-supported-day/blueprint.md"
 ---

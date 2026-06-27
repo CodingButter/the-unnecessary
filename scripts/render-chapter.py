@@ -122,9 +122,9 @@ def derive_paths(script_path, out, fmt):
     guarantees the orchestrator reads/writes the same NN.wav files the renderer would."""
     in_stem = os.path.splitext(os.path.basename(script_path))[0]
     base_stem = in_stem.replace(".narrative-script", "")
-    out = out or os.path.join("audio", "book-1", base_stem + ".voiceserver." + fmt)
+    out = out or os.path.join("audio", "book-1", base_stem, base_stem + "." + fmt)
     out_dir = os.path.dirname(out) or "."
-    chunk_dir = os.path.join(out_dir, "chunks", base_stem + "-voiceserver")
+    chunk_dir = os.path.join(out_dir, "chunks")
     return base_stem, out, chunk_dir
 
 

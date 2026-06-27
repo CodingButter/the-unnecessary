@@ -25,11 +25,12 @@ const stopAfter = ch.stopAfter || null   // 'adjudicate' to stop before the narr
 const bpDir = `docs/40-blueprints/book-1/chapter-${num}-${slug}`
 const manifest = `${bpDir}/context-manifest.yaml`
 const blueprint = `${bpDir}/blueprint.md`
+const chapDir = `docs/50-manuscript/book-1/chapter-${num}-${slug}`
 const pack = `.context/chapter-${num}-${slug}.pack.md`
-const manuscript = `docs/50-manuscript/book-1/chapter-${num}-${slug}.md`
-const critique = `docs/50-manuscript/book-1/chapter-${num}-${slug}.gemini-critique.md`
-const narrativeScript = `docs/50-manuscript/book-1/chapter-${num}-${slug}.narrative-script.md`
-const narrCritique = `docs/50-manuscript/book-1/chapter-${num}-${slug}.narrative-script.gemini-critique.md`
+const manuscript = `${chapDir}/chapter-${num}-${slug}.md`
+const critique = `${chapDir}/chapter-${num}-${slug}.gemini-critique.md`
+const narrativeScript = `${chapDir}/chapter-${num}-${slug}.narrative-script.md`
+const narrCritique = `${chapDir}/chapter-${num}-${slug}.narrative-script.gemini-critique.md`
 
 const REPORT = {
   type: 'object',
@@ -65,7 +66,7 @@ if (prep && prep.ok === false) {
 phase('Draft')
 const draft = await agent(
   `${RULES}\n\nYou are Opus, the sole prose writer. Read the pack and the blueprint in full, then WRITE the complete prose of "${title}" (chapter ${ch.number}) to a NEW file ${NOVEL}/${manuscript}.\n` +
-  `Execute the blueprint scene by scene. Add YAML front matter: title "${title}", document_type "manuscript-chapter", status "draft", authority "manuscript", a one-sentence summary, tags (manuscript, book-1, chapter-${num}), related links to ../../40-blueprints/book-1/chapter-${num}-${slug}/blueprint.md and ../../30-plot/book-1/chapters/chapter-${num}.md, source_documents the blueprint path.\n` +
+  `Execute the blueprint scene by scene. Add YAML front matter: title "${title}", document_type "manuscript-chapter", status "draft", authority "manuscript", a one-sentence summary, tags (manuscript, book-1, chapter-${num}), related links to ../../../40-blueprints/book-1/chapter-${num}-${slug}/blueprint.md and ../../../30-plot/book-1/chapters/chapter-${num}.md, source_documents the blueprint path.\n` +
   `Write the best chapter you can: precise, restrained, alive on the page. When done, grep the file to confirm ZERO em dashes, confirm the ending matches the blueprint, and confirm no forbidden reveal leaked. Report word count and those confirmations. Do not write memories.`,
   { label: `ch${num}:draft`, phase: 'Draft', schema: REPORT }
 )

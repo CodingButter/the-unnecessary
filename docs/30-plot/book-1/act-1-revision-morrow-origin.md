@@ -123,7 +123,7 @@ After midnight, the **reprieve that isn't:** the equipment **still works, but on
 **Timeline:** `20-canon/timeline/book-1/act-1-timeline.md`.
 **Plot / chapter map:** `30-plot/book-1/chapters/index.md`, `chapter-01.md`..`chapter-05.md` (and wherever the flashback/turn-on land).
 **Blueprints:** `40-blueprints/book-1/chapter-01-no-signal/blueprint.md` (+ new blueprints for the vigil and flashback chapters).
-**Manuscript / derived:** `50-manuscript/book-1/chapter-01-no-signal.md` and its narration-script + critique artifacts.
+**Manuscript / derived:** `50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md` and its narration-script + critique artifacts.
 **Continuity:** `60-continuity/relationships/eli-and-morrow.md`, `technology-state/morrow.md`, `character-states/eli-rook.md`, `knowledge-state/eli-rook.md`, `technology-state/infrastructure.md`.
 
 ---

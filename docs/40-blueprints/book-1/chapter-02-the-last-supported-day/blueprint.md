@@ -30,7 +30,7 @@ related:
   - "../../../10-vision/style/technology-in-prose.md"
   - "../../../10-vision/style/pacing-and-structure.md"
   - "../../../10-vision/style/prohibited-patterns.md"
-  - "../../../50-manuscript/book-1/chapter-01-no-signal.md"
+  - "../../../50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md"
   - "../../../60-continuity/global-continuity.md"
   - "../../../60-continuity/character-states/lena-okafor.md"
   - "../../../60-continuity/setups-and-payoffs.md"
@@ -983,7 +983,7 @@ Before drafting, verify the chapter against:
 - [ ] Master Timeline, [act-1-timeline.md](../../../20-canon/timeline/book-1/act-1-timeline.md) (Friday Oct 3 evening and night)
 - [ ] Plot Outline and Chapter Map, [chapter-02.md](../../../30-plot/book-1/chapters/chapter-02.md), [chapter-01.md](../../../30-plot/book-1/chapters/chapter-01.md), [chapter-03.md](../../../30-plot/book-1/chapters/chapter-03.md), [act-1.md](../../../30-plot/book-1/act-1.md)
 - [ ] Act One revision (reveal-safety), [act-1-revision-morrow-origin.md](../../../30-plot/book-1/act-1-revision-morrow-origin.md) (Q1 POV relay; §10)
-- [ ] Previous chapter blueprint, [chapter-01 blueprint](../chapter-01-no-signal/blueprint.md), and approved manuscript, [chapter-01-no-signal.md](../../../50-manuscript/book-1/chapter-01-no-signal.md)
+- [ ] Previous chapter blueprint, [chapter-01 blueprint](../chapter-01-no-signal/blueprint.md), and approved manuscript, [chapter-01-no-signal.md](../../../50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md)
 - [ ] Existing Continuity Ledger, [global-continuity.md](../../../60-continuity/global-continuity.md), [character-states/lena-okafor.md](../../../60-continuity/character-states/lena-okafor.md), [setups-and-payoffs.md](../../../60-continuity/setups-and-payoffs.md), [unresolved-threads.md](../../../60-continuity/unresolved-threads.md)
 - [ ] Style Guide, [viewpoint.md](../../../10-vision/style/viewpoint.md), [technology-in-prose.md](../../../10-vision/style/technology-in-prose.md), [pacing-and-structure.md](../../../10-vision/style/pacing-and-structure.md), [prohibited-patterns.md](../../../10-vision/style/prohibited-patterns.md)
 - [ ] Decisions, [030 close third, multiple viewpoints](../../../00-governance/decision-log/decisions/030-novel-uses-close-third-person-with-multiple-viewpoints.md), [037 serious restrained tone](../../../00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md), [039 avoid em dashes](../../../00-governance/decision-log/decisions/039-avoid-em-dashes-in-drafted-prose-and-project-copy.md), [045 Ch1 ends on the clinic deadline](../../../00-governance/decision-log/decisions/045-chapter-1-ends-on-clinic-midnight-deadline.md)

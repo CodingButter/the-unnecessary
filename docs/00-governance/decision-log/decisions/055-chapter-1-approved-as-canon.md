@@ -6,7 +6,7 @@ authority: "governance"
 summary: "Records that Chapter 1 'No Signal' (Eli Rook POV, Friday October 3 2053 morning into midday) is approved manuscript and now outranks the blueprint, plot files, and character profiles that fed it. This is a formal approval rather than a large new-canon pass: the facts the chapter establishes (the uneven service withdrawal delivered by polite notices for cellular, the power-tier reclassification, and the clinic-device manufacturer; the neighborhood mesh and library hub local network; the Greater Detroit baseline; and the Lena phone call establishing the three clinic systems and the 23:59 midnight authentication deadline) are largely already canon. Reveal-safe: nothing about Morrow, the buried ASI, or any later reveal is canonized from Chapter 1."
 tags: ["decision", "manuscript", "approval", "continuity", "chapter-01", "eli"]
 related:
-  - "../../../50-manuscript/book-1/chapter-01-no-signal.md"
+  - "../../../50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md"
   - "../../../40-blueprints/book-1/chapter-01-no-signal/blueprint.md"
   - "../../../30-plot/book-1/chapters/chapter-01.md"
   - "./045-chapter-1-ends-on-clinic-midnight-deadline.md"
@@ -14,7 +14,7 @@ related:
   - "./054-chapter-2-approved-and-2053-everyday-economy-canonized.md"
   - "../index.md"
 source_documents:
-  - "docs/50-manuscript/book-1/chapter-01-no-signal.md"
+  - "docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md"
   - "docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md"
 ---
 
@@ -57,7 +57,7 @@ The Decision 046 pipeline makes author approval the gate that turns a draft into
 
 ### Affected Documents
 
-- `docs/50-manuscript/book-1/chapter-01-no-signal.md`
+- `docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md`
 - `docs/60-continuity/character-states/eli-rook.md`
 
 ### Reconsider Only If

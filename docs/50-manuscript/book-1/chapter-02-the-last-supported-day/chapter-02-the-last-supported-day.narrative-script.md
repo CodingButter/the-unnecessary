@@ -12,7 +12,7 @@ tags:
 related:
   - "./chapter-02-the-last-supported-day.md"
 source_documents:
-  - "docs/50-manuscript/book-1/chapter-02-the-last-supported-day.md"
+  - "docs/50-manuscript/book-1/chapter-02-the-last-supported-day/chapter-02-the-last-supported-day.md"
 ---
 
 ## Voice Direction

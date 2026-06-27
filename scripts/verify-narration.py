@@ -770,8 +770,7 @@ def main():
     chunks_meta = build_chunks_meta(args.script, args.max_chars, args.min_chars, args.ellipsis)
     in_stem = os.path.splitext(os.path.basename(args.script))[0]
     base_stem = in_stem.replace(".narrative-script", "")
-    chunk_dir = args.chunk_dir or os.path.join("audio", "book-1", "chunks",
-                                                base_stem + "-voiceserver")
+    chunk_dir = args.chunk_dir or os.path.join("audio", "book-1", base_stem, "chunks")
 
     if not chunks_meta:
         print("ERROR: no narratable chunks derived from performance script", file=sys.stderr)

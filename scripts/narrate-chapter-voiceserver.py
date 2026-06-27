@@ -867,9 +867,9 @@ def main():
 
     in_stem = os.path.splitext(os.path.basename(args.script))[0]
     base_stem = in_stem.replace(".narrative-script", "")
-    out = args.out or os.path.join("audio", "book-1", base_stem + ".voiceserver." + args.format)
+    out = args.out or os.path.join("audio", "book-1", base_stem, base_stem + "." + args.format)
     out_dir = os.path.dirname(out) or "."
-    chunk_dir = os.path.join(out_dir, "chunks", base_stem + "-voiceserver")
+    chunk_dir = os.path.join(out_dir, "chunks")
 
     print("Narrating %s via voice server: %d chars -> %d chunk(s), voice %s, format %s"
           % (base_stem, len(text), len(chunks), args.voice, args.format), file=sys.stderr)

@@ -48,7 +48,7 @@ The dead-versus-alive distinction does not survive scrutiny and would undercut t
 - `docs/20-canon/technology/infrastructure/cloud-dependency.md`
 - `docs/20-canon/characters/profiles/eli-rook.md`
 - `docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md`
-- `docs/50-manuscript/book-1/chapter-01-no-signal.md`
+- `docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md`
 - `docs/60-continuity/technology-state/infrastructure.md`
 
 ### Reconsider Only If

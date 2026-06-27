@@ -74,7 +74,7 @@ required_files:
   # The approved previous chapter, for continuity and established facts
   # (the three systems, the 23:59 / midnight deadline, the failing link, the date,
   # the man aged 61 on the respiratory controller, the book's voice and register)
-  - docs/50-manuscript/book-1/chapter-01-no-signal.md
+  - docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md
 
   # Continuity starting conditions relevant to Chapter 2
   - docs/60-continuity/global-continuity.md
@@ -156,7 +156,7 @@ loading_order:
   - docs/10-vision/style/emotion-and-moral-content.md
   - docs/40-blueprints/_templates/chapter-blueprint-template.md
   - docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md
-  - docs/50-manuscript/book-1/chapter-01-no-signal.md
+  - docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md
   - docs/60-continuity/global-continuity.md
   - docs/60-continuity/character-states/lena-okafor.md
   - docs/60-continuity/setups-and-payoffs.md
