@@ -79,7 +79,7 @@ The light shifted at the door. Lena stood in the hand's width of it with her rou
 
 He kept his hands where they were and gave her the truth, because she had told him once in this building that was all she wanted from him. "I can make it run," he said. "Off the company. On its own." He made himself finish it. "I can't make it true. The one way I'd get there tonight, I'd be running him on numbers nothing's left to check. He'd breathe. The machine would tell you he was fine." He looked up then. "It'd be worse than no machine, Lena. I won't do that to him."
 
-She held the frame a moment with that face she wore so a frightened person could read nothing off it. "All right," she said, in the tone that was not all right, and took the plain shape of it back down the hall to the bed and the card, and that was the last word either of them spent.
+She took it standing, one hand still on the frame, and let nothing of it reach her face, the practiced steadiness she kept for the worst of the beds. "All right," she said, in the tone that was not all right, and took the plain shape of it back down the hall to the bed and the card, and that was the last word either of them spent.
 
 The cabinet got twenty minutes he could not spare and a yes it would believe, and he never reached the bottom of it. He left it half-walked, because one machine half-done was not three machines saved, and the arithmetic had never once closed.
 
@@ -123,7 +123,7 @@ The phone went where his hand could find it, the old habit, the one that always 
 
 The phone woke before he did, as it always had, and this once he would have given a great deal for it not to.
 
-His thumb found the glass while the rest of him was still down under the weight of sleep, the habit of years running out ahead of the man. The screen came up pale in the gray of the early light, as it came up every morning of his life. The floor was cold when he put his feet toward it and did not put them down. The room held the silence of a place running on stored power, the small outside noises a phone made when it was talking to the world all gone, the same silence he had fallen into a few hours back and the same he had woken into a thousand times. For the length of one breath it was only a morning, and he was only a tired man in it.
+His thumb found the glass while the rest of him was still down under the weight of sleep, the habit of years running out ahead of the man. The screen came up pale in the gray of the early light, as it came up every morning of his life. The floor was cold when he put his feet toward it and did not put them down. The room held the quiet of a house spending the last of what it had stored, no hum off the walls, no small machine voice answering the street, the same quiet he had folded into a few hours back. For the length of one breath it was only a morning, and he was only a tired man in it.
 
 Then he read it.
 
