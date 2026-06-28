@@ -59,5 +59,5 @@ facts:
 timeline:
   - when: 2053-10-03
     set: { repurpose: begun-toward-local-emulation }
-    note: "(proposed) On the night of October 3 Eli crouches at the rack, opens the bag, runs out cable, and begins repurposing the records-only machine into a local emulation / stand-in server, so the orphaned devices resolve and authenticate against this closet instead of the withdrawn manufacturer. The BEGINNING is on the page in Ch2; the conversion COMPLETES in Chapter 3, which is not yet drafted (the plan is act-1-timeline.md). Marked (proposed) until that prose is approved."
+    note: "(proposed) On the night of October 3 Eli crouches at the rack, opens the bag, runs out cable, and begins repurposing the records-only machine into a local emulation / stand-in server, so the orphaned devices resolve and authenticate against this closet instead of the withdrawn manufacturer. The BEGINNING is on the page in Ch2; Chapter 3 ATTEMPTS the conversion but does NOT complete it -- Eli does not finish, and the machines are left on borrowed uptime (incomplete). Marked (proposed) until that prose is approved."
 ```

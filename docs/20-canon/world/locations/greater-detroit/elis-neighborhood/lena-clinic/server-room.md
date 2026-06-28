@@ -5,7 +5,7 @@ entity_type: "room"
 status: "active-canon"
 authority: "world-canon"
 parent: lena-clinic
-summary: "The back room at the end of the clinic's rear hall, holding the clinic's old underpowered server. Where Eli works the decisive night of Chapter 2, trying to make a closet stand in for a withdrawn company."
+summary: "The back room at the end of the clinic's rear hall, holding the clinic's old underpowered server. Where Eli works the decisive night of Chapter 3, trying to make a closet stand in for a withdrawn company."
 tags:
   - world
   - room
