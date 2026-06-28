@@ -116,6 +116,20 @@ SILENCE_MIN_D = "0.3"        # silencedetect min silent run (seconds) to count
 OVERTRIM_RATIO = 0.85        # NN.trimmed.wav shorter than this * raw => OVER-TRIMMED
 _SILENCE_DUR_RE = re.compile(r'silence_duration:\s*([0-9.]+)')
 
+# Silence-padding tripwire. The TTS sometimes HANGS mid-chunk and emits a long dead span
+# (~30s) while still saying all the right words at the start/end -- so similarity stays HIGH
+# and the speech-length (drop) check passes (the speech IS all there). Such a chunk is mostly
+# dead air and must RETRY. Two CONSERVATIVE, Whisper-INDEPENDENT signals, OR'd, OVERRIDE the
+# high-sim OK guard (like the repeat detector):
+#   * SPEECH RATIO  -- speech_len / raw_len < SILENCE_RATIO_MAX AND at least SILENCE_MIN_GAP
+#     seconds of total silence (an absolute floor, so a short clip with one natural pause or
+#     normal between-sentence pacing -- ratio typically > 0.85 -- never trips it).
+#   * LONE GAP      -- a single detected silent run >= SILENCE_LONE_GAP seconds, which no
+#     legitimate within-chunk sentence/paragraph pause ever reaches (those are < ~2s).
+SILENCE_RATIO_MAX = 0.6      # speech_len/raw_len below this == suspiciously silence-padded
+SILENCE_MIN_GAP = 3.0        # ...and >= this many seconds of total silence (absolute floor)
+SILENCE_LONE_GAP = 4.0       # a single interior silent run >= this is a TTS-hang artifact
+
 # ElevenLabs Scribe -- the SECOND transcriber, used ONLY as a tiebreaker on REVIEW
 # chunks (cost-smart: it is metered). A direct, proxy-bypassing opener mirrors the
 # voice server's _OPENER. el_whisper_sim >= this means BOTH transcribers heard the same
@@ -486,17 +500,16 @@ def wav_duration(path):
         return None
 
 
-def total_silence(path, noise_db=SILENCE_NOISE_DB, min_d=SILENCE_MIN_D):
-    """Total seconds of detected silence in a WAV via ffmpeg silencedetect -- the second
-    half of the SPEECH-length tripwire (speech_len = raw_len - total_silence). Sums every
-    `silence_duration` ffmpeg prints (on stderr) for noise=<noise_db> d=<min_d>. Returns
-    a float (0.0 when the file is all speech), or None if the file is missing / unreadable.
-
-    Catching a Chatterbox drop hinges on THIS: a dropped chunk often renders as a few
-    seconds of speech followed by a long silent tail, so the raw duration looks fine while
-    the speech content is tiny. Subtracting the silence exposes the real speech length."""
+def silence_stats(path, noise_db=SILENCE_NOISE_DB, min_d=SILENCE_MIN_D):
+    """(total_silence_seconds, longest_single_silence_seconds) for a WAV via ffmpeg
+    silencedetect (noise=<noise_db> d=<min_d>), parsed from every `silence_duration` ffmpeg
+    prints on stderr. Returns (0.0, 0.0) when the file is all speech, or (None, None) if the
+    file is missing / unreadable. ONE ffmpeg call feeds BOTH tripwires:
+      * total  -> the SPEECH-length (drop) check: speech_len = raw_len - total.
+      * longest -> the silence-padding check: a single ~30s dead gap is a TTS hang even when
+        all the words are present (so similarity stays high and the drop check passes)."""
     if not path or not os.path.exists(path):
-        return None
+        return (None, None)
     try:
         out = subprocess.run(
             ["ffmpeg", "-hide_banner", "-nostats", "-i", path,
@@ -504,14 +517,54 @@ def total_silence(path, noise_db=SILENCE_NOISE_DB, min_d=SILENCE_MIN_D):
              "-f", "null", "-"],
             capture_output=True, text=True, timeout=180)
     except (OSError, subprocess.SubprocessError):
-        return None
-    total = 0.0
+        return (None, None)
+    durs = []
     for m in _SILENCE_DUR_RE.finditer(out.stderr or ""):
         try:
-            total += float(m.group(1))
+            durs.append(float(m.group(1)))
         except ValueError:
             pass
-    return total
+    return (sum(durs), max(durs) if durs else 0.0)
+
+
+def total_silence(path, noise_db=SILENCE_NOISE_DB, min_d=SILENCE_MIN_D):
+    """Total seconds of detected silence in a WAV (backward-compatible thin wrapper over
+    silence_stats). Returns a float (0.0 when all speech), or None if missing / unreadable.
+
+    Catching a Chatterbox drop hinges on THIS: a dropped chunk often renders as a few
+    seconds of speech followed by a long silent tail, so the raw duration looks fine while
+    the speech content is tiny. Subtracting the silence exposes the real speech length."""
+    return silence_stats(path, noise_db, min_d)[0]
+
+
+def silence_padded(speech_len, raw_len, silence, longest_gap,
+                   ratio_max=SILENCE_RATIO_MAX, min_gap=SILENCE_MIN_GAP,
+                   lone_gap=SILENCE_LONE_GAP):
+    """Decide whether a chunk's audio is mostly DEAD AIR (a TTS hang) -- a RETRY signal that is
+    Whisper-INDEPENDENT and must override the high-similarity OK guard. Returns (flagged, reason,
+    speech_ratio). Conservative: fires on EITHER
+
+      (a) SPEECH RATIO  -- speech_ratio (speech_len/raw_len) < ratio_max AND total silence
+          >= min_gap seconds (the absolute floor stops a short clip with one natural pause or
+          ordinary between-sentence pacing -- ratio usually > 0.85 -- from tripping), OR
+      (b) LONE GAP      -- a single detected silent run >= lone_gap seconds (no legitimate
+          within-chunk pause reaches it; a ~30s hang obviously does).
+
+    With raw_len/speech_len unavailable (missing/unreadable wav) it cannot judge -> not flagged."""
+    speech_ratio = (speech_len / raw_len) if (speech_len is not None
+                                              and raw_len and raw_len > 0) else None
+    if (speech_ratio is not None and speech_ratio < ratio_max
+            and silence is not None and silence >= min_gap):
+        return (True,
+                "silence-padded: speech_ratio %.2f < %.2f (%.1fs speech of %.1fs, %.1fs silence)"
+                % (speech_ratio, ratio_max, speech_len, raw_len, silence),
+                speech_ratio)
+    if longest_gap is not None and longest_gap >= lone_gap:
+        return (True,
+                "silence-padded: single interior silent gap %.1fs >= %.1fs (TTS hang)"
+                % (longest_gap, lone_gap),
+                speech_ratio)
+    return (False, "", speech_ratio)
 
 
 def foreign_words(exp_words, got_words):
@@ -620,8 +673,8 @@ def repeat_inflation(exp_words, got_words):
 
 
 def compute_verdict(sim, foreign_count, has_nonspeech, audio_short, retry_threshold,
-                    repeat_flagged=False):
-    """Verdict. Two AUDIO/CONTENT-based checks hard-RETRY -- neither can be fooled by a
+                    repeat_flagged=False, silence_flagged=False):
+    """Verdict. Three AUDIO/CONTENT-based checks hard-RETRY -- none can be fooled by a
     transcriber's word choices. Everything else transcript-based (low similarity, a non-speech
     marker, or 'foreign' tokens) routes to REVIEW, where the ElevenLabs tiebreaker confirms
     before any re-render. A few foreign tokens at HIGH similarity are just Whisper's spelling
@@ -629,17 +682,21 @@ def compute_verdict(sim, foreign_count, has_nonspeech, audio_short, retry_thresh
     a re-render on good audio.
 
       RETRY  : the audio is too short for its text (speech_len drop), OR the repeat/inflation
-               detector fired (looping / length-inflated audio). Both are trustworthy and
-               INDEPENDENT of similarity, so a loop RETRYs even at sim >= 0.9 (the looped words
-               are all "correct", which is exactly why similarity alone misses it).
+               detector fired (looping / length-inflated audio), OR the audio is mostly DEAD
+               AIR (silence-padded: a TTS hang left a long interior silence). All three are
+               trustworthy and INDEPENDENT of similarity, so each RETRYs even at sim >= 0.9 --
+               a hung chunk keeps the right words at high sim, which is exactly why similarity
+               alone misses it.
       REVIEW : similarity < retry_threshold OR a non-speech marker. The ElevenLabs second
                opinion decides (both transcribers disagree with the script -> real fault;
                ElevenLabs reads it fine -> a Whisper artifact). Never a blind re-render.
       OK     : high similarity and clean. Foreign tokens at high similarity are quirks.
-    sim may be None (no transcript); then only RETRY (if short / repeat) or OK."""
+    sim may be None (no transcript); then only RETRY (if short / repeat / silence) or OK."""
     if audio_short:
         return "RETRY"
     if repeat_flagged:
+        return "RETRY"
+    if silence_flagged:
         return "RETRY"
     if has_nonspeech or (sim is not None and sim < retry_threshold):
         return "REVIEW"
@@ -696,7 +753,7 @@ def evaluate(res, gap_after, chars_per_sec, short_ratio, retry_threshold):
         trimmed_len = wav_duration(trimmed_path)
     else:
         trimmed_len = raw_len
-    silence = total_silence(wav)
+    silence, longest_gap = silence_stats(wav) if wav else (None, None)
     speech_len = (raw_len - silence) if (raw_len is not None and silence is not None) else raw_len
     is_short = (speech_len is not None and expected_len is not None and expected_len > 0
                 and speech_len < short_ratio * expected_len)
@@ -705,6 +762,10 @@ def evaluate(res, gap_after, chars_per_sec, short_ratio, retry_threshold):
     len_status = "SHORT" if is_short else ("OVER-TRIMMED" if is_overtrim else "OK")
     audio_short = is_short  # the RETRY drop-signal uses SPEECH length, never raw duration
     rate = (chars / raw_len) if (raw_len and raw_len > 0) else None
+    # Silence-padding tripwire (Whisper-INDEPENDENT): a chunk whose words are all present
+    # (high sim, speech length OK) but which is mostly DEAD AIR from a TTS hang must RETRY.
+    sil_flagged, sil_reason, speech_ratio = silence_padded(
+        speech_len, raw_len, silence, longest_gap)
 
     if error:
         # No usable transcript -- fall back to the Whisper-INDEPENDENT length tripwire.
@@ -715,9 +776,13 @@ def evaluate(res, gap_after, chars_per_sec, short_ratio, retry_threshold):
             verdict = "RETRY"            # nothing rendered -- it must be rendered
         elif audio_short:
             verdict = "RETRY"            # speech too short regardless of Whisper
+        elif sil_flagged:
+            verdict = "RETRY"            # mostly dead air regardless of Whisper
         else:
             verdict = "REVIEW"           # couldn't assess via Whisper; length plausible
-        reasons = [error] + (["speech too short for its text"] if audio_short else [])
+        reasons = ([error]
+                   + (["speech too short for its text"] if audio_short else [])
+                   + ([sil_reason] if sil_flagged else []))
     else:
         exp_words = words_of(expected)
         got_words = words_of(got)
@@ -734,10 +799,13 @@ def evaluate(res, gap_after, chars_per_sec, short_ratio, retry_threshold):
         # "correct") so it must be able to force RETRY independently of similarity.
         rep_flagged, rep_reason, rep_metrics = repeat_inflation(exp_words, got_words)
         verdict = compute_verdict(sim, foreign, bool(nonspeech), audio_short,
-                                  retry_threshold, repeat_flagged=rep_flagged)
+                                  retry_threshold, repeat_flagged=rep_flagged,
+                                  silence_flagged=sil_flagged)
         reasons = verdict_reasons(foreign, nonspeech, audio_short, sim, retry_threshold)
         if rep_flagged:
             reasons.insert(0, "repeat/inflation -> RETRY (overrides high-sim): " + rep_reason)
+        if sil_flagged:
+            reasons.insert(0, "silence-padded -> RETRY (overrides high-sim): " + sil_reason)
 
     res.update({
         "gap_after": gap_after,
@@ -750,6 +818,10 @@ def evaluate(res, gap_after, chars_per_sec, short_ratio, retry_threshold):
         "trimmed_len": round(trimmed_len, 2) if trimmed_len is not None else None,
         "speech_len": round(speech_len, 2) if speech_len is not None else None,
         "len_status": len_status,
+        # silence-padding tripwire (a TTS hang -> long dead air that high sim misses)
+        "speech_ratio": round(speech_ratio, 4) if speech_ratio is not None else None,
+        "longest_gap": round(longest_gap, 2) if longest_gap is not None else None,
+        "silence_padded": bool(sil_flagged),
         # legacy aliases kept so the markdown report + --json dump stay stable
         "raw_dur": round(raw_len, 2) if raw_len is not None else None,
         "est_dur": round(expected_len, 2) if expected_len is not None else None,
@@ -869,8 +941,8 @@ def write_report(path, base_stem, results, args, counts, retry_list, review_list
 # carries the full untruncated text; qc.csv carries the same rows with text truncated.
 QC_FIELDS = ["chunk", "path", "gap_after", "script_text", "whisper_text", "whisper_sim",
              "el_text", "el_sim", "el_whisper_sim", "chars", "expected_len", "raw_len",
-             "trimmed_len", "speech_len", "len_status", "repeat", "inflation", "dup_ratio",
-             "status", "reason"]
+             "trimmed_len", "speech_len", "len_status", "speech_ratio", "longest_gap",
+             "silence_padded", "repeat", "inflation", "dup_ratio", "status", "reason"]
 
 
 def qc_record(r):
@@ -893,6 +965,9 @@ def qc_record(r):
         "trimmed_len": r.get("trimmed_len"),
         "speech_len": r.get("speech_len"),
         "len_status": r.get("len_status"),
+        "speech_ratio": r.get("speech_ratio"),
+        "longest_gap": r.get("longest_gap"),
+        "silence_padded": bool(r.get("silence_padded")),
         "repeat": bool(r.get("repeat")),
         "inflation": r.get("inflation"),
         "dup_ratio": r.get("dup_ratio"),
@@ -937,11 +1012,13 @@ def write_qc_csv(path, records):
 
 
 def run_selftest():
-    """Tiny, offline self-test for the repeat/inflation detector (no network, no files).
-    Exercises a clean transcript, a Whisper mid-drop (shorter -- must NOT flag), a fully
-    looped transcript, an ISOLATED back-to-back phrase loop (length not inflated, so only
-    the n-gram signal fires), and prose that LEGITIMATELY repeats a phrase present in BOTH
-    sides (must NOT flag). Returns 0 if every case behaves, else 1."""
+    """Tiny, offline self-test (no network, no files) for the two similarity-INDEPENDENT
+    RETRY detectors. Repeat/inflation: a clean transcript, a Whisper mid-drop (shorter --
+    must NOT flag), a fully looped transcript, an ISOLATED back-to-back phrase loop, and
+    legitimately repeated prose present in BOTH sides (must NOT flag). Silence-padding: the
+    Ch3 hang (mostly dead air -> flag + low speech_ratio), normal pacing and a short single-
+    pause clip (must NOT flag), the lone-gap OR branch, and the verdict override that makes a
+    silence-padded chunk RETRY even at sim 0.95. Returns 0 if every case behaves, else 1."""
     fails = []
 
     def expect(name, cond):
@@ -964,6 +1041,26 @@ def run_selftest():
     legit = "i can't i can't i can't believe the door is standing wide open"
     le = words_of(legit)
     expect("legit repeated prose (both sides) -> no flag", not repeat_inflation(le, le)[0])
+
+    # --- silence-padding tripwire (a TTS hang -> long dead air high sim misses) ---------
+    # The Ch3 artifact: ~17.2s of speech in a ~47.81s clip, ~30.6s of it one dead gap.
+    sf, sr, ratio = silence_padded(17.2, 47.81, 30.61, 30.61)
+    expect("ch3 hang (17s of 48s, 30s gap) -> flag", sf and "silence-padded" in sr)
+    expect("  ...and reports a low speech_ratio", ratio is not None and ratio < 0.6)
+    # Normal pacing: ~38s speech of 40s, a couple of natural sub-2s pauses -> NOT padded.
+    expect("normal pacing (38s of 40s) -> no flag",
+           not silence_padded(38.0, 40.0, 2.0, 0.6)[0])
+    # OR branch: ratio is fine (35 of 40) but a single 5s interior gap is still a hang.
+    expect("lone 5s gap at ok ratio -> flag (lone-gap branch)",
+           silence_padded(35.0, 40.0, 5.0, 5.0)[0])
+    # Conservative: a short clip with ONE ~2s natural pause must NOT trip either branch.
+    expect("short clip, one 2s pause -> no flag",
+           not silence_padded(8.0, 10.0, 2.0, 2.0)[0])
+    # The verdict MUST override the high-similarity OK guard, like the repeat detector.
+    expect("silence_flagged overrides high-sim OK -> RETRY",
+           compute_verdict(0.95, 0, False, False, 0.80, silence_flagged=True) == "RETRY")
+    expect("no silence flag at high sim -> OK",
+           compute_verdict(0.95, 0, False, False, 0.80, silence_flagged=False) == "OK")
 
     print("selftest: %s" % ("PASS" if not fails else "FAIL (%s)" % ", ".join(fails)),
           file=sys.stderr)

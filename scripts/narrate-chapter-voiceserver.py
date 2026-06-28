@@ -821,19 +821,55 @@ def trim_chunk_edges(in_wav, out_wav, pad=0.05):
     return res.returncode == 0
 
 
+# A single contiguous interior silence at or beyond this many seconds is an unmistakable
+# TTS-hang artifact, never legitimate pacing (a within-chunk sentence/paragraph pause is
+# < ~2s). cap_interior_silences ALWAYS caps such a gap, even if that removes a large
+# fraction of the clip -- so a ~30s dead span is never left in the master. Well beyond the
+# 0.8s detect threshold, so a normal pause can never reach it.
+INTERIOR_ARTIFACT_GAP = 3.0
+
+
+def _interior_cap_plan(pairs, duration, cap=0.5, artifact_gap=INTERIOR_ARTIFACT_GAP):
+    """Pure (no-ffmpeg) decision for cap_interior_silences. Given detected silence
+    (start, end) pairs and the clip duration, return (longs, action):
+
+      * action 'none'  -- no silence run exceeds the cap; nothing to do.
+      * action 'cap'   -- cap every long gap to `cap` seconds.
+      * action 'abort' -- the removal is dominated by MANY shorter, borderline gaps with NO
+                          single clear artifact gap, AND it would remove >= half the clip:
+                          that pattern is the fingerprint of a silencedetect mis-fire eating
+                          quiet speech, so pass the chunk through unchanged.
+
+    A single contiguous gap >= `artifact_gap` is a trustworthy TTS-hang artifact (real speech
+    is never one continuous sub-noise-floor run for that long), so its presence ALWAYS yields
+    'cap' regardless of the fraction removed -- the old fraction-only guard left those ~30s
+    dead gaps in the master. The anti-gutting guard now weighs ONLY the borderline removal."""
+    longs = [(s, e) for s, e in pairs if e - s > cap + 0.02]
+    if not longs:
+        return [], "none"
+    has_artifact = any((e - s) >= artifact_gap for s, e in longs)
+    borderline_removed = sum((e - s) - cap for s, e in longs if (e - s) < artifact_gap)
+    if not has_artifact and borderline_removed >= 0.5 * duration:
+        return longs, "abort"
+    return longs, "cap"
+
+
 def cap_interior_silences(in_wav, out_wav, cap=0.5, detect=0.8, noise="-38dB"):
     """Compress any silence >= `detect` seconds INSIDE a chunk down to `cap` seconds.
 
     trim_chunk_edges only shaves the leading/trailing edges, and the pacing engine only sets
     the DECLARED inter-chunk gaps. Neither touches a pause Chatterbox sometimes invents in the
-    MIDDLE of a chunk (e.g. a 3.5s dead span after a sentence). This finds those gaps with
-    silencedetect and rebuilds the clip with every silence kept to at most `cap` seconds.
+    MIDDLE of a chunk (e.g. a 3.5s dead span after a sentence) -- nor the ~30s dead span a
+    hung TTS generation bakes in. This finds those gaps with silencedetect and rebuilds the
+    clip with every silence kept to at most `cap` seconds.
 
     Like trim_chunk_edges it removes ONLY detected-silence excess via ATRIM keep-ranges, so it
     can never cut into speech; silences shorter than `detect` are left untouched (natural
     sentence pauses). Runs AFTER edge-trim on the trimmed clip, so the edges are already small.
-    GUARD: if it would remove more than half the clip (detection error), pass through unchanged.
-    Output is mono, 24000 Hz, pcm_s16le. Returns True on success.
+    GUARD (see _interior_cap_plan): a single contiguous artifact gap (>= INTERIOR_ARTIFACT_GAP)
+    is ALWAYS capped even if it removes a large fraction; only a removal made of many shorter
+    borderline gaps that would gut half the clip aborts -- so a long TTS-hang silence is never
+    left in. Output is mono, 24000 Hz, pcm_s16le. Returns True on success.
     """
     duration = _wav_duration(in_wav)
     if duration is None:
@@ -850,15 +886,15 @@ def cap_interior_silences(in_wav, out_wav, cap=0.5, detect=0.8, noise="-38dB"):
     pairs = list(zip(starts, ends))
 
     # Only gaps longer than the cap need shortening; each loses its excess [s+cap, e].
-    longs = [(s, e) for s, e in pairs if e - s > cap + 0.02]
-    if not longs:
+    longs, action = _interior_cap_plan(pairs, duration, cap)
+    if action == "none":
         shutil.copyfile(in_wav, out_wav)
         return True
-
-    removed = sum((e - s) - cap for s, e in longs)
-    if removed >= 0.5 * duration:
+    if action == "abort":
+        removed = sum((e - s) - cap for s, e in longs)
         shutil.copyfile(in_wav, out_wav)
-        print("WARNING: interior-cap aborted for %s (would remove %.2fs of %.2fs); copied unchanged"
+        print("WARNING: interior-cap aborted for %s (would remove %.2fs of %.2fs from many "
+              "short gaps with no clear artifact gap; copied unchanged)"
               % (os.path.basename(in_wav), removed, duration), file=sys.stderr)
         return True
 
@@ -1140,7 +1176,34 @@ def _run_selftest():
     print("MECH IN : %r" % "Marisol said")
     print("MECH OUT: %r  (example lexicon, not shipped)" % spoken)
     print("MECH FIRED: %s" % ("; ".join(fired) if fired else "(none)"))
-    return 0
+
+    # interior-cap decision (_interior_cap_plan, the stitch's silence guard) -- offline,
+    # no ffmpeg/files. The Ch3 artifact: a ~31s dead gap in a ~48s clip must be CAPPED,
+    # not aborted (the old fraction-only guard left it in the master). A legitimately-paced
+    # clip with many small natural pauses (no single long gap) must NOT trip; and a swarm of
+    # borderline gaps that would gut half the clip with no artifact gap still aborts.
+    cap_fails = []
+
+    def _cap_expect(name, cond):
+        print("  cap %-44s %s" % (name, "ok" if cond else "FAIL"))
+        if not cond:
+            cap_fails.append(name)
+
+    # ~31s single gap (15.0..46.1) inside a 47.81s clip -> artifact -> cap, never abort.
+    _, act = _interior_cap_plan([(15.0, 46.1)], 47.81)
+    _cap_expect("long interior gap (31s of 48s) -> cap not abort", act == "cap")
+    # normal pacing: a few <=0.6s pauses, none over the 0.5s cap+slack -> nothing to cap.
+    _, act = _interior_cap_plan([(5.0, 5.45), (12.0, 12.5), (20.0, 20.4)], 30.0)
+    _cap_expect("normal pacing (small pauses) -> none", act == "none")
+    # many borderline (sub-artifact) gaps, no single clear artifact gap, whose combined
+    # excess removal would gut >= half the clip -> abort (likely a silencedetect mis-fire).
+    swarm = [(0.5, 3.3), (3.8, 6.6), (7.0, 9.8)]   # 3 gaps x 2.8s (< 3.0), in a 10s clip
+    _, act = _interior_cap_plan(swarm, 10.0)        # removes 3*(2.8-0.5)=6.9s >= 5.0s
+    _cap_expect("borderline-gap swarm gutting half -> abort", act == "abort")
+
+    print("cap selftest: %s"
+          % ("PASS" if not cap_fails else "FAIL (%s)" % ", ".join(cap_fails)))
+    return 0 if not cap_fails else 1
 
 
 def main():
