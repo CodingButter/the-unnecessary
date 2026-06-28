@@ -1,0 +1,257 @@
+# Per-chapter context manifest for Book One, Chapter 4 ("Priority Tier").
+# Scoped to Chapter 4 only. Mirrors the Chapter 3 manifest structure, narrowed to
+# Chapter 4's actual cast (Eli viewpoint; Nolan, Talia, and June introduced in the
+# grid crisis; Lena carried from Ch3 as the shared grief and the clinic's keeper; the
+# dead man an off-page absence) and systems (the surging low-tier grid, the hand-built
+# microgrid from incompatible sources, load-shedding as governance, the clinic's
+# failing authentication-dependent systems, and Northglass named at place-level).
+# All paths are repository-root-relative and were verified to exist on disk.
+# Never reference any archive/ path. Optional or possibly-absent paths go under optional_files.
+
+task_name: "blueprint-chapter-04-priority-tier"
+
+purpose: >
+  Load only the canon, plot, style, continuity, and decision context needed to create
+  or draft the Chapter 4 blueprint. Chapter 4 is Eli Rook's viewpoint across Saturday,
+  October 4, 2053, the day after the off-page death, in which the abstract service
+  withdrawal becomes a physical grid crisis and Eli is driven, against his own buried
+  reluctance, to commit to entering Northglass. The chapter opens in the grief Chapter
+  3 ended on (grief, not yet a plan) and turns grief into pressure: a surging low-tier
+  grid damages further equipment near Lena's clinic and drains the backup batteries
+  faster than budgeted; Eli and Nolan try to braid residential solar, EVs, commercial
+  batteries, two generators, and the clinic's backup into one hand-held microgrid
+  across incompatible control protocols; Talia forces the consent question (who has
+  authority to disconnect homes to keep the clinic alive, a political act, not a
+  technical one); the grid surges again; Nolan admits hand labor cannot keep enough
+  machines alive; June proposes entering Northglass for orchestration capability; Eli
+  refuses with a vehemence the stated Asterion-reporting risk cannot carry; a second
+  clinic system loses authentication; Eli changes his mind and tells June to meet him
+  before sunrise. This manifest INCLUDES northglass.md (at place-level), reveal-
+  management.md, and the act-1 revision as REVEAL CONTROL, because Chapter 4 is where
+  the deep layer BEGINS to open, but only as far as Northglass-as-a-place-he-resolves-
+  to-enter and his disproportionate dread. It deliberately EXCLUDES the Morrow and
+  Crown profiles, technology/northglass.md (the facility interior), Mars material, and
+  later-act timelines, because Morrow, the buried 128 TB drive, the six-years-ago first
+  encounter, "Escaping," the resume-not-build truth, and Eli's real reason for going
+  all stay GATED for the Northglass arrival and turn-on (Oct 5 to 6).
+
+required_files:
+  # Entry and routing layer
+  - CLAUDE.md
+  - docs/00-governance/context-loading-guide.md
+
+  # Vision read-first
+  - docs/10-vision/narrative-brief.md
+
+  # World canon relevant to Chapter 4 (neighborhood grid, clinic, Northglass at place-level, uneven decline)
+  - docs/20-canon/world/core-premise.md
+  - docs/20-canon/world/infrastructure-decline.md
+  - docs/20-canon/world/locations/greater-detroit.md
+  - docs/20-canon/world/locations/greater-detroit/elis-neighborhood.md
+  - docs/20-canon/world/locations/greater-detroit/elis-neighborhood/lena-clinic.md
+  - docs/20-canon/world/locations/greater-detroit/elis-neighborhood/library-hub.md
+  - docs/20-canon/world/locations/greater-detroit/elis-neighborhood/lena-clinic/patient-room-3/respiratory-controller.md
+  - docs/20-canon/world/locations/greater-detroit/northglass.md
+
+  # Character canon: only the characters present or named in Chapter 4.
+  # Eli is the viewpoint; Nolan, Talia, and June are introduced in the grid crisis; Lena
+  # is carried from Ch3 (the shared grief, the clinic); Adeyemi is loaded so the drafter
+  # knows exactly what NOT to surface (he is a dead, unnamed absence; his Ch2 facts gated).
+  - docs/20-canon/characters/profiles/rook-eli.md
+  - docs/20-canon/characters/profiles/avery-nolan.md
+  - docs/20-canon/characters/profiles/reed-talia.md
+  - docs/20-canon/characters/profiles/park-june.md
+  - docs/20-canon/characters/profiles/okafor-lena.md
+  - docs/20-canon/characters/profiles/adeyemi-bayo.md
+  - docs/20-canon/characters/viewpoint-rules.md
+  - docs/20-canon/characters/relationship-map.md
+
+  # Technology canon driving the chapter (the grid crisis, the microgrid, load-shedding, the withdrawal mechanism, comms)
+  - docs/20-canon/technology/infrastructure/energy.md
+  - docs/20-canon/technology/infrastructure/cloud-dependency.md
+  - docs/20-canon/technology/infrastructure/communications.md
+  - docs/20-canon/technology/infrastructure/community-infrastructure.md
+
+  # Timeline canon for Saturday October 4 (the grid crisis and the decision) and the setup for Sunday October 5
+  - docs/20-canon/timeline/book-1/pre-book-2053.md
+  - docs/20-canon/timeline/book-1/act-1-timeline.md
+
+  # Plot plan: Act One, this chapter, the previous chapter for the hand-off, and the
+  # REVEAL CONTROL (reveal-management.md and the Morrow-origin revision), which set the
+  # exact depth Chapter 4 is sanctioned to open the deep layer to and what stays gated.
+  - docs/30-plot/book-1/act-1.md
+  - docs/30-plot/book-1/chapters/chapter-03.md
+  - docs/30-plot/book-1/chapters/chapter-04.md
+  - docs/30-plot/book-1/reveal-management.md
+  - docs/30-plot/book-1/act-1-revision-morrow-origin.md
+
+  # Style files relevant to Eli's voice, viewpoint discipline, the distinct supporting voices,
+  # technical prose, pacing, tone, and the political/moral content of the consent conflict
+  - docs/10-vision/style/viewpoint.md
+  - docs/10-vision/style/character-voices.md
+  - docs/10-vision/style/technology-in-prose.md
+  - docs/10-vision/style/pacing-and-structure.md
+  - docs/10-vision/style/prohibited-patterns.md
+  - docs/10-vision/style/emotion-and-moral-content.md
+
+  # Planning template and the format/quality model (the Chapter 3 blueprint and manuscript)
+  - docs/40-blueprints/_templates/chapter-blueprint-template.md
+  - docs/40-blueprints/book-1/chapter-03-borrowed-time/blueprint.md
+
+  # The approved previous chapter, for continuity and established facts (the off-page death and
+  # grief, the borrowed-uptime aftermath, the tier drop, the clinic and its systems, the voice).
+  - docs/50-manuscript/book-1/chapter-03-borrowed-time/chapter-03-borrowed-time.md
+
+  # Continuity starting conditions relevant to Chapter 4
+  - docs/60-continuity/global-continuity.md
+  - docs/60-continuity/character-states/eli-rook.md
+  - docs/60-continuity/setups-and-payoffs.md
+  - docs/60-continuity/unresolved-threads.md
+
+  # Relevant decisions: viewpoint, tone, aesthetics, em dashes, the uneven-withdrawal logic
+  # behind the surging grid, Eli's complicity and his responsibility-versus-ownership conflict
+  # (central to the disproportionate refusal), and the clinic-vigil/death-ignition decision
+  # whose grief this chapter converts into the move.
+  - docs/00-governance/decision-log/decisions/002-world-declines-through-withdrawal-not-one-apocalypse.md
+  - docs/00-governance/decision-log/decisions/005-collapse-is-uneven.md
+  - docs/00-governance/decision-log/decisions/020-eli-is-complicit-not-an-early-whistleblower.md
+  - docs/00-governance/decision-log/decisions/021-elis-core-conflict-is-responsibility-versus-ownership.md
+  - docs/00-governance/decision-log/decisions/030-novel-uses-close-third-person-with-multiple-viewpoints.md
+  - docs/00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md
+  - docs/00-governance/decision-log/decisions/038-avoid-exaggerated-cyberpunk-aesthetics.md
+  - docs/00-governance/decision-log/decisions/039-avoid-em-dashes-in-drafted-prose-and-project-copy.md
+  - docs/00-governance/decision-log/decisions/052-clinic-vigil-borrowed-uptime-and-six-am-death-ignition.md
+
+optional_files:
+  # Decision-log index, useful for locating further decisions if a planning question
+  # reaches beyond the curated set above. Loaded only if needed.
+  - docs/00-governance/decision-log/decisions/index.md
+  # Greater Detroit setting decision and the primary-setting decision, background for the
+  # neighborhood power geography. Load if needed.
+  - docs/00-governance/decision-log/decisions/006-greater-detroit-is-the-primary-setting.md
+  # Lena's moral-counterweight decision and Talia's role as political counterweight; background
+  # to keep the consent conflict in character. Load if needed.
+  - docs/00-governance/decision-log/decisions/024-lena-is-a-moral-counterweight-not-the-automatic-moral-authority.md
+  # The Chapter 3 manuscript's continuity for the morning waking; the Chapter 1 blueprint
+  # for the morning-to-morning rhyme. Load if needed.
+  - docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md
+
+exclude_files:
+  # Out-of-scope and REVEAL-UNSAFE canon for Chapter 4. The Morrow and Crown profiles, the
+  # facility-interior technology authority for Northglass, and the Asterion deep-past material
+  # are excluded because Chapter 4 opens the deep layer ONLY to Northglass-as-place and Eli's
+  # disproportionate dread; it must not expose Morrow, the buried 128 TB drive, the six-years-ago
+  # first encounter, "Escaping," the resume-not-build truth, or Eli's real reason for going,
+  # which belong to the Northglass arrival and turn-on (Oct 5 to 6). The Mars / later-act scope
+  # is the same excluded for Chapters 1 to 3.
+  - docs/20-canon/technology/ai/morrow.md
+  - docs/20-canon/technology/ai/crown.md
+  - docs/20-canon/characters/profiles/morrow.md
+  - docs/20-canon/characters/profiles/crown.md
+  - docs/20-canon/technology/northglass.md
+  - docs/20-canon/world/mars-and-aurelia.md
+  - docs/20-canon/technology/mars-technology.md
+  - docs/20-canon/characters/profiles/kade-adrian.md
+  - docs/20-canon/characters/profiles/mercer-jonah.md
+  - docs/20-canon/characters/profiles/voss-mara.md
+  - docs/20-canon/timeline/book-1/act-2-timeline.md
+  - docs/20-canon/timeline/book-1/act-3-timeline.md
+  - docs/20-canon/timeline/book-1/act-4-timeline.md
+
+loading_order:
+  # Entry and routing, then vision, then world/character/technology canon by subject, then
+  # timeline, then plot (including the reveal control), then style, then the template and the
+  # Chapter 3 model, then the approved manuscript, then continuity, then decisions.
+  - CLAUDE.md
+  - docs/00-governance/context-loading-guide.md
+  - docs/10-vision/narrative-brief.md
+  - docs/20-canon/world/core-premise.md
+  - docs/20-canon/world/infrastructure-decline.md
+  - docs/20-canon/world/locations/greater-detroit.md
+  - docs/20-canon/world/locations/greater-detroit/elis-neighborhood.md
+  - docs/20-canon/world/locations/greater-detroit/elis-neighborhood/lena-clinic.md
+  - docs/20-canon/world/locations/greater-detroit/elis-neighborhood/library-hub.md
+  - docs/20-canon/world/locations/greater-detroit/elis-neighborhood/lena-clinic/patient-room-3/respiratory-controller.md
+  - docs/20-canon/world/locations/greater-detroit/northglass.md
+  - docs/20-canon/characters/profiles/rook-eli.md
+  - docs/20-canon/characters/profiles/avery-nolan.md
+  - docs/20-canon/characters/profiles/reed-talia.md
+  - docs/20-canon/characters/profiles/park-june.md
+  - docs/20-canon/characters/profiles/okafor-lena.md
+  - docs/20-canon/characters/profiles/adeyemi-bayo.md
+  - docs/20-canon/characters/viewpoint-rules.md
+  - docs/20-canon/characters/relationship-map.md
+  - docs/20-canon/technology/infrastructure/energy.md
+  - docs/20-canon/technology/infrastructure/cloud-dependency.md
+  - docs/20-canon/technology/infrastructure/communications.md
+  - docs/20-canon/technology/infrastructure/community-infrastructure.md
+  - docs/20-canon/timeline/book-1/pre-book-2053.md
+  - docs/20-canon/timeline/book-1/act-1-timeline.md
+  - docs/30-plot/book-1/act-1.md
+  - docs/30-plot/book-1/chapters/chapter-03.md
+  - docs/30-plot/book-1/chapters/chapter-04.md
+  - docs/30-plot/book-1/reveal-management.md
+  - docs/30-plot/book-1/act-1-revision-morrow-origin.md
+  - docs/10-vision/style/viewpoint.md
+  - docs/10-vision/style/character-voices.md
+  - docs/10-vision/style/technology-in-prose.md
+  - docs/10-vision/style/pacing-and-structure.md
+  - docs/10-vision/style/prohibited-patterns.md
+  - docs/10-vision/style/emotion-and-moral-content.md
+  - docs/40-blueprints/_templates/chapter-blueprint-template.md
+  - docs/40-blueprints/book-1/chapter-03-borrowed-time/blueprint.md
+  - docs/50-manuscript/book-1/chapter-03-borrowed-time/chapter-03-borrowed-time.md
+  - docs/60-continuity/global-continuity.md
+  - docs/60-continuity/character-states/eli-rook.md
+  - docs/60-continuity/setups-and-payoffs.md
+  - docs/60-continuity/unresolved-threads.md
+  - docs/00-governance/decision-log/decisions/002-world-declines-through-withdrawal-not-one-apocalypse.md
+  - docs/00-governance/decision-log/decisions/005-collapse-is-uneven.md
+  - docs/00-governance/decision-log/decisions/020-eli-is-complicit-not-an-early-whistleblower.md
+  - docs/00-governance/decision-log/decisions/021-elis-core-conflict-is-responsibility-versus-ownership.md
+  - docs/00-governance/decision-log/decisions/030-novel-uses-close-third-person-with-multiple-viewpoints.md
+  - docs/00-governance/decision-log/decisions/037-the-tone-is-serious-restrained-and-morally-ambiguous.md
+  - docs/00-governance/decision-log/decisions/038-avoid-exaggerated-cyberpunk-aesthetics.md
+  - docs/00-governance/decision-log/decisions/039-avoid-em-dashes-in-drafted-prose-and-project-copy.md
+  - docs/00-governance/decision-log/decisions/052-clinic-vigil-borrowed-uptime-and-six-am-death-ignition.md
+
+expected_output: >
+  A Chapter 4 blueprint at
+  docs/40-blueprints/book-1/chapter-04-priority-tier/blueprint.md, authored from the
+  chapter-blueprint template and modeled on the Chapter 3 blueprint, covering scene
+  beats, single close-third Eli viewpoint discipline, the surging-grid crisis and the
+  hand-built microgrid from incompatible sources, the load-shedding-as-governance
+  conflict with Talia, Nolan's introduction and his admission that hand labor cannot
+  keep enough machines alive, June's proposal to enter Northglass, Eli's disproportionate
+  and unexplained refusal, the second authentication loss, and the irreversible decision
+  to go (the ending hook, "meet me before sunrise"). The blueprint must DECLARE Chapter
+  4's reveal level explicitly: the deep layer opens only to Northglass-as-place and Eli's
+  dread; Morrow, the buried drive, the resume-not-build truth, the six-years-ago encounter,
+  "Escaping," Crown's specifics, named Mosaic knowledge, and Eli's real reason for going
+  all stay gated. The blueprint is a plan, not prose, and must not advance reveals beyond
+  the sanctioned depth.
+
+canon_rules:
+  - "The bibles outrank memory, the graph, and any index in every conflict."
+  - "Treat plot files and blueprints as approved plans, not already-established events."
+  - "Treat active canon files as authoritative by subject. Treat approved manuscript (Chapters 1 to 3) as established canon."
+  - "Never use archived files as active canon. No archive/ path may be loaded here."
+  - "Flag document conflicts; never silently resolve or average them."
+  - "Single close-third viewpoint: Eli, the entire chapter. Never head-hop; Nolan, Talia, June, and Lena are rendered only as Eli perceives them; one viewpoint per chapter (Decision 030)."
+  - "Do not give Morrow or Crown capabilities not yet established. Morrow does not appear and is not implied in Chapter 4; Northglass is dormant hardware and orchestration capability at place-level, not a named intelligence."
+  - "DECLARED REVEAL LEVEL: Chapter 4 BEGINS opening the deep layer, but only to Northglass-as-a-place-Eli-resolves-to-enter and his disproportionate, unexplained dread. Do NOT expose or hint Morrow, the buried 128 TB drive, the six-years-ago first encounter, 'Escaping,' the resume-not-build truth, Crown's specifics, the restricted Mosaic knowledge named as such, or Eli's real reason for going. The reader leaves Chapter 4 with the question, not the answer (chapter-04.md: the buried project is not hinted to June or the reader beyond his disproportionate reluctance; reveal-management.md; act-1-revision sections 3, 5, 10)."
+  - "Do not name the dead man (Eli does not know his name) and do not surface any of his Chapter-2 [reveal: Book 1] facts. He is an off-page absence."
+  - "Keep the supporting cast's gated interiors gated: Nolan's failing health, June's concealed father-channel, and Talia's contingency plans are all [reveal: Book 1] and not Eli's to know; use only their public functions."
+  - "The decision to enter Northglass is a reversal driven by accumulating loss (a second clinic system loses authentication, the machines failing one by one, hand labor declared insufficient), not a clean resolve. No 'and so he decided'; no save-the-neighborhood speech (act-1-timeline; act-1-revision Q4)."
+  - "Load-shedding is political as well as technical; keeping the clinic operational may mean shutting off residential heating. Dramatize the consent conflict; do not let the narration settle it (energy.md)."
+  - "Avoid em dashes in drafted prose and project copy (Decision 039)."
+  - "Keep service withdrawal contractual and administrative, not apocalyptic; the surging grid is real instability, not collapse; the world stays physically recognizable (Decisions 002, 038)."
+  - "Continuity must be exact with Chapters 1 to 3: the withdrawal and the midday tier drop with no emergency restoration; the off-page death and grief; the clinic and its remaining authentication-dependent systems; Eli's trade and his proven hand-labor limit; the neighborhood's incompatible power sources (EVs as storage, etc.)."
+
+relevant_validation_checks:
+  - "validate-links.py: every Markdown link and front-matter related/source_documents path in the blueprint resolves on disk. (Focus-section entity pointers are written as plain backtick paths, not Markdown links, matching the Ch3 convention; the not-yet-existing neighborhood power-coordination path is named only in the flags as plain text.)"
+  - "validate-metadata.py: the blueprint declares all eight required front-matter fields (title, document_type, status, authority, summary, tags, related, source_documents) and each Scene Metadata block carries date_iso and start_iso in ISO 8601."
+  - "Archive safety: no archive/ path appears in required_files, optional_files, or loading_order."
+  - "Scope check: the exclude_files entries (Morrow/Crown profiles, technology/northglass.md interior, Mars, later-act timelines, Kade/Jonah/Mara) are absent from the loaded set."
+  - "Reveal-safety check: the loaded northglass.md, reveal-management.md, and act-1-revision are present as REVEAL CONTROL; no loaded file forces a Morrow / buried-drive / resume-not-build / 'Escaping' / real-reason reveal into Chapter 4's scope; the deep layer opens only to Northglass-as-place and Eli's dread."
+  - "build-context-pack.py: fails on any missing required file and warns on any missing optional file."
