@@ -91,7 +91,7 @@ You had to know where to look.
 
 A clutch of kids went past at the corner, backpacks and loud morning voices, heading for the program the neighborhood ran out of the old elementary now that the district had stopped paying for buses and teachers both. They walked through the cold like it was nothing, because to them it was nothing, because this was simply the world, the only one they had been given. One of the boys said morning, Mr. Rook, [beat] and was gone around the corner before Eli had finished saying it back.
 
-He kept walking, and a tally ran under everything else, the kind he never had to start because it never stopped, a map of the neighborhood drawn only in his head and corrected as he went. The streetlight on the corner of Webb was dead, had been dead since spring, the glass gone milky. The next one worked. The two after that were dead. [beat] He read the lights the way you read a tide chart, the dead ones marking how far the maintenance had pulled back, block by block, the boundary drawn in cold glass over his head.
+He kept walking, and a tally ran under everything else, the kind he never had to start because it never stopped, a map of the neighborhood drawn only in his head and corrected as he went. The streetlight on the corner of Webb was dead, had been dead since spring, the glass gone milky. The next one worked, and the two beyond it had gone dark too. [beat] He read the lights the way you read a tide chart, the dead ones marking how far the maintenance had pulled back, block by block, the boundary drawn in cold glass over his head.
 
 The grocery was open, the good warm yellow of a place that wanted you to come in, and he went in because going in was a way of saying the place was still worth coming into. Marisol was behind the counter with her coat on. [beat] She had the coat on inside, which told him most of what he needed before he had crossed the floor.
 
@@ -103,13 +103,13 @@ The dairy case along the back wall was dark. Not all of it. The first two doors 
 
 "Everything in your house wants permission now," she said as he turned, almost smiling. "And there's nobody left to give it." He knew what she meant and had no answer for it, and went out into the cold with the day's list already longer than it had been.
 
-A block from the shop a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over it, put the key in the lock, and did not look back at the street lying quiet behind him, [beat] kept ordinary by hands.
+Outside the shop a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over it, put the key in the lock, and did not look back at the street lying quiet behind him, [beat] kept ordinary by hands.
 
 He went in.
 
 ---
 
-By eleven the bench was full.
+By eleven the shop's bench was full.
 
 It started the way it always started, one thing, then another, the door letting in a thread of cold each time it opened. Vance's boy came first with the doorbell, seventeen, his father's narrow face, and Eli set it under the lamp and found what he had known he would find, which was nothing wrong with it. The button worked. The chime worked. The little board worked, lit and patient, waiting to be told by a server two thousand miles away that it had permission to make a sound in a house in Detroit. [beat] The server did not answer. It had not answered, by the firmware log, since a Thursday in August, when its owner finished sunsetting a product line and moved on.
 
@@ -121,7 +121,7 @@ It started the way it always started, one thing, then another, the door letting 
 
 "That's what we want," the boy said, with a flatness Eli knew and let pass. They wanted the house to know there was somebody at the door. The wanting reduced down to the thing itself, stripped of every feature the cleverness had wrapped around it, until all that was left was the animal need a doorbell had been invented to answer. [hold] Someone is here. Let me know.
 
-He fixed it. He took no money for it. The boy left.
+He fixed it, took no money for it, and the boy left.
 
 Then it was a thermostat in a canvas bag, a smooth black square that lit up and showed the woman a login screen and would do nothing else, would not warm her house, would not even tell her the temperature of the room it stood in, until she signed into an account on a service that had been folded into another service that had been discontinued. It read the room perfectly. [beat] It simply refused to say what it read until it had checked her name against a list nobody kept anymore. He bypassed it, and afterward it was only a switch that turned the heat on when the room got cold, which was the entire thing she had ever wanted from it.
 
@@ -187,7 +187,7 @@ Eli closed his eyes a second.
 
 "Read me the wording."
 
-She read it. It was the same voice. He had known it would be. [flat] Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third. [measured] The same threshold, the same thank-you, applied this time not to a doorbell or a dairy case but to a scanner that found the thing wrong inside a person, a unit that decided how much of a drug went into a body and when, [beat] and a controller that kept a set of lungs breathing that could not, on their own, anymore, do the work.
+She read it. It was the same voice, and he had known it would be. [flat] Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third. [measured] The same threshold, the same thank-you, applied this time not to a doorbell or a dairy case but to a scanner that found what was wrong inside a person, a unit that decided how much of a drug went into a body and when, [beat] and a controller that kept a set of lungs breathing that could no longer do the work on their own.
 
 "All right." He reached for the bench, for the steadiness of it, because working a problem through, step by step, was the only ground he knew how to stand on. "Tell me what stops. [beat] Physically. At midnight, when the authentication goes."
 
@@ -213,9 +213,9 @@ And here was the place he had been walking toward all morning without letting hi
 
 [slowly] The wall was what the yes had been standing in front of.
 
-He hit it standing still, and it did not move. The doorbell's permission had guarded nothing but a chime; cut it loose and the worst it did was ring at the wrong time. The respiratory controller's permission had guarded the calibration and the dosing envelope and the safety record, the whole quiet body of medical correctness the authentication had carried on its back, the thing that made the machine right and not merely on. [beat] That he could not counterfeit, not in the hours he had, not by hand. He could forge the yes by midnight. [beat] He could not forge what the yes had certified. [hold] A respiratory controller cut loose and running on a hand-made permission, stripped of all of that, kills the man it is keeping alive, slowly, correctly, [grave] while reporting that everything is fine.
+He hit it standing still, and it did not move. The doorbell's permission had guarded nothing but a chime; cut it loose and the worst it did was ring at the wrong time. The respiratory controller's permission had guarded the calibration and the dosing envelope and the safety record, the whole quiet body of medical correctness the authentication had carried on its back. That was what made the machine right and not merely on. [beat] That he could not counterfeit, not in the hours he had, not by hand. He could forge the yes by midnight. [beat] He could not forge what the yes had certified. [hold] A respiratory controller cut loose and running on a hand-made permission, stripped of all of that, kills the man it is keeping alive, slowly, correctly, [grave] while reporting that everything is fine.
 
-And it was not one controller. That was the other half of the wall, the half with no bottom. Behind that man was a clinic, and behind the clinic a neighborhood, every machine in it orphaned the same way, every one of them needing its own forged yes and its own certainty he could not forge, [beat] and only him, with a screwdriver, one device at a time, while the whole of it kept coming.
+And it was not one controller. That was the other half of the wall, the half with no bottom. Behind that man was a clinic, and behind the clinic, a neighborhood. Every machine in it was orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. [beat] And only him, with a screwdriver, one device at a time, while the whole of it kept coming.
 
 [tense] "Eli," Lena said. "You went quiet. [beat] Tell me you didn't go quiet because there's nothing."
 
@@ -227,7 +227,7 @@ It was true and it was not enough and they both knew it. He told her he would co
 
 The shop was very quiet after.
 
-The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed and left, the last thing on it, the notice she had read him, the three names of the three machines in plain type, and the time beside them, [flat] 23:59, [measured] a number that was, when he made himself count it, [beat] a little under twelve hours away.
+The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. The last thing left on it was the notice she had read him, the three names of the three machines in plain type, and the time beside them, [flat] 23:59, [measured] a number that was, when he made himself count it, [beat] a little under twelve hours away.
 
 He did not move for a while. He had spent the whole day teaching machines to live without permission, forging the small yeses that let stranded things run. [beat] It was no answer here. The yes he knew how to forge was the easy half. The hard half was everything the yes had vouched for, the rightness a respiratory controller could not be allowed to lose, and there was no forging that by hand, not for one machine in the hours he had, and there were not one of these machines but a whole neighborhood of them, and only him. [slowly] Under all of it, breathing on borrowed time, a sixty-one-year-old man with a name Lena was keeping back.
 
