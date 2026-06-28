@@ -52,12 +52,12 @@ for (const L of LEVELS) for (let i = 0; i < paras.length; i++) {
   const start = Math.max(0, i + 1 - WINDOW)
   const recent = paras.slice(start, i + 1).map(p => `[${p.n}] ${p.text}`).join('\n\n')
   const lead = start > 0
-    ? `You have already read the chapter up to this point; you remember the earlier paragraphs only in gist, the way a real reader would, not word for word. Here are the most recent paragraphs leading up to the one to interpret:\n\n`
-    : `Here is the chapter from the beginning, up to the paragraph to interpret:\n\n`
+    ? `(You have read the chapter to here; you recall the earlier parts only in gist. Recent lead-up:)\n\n`
+    : `(The chapter from the start, up to the paragraph to interpret:)\n\n`
   const tn = paras[i].n
   frMeta.push({ level: L.id, n: tn, opening: paras[i].opening })
   thunks.push(() => agent(
-    `You are ${L.steer} You are reading this story for the FIRST time, top to bottom. You have read up to and including the LAST paragraph below and NO FURTHER -- you do NOT know what comes after it. ${lead}${recent}\n\nIn your own words, what do you understand is happening in the LAST paragraph (the one marked [${tn}]), knowing ONLY what you have read so far? Use NO knowledge of later paragraphs -- you have not read them yet. Mark confused:true if it tripped you on this first read. Return per schema.`,
+    `You are ${L.steer}\n\n${lead}${recent}\n\nReading for the first time, you have NOT read past paragraph [${tn}]. In your own words, what is happening in paragraph [${tn}], using only what is above? Mark confused if it tripped you. Per schema.`,
     { agentType: 'lay-reader', schema: FR, label: `fr:${L.id}:${tn}`, phase: 'FirstRead' }
   ))
 }
