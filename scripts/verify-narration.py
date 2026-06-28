@@ -70,6 +70,7 @@ Usage:
 """
 
 import argparse
+import collections
 import csv
 import datetime
 import difflib
@@ -399,9 +400,13 @@ def apply_elevenlabs(res, api_key, retry_threshold):
     """Resolve ONE REVIEW chunk with the ElevenLabs second opinion, mutating res in place.
     Fills el_text and (on success) el_sim / el_whisper_sim, then RE-decides the verdict:
 
+      * REPEAT/INFLATION OVERRIDE: if the EL transcript itself is looped/inflated vs the
+        script -> RETRY immediately, ahead of every OK guard below (a loop must never be
+        whitewashed by either transcriber reading the repeated-but-"correct" words).
       * el_sim >= retry_threshold -> OK (ElevenLabs reads it fine -> a Whisper artifact).
       * NORMALIZATION/ARTIFACT GUARD: el_whisper_sim >= EL_GUARD_AGREE_THRESHOLD AND
-        len_status == "OK" AND no non-speech marker AND foreign == 0 -> OK. When BOTH
+        len_status == "OK" AND no non-speech marker AND foreign == 0 AND NOT a detected
+        repeat -> OK. When BOTH
         transcribers strongly agree at full audio length and every divergence from the
         script is in a benign class (digits / single-char splits, so foreign_words counts
         none), the script-vs-transcript diff is a number/normalization/spelling artifact
@@ -423,6 +428,21 @@ def apply_elevenlabs(res, api_key, retry_threshold):
     el_whisper_sim = word_similarity(text, res.get("got", ""))
     res["el_sim"] = round(el_sim, 4)
     res["el_whisper_sim"] = round(el_whisper_sim, 4)
+    # A loop the Whisper pass missed (Whisper sometimes drops the repeat -> the chunk only
+    # reaches REVIEW) can still surface in the ElevenLabs transcript. Re-run the repeat/
+    # inflation detector against the SCRIPT on the EL transcript; a clear loop -> RETRY,
+    # overriding BOTH the el_sim->OK and the strong-agreement->OK guards below.
+    el_rep, el_rep_reason, el_rep_metrics = repeat_inflation(
+        words_of(res.get("expected", "")), words_of(text))
+    if el_rep:
+        res["repeat"] = True
+        res["inflation"] = el_rep_metrics.get("inflation")
+        res["dup_ratio"] = el_rep_metrics.get("dup_ratio")
+        res["loop_phrase"] = el_rep_metrics.get("loop_phrase")
+        res["verdict"] = "RETRY"
+        res["flagged"] = True
+        res["reason"] = "repeat/inflation in elevenlabs transcript -> RETRY: " + el_rep_reason
+        return ("RETRY", None)
     if el_sim >= retry_threshold:
         res["verdict"] = "OK"
         res["flagged"] = False
@@ -431,7 +451,8 @@ def apply_elevenlabs(res, api_key, retry_threshold):
     if (el_whisper_sim >= EL_GUARD_AGREE_THRESHOLD
             and res.get("len_status") == "OK"
             and not res.get("nonspeech")
-            and not res.get("foreign")):
+            and not res.get("foreign")
+            and not res.get("repeat")):
         res["verdict"] = "OK"
         res["flagged"] = False
         res["reason"] = ("both transcribers agree (el/whisper=%.2f) at full length with no "
@@ -513,22 +534,112 @@ def foreign_words(exp_words, got_words):
             if w not in exp_set and len(w) > 1 and not w.isdigit()]
 
 
-def compute_verdict(sim, foreign_count, has_nonspeech, audio_short, retry_threshold):
-    """Verdict. Only the AUDIO-based drop check hard-RETRYs -- it can't be fooled by a
-    transcriber's word choices. Everything transcript-based (low similarity, a non-speech
-    marker, or 'foreign' tokens) routes to REVIEW, where the ElevenLabs tiebreaker
-    confirms before any re-render. A few foreign tokens at HIGH similarity are just
-    Whisper's spelling (streetlight->street light, Webb->web, tier->tear), not garble --
-    so they must never force a re-render on good audio.
+# --- repeat / inflation detector (looping audio that HIGH similarity misses) ----------
+# A Chatterbox chunk that LOOPS or repeats a phrase keeps a HIGH word-similarity score:
+# the looped words are all still "correct" against the script, so foreign~=0 and the
+# SequenceMatcher ratio barely moves (extra MATCHED words add to both M and T in 2M/T).
+# The audio is also LONGER, never SHORTER, so the speech-length tripwire -- which only
+# catches drops -- never fires. Net result: a looping chunk passes QC and gets stitched.
+# This detector closes that gap by comparing the TRANSCRIPT to the SCRIPT for the three
+# fingerprints of looping. It is deliberately CONSERVATIVE and ALWAYS measured against the
+# script, so prose that legitimately repeats a phrase (present in BOTH) never trips it.
+REPEAT_INFLATION_RATIO = 1.25   # transcript_words / script_words above this == inflated
+REPEAT_MIN_EXCESS = 4           # ...and at least this many EXTRA words (short-chunk guard)
+REPEAT_NGRAM_MIN = 3            # shortest back-to-back phrase length treated as a loop
+REPEAT_NGRAM_MAX = 6            # longest  back-to-back phrase length treated as a loop
+REPEAT_DUP_RATIO = 0.25         # excess-duplicate tokens / script words above this == loop
 
-      RETRY  : the audio is too short for its text (speech_len drop). Trustworthy, audio-
-               based; a real garble that shortens the audio also lands here.
+
+def _consecutive_repeat(words, n):
+    """The first n-gram that appears IMMEDIATELY repeated back-to-back in `words`
+    (words[i:i+n] == words[i+n:i+2n]), returned as a tuple, else None. For n=2,
+    ['a','b','a','b'] -> ('a','b')."""
+    for i in range(len(words) - 2 * n + 1):
+        if words[i:i + n] == words[i + n:i + 2 * n]:
+            return tuple(words[i:i + n])
+    return None
+
+
+def _script_has_repeat(exp_words, phrase):
+    """True when `phrase` (a tuple) ALSO appears back-to-back in the SCRIPT -- i.e. the
+    repetition is legitimate prose the model was asked to say, not a loop artifact."""
+    n = len(phrase)
+    for i in range(len(exp_words) - 2 * n + 1):
+        if (tuple(exp_words[i:i + n]) == phrase
+                and tuple(exp_words[i + n:i + 2 * n]) == phrase):
+            return True
+    return False
+
+
+def repeat_inflation(exp_words, got_words):
+    """Detect TTS looping / length-inflation that HIGH word-similarity misses, comparing the
+    transcript to the SCRIPT so legitimate repetition (present in both) never fires. Returns
+    (flagged, reason, metrics) with metrics = {inflation, dup_ratio, loop_phrase}. Fires on
+    any of three CONSERVATIVE signals (each needs a clear margin):
+      (a) LENGTH INFLATION -- transcript has > REPEAT_INFLATION_RATIO x the script's words
+          AND at least REPEAT_MIN_EXCESS extra words (the signature of repeated audio; a
+          Whisper mid-drop SHORTENS the transcript, so it can never trip this).
+      (b) LOOPED N-GRAM -- a 3..6-word phrase repeated immediately back-to-back in the
+          transcript that does NOT also repeat back-to-back in the script.
+      (c) DUPLICATE-TOKEN RATIO -- transcript tokens beyond their script multiplicity exceed
+          REPEAT_DUP_RATIO of the script length (heavy duplication even without net inflation).
+    With no script baseline (empty exp_words) nothing fires -- a loop can't be judged without
+    the text it was meant to say."""
+    metrics = {"inflation": None, "dup_ratio": None, "loop_phrase": None}
+    exp_len = len(exp_words)
+    got_len = len(got_words)
+    if not exp_len:
+        return (False, "", metrics)
+    inflation = round(got_len / exp_len, 3)
+    exp_counts = collections.Counter(exp_words)
+    got_counts = collections.Counter(got_words)
+    excess = sum(max(0, c - exp_counts.get(w, 0)) for w, c in got_counts.items())
+    dup_ratio = round(excess / exp_len, 3)
+    metrics["inflation"] = inflation
+    metrics["dup_ratio"] = dup_ratio
+
+    reasons = []
+    if inflation > REPEAT_INFLATION_RATIO and (got_len - exp_len) >= REPEAT_MIN_EXCESS:
+        reasons.append("length inflation %.2fx (transcript %d words vs script %d)"
+                       % (inflation, got_len, exp_len))
+    loop_phrase = None
+    for n in range(REPEAT_NGRAM_MAX, REPEAT_NGRAM_MIN - 1, -1):
+        if got_len < 2 * n:
+            continue
+        cand = _consecutive_repeat(got_words, n)
+        if cand and not _script_has_repeat(exp_words, cand):
+            loop_phrase = cand
+            metrics["loop_phrase"] = " ".join(cand)
+            reasons.append('looped phrase "%s" repeated back-to-back, not in script'
+                           % " ".join(cand))
+            break
+    if dup_ratio > REPEAT_DUP_RATIO and excess >= REPEAT_MIN_EXCESS:
+        reasons.append("duplicate-token ratio %.2f over script (%d excess tokens)"
+                       % (dup_ratio, excess))
+    return (bool(reasons), "; ".join(reasons), metrics)
+
+
+def compute_verdict(sim, foreign_count, has_nonspeech, audio_short, retry_threshold,
+                    repeat_flagged=False):
+    """Verdict. Two AUDIO/CONTENT-based checks hard-RETRY -- neither can be fooled by a
+    transcriber's word choices. Everything else transcript-based (low similarity, a non-speech
+    marker, or 'foreign' tokens) routes to REVIEW, where the ElevenLabs tiebreaker confirms
+    before any re-render. A few foreign tokens at HIGH similarity are just Whisper's spelling
+    (streetlight->street light, Webb->web, tier->tear), not garble -- so they must never force
+    a re-render on good audio.
+
+      RETRY  : the audio is too short for its text (speech_len drop), OR the repeat/inflation
+               detector fired (looping / length-inflated audio). Both are trustworthy and
+               INDEPENDENT of similarity, so a loop RETRYs even at sim >= 0.9 (the looped words
+               are all "correct", which is exactly why similarity alone misses it).
       REVIEW : similarity < retry_threshold OR a non-speech marker. The ElevenLabs second
                opinion decides (both transcribers disagree with the script -> real fault;
                ElevenLabs reads it fine -> a Whisper artifact). Never a blind re-render.
       OK     : high similarity and clean. Foreign tokens at high similarity are quirks.
-    sim may be None (no transcript); then only RETRY (if short) or OK."""
+    sim may be None (no transcript); then only RETRY (if short / repeat) or OK."""
     if audio_short:
+        return "RETRY"
+    if repeat_flagged:
         return "RETRY"
     if has_nonspeech or (sim is not None and sim < retry_threshold):
         return "REVIEW"
@@ -573,6 +684,9 @@ def evaluate(res, gap_after, chars_per_sec, short_ratio, retry_threshold):
     error = res.get("error")
     chars = len(expected)
     wav = res.get("wav")
+    # Repeat/inflation defaults (overridden below when there is a usable transcript).
+    rep_flagged = False
+    rep_metrics = {"inflation": None, "dup_ratio": None, "loop_phrase": None}
 
     # --- length tripwire (SPEECH length, Whisper-INDEPENDENT) --------------------------
     expected_len = (chars / chars_per_sec) if chars_per_sec > 0 else None
@@ -616,8 +730,14 @@ def evaluate(res, gap_after, chars_per_sec, short_ratio, retry_threshold):
         foreign = len(foreign_words(exp_words, got_words))
         marker = NONSPEECH_RE.search(got)
         nonspeech = marker.group(0) if marker else ""
-        verdict = compute_verdict(sim, foreign, bool(nonspeech), audio_short, retry_threshold)
+        # Repeat/inflation detector: looping audio keeps a HIGH sim (looped words are all
+        # "correct") so it must be able to force RETRY independently of similarity.
+        rep_flagged, rep_reason, rep_metrics = repeat_inflation(exp_words, got_words)
+        verdict = compute_verdict(sim, foreign, bool(nonspeech), audio_short,
+                                  retry_threshold, repeat_flagged=rep_flagged)
         reasons = verdict_reasons(foreign, nonspeech, audio_short, sim, retry_threshold)
+        if rep_flagged:
+            reasons.insert(0, "repeat/inflation -> RETRY (overrides high-sim): " + rep_reason)
 
     res.update({
         "gap_after": gap_after,
@@ -636,6 +756,11 @@ def evaluate(res, gap_after, chars_per_sec, short_ratio, retry_threshold):
         "rate": round(rate, 2) if rate is not None else None,
         "short": bool(audio_short),
         "nonspeech": nonspeech,
+        # repeat/inflation detector (looping audio that high similarity misses)
+        "repeat": bool(rep_flagged),
+        "inflation": rep_metrics.get("inflation"),
+        "dup_ratio": rep_metrics.get("dup_ratio"),
+        "loop_phrase": rep_metrics.get("loop_phrase"),
         # ElevenLabs tiebreaker fields -- populated later, only on REVIEW chunks
         "el_text": res.get("el_text"),
         "el_sim": res.get("el_sim"),
@@ -674,9 +799,13 @@ def write_report(path, base_stem, results, args, counts, retry_list, review_list
     A("")
     A("## Verdict rules")
     A("")
-    A("- **RETRY** (auto re-render): `foreign_words > 2`, OR a non-speech marker is "
-      "present, OR the audio is too short for its text (Whisper-INDEPENDENT ffprobe "
-      "duration check). These are reliable garble / drop signals.")
+    A("- **RETRY** (auto re-render): the audio is too short for its text (Whisper-"
+      "INDEPENDENT speech-length check), OR the repeat/inflation detector fired -- "
+      "transcript length-inflated > %.2fx the script, a 3..6-word phrase looped back-to-"
+      "back (not in the script), or duplicate-token ratio > %.2f. The repeat check "
+      "OVERRIDES high similarity: a looping chunk keeps sim >= 0.9 (the looped words are "
+      "all \"correct\") yet still RETRYs. These are reliable garble / loop / drop signals."
+      % (REPEAT_INFLATION_RATIO, REPEAT_DUP_RATIO))
     A("- **REVIEW** (human ear -- do NOT auto-retry): similarity < retry-threshold but "
       "`foreign_words <= 2` and audio not short. Most likely Whisper dropped the MIDDLE "
       "of its OWN transcript on a long chunk, not a real audio fault. Auto-retrying "
@@ -740,7 +869,8 @@ def write_report(path, base_stem, results, args, counts, retry_list, review_list
 # carries the full untruncated text; qc.csv carries the same rows with text truncated.
 QC_FIELDS = ["chunk", "path", "gap_after", "script_text", "whisper_text", "whisper_sim",
              "el_text", "el_sim", "el_whisper_sim", "chars", "expected_len", "raw_len",
-             "trimmed_len", "speech_len", "len_status", "status", "reason"]
+             "trimmed_len", "speech_len", "len_status", "repeat", "inflation", "dup_ratio",
+             "status", "reason"]
 
 
 def qc_record(r):
@@ -763,6 +893,9 @@ def qc_record(r):
         "trimmed_len": r.get("trimmed_len"),
         "speech_len": r.get("speech_len"),
         "len_status": r.get("len_status"),
+        "repeat": bool(r.get("repeat")),
+        "inflation": r.get("inflation"),
+        "dup_ratio": r.get("dup_ratio"),
         "status": r.get("verdict"),
         "reason": r.get("reason", "") or "",
     }
@@ -803,6 +936,40 @@ def write_qc_csv(path, records):
             w.writerow(row)
 
 
+def run_selftest():
+    """Tiny, offline self-test for the repeat/inflation detector (no network, no files).
+    Exercises a clean transcript, a Whisper mid-drop (shorter -- must NOT flag), a fully
+    looped transcript, an ISOLATED back-to-back phrase loop (length not inflated, so only
+    the n-gram signal fires), and prose that LEGITIMATELY repeats a phrase present in BOTH
+    sides (must NOT flag). Returns 0 if every case behaves, else 1."""
+    fails = []
+
+    def expect(name, cond):
+        print("  %-38s %s" % (name, "ok" if cond else "FAIL"), file=sys.stderr)
+        if not cond:
+            fails.append(name)
+
+    script = ("the rain came down on the empty street and eli watched the water gather "
+              "at the curb while the city stayed dark")
+    exp = words_of(script)
+    expect("clean transcript -> no flag", not repeat_inflation(exp, words_of(script))[0])
+    expect("mid-drop (shorter) -> no flag",
+           not repeat_inflation(exp, words_of("the rain came down on the empty street"))[0])
+    f, _, m = repeat_inflation(exp, words_of(script + " " + script))
+    expect("full loop -> flag (inflation ~2x)", f and m["inflation"] >= 1.9)
+    looped = ("the rain came the rain came down on the empty street and eli watched the "
+              "water gather at the curb while the city stayed dark")
+    fr, rr, _ = repeat_inflation(exp, words_of(looped))
+    expect("isolated back-to-back loop -> flag", fr and "looped phrase" in rr)
+    legit = "i can't i can't i can't believe the door is standing wide open"
+    le = words_of(legit)
+    expect("legit repeated prose (both sides) -> no flag", not repeat_inflation(le, le)[0])
+
+    print("selftest: %s" % ("PASS" if not fails else "FAIL (%s)" % ", ".join(fails)),
+          file=sys.stderr)
+    return 0 if not fails else 1
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="Verify a rendered chapter for Chatterbox garble: transcribe each "
@@ -813,7 +980,11 @@ def main():
                     "resolve REVIEW into OK or RETRY. Emits a per-chunk RETRY / REVIEW / OK "
                     "verdict and, BY DEFAULT, writes qc.json (full text, every field) and "
                     "qc.csv (truncated text, spreadsheet-openable) into the chunk dir.")
-    ap.add_argument("script", help="A chapter-XX.narrative-script.md (same input as the renderer)")
+    ap.add_argument("script", nargs="?",
+                    help="A chapter-XX.narrative-script.md (same input as the renderer)")
+    ap.add_argument("--selftest", action="store_true",
+                    help="Run the offline repeat/inflation detector self-test and exit "
+                         "(no script, no network, no files).")
     ap.add_argument("--api", default=DEFAULT_API,
                     help="Voice server base URL. Default %s." % DEFAULT_API)
     ap.add_argument("--chunk-dir", default=None,
@@ -862,6 +1033,11 @@ def main():
                     help="Write a human-readable markdown QC report (aligned per-chunk "
                          "table + EXPECTED vs WHISPER for every non-OK chunk).")
     args = ap.parse_args()
+
+    if args.selftest:
+        return run_selftest()
+    if not args.script:
+        ap.error("the script argument is required (omit it only with --selftest)")
 
     if not os.path.exists(args.script):
         print("ERROR: script not found: " + args.script, file=sys.stderr)
