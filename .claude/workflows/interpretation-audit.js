@@ -4,7 +4,8 @@ export const meta = {
   phases: [
     { title: 'Split', detail: 'split the chapter into ordered prose paragraphs' },
     { title: 'Gist', detail: 'precompute a one-clause gist per paragraph (the reader long-term memory)' },
-    { title: 'FirstRead', detail: 'two readers interpret each paragraph: verbatim window + gist of everything before it' },
+    { title: 'Recap', detail: 'recap-generator writes a "previously on" of prior chapter(s) the readers carry into the first read' },
+    { title: 'FirstRead', detail: 'two readers interpret each paragraph: prior-chapter recap + within-chapter gist + verbatim window' },
     { title: 'Reread', detail: 'each reader rereads with full context; which first-pass confusions resolved?' },
     { title: 'Compare', detail: 'clarity-auditor flags confusion that never resolves; spares working seeds' },
   ],
@@ -61,7 +62,49 @@ const FR = { type: 'object', required: ['understanding', 'confused'], properties
   what_tripped: { type: 'string', description: 'if confused, the specific thing that tripped you; else empty' },
 } }
 
+// --- Prior-chapter memory (recap) ------------------------------------------
+// A real reader of chapter N has read chapters 1..N-1, so they carry that memory into
+// the first read. args.prior may be a single path or an array of prior-chapter manuscript
+// .md paths. If absent, best-effort infer the immediately-preceding chapter from CH's
+// number; if none can be found (e.g. Chapter 1, or no number in the path) the recap is
+// skipped entirely -- recap stays empty and nothing is prepended. The recap-generator
+// resolves and reads the prior prose itself.
+const priorPaths = (Array.isArray(a.prior) ? a.prior : (a.prior ? [a.prior] : [])).filter(Boolean)
+const chNumMatch = String(CH).match(/chapter[-_ ]?(\d+)/i)
+const priorChapterNum = (!priorPaths.length && chNumMatch && Number(chNumMatch[1]) > 1)
+  ? Number(chNumMatch[1]) - 1
+  : null
+const priorScope = priorPaths.length
+  ? `the prior-chapter manuscript file(s):\n${priorPaths.join('\n')}`
+  : (priorChapterNum != null
+      ? `the immediately-preceding chapter, Chapter ${priorChapterNum}: find its APPROVED manuscript prose under ${ROOT}/docs/50-manuscript/book-1/ (the chapter-${String(priorChapterNum).padStart(2, '0')}-* folder's main .md, NOT the .author-notes / .gemini-critique / .narrative-script companions)`
+      : null)
+
+const RECAP = { type: 'object', required: ['recap'], properties: {
+  recap: { type: 'string', description: 'a tight "PREVIOUSLY ON" recap in reader voice -- ONLY the prior-chapter beats, states, relationships, setups and open questions THIS chapter draws on or pays off, as a real reader would remember them; carry open questions as open; no future reveals, nothing the reader has not been shown on the page' },
+} }
+
+phase('Recap')
+// Hand the blind first-read readers the prior-chapter memory a real reader of THIS chapter
+// would carry. Empty when there is no prior chapter (Chapter 1 / unresolved) -- then nothing
+// is prepended and the first-read behaves exactly as before.
+let recap = ''
+if (priorScope) {
+  const recapRes = await agent(
+    `Produce a tight "PREVIOUSLY ON" recap to prepend to a first-time reader's memory before a clarity audit of the chapter at ${CH}. Read ${priorScope}. Read the current chapter's blueprint at ${BP} as your relevance filter (Information Deliberately Withheld, Narrative Purpose, Reader Information, setups/payoffs). Surface ONLY the earlier beats this chapter actually draws on or pays off -- reader-facing narrative memory, selective not exhaustive. This text is prepended verbatim as what the reader remembers from earlier chapters, so include only what a real reader would truly have retained, carry open questions as open, and expose no future or not-yet-shown reveal. Return per schema.`,
+    { agentType: 'recap-generator', schema: RECAP, label: 'recap', phase: 'Recap' }
+  )
+  recap = (recapRes && recapRes.recap) || ''
+  log(recap ? `recap: carried ${recap.length} chars of prior-chapter memory into the first read` : 'recap: prior chapter found but recap came back empty; first read runs cold')
+} else {
+  log('recap: no prior chapter (Chapter 1 or unresolved path) -- first read runs cold, nothing prepended')
+}
+
 phase('FirstRead')
+// The reader's first-read context = prior-chapter recap (below) + within-chapter "story so
+// far" gist + recent verbatim window. The recap is prepended ONLY here, not in the Reread
+// (which already holds the full chapter).
+const recapLead = recap ? `PREVIOUSLY (what you remember from earlier chapters):\n${recap}\n\n` : ''
 const frMeta = []
 const thunks = []
 for (const L of LEVELS) for (let i = 0; i < paras.length; i++) {
@@ -76,7 +119,7 @@ for (const L of LEVELS) for (let i = 0; i < paras.length; i++) {
   const tn = paras[i].n
   frMeta.push({ level: L.id, n: tn, opening: paras[i].opening })
   thunks.push(() => agent(
-    `You are ${L.steer}\n\n${lead}${recent}\n\nReading for the first time, you have NOT read past paragraph [${tn}]. In your own words, what is happening in paragraph [${tn}], using only what is above? Mark confused if it tripped you. Per schema.`,
+    `You are ${L.steer}\n\n${recapLead}${lead}${recent}\n\nReading for the first time, you have NOT read past paragraph [${tn}]. In your own words, what is happening in paragraph [${tn}], using only what is above? Mark confused if it tripped you. Per schema.`,
     { agentType: 'lay-reader', schema: FR, label: `fr:${L.id}:${tn}`, phase: 'FirstRead' }
   ))
 }
@@ -126,4 +169,4 @@ const compare = await agent(
   { agentType: 'clarity-auditor', schema: FLAGS, label: 'compare', phase: 'Compare' }
 )
 
-return { paragraphs: paras.length, window: WINDOW, readers: LEVELS.map(L => L.id), first_pass_confusions: fr.filter(x => x.confused).length, compare }
+return { paragraphs: paras.length, window: WINDOW, readers: LEVELS.map(L => L.id), prior_recap_chars: recap ? recap.length : 0, first_pass_confusions: fr.filter(x => x.confused).length, compare }
