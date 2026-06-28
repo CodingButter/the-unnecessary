@@ -130,7 +130,7 @@ And there it was. What the morning had been circling.
 
 The two lit doors of the dairy case, and the dark length of it past them. That was where it landed, and the doorbell's patient little board came with it, the same patience, the same clean type at the top of both notices, and the morning would not stay in the separate pockets he had kept it in. They were one shape. A series of companies, each in its own building, had decided at the same hour that these people were no longer worth the cost of serving, and had written it down, politely, and moved on. Everything physical was exactly where it had been, working, ready, waiting. Destruction would have left a mark, something to point at and repair. This left nothing but a slow opening of a hand that had been holding them up, finger by finger, with a thank-you note for each finger as it let go.
 
-He set the phone down and looked at the crowded bench, the lit machines waiting on servers nobody answered for anymore, and for the first time that morning he did not see a queue of separate jobs. He saw one shape, reaching everything, himself in the middle of it with a screwdriver, fixing the small ends one device at a time while the whole of it kept coming. Against everything in him that wanted the world kept in separate pockets, he let himself start the list of what still worked only because no one had decided yet that it wasn't worth it. The list did not have a bottom.
+He set the phone down and looked at the crowded bench, the lit machines waiting on servers nobody answered for anymore, and for the first time that morning he did not see a queue of separate jobs. He saw the reach behind it all, himself in the middle with a screwdriver, working the small ends while the rest of it came on around him. Against everything in him that wanted the world kept in separate pockets, he let himself start the list of what still worked only because no one had decided yet that it wasn't worth it. The list had no end.
 
 The old man rose from the stool by the window, gathered his still-locked tablet off the bench, and let himself out, the door giving one last thread of cold to the room.
 
@@ -184,7 +184,7 @@ And here was the place he had been walking toward all morning without letting hi
 
 But the yes on the respiratory controller had been vouching for something. The calibration. The dosing and the pressure envelope it held a body inside of. The whole accumulated safety record, every test the manufacturer had ever run on it, certified fresh each time the machine phoned home and was told yes. That was what made the controller right and not merely running, and none of it lived in the permission. The permission only pointed at it. He could forge the pointer by hand in an afternoon. He could not forge what it pointed at, not in the hours he had, not at a bench, not ever.
 
-That was the wall. Not the forging, which was nothing. The wall was everything a forged yes would go on claiming and no longer be telling the truth about. The doorbell's permission had stood in front of a chime; cut it loose and the worst it did was ring at the wrong time. The controller's permission had stood in front of a man's lungs. Cut that loose on a hand-made yes, stripped of all of it, and the controller would keep running and kill the man it was keeping alive, slowly, correctly, reporting the whole time that everything was fine.
+The wall was everything a forged yes would go on claiming and no longer be telling the truth about. The doorbell's permission had stood in front of a chime; cut it loose and the worst it did was ring at the wrong time. The controller's permission had stood in front of a man's lungs. Cut that loose on a hand-made yes, stripped of all of it, and the controller would keep running and kill the man it was keeping alive, slowly, correctly, reporting the whole time that everything was fine.
 
 And it was not one controller. Behind that man stood a clinic, and behind the clinic a neighborhood, every machine in it orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. The half with no bottom. Only him, with a screwdriver, one device at a time, while the whole of it kept coming.
 
@@ -200,7 +200,7 @@ The shop was very quiet after.
 
 The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. What was left on it was the notice she had read him, the three names of the three machines in plain type, and the time beside them, *23:59,* a number that was, when he made himself count it, a little under twelve hours away.
 
-He did not move for a while. Under all of it, breathing on borrowed time across the thin dropped link, a sixty-one-year-old man with a name Lena was keeping back.
+He did not move for a while. Under all of it, breathing on a controller that would lose its yes at midnight, a sixty-one-year-old man with a name Lena was keeping back.
 
 He looked at the three names, and the single time beneath them, and there was no way back and no way around it. This was the one he could not fix.
 
