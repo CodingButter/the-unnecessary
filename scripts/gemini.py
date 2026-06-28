@@ -26,7 +26,7 @@ import urllib.request
 import urllib.error
 
 API_HOST = "https://generativelanguage.googleapis.com"
-DEFAULT_MODEL = "gemini-3-pro-preview"
+DEFAULT_MODEL = "gemini-pro-latest"  # stable alias; pinned previews (e.g. gemini-3-pro-preview) get retired and 404
 
 
 def load_key():

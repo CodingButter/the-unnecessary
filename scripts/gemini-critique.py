@@ -209,7 +209,7 @@ def main():
     ap.add_argument("--pack", default=None)
     ap.add_argument("--blueprint", default=None)
     ap.add_argument("--out", default=None)
-    ap.add_argument("--model", default="gemini-3-pro-preview")
+    ap.add_argument("--model", default="gemini-pro-latest")
     ap.add_argument("--manifest", default=None,
                     help="If given, REBUILD the pack from this manifest first so the "
                          "critique can never run against a stale snapshot.")
