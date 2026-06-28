@@ -1,59 +1,101 @@
 export const meta = {
   name: 'interpretation-audit',
-  description: "Clarity audit of a chapter by comprehension test: three lay-readers at different reading levels (8th-grade, average adult, close reader) independently re-tell the chapter paragraph by paragraph in their own words; a clarity-auditor aligns the retellings against the actual prose and the blueprint's intended takeaways, flagging any paragraph where readers diverge or get lost (real ambiguity), distinguishing that from mere depth-variation. The target chapter is parameterized via args {chapter, blueprint}; the readers run as crew lay-readers and the comparator as the crew clarity-auditor.",
+  description: "Progressive two-pass clarity audit of a chapter. Two lay-readers (8th-grade and average-adult) read it paragraph by paragraph with only a sliding window of recent prior paragraphs visible (no future context, fed as text so they cannot look ahead), reporting first-read understanding and first-pass confusion; then each rereads with the full chapter and reports which confusions RESOLVED (intended seed/foreshadowing) vs which remain (real clarity bug); a clarity-auditor flags only confusions that never resolve, sparing deliberate seeds. Target via args {chapter, blueprint, window}.",
   phases: [
-    { title: 'Read', detail: 'three lay-readers (8th-grade, average adult, close reader) re-tell the chapter in their own words' },
-    { title: 'Compare', detail: 'a clarity-auditor flags paragraphs where understanding diverges from intent' },
+    { title: 'Split', detail: 'split the chapter into ordered prose paragraphs' },
+    { title: 'FirstRead', detail: 'two readers interpret each paragraph with only a window of what came before' },
+    { title: 'Reread', detail: 'each reader rereads with full context; which first-pass confusions resolved?' },
+    { title: 'Compare', detail: 'clarity-auditor flags confusion that never resolves; spares working seeds' },
   ],
 }
 
 const ROOT = '/home/codingbutter/Novel'
-const CH1 = `${ROOT}/docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md`
-const CH1_BP = `${ROOT}/docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md`
-
-// ---- Parameters (passed as Workflow args: {chapter, blueprint}) ----
-let a = args || {}
+let a = (typeof args !== 'undefined' && args) || {}
 if (typeof a === 'string') { try { a = JSON.parse(a) } catch (e) { a = {} } }
-const CHAPTER = a.chapter || a.target || CH1
-const BP = a.blueprint || a.bp || CH1_BP
+const CH = a.chapter || a.target || `${ROOT}/docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md`
+const BP = a.blueprint || a.bp || `${ROOT}/docs/40-blueprints/book-1/chapter-01-no-signal/blueprint.md`
+// Sliding context window (paragraphs) -- the dominant cost lever. Each first-read call sees the target
+// paragraph plus at most WINDOW-1 of the immediately preceding ones, never the whole chapter-so-far.
+// This turns the quadratic context re-send into linear without ever leaking FUTURE text. Raise it for
+// a chapter with long-range callbacks; lower it to spend less.
+const WINDOW = Number(a.window) > 0 ? Number(a.window) : 10
 
-const RETELL = { type: 'object', required: ['paragraphs'], properties: {
-  paragraphs: { type: 'array', items: { type: 'object', properties: {
-    opening: { type: 'string', description: 'first ~6 words of the paragraph, verbatim, to locate it' },
-    understanding: { type: 'string', description: 'what you think is happening, in your OWN words at your reading level' },
-    confused: { type: 'boolean', description: 'true if you genuinely could not follow this paragraph' },
-  } } },
+const SPLIT = { type: 'object', required: ['paragraphs'], properties: {
+  paragraphs: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, opening: { type: 'string' }, text: { type: 'string' } } }, description: 'the STORY prose paragraphs in order (skip yaml frontmatter and everything from any "Revision Notes"/critique log onward). Each: n (1-based), opening (~6 words), text (full paragraph verbatim).' },
 } }
 
-const FLAGS = { type: 'object', required: ['flagged'], properties: {
-  flagged: { type: 'array', items: { type: 'object', properties: {
-    opening: { type: 'string' },
-    excerpt: { type: 'string' },
-    divergence: { type: 'string', description: 'how the three readers understood it differently, or who got lost' },
-    intended: { type: 'string', description: 'what the paragraph actually means to convey (from prose + blueprint)' },
-    severity: { type: 'string' },
-  } } },
-  clean_count: { type: 'number', description: 'paragraphs where all three converged on the same basic drift' },
-  summary: { type: 'string' },
-} }
+phase('Split')
+log(`interpretation-audit (progressive, window=${WINDOW}, 2 readers): ${CH}`)
+const split = await agent(
+  `Read ${CH} and extract the STORY PROSE only, as an ordered list of paragraphs. SKIP the yaml frontmatter and SKIP everything from any "Revision Notes"/adjudication/critique log to the end of the file. A paragraph is a block separated by blank lines; keep short one-line paragraphs as their own entries; do not merge or summarize. Return each paragraph VERBATIM with a 1-based index n and its ~6-word opening. Return per schema.`,
+  { schema: SPLIT, label: 'split', phase: 'Split' }
+)
+const paras = (split && split.paragraphs) || []
 
-phase('Read')
-log(`interpretation-audit: ${CHAPTER}`)
+// Two readers, not three: the close-reader (the most capable) rarely bounces on a first pass, and the
+// audit's bar is 8th-grade legibility. 8th-grade is the bar; average-adult is the target reader.
 const LEVELS = [
-  { id: '8th-grade', steer: 'Read at an 8th-grade level: use plain words, do not reach for literary subtext, just tell what is literally happening, and say plainly whenever a sentence loses you.' },
-  { id: 'average-adult', steer: 'Read as a smart average adult reading for story, not for English class: tell what is happening and what it means to you, and flag anything you had to read twice.' },
-  { id: 'close-reader', steer: 'Read as a careful literary close-reader: tell what each paragraph means, including its subtext and intent.' },
+  { id: '8th-grade', steer: 'an attentive 13-14 year old reading at an 8th-grade level: plain words; you miss subtext and irony but follow literal action and the basic emotional drift.' },
+  { id: 'average-adult', steer: 'a smart average adult reading for story: you catch ordinary implication but flag anything you had to work at.' },
 ]
-const retellings = await parallel(LEVELS.map(L => () => agent(
-  `Read the whole story prose of the chapter at ${CHAPTER}. ${L.steer} Read ONLY the narrative prose (skip the yaml frontmatter and skip everything from any "Revision Notes" / adjudication / critique log to the end of the file). Go paragraph by paragraph and, in your OWN words, say what you think is happening in each -- do NOT quote the prose back, re-tell it. Mark confused:true on any paragraph you genuinely could not follow. Return per the schema.`,
-  { agentType: 'lay-reader', schema: RETELL, label: `read:${L.id}`, phase: 'Read' }
-).catch(() => null)))
+
+const FR = { type: 'object', required: ['understanding', 'confused'], properties: {
+  understanding: { type: 'string', description: 'in your own words, what you understand is happening in the FINAL paragraph, knowing ONLY what you have read so far' },
+  confused: { type: 'boolean', description: 'true if this paragraph tripped you on this FIRST read: a pronoun with no referent yet, a jump you could not track, a phrase you could not parse, a metaphor that did not land' },
+  what_tripped: { type: 'string', description: 'if confused, the specific thing that tripped you; else empty' },
+} }
+
+phase('FirstRead')
+const frMeta = []
+const thunks = []
+for (const L of LEVELS) for (let i = 0; i < paras.length; i++) {
+  const start = Math.max(0, i + 1 - WINDOW)
+  const recent = paras.slice(start, i + 1).map(p => `[${p.n}] ${p.text}`).join('\n\n')
+  const lead = start > 0
+    ? `You have already read the chapter up to this point; you remember the earlier paragraphs only in gist, the way a real reader would, not word for word. Here are the most recent paragraphs leading up to the one to interpret:\n\n`
+    : `Here is the chapter from the beginning, up to the paragraph to interpret:\n\n`
+  const tn = paras[i].n
+  frMeta.push({ level: L.id, n: tn, opening: paras[i].opening })
+  thunks.push(() => agent(
+    `You are ${L.steer} You are reading this story for the FIRST time, top to bottom. You have read up to and including the LAST paragraph below and NO FURTHER -- you do NOT know what comes after it. ${lead}${recent}\n\nIn your own words, what do you understand is happening in the LAST paragraph (the one marked [${tn}]), knowing ONLY what you have read so far? Use NO knowledge of later paragraphs -- you have not read them yet. Mark confused:true if it tripped you on this first read. Return per schema.`,
+    { agentType: 'lay-reader', schema: FR, label: `fr:${L.id}:${tn}`, phase: 'FirstRead' }
+  ))
+}
+const firstReads = await parallel(thunks)
+const fr = frMeta.map((m, k) => ({ ...m, ...(firstReads[k] || { understanding: '(agent failed)', confused: false, what_tripped: '' }) }))
+const confusedByReader = {}
+for (const L of LEVELS) confusedByReader[L.id] = fr.filter(x => x.level === L.id && x.confused)
+
+phase('Reread')
+const RR = { type: 'object', required: ['resolutions'], properties: {
+  resolutions: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, resolved: { type: 'boolean' }, note: { type: 'string' } } }, description: 'for each previously-confusing paragraph: resolved:true if the full chapter explained it / it was a setup that paid off; resolved:false if still unclear even now' },
+} }
+const fullProse = paras.map(p => `[${p.n}] ${p.text}`).join('\n\n')
+const rereads = await parallel(LEVELS.map(L => () => {
+  const myConfused = confusedByReader[L.id]
+  if (!myConfused.length) return Promise.resolve({ resolutions: [] })
+  return agent(
+    `You are ${L.steer} You have now read this WHOLE chapter. Here it is in full:\n\n${fullProse}\n\nOn your FIRST read (paragraph by paragraph, without seeing ahead) these paragraphs tripped you:\n${myConfused.map(c => `[${c.n}] (${c.opening}) -- tripped by: ${c.what_tripped}`).join('\n')}\n\nFor EACH of those, now that you have the whole chapter: did the confusion RESOLVE (a later part explained it, or it was a setup that paid off) = resolved:true, or is it STILL unclear even with everything = resolved:false? Return per schema.`,
+    { agentType: 'lay-reader', schema: RR, label: `rr:${L.id}`, phase: 'Reread' }
+  )
+}))
+const rrByReader = {}
+LEVELS.forEach((L, i) => { rrByReader[L.id] = (rereads[i] && rereads[i].resolutions) || [] })
 
 phase('Compare')
-const named = LEVELS.map((L, i) => ({ level: L.id, retelling: retellings[i] }))
+const FLAGS = { type: 'object', required: ['bugs', 'working_seeds'], properties: {
+  bugs: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, opening: { type: 'string' }, who: { type: 'string' }, problem: { type: 'string' }, severity: { type: 'string' } } }, description: 'paragraphs confusing on first read that did NOT resolve even with full context = real clarity bugs to fix' },
+  working_seeds: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, opening: { type: 'string' }, note: { type: 'string' } } }, description: 'paragraphs confusing on first read but RESOLVED by later context = intended foreshadowing/seeding, spared (NOT bugs)' },
+  summary: { type: 'string' },
+} }
+const evidence = LEVELS.map(L => ({
+  level: L.id,
+  first_pass_confused: confusedByReader[L.id].map(c => ({ n: c.n, opening: c.opening, tripped: c.what_tripped })),
+  resolutions: rrByReader[L.id],
+}))
 const compare = await agent(
-  `You are auditing this chapter for CLARITY by comparison. Read the actual prose at ${CHAPTER} and the chapter blueprint at ${BP} (for the INTENDED takeaway of each beat). Then study these three independent reader retellings, one per reading level:\n\n${JSON.stringify(named)}\n\nFor each story paragraph, compare the three readers' understandings against each other AND against what the paragraph actually intends. FLAG a paragraph when the readers CONTRADICT each other about the basic meaning, or any reader got lost, or they collectively missed the intended point -- that is real ambiguity. Do NOT flag a paragraph merely because the 8th-grader caught less subtext than the close-reader; depth-variation is fine as long as all three get the same basic drift. The bar: anyone at an 8th-grade level should be able to follow the drift, even if not every nuance. For each flag give the paragraph opening, a short excerpt, exactly how the readers diverged, what it actually intends, and a severity. Return per the schema.`,
+  `You are auditing this chapter for CLARITY using a strict progressive two-pass comprehension test. Read the blueprint at ${BP} (especially Information Deliberately Withheld, Narrative Purpose, Reader Information) for what is INTENDED to be withheld or seeded. Here is the evidence -- for each reading level, the paragraphs that tripped them on a strict FIRST read (no look-ahead, only a window of recent prior context), and whether each RESOLVED once they read the whole chapter:\n\n${JSON.stringify(evidence)}\n\nClassify each first-pass confusion:\n- A real CLARITY BUG = confusing on first read AND did NOT resolve with full context (or resolved only with excessive effort), AND is NOT in the blueprint's deliberately-withheld set. Weight first-pass confusion at the 8th-grade level most heavily.\n- A WORKING SEED = confusing on first read but RESOLVED by later context, or explicitly in the blueprint's deliberately-withheld/foreshadowing set. Intended craft, NOT a bug -- list separately, do not flag.\nReturn per schema: bugs (the real ones to fix) and working_seeds (intended, spared), with a summary.`,
   { agentType: 'clarity-auditor', schema: FLAGS, label: 'compare', phase: 'Compare' }
 )
 
-return { chapter: CHAPTER, blueprint: BP, retellings: retellings.filter(Boolean), compare }
+return { paragraphs: paras.length, window: WINDOW, readers: LEVELS.map(L => L.id), first_pass_confusions: fr.filter(x => x.confused).length, compare }
