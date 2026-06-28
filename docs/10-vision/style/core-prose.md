@@ -531,6 +531,20 @@ These habits were diagnosed in drafting. Watch them; this is a guide, not a ban 
 
 ---
 
+# Freshness Across Chapters: Don't Self-Echo
+
+A chapter does not write itself in isolation. The reader carries the earlier chapters in memory, and that memory is the resource this section protects. As with the over-writing habits above, this is a guide and not a ban list; a deliberate, earned return is your right. The standing bias is freshness: a new chapter should sound like the same novel, not like the previous chapter run again.
+
+- **A signature device from an earlier chapter is spent.** A striking image, a memorable line, or a structural move that already landed once cannot land the same way twice. For a similar beat in a later chapter, find a fresh one. The exception is a deliberate motif you are building, and a motif only earns its return when it **varies or escalates**. Recurrence with development is craft; recurrence without it is recycling.
+  > Recycling: the same "signal bars but no call" beat staged again, unchanged, to mean the same thing.
+  > Earned motif: the dead distant server returns, but now it has taken something larger, or the character reads it differently than before.
+- **Do not re-explain what the reader was already shown.** Once a concept has been delivered on the page (the medical device waiting for a license server that no longer exists, the permission a machine lacks), assume it. Reference it glancingly and move on. Spend the chapter's exposition budget on what is **new**. A re-explanation tells the returning reader the author forgot they were there.
+  > Re-delivering: a fresh paragraph re-teaching how the dead license server works.
+  > Assuming it: *The scanner was still waiting on a server that had stopped answering years ago.* One clause, then onward.
+- **Do not reuse your own chapter's signature device twice.** The strongest image in a chapter is strongest once. If a move is doing real work, let it work a single time; a second use inside the same chapter spends the charge and reads as a tic. This is the within-chapter case of the same discipline.
+
+---
+
 # Final Style Standard
 
 The prose should make the future feel close enough to recognize.
