@@ -20,8 +20,10 @@ Pipeline:
      therefore fall at real register changes or the size cap.
   4. Strip all [tags] from each chunk's text, collapse whitespace, skip if empty.
   5. Render each chunk via POST {API}/api/generate (format wav, normalize true),
-     sequentially (the server 502s on parallel requests), resumable (skip existing
-     chunk files), retrying on 5xx up to 3 times, 600s timeout per request.
+     sequentially (the server 502s on parallel requests). By DEFAULT every chunk is
+     re-rendered fresh (overwriting any existing NN.wav) so a revised script is always
+     re-voiced; pass --resume to skip chunks already on disk (interrupted-render resume).
+     Retries on 5xx up to 3 times, 600s timeout per request.
   6. Stitch chunk WAVs with ffmpeg's concat demuxer, inserting a silence WAV between
      chunks (~0.35s default, ~1.2s at scene breaks). Convert to --format for --out.
 
@@ -925,6 +927,11 @@ def main():
                     help="API password for HTTP Basic auth (else VOICE_API_PASSWORD env, else .mcp.json).")
     ap.add_argument("--dry-run", action="store_true",
                     help="Print the chunk plan and exit without calling the API.")
+    ap.add_argument("--resume", action="store_true",
+                    help="Skip any chunk whose NN.wav already exists on disk (filename only), "
+                         "to manually resume an interrupted render. DEFAULT (no flag) is a full "
+                         "fresh re-render that overwrites every chunk -- so a revised script is "
+                         "always re-voiced and never reuses stale audio.")
     args = ap.parse_args()
 
     if not os.path.exists(args.script):
@@ -973,13 +980,15 @@ def main():
 
     os.makedirs(chunk_dir, exist_ok=True)
 
-    # Render each chunk to chunk_dir/NN.wav (resumable: skip any that already exist).
-    # render_chunk proactively splits long chunks into sentence-pieces so nothing drops.
+    # Render each chunk to chunk_dir/NN.wav. DEFAULT is a full fresh re-render that
+    # overwrites any existing NN.wav (so a revised script is always re-voiced, never
+    # reusing stale audio); --resume skips chunks already on disk to resume an
+    # interrupted render. render_chunk proactively splits long chunks so nothing drops.
     for i, ch in enumerate(chunks, 1):
         cf = os.path.join(chunk_dir, "%02d.wav" % i)
         prof = ch["profile"]
-        if os.path.exists(cf):
-            print("  chunk %02d/%d  [%s]  skip (exists)"
+        if args.resume and os.path.exists(cf):
+            print("  chunk %02d/%d  [%s]  skip (--resume; exists)"
                   % (i, len(chunks), profile_str(prof)), file=sys.stderr)
             continue
         print("  chunk %02d/%d  [%s]  %d chars ..."

@@ -24,10 +24,12 @@ resumable and HONEST about what it could not fix):
   1. Build the chunk list and derive chunk_dir EXACTLY as the renderer's main() does
      (extract_performance -> build_segments -> build_chunks -> normalize_ellipses, then
      out/chunk_dir derivation). Resolve HTTP Basic auth; health-check the server.
-  2. RENDER: for every chunk missing its chunk_dir/NN.wav, call renderer.render_chunk
-     (the proactive sentence-split renderer). Existing NN.wav are skipped (resume-safe);
-     a render error is logged and left as a missing wav -- QC will mark it RETRY and the
-     auto-fix loop will re-render it.
+  2. RENDER: for EVERY chunk, call renderer.render_chunk (the proactive sentence-split
+     renderer), overwriting any existing chunk_dir/NN.wav -- a full fresh re-render by
+     default, so a revised narration script is always re-voiced and never reuses stale
+     audio. (--resume skips chunks already on disk to resume an interrupted render.) A
+     render error is logged and left as-is -- QC will mark it RETRY and the auto-fix loop
+     will re-render it.
   3. QC: run the verifier over ALL chunks (transcribe -> evaluate -> optional ElevenLabs
      tiebreaker on REVIEW chunks) for a per-chunk verdict + speech_len, and write
      qc.json / qc.csv. Collect the RETRY set.
@@ -143,20 +145,23 @@ def build_chunk_list(script_path, max_chars, min_chars, ellipsis):
     return chunks, text
 
 
-def render_missing(chunks, chunk_dir, api, voice, auth, rep_penalty, base_temp, max_temp,
-                   edge_pad, split_threshold):
-    """Render every chunk that has no chunk_dir/NN.wav yet (resume-safe), via
-    renderer.render_chunk (proactive sentence split). Returns the count freshly rendered.
-    A render error is logged and the wav is left missing -- the QC pass will mark that chunk
-    RETRY and the auto-fix loop owns the recovery, so one failed chunk never aborts the run."""
+def render_chunks(chunks, chunk_dir, api, voice, auth, rep_penalty, base_temp, max_temp,
+                  edge_pad, split_threshold, resume=False):
+    """Render every chunk to chunk_dir/NN.wav via renderer.render_chunk (proactive sentence
+    split). DEFAULT is a full fresh re-render that OVERWRITES any existing NN.wav, so a revised
+    narration script is always re-voiced and never reuses the prior render's stale audio; pass
+    resume=True to skip chunks already on disk (to resume an interrupted render). Returns the
+    count freshly rendered. A render error is logged and the wav is left as-is -- the QC pass
+    will mark that chunk RETRY and the auto-fix loop owns the recovery, so one failed chunk
+    never aborts the run."""
     os.makedirs(chunk_dir, exist_ok=True)
     rendered = 0
     n = len(chunks)
     for i, ch in enumerate(chunks, 1):
         cf = os.path.join(chunk_dir, "%02d.wav" % i)
         prof = ch["profile"]
-        if os.path.exists(cf):
-            log("  chunk %02d/%d  [%s]  skip (exists)"
+        if resume and os.path.exists(cf):
+            log("  chunk %02d/%d  [%s]  skip (--resume; exists)"
                 % (i, n, renderer.profile_str(prof)))
             continue
         log("  chunk %02d/%d  [%s]  %d chars ..."
@@ -247,6 +252,11 @@ def main():
     ap.add_argument("--no-elevenlabs", action="store_true", dest="no_elevenlabs",
                     help="Skip the ElevenLabs Scribe tiebreaker on REVIEW chunks (Whisper-only); "
                          "passed through to the verifier.")
+    ap.add_argument("--resume", action="store_true",
+                    help="Skip any chunk whose NN.wav already exists on disk, to manually resume "
+                         "an interrupted render. DEFAULT (no flag) is a full fresh re-render that "
+                         "overwrites every chunk -- so a revised script is always re-voiced and "
+                         "never reuses stale audio.")
     # --- shared render+QC knobs (defaults mirror the two modules so chunks stay aligned) ---
     ap.add_argument("--voice", default="Will_Wheaton")
     ap.add_argument("--format", default="mp3", choices=["mp3", "wav"])
@@ -314,12 +324,14 @@ def main():
             log("WARNING: no ELEVENLABS_API_KEY (env or .mcp.json); REVIEW chunks will not "
                 "be resolved by the tiebreaker (pass --no-elevenlabs to silence).")
 
-    # --- 2. RENDER any missing chunks ---------------------------------------------------
-    log("--- RENDER: %d chunk(s) (skipping any already on disk) ---" % n)
-    rendered = render_missing(chunks, chunk_dir, args.api, args.voice, auth,
-                              args.repetition_penalty, args.temperature, args.max_temp,
-                              args.edge_pad, args.split_threshold)
-    log("RENDER done: %d freshly rendered, %d already existed." % (rendered, n - rendered))
+    # --- 2. RENDER chunks ---------------------------------------------------------------
+    mode = "resume (skip chunks already on disk)" if args.resume \
+        else "full fresh re-render (overwrite every chunk)"
+    log("--- RENDER: %d chunk(s) -- %s ---" % (n, mode))
+    rendered = render_chunks(chunks, chunk_dir, args.api, args.voice, auth,
+                             args.repetition_penalty, args.temperature, args.max_temp,
+                             args.edge_pad, args.split_threshold, resume=args.resume)
+    log("RENDER done: %d freshly rendered, %d skipped/failed." % (rendered, n - rendered))
 
     # --- 3. QC every chunk --------------------------------------------------------------
     log("--- QC: transcribe + score %d chunk(s) ---" % n)
