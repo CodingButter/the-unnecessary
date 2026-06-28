@@ -78,7 +78,7 @@ He went in.
 
 ---
 
-By eleven the bench was full.
+By eleven the shop's bench was full.
 
 It started the way it always started, one thing, then another, the door letting in a thread of cold each time it opened. Vance's boy came first with the doorbell, seventeen, his father's narrow face, and Eli set it under the lamp and found what he had known he would find, which was nothing wrong with it. The button worked. The chime worked. The little board worked, lit and patient, waiting to be told by a server two thousand miles away that it had permission to make a sound in a house in Detroit. The server did not answer. It had not answered, by the firmware log, since a Thursday in August, when its owner finished sunsetting a product line and moved on.
 
