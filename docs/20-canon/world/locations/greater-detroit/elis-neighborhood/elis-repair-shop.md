@@ -42,8 +42,9 @@ Quiet, the quiet that comes over him at the bench. There is always another stran
 Eli works the shop alone and lives in the attached quarters. The grocery (`../grocery.md`) sits on his morning route. He accepts payment in money, parts, food, labor, medicine, and favors, and often refuses payment from people who cannot afford it.
 
 ```yaml
-# No addressed-to edge: Ch1 gives the shop no street position. (Ch1's "a block from the shop"
-# locates the parked EV-cable car, not the grocery, so no shop-to-grocery distance is canon.)
+# No addressed-to edge: Ch1 gives the shop no street position. (The parked EV-cable car sits at the
+# shop's own curb -- "Outside the shop... He stepped over [the cable], put the key in the lock" --
+# cabling into a neighbor's house; no street or shop-to-grocery distance is canon.)
 edges:
   owner: rook-eli
   neighbor: elis-home                 # symmetric: the attached living quarters (reciprocated there)

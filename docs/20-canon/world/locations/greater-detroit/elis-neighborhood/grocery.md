@@ -45,7 +45,7 @@ edges:
   owner: vega-marisol
 facts:
   warm_front: true                    # one of the block's few lit, welcoming storefronts
-  route_note: "on Eli's morning route through the neighborhood"   # Ch1 gives no grocery-to-shop distance; its "a block from the shop" locates the parked EV-cable car, not the grocery
+  route_note: "on Eli's morning route through the neighborhood"   # Ch1 gives no grocery-to-shop distance (the parked EV-cable car sits at the shop's own curb, not near the grocery)
 timeline:
   - when: 2053-09-30
     set: { dairy_case: "two lit doors only" }

@@ -72,7 +72,7 @@ The dairy case along the back wall was dark. Not all of it. The first two doors 
 
 "Everything in your house wants permission now," she said as he turned, almost smiling. "And there's nobody left to give it." He knew what she meant and had no answer for it, and went out into the cold with the day's list already longer than it had been.
 
-A block from the shop a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over it, put the key in the lock, and did not look back at the street lying quiet behind him, kept ordinary by hands.
+Outside the shop a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over it, put the key in the lock, and did not look back at the street lying quiet behind him, kept ordinary by hands.
 
 He went in.
 
