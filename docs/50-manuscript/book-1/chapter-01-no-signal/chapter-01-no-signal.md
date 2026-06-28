@@ -60,7 +60,7 @@ You had to know where to look.
 
 A clutch of kids went past at the corner, backpacks and loud morning voices, heading for the program the neighborhood ran out of the old elementary now that the district had stopped paying for buses and teachers both. They walked through the cold like it was nothing, because to them it was nothing, because this was simply the world, the only one they had been given. One of the boys said morning, Mr. Rook, and was gone around the corner before Eli had finished saying it back.
 
-He kept walking, and a tally ran under everything else, the kind he never had to start because it never stopped, a map of the neighborhood drawn only in his head and corrected as he went. The streetlight on the corner of Webb was dead, had been dead since spring, the glass gone milky. The next one worked. The two after that were dead. He read the lights the way you read a tide chart, the dead ones marking how far the maintenance had pulled back, block by block, the boundary drawn in cold glass over his head.
+He kept walking, and a tally ran under everything else, the kind he never had to start because it never stopped, a map of the neighborhood drawn only in his head and corrected as he went. The streetlight on the corner of Webb was dead, had been dead since spring, the glass gone milky. The next one worked, and the two beyond it had gone dark too. He read the lights the way you read a tide chart, the dead ones marking how far the maintenance had pulled back, block by block, the boundary drawn in cold glass over his head.
 
 The grocery was open, the good warm yellow of a place that wanted you to come in, and he went in because going in was a way of saying the place was still worth coming into. Marisol was behind the counter with her coat on. She had the coat on inside, which told him most of what he needed before he had crossed the floor.
 
@@ -90,7 +90,7 @@ It started the way it always started, one thing, then another, the door letting 
 
 "That's what we want," the boy said, with a flatness Eli knew and let pass. They wanted the house to know there was somebody at the door. The wanting reduced down to the thing itself, stripped of every feature the cleverness had wrapped around it, until all that was left was the animal need a doorbell had been invented to answer. Someone is here. Let me know.
 
-He fixed it. He took no money for it. The boy left.
+He fixed it, took no money for it, and the boy left.
 
 Then it was a thermostat in a canvas bag, a smooth black square that lit up and showed the woman a login screen and would do nothing else, would not warm her house, would not even tell her the temperature of the room it stood in, until she signed into an account on a service that had been folded into another service that had been discontinued. It read the room perfectly. It simply refused to say what it read until it had checked her name against a list nobody kept anymore. He bypassed it, and afterward it was only a switch that turned the heat on when the room got cold, which was the entire thing she had ever wanted from it.
 
@@ -184,7 +184,7 @@ The wall was what the yes had been standing in front of.
 
 He hit it standing still, and it did not move. The doorbell's permission had guarded nothing but a chime; cut it loose and the worst it did was ring at the wrong time. The respiratory controller's permission had guarded the calibration and the dosing envelope and the safety record, the whole quiet body of medical correctness the authentication had carried on its back. That was what made the machine right and not merely on. That he could not counterfeit, not in the hours he had, not by hand. He could forge the yes by midnight. He could not forge what the yes had certified. A respiratory controller cut loose and running on a hand-made permission, stripped of all of that, kills the man it is keeping alive, slowly, correctly, while reporting that everything is fine.
 
-And it was not one controller. That was the other half of the wall, the half with no bottom. Behind that man was a clinic. Behind the clinic, a neighborhood. Every machine in it was orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. And only him, with a screwdriver, one device at a time, while the whole of it kept coming.
+And it was not one controller. That was the other half of the wall, the half with no bottom. Behind that man was a clinic, and behind the clinic, a neighborhood. Every machine in it was orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. And only him, with a screwdriver, one device at a time, while the whole of it kept coming.
 
 "Eli," Lena said. "You went quiet. Tell me you didn't go quiet because there's nothing."
 
