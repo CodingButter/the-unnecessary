@@ -75,6 +75,20 @@ When manuscript prose conflicts with this guide, the prose should be reviewed. T
 
 ---
 
+# How to Use This Guide
+
+This document is a guide. It is not a set of algorithms, and it is not a list of rules to be executed mechanically.
+
+The writing must never become formulaic.
+
+The author retains ownership of the prose and the explicit right to go against this guide on purpose, for effect. A deliberate deviation is a choice, not an error.
+
+The operating rule:
+
+> When in doubt, follow the style guide exactly. When trying to do something special, follow your heart.
+
+---
+
 # Core Prose Identity
 
 The prose should be:
@@ -209,6 +223,19 @@ Longer sentences should carry:
 Avoid an entire chapter made of short, dramatic sentences.
 
 Avoid long sentences that contain too many abstract ideas.
+
+## Rhythm and Variation
+
+The chapter voice is intentionally clipped, austere, and declarative. Short sentences are a strength here. They suit the tone, and the guide does not want them gone.
+
+Two uses of the short sentence are deliberate and should be kept:
+
+- A single short sentence standing alone as its own paragraph, used for weight and white space.
+- A run of short sentences doing rhetorical work: building, listing, or a montage of accumulation.
+
+Watch the frequency. Incidental runs of short flat declaratives that are not pulling rhetorical weight create a repetitive marching rhythm. The reader stops hearing the scene and starts hearing the meter.
+
+The cure is variation, not the removal of short sentences. Frame the deliberate staccato punches with longer flowing sentences so the punches stand out, and vary the incidental clipped runs. Vary sentence length deliberately.
 
 ## Paragraph Length
 
