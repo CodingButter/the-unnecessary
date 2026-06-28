@@ -45,11 +45,9 @@ Lena receives formal notice that three critical systems at her clinic will lose 
 - A medication-management unit
 - A respiratory-support controller
 
-### Evening
+Eli researches for roughly two hours at his shop, then arrives at the clinic around 3 p.m. and begins work.
 
-Nolan reports unstable behavior across the local microgrid.
-
-Eli identifies competing power controllers that cannot coordinate without their original cloud services.
+His work window runs from roughly 3 p.m. to midnight.
 
 ### Night: the clinic vigil
 

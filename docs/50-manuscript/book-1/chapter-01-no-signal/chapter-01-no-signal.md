@@ -192,7 +192,7 @@ He looked at the screen a long moment.
 
 "I'm here. I'm thinking."
 
-It was true and it was not enough and they both knew it. He told her he would come, he would bring what he had, he would look at the controller with his own eyes before he said anything was impossible, because saying a thing was impossible from across a thin link was a coward's certainty and he would not give it to her. She said come tonight, before, not at midnight, and he said tonight, before, and the link thinned and dropped and came back once more with only her voice saying his name as a question, *Eli?,* and then it dropped for good.
+It was true and it was not enough and they both knew it. He told her he would come, he would bring what he had, he would look at the controller with his own eyes before he said anything was impossible, because saying a thing was impossible from across a thin link was a coward's certainty and he would not give it to her. She said come now, as soon as he could, not at midnight, and he said he was coming, a couple of hours, no more, once he had what he needed, and the link thinned and dropped and came back once more with only her voice saying his name as a question, *Eli?,* and then it dropped for good.
 
 The shop was very quiet after.
 

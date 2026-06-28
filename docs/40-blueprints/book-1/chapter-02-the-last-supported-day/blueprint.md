@@ -53,7 +53,7 @@ working_title: "The Last Supported Day"
 act: "Act One: Service Terminated"
 story_date: "Friday, October 3, 2053"
 story_date_iso: "2053-10-03"
-time_of_day: "evening into night"
+time_of_day: "afternoon into night"
 primary_viewpoint: "Dr. Lena Okafor"
 tense: "past"
 person: "close third person"
@@ -187,7 +187,7 @@ From Chapter 1 (Eli's viewpoint), the reader already knows, and Chapter 2 must s
 
 ### Opening Image
 
-A patient room readied for a night that may have no working machines in it: a respiratory controller running steadily with a printed paper card taped to its housing where a glowing certified-status indicator used to mean something, and Lena's hand flat on the warm casing, feeling it breathe for the man in the bed, counting the hours left on a clock she did not set.
+A patient room readied for a night that may have no working machines in it: the respiratory controller that only carries the man through the night standing idle in the afternoon light, a printed paper card taped to its housing where a glowing certified-status indicator used to mean something, and Lena's hand flat on the quiet casing, reading the man breathing on his own for now and counting the hours until nightfall puts him back on a machine whose permission ends at midnight, on a clock she did not set.
 
 ### Opening Situation
 
@@ -210,8 +210,8 @@ If the machine that keeps this man breathing tonight loses its permission at mid
 ```yaml
 date: "Friday, October 3, 2053"
 date_iso: "2053-10-03"
-start_time: "early evening, around 18:30"
-start_iso: "2053-10-03T18:30"
+start_time: "early afternoon, around 14:30"
+start_iso: "2053-10-03T14:30"
 duration: "approximately 30 minutes"
 viewpoint: "Lena"
 location: "Lena's clinic, the ward and the three machines in their rooms"
@@ -319,8 +319,8 @@ End on Lena lifting her hand from the warm housing of the respiratory controller
 ```yaml
 date: "Friday, October 3, 2053"
 date_iso: "2053-10-03"
-start_time: "early evening, around 19:00"
-start_iso: "2053-10-03T19:00"
+start_time: "afternoon, around 15:00 (Eli arrives)"
+start_iso: "2053-10-03T15:00"
 duration: "approximately 30 to 40 minutes"
 viewpoint: "Lena"
 location: "Lena's clinic, moving from the entrance through the ward to the old back-room server space"
@@ -425,8 +425,8 @@ End on Lena pulling the back-room door most of the way closed on Eli already ben
 ```yaml
 date: "Friday, October 3, 2053"
 date_iso: "2053-10-03"
-start_time: "evening, around 19:45 into mid-evening"
-start_iso: "2053-10-03T19:45"
+start_time: "afternoon, around 15:30 onward into evening"
+start_iso: "2053-10-03T15:30"
 duration: "approximately 90 minutes"
 viewpoint: "Lena"
 location: "Lena's clinic ward and patient rooms; a brief step to the street immediately outside"
