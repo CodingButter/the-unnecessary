@@ -121,13 +121,96 @@ _SILENCE_DUR_RE = re.compile(r'silence_duration:\s*([0-9.]+)')
 # thing, so a low el_sim is a real fault, not a Whisper artifact.
 EL_STT_URL = "https://api.elevenlabs.io/v1/speech-to-text"
 EL_AGREE_THRESHOLD = 0.7
+# STRONG transcriber agreement. When BOTH transcribers heard nearly the same thing
+# (el_whisper_sim >= this) at FULL audio length with no foreign tokens, a remaining
+# diff against the SCRIPT is a number / normalization / spelling artifact (e.g. the
+# audio says "Chapter One" and both write "Chapter 1"), NOT a Chatterbox garble -- so
+# it must never escalate to a stitch-blocking RETRY. See apply_elevenlabs().
+EL_GUARD_AGREE_THRESHOLD = 0.9
 _EL_OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
 
+# --- number-word <-> digit normalization (scoring only) --------------------------------
+# Whisper / Scribe transcribe SPOKEN numbers as DIGITS ("Chapter 1", "61", "October 3rd")
+# while the script SPELLS them ("Chapter One", "sixty-one", "October the third"). On a
+# short phrase that single word-vs-digit divergence tanks word-similarity and used to
+# drive a FALSE RETRY that blocked the stitch. Before scoring, runs of number-words are
+# collapsed to their integer value -- on BOTH the script and every transcript -- so
+# word-form and digit-form compare EQUAL. Pure-stdlib local mapping (no new dependency,
+# deterministic): cardinals, teens, tens, "twenty-three" compounds, hundred/thousand/
+# million/billion scales, and common ordinals folded to cardinals ("third" -> 3, and the
+# digit form "3rd" -> 3). Anything it cannot fold is left as-is and caught instead by the
+# transcriber-agreement guard in apply_elevenlabs().
+_NUM_UNITS = {
+    "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+    "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12,
+    "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17,
+    "eighteen": 18, "nineteen": 19,
+    "first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6,
+    "seventh": 7, "eighth": 8, "ninth": 9, "tenth": 10, "eleventh": 11, "twelfth": 12,
+    "thirteenth": 13, "fourteenth": 14, "fifteenth": 15, "sixteenth": 16,
+    "seventeenth": 17, "eighteenth": 18, "nineteenth": 19,
+}
+_NUM_TENS = {
+    "twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70,
+    "eighty": 80, "ninety": 90,
+    "twentieth": 20, "thirtieth": 30, "fortieth": 40, "fiftieth": 50, "sixtieth": 60,
+    "seventieth": 70, "eightieth": 80, "ninetieth": 90,
+}
+_NUM_SCALES = {
+    "hundred": 100, "hundredth": 100, "thousand": 1000, "thousandth": 1000,
+    "million": 1000000, "millionth": 1000000, "billion": 1000000000,
+    "billionth": 1000000000,
+}
+_NUM_WORDSET = set(_NUM_UNITS) | set(_NUM_TENS) | set(_NUM_SCALES)
+_ORD_DIGIT_RE = re.compile(r'^(\d+)(?:st|nd|rd|th)$')  # "3rd" -> "3", "21st" -> "21"
+
+
+def _run_to_int(run):
+    """Collapse a contiguous run of number-words (all in _NUM_WORDSET) to one integer:
+    'sixty', 'one' -> 61; 'two', 'thousand' -> 2000; 'hundred' alone -> 100."""
+    total = current = 0
+    for w in run:
+        if w in _NUM_UNITS:
+            current += _NUM_UNITS[w]
+        elif w in _NUM_TENS:
+            current += _NUM_TENS[w]
+        elif w in ("hundred", "hundredth"):
+            current = (current or 1) * 100
+        else:  # thousand / million / billion (+ ordinal -th forms)
+            current = (current or 1) * _NUM_SCALES[w]
+            total += current
+            current = 0
+    return total + current
+
+
+def _collapse_numbers(tokens):
+    """Replace every maximal run of number-words in a token list with its digit string,
+    and strip ordinal suffixes off digit tokens ('3rd' -> '3'). Non-number tokens pass
+    through untouched. ['chapter', 'one'] -> ['chapter', '1']."""
+    out = []
+    run = []
+    for tok in tokens:
+        if tok in _NUM_WORDSET:
+            run.append(tok)
+            continue
+        if run:
+            out.append(str(_run_to_int(run)))
+            run = []
+        m = _ORD_DIGIT_RE.match(tok)
+        out.append(m.group(1) if m else tok)
+    if run:
+        out.append(str(_run_to_int(run)))
+    return out
+
+
 def words_of(text):
-    """Normalize prose to a comparable word list: lowercase, drop punctuation, split
-    on any non-alphanumeric run. '"Don\'t," he said.' -> ['don', 't', 'he', 'said']."""
-    return [w for w in _WORD_SPLIT_RE.split((text or "").lower()) if w]
+    """Normalize prose to a comparable word list: lowercase, drop punctuation, split on
+    any non-alphanumeric run, THEN fold number-words to their digit form so word-form and
+    digit-form score equal. '"Don\'t," he said.' -> ['don', 't', 'he', 'said'];
+    'Chapter One.' -> ['chapter', '1']. Applied identically to script AND transcript."""
+    raw = [w for w in _WORD_SPLIT_RE.split((text or "").lower()) if w]
+    return _collapse_numbers(raw)
 
 
 def oneline(text):
@@ -316,9 +399,17 @@ def apply_elevenlabs(res, api_key, retry_threshold):
     """Resolve ONE REVIEW chunk with the ElevenLabs second opinion, mutating res in place.
     Fills el_text and (on success) el_sim / el_whisper_sim, then RE-decides the verdict:
 
+      * el_sim >= retry_threshold -> OK (ElevenLabs reads it fine -> a Whisper artifact).
+      * NORMALIZATION/ARTIFACT GUARD: el_whisper_sim >= EL_GUARD_AGREE_THRESHOLD AND
+        len_status == "OK" AND no non-speech marker AND foreign == 0 -> OK. When BOTH
+        transcribers strongly agree at full audio length and every divergence from the
+        script is in a benign class (digits / single-char splits, so foreign_words counts
+        none), the script-vs-transcript diff is a number/normalization/spelling artifact
+        (e.g. audio "Chapter One" transcribed "Chapter 1"), NOT a garble. Never a stitch
+        blocker. Real word-substitution garbles leave foreign tokens (foreign > 0) and so
+        skip this guard; mid-transcript drops on bad audio shorten it (len_status != OK).
       * el_sim < retry_threshold AND el_whisper_sim >= EL_AGREE_THRESHOLD -> RETRY
         (both transcribers agree the audio differs from the script -- a real fault).
-      * el_sim >= retry_threshold -> OK (ElevenLabs reads it fine -> a Whisper artifact).
       * otherwise -> stays REVIEW (genuinely ambiguous; a human listens).
 
     Returns (outcome, error). On a transcription error the chunk stays REVIEW and el_text
@@ -332,16 +423,26 @@ def apply_elevenlabs(res, api_key, retry_threshold):
     el_whisper_sim = word_similarity(text, res.get("got", ""))
     res["el_sim"] = round(el_sim, 4)
     res["el_whisper_sim"] = round(el_whisper_sim, 4)
-    if el_sim < retry_threshold and el_whisper_sim >= EL_AGREE_THRESHOLD:
-        res["verdict"] = "RETRY"
-        res["flagged"] = True
-        res["reason"] = "both transcribers disagree with script"
-        return ("RETRY", None)
     if el_sim >= retry_threshold:
         res["verdict"] = "OK"
         res["flagged"] = False
         res["reason"] = "whisper artifact, confirmed by elevenlabs"
         return ("OK", None)
+    if (el_whisper_sim >= EL_GUARD_AGREE_THRESHOLD
+            and res.get("len_status") == "OK"
+            and not res.get("nonspeech")
+            and not res.get("foreign")):
+        res["verdict"] = "OK"
+        res["flagged"] = False
+        res["reason"] = ("both transcribers agree (el/whisper=%.2f) at full length with no "
+                         "foreign tokens -- script diff is a number/normalization artifact, "
+                         "not a garble" % el_whisper_sim)
+        return ("OK", None)
+    if el_whisper_sim >= EL_AGREE_THRESHOLD:
+        res["verdict"] = "RETRY"
+        res["flagged"] = True
+        res["reason"] = "both transcribers disagree with script"
+        return ("RETRY", None)
     return ("REVIEW", None)
 
 
