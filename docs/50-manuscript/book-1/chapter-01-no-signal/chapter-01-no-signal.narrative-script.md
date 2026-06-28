@@ -97,11 +97,11 @@ The grocery was open, the good warm yellow of a place that wanted you to come in
 
 The dairy case along the back wall was dark. Not all of it. The first two doors held milk and the dull tubs of the cultured stuff that kept, a small light burning inside, and the rest of the case stood unlit, the shelves pulled empty and clean, gray as the inside of a switched-off screen. [beat] He had seen it half-lit before, but never down to two doors.
 
-"Compressor on the long case quit Tuesday," Marisol said, following his eyes, the way you would say it had rained Tuesday. "Nolan looked at it. It's not the compressor. [beat] It's the controller wants to call home and nobody's home." She rang up his coffee. "You want it, I'd take it today. I don't know how long I hold the two."
+"Long case quit Tuesday," Marisol said, following his eyes, the way you'd say it had rained Tuesday. "Nolan came and looked. It's not the compressor. [beat] It's the controller. Wants to call home, and nobody's home." She rang up his coffee. "You want milk, take it today. I don't know how long the last two doors hold."
 
 "I'll take it." He paid her in the soft worn bills that still moved hand to hand for things like coffee, and he thought, controller wants to call home and nobody's home, and filed it, and did not yet lay it beside the notice. [beat] They were two things. He kept them two things.
 
-"Everybody's house thinks something now," Marisol said as he turned, almost smiling, and he said something back, and went out into the cold with the day's list already longer than it had been.
+"Everything in your house wants permission now," she said as he turned, almost smiling. "And there's nobody left to give it." He knew what she meant and had no answer for it, and went out into the cold with the day's list already longer than it had been.
 
 A block from the shop a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over it, put the key in the lock, and did not look back at the street lying quiet behind him, [beat] kept ordinary by hands.
 
@@ -165,7 +165,7 @@ He set the phone down and looked at the crowded bench, the lit machines waiting 
 
 He was still standing there when the mesh chimed.
 
-It was not the broadcast pulse. It was a single message, direct, the soft single note the hub gave to a thing addressed to him alone. He looked down and saw the sender and knew before he opened it that it was not a doorbell.
+It was not the broadcast pulse. It was a single message, direct, the soft single note the hub gave to a thing addressed to him alone. He looked down and saw the sender and knew, before he opened it, that this one would not be a doorbell. Not a small dead thing he could open up and talk back into working. The other kind.
 
 It was Lena.
 
@@ -189,7 +189,7 @@ Eli closed his eyes a second.
 
 She read it. It was the same voice. He had known it would be. [flat] Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third. [measured] The same threshold, the same thank-you, applied this time not to a doorbell or a dairy case but to a scanner that found the thing wrong inside a person, a unit that decided how much of a drug went into a body and when, [beat] and a controller that kept a set of lungs breathing that could not, on their own, anymore, do the work.
 
-"All right." He reached for the bench, for the shape of it, because the walking through was the only place he knew how to stand. "Tell me what stops. [beat] Physically. At midnight, when the authentication goes."
+"All right." He reached for the bench, for the steadiness of it, because working a problem through, step by step, was the only ground he knew how to stand on. "Tell me what stops. [beat] Physically. At midnight, when the authentication goes."
 
 [tense] "The scanner won't boot. Checks a license at startup, the server stops answering, it stops booting." [beat] Her voice came and went. [tense] "The med unit, I don't know yet, it might keep the doses already loaded and refuse new ones, or just lock. The respiratory controller is the one that frightens me." [beat] The link dropped her and brought her back. [tense] "It runs continuous. Phones home on a cycle to confirm it's authorized. If it can't confirm, the safest thing they could have programmed it to do is keep running and complain, and the likeliest thing they actually programmed is degrade or stop. I won't know which until midnight, and I am not going to find out at midnight with somebody on it."
 
@@ -201,7 +201,7 @@ She read it. It was the same voice. He had known it would be. [flat] Following a
 
 "I know."
 
-[tense] "Do you." It was not cruel. It was a real question, and she waited for a real answer. [tense] "I can hear you doing it. You've got it on a bench in your head, scanner, med unit, controller, three problems, sorting them by how hard they are. [beat] It's not three problems. It's one decision somebody made in a building, and the bottom of it is a man who can't breathe through the night. [beat] Stay down here with me. Don't go up where it's clean."
+[tense] "Do you." It was not cruel. It was a real question, and she waited for a real answer. [tense] "I can hear you doing it. You've got it on a bench in your head, scanner, med unit, controller, three problems, sorting them by how hard they are. [beat] It's not three problems. It's one decision somebody made in a building, and the bottom of it is a man who can't breathe through the night. [beat] Stay down here with me. Don't climb back up onto that bench, where it's clean and it's just machines and nobody's dying."
 
 He did not answer right away. He looked at the three names sitting in plain type with a single time beside them, [flat] 23:59, [measured] three people and one clock, and the cold came up through the floor of the shop and into him, [beat] more of it than the room could account for.
 
