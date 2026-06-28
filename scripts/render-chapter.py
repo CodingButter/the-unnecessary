@@ -60,6 +60,7 @@ Usage:
 
 import argparse
 import importlib.util
+import json
 import os
 import sys
 
@@ -233,6 +234,201 @@ def _verdict_line(r):
                r.get("len_status", "-"), reason))
 
 
+def load_prior_qc(chunk_dir):
+    """Read chunk_dir/qc.json for a targeted re-render. Returns (records_by_index, texts)
+    or (None, None) if qc.json is missing/unreadable/empty (caller refuses and tells the
+    user to run a full render). records_by_index maps a 1-based int to the prior qc RECORD
+    dict (reused verbatim for the chunks we do NOT re-render, so the report stays complete);
+    texts is the index-ordered list of each chunk's prior script_text -- the boundary-safety
+    baseline compared against the freshly re-chunked text."""
+    qc_json = os.path.join(chunk_dir, "qc.json")
+    if not os.path.exists(qc_json):
+        return None, None
+    try:
+        with open(qc_json, "r", encoding="utf-8") as fh:
+            records = json.load(fh)
+    except (ValueError, OSError):
+        return None, None
+    if not isinstance(records, list) or not records:
+        return None, None
+    by_index = {}
+    for rec in records:
+        if not isinstance(rec, dict):
+            return None, None
+        try:
+            by_index[int(rec.get("chunk"))] = rec
+        except (TypeError, ValueError):
+            return None, None
+    order = sorted(by_index)
+    # A qc.json must describe a contiguous 1..N chunk set to be a safe baseline.
+    if order != list(range(1, len(order) + 1)):
+        return None, None
+    texts = [by_index[i].get("script_text", "") for i in order]
+    return by_index, texts
+
+
+def _purge_chunk_derivatives(chunk_dir, i):
+    """Remove chunk i's wav and its stitch-time derivatives (NN.wav, NN.trimmed.wav,
+    NN.capped.wav) so a re-render leaves no stale audio for the re-stitch to pick up."""
+    cf = os.path.join(chunk_dir, "%02d.wav" % i)
+    base = cf[:-len(".wav")]
+    for p in (cf, base + ".trimmed.wav", base + ".capped.wav"):
+        try:
+            os.remove(p)
+        except OSError:
+            pass
+
+
+def write_qc_merged(chunk_dir, fresh_results, prior_records, n):
+    """Write qc.json/qc.csv for ALL n chunks after a targeted re-render: the freshly
+    re-QC'd selected chunks (via verifier.qc_record) take precedence; every other chunk
+    keeps its prior qc RECORD verbatim, so the record stays complete and HONEST about which
+    chunks were reused. Records are index-ordered. Returns (qc_json, qc_csv)."""
+    records = [verifier.qc_record(fresh_results[i]) if i in fresh_results
+               else prior_records[i] for i in range(1, n + 1)]
+    qc_json = os.path.join(chunk_dir, "qc.json")
+    qc_csv = os.path.join(chunk_dir, "qc.csv")
+    verifier.write_qc_json(qc_json, records)
+    verifier.write_qc_csv(qc_csv, records)
+    return qc_json, qc_csv
+
+
+def _render_and_qc_chunk(args, chunks, i, chunk_dir, auth, el_key, lexicon, split_threshold):
+    """Re-render chunk i (purging its stale wav/derivatives first, applying the current
+    lexicon+clock rule through render_chunk -> to_spoken), then re-QC just that chunk.
+    Returns its result dict (with a final verdict)."""
+    _purge_chunk_derivatives(chunk_dir, i)
+    ch = chunks[i - 1]
+    cf = os.path.join(chunk_dir, "%02d.wav" % i)
+    err, dur = renderer.render_chunk(
+        args.api, args.voice, ch["profile"], ch["text"], cf, auth,
+        args.repetition_penalty, args.temperature, args.max_temp,
+        edge_pad=args.edge_pad, split_threshold=split_threshold, lexicon=lexicon)
+    if err:
+        log("    ERROR rendering chunk %02d: %s (will be a RETRY)" % (i, err))
+    elif dur is not None:
+        log("    -> %.1fs audio" % dur)
+    return qc_one(i, ch, chunk_dir, args.api, args.language, auth, args.chars_per_sec,
+                  args.short_ratio, args.retry_threshold, args.no_elevenlabs, el_key)
+
+
+def run_targeted(args, chunks, out, chunk_dir, auth, el_key, lexicon):
+    """TARGETED re-render: re-render ONLY the selected chunks, reuse every other chunk's
+    existing wav, then re-stitch the WHOLE chapter (the normal trim + interior-cap + master
+    path). Returns a process exit code. See the --rerender-* flags.
+
+    Sequence: (1) resolve the union selection; (2) boundary-safety -- the freshly re-chunked
+    script must have the SAME count as qc.json and every NON-selected chunk's text must be
+    unchanged, else REFUSE (run a full render); (3) re-render+re-QC each selected chunk with
+    the same progressive auto-fix loop the full render uses, restricted to the selected set;
+    (4) merge the fresh QC over the prior records and, only if every selected chunk is clean,
+    stitch the full chapter -- never stitching broken audio."""
+    n = len(chunks)
+    if args.resume:
+        log("ERROR: --resume cannot be combined with --rerender-* (a targeted re-render "
+            "always overwrites exactly the selected chunks and reuses the rest). Pick one.")
+        return 2
+
+    # --- 1. selection: explicit indices UNION text-match -------------------------------
+    try:
+        idx = renderer.parse_chunk_indices(args.rerender_chunks, n)
+    except ValueError as err:
+        log("ERROR: --rerender-chunks: %s" % err)
+        return 2
+    selected = renderer.select_rerender_chunks(chunks, idx, args.rerender_matching)
+    if not selected:
+        log("ERROR: no chunks selected (--rerender-chunks %r / --rerender-matching %r "
+            "matched none of the %d chunk(s))."
+            % (args.rerender_chunks, args.rerender_matching, n))
+        return 2
+
+    # --- 2. boundary-safety: the re-chunk must line up with the existing render ---------
+    prior_records, prior_texts = load_prior_qc(chunk_dir)
+    if prior_texts is None:
+        log("ERROR: targeted re-render needs a readable %s (a contiguous 1..N chunk set) to "
+            "verify alignment; none found. Run a FULL render first."
+            % os.path.join(chunk_dir, "qc.json"))
+        return 2
+    ok, detail = renderer.check_rerender_alignment(chunks, prior_texts, selected)
+    if not ok:
+        log("REFUSING targeted re-render: " + detail)
+        return 2
+    log("Alignment OK: " + detail)
+
+    sel_set = set(selected)
+    missing = [i for i in range(1, n + 1) if i not in sel_set
+               and not os.path.exists(os.path.join(chunk_dir, "%02d.wav" % i))]
+    if missing:
+        log("REFUSING targeted re-render: reused (non-selected) chunk wav(s) missing on "
+            "disk: %s. Run a FULL render." % ", ".join("%02d" % i for i in missing))
+        return 2
+
+    log("--- TARGETED RE-RENDER: chunk(s) %s of %d (reusing the other %d) ---"
+        % (", ".join("%02d" % i for i in selected), n, n - len(selected)))
+
+    # --- 3. re-render + re-QC the selected set, with the same progressive auto-fix ------
+    results = {}
+    attempts = {}
+    retry_set = set()
+    for i in selected:
+        log("  re-render chunk %02d [%s] %d chars ..."
+            % (i, renderer.profile_str(chunks[i - 1]["profile"]), len(chunks[i - 1]["text"])))
+        res = _render_and_qc_chunk(args, chunks, i, chunk_dir, auth, el_key, lexicon,
+                                   args.split_threshold)
+        results[i] = res
+        log(_verdict_line(res))
+        if res["verdict"] == "RETRY":
+            retry_set.add(i)
+
+    while retry_set:
+        to_fix = sorted(i for i in retry_set if attempts.get(i, 0) < args.max_attempts)
+        if not to_fix:
+            break                       # everyone remaining has exhausted --max-attempts
+        log("--- AUTO-FIX pass: chunk(s) %s ---" % ", ".join("%02d" % i for i in to_fix))
+        for i in to_fix:
+            attempts[i] = attempts.get(i, 0) + 1
+            thr = split_for_attempt(attempts[i], args.split_threshold)
+            log("  re-render chunk %02d (attempt %d/%d, split_threshold=%d) ..."
+                % (i, attempts[i], args.max_attempts, thr))
+            res = _render_and_qc_chunk(args, chunks, i, chunk_dir, auth, el_key, lexicon, thr)
+            results[i] = res
+            log("  re-QC " + _verdict_line(res).lstrip())
+            if res["verdict"] != "RETRY":
+                retry_set.discard(i)
+
+    # --- 4. merge fresh QC over the prior records; stitch only when clean ----------------
+    qc_json, qc_csv = write_qc_merged(chunk_dir, results, prior_records, n)
+    gave_up = sorted(retry_set)
+    review = sorted(i for i in selected if results[i]["verdict"] == "REVIEW")
+
+    if gave_up:
+        log("--- STITCH SKIPPED: selected chunk(s) %s still RETRY after %d attempt(s); "
+            "refusing to stitch broken audio ---"
+            % (", ".join("%02d" % i for i in gave_up), args.max_attempts))
+        log("qc.json: %s" % qc_json)
+        for i in gave_up:
+            log("   chunk %02d: %s" % (i, results[i].get("reason") or "(no reason)"))
+        return 1
+
+    log("--- STITCH: re-rendered chunk(s) clean -> mastering the full chapter from existing "
+        "+ freshly-rendered chunks ---")
+    if not renderer.stitch_chapter(chunks, chunk_dir, out, args.format,
+                                   args.edge_pad, args.no_edge_trim):
+        log("ERROR: stitch_chapter failed (see above).")
+        return 1
+
+    log("")
+    log("=== SUMMARY (targeted re-render) ===")
+    log("qc.json: %s" % qc_json)
+    log("qc.csv : %s" % qc_csv)
+    if review:
+        log("REVIEW (human ear, NON-blocking): %s" % ", ".join("%02d" % i for i in review))
+    log("re-rendered %d, reused %d, review %d"
+        % (len(selected), n - len(selected), len(review)))
+    print(out)                          # stdout: the final mastered file path
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="HANDS-OFF chapter narration orchestrator: render the narration script "
@@ -258,6 +454,17 @@ def main():
                          "an interrupted render. DEFAULT (no flag) is a full fresh re-render that "
                          "overwrites every chunk -- so a revised script is always re-voiced and "
                          "never reuses stale audio.")
+    # --- TARGETED re-render (explicit opt-in; either flag triggers the mode) -------------
+    ap.add_argument("--rerender-chunks", default=None, dest="rerender_chunks",
+                    help="TARGETED re-render: comma-separated 1-based chunk indices to re-render "
+                         "(e.g. 3,7). ONLY these are re-rendered+re-QC'd; every other chunk's "
+                         "existing wav is reused, then the WHOLE chapter is re-stitched. Refuses "
+                         "if the script no longer aligns with the rendered chunks (run a full "
+                         "render). Unioned with --rerender-matching. Full render stays the default.")
+    ap.add_argument("--rerender-matching", default=None, dest="rerender_matching",
+                    help="TARGETED re-render: also re-render every chunk whose SCRIPT text contains "
+                         "this exact (case-sensitive) substring, e.g. '23:59' to re-voice every "
+                         "chunk touched by a clock-time/lexicon fix. Unioned with --rerender-chunks.")
     # --- shared render+QC knobs (defaults mirror the two modules so chunks stay aligned) ---
     ap.add_argument("--voice", default="Will_Wheaton")
     ap.add_argument("--format", default="mp3", choices=["mp3", "wav"])
@@ -337,6 +544,12 @@ def main():
     # Passed into every render_chunk call; the renderer applies it (plus the general
     # clock-time rule) only to the text sent to /api/generate.
     lexicon = renderer.resolve_lexicon(args.lexicon, args.no_lexicon, log)
+
+    # --- TARGETED RE-RENDER (explicit opt-in) -------------------------------------------
+    # If either --rerender-* flag is set, re-render ONLY the selected chunks, reuse the rest,
+    # and re-stitch the whole chapter. The full-render default and --resume are unchanged.
+    if args.rerender_chunks or args.rerender_matching:
+        return run_targeted(args, chunks, out, chunk_dir, auth, el_key, lexicon)
 
     # --- 2. RENDER chunks ---------------------------------------------------------------
     mode = "resume (skip chunks already on disk)" if args.resume \

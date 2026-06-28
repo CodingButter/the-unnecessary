@@ -539,6 +539,84 @@ def build_chunks(items, max_chars, min_chars):
     return out
 
 
+# ------------------------------------------------------------------------------------
+# TARGETED RE-RENDER SELECTION + BOUNDARY-SAFETY (pure helpers).
+#
+# These support re-rendering only a FEW chunks of an already-rendered chapter and reusing
+# the rest, to fix a localized issue without re-rolling the whole chapter (the TTS is
+# stochastic, so re-rendering a good chunk risks regressing it). The orchestrator
+# (render-chapter.py) drives the actual re-render/QC/re-stitch; these stay here, with the
+# rest of the chunk logic, and are pure (no disk, no API) so they are trivially testable.
+# ------------------------------------------------------------------------------------
+
+def parse_chunk_indices(spec, n):
+    """Parse a '1,3,5' chunk-index spec into a SORTED SET of 1-based ints, each validated
+    in 1..n. Raises ValueError on a non-integer token or an out-of-range index. A None or
+    empty spec yields an empty set."""
+    out = set()
+    if not spec:
+        return out
+    for tok in spec.split(","):
+        tok = tok.strip()
+        if not tok:
+            continue
+        try:
+            i = int(tok)
+        except ValueError:
+            raise ValueError("not an integer chunk index: %r" % tok)
+        if not (1 <= i <= n):
+            raise ValueError("chunk index %d out of range 1..%d" % (i, n))
+        out.add(i)
+    return out
+
+
+def select_rerender_chunks(chunks, indices=None, matching=None):
+    """Union selection of 1-based chunk indices to re-render: the explicit `indices`
+    (a set of validated ints) PLUS every chunk whose SCRIPT text (chunk['text'], i.e. the
+    post-normalize_ellipses text -- the same string stored as qc.json script_text and the
+    same string fed to to_spoken at render time) CONTAINS the substring `matching`
+    (case-sensitive; None/'' selects nothing by text). Returns a sorted list of indices."""
+    selected = set(indices or set())
+    if matching:
+        for i, ch in enumerate(chunks, 1):
+            if matching in ch["text"]:
+                selected.add(i)
+    return sorted(selected)
+
+
+def check_rerender_alignment(chunks, prior_texts, selected):
+    """Boundary-safety gate for a targeted re-render. Confirm the freshly re-chunked
+    `chunks` still line up with the already-rendered chunk set described by `prior_texts`
+    (the index-ordered per-chunk script_text from qc.json), so reusing the NON-selected
+    wavs is safe. Returns (ok, message).
+
+    REFUSES (ok=False) when either:
+      * the chunk COUNT differs (a broad edit added/removed chunks), or
+      * any NON-selected chunk's CURRENT text != its prior text (an edit shifted a
+        boundary into a chunk we were about to reuse untouched).
+    `selected` is the set/list of 1-based indices being re-rendered; THEIR text is allowed
+    to differ (that is the point). The refusal message names the first offending chunk and
+    tells the caller to run a FULL render -- we never silently re-render a misaligned chunk.
+    """
+    sel = set(selected)
+    n_now, n_prev = len(chunks), len(prior_texts)
+    if n_now != n_prev:
+        return (False,
+                "chunk COUNT changed: the current script yields %d chunk(s) but the "
+                "rendered chunks dir / qc.json has %d. A broad edit moved boundaries; "
+                "run a FULL render." % (n_now, n_prev))
+    for i in range(1, n_now + 1):
+        if i in sel:
+            continue
+        if chunks[i - 1]["text"] != prior_texts[i - 1]:
+            return (False,
+                    "NON-selected chunk %02d text changed since the last render (an edit "
+                    "shifted a boundary). Re-rendering only the selected chunks would "
+                    "reuse a now-stale neighbour; run a FULL render." % i)
+    return (True, "%d chunk(s) aligned; %d selected for re-render, %d reused"
+            % (n_now, len(sel), n_now - len(sel)))
+
+
 def resolve_credentials(cli_user, cli_password):
     """(user, password) for HTTP Basic auth, resolved from CLI flags, then the
     VOICE_API_USER/VOICE_API_PASSWORD env vars, then the voice block in ./.mcp.json
