@@ -20,41 +20,41 @@ source_documents:
 
 The phone woke before he did.
 
-It was the habit of years, not the alarm. Eli's thumb found the glass while the rest of him was still under sleep, and the screen came up pale in the morning light, and he read the status bar the way another man might check the weather through a window. The time. The battery, low, the way it always was by morning. And along the top, where the external bars should have stood, nothing. Only the small notched icon for the local mesh, lit and steady, a single lamp left burning in an empty house.
+It was the habit of years, not the alarm. Eli's thumb found the glass while the rest of him was still under sleep, and the screen came up pale in the morning light, and he read the status bar like another man checking the weather through a window. The time. The battery low, as it always was by morning. And along the top, where the external bars should have stood, nothing. Only the small notched icon for the local mesh, lit and steady, a single lamp left burning in an empty house.
 
 He lay still a moment and looked at it.
 
-The floor was cold when he put his feet down. The room held the silence of a place running on stored power, the small outside noises a phone made when it was talking to the world all gone. He thumbed the network off and on. He carried the phone to the window and held it up, a thing his father would have done with a transistor radio, and it helped about as much.
+The floor was cold when he put his feet down. The room held the silence of a place running on stored power, the small outside noises a phone made when it was talking to the world all gone. He thumbed the network off and on, then carried the phone to the window and held it up, something his father would have done with a transistor radio, and it helped about as much.
 
 The bars did not come back.
 
 He had lived through enough of these mornings to take it like a tool that failed in his hand before coffee, with a small flat patience and no surprise left in it. The mesh was up, which meant the library hub still had power, which meant the neighborhood could talk to itself. It just could not talk to anyone past its own edge.
 
-He opened the local board. Messages had come in over the mesh in the night, all short, all inside the neighborhood.
+The local board had collected the night's messages over the mesh, all short, all inside the neighborhood.
 
 *Anybody got signal out. Nothing on mine since maybe two. Dorsey*
 
 *Towers off again. Hub still good. The library*
 
-So it was not only him. He typed back, *Same here. Looking,* and set the phone on the counter while the kettle warmed on the gas ring, and that was when the queued notice arrived, forwarded from the hub, passed hand to hand the way mail did now. He knew the shape of these things by the sender field alone. He opened it.
+So it was not only him. He typed back, *Same here. Looking,* and set the phone on the counter while the kettle warmed on the gas ring, and that was when the queued notice arrived, forwarded from the hub, passed hand to hand as mail moved now. He knew the shape of these notices by the sender field alone. He opened it.
 
 *Notice of Service Continuity Adjustment.* The provider's name in clean type at the top, the small mark beside it that meant a machine had composed the message with no person anywhere near it. *Following a periodic review of regional infrastructure, full restoration of cellular service to your area is no longer supported under current service-continuity thresholds. Local connectivity may remain available through community-operated systems. We thank you for your understanding.*
 
 He read it twice.
 
-The towers had been down a hundred times, whenever the grid sagged and the provider shed load to keep the protected zones lit, and they had always come back, sullen and slow, but back. The towers were the same dark towers now. What had changed was that someone had written it down. *No longer supported.* Somewhere, in a building he would never see, a line had been crossed on a spreadsheet, and the number on his side of it had stopped being worth the cost of the people on the other.
+The towers had been down a hundred times, whenever the grid sagged and the provider shed load to keep the protected zones lit, and they had always come back, sullen and slow, but back. The towers were the same dark towers now. What had changed was that someone had written it down. *No longer supported.* Somewhere, in a building he would never see, a line had been crossed on a spreadsheet. The cost of keeping his street on the network had passed what the street was worth to the people who owned it, and so they let go.
 
-There was no error in it to fix, and that was the part his hands kept reaching for and not finding. A dead tower was a problem, and problems had causes and causes had repairs, and he was good at the long quiet work between them. But you could not solder a decision. The thing was working exactly as it was meant to. It was simply meant, now, to leave him here.
+There was no error in it to fix, and that was the part his hands kept reaching for and not finding. A dead tower was a problem. Problems had causes, causes had repairs, and he was good at the long quiet work between them. But you could not solder a decision. It was all working exactly as it was meant to. It was simply meant, now, to leave him here.
 
-He poured the water over yesterday's grounds because the new ones were a thing you paid for, and did the small arithmetic of the day instead of the large arithmetic of the notice. He would route around it. That was what he did. There would be a way out through the old satellite terminal at the hub, or there would not be, and either way it was a job, and a job was manageable, and the day was already moving.
+The kettle had boiled. He poured it over yesterday's grounds, because the new ones cost money, and did the small arithmetic of the day instead of the large arithmetic of the notice. He would route around it. That was what he did. There would be a way out through the old satellite terminal at the hub, or there would not. Either way it was a job, and a job was manageable, and the day was already moving.
 
-He set the phone face down on the counter. The phone was easy to set down. The notice was not. It had settled somewhere behind the sternum the moment he read it, weightless and impossible to put down, and he carried it out the door the way he would carry it all morning.
+He set the phone face down on the counter. The phone was easy to set down. The notice was not. It had settled somewhere behind the sternum the moment he read it, weightless and impossible to put down, and he carried it out the door, and would carry it all morning.
 
 ---
 
 From the steps the street gave nothing away. That was the first thing wrong with it.
 
-He let his eyes slide over it and kept them moving. He came down into an ordinary October morning, cool and dry, the light flat and white off a sky that had not been told anything was wrong. Cars in the driveways. Leaves coming down out of the maples that nobody owned now and nobody cut, going gold and red the way they had always gone. If you stood here and looked without knowing, you would think you were looking at any street in any year.
+He let his eyes slide over it and kept them moving. He came down into an ordinary October morning, cool and dry, the light flat and white off a sky that had not been told anything was wrong. Cars in the driveways. Leaves coming down out of the maples that nobody owned now and nobody cut, going gold and red as they always had. If you stood here and looked without knowing, you would think you were looking at any street in any year.
 
 You had to know where to look.
 
@@ -68,7 +68,7 @@ The dairy case along the back wall was dark. Not all of it. The first two doors 
 
 "Long case quit Tuesday," Marisol said, following his eyes, the way you'd say it had rained Tuesday. "Nolan came and looked. It's not the compressor. It's the controller. Wants to call home, and nobody's home." She rang up his coffee. "You want milk, take it today. I don't know how long the last two doors hold."
 
-"I'll take it." He paid her in the soft worn bills that still moved hand to hand for things like coffee, and he thought, *controller wants to call home and nobody's home,* and filed it, and did not yet lay it beside the notice. They were two things. He kept them two things.
+"I'll take it." He paid her in the soft worn bills that still moved hand to hand for coffee, and he thought, *controller wants to call home and nobody's home,* and filed it, and did not yet lay it beside the notice. They were two things. He kept them two things.
 
 "Everything in your house wants permission now," she said as he turned, almost smiling. "And there's nobody left to give it." He knew what she meant and had no answer for it, and went out into the cold with the day's list already longer than it had been.
 
@@ -80,25 +80,25 @@ He went in.
 
 By eleven the shop's bench was full.
 
-It started the way it always started, one thing, then another, the door letting in a thread of cold each time it opened. Vance's boy came first with the doorbell, seventeen, his father's narrow face, and Eli set it under the lamp and found what he had known he would find, which was nothing wrong with it. The button worked. The chime worked. The little board worked, lit and patient, waiting to be told by a server two thousand miles away that it had permission to make a sound in a house in Detroit. The server did not answer. It had not answered, by the firmware log, since a Thursday in August, when its owner finished sunsetting a product line and moved on.
+It started as it always started, one after another, the door letting in a thread of cold each time it opened. Vance's boy came first with the doorbell, seventeen, his father's narrow face, and Eli set it under the lamp and found what he had known he would find, which was nothing wrong with it. The button worked. The chime worked. The little board worked, lit and patient, waiting to be told by a server two thousand miles away that it had permission to make a sound in a house in Detroit. The server did not answer. It had not answered, by the firmware log, since a Thursday in August, when its owner finished sunsetting a product line and moved on.
 
 "It's fine," Eli told the boy. "That's the problem. It just wants to ask a company that doesn't exist anymore whether it's allowed to ring."
 
 "So can you fix it."
 
-"I can make it forget it ever had a company." He pulled the board and began the work he had done a thousand times, less repair than amputation, cutting the thing's reach to a sky that would not answer. "It won't do half what it used to. No app, no chimes you pick, no telling you who's at the door from across town. It'll ring. That's all it'll do. Ring. That what you want?"
+"I can make it forget it ever had a company." He pulled the board and began the work he had done a thousand times, less repair than amputation, cutting the board's reach to a sky that would not answer. "It won't do half what it used to. No app, no chimes you pick, no telling you who's at the door from across town. It'll ring. That's all it'll do. Ring. That what you want?"
 
-"That's what we want," the boy said, with a flatness Eli knew and let pass. They wanted the house to know there was somebody at the door. The wanting reduced down to the thing itself, stripped of every feature the cleverness had wrapped around it, until all that was left was the animal need a doorbell had been invented to answer. Someone is here. Let me know.
+"That's what we want," the boy said, with a flatness Eli knew and let pass. They wanted the house to know there was somebody at the door. The wanting reduced down to the bell itself, stripped of every feature the cleverness had wrapped around it, until all that was left was the animal need a doorbell had been invented to answer. Someone is here. Let me know.
 
 He fixed it, took no money for it, and the boy left.
 
-Then it was a thermostat in a canvas bag, a smooth black square that lit up and showed the woman a login screen and would do nothing else, would not warm her house, would not even tell her the temperature of the room it stood in, until she signed into an account on a service that had been folded into another service that had been discontinued. It read the room perfectly. It simply refused to say what it read until it had checked her name against a list nobody kept anymore. He bypassed it, and afterward it was only a switch that turned the heat on when the room got cold, which was the entire thing she had ever wanted from it.
+Then it was a thermostat in a canvas bag, a smooth black square that lit up and showed the woman a login screen and would do nothing else, would not warm her house, would not even tell her the temperature of the room it stood in, until she signed into an account on a service that had been folded into another service that had been discontinued. It read the room perfectly. It simply refused to say what it read until it had checked her name against a list nobody kept anymore. He bypassed it, and afterward it was only a switch that turned the heat on when the room got cold, which was all she had ever wanted from it.
 
 Then it was a router that could no longer find the home it had been born to.
 
-He worked through them, and the quiet came over him at the bench as it always did. There was always another stranded machine to talk down off the ledge of its own obedience, and the work left no room in him for anything else.
+He worked through them. The smell of the bench settled over him, warm solder and flux, the faint scorch of boards left running too long, and the quiet came as it always did. There was always another stranded machine to talk down off the ledge of its own obedience, and the work left no room in him for anything else.
 
-But the rhyme would not leave him alone. It was the same failure. He kept telling himself it was not, that a doorbell and a thermostat and a router were three different devices from three different companies built in three different years, that they had nothing to do with one another beyond the accident of all coming through his door on the same cold morning. And it was true, and it was a lie, and somewhere around the third one he stopped being able to tell himself the true part. They were not failing. Failing was what a thing did when it broke, and not one of these had broken. Every one of them worked, perfectly, and every one sat on his bench refusing to run because somewhere a company had reached across the country and quietly taken back a permission it had once granted, and the device, faithful, obedient, well made, had done exactly what it was built to do, which was to stop.
+But the rhyme would not leave him alone. It was the same failure. He kept telling himself it was not, that a doorbell and a thermostat and a router were three different devices from three different companies built in three different years, that they had nothing to do with one another beyond the accident of all coming through his door on the same cold morning. And it was true, and it was a lie, and somewhere around the third one he stopped being able to tell himself the true part. They were not failing. Failing was what a machine did when it broke, and not one of these had broken. Every one of them worked, perfectly. Every one sat on his bench refusing to run because somewhere a company had reached across the country and quietly taken back a permission it had once granted. The device, faithful, obedient, well made, had done exactly what it was built to do, which was to stop.
 
 Machines waiting for permission. The whole bench of them, lit and warm and useless, holding their breath for a word that was never coming.
 
@@ -108,15 +108,15 @@ He had forgotten the man was there. Older, sixty maybe, on the stool by the wind
 
 "You're fast at that," the man said. "I've watched a few do it. You're faster." A pause, friendly, idle. "Where'd you learn it? You don't pick that up at one of the programs. That's somewhere real. A company. That's a company hand, not a program hand."
 
-Eli's hands did not stop. That was the thing he made sure of, that the connector went home and the driver turned at the same even pace, because the hands were the part other people read. The rest of him went somewhere for half a second, a room with too much light in it, a voice that was not in this room saying his name with approval, the sound of a door he had spent six years learning to keep shut.
+Eli's hands did not stop. That was what he made sure of, that the connector went home and the driver turned at the same even pace, because the hands were the part other people read. The rest of him went somewhere for half a second, a room with too much light in it, a voice that was not in this room saying his name with approval, the sound of a door he had spent six years learning to keep shut.
 
 "Around," he said. He set the router's cover back and turned it so the man could see the small green light that meant it had found a home, three feet away, with no permission asked of anyone. "It's done. Try it tonight. That tablet, I'll see what I can do, but the lock on it isn't mine to open. That's the bank. That's not a thing I can solder."
 
-It worked, the way it always worked. The man took the out, because most people were polite and could feel the door close even when they could not see it, and the talk turned to the tablet and away from where Eli had learned what he did. Not thinking about it again was, in its way, the most skilled thing he did all day, and nobody saw it but him.
+It worked. The man took the out, because most people were polite and could feel the door close even when they could not see it, and the talk turned to the tablet and away from where Eli had learned what he did.
 
 The midday notice came in a little after noon.
 
-He felt the phone buzz against the bench and ignored it, and it buzzed again, the double pulse the hub used for a broadcast, a thing sent to everyone at once and not to anyone in particular, and that was unusual enough that he wiped his hands and looked.
+He felt the phone buzz against the bench and ignored it, and it buzzed again, the double pulse the hub used for a broadcast, a pulse sent to everyone at once and not to anyone in particular, and that was unusual enough that he wiped his hands and looked.
 
 It was from the power provider. The same clean type. The same small mark of a machine that had written it with no person in the loop.
 
@@ -124,27 +124,29 @@ It was from the power provider. The same clean type. The same small mark of a ma
 
 He stood very still.
 
-He had known the neighborhood was below the protected zones. Everyone had known it since the winter, when the tiers first came in and they landed on the wrong side of the line the way they had landed on the wrong side of everything. But this was lower. This was the line moved again, to a place where an outage in his street no longer brought anyone out in the cold to fix it, a thing that simply waited now for the next *standard maintenance window,* whenever that was, if it came. The whole neighborhood, every house and shop and the clinic and the school, reclassified at once, downward, by a machine, in a sentence that thanked him for his cooperation.
+He had known the neighborhood was below the protected zones. Everyone had known it since the winter, when the tiers first came in and they landed on the wrong side of the line, as they had landed on the wrong side of everything. But this was lower. This was the line moved again, to a place where an outage in his street no longer brought anyone out in the cold to fix it, one that simply waited now for the next *standard maintenance window,* whenever that was, if it came. The whole neighborhood, every house and shop and the clinic and the school, reclassified at once, downward, by a machine, in a sentence that thanked him for his cooperation.
 
-And there it was. The thing the morning had been circling.
+And there it was. What the morning had been circling.
 
-The clean type at the top of the cellular notice. The two lit doors of the dairy case and the dark length of it past them. The dead glass of the streetlight on Webb. The doorbell's patient little board waiting on a company that had finished sunsetting it in August. The thermostat reading the room perfectly and refusing to say what it read. The same clean type again, on his screen, dropping the whole neighborhood a tier. He had been sorting them into separate pockets all morning, and now they would not stay sorted. They were one shape. A series of companies, each in its own building, had decided at the same hour that these people were no longer worth the cost of serving, and had written it down, politely, and moved on. Everything physical was exactly where it had been, working, ready, waiting. Destruction would have left a mark, something to point at and repair. This left nothing but a slow opening of a hand that had been holding them up, finger by finger, with a thank-you note for each finger as it let go.
+The two lit doors of the dairy case, and the dark length of it past them. That was where it landed, and the doorbell's patient little board came with it, the same patience, the same clean type at the top of both notices, and the morning would not stay in the separate pockets he had kept it in. They were one shape. A series of companies, each in its own building, had decided at the same hour that these people were no longer worth the cost of serving, and had written it down, politely, and moved on. Everything physical was exactly where it had been, working, ready, waiting. Destruction would have left a mark, something to point at and repair. This left nothing but a slow opening of a hand that had been holding them up, finger by finger, with a thank-you note for each finger as it let go.
 
 He set the phone down and looked at the crowded bench, the lit machines waiting on servers nobody answered for anymore, and for the first time that morning he did not see a queue of separate jobs. He saw one shape, reaching everything, himself in the middle of it with a screwdriver, fixing the small ends one device at a time while the whole of it kept coming. Against everything in him that wanted the world kept in separate pockets, he let himself start the list of what still worked only because no one had decided yet that it wasn't worth it. The list did not have a bottom.
 
-He was still standing there when the mesh chimed.
+The old man rose from the stool by the window, gathered his still-locked tablet off the bench, and let himself out, the door giving one last thread of cold to the room.
 
-It was not the broadcast pulse. It was a single message, direct, the soft single note the hub gave to a thing addressed to him alone. He looked down and saw the sender and knew, before he opened it, that this one would not be a doorbell. Not a small dead thing he could open up and talk back into working. The other kind.
+Eli was still standing there when the mesh chimed.
+
+It was not the broadcast pulse. It was a single message, direct, the soft single note the hub gave to something addressed to him alone. He looked down and saw the sender and knew, before he opened it, that this one would not be a doorbell. Not a small dead thing he could open up and talk back into working. The other kind.
 
 It was Lena.
 
 ---
 
-The message was short, and it was not the way Lena wrote when a thing could wait.
+The message was short, and it was not how Lena wrote when something could wait.
 
 *Eli. Need you on a call if the link holds. Got a notice. It's bad. Lena*
 
-He wrote back, *Here. Call,* and pulled the cracked shop screen around on its arm and propped the phone into the cradle that fed the hub's relay, and waited while the mesh did what it could. The link came up thin, the way it always came up thin now, the bandwidth squeezed down to what the local radios could carry without the outside pipes the providers had taken. Her voice when it arrived was narrowed and flattened, dropping a syllable here and there into silence and coming back.
+He wrote back, *Here. Call,* and pulled the cracked shop screen around on its arm and propped the phone into the cradle that fed the hub's relay, and waited while the mesh did what it could. The link came up thin, as it always did now, the bandwidth squeezed down to what the local radios could carry without the outside pipes the providers had taken. Her voice when it arrived was narrowed and flattened, dropping a syllable here and there into silence and coming back.
 
 "Can you hear me," she said.
 
@@ -170,7 +172,7 @@ A silence that was not the link.
 
 "I know."
 
-"Do you." It was not cruel. It was a real question, and she waited for a real answer. "I can hear you doing it. You've got it on a bench in your head, scanner, med unit, controller, three problems, sorting them by how hard they are. It's not three problems. It's one decision somebody made in a building, and the bottom of it is a man who can't breathe through the night. Stay down here with me. Don't climb back up onto that bench, where it's clean and it's just machines and nobody's dying."
+"Do you." There was no cruelty in it. She had asked a real question, and she waited for a real answer. "I can hear you doing it. You've got it on a bench in your head, scanner, med unit, controller, three problems, sorting them by how hard they are. It's not three problems. It's one decision somebody made in a building, and the bottom of it is a man who can't breathe through the night. Stay down here with me. Don't climb back up onto that bench, where it's clean and it's just machines and nobody's dying."
 
 He did not answer right away. He looked at the three names sitting in plain type with a single time beside them, *23:59,* three people and one clock, and the cold came up through the floor of the shop and into him, more of it than the room could account for.
 
@@ -178,13 +180,13 @@ He did not answer right away. He looked at the three names sitting in plain type
 
 "I know what it is," Lena said quietly. "I've known what it is for a year. I'm asking you what we do about the man tonight."
 
-And here was the place he had been walking toward all morning without letting himself see it, and it stopped him short of nothing now. Because he could see the fix. That was the worst of it. He could see exactly the move that had saved the doorbell and the thermostat and the router, the whole of what he did. When a server stopped answering and left a machine stranded, you stood in for the server. You forged the permission it could no longer be made to grant, and the machine, not knowing the difference, ran. It made no difference whether the company behind it had folded or was still in its building, choosing this morning, in writing, to close its hand. A withheld yes and a vanished yes were the same silence to the device, and he could counterfeit a yes a hundred times over. The forging was never the wall.
+And here was the place he had been walking toward all morning without letting himself see it. Because he could see the fix. That was the worst of it. He could see exactly the move that had saved the doorbell and the thermostat and the router, the whole of what he did. When a server stopped answering and left a machine stranded, you stood in for the server. You forged the permission it could no longer be made to grant, and the machine, not knowing the difference, ran. It made no difference whether the company behind it had folded or was still in its building, choosing this morning, in writing, to close its hand. A withheld yes and a vanished yes were the same silence to the device, and he could counterfeit a yes a hundred times over before midnight.
 
-The wall was what the yes had been standing in front of.
+But the yes on the respiratory controller had been vouching for something. The calibration. The dosing and the pressure envelope it held a body inside of. The whole accumulated safety record, every test the manufacturer had ever run on it, certified fresh each time the machine phoned home and was told yes. That was what made the controller right and not merely running, and none of it lived in the permission. The permission only pointed at it. He could forge the pointer by hand in an afternoon. He could not forge what it pointed at, not in the hours he had, not at a bench, not ever.
 
-He hit it standing still, and it did not move. The doorbell's permission had guarded nothing but a chime; cut it loose and the worst it did was ring at the wrong time. The respiratory controller's permission had guarded the calibration and the dosing envelope and the safety record, the whole quiet body of medical correctness the authentication had carried on its back. That was what made the machine right and not merely on. That he could not counterfeit, not in the hours he had, not by hand. He could forge the yes by midnight. He could not forge what the yes had certified. A respiratory controller cut loose and running on a hand-made permission, stripped of all of that, kills the man it is keeping alive, slowly, correctly, while reporting that everything is fine.
+That was the wall. Not the forging, which was nothing. The wall was everything a forged yes would go on claiming and no longer be telling the truth about. The doorbell's permission had stood in front of a chime; cut it loose and the worst it did was ring at the wrong time. The controller's permission had stood in front of a man's lungs. Cut that loose on a hand-made yes, stripped of all of it, and the controller would keep running and kill the man it was keeping alive, slowly, correctly, reporting the whole time that everything was fine.
 
-And it was not one controller. That was the other half of the wall, the half with no bottom. Behind that man was a clinic, and behind the clinic, a neighborhood. Every machine in it was orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. And only him, with a screwdriver, one device at a time, while the whole of it kept coming.
+And it was not one controller. Behind that man stood a clinic, and behind the clinic a neighborhood, every machine in it orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. The half with no bottom. Only him, with a screwdriver, one device at a time, while the whole of it kept coming.
 
 "Eli," Lena said. "You went quiet. Tell me you didn't go quiet because there's nothing."
 
@@ -192,13 +194,13 @@ He looked at the screen a long moment.
 
 "I'm here. I'm thinking."
 
-It was true and it was not enough and they both knew it. He told her he would come, he would bring what he had, he would look at the controller with his own eyes before he said anything was impossible, because saying a thing was impossible from across a thin link was a coward's certainty and he would not give it to her. She said come now, as soon as he could, not at midnight, and he said he was coming, a couple of hours, no more, once he had what he needed, and the link thinned and dropped and came back once more with only her voice saying his name as a question, *Eli?,* and then it dropped for good.
+It was true and it was not enough and they both knew it. He told her he would come, he would bring what he had, he would look at the controller with his own eyes before he said anything was impossible, because saying a problem was impossible from across a thin link was a coward's certainty and he would not give it to her. She said come now, as soon as he could, not at midnight, and he said he was coming, a couple of hours, no more, once he had what he needed, and the link thinned and dropped and came back once more with only her voice saying his name as a question, *Eli?,* and then it dropped for good.
 
 The shop was very quiet after.
 
-The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. The last thing left on it was the notice she had read him, the three names of the three machines in plain type, and the time beside them, *23:59,* a number that was, when he made himself count it, a little under twelve hours away.
+The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. What was left on it was the notice she had read him, the three names of the three machines in plain type, and the time beside them, *23:59,* a number that was, when he made himself count it, a little under twelve hours away.
 
-He did not move for a while. He had spent the whole day teaching machines to live without permission, forging the small yeses that let stranded things run. It was no answer here. The yes he knew how to forge was the easy half. The hard half was everything the yes had vouched for, the rightness a respiratory controller could not be allowed to lose, and there was no forging that by hand, not for one machine in the hours he had, and there were not one of these machines but a whole neighborhood of them, and only him. Under all of it, breathing on borrowed time, a sixty-one-year-old man with a name Lena was keeping back.
+He did not move for a while. Under all of it, breathing on borrowed time across the thin dropped link, a sixty-one-year-old man with a name Lena was keeping back.
 
 He looked at the three names, and the single time beneath them, and there was no way back and no way around it. This was the one he could not fix.
 
