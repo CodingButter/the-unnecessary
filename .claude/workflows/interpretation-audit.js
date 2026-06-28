@@ -62,6 +62,15 @@ for (const L of LEVELS) for (let i = 0; i < paras.length; i++) {
   ))
 }
 const firstReads = await parallel(thunks)
+// Retry-sweep: schema-retry-cap / transient failures come back null. Re-run just those once before
+// scoring, so a dropped read becomes a recovered read instead of a silent "not confused" default.
+// (One sweep only -- a consistently-hard paragraph stays null and degrades gracefully, no infinite loop.)
+const retryIdx = firstReads.map((r, k) => (r ? -1 : k)).filter(k => k >= 0)
+if (retryIdx.length) {
+  log(`retry-sweep: re-running ${retryIdx.length} failed first-reads`)
+  const retried = await parallel(retryIdx.map(k => thunks[k]))
+  retryIdx.forEach((k, j) => { if (retried[j]) firstReads[k] = retried[j] })
+}
 const fr = frMeta.map((m, k) => ({ ...m, ...(firstReads[k] || { understanding: '(agent failed)', confused: false, what_tripped: '' }) }))
 const confusedByReader = {}
 for (const L of LEVELS) confusedByReader[L.id] = fr.filter(x => x.level === L.id && x.confused)
