@@ -156,7 +156,7 @@ Eli closed his eyes a second.
 
 "Read me the wording."
 
-She read it. It was the same voice. He had known it would be. *Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third.* The same threshold, the same thank-you, applied this time not to a doorbell or a dairy case but to a scanner that found the thing wrong inside a person, a unit that decided how much of a drug went into a body and when, and a controller that kept a set of lungs breathing that could not, on their own, anymore, do the work.
+She read it. It was the same voice, and he had known it would be. *Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third.* The same threshold, the same thank-you, applied this time not to a doorbell or a dairy case but to a scanner that found what was wrong inside a person, a unit that decided how much of a drug went into a body and when, and a controller that kept a set of lungs breathing that could no longer do the work on their own.
 
 "All right." He reached for the bench, for the steadiness of it, because working a problem through, step by step, was the only ground he knew how to stand on. "Tell me what stops. Physically. At midnight, when the authentication goes."
 
@@ -182,9 +182,9 @@ And here was the place he had been walking toward all morning without letting hi
 
 The wall was what the yes had been standing in front of.
 
-He hit it standing still, and it did not move. The doorbell's permission had guarded nothing but a chime; cut it loose and the worst it did was ring at the wrong time. The respiratory controller's permission had guarded the calibration and the dosing envelope and the safety record, the whole quiet body of medical correctness the authentication had carried on its back, the thing that made the machine right and not merely on. That he could not counterfeit, not in the hours he had, not by hand. He could forge the yes by midnight. He could not forge what the yes had certified. A respiratory controller cut loose and running on a hand-made permission, stripped of all of that, kills the man it is keeping alive, slowly, correctly, while reporting that everything is fine.
+He hit it standing still, and it did not move. The doorbell's permission had guarded nothing but a chime; cut it loose and the worst it did was ring at the wrong time. The respiratory controller's permission had guarded the calibration and the dosing envelope and the safety record, the whole quiet body of medical correctness the authentication had carried on its back. That was what made the machine right and not merely on. That he could not counterfeit, not in the hours he had, not by hand. He could forge the yes by midnight. He could not forge what the yes had certified. A respiratory controller cut loose and running on a hand-made permission, stripped of all of that, kills the man it is keeping alive, slowly, correctly, while reporting that everything is fine.
 
-And it was not one controller. That was the other half of the wall, the half with no bottom. Behind that man was a clinic, and behind the clinic a neighborhood, every machine in it orphaned the same way, every one of them needing its own forged yes and its own certainty he could not forge, and only him, with a screwdriver, one device at a time, while the whole of it kept coming.
+And it was not one controller. That was the other half of the wall, the half with no bottom. Behind that man was a clinic. Behind the clinic, a neighborhood. Every machine in it was orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. And only him, with a screwdriver, one device at a time, while the whole of it kept coming.
 
 "Eli," Lena said. "You went quiet. Tell me you didn't go quiet because there's nothing."
 
@@ -196,7 +196,7 @@ It was true and it was not enough and they both knew it. He told her he would co
 
 The shop was very quiet after.
 
-The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed and left, the last thing on it, the notice she had read him, the three names of the three machines in plain type, and the time beside them, *23:59,* a number that was, when he made himself count it, a little under twelve hours away.
+The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. The last thing left on it was the notice she had read him, the three names of the three machines in plain type, and the time beside them, *23:59,* a number that was, when he made himself count it, a little under twelve hours away.
 
 He did not move for a while. He had spent the whole day teaching machines to live without permission, forging the small yeses that let stranded things run. It was no answer here. The yes he knew how to forge was the easy half. The hard half was everything the yes had vouched for, the rightness a respiratory controller could not be allowed to lose, and there was no forging that by hand, not for one machine in the hours he had, and there were not one of these machines but a whole neighborhood of them, and only him. Under all of it, breathing on borrowed time, a sixty-one-year-old man with a name Lena was keeping back.
 
