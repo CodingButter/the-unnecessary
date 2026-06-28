@@ -57,7 +57,7 @@ Eli is approximately five feet ten inches tall, lean and wiry, with the spare, c
 
 ### Coloring
 
-He has thick dark brown hair that he cuts himself and lets grow a little too long between trims, which suits him better than he would ever notice. His eyes are a striking clear gray-green, usually shadowed with fatigue but quick and sharp the moment a problem catches them. His complexion is pale, the indoor cast of bench work crossed with weather from outdoor repairs. The gray-green eyes came from his father.
+He has thick dark brown hair that he cuts himself and keeps close-cut, which suits him better than he would ever notice. His eyes are a striking clear gray-green, usually shadowed with fatigue but quick and sharp the moment a problem catches them. His complexion is pale, the indoor cast of bench work crossed with weather from outdoor repairs. The gray-green eyes came from his father.
 
 **Heritage:** White American, Flint working-class: Polish, English, and German European, with Anishinaabe (Ojibwe) ancestry from the Michigan nations. The blend reads as weathered working-class white.
 
@@ -83,7 +83,7 @@ He moves deliberately and without waste, the unhurry of a man who has learned th
 
 ### Grooming and default dress
 
-He cuts his own hair and lets it run long between trims; the beard goes uneven under strain. He wears practical clothing that can survive dust, oil, heat, and electrical work, and wears all of it without a thought for how it looks, which is most of why it sits well on him. His jackets contain more repaired seams than original stitching. Heavy resoled boots and a cloth in a back pocket. He smells of solder, machine oil, and cold metal.
+He cuts his own hair and keeps it close-cut; the beard goes uneven under strain. He wears practical clothing that can survive dust, oil, heat, and electrical work, and wears all of it without a thought for how it looks, which is most of why it sits well on him. His jackets contain more repaired seams than original stitching. Heavy resoled boots and a cloth in a back pocket. He smells of solder, machine oil, and cold metal.
 
 ## Personality
 
@@ -272,7 +272,7 @@ Eli is the protagonist and the moral center of the book. He is the technician tr
 Static, immutable. A drafter must not contradict these.
 
 - Full name Elias Daniel Rook; common name Eli. Born February 11, 2015, in Flint, Michigan; age 38 when Book One begins.
-- Approximately five feet ten inches, narrow and slightly underweight; gray-green eyes; dark brown hair he cuts himself; short beard.
+- Approximately five feet ten inches, narrow and slightly underweight; gray-green eyes; dark brown hair he cuts himself and keeps close-cut; short beard.
 - One fingertip on his left hand has reduced sensation after an industrial power-controller accident; his hands carry old burns and small scars.
 - His father is Daniel Rook (repaired industrial controls and later municipal water equipment); his mother is Ruth Rook (public libraries and community education). The family was never wealthy.
 - He met Jonah Mercer at age nine. He was previously married to Nora Bell, an Asterion behavioral-systems researcher; divorced six years before Book One; no children. He keeps an old analog photograph of the two of them from before Asterion.

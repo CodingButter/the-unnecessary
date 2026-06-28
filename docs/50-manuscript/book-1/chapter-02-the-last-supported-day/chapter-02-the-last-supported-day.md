@@ -1,7 +1,7 @@
 ---
 title: "The Last Supported Day"
 document_type: "manuscript-chapter"
-status: "approved-canon"
+status: "draft"
 authority: "manuscript"
 summary: "Across the afternoon and into the night of Friday, October 3, 2053, Lena Okafor triages her unsupported clinic against a midnight authentication deadline she did not set, touring 2053's hand-to-hand economy through her patients before handing the decisive work to Eli alone in the back room."
 tags:
@@ -43,7 +43,7 @@ In the same room, the medication-management unit, a gray cabinet the size of a s
 
 A floorboard took weight in the doorway and she did not turn around.
 
-"Priya wants to know about the Caldwell girl," Tomas said. He was the only other person on the floor tonight, thirty, steady, a nurse she had not had to teach to be afraid quietly. "Whether we keep her or send her home. And the Okonkwos brought their thing. It's on the counter."
+"Priya wants to know about the Caldwell girl," Tomas said. He was the only other nurse on the floor with her tonight, thirty, steady, one she had not had to teach to be afraid quietly. "Whether we keep her or send her home. And the Okonkwos brought their thing. It's on the counter."
 
 "What thing."
 
@@ -145,7 +145,7 @@ At the ward's end old Dembélé was sitting up in the spare bed where he was not
 
 "The Okonkwos paid you in my eggs," he said, not looking up, pleased. "I sent those eggs across. Vesely to Okonkwo Wednesday, against a thing they owed the Veselys from August. Now they've come to you. Three moves, those eggs." He tapped the notebook. "I can still see a chain when it's in front of me. Used to be ten thousand of them at once, on a screen the size of a wall. Now it's eggs. But it's the same shape, you know. It's exactly the same shape. A thing's here, a thing's wanted there, somebody has to know the road between." He said it with a satisfaction that did not hide the other thing under it, the wall-sized screen, the ten thousand chains, the career that had ended in a notebook. Both were in his voice and he did not try to keep either out. "You take the eggs, doctor. They've earned their trip."
 
-"I took them." She put her hand on his shoulder a moment, the bone of it close under the cardigan. He was warm. The bed was warm. The notebook was full of careful columns in a hand that had been trained on a wall-sized screen, and she could not have said, standing there, whether the room was a kindness or an indictment, the man cared for among neighbors or the man reduced to eggs, and she had stopped trying to decide. It was both. It had been both all evening, in every bed. The new world that paid her in eggs and salve and a neighbor's grandmother's recipe was warmer than the one that had paid her in a number from an office, and it was a downgrade no one had chosen, a smaller life dressed up in good neighbors. She put one down and the other did not get any lighter.
+"I took them." She put her hand on his shoulder a moment, the bone of it close under the cardigan. He was warm. The bed was warm. The notebook was full of careful columns in a hand that had been trained on a wall-sized screen, and she could not have said, standing there, whether the room was a kindness or an indictment, the man cared for among neighbors or the man reduced to eggs, and she had stopped trying to decide. It was both. It had been both all day, in every bed. The new world that paid her in eggs and salve and a neighbor's grandmother's recipe was warmer than the one that had paid her in a number from an office, and it was a downgrade no one had chosen, a smaller life dressed up in good neighbors. She put one down and the other did not get any lighter.
 
 She left Dembélé to his columns and went the length of the ward and down the hall to the last room, to the man on the controller, because she had been keeping him for last the way you keep the hardest thing for last, and the dark had come down beyond the windows at last, the long afternoon used up bed by bed and the evening settled in behind it, and there was no putting him off any longer.
 
@@ -157,7 +157,7 @@ Mr. Adeyemi was awake.
 
 "So it's true then. The machines." He had heard. Everyone had heard. There were no secrets in a ward at night. "Tomas wouldn't say straight. He's a good boy, he can't lie worth anything, his face does it for him."
 
-She could move him. She had turned it over all evening, in the corner of her mind that never stopped. There was a clinic two towns over that might still be authorized, that might still be running its own controllers come morning, and she could put him in a neighbor's electric car on its borrowed charge and send him across the dark to a place that might take him and might ask him for papers and might already be as far gone as her own. Or she could keep him here, on a machine that might run all night and might lie to her at one minute past midnight and might simply stop, with Eli three feet down the hall trying to make a closet stand in for a company, and herself in this chair, awake, watching the card and not the dead light. There was no safe one. There was no right one to find, only one to choose and stand inside and carry, whatever the night decided to hand her.
+She could move him. She had turned it over all day, in the corner of her mind that never stopped. There was a clinic two towns over that might still be authorized, that might still be running its own controllers come morning, and she could put him in a neighbor's electric car on its borrowed charge and send him across the dark to a place that might take him and might ask him for papers and might already be as far gone as her own. Or she could keep him here, on a machine that might run all night and might lie to her at one minute past midnight and might simply stop, with Eli three feet down the hall trying to make a closet stand in for a company, and herself in this chair, awake, watching the card and not the dead light. There was no safe one. There was no right one to find, only one to choose and stand inside and carry, whatever the night decided to hand her.
 
 "I'm keeping you here," she said. "On the machine. With me in this chair. I want to tell you it's the safe choice and it isn't. There's a man down the hall working on it. He's good. He may make it hold. I'm not going to promise you it holds, because I don't know what happens to it at midnight and neither does he and neither does anybody, and you deserve better than a promise I'd be making up. But you can't hold the night without it, and the road to anywhere else is colder and longer and no surer. So you're here. And I'm here. That's the whole of what I've got, and I'm not dressing it up."
 

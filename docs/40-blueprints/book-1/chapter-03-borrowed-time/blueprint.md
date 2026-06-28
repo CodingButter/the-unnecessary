@@ -249,7 +249,7 @@ never their values, which live only in the bible files.
 
 #### Location - The Asterion datacenter (intercut flashback memory)
 
-- **Bible pointer:** `docs/20-canon/world/locations/asterion-datacenter.md` (intended path; NO FILE YET, flagged below for the orchestrator; written as plain text, not a link, so validation does not resolve it)
+- **Bible pointer:** `docs/20-canon/world/locations/greater-detroit/asterion-datacenter.md`
 - **Level:** sketch
 - **Revelation target:**
   - **Physical-spatial:** the ordered, abundant machine floor of the company at its height, racks and cool light and power without question, sketched as the inverse of the cold dead closet; enough to place the memory, no more.

@@ -244,7 +244,7 @@ The afternoon manufacturer notice has arrived and been read; Lena has already ca
 
 ### Major Beats
 
-1. Lena moves through the clinic taking inventory, her hand on the respiratory controller's warm housing, reading the man in the bed and the machine at once.
+1. Lena moves through the clinic taking inventory, her hand on the respiratory controller's cool housing, reading the man in the bed and the machine at once.
 2. She checks the diagnostic scanner and the medication-management unit, registering that each is physically perfect and each will stop being permitted at midnight; the scanner can find the thing wrong inside a person and refuse to boot at startup; the med unit holds the doses already loaded and may lock against new ones.
 3. A staff member asks her a practical question (a dose, a schedule, whether to admit someone), and Lena answers in the clipped, exact way she works, the anger audible only as quiet. A light, concrete touch of the new economy sits inside the question: a supply that used to arrive on a contract now comes through a trade with someone two streets over, or a payment that would once have been billed is now simply not billed, because there is no longer anyone on the other end of the bill. Establish this as ordinary fact, not as a topic; it is the water the clinic swims in.
 4. She does the arithmetic she hates: how many hours, how many patients, how much she can carry by hand if the machines go.
@@ -286,7 +286,7 @@ Lena has a clear, frightening inventory and no way to act on it alone; she knows
 
 - Visual: the printed paper card taped over a dead certified-status light; the two clean machines reading perfect numbers in a dim room.
 - Sound: the steady cycle of the respiratory controller; a battery-backed clinic's low electrical hum; a patient's breathing under the machine's.
-- Smell/texture: antiseptic and old building, the warm casing of the controller under her flat hand, the cold that has crept in since the heat was rationed.
+- Smell/texture: antiseptic and old building, the cool casing of the controller under her flat hand, the cold that has crept in since the heat was rationed.
 
 ### Dialogue Objective
 
@@ -308,7 +308,7 @@ The scene is about the difference between a machine that works and a machine she
 
 ### Scene Ending
 
-End on Lena lifting her hand from the warm housing of the respiratory controller as a sound at the front of the clinic tells her Eli has come, and turning toward it with the inventory finished and useless, because the man who is arriving cannot give her certainty, only a chance.
+End on Lena lifting her hand from the cool housing of the respiratory controller as a sound at the front of the clinic tells her Eli has come, and turning toward it with the inventory finished and useless, because the man who is arriving cannot give her certainty, only a chance.
 
 ---
 
