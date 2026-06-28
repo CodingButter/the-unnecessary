@@ -512,6 +512,25 @@ The moral problem is who receives that beauty and who controls access to it.
 
 ---
 
+# Prose Discipline: Avoid Over-Writing
+
+The voice is **clear yet poetic**. Keep the poetry. The notice "sitting behind his sternum" is exactly the kind of image to protect. The failure to prevent is not poetry but **excess**: a single good move repeated until it becomes a tic, and the theme essayed aloud after the scene already earned it.
+
+These habits were diagnosed in drafting. Watch them; this is a guide, not a ban list, and a deliberate use for effect is still your right. The standing bias is clarity over density, show do not tell, trust the image. The target is "clear yet poetic," never flat.
+
+- **Do not essay the theme the scene already earned.** End on an image, not a verdict. Let the eggs, the notebook, the chair carry the meaning; do not append a line explaining what they meant.
+  > Telling: *He understood, then, that the city had stopped waiting for anyone to come back.*
+  > Trust the image: *The kettle clicked off. No one had asked it to start.*
+- **Vary the cadence; polysyndeton is not the default.** A string of "X, and Y, and so Z, and ..." flattens everything to one pulse. Use full stops. Reserve the long additive line for when accumulation is itself the point.
+- **"the way ..." is a tic, not a default simile.** Twenty-five in one chapter is two dozen too many. Mostly convert to direct statement; keep "the way" only when the comparison truly earns its breath.
+  > Tic: *Her hands moved the way someone counts change.*
+  > Direct: *Her hands counted the bolts like coins.*
+- **Vary paragraph openings; avoid the "She [verb]." metronome.** A column of "She turned. She waited. She looked." marches. Enter some paragraphs on the object, the light, or a line of dialogue instead.
+- **"thing" is an abstraction crutch.** Prefer the concrete noun. "the thing in his chest" becomes "the notice behind his sternum."
+- **"It was not X. It was Y" / "which was not X, which was Y."** Already prohibited in `prohibited-patterns.md`. Powerful once; generated-sounding twice. Reinforced here.
+
+---
+
 # Final Style Standard
 
 The prose should make the future feel close enough to recognize.
