@@ -146,7 +146,7 @@ def build_chunk_list(script_path, max_chars, min_chars, ellipsis):
 
 
 def render_chunks(chunks, chunk_dir, api, voice, auth, rep_penalty, base_temp, max_temp,
-                  edge_pad, split_threshold, resume=False):
+                  edge_pad, split_threshold, resume=False, lexicon=None):
     """Render every chunk to chunk_dir/NN.wav via renderer.render_chunk (proactive sentence
     split). DEFAULT is a full fresh re-render that OVERWRITES any existing NN.wav, so a revised
     narration script is always re-voiced and never reuses the prior render's stale audio; pass
@@ -168,7 +168,8 @@ def render_chunks(chunks, chunk_dir, api, voice, auth, rep_penalty, base_temp, m
             % (i, n, renderer.profile_str(prof), len(ch["text"])))
         err, dur = renderer.render_chunk(api, voice, prof, ch["text"], cf, auth,
                                          rep_penalty, base_temp, max_temp,
-                                         edge_pad=edge_pad, split_threshold=split_threshold)
+                                         edge_pad=edge_pad, split_threshold=split_threshold,
+                                         lexicon=lexicon)
         if err:
             log("  ERROR rendering chunk %02d: %s (left missing -> will be a RETRY)"
                 % (i, err))
@@ -274,6 +275,13 @@ def main():
                     help="Hard ceiling on every chunk's temperature. Default 0.8.")
     ap.add_argument("--edge-pad", type=float, default=0.05, dest="edge_pad")
     ap.add_argument("--no-edge-trim", action="store_true", dest="no_edge_trim")
+    ap.add_argument("--lexicon", default=renderer.DEFAULT_LEXICON,
+                    help="Pronunciation lexicon JSON (surface->spoken), passed through to the "
+                         "renderer and applied only to the text sent to the voice server. Default "
+                         "the seeded file at %s. The 24-hour clock-time rule always applies."
+                         % renderer.DEFAULT_LEXICON)
+    ap.add_argument("--no-lexicon", action="store_true",
+                    help="Disable the pronunciation lexicon (clock-time rule still applies).")
     ap.add_argument("--language", default="en", help="Transcription language (ISO). Default en.")
     ap.add_argument("--retry-threshold", type=float, default=0.80, dest="retry_threshold",
                     help="Similarity below which a chunk is REVIEW. Default 0.80.")
@@ -324,13 +332,20 @@ def main():
             log("WARNING: no ELEVENLABS_API_KEY (env or .mcp.json); REVIEW chunks will not "
                 "be resolved by the tiebreaker (pass --no-elevenlabs to silence).")
 
+    # Pronunciation lexicon (surface->spoken), resolved exactly as the renderer's main()
+    # does via the shared renderer.resolve_lexicon so messaging/behaviour are identical.
+    # Passed into every render_chunk call; the renderer applies it (plus the general
+    # clock-time rule) only to the text sent to /api/generate.
+    lexicon = renderer.resolve_lexicon(args.lexicon, args.no_lexicon, log)
+
     # --- 2. RENDER chunks ---------------------------------------------------------------
     mode = "resume (skip chunks already on disk)" if args.resume \
         else "full fresh re-render (overwrite every chunk)"
     log("--- RENDER: %d chunk(s) -- %s ---" % (n, mode))
     rendered = render_chunks(chunks, chunk_dir, args.api, args.voice, auth,
                              args.repetition_penalty, args.temperature, args.max_temp,
-                             args.edge_pad, args.split_threshold, resume=args.resume)
+                             args.edge_pad, args.split_threshold, resume=args.resume,
+                             lexicon=lexicon)
     log("RENDER done: %d freshly rendered, %d skipped/failed." % (rendered, n - rendered))
 
     # --- 3. QC every chunk --------------------------------------------------------------
@@ -373,7 +388,7 @@ def main():
             err, dur = renderer.render_chunk(
                 args.api, args.voice, ch["profile"], ch["text"], cf, auth,
                 args.repetition_penalty, args.temperature, args.max_temp,
-                edge_pad=args.edge_pad, split_threshold=thr)
+                edge_pad=args.edge_pad, split_threshold=thr, lexicon=lexicon)
             if err:
                 log("    ERROR re-rendering chunk %02d: %s (stays a RETRY)" % (i, err))
             elif dur is not None:

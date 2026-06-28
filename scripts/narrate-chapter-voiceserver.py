@@ -312,6 +312,121 @@ def normalize_ellipses(s, mode="comma"):
     return s.strip()
 
 
+# ------------------------------------------------------------------------------------
+# PRONUNCIATION LAYER -- corrects only the text SENT to /api/generate, never the script.
+#
+# Two corrections, applied (in this order) by to_spoken() at render time, AFTER tags are
+# stripped: (1) a GENERAL 24-hour clock-time rule that spells "HH:MM" as words so the
+# server's number normalizer can't read "23:59" as "twenty-three THOUSAND fifty-nine";
+# (2) a whole-word, case-sensitive LEXICON of surface->spoken respellings (e.g. proper
+# nouns the model mispronounces) loaded from a JSON file. The narration .md and its
+# word-for-word fidelity check are untouched -- only the rendered audio's input string is.
+# ------------------------------------------------------------------------------------
+
+# Default lexicon location (constant path string only -- no disk access at import).
+DEFAULT_LEXICON = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               "data", "pronunciation-lexicon.json")
+
+_ONES_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
+               "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen",
+               "sixteen", "seventeen", "eighteen", "nineteen"]
+_TENS_WORDS = {2: "twenty", 3: "thirty", 4: "forty", 5: "fifty"}
+
+# A 24-hour clock time written HH:MM. The hour is 0-23 (single- or double-digit), the
+# minute exactly two digits 00-59. Negative look-around on [\d:] keeps it from matching
+# inside a longer number or an H:M:S timestamp, and a two-digit minute means ratios and
+# aspect ratios ("3:2", "16:9") are never touched. Only strict clock times are rewritten.
+CLOCK_RE = re.compile(r'(?<![\d:])([01]?\d|2[0-3]):([0-5]\d)(?![\d:])')
+
+
+def _two_digit_words(n):
+    """Spell an integer 0-59 in words: 7 -> 'seven', 23 -> 'twenty-three', 40 -> 'forty'."""
+    if n < 20:
+        return _ONES_WORDS[n]
+    tens, ones = divmod(n, 10)
+    return _TENS_WORDS[tens] + ("-" + _ONES_WORDS[ones] if ones else "")
+
+
+def _clock_to_words(hh, mm):
+    """Spoken form of a 24-hour clock time. 23:59 -> 'twenty-three fifty-nine',
+    09:05 -> 'nine oh five', 23:00 -> 'twenty-three hundred', 00:30 -> 'zero thirty'."""
+    hour = _two_digit_words(hh)
+    if mm == 0:
+        minute = "hundred"
+    elif mm < 10:
+        minute = "oh " + _ONES_WORDS[mm]
+    else:
+        minute = _two_digit_words(mm)
+    return hour + " " + minute
+
+
+def normalize_clock_times(text):
+    """Rewrite every 24-hour HH:MM clock time in `text` as spoken words. Returns
+    (new_text, fired) where fired is a list of 'orig->spoken' strings (one per rewrite),
+    for per-chunk logging. Touches nothing but strict clock times (see CLOCK_RE)."""
+    fired = []
+
+    def repl(m):
+        words = _clock_to_words(int(m.group(1)), int(m.group(2)))
+        fired.append("%s->%s" % (m.group(0), words))
+        return words
+
+    return CLOCK_RE.sub(repl, text), fired
+
+
+def compile_lexicon(entries):
+    """Compile a {surface: spoken} mapping into the ordered (regex, spoken, surface) list
+    apply_lexicon consumes. Keys beginning '_' or '//' are treated as comments and skipped;
+    non-string keys/values are ignored; entries are sorted longest-surface-first so a
+    multi-word phrase wins over a shorter one it contains; each surface compiles to a
+    WHOLE-WORD, CASE-SENSITIVE matcher so substrings are never corrupted. Factored out of
+    load_lexicon so a lexicon can also be built in memory (e.g. the self-test)."""
+    pairs = [(k, v) for k, v in entries.items()
+             if isinstance(k, str) and isinstance(v, str)
+             and not k.startswith("_") and not k.startswith("//")]
+    pairs.sort(key=lambda kv: len(kv[0]), reverse=True)
+    return [(re.compile(r'(?<!\w)' + re.escape(k) + r'(?!\w)'), v, k) for k, v in pairs]
+
+
+def load_lexicon(path):
+    """Load a pronunciation lexicon from a JSON file into the compiled list returned by
+    compile_lexicon. The JSON is either a flat {surface: spoken} object or a
+    {"entries": {...}} wrapper. Raises FileNotFoundError if the path is missing and
+    ValueError if the JSON is malformed -- callers decide severity."""
+    with open(path, "r", encoding="utf-8") as fh:
+        data = json.load(fh)
+    if not isinstance(data, dict):
+        raise ValueError("lexicon root must be a JSON object")
+    entries = data.get("entries", data)
+    if not isinstance(entries, dict):
+        raise ValueError("lexicon 'entries' must be a JSON object")
+    return compile_lexicon(entries)
+
+
+def apply_lexicon(text, lexicon):
+    """Apply a compiled lexicon (from load_lexicon) to `text`. Returns (new_text, fired)
+    where fired lists each surface that actually matched as 'surface->spoken' (with a
+    '(xN)' suffix when it fired more than once). Matching is whole-word/case-sensitive."""
+    fired = []
+    for rx, spoken, surface in lexicon or []:
+        new_text, n = rx.subn(lambda m, s=spoken: s, text)
+        if n:
+            fired.append("%s->%s%s" % (surface, spoken, (" (x%d)" % n) if n > 1 else ""))
+            text = new_text
+    return text, fired
+
+
+def to_spoken(text, lexicon=None):
+    """Transform one chunk's stripped text into the exact string SENT to /api/generate:
+    first the general 24-hour clock-time rule, then the (optional) pronunciation lexicon.
+    Returns (spoken, fired) -- fired is the ordered list of substitutions for per-chunk
+    logging. `text` is never mutated. The clock rule always runs (it is a general server
+    safety fix); `lexicon` may be None/empty to skip only the respelling step."""
+    text, t_fired = normalize_clock_times(text)
+    text, l_fired = apply_lexicon(text, lexicon) if lexicon else (text, [])
+    return text, t_fired + l_fired
+
+
 def _split_sentences(s, limit):
     """Split prose at sentence boundaries ([.!?]) into pieces no longer than limit."""
     sentences = re.split(r'(?<=[.!?])\s+', s)
@@ -697,8 +812,16 @@ def cap_interior_silences(in_wav, out_wav, cap=0.5, detect=0.8, noise="-38dB"):
 
 
 def render_chunk(api, voice, profile, text, out_wav, auth, rep_penalty,
-                 base_temp, max_temp, edge_pad=0.05, split_threshold=SPLIT_THRESHOLD):
+                 base_temp, max_temp, edge_pad=0.05, split_threshold=SPLIT_THRESHOLD,
+                 lexicon=None):
     """Render ONE chunk to out_wav, PROACTIVELY splitting long text so nothing drops.
+
+    PRONUNCIATION: before anything else, the chunk text is run through to_spoken() -- the
+    general 24-hour clock-time rule plus the (optional) `lexicon` of surface->spoken
+    respellings. This is the SINGLE point where the text sent to /api/generate diverges
+    from the narration script; every substitution that fires is logged on stderr for this
+    chunk. Splitting and length checks below operate on the transformed (sent) text. The
+    clock rule always runs; pass lexicon=None to skip only the respelling step.
 
     Chatterbox intermittently DROPS trailing text on long chunks (>~300 chars): it
     speaks the start, then emits silence in place of the rest. Short pieces don't drop.
@@ -717,6 +840,9 @@ def render_chunk(api, voice, profile, text, out_wav, auth, rep_penalty,
     (None, duration_secs) on success or (error_string, None); the first failing piece's
     error is returned verbatim.
     """
+    text, pron_fired = to_spoken(text, lexicon)
+    if pron_fired:
+        print("      pron: " + " | ".join(pron_fired), file=sys.stderr)
     if len(text) <= split_threshold:
         return generate(api, voice, profile, text, out_wav, rep_penalty,
                         base_temp, max_temp, auth=auth)
@@ -881,10 +1007,69 @@ def stitch_chapter(chunks, chunk_dir, out, fmt, edge_pad, no_edge_trim):
     return True
 
 
+def _stderr_log(msg):
+    """Default one-line stderr logger for resolve_lexicon."""
+    print(msg, file=sys.stderr)
+
+
+def resolve_lexicon(path, no_lexicon, log=_stderr_log):
+    """Resolve the --lexicon / --no-lexicon flags into a compiled lexicon list (possibly
+    empty). Shared by this renderer's main() and the render-chapter.py orchestrator so the
+    loading + messaging behaviour is identical:
+      * --no-lexicon          -> [] (the clock-time rule still applies).
+      * default path missing  -> [] + WARNING (a fresh checkout may lack the file; graceful).
+      * EXPLICIT path missing  -> fatal (sys.exit(2)).
+      * malformed JSON         -> fatal (sys.exit(2)).
+    """
+    if no_lexicon:
+        log("Lexicon: disabled (--no-lexicon); clock-time rule still applies.")
+        return []
+    try:
+        lex = load_lexicon(path)
+    except FileNotFoundError:
+        if os.path.abspath(path) != os.path.abspath(DEFAULT_LEXICON):
+            log("ERROR: --lexicon file not found: %s" % path)
+            sys.exit(2)
+        log("WARNING: default lexicon not found (%s); pronunciation lexicon empty "
+            "(clock-time rule still applies)." % path)
+        return []
+    except (ValueError, KeyError) as err:
+        log("ERROR: could not parse lexicon %s: %s" % (path, err))
+        sys.exit(2)
+    log("Lexicon: %d entr%s from %s"
+        % (len(lex), "y" if len(lex) == 1 else "ies", path))
+    return lex
+
+
+def _run_selftest():
+    """Print the transformed SPOKEN text for two canonical inputs, proving the clock-time
+    rule fires and the lexicon mechanism is wired. The two required strings use the real
+    SEEDED lexicon (which ships EMPTY by design); a final in-memory example lexicon then
+    shows a whole-word respelling firing WITHOUT seeding any real override. Returns 0."""
+    try:
+        seeded = load_lexicon(DEFAULT_LEXICON)
+    except Exception as err:  # noqa: BLE001
+        print("selftest: could not load default lexicon (%s); using empty" % err)
+        seeded = []
+    print("seeded lexicon entries: %d" % len(seeded))
+    for s in ["the time was 23:59.", "Marisol said"]:
+        spoken, fired = to_spoken(s, seeded)
+        print("IN : %r" % s)
+        print("OUT: %r" % spoken)
+        print("FIRED: %s" % ("; ".join(fired) if fired else "(none)"))
+    example = compile_lexicon({"Marisol": "Mah-ree-sole"})   # mechanism demo, NOT seeded
+    spoken, fired = to_spoken("Marisol said", example)
+    print("MECH IN : %r" % "Marisol said")
+    print("MECH OUT: %r  (example lexicon, not shipped)" % spoken)
+    print("MECH FIRED: %s" % ("; ".join(fired) if fired else "(none)"))
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="Narrate a narration-script to one file via the self-hosted voice server (Chatterbox).")
-    ap.add_argument("script", help="A chapter-XX.narrative-script.md (v3-tagged performance script)")
+    ap.add_argument("script", nargs="?", default=None,
+                    help="A chapter-XX.narrative-script.md (v3-tagged performance script)")
     ap.add_argument("--voice", default="Will_Wheaton")
     ap.add_argument("--out", default=None)
     ap.add_argument("--format", default="mp3", choices=["mp3", "wav"])
@@ -920,6 +1105,15 @@ def main():
                          "them into one chunk WAV. Long chunks (>~300c) intermittently drop "
                          "trailing text during Chatterbox generation; short pieces don't. "
                          "Default %d." % SPLIT_THRESHOLD)
+    ap.add_argument("--lexicon", default=DEFAULT_LEXICON,
+                    help="Pronunciation lexicon JSON (surface->spoken, applied only to the text "
+                         "sent to the server, after tag-stripping). Default the seeded file at %s. "
+                         "The 24-hour clock-time rule is general and always applies regardless."
+                         % DEFAULT_LEXICON)
+    ap.add_argument("--no-lexicon", action="store_true",
+                    help="Disable the pronunciation lexicon (the general clock-time rule still "
+                         "applies). Use when you want zero respelling overrides.")
+    ap.add_argument("--selftest", action="store_true", help=argparse.SUPPRESS)
     ap.add_argument("--api", default=DEFAULT_API)
     ap.add_argument("--user", default=None,
                     help="API username for HTTP Basic auth (else VOICE_API_USER env, else .mcp.json).")
@@ -934,9 +1128,16 @@ def main():
                          "always re-voiced and never reuses stale audio.")
     args = ap.parse_args()
 
+    if args.selftest:                       # prove the time rule + lexicon mechanism fire
+        return _run_selftest()
+
+    if not args.script:
+        ap.error("the 'script' argument is required (or pass --selftest)")
     if not os.path.exists(args.script):
         print("ERROR: script not found: " + args.script, file=sys.stderr)
         return 2
+
+    lexicon = resolve_lexicon(args.lexicon, args.no_lexicon)
 
     raw = open(args.script, "r", encoding="utf-8").read()
     text = extract_performance(raw)
@@ -995,7 +1196,8 @@ def main():
               % (i, len(chunks), profile_str(prof), len(ch["text"])), file=sys.stderr)
         err, dur = render_chunk(args.api, args.voice, prof, ch["text"], cf, auth,
                                 args.repetition_penalty, args.temperature, args.max_temp,
-                                edge_pad=args.edge_pad, split_threshold=args.split_threshold)
+                                edge_pad=args.edge_pad, split_threshold=args.split_threshold,
+                                lexicon=lexicon)
         if err:
             print("ERROR on chunk %d: %s" % (i, err), file=sys.stderr)
             return 1

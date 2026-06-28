@@ -1,0 +1,5 @@
+{
+  "//": "PRONUNCIATION LEXICON for the Chatterbox voice server. Maps a canonical SURFACE form (spelled as it appears in the narration script / manuscript) to a respelled SPOKEN form the model pronounces correctly. This file affects ONLY the text SENT to /api/generate (applied after tag-stripping, after the 24-hour clock-time rule); the narration .md and its word-for-word fidelity check are never touched. Matching is WHOLE-WORD (word boundaries, so substrings are never corrupted) and CASE-SENSITIVE (proper nouns). Longer surfaces are tried before shorter ones.",
+  "//when-to-add": "Add an entry ONLY for a SYSTEMATIC mispronunciation -- a word the model says wrong CONSISTENTLY, every render. Do NOT add a word the model usually says right that merely garbled once: a stochastic one-off bad chunk is fixed by RE-RENDERING that chunk, not by a permanent override (which would over-correct the cases the model already gets right). Example of an entry shape (commented out, inert): \"Marisol\": \"Mah-ree-sole\". To activate a correction, add a real \"Surface\": \"Spoken\" pair to \"entries\" using hyphenated phonetic syllables the model says well.",
+  "entries": {}
+}
