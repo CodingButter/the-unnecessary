@@ -3,7 +3,8 @@ export const meta = {
   description: "Progressive two-pass clarity audit of a chapter. Two lay-readers (8th-grade and average-adult) read it paragraph by paragraph with only a sliding window of recent prior paragraphs visible (no future context, fed as text so they cannot look ahead), reporting first-read understanding and first-pass confusion; then each rereads with the full chapter and reports which confusions RESOLVED (intended seed/foreshadowing) vs which remain (real clarity bug); a clarity-auditor flags only confusions that never resolve, sparing deliberate seeds. Target via args {chapter, blueprint, window}.",
   phases: [
     { title: 'Split', detail: 'split the chapter into ordered prose paragraphs' },
-    { title: 'FirstRead', detail: 'two readers interpret each paragraph with only a window of what came before' },
+    { title: 'Gist', detail: 'precompute a one-clause gist per paragraph (the reader long-term memory)' },
+    { title: 'FirstRead', detail: 'two readers interpret each paragraph: verbatim window + gist of everything before it' },
     { title: 'Reread', detail: 'each reader rereads with full context; which first-pass confusions resolved?' },
     { title: 'Compare', detail: 'clarity-auditor flags confusion that never resolves; spares working seeds' },
   ],
@@ -32,6 +33,21 @@ const split = await agent(
 )
 const paras = (split && split.paragraphs) || []
 
+phase('Gist')
+// A reader carries the earlier chapter as fuzzy GIST, not verbatim. We precompute a one-clause gist per
+// paragraph, then feed each first-read the gist of everything OUTSIDE its verbatim window -- so the reader
+// has the long-term memory a real reader has, and the window stops manufacturing false amnesia. One cheap
+// pass, compressed ~5x vs verbatim.
+const GIST = { type: 'object', required: ['gists'], properties: {
+  gists: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, gist: { type: 'string' } } }, description: 'one ultra-short clause (<=12 words) per paragraph -- what a reader would REMEMBER happened in it (who/what/where), no prose, keep the index n' },
+} }
+const gistRes = await agent(
+  `Here are the chapter's paragraphs in order. For EACH, write ONE ultra-short clause (<=12 words) capturing what a reader would REMEMBER happening in it -- the fuzzy gist memory you keep of earlier parts of a story (who/what/where), not the wording. Keep each paragraph's index n.\n\n${paras.map(p => `[${p.n}] ${p.text}`).join('\n\n')}\n\nReturn per schema: one gist per paragraph.`,
+  { schema: GIST, effort: 'low', label: 'gist', phase: 'Gist' }
+)
+const gistByN = {}
+;((gistRes && gistRes.gists) || []).forEach(g => { gistByN[g.n] = g.gist })
+
 // Two readers, not three: the close-reader (the most capable) rarely bounces on a first pass, and the
 // audit's bar is 8th-grade legibility. 8th-grade is the bar; average-adult is the target reader.
 const LEVELS = [
@@ -51,9 +67,12 @@ const thunks = []
 for (const L of LEVELS) for (let i = 0; i < paras.length; i++) {
   const start = Math.max(0, i + 1 - WINDOW)
   const recent = paras.slice(start, i + 1).map(p => `[${p.n}] ${p.text}`).join('\n\n')
+  const priorGist = start > 0
+    ? paras.slice(0, start).map(p => `[${p.n}] ${gistByN[p.n] || '...'}`).join('\n')
+    : ''
   const lead = start > 0
-    ? `(You have read the chapter to here; you recall the earlier parts only in gist. Recent lead-up:)\n\n`
-    : `(The chapter from the start, up to the paragraph to interpret:)\n\n`
+    ? `STORY SO FAR -- your fuzzy gist memory of the earlier chapter you have already read (what happened, NOT the wording):\n${priorGist}\n\nMOST RECENT, freshest in your mind, verbatim:\n\n`
+    : `Here is the chapter from the beginning, up to the paragraph to interpret:\n\n`
   const tn = paras[i].n
   frMeta.push({ level: L.id, n: tn, opening: paras[i].opening })
   thunks.push(() => agent(
