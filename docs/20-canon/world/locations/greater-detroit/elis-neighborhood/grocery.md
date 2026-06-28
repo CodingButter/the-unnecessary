@@ -5,7 +5,7 @@ entity_type: "building"
 status: "active-canon"
 authority: "world-canon"
 parent: elis-neighborhood
-summary: "The neighborhood grocery run by Marisol, about a block from Eli's shop. Rendered in Chapter 1 by its failing dairy case; the business is canonically unnamed."
+summary: "The neighborhood grocery run by Marisol, on Eli's morning route. Rendered in Chapter 1 by its failing dairy case; the business is canonically unnamed."
 tags:
   - world
   - building
@@ -22,7 +22,7 @@ source_documents:
 
 # The Grocery (Marisol's)
 
-The neighborhood grocery, run by Marisol, about a block from Eli's repair shop. It has no canon business name; people go in because going in is a way of saying the place is still worth coming into.
+The neighborhood grocery, run by Marisol, on Eli's morning walk through the neighborhood. It has no canon business name; people go in because going in is a way of saying the place is still worth coming into.
 
 ## Exterior and Approach
 
@@ -45,7 +45,7 @@ edges:
   owner: vega-marisol
 facts:
   warm_front: true                    # one of the block's few lit, welcoming storefronts
-  position_note: "about a block from elis-repair-shop"   # relative distance from Ch1; no street address in canon
+  route_note: "on Eli's morning route through the neighborhood"   # Ch1 gives no grocery-to-shop distance; its "a block from the shop" locates the parked EV-cable car, not the grocery
 timeline:
   - when: 2053-09-30
     set: { dairy_case: "two lit doors only" }
