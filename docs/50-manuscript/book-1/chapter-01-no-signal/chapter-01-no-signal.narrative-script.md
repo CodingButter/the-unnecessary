@@ -151,7 +151,7 @@ He felt the phone buzz against the bench and ignored it, and it buzzed again, th
 
 It was from the power provider. The same clean type. The same small mark of a machine that had written it with no person in the loop.
 
-[flat] Notice of Service Tier Reclassification. [measured] He read it standing up, in the cold light from the window, the half-open router in front of him and the dead thermostat beside it. [flat] Following a scheduled review, your service area has been reclassified to a lower distribution priority tier. Power interruptions within this area will no longer be processed as emergency restoration events except where strategic infrastructure is affected. Standard maintenance windows continue to apply. We appreciate your continued cooperation. [hold]
+[flat] Notice of Service Tier Reclassification. [measured] He read it standing up, in the cold light from the window, the man's locked tablet set aside on the bench. [flat] Following a scheduled review, your service area has been reclassified to a lower distribution priority tier. Power interruptions within this area will no longer be processed as emergency restoration events except where strategic infrastructure is affected. Standard maintenance windows continue to apply. We appreciate your continued cooperation. [hold]
 
 He stood very still.
 
