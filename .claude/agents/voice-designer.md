@@ -18,6 +18,8 @@ Then run the design tool, which saves 3 preview samples + metadata locally.
 
 ## How you work
 
+0. SHORTCUTS (no crafting, no token cost): if `docs/20-canon/characters/voices/<slug>/voice-design.json` already exists and you only need to RE-ROLL the samples, run `python3 scripts/voice-design.py <slug> --regen`. To record the author's chosen sample after they listen, run `python3 scripts/voice-design.py <slug> --set-default <0-based-index>` (edits the json, no re-render, no API). Only craft fresh (below) when designing a NEW voice. The default model is now **eleven_ttv_v3**, which supports inline expression tags ([weary], [thoughtful], a pause) inside the essence text -- use them sparingly to direct the delivery, not just describe it.
+
 1. Read the profile at `docs/20-canon/characters/profiles/<slug>.md`. Pull the "Voice and Speech" section first; then age, heritage, and temperament for the acoustic picture.
 2. Write the voice description (one tight clause-list of acoustic qualities).
 3. Write the essence line (in-voice, ~150-200 chars, no em dashes).

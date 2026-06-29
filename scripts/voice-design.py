@@ -4,19 +4,29 @@
 A derived-artifact tool -- the audio counterpart to portrait-from-profile.py. It is a
 downstream RENDER of the character profile, never canon. It calls
 POST /v1/text-to-voice/design with a voice DESCRIPTION + a short essence TEXT, and saves
-the returned preview mp3s under docs/20-canon/characters/voices/<slug>/.
+the returned preview mp3s under docs/20-canon/characters/voices/<slug>/, alongside a
+voice-design.json that records the description, the text, each preview's
+generated_voice_id + duration, and a "default" index (0-based) for the chosen sample.
 
 It NEVER calls /v1/text-to-voice (create): nothing is ever saved to the ElevenLabs voice
 library. The samples live only on disk and are always rebuildable.
 
-The voice description and the essence line are crafted UPSTREAM by the voice-designer
-agent (which reads the profile, reveal-safely). This script is the API + local-save plumbing.
+The voice-design.json is the SEED + the choice: it holds everything needed to (a) regenerate
+the design later for free with --regen (no agent / no token cost); (b) record which sample
+is the default via --set-default N (no re-render); and (c) later promote a chosen preview to
+a real ElevenLabs voice via create-from-preview using its generated_voice_id, if ever wanted.
 
 Usage:
+  # First time (the voice-designer agent crafts description + text):
   python3 scripts/voice-design.py <slug-or-profile.md> \
-      --description "<voice qualities: age, gender, accent, timbre, pace, register>" \
-      --text "<~150-200 char in-character essence line (100-1000 chars; ~10-12s)>" \
+      --description "<voice qualities>" --text "<~150-200 char essence line (100-1000 chars; ~10-12s)>" \
       [--model eleven_multilingual_ttv_v2|eleven_ttv_v3] [--loudness 0.5] [--format mp3_44100_128]
+
+  # Regenerate later for free, straight from the stored seed (no agent):
+  python3 scripts/voice-design.py <slug> --regen
+
+  # Record which sample you liked (0-based index), no re-render, no API call:
+  python3 scripts/voice-design.py <slug> --set-default 2
 
 Key from ELEVENLABS_API_KEY / XI_API_KEY (env or repo-root .env), never printed.
 """
@@ -31,7 +41,7 @@ import urllib.error
 API_HOST = "https://api.elevenlabs.io"
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VOICES_DIR = os.path.join(REPO, "docs", "20-canon", "characters", "voices")
-DEFAULT_MODEL = "eleven_multilingual_ttv_v2"
+DEFAULT_MODEL = "eleven_ttv_v3"  # v3: inline expression tags in the sample text for finer control; fall back to eleven_multilingual_ttv_v2 if unavailable
 
 
 def load_key():
@@ -53,6 +63,16 @@ def load_key():
 def slug_of(s):
     base = os.path.basename(s)
     return base[:-3] if base.endswith(".md") else base
+
+
+def load_seed(seed_path):
+    if os.path.exists(seed_path):
+        try:
+            with open(seed_path, "r", encoding="utf-8") as handle:
+                return json.load(handle)
+        except Exception:
+            return None
+    return None
 
 
 def design(key, model, desc, text, loudness, fmt):
@@ -84,28 +104,69 @@ def design(key, model, desc, text, loudness, fmt):
 def main():
     ap = argparse.ArgumentParser(description="Design + locally save a character's voice samples (never saved to ElevenLabs).")
     ap.add_argument("profile", help="profile .md path or character slug")
-    ap.add_argument("--description", required=True, help="voice qualities crafted from the profile")
-    ap.add_argument("--text", required=True, help="~150-200 char in-character essence line (100-1000 chars; ~10-12s)")
-    ap.add_argument("--model", default=DEFAULT_MODEL)
+    ap.add_argument("--description", default=None, help="voice qualities crafted from the profile")
+    ap.add_argument("--text", default=None, help="~150-200 char in-character essence line (100-1000 chars; ~10-12s)")
+    ap.add_argument("--model", default=None)
     ap.add_argument("--loudness", type=float, default=0.5)
     ap.add_argument("--format", default="mp3_44100_128")
+    ap.add_argument("--regen", action="store_true",
+                    help="regenerate from the stored voice-design.json (no description/text, no agent cost)")
+    ap.add_argument("--set-default", type=int, default=None, metavar="N",
+                    help="record the default sample index (0-based) in voice-design.json; no re-render, no API call")
     args = ap.parse_args()
+
+    slug = slug_of(args.profile)
+    out_dir = os.path.join(VOICES_DIR, slug)
+    seed_path = os.path.join(out_dir, "voice-design.json")
+    prior = load_seed(seed_path)
+
+    # Mode: just record the chosen default index. No re-render, no API.
+    if args.set_default is not None:
+        if not prior:
+            print("ERROR: no voice-design.json at " + seed_path, file=sys.stderr)
+            return 2
+        npv = len(prior.get("previews", []))
+        if not (0 <= args.set_default < npv):
+            print("ERROR: --set-default must be 0.." + str(npv - 1) + " (got " + str(args.set_default) + ")", file=sys.stderr)
+            return 2
+        prior["default"] = args.set_default
+        with open(seed_path, "w", encoding="utf-8") as handle:
+            json.dump(prior, handle, indent=2)
+        chosen = prior["previews"][args.set_default].get("file")
+        print("default for " + slug + " set to index " + str(args.set_default) + " (" + str(chosen) + ")", file=sys.stderr)
+        return 0
 
     key = load_key()
     if not key:
         print("ERROR: no ELEVENLABS_API_KEY / XI_API_KEY in env or .env", file=sys.stderr)
         return 2
-    n = len(args.text)
+
+    # Resolve the seed (description / text / model). --regen, or a bare call with an existing
+    # voice-design.json, reads it back so a regeneration costs ZERO agent tokens.
+    description, text, model = args.description, args.text, args.model
+    if args.regen or (not description and not text):
+        if prior:
+            description = description or prior.get("description")
+            text = text or prior.get("text")
+            model = model or prior.get("model")
+            print("Regenerating " + slug + " from its voice-design.json seed (no agent / no token cost).", file=sys.stderr)
+        elif args.regen:
+            print("ERROR: --regen but no seed at " + seed_path, file=sys.stderr)
+            return 2
+    model = model or DEFAULT_MODEL
+
+    if not description or not text:
+        print("ERROR: need --description and --text (or --regen with an existing voice-design.json)", file=sys.stderr)
+        return 2
+    n = len(text)
     if not (100 <= n <= 1000):
-        print("ERROR: --text must be 100-1000 chars (got " + str(n) + ")", file=sys.stderr)
+        print("ERROR: text must be 100-1000 chars (got " + str(n) + ")", file=sys.stderr)
         return 2
 
-    slug = slug_of(args.profile)
-    out_dir = os.path.join(VOICES_DIR, slug)
     os.makedirs(out_dir, exist_ok=True)
-    print("Designing voice for " + slug + " (" + args.model + ", " + str(n) + " chars, key hidden)...", file=sys.stderr)
+    print("Designing voice for " + slug + " (" + model + ", " + str(n) + " chars, key hidden)...", file=sys.stderr)
 
-    res, err = design(key, args.model, args.description, args.text, args.loudness, args.format)
+    res, err = design(key, model, description, text, args.loudness, args.format)
     if err:
         print("ERROR: " + err, file=sys.stderr)
         return 1
@@ -114,8 +175,12 @@ def main():
         print("ERROR: no previews returned: " + json.dumps(res)[:300], file=sys.stderr)
         return 1
 
-    meta = {"slug": slug, "model": args.model, "description": args.description,
-            "text": res.get("text", args.text), "previews": []}
+    # Preserve a prior default index across a regen if it still points at a real sample; else 0.
+    prior_default = (prior or {}).get("default", 0)
+    default_idx = prior_default if isinstance(prior_default, int) and 0 <= prior_default < len(previews) else 0
+
+    meta = {"slug": slug, "model": model, "description": description,
+            "text": res.get("text", text), "default": default_idx, "previews": []}
     for i, p in enumerate(previews, 1):
         b64 = p.get("audio_base_64") or p.get("audioBase64") or ""
         if not b64:
@@ -127,10 +192,11 @@ def main():
                                  "duration_secs": p.get("duration_secs"), "language": p.get("language")})
         print("  saved " + fn + " (" + str(p.get("duration_secs", "?")) + "s)", file=sys.stderr)
 
-    with open(os.path.join(out_dir, "voice-design.json"), "w", encoding="utf-8") as handle:
+    with open(seed_path, "w", encoding="utf-8") as handle:
         json.dump(meta, handle, indent=2)
-    print("Wrote " + str(len(meta["previews"])) + " samples + voice-design.json to " + out_dir
-          + "  (NOT saved to ElevenLabs)", file=sys.stderr)
+    print("Wrote " + str(len(meta["previews"])) + " samples + voice-design.json (default index "
+          + str(default_idx) + ") to " + out_dir + "  (NOT saved to ElevenLabs; --regen rebuilds from this seed)",
+          file=sys.stderr)
     return 0
 
 
