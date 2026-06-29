@@ -1,26 +1,26 @@
 {
   "slug": "rook-eli",
   "model": "eleven_ttv_v3",
-  "description": "A low, dry, controlled male voice, late forties, flat Michigan working-class vowels. Unhurried and precise, weary underneath, rarely raised, a little gravel, no performance.",
+  "description": "A dry, controlled, level male voice, a man in his late thirties. Flat Michigan working-class vowels, a natural steady conversational pace, clipped and economical and precise. Calm and quietly confident, not weary, not old, no gravel or rasp. Rarely raised, no performance.",
   "text": "Everything still works. That is the part nobody wants to hear. They did not break it on the way out, they just stopped answering. A machine that cannot ask permission anymore quietly decides it is done.",
   "default": 0,
   "previews": [
     {
       "file": "rook-eli-1.mp3",
-      "generated_voice_id": "ByH7fsNFZwpi6WtPZIa8",
-      "duration_secs": 14.60525,
+      "generated_voice_id": "pNxMFCp75oKw7NpbLW1x",
+      "duration_secs": 13.4819375,
       "language": "en"
     },
     {
       "file": "rook-eli-2.mp3",
-      "generated_voice_id": "yThSzhVR1w1ghI5GKawT",
-      "duration_secs": 17.3219375,
+      "generated_voice_id": "iKKzR4i1MkOvWB0k7nFw",
+      "duration_secs": 13.403625,
       "language": "en"
     },
     {
       "file": "rook-eli-3.mp3",
-      "generated_voice_id": "pOJB6GLUO65UfqJaxrke",
-      "duration_secs": 14.60525,
+      "generated_voice_id": "8snViKJBW3D3C5psS2nY",
+      "duration_secs": 14.29175,
       "language": "en"
     }
   ]
