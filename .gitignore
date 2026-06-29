@@ -24,6 +24,9 @@ audio/**/*.wav
 audio/live-audio-book/**/*.mp3
 !audio/live-audio-book/**/*.live.mp3
 
+# stale first-attempt live-narration audio (superseded by audio/live-audio-book/)
+audio/book-1/**/live-narration/
+
 # python bytecode
 __pycache__/
 *.pyc
