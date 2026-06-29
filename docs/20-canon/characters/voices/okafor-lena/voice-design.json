@@ -1,0 +1,27 @@
+{
+  "slug": "okafor-lena",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English, Detroit, with a Nigerian-American household cadence underneath. Female, late 40s. Studio-clear, professional. Persona: community-clinic director. Emotion: controlled, exacting, compassionate. A low, even alto that carries authority without volume; plain, declarative delivery with deliberate, unwasted pacing. When her anger rises she goes quieter and more precise, never louder, the calm a frightened patient cannot read.",
+  "text": "[tired] Long shift, Eli, so I'll be plain. Don't tell me what the system meant to do. [serious] Tell me who it left outside my door tonight... and what you intend to do about it.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "okafor-lena-1.mp3",
+      "generated_voice_id": "tafvg4jsh9pAhEQrXKJH",
+      "duration_secs": 11.3921875,
+      "language": "en"
+    },
+    {
+      "file": "okafor-lena-2.mp3",
+      "generated_voice_id": "AlzCjZA33v0zfx6R9gCC",
+      "duration_secs": 11.3138125,
+      "language": "en"
+    },
+    {
+      "file": "okafor-lena-3.mp3",
+      "generated_voice_id": "5NuDPcm0tfm5CasuHpao",
+      "duration_secs": 11.8885,
+      "language": "en"
+    }
+  ]
+}

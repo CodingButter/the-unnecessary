@@ -1,26 +1,26 @@
 {
   "slug": "rook-eli",
   "model": "eleven_ttv_v3",
-  "description": "A dry, controlled, level male voice, a man in his late thirties. Flat Michigan working-class vowels, a natural steady conversational pace, clipped and economical and precise. Calm and quietly confident, not weary, not old, no gravel or rasp. Rarely raised, no performance.",
-  "text": "Everything still works. That is the part nobody wants to hear. They did not break it on the way out, they just stopped answering. A machine that cannot ask permission anymore quietly decides it is done.",
-  "default": 0,
+  "description": "Native American English. Male, late 30s. Clear, natural studio quality. Persona: dry working technician. Emotion: calm, controlled, precise. A low, level baritone carrying a flat Michigan working-class vowel, delivered at an even conversational pace, neither rushed nor drawn out. Economical and exact, faintly wry, pausing only to land the right word, never raised and never roughened.",
+  "text": "Nobody switched this block off. [deliberate] They just stopped answering. The machine calls a server that went quiet... waits... then quits on you. [sighs] So I teach it to stop asking permission.",
+  "default": 2,
   "previews": [
     {
       "file": "rook-eli-1.mp3",
-      "generated_voice_id": "pNxMFCp75oKw7NpbLW1x",
-      "duration_secs": 13.4819375,
+      "generated_voice_id": "yvr9UP8CecCzjHSXAW5H",
+      "duration_secs": 12.04525,
       "language": "en"
     },
     {
       "file": "rook-eli-2.mp3",
-      "generated_voice_id": "iKKzR4i1MkOvWB0k7nFw",
-      "duration_secs": 13.403625,
+      "generated_voice_id": "AmaG5tnIA8Y7gWkP2WZ5",
+      "duration_secs": 12.5938125,
       "language": "en"
     },
     {
       "file": "rook-eli-3.mp3",
-      "generated_voice_id": "8snViKJBW3D3C5psS2nY",
-      "duration_secs": 14.29175,
+      "generated_voice_id": "VYHx02R1RuEBMLTs81Aw",
+      "duration_secs": 13.4819375,
       "language": "en"
     }
   ]

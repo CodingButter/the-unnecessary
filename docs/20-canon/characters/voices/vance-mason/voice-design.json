@@ -1,0 +1,27 @@
+{
+  "slug": "vance-mason",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English. Male, late teens (about 17). Clear, high-quality. Persona: withdrawal-native teen. Emotion: flat, contained, undeceived. A young, changing-into-settled male voice, quiet and clipped, with a flat working Detroit accent. Even and low-key, short plain statements with no padding and no feeling laid on top of the words.",
+  "text": "It works fine. [tired] That's the problem. We don't need the apps... or some company's permission. [deliberate] Just make it ring. We want the house... to know somebody's in it.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "vance-mason-1.mp3",
+      "generated_voice_id": "e7oIuc7IcV3YQbwgGVjc",
+      "duration_secs": 10.45175,
+      "language": "en"
+    },
+    {
+      "file": "vance-mason-2.mp3",
+      "generated_voice_id": "ITQc4Ye0O2zYIWalNjQp",
+      "duration_secs": 11.3921875,
+      "language": "en"
+    },
+    {
+      "file": "vance-mason-3.mp3",
+      "generated_voice_id": "gKdsDqtNFNMdfJHb7YR8",
+      "duration_secs": 11.8885,
+      "language": "en"
+    }
+  ]
+}

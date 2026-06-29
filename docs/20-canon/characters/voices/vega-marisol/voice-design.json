@@ -1,0 +1,27 @@
+{
+  "slug": "vega-marisol",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American, Detroit). Female, mid 50s. High-quality, clear studio sound. Persona: weathered neighborhood grocer. Emotion: dry, matter-of-fact, quietly warm. Low, even chest-toned alto with flat Detroit vowels and a faint Spanish cadence underneath. Short declarative delivery that reports hard news plainly, like small weather, with a held almost-smile under the dryness.",
+  "text": "Case is down to two doors now. [sighs] Not the compressor... it's the controller. Wants to call home, nobody's home. You want coffee, I'd take it today. [warm] Everybody's house thinks something now.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "vega-marisol-1.mp3",
+      "generated_voice_id": "VBwewYUPKW96SdOGBeKT",
+      "duration_secs": 13.01175,
+      "language": "en"
+    },
+    {
+      "file": "vega-marisol-2.mp3",
+      "generated_voice_id": "a0HTjqErnJYo6T3miUUK",
+      "duration_secs": 16.5905625,
+      "language": "en"
+    },
+    {
+      "file": "vega-marisol-3.mp3",
+      "generated_voice_id": "jQ9LHDDS1BegLMAoJWY2",
+      "duration_secs": 15.806875,
+      "language": "en"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "dorsey-ray",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English, flat Detroit accent. Male, mid 40s. High quality, clear recording. Persona: night-watch lineman. Emotion: warm, steady, quietly worried. A low warm baritone, lightly roughened, broad flat vowels and an unhurried, even cadence. Speaks in short clipped reporting sentences, calm and grounded, going quieter and steadier when it matters, never raised.",
+  "text": "[tired] Walked the block. Two lights down, a porch gone dark that shouldn't be... and still nothing out my end since maybe two. [serious] Mesh holds, towers don't. Try yours, let me know it took. Dorsey",
+  "default": 2,
+  "previews": [
+    {
+      "file": "dorsey-ray-1.mp3",
+      "generated_voice_id": "74FK2g2Jh4PYCnYf3lzq",
+      "duration_secs": 14.0305625,
+      "language": "en"
+    },
+    {
+      "file": "dorsey-ray-2.mp3",
+      "generated_voice_id": "pv5UcjbUGsY1JRD81ATW",
+      "duration_secs": 14.60525,
+      "language": "en"
+    },
+    {
+      "file": "dorsey-ray-3.mp3",
+      "generated_voice_id": "yPuxJiec9lJKLgeokrnJ",
+      "duration_secs": 16.930125,
+      "language": "en"
+    }
+  ]
+}
