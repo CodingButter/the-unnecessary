@@ -27,6 +27,9 @@ audio/live-audio-book/**/*.mp3
 # stale first-attempt live-narration audio (superseded by audio/live-audio-book/)
 audio/book-1/**/live-narration/
 
+# Generated ebook builds (regenerable deterministically from scripts/build-ebook.py)
+build/
+
 # python bytecode
 __pycache__/
 *.pyc

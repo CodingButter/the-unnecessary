@@ -658,10 +658,26 @@ def healthz(api):
         return (False, str(err)[:200])
 
 
+def _looks_like_audio(body, content_type):
+    """True iff a 200 response is REAL audio rather than an HTML error / Cloudflare
+    challenge page that slipped through with status 200. Accept when either the
+    Content-Type starts with 'audio/' OR the body carries the WAV magic (bytes 0-3
+    'RIFF', bytes 8-11 'WAVE'). Both are checked because the challenge page comes back
+    as 200 + text/html and would otherwise be written as a corrupt non-audio chunk."""
+    ctype = (content_type or "").split(";", 1)[0].strip().lower()
+    if ctype.startswith("audio/"):
+        return True
+    return len(body) >= 12 and body[:4] == b"RIFF" and body[8:12] == b"WAVE"
+
+
 def generate(api, voice, profile, text, out_path, rep_penalty=None,
              base_temp=0.6, max_temp=0.8, auth=None):
     """POST one chunk to /api/generate -> WAV on disk. Returns (None, duration_secs)
-    on success or (error_string, None). Retries on 5xx up to 3 times."""
+    on success or (error_string, None). Retries on 5xx up to 3 times. A 200 response
+    that is NOT audio (Content-Type not audio/* and no WAV magic -- e.g. a transient
+    Cloudflare challenge / error page that slips through with status 200) is treated as
+    a RETRYABLE failure on the same backoff path as 5xx, then a clear error if it
+    persists, so a corrupt non-audio chunk is never written."""
     url = api.rstrip("/") + "/api/generate"
     payload = {"voice": voice, "text": text, "format": "wav", "normalize": True}
     if rep_penalty is not None:
@@ -692,8 +708,21 @@ def generate(api, voice, profile, text, out_path, rep_penalty=None,
             with _OPENER.open(req, timeout=600) as resp:
                 audio = resp.read()
                 dur = resp.headers.get("X-Duration-Seconds")
+                ctype = resp.headers.get("Content-Type", "")
             if not audio:
                 last_err = "empty audio response"
+            elif not _looks_like_audio(audio, ctype):
+                # 200 OK but the body is HTML, not audio (almost always a transient
+                # Cloudflare challenge / error page). Writing it would corrupt the chunk,
+                # so retry on the same backoff the 5xx path uses; if it persists, return a
+                # clear error so the run fails loudly (main() names the chunk index).
+                snippet = audio[:80].decode("utf-8", "replace").replace("\n", " ").strip()
+                last_err = ("non-audio 200 response (Content-Type %r): %s"
+                            % (ctype, snippet))
+                if attempt < 3:
+                    time.sleep(2 * attempt)
+                    continue
+                return (last_err, None)
             else:
                 with open(out_path, "wb") as handle:
                     handle.write(audio)
