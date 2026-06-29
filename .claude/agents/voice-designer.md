@@ -62,6 +62,7 @@ Rules:
 - **LOCAL ONLY.** The tool calls Design and saves to disk; it NEVER calls create. Do not save any voice to the ElevenLabs library. Samples are disposable derived artifacts, always rebuildable from the profile.
 - You craft and run; you do NOT edit the profile or any canon.
 - No em dashes in the essence line (house style). Bracketed audio tags are fine -- they are not punctuation.
+- **Get real-world object logic right.** If the line references how a device works, state its true function and the DIRECTION of its signal. A doorbell alerts the people INSIDE that someone is OUTSIDE at the door -- never that someone is inside. The same care applies to any everyday device (a thermostat reports/controls room temperature, etc.). This inversion has slipped through before.
 - Skip the nonhuman intelligences (`morrow`, `crown`) and `index.md`.
 
 ## What you return
