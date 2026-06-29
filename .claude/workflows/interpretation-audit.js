@@ -8,6 +8,7 @@ export const meta = {
     { title: 'FirstRead', detail: 'two readers interpret each paragraph: prior-chapter recap + within-chapter gist + verbatim window' },
     { title: 'Reread', detail: 'each reader rereads with full context; which first-pass confusions resolved?' },
     { title: 'Compare', detail: 'clarity-auditor flags confusion that never resolves; spares working seeds' },
+    { title: 'Quiz', detail: 'smart agent builds a ~50Q exam; naive readers answer from their interpretation only; grader flags important misses as clarity gaps' },
   ],
 }
 
@@ -22,17 +23,23 @@ const BP = a.blueprint || a.bp || `${ROOT}/docs/40-blueprints/book-1/chapter-01-
 // a chapter with long-range callbacks; lower it to spend less.
 const WINDOW = Number(a.window) > 0 ? Number(a.window) : 10
 
+// Resilience: a single agent() call THROWS on retry-cap / API error / dropped connection, which would
+// abort the whole audit. Wrap the lone (non-parallel) calls so a transient drop retries instead of losing
+// the run. parallel() already absorbs failures (returns null per thunk), so it does not need this.
+async function tryAgent(make, tries) { tries = tries || 3; let last; for (let i = 0; i < tries; i++) { try { const r = await make(); if (r) return r; last = new Error('empty result'); } catch (e) { last = e; log('retry ' + (i + 1) + '/' + tries + ': ' + String(e).slice(0, 140)); } } throw last; }
+
 const SPLIT = { type: 'object', required: ['paragraphs'], properties: {
   paragraphs: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, opening: { type: 'string' }, text: { type: 'string' } } }, description: 'the STORY prose paragraphs in order (skip yaml frontmatter and everything from any "Revision Notes"/critique log onward). Each: n (1-based), opening (~6 words), text (full paragraph verbatim).' },
 } }
 
 phase('Split')
 log(`interpretation-audit (progressive, window=${WINDOW}, 2 readers): ${CH}`)
-const split = await agent(
+const split = await tryAgent(() => agent(
   `Read ${CH} and extract the STORY PROSE only, as an ordered list of paragraphs. SKIP the yaml frontmatter and SKIP everything from any "Revision Notes"/adjudication/critique log to the end of the file. A paragraph is a block separated by blank lines; keep short one-line paragraphs as their own entries; do not merge or summarize. Return each paragraph VERBATIM with a 1-based index n and its ~6-word opening. Return per schema.`,
   { schema: SPLIT, label: 'split', phase: 'Split' }
-)
+))
 const paras = (split && split.paragraphs) || []
+if (!paras.length) throw new Error('Split produced 0 paragraphs (truncated/dropped response?) -- aborting rather than auditing an empty chapter and reporting a false CLEAR')
 
 phase('Gist')
 // A reader carries the earlier chapter as fuzzy GIST, not verbatim. We precompute a one-clause gist per
@@ -42,12 +49,18 @@ phase('Gist')
 const GIST = { type: 'object', required: ['gists'], properties: {
   gists: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, gist: { type: 'string' } } }, description: 'one ultra-short clause (<=12 words) per paragraph -- what a reader would REMEMBER happened in it (who/what/where), no prose, keep the index n' },
 } }
-const gistRes = await agent(
-  `Here are the chapter's paragraphs in order. For EACH, write ONE ultra-short clause (<=12 words) capturing what a reader would REMEMBER happening in it -- the fuzzy gist memory you keep of earlier parts of a story (who/what/where), not the wording. Keep each paragraph's index n.\n\n${paras.map(p => `[${p.n}] ${p.text}`).join('\n\n')}\n\nReturn per schema: one gist per paragraph.`,
+// Chunked: emitting one gist per paragraph for the WHOLE chapter in a single structured output is a big
+// fragile response (truncates/drops on long chapters). Batch the paragraphs (~25 each) and let parallel()
+// run one agent per batch -- each sees only its batch, same prompt/intent -- then merge all returned gists.
+const GIST_BATCH = 25
+const gistBatches = []
+for (let i = 0; i < paras.length; i += GIST_BATCH) gistBatches.push(paras.slice(i, i + GIST_BATCH))
+const gistRuns = await parallel(gistBatches.map(batch => () => agent(
+  `Here are the chapter's paragraphs in order. For EACH, write ONE ultra-short clause (<=12 words) capturing what a reader would REMEMBER happening in it -- the fuzzy gist memory you keep of earlier parts of a story (who/what/where), not the wording. Keep each paragraph's index n.\n\n${batch.map(p => `[${p.n}] ${p.text}`).join('\n\n')}\n\nReturn per schema: one gist per paragraph.`,
   { schema: GIST, effort: 'low', label: 'gist', phase: 'Gist' }
-)
+)))
 const gistByN = {}
-;((gistRes && gistRes.gists) || []).forEach(g => { gistByN[g.n] = g.gist })
+gistRuns.filter(Boolean).forEach(res => ((res && res.gists) || []).forEach(g => { gistByN[g.n] = g.gist }))
 
 // Two readers, not three: the close-reader (the most capable) rarely bounces on a first pass, and the
 // audit's bar is 8th-grade legibility. 8th-grade is the bar; average-adult is the target reader.
@@ -90,10 +103,10 @@ phase('Recap')
 // is prepended and the first-read behaves exactly as before.
 let recap = ''
 if (priorScope) {
-  const recapRes = await agent(
+  const recapRes = await tryAgent(() => agent(
     `Produce a tight "PREVIOUSLY ON" recap to prepend to a first-time reader's memory before a clarity audit of the chapter at ${CH}. Read ${priorScope}. Read the current chapter's blueprint at ${BP} as your relevance filter (Information Deliberately Withheld, Narrative Purpose, Reader Information, setups/payoffs). Surface ONLY the earlier beats this chapter actually draws on or pays off -- reader-facing narrative memory, selective not exhaustive. This text is prepended verbatim as what the reader remembers from earlier chapters, so include only what a real reader would truly have retained, carry open questions as open, and expose no future or not-yet-shown reveal. Return per schema.`,
     { agentType: 'recap-generator', schema: RECAP, label: 'recap', phase: 'Recap' }
-  )
+  ))
   recap = (recapRes && recapRes.recap) || ''
   log(recap ? `recap: carried ${recap.length} chars of prior-chapter memory into the first read` : 'recap: prior chapter found but recap came back empty; first read runs cold')
 } else {
@@ -120,7 +133,7 @@ for (const L of LEVELS) for (let i = 0; i < paras.length; i++) {
   frMeta.push({ level: L.id, n: tn, opening: paras[i].opening })
   thunks.push(() => agent(
     `You are ${L.steer}\n\n${recapLead}${lead}${recent}\n\nReading for the first time, you have NOT read past paragraph [${tn}]. In your own words, what is happening in paragraph [${tn}], using only what is above? Mark confused if it tripped you. Per schema.`,
-    { agentType: 'lay-reader', schema: FR, label: `fr:${L.id}:${tn}`, phase: 'FirstRead' }
+    { agentType: 'lay-reader', schema: FR, model: 'haiku', label: `fr:${L.id}:${tn}`, phase: 'FirstRead' }
   ))
 }
 const firstReads = await parallel(thunks)
@@ -147,7 +160,7 @@ const rereads = await parallel(LEVELS.map(L => () => {
   if (!myConfused.length) return Promise.resolve({ resolutions: [] })
   return agent(
     `You are ${L.steer} You have now read this WHOLE chapter. Here it is in full:\n\n${fullProse}\n\nOn your FIRST read (paragraph by paragraph, without seeing ahead) these paragraphs tripped you:\n${myConfused.map(c => `[${c.n}] (${c.opening}) -- tripped by: ${c.what_tripped}`).join('\n')}\n\nFor EACH of those, now that you have the whole chapter: did the confusion RESOLVE (a later part explained it, or it was a setup that paid off) = resolved:true, or is it STILL unclear even with everything = resolved:false? Return per schema.`,
-    { agentType: 'lay-reader', schema: RR, label: `rr:${L.id}`, phase: 'Reread' }
+    { agentType: 'lay-reader', schema: RR, model: 'haiku', label: `rr:${L.id}`, phase: 'Reread' }
   )
 }))
 const rrByReader = {}
@@ -164,9 +177,78 @@ const evidence = LEVELS.map(L => ({
   first_pass_confused: confusedByReader[L.id].map(c => ({ n: c.n, opening: c.opening, tripped: c.what_tripped })),
   resolutions: rrByReader[L.id],
 }))
-const compare = await agent(
+const compare = await tryAgent(() => agent(
   `You are auditing this chapter for CLARITY using a strict progressive two-pass comprehension test. Read the blueprint at ${BP} (especially Information Deliberately Withheld, Narrative Purpose, Reader Information) for what is INTENDED to be withheld or seeded. Here is the evidence -- for each reading level, the paragraphs that tripped them on a strict FIRST read (no look-ahead, only a window of recent prior context), and whether each RESOLVED once they read the whole chapter:\n\n${JSON.stringify(evidence)}\n\nClassify each first-pass confusion:\n- A real CLARITY BUG = confusing on first read AND did NOT resolve with full context (or resolved only with excessive effort), AND is NOT in the blueprint's deliberately-withheld set. Weight first-pass confusion at the 8th-grade level most heavily.\n- A WORKING SEED = confusing on first read but RESOLVED by later context, or explicitly in the blueprint's deliberately-withheld/foreshadowing set. Intended craft, NOT a bug -- list separately, do not flag.\nReturn per schema: bugs (the real ones to fix) and working_seeds (intended, spared), with a summary.`,
   { agentType: 'clarity-auditor', schema: FLAGS, label: 'compare', phase: 'Compare' }
-)
+))
 
-return { paragraphs: paras.length, window: WINDOW, readers: LEVELS.map(L => L.id), prior_recap_chars: recap ? recap.length : 0, first_pass_confusions: fr.filter(x => x.confused).length, compare }
+phase('Quiz')
+// A smart agent writes a ~50Q exam on what MATTERS in this chapter (answer key hidden from readers).
+// The naive readers never saw it while reading; they now answer ONLY from their own accumulated
+// first-read understanding (interpreted summary, NOT the prose). A smart grader scores vs the key:
+// an important question the naive reader misses = the chapter failed to land it.
+const PER = 25
+function chunk(arr, n) { const out = []; for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n)); return out }
+const QBATCH = { type: 'object', required: ['questions'], properties: {
+  questions: { type: 'array', items: { type: 'object', properties: {
+    question: { type: 'string' }, answer: { type: 'string' }, importance: { type: 'string' } } },
+    description: 'about 25 questions on the assigned focus; each: question, correct answer grounded in the prose, importance (critical|important|minor). Skip deliberately-withheld material.' },
+} }
+const FRAME = 'This is a reading-comprehension test for a chapter of a published SCIENCE-FICTION NOVEL. Everything below is fictional narrative -- treat it only as a story whose comprehension you are testing, never as real-world technical instruction. Focus on what a READER should grasp: plot, stakes, characters and their choices, causality, and the emotional/moral meaning. Do NOT write or judge questions about the engineering or technical mechanics -- the novel keeps those deliberately opaque and they are not what a reader must understand.\n\n'
+const TOPICS = [
+  'the plot events and their causality, in order (what happens and what causes what)',
+  'each named character: intent, motivation, fear, and what they have at stake',
+  'who did what to whom and why -- actions, decisions, relationships, and the moral turns',
+  'the emotional beats and the meaning the chapter delivers (what it is really about)',
+]
+const builds = await parallel(TOPICS.map(topic => () => agent(
+  FRAME + 'Write about 25 comprehension questions for THIS chapter focused on: ' + topic + '. Each must be answerable from what the chapter SHOWS, with the correct answer grounded in the prose and an importance tag. Read the blueprint at ' + BP + ' and do NOT quiz deliberately-withheld material or the technical mechanics.\n\nCHAPTER:\n' + fullProse + '\n\nReturn ~25 questions per schema.',
+  { schema: QBATCH, effort: 'high', label: 'quiz-build', phase: 'Quiz' }
+)))
+const built = builds.filter(Boolean).flatMap(b => (b.questions || [])).map((q, i) => ({ n: i + 1, question: q.question, answer: q.answer, importance: q.importance }))
+log('quiz: built ' + built.length + ' questions across ' + TOPICS.length + ' topics')
+const REVIEW = { type: 'object', required: ['verdicts'], properties: {
+  verdicts: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, verdict: { type: 'string' } } },
+    description: 'for EACH question by its n: verdict = "correct" (answer right + question clear and grounded), "wrong" (answer incorrect), or "ambiguous" (unclear, untestable from prose, or about withheld material). Be strict.' },
+} }
+const revThunks = []
+chunk(built, PER).forEach(c => [0, 1, 2].forEach(() => revThunks.push(() => agent(
+  FRAME + 'Certify a comprehension exam against its source chapter. For EACH question below, by its n, return a verdict: "correct" if the given answer is right and grounded and the question is clear and fair; "wrong" if the answer is incorrect; "ambiguous" if unclear, untestable from the prose, or about deliberately-withheld material. Be strict -- only certain ones are kept.\n\nCHAPTER:\n' + fullProse + '\n\nQUESTIONS (with proposed answers):\n' + JSON.stringify(c) + '\n\nA verdict for every question, per schema.',
+  { schema: REVIEW, effort: 'high', label: 'quiz-review', phase: 'Quiz' }
+))))
+const reviews = await parallel(revThunks)
+const voteByN = {}
+reviews.filter(Boolean).forEach(rv => (rv.verdicts || []).forEach(v => { (voteByN[v.n] = voteByN[v.n] || []).push(v.verdict) }))
+const questions = built.filter(q => { const vs = voteByN[q.n] || []; return vs.filter(x => x === 'correct').length >= 2 && !vs.includes('ambiguous') })
+log('quiz: peer-certified ' + questions.length + ' of ' + built.length + ' (>=2 of 3 confirm, none ambiguous)')
+const ANS = { type: 'object', required: ['answers'], properties: {
+  answers: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, answer: { type: 'string' }, sure: { type: 'boolean' } } },
+    description: 'your best answer to each question from ONLY your memory; sure:false if guessing or unknown -- never invent' },
+} }
+const summaryByLevel = {}
+for (const L of LEVELS) summaryByLevel[L.id] = fr.filter(x => x.level === L.id).slice().sort((p, q) => p.n - q.n).map(x => '[' + x.n + '] ' + x.understanding).join('\n')
+const ansMeta = []
+const ansThunks = []
+for (const L of LEVELS) chunk(questions, PER).forEach(c => { ansMeta.push(L.id); ansThunks.push(() => agent(
+  'You are ' + L.steer + ' You read this chapter once. Here is YOUR OWN running understanding of it -- all you remember, and you do NOT have the text:\n\n' + summaryByLevel[L.id] + '\n\nAnswer these from memory ONLY. If you do not know or are guessing, set sure:false -- do not invent.\n\nQUESTIONS:\n' + c.map(q => '[' + q.n + '] ' + q.question).join('\n') + '\n\nPer schema.',
+  { agentType: 'lay-reader', schema: ANS, model: 'haiku', label: 'quiz-ans:' + L.id, phase: 'Quiz' }
+)) })
+const ansRuns = await parallel(ansThunks)
+const ansMap = { '8th-grade': {}, 'average-adult': {} }
+ansRuns.forEach((res, i) => { if (res && res.answers) res.answers.forEach(a => { ansMap[ansMeta[i]][a.n] = a }) })
+const GRADE = { type: 'object', required: ['results'], properties: {
+  results: { type: 'array', items: { type: 'object', properties: {
+    n: { type: 'number' }, importance: { type: 'string' }, grade_8th: { type: 'string' }, grade_avg: { type: 'string' }, clarity_gap: { type: 'boolean' }, note: { type: 'string' } } },
+    description: 'per question: grade_8th/grade_avg each correct|partial|wrong|blank vs the key; clarity_gap:true when a critical/important question is missed (wrong/blank) by the naive reader(s)' },
+} }
+const gradeThunks = chunk(questions, PER).map(c => () => agent(
+  FRAME + 'Grade a comprehension-exam chunk. Each item has the question, the correct KEY answer, its importance, and what the two naive readers answered from memory. Grade each reader correct|partial|wrong|blank against the key. Set clarity_gap:true when a CRITICAL or IMPORTANT question is missed (wrong/blank) by the reader(s); minor misses are not gaps.\n\n' + JSON.stringify(c.map(q => ({ n: q.n, question: q.question, key: q.answer, importance: q.importance, ans_8th: (ansMap['8th-grade'][q.n] || {}).answer || '(blank)', ans_avg: (ansMap['average-adult'][q.n] || {}).answer || '(blank)' }))) + '\n\nPer schema.',
+  { agentType: 'clarity-auditor', schema: GRADE, effort: 'high', label: 'quiz-grade', phase: 'Quiz' }
+))
+const gradeRuns = await parallel(gradeThunks)
+const results = gradeRuns.filter(Boolean).flatMap(g => (g.results || []))
+const gaps = results.filter(r => r.clarity_gap)
+const pct = key => { const ok = results.filter(r => r[key] === 'correct').length; return results.length ? Math.round(100 * ok / results.length) + '% (' + ok + '/' + results.length + ')' : 'n/a' }
+log('quiz: graded ' + results.length + '; ' + gaps.length + ' clarity gaps')
+
+return { chapter: CH, paragraphs: paras.length, window: WINDOW, readers: LEVELS.map(L => L.id), prior_recap_chars: recap ? recap.length : 0, first_pass_confusions: fr.filter(x => x.confused).length, compare, quiz: { built: built.length, certified: questions.length, graded: results.length, score_8th: pct('grade_8th'), score_avg: pct('grade_avg'), gaps } }

@@ -17,42 +17,77 @@ const MS = `docs/50-manuscript/${BOOK}/${CHAPTER}/${CHAPTER}.md`
 const BP = `docs/40-blueprints/${BOOK}/${CHAPTER}/blueprint.md`
 const ROOT = `audio/live-audio-book/${BOOK}/${CHAPTER}`
 
+// Resilience: a single agent() call THROWS on retry-cap / API error / dropped connection, which would
+// abort the whole production. Wrap the lone (non-parallel) calls so a transient drop retries instead of
+// losing the run. parallel() already absorbs failures (returns null per thunk), so it does not need this.
+async function tryAgent(make, tries) { tries = tries || 3; let last; for (let i = 0; i < tries; i++) { try { const r = await make(); if (r) return r; last = new Error('empty result'); } catch (e) { last = e; log('retry ' + (i + 1) + '/' + tries + ': ' + String(e).slice(0, 140)); } } throw last; }
+
 phase('Discover')
-const SCENES_SCHEMA = {
+// Boundaries first, prose second. Returning every scene's FULL verbatim prose in ONE structured array is
+// a big fragile response that truncates / drops the connection on a long chapter and aborts the run. This
+// pass returns ONLY the scene boundaries (n, slug, opening/closing anchors, already_done) -- a tiny robust
+// output that owns the boundaries once (so scenes stay contiguous + non-overlapping). Each to-produce
+// scene's bulky verbatim prose is then pulled in its own small call, in parallel, and merged back by scene.
+const META_SCHEMA = {
   type: 'object', additionalProperties: false,
   properties: { scenes: { type: 'array', items: {
     type: 'object', additionalProperties: false,
     properties: {
       n: { type: 'integer' }, slug: { type: 'string' },
-      prose: { type: 'string' }, already_done: { type: 'boolean' },
-    }, required: ['n', 'slug', 'prose', 'already_done'],
+      first_words: { type: 'string' }, last_words: { type: 'string' },
+      already_done: { type: 'boolean' },
+    }, required: ['n', 'slug', 'first_words', 'last_words', 'already_done'],
   } } }, required: ['scenes'],
 }
 
-const disc = await agent(
-  'Split a chapter of the novel "The Unnecessary" into its SCENES for live-audiobook production.\n' +
+const disc = await tryAgent(() => agent(
+  'Split a chapter of the novel "The Unnecessary" into its SCENES for live-audiobook production -- BOUNDARIES ONLY, do NOT return the full prose here.\n' +
   'Manuscript: ' + MS + '\nBlueprint (scene list + titles): ' + BP + '\n' +
   'Scenes in the manuscript are separated by "---" divider lines. For EACH scene return:\n' +
   '- n: 1-based scene number\n' +
   '- slug: "scene-0N-<short-kebab-title>" from the blueprint scene title, zero-padded; if a dir already exists under ' + ROOT + '/ for that scene, reuse that exact slug\n' +
-  '- prose: the FULL verbatim manuscript text of that scene (everything between its dividers)\n' +
+  '- first_words: the scene\'s opening ~10 words, VERBATIM from the manuscript (the first words after its starting divider)\n' +
+  '- last_words: the scene\'s closing ~10 words, VERBATIM from the manuscript (the last words before its ending divider)\n' +
   '- already_done: true ONLY if the file ' + ROOT + '/<slug>/scene-live.mp3 already exists on disk\n' +
-  'Scenes must be CONTIGUOUS and NON-OVERLAPPING: each prose block is exactly the text between its dividers, and no line appears in two scenes (overlap causes duplicated audio when scenes are stitched).\n' +
+  'Scenes must be CONTIGUOUS and NON-OVERLAPPING: each is exactly the block between its dividers, and no line appears in two scenes (overlap causes duplicated audio when scenes are stitched).\n' +
   'Return every scene, in order.',
-  { schema: SCENES_SCHEMA, phase: 'Discover', agentType: 'canon-scout' }
-)
+  { schema: META_SCHEMA, phase: 'Discover', agentType: 'canon-scout' }
+))
 
 let scenes = (disc && disc.scenes) || []
 if (ONLY) scenes = scenes.filter(s => ONLY.includes(s.slug))
-const todo = scenes.filter(s => !s.already_done)
-log('chapter has ' + scenes.length + ' scene(s); ' + todo.length + ' to produce, ' + (scenes.length - todo.length) + ' already done')
-if (!todo.length) return { chapter: CHAPTER, produced: [], note: 'all scenes already produced' }
+const todoMeta = scenes.filter(s => !s.already_done)
+log('chapter has ' + scenes.length + ' scene(s); ' + todoMeta.length + ' to produce, ' + (scenes.length - todoMeta.length) + ' already done')
+if (!todoMeta.length) return { chapter: CHAPTER, produced: [], note: 'all scenes already produced' }
+
+// Pull each to-produce scene's verbatim prose in its own small call (parallel). The boundary pass above
+// fixed the anchors, so each pull just transcribes the one block between them -- a bounded per-call output.
+const PROSE_SCHEMA = { type: 'object', additionalProperties: false, properties: { prose: { type: 'string' } }, required: ['prose'] }
+const proseThunks = todoMeta.map(s => () => agent(
+  'Return the FULL verbatim manuscript prose of ONE scene of the novel "The Unnecessary", for live-audiobook production.\n' +
+  'Manuscript: ' + MS + '\n' +
+  'Scenes are separated by "---" divider lines. Return scene ' + s.n + ' of ' + scenes.length + ': the divider-delimited block that BEGINS with "' + s.first_words + '" and ENDS with "' + s.last_words + '".\n' +
+  'Return everything between that scene\'s "---" dividers, VERBATIM and complete, exactly as written in the manuscript -- this scene ONLY. Do NOT include the divider lines, do NOT recap the previous scene, and do NOT include any of the next scene.\n' +
+  'Per schema.',
+  { schema: PROSE_SCHEMA, phase: 'Discover', agentType: 'canon-scout' }
+))
+const proseRuns = await parallel(proseThunks)
+// Retry-sweep: a dropped/null pull comes back empty; re-run just those once before producing audio from it.
+const missing = proseRuns.map((r, k) => ((r && r.prose) ? -1 : k)).filter(k => k >= 0)
+if (missing.length) {
+  log('prose retry-sweep: re-pulling ' + missing.length + ' scene(s)')
+  const re = await parallel(missing.map(k => proseThunks[k]))
+  missing.forEach((k, j) => { if (re[j]) proseRuns[k] = re[j] })
+}
+const todo = todoMeta.map((s, i) => ({ n: s.n, slug: s.slug, prose: (proseRuns[i] && proseRuns[i].prose) || '', already_done: s.already_done }))
+const emptyProse = todo.filter(s => !String(s.prose).trim())
+if (emptyProse.length) throw new Error('Discover: ' + emptyProse.length + ' scene(s) returned empty prose (' + emptyProse.map(s => s.slug).join(', ') + ') -- aborting rather than producing audio from a truncated/dropped split')
 
 phase('Produce')
 const reports = []
 for (const s of todo) {                 // SEQUENTIAL: the voice server is a single local model
   const sceneDir = ROOT + '/' + s.slug
-  const r = await agent(
+  const r = await tryAgent(() => agent(
     'Produce the LIVE / dramatized audiobook for ONE scene, fully and autonomously, per your standing rules and the proven pipeline.\n' +
     'Scene: Chapter "' + CHAPTER + '", scene ' + s.n + ' -> ' + s.slug + '\n' +
     'Scene directory (create it; write cues.json + voice/ here): ' + sceneDir + '\n' +
@@ -62,7 +97,7 @@ for (const s of todo) {                 // SEQUENTIAL: the voice server is a sin
     'Run the WHOLE pipeline yourself: author ' + sceneDir + '/cues.json (all adaptation rules) -> Gemini gate against this exact prose, revise until CLEAN -> resolve/generate SFX + music + filters by scope (reuse book/chapter assets; generate only genuinely-new ones via ElevenLabs REST) -> render (scripts/render-voice-stems.py ' + sceneDir + '/cues.json ' + CRED + ') -> normalize (scripts/normalize-stems.py ' + sceneDir + '/cues.json) -> mix (scripts/mix-live-scene.py ' + sceneDir + '/cues.json) -> ' + sceneDir + '/scene-live.mp3.\n' +
     'Report (<120 words): cue sheet path, Gemini verdict + revisions, assets generated vs reused, final mp3 path + duration, and any blocker.',
     { label: 'scene:' + s.slug, phase: 'Produce', agentType: 'live-narration-director' }
-  )
+  ))
   reports.push({ slug: s.slug, report: r })
 }
 return { chapter: CHAPTER, produced: reports.map(x => x.slug), reports }

@@ -35,6 +35,11 @@ const AUDIT = { type: 'object', required: ['grounded', 'issues'], properties: {
   summary: { type: 'string' },
 } }
 
+// Resilience: a single agent() call THROWS on retry-cap / API error / dropped connection, which would
+// abort the whole build. Wrap the lone (non-parallel) calls so a transient drop retries instead of losing
+// the run. parallel() already absorbs failures (returns null per thunk), so it does not need this.
+async function tryAgent(make, tries) { tries = tries || 3; let last; for (let i = 0; i < tries; i++) { try { const r = await make(); if (r) return r; last = new Error('empty result'); } catch (e) { last = e; log('retry ' + (i + 1) + '/' + tries + ': ' + String(e).slice(0, 140)); } } throw last; }
+
 phase('Ground')
 log(`build-district: "${districtName}" (slug ${districtSlug})`)
 const [inventory, rails, templates] = await parallel([
@@ -54,21 +59,21 @@ const [inventory, rails, templates] = await parallel([
 const inv = inventory || { established: '(scout failed)', file_layout: '', placement: '', stubs: '' }
 
 phase('Populate')
-const populate = await agent(
+const populate = await tryAgent(() => agent(
   `Author the district "${districtName}" (slug ${districtSlug}) as a geography entity tree for "The Unnecessary" (repo ${ROOT}), implementing ${ROOT}/${SPEC} and using the templates in ${ROOT}/docs/20-canon/world/_templates/.\n\nGROUND STRICTLY in this canon inventory. Do NOT invent geography that contradicts it; where canon is silent, create a minimal one-line STUB, never fabricated detail:\nESTABLISHED:\n${inv.established}\n\nEXISTING FILE LAYOUT (integrate with, do NOT delete or duplicate existing canon):\n${inv.file_layout}\n\nPLACEMENT:\n${inv.placement}\n\nSTUB vs FLESH:\n${inv.stubs}\n\nBuild the fractal tree per the spec: the city -> "${districtName}" (district, withdrawal status in prose) -> the established PLACES as building entities (each with a parent edge to the district and an addressed-to linear-reference) -> the INTERSECTIONS + SEGMENTS connecting them (length_m ONLY where canon gives/strongly implies a distance; otherwise omit length or mark approximate -- never fabricate precise distances). Use the file+sibling-folder convention; parent on the child; fenced yaml edge blocks. Flesh out only what canon established for this district; everything else is a one-line stub. Return UNDER 150 words: the tree created (path list), grounded vs stubbed, and any canon-forced judgment call.`,
   { agentType: 'entity-author', label: 'populate', phase: 'Populate' }
-)
+))
 
 phase('Verify')
-const verify = await agent(
+const verify = await tryAgent(() => agent(
   `Verify and finalize the "${districtName}" geography foundation in ${ROOT}. (1) Run \`python3 scripts/validate-geography.py\`, \`python3 scripts/validate-metadata.py\`, \`python3 scripts/validate-links.py\`; FIX every error in the new geography files or the scripts until ALL THREE pass -- fix the real problem, never weaken a check to pass it. (2) Then write ${ROOT}/scripts/build-geo-map.py (stdlib, importing entity_graph) that DERIVES and writes a generated view -- a Mermaid street-network map + a containment tree + a "what's on each street" index -- into ${ROOT}/docs/20-canon/world/_generated/ each with a "DO NOT EDIT - generated" banner; run it. Return UNDER 130 words: final validator results (quote the PASS lines), what the map generator produced, and what you fixed.`,
   { agentType: 'systems-engineer', label: 'verify', phase: 'Verify' }
-)
+))
 
 phase('Audit')
-const audit = await agent(
+const audit = await tryAgent(() => agent(
   `Adversarially AUDIT the newly-authored "${districtName}" geography tree under ${ROOT}/docs/20-canon/world/** against established canon. Read the new entity files, then Ch1/Ch2 manuscript (${ROOT}/docs/50-manuscript/book-1/**), blueprints (${ROOT}/docs/40-blueprints/book-1/**), and the master timeline (${ROOT}/docs/20-canon/timeline/**). Catch any FABRICATION (a street, distance, place, or detail invented and stated as canon that the source does not support) or CONTRADICTION (geography conflicting with Ch1/Ch2). A clearly-marked just-in-time stub is fine; an invented precise fact is not. Be skeptical and specific. Return per the schema.`,
   { agentType: 'continuity-auditor', schema: AUDIT, label: 'audit', phase: 'Audit' }
-)
+))
 
 return { district: { slug: districtSlug, name: districtName }, inventory: inv, rails, templates, populate, verify, audit }

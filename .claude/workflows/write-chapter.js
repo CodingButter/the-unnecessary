@@ -42,6 +42,11 @@ const REPORT = {
   required: ['ok', 'summary'],
 }
 
+// Resilience: a single agent() call THROWS on retry-cap / API error / dropped connection, which would
+// abort the whole pipeline. Wrap the lone (non-parallel) calls so a transient drop retries instead of
+// losing the run; on a real result it returns immediately, so behavior is unchanged on success.
+async function tryAgent(make, tries) { tries = tries || 3; let last; for (let i = 0; i < tries; i++) { try { const r = await make(); if (r) return r; last = new Error('empty result'); } catch (e) { last = e; log('retry ' + (i + 1) + '/' + tries + ': ' + String(e).slice(0, 140)); } } throw last; }
+
 // House rules shared by the creative (Opus) stages.
 const RULES = `This is the literary near-future novel "The Unnecessary". Authoritative grounding for THIS chapter is the context pack at ${NOVEL}/${pack} (canon, the Style Guide, character profiles, continuity, the project rules in CLAUDE.md) and the approved blueprint at ${NOVEL}/${blueprint} (the scene-by-scene plan). Defer to them; the blueprint provides every per-chapter specific (viewpoint, date, scenes, beats, ending).
 HOUSE STYLE: grounded, restrained, serious, close-third on a single viewpoint per chapter, past tense, free indirect, subtext over explanation, no cyberpunk cliches, quiet dread that accumulates beneath a competent surface. NO EM DASHES anywhere (verify with grep before finishing).
@@ -50,13 +55,13 @@ CANON SAFETY: hold the chapter's single viewpoint; the reader knows only what th
 // ---- Stage 1: Prep (build the context pack) ----
 phase('Prep')
 log(`write-chapter: chapter ${num} "${title}" (slug ${slug})`)
-const prep = await agent(
+const prep = await tryAgent(() => agent(
   `Run EXACTLY this command from ${NOVEL} and report the result:\n` +
   `  python3 scripts/build-context-pack.py ${manifest}\n` +
   `This builds the Chapter ${ch.number} context pack at ${pack}. Confirm the pack file exists afterward and report its approximate token estimate. ` +
   `If the command fails (for example the per-chapter manifest ${manifest} or the blueprint ${blueprint} does not exist), STOP and report the exact error: the precondition is that the chapter's blueprint and context-manifest already exist.`,
   { label: `ch${num}:prep`, phase: 'Prep', effort: 'low', schema: REPORT }
-)
+))
 if (prep && prep.ok === false) {
   log('Prep failed; halting before drafting. Fix the precondition (blueprint + manifest) and rerun.')
   return { halted: 'prep', prep }
@@ -64,7 +69,7 @@ if (prep && prep.ok === false) {
 
 // ---- Stage 2: Draft (Opus) ----
 phase('Draft')
-const draft = await agent(
+const draft = await tryAgent(() => agent(
   // Role (prose writer, house style, viewpoint, canon-safety, reveal discipline, no-em-dash)
   // lives in the chapter-drafter crew file; this prompt passes only the per-chapter task.
   `Authoritative grounding for THIS chapter is the context pack at ${NOVEL}/${pack} and the approved blueprint at ${NOVEL}/${blueprint}; defer to them (the blueprint provides every per-chapter specific: viewpoint, date, scenes, beats, ending). Read the pack and the blueprint in full, then WRITE the complete prose of "${title}" (chapter ${ch.number}) to a NEW file ${NOVEL}/${manuscript}.\n` +
@@ -72,27 +77,27 @@ const draft = await agent(
   `CHARACTER FOCUS: load the blueprint's "## Character Focus" targets and, for every focused character, pull their "Voice and Speech" section plus their heritage signals (accent under "Movement and voice", "Birthplace" and "Faction or class" in Basic Information, and "Early Life" under History and Background) from their profile in the pack. Render each focused character in that specific voice and bring them to their intended focus level (blur, sketch, sharp, or crisp) along the named axes (physical, emotional, interior). Deliver it image over inventory, never a trait list; respect their reveal tags; and actively write the particularity IN, so no character defaults to the unmarked cultural norm. Do not pad a scene to hit a level: if a target is not motivated by the scene, hold to the lower level.\n` +
   `Write the best chapter you can: precise, restrained, alive on the page. When done, grep the file to confirm ZERO em dashes, confirm the ending matches the blueprint, and confirm no forbidden reveal leaked. Report word count and those confirmations. Do not write memories.`,
   { agentType: 'chapter-drafter', label: `ch${num}:draft`, phase: 'Draft', schema: REPORT }
-)
+))
 
 // ---- Stage 3: Critique (Gemini via the script) ----
 phase('Critique')
-const crit = await agent(
+const crit = await tryAgent(() => agent(
   `Run EXACTLY this command from ${NOVEL} and report the result:\n` +
   `  python3 scripts/gemini-critique.py ${manuscript} --pack ${pack} --blueprint ${blueprint} --out ${critique} --manifest ${manifest}\n` +
   `(The --manifest flag rebuilds the pack first so the critique can never run against a stale snapshot.)\n` +
   `This sends the drafted chapter to gemini-2.5-pro for an editorial critique that lands in ${critique} (a SEPARATE file; the prose is not touched). The critique now also applies a FOCUS-DELIVERY lens: for each character named in the blueprint's "## Character Focus", it judges whether the draft delivered that character's revelation target (physical, emotional, interior) to the intended focus level and whether they read in their specific voice and heritage rather than the cultural default. This is a judgment check alongside the existing consistency and contradiction critique. After it succeeds, READ ${critique} and return a concise summary of the highest-value suggestions grouped by severity, plus the total number of suggestions; surface any focus-delivery shortfalls as their own group, naming the character and the axis that fell short. If the command fails, report the exact error and do not invent a critique.`,
   { label: `ch${num}:critique`, phase: 'Critique', effort: 'low', schema: REPORT }
-)
+))
 
 // ---- Stage 4: Adjudicate (Opus) ----
 phase('Adjudicate')
-const adj = await agent(
+const adj = await tryAgent(() => agent(
   `${RULES}\n\nYou are Opus, the author, adjudicating an editor's notes on your own chapter. READ the drafted chapter ${NOVEL}/${manuscript} and the Gemini critique ${NOVEL}/${critique}.\n` +
   `For EACH Gemini suggestion, decide: ACCEPT (it genuinely improves the chapter and respects canon, style, viewpoint, and reveal-safety) or REJECT (it violates the voice, canon, reveal timing, or is not an improvement). Apply every ACCEPTED change directly to ${manuscript}; you are the only hand on the prose. Reject anything that would break the house style, leak a reveal, or contradict canon, even if it sounds like a polish.\n` +
   `Append an "## Adjudication Log" section at the END of ${manuscript} (after the prose) listing each suggestion with your decision (accept or reject) and a one-line reason. Keep the chapter status "draft" (the author approves separately).\n` +
   `Before finishing: grep to confirm STILL zero em dashes, the ending is unchanged in intent, and no forbidden reveal was introduced by any accepted edit. Report: number accepted, number rejected, final word count, and the confirmations. Do not write memories.`,
   { label: `ch${num}:adjudicate`, phase: 'Adjudicate', schema: REPORT }
-)
+))
 
 if (stopAfter === 'adjudicate' || stopAfter === 'manuscript') {
   log(`Stopping after Adjudicate (stopAfter="${stopAfter}"); narration script deferred.`)
@@ -113,26 +118,26 @@ FOUR REGISTERS, MARKED SPARINGLY: tag a register only where it GENUINELY shifts,
 PACING: mark deliberate pauses where a human reader would actually pause -- for breath, for weight, before a turn, after a landing. Use [beat] for a short breath and [hold] for a heavier, deliberate pause. Place them intentionally and sparingly, NOT at every sentence; the steady voice and ordinary punctuation carry normal rhythm. These markers are how you control pacing now -- the renderer turns each [beat]/[hold] into an exact silence -- so you no longer need ellipses at all.
 ELLIPSES: do NOT sprinkle ellipses. On the voice server they cause garble and runaway multi-second pauses. Use at most one or two in the entire chapter, only for a genuine held beat, and always placed AFTER existing punctuation. Never write ",...". Trust the prose's own commas and periods plus the steady voice to carry the line-level rhythm; the tags and ordinary punctuation do the rest. Grounded and austere throughout, never theatrical.`
 
-const narrWrite = await agent(
+const narrWrite = await tryAgent(() => agent(
   `${DIRECTOR}\n\nREAD the final prose at ${NOVEL}/${manuscript} (prose body only; ignore the YAML front matter and the "## Adjudication Log"). WRITE ${NOVEL}/${narrativeScript} with exactly: (1) YAML front matter (document_type "narration-script", status "draft", authority "narration", title "${title} (Narration Script)", a one-line summary, tags [narration, book-1, chapter-${num}, performance-script], related ["./chapter-${num}-${slug}.md"], source_documents ["${manuscript}"]); (2) a DETAILED "## Voice Direction" section (overall direction, per-register approach, pacing philosophy, the intensity arc and the two peaks; not spoken); (3) a "## Performance Script" section that OPENS with a spoken chapter-title line (the chapter number spelled as a word, for example "[measured] Chapter Two. ... ${title}.") and then the prose densely and purposefully directed with audio tags and ellipses, scene breaks as lines of ---.\n` +
   `VERIFY: stripping every tag and ellipsis leaves words IDENTICAL to the manuscript prose (run a token diff); ZERO em dashes; no forbidden reveal. Report word-for-word fidelity (with your diff method), approximate tag count, and your main directorial choices per register. Do not write memories.`,
   { label: `ch${num}:narr-write`, phase: 'Narration Script', schema: REPORT }
-)
+))
 
-const narrCrit = await agent(
+const narrCrit = await tryAgent(() => agent(
   `Run EXACTLY this command from ${NOVEL} and report the result:\n` +
   `  python3 scripts/gemini-critique.py ${narrativeScript} --mode narration --reference ${manuscript} --out ${narrCritique}\n` +
   `This sends the narration script to gemini-2.5-pro acting as an audiobook director, judging fidelity to the prose, direction density, register distinction, pacing, v3 tag craft, and tone fit. The critique lands in ${narrCritique} (a SEPARATE file). After it succeeds, READ ${narrCritique} and summarize the key suggestions grouped by severity, with a total count. If the command fails, report the exact error and do not invent a critique.`,
   { label: `ch${num}:narr-critique`, phase: 'Narration Script', effort: 'low', schema: REPORT }
-)
+))
 
-const narrFix = await agent(
+const narrFix = await tryAgent(() => agent(
   `${DIRECTOR}\n\nYou are the director adjudicating an editor's notes on YOUR narration script. READ ${NOVEL}/${narrativeScript} and the critique ${NOVEL}/${narrCritique}.\n` +
   `For EACH suggestion decide ACCEPT or REJECT and apply accepted changes directly to ${narrativeScript} (still adding ONLY tags and ellipses; never change a prose word). Reject anything that would tip into melodrama or contradict the book's register.\n` +
   `Append a "## Narration Adjudication Log" section at the END of the file listing each note with your decision and a one-line reason.\n` +
   `VERIFY again: stripping tags/ellipses leaves words identical to ${manuscript}; ZERO em dashes; no forbidden reveal. Report accepted/rejected counts and the final tag count. Do not write memories.`,
   { label: `ch${num}:narr-fix`, phase: 'Narration Script', schema: REPORT }
-)
+))
 
 return {
   chapter: { number: ch.number, slug, title },
