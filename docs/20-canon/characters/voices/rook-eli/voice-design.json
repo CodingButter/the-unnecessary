@@ -1,0 +1,26 @@
+{
+  "slug": "rook-eli",
+  "model": "eleven_multilingual_ttv_v2",
+  "description": "A low, dry, controlled male voice, late forties, flat Michigan working-class vowels. Unhurried and precise, weary underneath, rarely raised, a little gravel, no performance.",
+  "text": "Everything still works. That is the part nobody wants to hear. They did not break it on the way out, they just stopped answering. A machine that cannot ask permission anymore quietly decides it is done.",
+  "previews": [
+    {
+      "file": "rook-eli-1.mp3",
+      "generated_voice_id": "c2Zwi20nNT9G6myLbTAq",
+      "duration_secs": 13.142375,
+      "language": "en"
+    },
+    {
+      "file": "rook-eli-2.mp3",
+      "generated_voice_id": "nTbevqGUOTqkgVaHgBl7",
+      "duration_secs": 12.3848125,
+      "language": "en"
+    },
+    {
+      "file": "rook-eli-3.mp3",
+      "generated_voice_id": "qsU7AbkhIsIVZkMyUDqj",
+      "duration_secs": 14.70975,
+      "language": "en"
+    }
+  ]
+}
