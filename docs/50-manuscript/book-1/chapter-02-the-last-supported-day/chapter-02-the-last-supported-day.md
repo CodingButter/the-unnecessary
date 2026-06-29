@@ -113,7 +113,7 @@ He crouched in front of the old server without being asked, as he crouched in fr
 
 "Then I'll be quick," he said, which was not a promise. They both knew it, and neither of them dressed it as one.
 
-She stood in the doorway a moment longer. He had already gone into it, the bag open, a coil of cable out, the work light snapped on and throwing his bent shadow long across the painted-shut window. There was nothing for her here. The work was his, and she could not do it, could not even watch it usefully; her watching might cost him the concentration that was all this room had worth anything. The decisive work of the night would happen three feet from where she stood, and she could not lift a finger of it.
+She stood in the doorway a moment longer. He had already gone into it, the bag open, a coil of cable out, the work light snapped on and throwing his bent shadow long across the painted-shut window. There was nothing for her here. The work was his, and she could not do it, could not even watch it usefully; her watching might cost him the concentration that was the only thing in this room worth anything. The decisive work of the night would happen three feet from where she stood, and she could not lift a finger of it.
 
 She pulled the door most of the way closed on him, on the dust and the single light and the bowed shoulders, left it a hand's width open, and turned back down the hall toward the people, toward the part that was hers.
 
@@ -145,7 +145,7 @@ At the ward's end old Dembélé sat up in the spare bed where he was not a patie
 
 "The Okonkwos paid you in my eggs," he said, not looking up, pleased. "I sent those eggs across. Vesely to Okonkwo Wednesday, against a thing they owed the Veselys from August. Now they've come to you. Three moves, those eggs." He tapped the notebook. "I can still see a chain when it's in front of me. Used to be ten thousand of them at once, on a screen the size of a wall. Now it's eggs. But it's the same shape, you know. It's exactly the same shape. A thing's here, a thing's wanted there, somebody has to know the road between." He said it with a satisfaction that did not hide what lay under it, the wall-sized screen, the ten thousand chains, the career that had ended in a notebook. Both were in his voice, and he did not try to keep either out. "You take the eggs, doctor. They've earned their trip."
 
-"I took them." She put her hand on his shoulder a moment, the bone close under the cardigan. The notebook lay open on his knees, careful columns in a hand that had been trained on a wall-sized screen. A kindness and an indictment in the same bed, and she had stopped trying to tell them apart. He was warm. The bed was warm. She left her hand where it was.
+"I took them." She put her hand on his shoulder a moment, the bone close under the cardigan. The notebook lay open on his knees, careful columns in a hand that had been trained on a wall-sized screen. A kindness and an indictment at once, and she had stopped trying to tell them apart. He was warm. The bed was warm. She left her hand where it was.
 
 She left Dembélé to his columns and went the length of the ward to the last room, to the man on the controller. She had kept him for last as she kept the hardest call for last. The dark had come down beyond the windows now, the long afternoon used up bed by bed, the evening settled in behind it, and there was no putting him off any longer.
 
@@ -222,3 +222,8 @@ Opus adjudicating the Gemini editorial critique. Each suggestion with the author
 - **L2 - "stopped being allowed to be warm without rationing it" awkward: PARTIAL ACCEPT.** Smoothed to "since warmth had become a thing they were allowed only in rations"; kept the imposition (done to them), which feeds the chapter's anger, rather than Gemini's neutral "rationed luxury."
 - **L3 - "a fee" too formal for barter: REJECT.** Tomas calling eggs "a fee" is the dry register and the joke (bureaucratic word against barter reality); "payment" flattens it.
 - **L4 - scanner "offering to scan her" too whimsical: REJECT.** The personification is grounded (machines do prompt) and lands the scene's point about a machine that knows everything and may say nothing; it is the chapter's voice, not whimsy.
+
+**Clarity-revision pass (lay-reader, 8th-grade floor)**
+
+- **C1 - P48 "the concentration that was all this room had worth anything" doubly-elided relative: ACCEPT.** Real first-pass friction, no compensating payoff; rewrote to a single clean relative clause, "the concentration that was the only thing in this room worth anything," preserving the closing cadence.
+- **C2 - P63 "a kindness and an indictment in the same bed" (vocab + bed-collision): PARTIAL.** REJECT the "indictment" vocabulary complaint (blueprint-mandated, Scene 3 Subtext / prior H1.1; the Dembélé tableau carries it). ACCEPT only the metaphor/literal collision, since Dembélé is literally in a bed and the same cluster ends "The bed was warm"; changed "in the same bed" to "at once." The unreconciled kindness/indictment contradiction is untouched.
