@@ -49,6 +49,15 @@ source_documents:
 
 ![Portrait of Marisol Vega](../portraits/vega-marisol.jpg)
 
+
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/vega-marisol/vega-marisol-1.mp3"></audio>
+
+[Play voice](../voices/vega-marisol/vega-marisol-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet four inches, sturdy and short, with the settled weight of a woman who has stood behind a counter for thirty years. Her posture is square and planted, shoulders rounded forward a little from years of reaching across the counter and lifting cases. She does not loom. She holds her ground.

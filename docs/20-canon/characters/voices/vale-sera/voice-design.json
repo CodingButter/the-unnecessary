@@ -1,0 +1,27 @@
+{
+  "slug": "vale-sera",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (Canadian). Female, mid-40s. Clear, professional, studio quality. Persona: composed security director. Emotion: calm, controlled, dry. Level low-pitched voice, even and quiet, with a faint neutral Toronto accent worn down by an international working life. Speaks in short operational statements, unhurried but never sluggish, the cadence of someone used to being obeyed without ever raising her voice.",
+  "text": "[serious] I am not here to threaten you. I am here to tell you what happens next... A system no one can stop is not freedom. It is the next failure, waiting. [deliberate] Stand down, and no one has to get hurt.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "vale-sera-1.mp3",
+      "generated_voice_id": "00VwOQnUR6zLn4JL24DJ",
+      "duration_secs": 15.0754375,
+      "language": "en"
+    },
+    {
+      "file": "vale-sera-2.mp3",
+      "generated_voice_id": "JWvf0OKXs2gudbhdwAhN",
+      "duration_secs": 14.4485,
+      "language": "en"
+    },
+    {
+      "file": "vale-sera-3.mp3",
+      "generated_voice_id": "1y5C1czeqmB6wpY7wyjZ",
+      "duration_secs": 16.5121875,
+      "language": "en"
+    }
+  ]
+}

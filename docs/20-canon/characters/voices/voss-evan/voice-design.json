@@ -1,0 +1,27 @@
+{
+  "slug": "voss-evan",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American). Male, late 20s. Premium, polished. Persona: charming idle heir. Emotion: warm, breezy, unbothered. A warm, fluent, easy baritone with the placeless private-school non-accent of enclave media; relaxed pacing, casual superlatives, soft easy laughs, every sentence settling back on its heels like nothing has ever once been urgent.",
+  "text": "[warm] Hey, relax... it's handled, genuinely. The lake at sunset, the good table, all of it. [laughs] No, the best table. Don't worry about any of it, that's my whole job. It always works out.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "voss-evan-1.mp3",
+      "generated_voice_id": "mEIuMCzO9PeLPg5NNhMl",
+      "duration_secs": 13.403625,
+      "language": "en"
+    },
+    {
+      "file": "voss-evan-2.mp3",
+      "generated_voice_id": "DSsIZzvLZI5fId2VCTjQ",
+      "duration_secs": 15.806875,
+      "language": "en"
+    },
+    {
+      "file": "voss-evan-3.mp3",
+      "generated_voice_id": "zRFIJ2yhfVkqevvJhtAr",
+      "duration_secs": 17.6354375,
+      "language": "en"
+    }
+  ]
+}

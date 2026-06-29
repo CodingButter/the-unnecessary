@@ -48,6 +48,14 @@ source_documents:
 
 ![Portrait of Talia Reed](../portraits/reed-talia.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/reed-talia/reed-talia-1.mp3"></audio>
+
+[Play voice](../voices/reed-talia/reed-talia-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet eight inches tall with an athletic build. [canon] She carries the durable, on-her-feet conditioning of a person who walks the neighborhood all day rather than the look of a gym; solid through the shoulders, easy on her feet. Her posture is grounded and squared, the stance of a teacher who learned to hold a room and a coordinator who learned to hold a meeting; she plants rather than looms. [open]

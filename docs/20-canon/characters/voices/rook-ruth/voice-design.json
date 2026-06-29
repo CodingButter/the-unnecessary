@@ -1,0 +1,27 @@
+{
+  "slug": "rook-ruth",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English. Female, late 60s. High quality, clear and resonant.\nPersona: Community librarian. Emotion: warm, patient, precise.\nA trained contralto that carries a story to the back of a room without rising, a flat Michigan vowel under the clarity; lightly aged but steady, never frail. Measured, well-formed sentences that gently draw the real question out of you.",
+  "text": "[warm] Come in, the lamp is on. [curious] Now... what is it you're really looking for? Not the title. The question under it. A book needs no one's permission to be read, and neither, child, do you.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "rook-ruth-1.mp3",
+      "generated_voice_id": "CDzhXW1bGWtYymBgaZ3N",
+      "duration_secs": 17.4003125,
+      "language": "en"
+    },
+    {
+      "file": "rook-ruth-2.mp3",
+      "generated_voice_id": "lSCMLZ29ZWKacchPC0nd",
+      "duration_secs": 16.930125,
+      "language": "en"
+    },
+    {
+      "file": "rook-ruth-3.mp3",
+      "generated_voice_id": "djT0azxsfwo9km1CyMEy",
+      "duration_secs": 18.210125,
+      "language": "en"
+    }
+  ]
+}

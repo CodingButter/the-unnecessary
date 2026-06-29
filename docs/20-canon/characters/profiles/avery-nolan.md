@@ -48,6 +48,14 @@ source_documents:
 
 ![Portrait of Nolan Avery](../portraits/avery-nolan.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/avery-nolan/avery-nolan-1.mp3"></audio>
+
+[Play voice](../voices/avery-nolan/avery-nolan-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Heavyset, with a damaged right knee. [canon] A big, broad, thick-through frame gone heavy with age, strong in the shoulders and arms from a lifetime of physical work, settled in the middle. He walks with a metal brace he repairs himself. [canon] His posture is the careful, weight-shifting stance of a man managing a bad knee all day, planted and deliberate, slow to rise and slow to sit. [canon-adjacent]

@@ -50,6 +50,14 @@ source_documents:
 
 ![Portrait of Marcus Vance](../portraits/vance-marcus.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/vance-marcus/vance-marcus-1.mp3"></audio>
+
+[Play voice](../voices/vance-marcus/vance-marcus-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet nine or ten, lean and wiry, built for endurance rather than mass, the leanness of a man who works on his feet all day and shares a thin household table. Posture is quick and slightly guarded, weight forward, a man ready to be told the next thing that needs doing.

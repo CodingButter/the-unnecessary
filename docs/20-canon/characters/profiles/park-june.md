@@ -53,6 +53,14 @@ source_documents:
 
 ![Portrait of June Park](../portraits/park-june.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/park-june/park-june-1.mp3"></audio>
+
+[Play voice](../voices/park-june/park-june-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 June is five feet four inches tall and wiry. She moves quickly and rarely sits normally in a chair. Light and compact, with a scavenger's lean strength in the forearms and back from hauling salvage and bracing in awkward spaces. Her posture is restless, perched rather than seated, always half-angled toward the next thing to take apart. She inherited the wiry build from both parents.

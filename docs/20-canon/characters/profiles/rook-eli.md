@@ -51,6 +51,15 @@ source_documents:
 
 ![Portrait of Elias “Eli” Rook](../portraits/rook-eli.jpg)
 
+
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/rook-eli/rook-eli-3.mp3"></audio>
+
+[Play voice](../voices/rook-eli/rook-eli-3.mp3)
+<!-- voice:end -->
 ### Frame
 
 Eli is approximately five feet ten inches tall, lean and wiry, with the spare, capable build of a man who works with his hands and forgets to eat, not a man who trains. He does not look physically imposing, but there is an unforced economy to how he moves that reads as a quiet kind of strength. His posture runs slightly forward at the shoulders, the carriage of a man who spends his hours bent over open panels and benches.

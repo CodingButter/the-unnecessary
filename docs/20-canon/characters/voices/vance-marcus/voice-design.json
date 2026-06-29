@@ -1,0 +1,27 @@
+{
+  "slug": "vance-marcus",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American). Male, mid-30s. High-quality recording. Persona: weathered working father. Emotion: plain, weary, steady. A quiet, clipped Detroit working-class voice, lightly weathered but not aged, a flat baritone with words spaced and economical. He answers with the thing itself, ends sentences early, softening only at the edges.",
+  "text": "[sighs] Door's gone quiet again. I'll run it to Eli... he'll make it ring, won't take a dime off me. That's all we want. [tired] A house that knows somebody's in it. The boy hearing someone came.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "vance-marcus-1.mp3",
+      "generated_voice_id": "BRSnYWTMP07goTdUOZCJ",
+      "duration_secs": 11.966875,
+      "language": "en"
+    },
+    {
+      "file": "vance-marcus-2.mp3",
+      "generated_voice_id": "HRqb2MpRK6t8cNTFoycC",
+      "duration_secs": 12.933375,
+      "language": "en"
+    },
+    {
+      "file": "vance-marcus-3.mp3",
+      "generated_voice_id": "jtV0v6pqQCbpkQqdiY3d",
+      "duration_secs": 13.9521875,
+      "language": "en"
+    }
+  ]
+}

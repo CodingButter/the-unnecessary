@@ -1,0 +1,27 @@
+{
+  "slug": "park-june",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American). Female, late teens. Bright, clear quality. Persona: irreverent salvage-hacker. Emotion: quick, bold, wry. Light, fast voice pitched young, with flat Detroit vowels over a faint Korean-American household cadence; clipped and casual until a problem turns serious, then suddenly exact.",
+  "text": "Everybody says be careful, like careful ever fixed anything. [scoffs] They threw this whole world away... so I'm gonna open it up, give it a name, and make it work. [excited] One more house on the mesh.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "park-june-1.mp3",
+      "generated_voice_id": "z7yLd30jZoMxYK1qWACx",
+      "duration_secs": 14.108875,
+      "language": "en"
+    },
+    {
+      "file": "park-june-2.mp3",
+      "generated_voice_id": "BTgLlCe2ZyxmCDjLByR7",
+      "duration_secs": 13.403625,
+      "language": "en"
+    },
+    {
+      "file": "park-june-3.mp3",
+      "generated_voice_id": "YHLvO2esFWdJ4oBNelTG",
+      "duration_secs": 12.933375,
+      "language": "en"
+    }
+  ]
+}

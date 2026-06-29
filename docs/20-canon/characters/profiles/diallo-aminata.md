@@ -53,6 +53,14 @@ source_documents:
 
 ![Portrait of Aminata Diallo](../portraits/diallo-aminata.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/diallo-aminata/diallo-aminata-1.mp3"></audio>
+
+[Play voice](../voices/diallo-aminata/diallo-aminata-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet three inches, thin, and grown frail, the thinness of someone who has been quietly unwell and quietly not eating enough for a while. In the ward bed she is small under the blanket. Upright she has a careful, self-contained carriage, a woman who takes up little room on purpose.

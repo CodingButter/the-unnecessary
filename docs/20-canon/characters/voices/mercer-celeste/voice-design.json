@@ -1,0 +1,27 @@
+{
+  "slug": "mercer-celeste",
+  "model": "eleven_ttv_v3",
+  "description": "Native English. Female, late 30s. High-fidelity, crisp and clean. Persona: composed Lakeward realist. Emotion: calm, precise, dry. A low, level alto with warm chest resonance and a faint flat rural-Michigan vowel under the enclave polish; she lowers rather than raises under stress, speaking in clean load-bearing sentences with deliberate pauses, measured but never slow.",
+  "text": "[serious] I'm not asking you to be afraid. I'm asking you to look at it... plainly. [deliberate] Tell me what we do if the walls don't hold. Not later... now. [warm] We make something of our own.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "mercer-celeste-1.mp3",
+      "generated_voice_id": "CVy73rdpT0i2PYqiODq2",
+      "duration_secs": 17.5570625,
+      "language": "en"
+    },
+    {
+      "file": "mercer-celeste-2.mp3",
+      "generated_voice_id": "LoBpP1PqMACLKZRpd6iD",
+      "duration_secs": 15.806875,
+      "language": "en"
+    },
+    {
+      "file": "mercer-celeste-3.mp3",
+      "generated_voice_id": "eBRwfNxvxX8cjToJaVlH",
+      "duration_secs": 17.3219375,
+      "language": "en"
+    }
+  ]
+}

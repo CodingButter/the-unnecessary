@@ -1,0 +1,27 @@
+{
+  "slug": "narrator",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American). Male, early 50s. High quality, clean studio audiobook recording. Persona: warm science-fiction narrator. Emotion: warm, intelligent, dryly wry. A bright, clear baritone with a faint nasal edge and crisp, articulate diction, delivered at an even, unhurried audiobook pace; conversational yet authoritative, holding steady and restrained under tension rather than turning melodramatic.",
+  "text": "[calm] By the autumn of twenty fifty-three, the machines had not risen against us. They had simply stopped finding us worth the trouble. [serious] And the strangest part, the part no one had thought to fear, was how quietly the world agreed to let us go.",
+  "default": 2,
+  "previews": [
+    {
+      "file": "narrator-1.mp3",
+      "generated_voice_id": "yOsNlFMKYaYEpzhHnwDG",
+      "duration_secs": 15.388875,
+      "language": "en"
+    },
+    {
+      "file": "narrator-2.mp3",
+      "generated_voice_id": "GkAl4D26PBM8n9y1uSYX",
+      "duration_secs": 15.963625,
+      "language": "en"
+    },
+    {
+      "file": "narrator-3.mp3",
+      "generated_voice_id": "qb4VUTTEeXArJKXkhZfk",
+      "duration_secs": 15.650125,
+      "language": "en"
+    }
+  ]
+}

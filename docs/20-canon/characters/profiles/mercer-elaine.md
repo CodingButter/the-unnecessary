@@ -57,6 +57,14 @@ source_documents:
 
 ![Portrait of Elaine Mercer](../portraits/mercer-elaine.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/mercer-elaine/mercer-elaine-1.mp3"></audio>
+
+[Play voice](../voices/mercer-elaine/mercer-elaine-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet six, upright, and trim, with the brisk economy of a woman who has been on her feet in corridors her whole working life and is on them again now. She stands and moves like someone who expects to be doing three things at once. Good posture maintained on purpose, shoulders back, because she learned early that an administrator who looks tired gets overruled. The body of a healthy sixty-seven held against the strain of caregiving by deliberate discipline.

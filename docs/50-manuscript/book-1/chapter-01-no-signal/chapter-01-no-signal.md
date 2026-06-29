@@ -158,7 +158,7 @@ Eli closed his eyes a second.
 
 "Read me the wording."
 
-She read it. It was the same voice, and he had known it would be. *Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third.* The same threshold, the same thank-you, applied this time not to a doorbell or a dairy case but to a scanner that found what was wrong inside a person, a unit that decided how much of a drug went into a body and when, and a controller that kept a set of lungs breathing that could no longer do the work on their own.
+She read it. It was the same voice, and he had known it would be. *Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third. We appreciate your continued cooperation.* The same threshold, the same thank-you, applied this time not to a doorbell or a dairy case but to a scanner that found what was wrong inside a person, a unit that decided how much of a drug went into a body and when, and a controller that kept a set of lungs breathing that could no longer do the work on their own.
 
 "All right." He reached for the bench, for the steadiness of it, because working a problem through, step by step, was the only ground he knew how to stand on. "Tell me what stops. Physically. At midnight, when the authentication goes."
 
@@ -168,13 +168,13 @@ She read it. It was the same voice, and he had known it would be. *Following a r
 
 A silence that was not the link.
 
-"There's a man. Sixty-one. He comes off it in the day, mostly, but he can't hold a night without it yet. There's a child some nights, not tonight, but some nights. There are names, Eli. I'm not giving you the systems without the names, because the names are why I'm calling and not just unplugging the things and going home."
+"There's a man. Sixty-one. He comes off it in the day, mostly, but he can't hold a night without it yet. There's a child some nights, not tonight, but some nights. I'm not giving you their names, Eli. That part isn't mine to give. But I'm not handing you three machines and a deadline either, because the people on them are why I'm calling and not just unplugging the things and going home."
 
 "I know."
 
 "Do you." There was no cruelty in it. She had asked a real question, and she waited for a real answer. "I can hear you doing it. You've got it on a bench in your head, scanner, med unit, controller, three problems, sorting them by how hard they are. It's not three problems. It's one decision somebody made in a building, and the bottom of it is a man who can't breathe through the night. Stay down here with me. Don't climb back up onto that bench, where it's clean and it's just machines and nobody's dying."
 
-He did not answer right away. He looked at the three names sitting in plain type with a single time beside them, *23:59,* three people and one clock, and the cold came up through the floor of the shop and into him, more of it than the room could account for.
+He did not answer right away. He looked at the three machines sitting in plain type with a single time beside them, *23:59,* three people and one clock, and the cold came up through the floor of the shop and into him, more of it than the room could account for.
 
 "It's the same thing," he said, hearing his own voice go shorter. "Lena. The towers this morning. The grocery. They dropped us a tier at noon, no more emergencies. It's not three companies having a bad week. It's everyone, at once, deciding we're not worth it. Your clinic's just where it shows up with a body underneath."
 
@@ -198,11 +198,11 @@ It was true and it was not enough and they both knew it. He told her he would co
 
 The shop was very quiet after.
 
-The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. What was left on it was the notice she had read him, the three names of the three machines in plain type, and the time beside them, *23:59,* a number that was, when he made himself count it, a little under twelve hours away.
+The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. What was left on it was the notice she had read him, the three machines in plain type, and the time beside them, *23:59,* a number that was, when he made himself count it, a little under twelve hours away.
 
 He did not move for a while. Under all of it, breathing on a controller that would lose its yes at midnight, a sixty-one-year-old man with a name Lena was keeping back.
 
-He looked at the three names, and the single time beneath them, and there was no way back and no way around it. This was the one he could not fix.
+He looked at the three machines, and the single time beneath them, and there was no way back and no way around it. This was the one he could not fix.
 
 ---
 

@@ -1,0 +1,251 @@
+{
+  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch1 Scene 2 (The Almost-Normal Street). Eli walks to his shop through an almost-normal October morning; the dramatized voice elements are (1) Marisol the grocer, in her own voice (marisol_vega), reporting the dead dairy case as plainly as weather; (2) Eli's single spoken line 'I'll take it.' in his own voice (eli_rook); and (3) Eli's interior echo of Marisol's own words, 'controller wants to call home and nobody's home,' in his OWN voice under the book-scope 'thought' filter, placed AFTER his normal voice is established and after Marisol has actually said the line aloud (so the echo is heard, not asserted). The narrator (Will_Wheaton, clean, calm) carries everything that cannot be heard: the street's texture, the map of dead and living streetlights, the dark dairy case, Eli's tally and his refusal to add it. Narrator stays at the SET narration tuning regardless of scene mood. The passing boy's 'morning, Mr. Rook' is kept inside the narrator's sentence as reported speech, not voiced: he is a nameless background passerby with no canon voice, and the gut of the beat is the timing (gone before Eli could answer), which is narration. Dialogue tags ('Marisol said'), manner-of-delivery similes ('the way you'd say it had rained Tuesday'), and 'almost smiling' are CUT because Marisol's voice-design performs exactly that flat-with-a-held-smile delivery; narrating it would double what the ear gets. SFX: a distant cold-morning kids-passing wash (no words) at the corner, and a key-in-lock + door close at the scene's quiet end (mirrors Scene 1's phone-dock close). Music: SECTIONED scoring (4 timed beds that crossfade ~5s, so nothing loops) following the scene's emotional shifts: (A) 'still-morning' reused from CHAPTER scope (promoted from Scene 1; same continuous Friday morning, sonic continuity) under the deceptively-ordinary street + kids, 0-72s; (B) 'cold-street-tally' (scene scope) a sparse cold drone for the dead-streetlight withdrawal boundary + grocery threshold, 67-105s; (C) 'grocery-intimate' (scene scope) warm-but-melancholy piano/low-strings for the warm grocery, dark dairy case, Marisol's plain bad news and Eli's interior echo, 100-178s; (D) 'permission-close' (scene scope) a somber resonant resolve under 'nobody left to give it', the battery cable, the key in the lock and 'He went in', 173-219s. Gains kept modest (1.0-1.15) so music sits under the voices. 'text' = canon spelling; 'tts' = pronunciation-corrected line actually sent (past-tense 'read'->'red', habitual 'read'->'reed'). Voices required (all on server): Will_Wheaton, eli_rook, marisol_vega. Reveal-safe: no Asterion/Morrow/Mosaic leak (none in this prose; 'the notice' is the Scene-1 provider notice, a known object). Passed Gemini adaptation-critique (gemini-pro-latest).",
+  "scene": "ch1-scene2-the-almost-normal-street",
+  "narrator_voice": "Will_Wheaton",
+  "filters": {},
+  "music": [
+    {
+      "asset": "still-morning",
+      "gain": 0.6,
+      "start": 0,
+      "dur": 72,
+      "fade_in": 5,
+      "fade_out": 6
+    },
+    {
+      "asset": "cold-street-tally",
+      "gain": 0.66,
+      "start": 67,
+      "dur": 38,
+      "fade_in": 5,
+      "fade_out": 5
+    },
+    {
+      "asset": "grocery-intimate",
+      "gain": 0.69,
+      "start": 100,
+      "dur": 78,
+      "fade_in": 5,
+      "fade_out": 5
+    },
+    {
+      "asset": "permission-close",
+      "gain": 0.66,
+      "start": 173,
+      "dur": 46,
+      "fade_in": 5,
+      "fade_out": 6
+    }
+  ],
+  "tuning": {
+    "_doc": "Per-role generation tuning for THIS scene. Narrator stays calm/measured (over-expressive narration artifacts). Marisol: dry, matter-of-fact, quietly warm grocer who reports hard news like small weather; not over-expressive, slightly slowed. Eli dialogue: terse. Eli thought: quieter, introspective, lower exaggeration, held tempo. Per-cue overrides win; short clipped lines get lower temperature + higher cfg_weight to avoid garble.",
+    "narration": {
+      "exaggeration": 0.4,
+      "cfg_weight": 0.5,
+      "temperature": 0.65,
+      "tempo": 1.0
+    },
+    "marisol": {
+      "exaggeration": 0.5,
+      "cfg_weight": 0.5,
+      "temperature": 0.6,
+      "tempo": 0.98
+    },
+    "eli": {
+      "exaggeration": 0.45,
+      "cfg_weight": 0.5,
+      "temperature": 0.65,
+      "tempo": 1.0
+    },
+    "eli_thought": {
+      "exaggeration": 0.32,
+      "cfg_weight": 0.55,
+      "temperature": 0.58,
+      "tempo": 0.96
+    }
+  },
+  "cues": [
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.0,
+      "text": "From the steps the street gave nothing away. That was the first thing wrong with it."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.5,
+      "text": "He let his eyes slide over it and kept them moving. He came down into an ordinary October morning, cool and dry, the light flat and white off a sky that had not been told anything was wrong. Cars in the driveways. Leaves coming down out of the maples that nobody owned now and nobody cut, going gold and red as they always had. If you stood here and looked without knowing, you would think you were looking at any street in any year."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.5,
+      "temperature": 0.55,
+      "cfg_weight": 0.55,
+      "text": "You had to know where to look."
+    },
+    {
+      "type": "sfx",
+      "asset": "kids-passing",
+      "gain": 0.38,
+      "gap_before": 0.6
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.3,
+      "text": "A clutch of kids went past at the corner, backpacks and loud morning voices, heading for the program the neighborhood ran out of the old elementary now that the district had stopped paying for buses and teachers both. They walked through the cold like it was nothing, because to them it was nothing, because this was simply the world, the only one they had been given. One of the boys said morning, Mr. Rook, and was gone around the corner before Eli had finished saying it back.",
+      "tts": "A clutch of kids went past at the corner, backpacks and loud morning voices, heading for the program the neighborhood ran out of the old elementary now that the district had stopped paying for buses and teachers both. They walked through the cold like it was nothing, because to them it was nothing, because this was simply the world, the only one they had been given. One of the boys said morning, Mister Rook, and was gone around the corner before Eli had finished saying it back."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.5,
+      "text": "He kept walking, and a tally ran under everything else, the kind he never had to start because it never stopped, a map of the neighborhood drawn only in his head and corrected as he went. The streetlight on the corner of Webb was dead, had been dead since spring, the glass gone milky. The next one worked, and the two beyond it had gone dark too. He read the lights the way you read a tide chart, the dead ones marking how far the maintenance had pulled back, block by block, the boundary drawn in cold glass over his head.",
+      "tts": "He kept walking, and a tally ran under everything else, the kind he never had to start because it never stopped, a map of the neighborhood drawn only in his head and corrected as he went. The streetlight on the corner of Webb was dead, had been dead since spring, the glass gone milky. The next one worked, and the two beyond it had gone dark too. He red the lights the way you reed a tide chart, the dead ones marking how far the maintenance had pulled back, block by block, the boundary drawn in cold glass over his head."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.5,
+      "text": "The grocery was open, the good warm yellow of a place that wanted you to come in, and he went in because going in was a way of saying the place was still worth coming into. Marisol was behind the counter with her coat on. She had the coat on inside, which told him most of what he needed before he had crossed the floor."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "The dairy case along the back wall was dark. Not all of it. The first two doors held milk and the dull tubs of the cultured stuff that kept, a small light burning inside, and the rest of the case stood unlit, the shelves pulled empty and clean, gray as the inside of a switched-off screen. He had seen it half-lit before, but never down to two doors."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.45,
+      "temperature": 0.5,
+      "cfg_weight": 0.58,
+      "text": "She followed his eyes."
+    },
+    {
+      "type": "voice",
+      "role": "marisol",
+      "filter": "none",
+      "gap_before": 0.3,
+      "temperature": 0.5,
+      "cfg_weight": 0.58,
+      "text": "Long case quit Tuesday."
+    },
+    {
+      "type": "voice",
+      "role": "marisol",
+      "filter": "none",
+      "gap_before": 0.3,
+      "text": "Nolan came and looked. It's not the compressor. It's the controller. Wants to call home, and nobody's home."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "temperature": 0.5,
+      "cfg_weight": 0.58,
+      "text": "She rang up his coffee."
+    },
+    {
+      "type": "voice",
+      "role": "marisol",
+      "filter": "none",
+      "gap_before": 0.35,
+      "text": "You want milk, take it today. I don't know how long the last two doors hold."
+    },
+    {
+      "type": "voice",
+      "role": "eli",
+      "filter": "none",
+      "gap_before": 0.45,
+      "temperature": 0.45,
+      "cfg_weight": 0.6,
+      "text": "I'll take it."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "He paid her in the soft worn bills that still moved hand to hand for coffee, and he thought,"
+    },
+    {
+      "type": "voice",
+      "role": "eli_thought",
+      "filter": "thought",
+      "gap_before": 0.2,
+      "text": "Controller wants to call home and nobody's home."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.3,
+      "text": "and filed it, and did not yet lay it beside the notice. They were two things. He kept them two things."
+    },
+    {
+      "type": "voice",
+      "role": "marisol",
+      "filter": "none",
+      "gap_before": 0.55,
+      "text": "Everything in your house wants permission now."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.35,
+      "temperature": 0.5,
+      "cfg_weight": 0.58,
+      "text": "As he turned."
+    },
+    {
+      "type": "voice",
+      "role": "marisol",
+      "filter": "none",
+      "gap_before": 0.3,
+      "text": "And there's nobody left to give it."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "He knew what she meant and had no answer for it, and went out into the cold with the day's list already longer than it had been."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.5,
+      "text": "Outside the shop a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over it, put the key in the lock, and did not look back at the street lying quiet behind him, kept ordinary by hands."
+    },
+    {
+      "type": "sfx",
+      "asset": "key-lock-door",
+      "gain": 0.5,
+      "gap_before": 0.35
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.3,
+      "temperature": 0.5,
+      "cfg_weight": 0.58,
+      "text": "He went in."
+    }
+  ]
+}

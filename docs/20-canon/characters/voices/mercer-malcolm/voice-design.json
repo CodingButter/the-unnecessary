@@ -1,0 +1,27 @@
+{
+  "slug": "mercer-malcolm",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English, flat Great Lakes Michigan underneath. Male, 70s. Refined but physically worn, never frail in the mind. Persona: dry logistics magnate. Emotion: exact, sardonic, controlled. A low quiet baritone, boardroom-polished over a yard-foreman flatness in the vowels; short declarative bursts with rests between them, consonants softening at the edges, landing a point by going quieter rather than louder.",
+  "text": "[deliberate] Forty years, I moved ten thousand tons with these fingers... never lifted a crate. [sarcastic] Now they call my chair the last vehicle in the fleet. [serious] Give me a route, a precise answer. And?",
+  "default": 0,
+  "previews": [
+    {
+      "file": "mercer-malcolm-1.mp3",
+      "generated_voice_id": "lLDu5dMNmM2Q5DBbuF58",
+      "duration_secs": 14.4485,
+      "language": "en"
+    },
+    {
+      "file": "mercer-malcolm-2.mp3",
+      "generated_voice_id": "htXB3Xvw0uDkJUgVW4rU",
+      "duration_secs": 14.9186875,
+      "language": "en"
+    },
+    {
+      "file": "mercer-malcolm-3.mp3",
+      "generated_voice_id": "PMVSsOdkKAMx8gU8ucDB",
+      "duration_secs": 14.7619375,
+      "language": "en"
+    }
+  ]
+}

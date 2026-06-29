@@ -1,0 +1,27 @@
+{
+  "slug": "vesely-marek",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American). Male, mid 60s. Studio quality.\nPersona: weathered hen-keeper. Emotion: taciturn, dry, grounded.\nA low gravelly rumble roughened by a smoker's chest, with a faint Central European shape on certain vowels; deliberate and sparing, short flat Michigan declaratives that never hurry and warm slowly.",
+  "text": "Brown ones go to the board. The seconds go in the pot. [scoffs] Don't thank me... thank the hens. They keep the old hours. I just carry the basket. [deliberate] A good egg... you know it by the weight.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "vesely-marek-1.mp3",
+      "generated_voice_id": "9DkuYHvRKtt7L6r1F40C",
+      "duration_secs": 16.773375,
+      "language": "en"
+    },
+    {
+      "file": "vesely-marek-2.mp3",
+      "generated_voice_id": "mUVCVqoQT3VMIA8boUkb",
+      "duration_secs": 15.2321875,
+      "language": "en"
+    },
+    {
+      "file": "vesely-marek-3.mp3",
+      "generated_voice_id": "4xCslV77S6gbaXLiZeaG",
+      "duration_secs": 15.388875,
+      "language": "en"
+    }
+  ]
+}

@@ -51,6 +51,15 @@ source_documents:
 
 ![Portrait of Mason Vance](../portraits/vance-mason.jpg)
 
+
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/vance-mason/vance-mason-3.mp3"></audio>
+
+[Play voice](../voices/vance-mason/vance-mason-3.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet nine and still filling out, thin and a little gangly, the build of a working teenager who eats what the household has and works on his feet. Posture is loose and a touch hunched, hands often in his pockets, the unfinished carriage of seventeen.

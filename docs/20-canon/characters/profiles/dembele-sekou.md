@@ -54,6 +54,14 @@ source_documents:
 
 ![Portrait of Sékou Dembélé](../portraits/dembele-sekou.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/dembele-sekou/dembele-sekou-1.mp3"></audio>
+
+[Play voice](../voices/dembele-sekou/dembele-sekou-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 A tall man folded down by age, six feet once and stooped a hand's width short of it now. Spare and bony, the kind of thinness that reads as a big frame with the upholstery gone. Lena's hand finds "the bone of it close under the cardigan" when she rests it on his shoulder. [open] He sits up in the spare bed to work, knees drawn up as a desk, the notebook propped on them. [open] His posture is the settled forward stoop of a man who spent a career leaning toward a screen.

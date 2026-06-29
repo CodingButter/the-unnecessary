@@ -1,0 +1,27 @@
+{
+  "slug": "park-soojin",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English, a soft Korean cadence beneath flat Detroit vowels. Female, late 40s. Warm, clear, well-supported. Persona: steady home caregiver. Emotion: warm, level, dryly funny. A low, even alto with a calm caregiver's grounding; plain declarative phrasing, economical and unsentimental, delivering hard news as gently as handing over a task. Lips-pressed restraint under the warmth, measured but never weary.",
+  "text": "[warm] Sit. Eat first... then we talk. You came home cold again. [sighs] The house is cold, the world colder, and still they keep the machines warm. [serious] We have each other. That will do.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "park-soojin-1.mp3",
+      "generated_voice_id": "uV1pitUoLfy4hT33YsJi",
+      "duration_secs": 14.60525,
+      "language": "en"
+    },
+    {
+      "file": "park-soojin-2.mp3",
+      "generated_voice_id": "zGfyMxfKEWZaBvXsKoIQ",
+      "duration_secs": 14.9970625,
+      "language": "en"
+    },
+    {
+      "file": "park-soojin-3.mp3",
+      "generated_voice_id": "E62g9eEZcTyeq9CznAjT",
+      "duration_secs": 15.88525,
+      "language": "en"
+    }
+  ]
+}

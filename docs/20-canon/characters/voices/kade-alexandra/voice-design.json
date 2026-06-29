@@ -1,0 +1,27 @@
+{
+  "slug": "kade-alexandra",
+  "model": "eleven_ttv_v3",
+  "description": "Native English. Female, early 30s. High quality. Persona: Field ecologist, self-exiled heiress. Emotion: Composed, dry, quietly warm. Low, even alto pitched to carry across open ground without ever rising; a placeless, privately educated, faintly transatlantic accent she has deliberately roughened. Economical and measured, short declarative sentences that land on one flat, unmistakable verdict.",
+  "text": "[serious] Watch the water a season. The soil. What comes back. Build it so it can keep itself... so it stands on its own, needs no one's permission. [deliberate] An ecosystem has no unnecessary species. People are no different.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "kade-alexandra-1.mp3",
+      "generated_voice_id": "zw4qtzM2XxGZelru5Ovq",
+      "duration_secs": 17.086875,
+      "language": "en"
+    },
+    {
+      "file": "kade-alexandra-2.mp3",
+      "generated_voice_id": "ki1jNEU7EqOaqYZSIS73",
+      "duration_secs": 20.0386875,
+      "language": "en"
+    },
+    {
+      "file": "kade-alexandra-3.mp3",
+      "generated_voice_id": "UJoPQXp0Jxf5BEHp3R9E",
+      "duration_secs": 18.13175,
+      "language": "en"
+    }
+  ]
+}

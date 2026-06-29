@@ -1,0 +1,27 @@
+{
+  "slug": "rook-daniel",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American Midwest, Michigan). Male, 60s. High quality, clean. Persona: Flint repair tradesman. Emotion: flat, attentive, dry. Low, dry baritone with a flat working-class Michigan vowel and almost no melody. Deliberate, economical pacing; short declarative fragments spoken as if his hands are busy, with the silences left to stand.",
+  "text": "[deliberate] Hold the light steady... Nothing runs on its own. It only looks easy because somebody's stood here keeping it from quitting. [serious] You stop showing up... and the water stops. That's the whole trade.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "rook-daniel-1.mp3",
+      "generated_voice_id": "uX2sCbIgP0gr1EKLhP2e",
+      "duration_secs": 17.948875,
+      "language": "en"
+    },
+    {
+      "file": "rook-daniel-2.mp3",
+      "generated_voice_id": "isKLafXm6uc1dERpXo9j",
+      "duration_secs": 17.086875,
+      "language": "en"
+    },
+    {
+      "file": "rook-daniel-3.mp3",
+      "generated_voice_id": "HwfwZeMdYHUVMMMLS2SF",
+      "duration_secs": 18.6803125,
+      "language": "en"
+    }
+  ]
+}

@@ -48,6 +48,14 @@ source_documents:
 
 ![Portrait of Adrian Kade](../portraits/kade-adrian.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/kade-adrian/kade-adrian-1.mp3"></audio>
+
+[Play voice](../voices/kade-adrian/kade-adrian-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Kade is tall, lean, and physically disciplined. He stands a little over six feet. His posture is upright and unforced, the stillness of a man who has never had to hurry and never learned to slump.

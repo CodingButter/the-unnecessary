@@ -15,6 +15,15 @@
 # Narration: ignore regenerable chunk folders, but TRACK the stitched chapter MP3s
 audio/**/chunks/
 
+# Generated audio. TRACKED deliverables only: regular single-narrator chapter MP3s
+# (audio/book-1/...), the live-audiobook STITCHED CHAPTER mp3s (*.live.mp3), and the JSON
+# source (cue sheets, filters, manifests -- tiny, not audio, needed to rebuild the chapter).
+# Ignored: all WAV stems, normalized intermediates, per-scene mixes, generated SFX/music.
+# (Designed character voices live under docs/20-canon/characters/voices/ and are tracked there.)
+audio/**/*.wav
+audio/live-audio-book/**/*.mp3
+!audio/live-audio-book/**/*.live.mp3
+
 # python bytecode
 __pycache__/
 *.pyc

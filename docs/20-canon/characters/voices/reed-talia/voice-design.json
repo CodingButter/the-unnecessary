@@ -1,0 +1,27 @@
+{
+  "slug": "reed-talia",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American), Detroit cadence. Female, mid-30s. Clear, high-quality recording. Persona: community coordinator, teacher. Emotion: warm, steady, dry. A clear, carrying classroom alto that brings a room down without rising; deliberate, plainspoken pacing that gets calmer and simpler under pressure, never louder.",
+  "text": "[warm] Okay. Slow it down. Say it to me plain... [deliberate] who decides this, and who pays for it? [serious] If it's good for the block, it survives a meeting. And if it can't... that tells us something.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "reed-talia-1.mp3",
+      "generated_voice_id": "AyubtJpi0HdsCtSCrXdl",
+      "duration_secs": 13.5603125,
+      "language": "en"
+    },
+    {
+      "file": "reed-talia-2.mp3",
+      "generated_voice_id": "UpXOnlBs5UIn7GkHpwLo",
+      "duration_secs": 13.5603125,
+      "language": "en"
+    },
+    {
+      "file": "reed-talia-3.mp3",
+      "generated_voice_id": "ZiefSqIFNpIxRlMakluT",
+      "duration_secs": 13.403625,
+      "language": "en"
+    }
+  ]
+}

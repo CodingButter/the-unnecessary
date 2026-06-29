@@ -52,6 +52,14 @@ source_documents:
 
 ![Portrait of Tomas Herrera](../portraits/herrera-tomas.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/herrera-tomas/herrera-tomas-1.mp3"></audio>
+
+[Play voice](../voices/herrera-tomas/herrera-tomas-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet nine inches, lean and quick, with the unshowy fitness of a man who is on his feet all night and lifts patients without being asked. Upright posture, light on the floor. He has learned to take up little room in a small clinic and to be where he is needed a beat before he is called.

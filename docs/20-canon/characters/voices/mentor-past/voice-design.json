@@ -1,0 +1,27 @@
+{
+  "slug": "mentor-past",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American). Male, late 50s. High quality, warm intimate studio tone. Persona: approving senior mentor. Emotion: warm, proud, quietly delighted. A low, smooth, resonant voice with unhurried encouraging warmth, the sound of an older expert who recognizes rare talent and takes quiet pleasure in naming it; close, certain, kind.",
+  "text": "[warm] There it is. That's it. [proud] I have watched a great many people sit where you are sitting, and not one of them is quite like you. You have it. You have always had it.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "mentor-past-1.mp3",
+      "generated_voice_id": "Mk5zMymfWeLGjAFVvycx",
+      "duration_secs": 14.29175,
+      "language": "en"
+    },
+    {
+      "file": "mentor-past-2.mp3",
+      "generated_voice_id": "cpMkFuiiUht5E47vsWHZ",
+      "duration_secs": 13.403625,
+      "language": "en"
+    },
+    {
+      "file": "mentor-past-3.mp3",
+      "generated_voice_id": "YXL6t9s2Nmq0BWrqoPJY",
+      "duration_secs": 15.963625,
+      "language": "en"
+    }
+  ]
+}

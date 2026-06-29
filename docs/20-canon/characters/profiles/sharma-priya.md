@@ -50,6 +50,14 @@ source_documents:
 
 ![Portrait of Priya Sharma](../portraits/sharma-priya.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/sharma-priya/sharma-priya-1.mp3"></audio>
+
+[Play voice](../voices/sharma-priya/sharma-priya-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet three inches, slight and compact, with the quick economy of someone who has learned to do precise work in a small space. Upright, contained posture. She holds still well, which is half of what the night's hand-watch asks of her.

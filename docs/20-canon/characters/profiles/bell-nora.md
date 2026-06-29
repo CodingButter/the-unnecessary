@@ -47,6 +47,14 @@ source_documents:
 
 ![Portrait of Nora Bell](../portraits/bell-nora.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/bell-nora/bell-nora-1.mp3"></audio>
+
+[Play voice](../voices/bell-nora/bell-nora-1.mp3)
+<!-- voice:end -->
 The physical layer is absent from canon and is supplied here under the spec's zero-blanks rule; every sub-block is invention.
 
 ### Frame

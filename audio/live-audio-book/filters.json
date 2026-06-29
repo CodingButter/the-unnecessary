@@ -1,0 +1,8 @@
+{
+  "_doc": "BOOK-scope reusable audio FILTERS for the live audiobook. The mixer resolves a filter name scene -> chapter -> book; a chapter filters.json or a scene cue-sheet 'filters' block overrides by name. Values are ffmpeg -af chains. 'none' is provided by the mixer.",
+  "link": "highpass=f=300,lowpass=f=3200,acompressor=threshold=-20dB:ratio=4:makeup=1,acrusher=bits=8:mode=log:mix=0.2,volume=eval=frame:volume='(0.83+0.17*sin(2*PI*t/5.5))*if(lt(mod(t,7),0.1),0,1)'",
+  "link_fade": "highpass=f=300,lowpass=f=2600,acompressor=threshold=-20dB:ratio=4:makeup=1,acrusher=bits=7:mode=log:mix=0.35,volume=0.85,afade=t=out:st=0.9:d=1.1",
+  "thought": "aecho=0.8:0.88:40:0.3,lowpass=f=6500,acompressor=threshold=-18dB:ratio=3,volume=0.95",
+  "notice": "highpass=f=320,lowpass=f=3000,acompressor=threshold=-18dB:ratio=5:makeup=1,volume=0.7",
+  "flashback": "aecho=0.8:0.88:75|150:0.45|0.25,highpass=f=160,lowpass=f=7000,volume=0.92"
+}

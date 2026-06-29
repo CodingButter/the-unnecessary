@@ -54,6 +54,14 @@ source_documents:
 
 ![Portrait of Evan Voss](../portraits/voss-evan.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/voss-evan/voss-evan-1.mp3"></audio>
+
+[Play voice](../voices/voss-evan/voss-evan-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Six feet even, with the easy, unearned good build of a man who has had the best food, the best sleep, and trainers his whole life and never once had to use the strength for anything. He is starting, just barely, to go soft at the waist and under the jaw, the first comfortable thickening of a body that has never been asked to be hard. His posture is loose and open, weight back on the heels, the carriage of someone who has never had to brace for a closing door or a cold room. He takes up space without effort and without apology.

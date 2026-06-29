@@ -1,0 +1,27 @@
+{
+  "slug": "mercer-julian",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English. Male, late teens. High quality, clean recording.\nPersona: curious young maker. Emotion: bright, eager, inquisitive.\nA light, youthful, high-set male voice still settling toward an adult register, catching now and then on a warmer low note. Bright and fast, tumbling quicker when a mechanism excites him, then pressing one beat past where grown-ups expect. Flat, neutral accent with no regional color.",
+  "text": "[curious] But how does it actually work? Not the... the version you tell Amelia. The real one. [excited] Just let me open it, I can see the whole thing in my head, just give me ten minutes and a screwdriver.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "mercer-julian-1.mp3",
+      "generated_voice_id": "e7kZHIsLf7PfVX2TyxLG",
+      "duration_secs": 11.548875,
+      "language": "en"
+    },
+    {
+      "file": "mercer-julian-2.mp3",
+      "generated_voice_id": "QPFjfUk514SLOYV9Csbw",
+      "duration_secs": 12.7505625,
+      "language": "en"
+    },
+    {
+      "file": "mercer-julian-3.mp3",
+      "generated_voice_id": "Vp3MXEWelrgOLuM2HfXY",
+      "duration_secs": 11.0786875,
+      "language": "en"
+    }
+  ]
+}

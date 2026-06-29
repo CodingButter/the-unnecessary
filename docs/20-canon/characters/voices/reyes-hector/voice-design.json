@@ -1,0 +1,27 @@
+{
+  "slug": "reyes-hector",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American), Detroit. Male, late 50s. Conversational, natural quality.\nPersona: genial neighborhood handyman. Emotion: warm, wry, easy.\nA warm, rounded baritone at an unhurried but talkative pace, a flat Detroit accent with a soft Spanish lilt underneath. Quick to a joke and slow to complain, the delivery stays easy and good-humored even laid up in a bed.",
+  "text": "[warm] Time was, a leg like this, they'd scan you, stitch you, out the door in an hour. [laughs] Now? It's gauze and a salve somebody's grandmother cooked up. And the funny thing... the leg's healing just fine.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "reyes-hector-1.mp3",
+      "generated_voice_id": "4FBJ8sfEiDvSrZbbiIEW",
+      "duration_secs": 14.9970625,
+      "language": "en"
+    },
+    {
+      "file": "reyes-hector-2.mp3",
+      "generated_voice_id": "PTMUrlTZ8YdMrEIqkxm4",
+      "duration_secs": 14.9970625,
+      "language": "en"
+    },
+    {
+      "file": "reyes-hector-3.mp3",
+      "generated_voice_id": "mqjeb9qU9oXSPwuW7y3m",
+      "duration_secs": 16.1986875,
+      "language": "en"
+    }
+  ]
+}

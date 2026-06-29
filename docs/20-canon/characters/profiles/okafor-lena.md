@@ -52,6 +52,15 @@ source_documents:
 
 ![Portrait of Dr. Lena Okafor](../portraits/okafor-lena.jpg)
 
+
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/okafor-lena/okafor-lena-1.mp3"></audio>
+
+[Play voice](../voices/okafor-lena/okafor-lena-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Lena is five feet seven inches tall with a sturdy build. Her posture communicates authority even when she is exhausted. Medium-heavy, solid through the shoulders and back, with the durable strength of a woman who has lifted patients and stood double shifts for two decades. She holds herself upright by trained habit, the carriage of someone used to walking into a room and being the person in charge of it.

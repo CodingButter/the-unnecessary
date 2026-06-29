@@ -51,6 +51,14 @@ source_documents:
 
 ![Portrait of Daniel Rook](../portraits/rook-daniel.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/rook-daniel/rook-daniel-1.mp3"></audio>
+
+[Play voice](../voices/rook-daniel/rook-daniel-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet eleven inches, an inch taller than Eli, with the same narrow build thickened only slightly through the forearms and the back from decades of physical work. Lean, never heavy, the leanness of a man who skipped meals to finish a job. Posture economical and slightly stooped at the neck from a lifetime bent over open panels and pump housings. He took up little room and was easy to lose in a doorway, the same quality the chapter notes in Eli.

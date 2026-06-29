@@ -1,0 +1,27 @@
+{
+  "slug": "park-daniel",
+  "model": "eleven_ttv_v3",
+  "description": "Native English. Male, late 40s. High quality. Persona: careful enclave maintainer. Emotion: warm, restrained, quietly tired. Low, even baritone with flat Detroit vowels under a faint Korean-American household cadence. Short, measured, precise sentences delivered softly, with a guarded warmth that surfaces only when he speaks of his family.",
+  "text": "It is a good machine. You find the fault... you fix the fault. People are harder. [warm] Tell June her father is well. Tell her I am keeping everything running here... [sighs] until I can come home.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "park-daniel-1.mp3",
+      "generated_voice_id": "Gu03J5Kd5eEXjUlkP0I5",
+      "duration_secs": 16.773375,
+      "language": "en"
+    },
+    {
+      "file": "park-daniel-2.mp3",
+      "generated_voice_id": "UO8weCkmw6S0uAZ9Yj3k",
+      "duration_secs": 18.053375,
+      "language": "en"
+    },
+    {
+      "file": "park-daniel-3.mp3",
+      "generated_voice_id": "aV3YESXWsfpH2nXApF2s",
+      "duration_secs": 21.3970625,
+      "language": "en"
+    }
+  ]
+}

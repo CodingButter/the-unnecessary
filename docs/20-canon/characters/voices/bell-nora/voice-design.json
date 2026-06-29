@@ -1,0 +1,27 @@
+{
+  "slug": "bell-nora",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English. Female, early 40s. Studio-clean, professional. Persona: composed researcher. Emotion: measured, precise, quietly wry. Low, even mid-pitched timbre with a faint flat Michigan vowel beneath trained neutrality; controlled, evenly paced delivery that grows quieter and more exact under pressure, never louder.",
+  "text": "[deliberate] I would rather show you the finding... than tell you what to conclude. Walking away is clean, but it changes nothing. So I stay close, and I stay careful. [serious] I do not assert what I have not verified.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "bell-nora-1.mp3",
+      "generated_voice_id": "5J8ADCpsJTb4fiX7l9Fe",
+      "duration_secs": 16.773375,
+      "language": "en"
+    },
+    {
+      "file": "bell-nora-2.mp3",
+      "generated_voice_id": "kQCWw4DEIRvHcQ7sp2MJ",
+      "duration_secs": 14.60525,
+      "language": "en"
+    },
+    {
+      "file": "bell-nora-3.mp3",
+      "generated_voice_id": "ptPMVLS2x1M9PGqraiCF",
+      "duration_secs": 16.2770625,
+      "language": "en"
+    }
+  ]
+}

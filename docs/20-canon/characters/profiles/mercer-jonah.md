@@ -57,6 +57,14 @@ source_documents:
 
 ![Portrait of Jonah Mercer](../portraits/mercer-jonah.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/mercer-jonah/mercer-jonah-1.mp3"></audio>
+
+[Play voice](../voices/mercer-jonah/mercer-jonah-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Jonah is six feet tall with a broad, well-maintained build. He carries the build deliberately: shoulders squared, weight even, the posture of a man who has learned that a room reads a body before it hears a word. He is heavier than Eli and softer than his father once was, kept trim by the easy fitness of protected life rather than by labor.

@@ -53,6 +53,14 @@ source_documents:
 
 ![Portrait of Hector Reyes](../portraits/reyes-hector.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/reyes-hector/reyes-hector-1.mp3"></audio>
+
+[Play voice](../voices/reyes-hector/reyes-hector-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet nine inches, compact and muscular gone a little soft at the middle in his late fifties, a working man's durable build. Laid up in the ward bed he is restless in it, propped to keep the leg right, a man unused to lying still. Upright he carries himself with the rolling, weight-bearing ease of someone who lifts and hauls for a living.

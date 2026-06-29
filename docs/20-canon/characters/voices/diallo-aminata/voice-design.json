@@ -1,0 +1,27 @@
+{
+  "slug": "diallo-aminata",
+  "model": "eleven_ttv_v3",
+  "description": "English with a soft West African accent (Guinean Fulani under decades of American English). Female, elderly, early 70s. Worn but clear. Persona: dignified, wry survivor. Emotion: gentle, weary, wryly honest. Quiet, breath-short timbre with soft consonants and a gentle, even rhythm; speaks in plain complete sentences, growing calmer under strain, a faint dry humor beneath the fatigue.",
+  "text": "[sighs] I should have come before. I kept thinking what it would run me... old foolishness. Fifty years afraid of the cost, and then it's gone, and you're still afraid. [warm] But you're warm here. That's something.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "diallo-aminata-1.mp3",
+      "generated_voice_id": "NxqXCA4tGphfcz9drqbY",
+      "duration_secs": 19.72525,
+      "language": "en"
+    },
+    {
+      "file": "diallo-aminata-2.mp3",
+      "generated_voice_id": "mfjwusX9ZsjFNJERxUKN",
+      "duration_secs": 18.523625,
+      "language": "en"
+    },
+    {
+      "file": "diallo-aminata-3.mp3",
+      "generated_voice_id": "XzYqaiV6K27GjkmY9Hi0",
+      "duration_secs": 23.8003125,
+      "language": "en"
+    }
+  ]
+}

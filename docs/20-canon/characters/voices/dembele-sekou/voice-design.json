@@ -1,0 +1,27 @@
+{
+  "slug": "dembele-sekou",
+  "model": "eleven_ttv_v3",
+  "description": "Native English, American, with a faint West African cadence (Bambara and French) on the long vowels. Male, early 70s. High-quality, clear. Persona: Retired logistics man. Emotion: dry, courtly, quietly proud. Low, dry baritone, measured and exact, that counts a route off the way a man once briefed a board; the satisfaction rides on top and a quiet loss underneath, the two left unsorted.",
+  "text": "A thing is here, a thing is wanted there... and somebody has to know the road between. [warm] Ten thousand chains, once, on a wall. Now it's eggs. [laughs] Same shape, you know... [slow] it's exactly the same shape.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "dembele-sekou-1.mp3",
+      "generated_voice_id": "MU86Si92TUrs8ZH4sTxR",
+      "duration_secs": 19.803625,
+      "language": "en"
+    },
+    {
+      "file": "dembele-sekou-2.mp3",
+      "generated_voice_id": "eIRvNX2KMpPhPMJww276",
+      "duration_secs": 16.1203125,
+      "language": "en"
+    },
+    {
+      "file": "dembele-sekou-3.mp3",
+      "generated_voice_id": "Xo3meE1DoXcgxlbgqsLZ",
+      "duration_secs": 18.523625,
+      "language": "en"
+    }
+  ]
+}

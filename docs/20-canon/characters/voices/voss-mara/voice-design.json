@@ -1,0 +1,27 @@
+{
+  "slug": "voss-mara",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English. Female, mid-50s. High quality, clean studio. Persona: composed political broker. Emotion: cool, controlled, authoritative. A measured low contralto with flattened, placeless podium diction sanded out of any one region; deliberate cadence, precise consonants. She never raises it, she lowers it and lets the pauses do the pressing.",
+  "text": "[serious] The situation requires that we be honest about what we control... and what we only borrow. There must be a mechanism for that. [deliberate] I never raise my voice. I lower it... and the room leans in.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "voss-mara-1.mp3",
+      "generated_voice_id": "hVfsN9bskOuSz1k9gIBN",
+      "duration_secs": 16.3554375,
+      "language": "en"
+    },
+    {
+      "file": "voss-mara-2.mp3",
+      "generated_voice_id": "XTMMvutfhfHxYVxqEBsm",
+      "duration_secs": 14.9186875,
+      "language": "en"
+    },
+    {
+      "file": "voss-mara-3.mp3",
+      "generated_voice_id": "SPeMu9fB7Rd7GXKdhb7M",
+      "duration_secs": 16.1203125,
+      "language": "en"
+    }
+  ]
+}

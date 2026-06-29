@@ -52,6 +52,14 @@ source_documents:
 
 ![Portrait of Mr. Adeyemi](../portraits/adeyemi-bayo.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/adeyemi-bayo/adeyemi-bayo-1.mp3"></audio>
+
+[Play voice](../voices/adeyemi-bayo/adeyemi-bayo-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet eleven inches, and built broad once, the deep-chested heavy-shouldered frame of a man who fed furnaces and lifted castings for thirty years. The illness has taken that down. In Chapter 2 he is "narrow under the blanket," the breadth gone to slack and the chest worked from outside by the machine [open]. He sits up by day and the old size shows in the wrists and the wide flat hands; lying down he reads smaller than he is.

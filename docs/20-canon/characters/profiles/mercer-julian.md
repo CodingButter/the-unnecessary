@@ -57,6 +57,14 @@ source_documents:
 
 ![Portrait of Julian Mercer](../portraits/mercer-julian.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/mercer-julian/mercer-julian-1.mp3"></audio>
+
+[Play voice](../voices/mercer-julian/mercer-julian-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Tall for twelve and still soft in the way of a boy about to stretch, with the long-boned promise of his father's six-foot build. Knees and elbows ahead of the rest of him. Posture careless when he forgets and straightening when an adult he respects is in the room.

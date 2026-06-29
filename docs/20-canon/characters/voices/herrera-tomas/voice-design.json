@@ -1,0 +1,27 @@
+{
+  "slug": "herrera-tomas",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English. Male, early 30s. High quality, clear and broadcast-clean. Persona: steady night nurse. Emotion: calm, warm, attentive. Even, mid-low timbre kept soft for a ward at night, with flat Detroit vowels and a faint Spanish cadence beneath. Calm and measured rather than slow, he stacks facts plainly and dryly, his steadiness deliberate and practiced.",
+  "text": "[whispers] Quiet now. Everyone's breathing easy. [warm] The Okonkwos left eggs at the counter... I put it down as a fee. Didn't know what else to call it. [serious] If she spikes, you come get me. Not the cabinet. I'll be up front.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "herrera-tomas-1.mp3",
+      "generated_voice_id": "KCeNgPTi0HGzmuSIt7gm",
+      "duration_secs": 13.246875,
+      "language": "en"
+    },
+    {
+      "file": "herrera-tomas-2.mp3",
+      "generated_voice_id": "0LySuCiRQ0fq6ue7Xeol",
+      "duration_secs": 15.3105625,
+      "language": "en"
+    },
+    {
+      "file": "herrera-tomas-3.mp3",
+      "generated_voice_id": "g86MStiJbpxMj4JdPTEF",
+      "duration_secs": 14.8403125,
+      "language": "en"
+    }
+  ]
+}

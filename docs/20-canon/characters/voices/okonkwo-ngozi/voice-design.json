@@ -1,0 +1,27 @@
+{
+  "slug": "okonkwo-ngozi",
+  "model": "eleven_ttv_v3",
+  "description": "Native Nigerian English. Female, early 50s. Clear, well-supported. Persona: Dignified household keeper. Emotion: warm, formal, exacting. A low, definite alto with crisp consonants and a Nigerian English lilt sitting under Detroit vowels. Brisk, efficient pacing with deliberate emphasis on what is owed, each sentence closing exactly where she means it.",
+  "text": "They're from the Vesely place... the brown ones. [deliberate] She said you'd want the brown ones, and she was right. We pay what we owe, in advance, before the visit Tuesday. [warm] A debt kept clean keeps a house standing.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "okonkwo-ngozi-1.mp3",
+      "generated_voice_id": "scOb7BwdZgrsEgrT9Srp",
+      "duration_secs": 17.086875,
+      "language": "en"
+    },
+    {
+      "file": "okonkwo-ngozi-2.mp3",
+      "generated_voice_id": "dqvOIjjF5eJM43t38Hei",
+      "duration_secs": 16.5121875,
+      "language": "en"
+    },
+    {
+      "file": "okonkwo-ngozi-3.mp3",
+      "generated_voice_id": "OBoZqXTYvdUMRmUxl7Sj",
+      "duration_secs": 16.85175,
+      "language": "en"
+    }
+  ]
+}

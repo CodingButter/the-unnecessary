@@ -1,0 +1,27 @@
+{
+  "slug": "mercer-elaine",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English. Female, late 60s. Clean, close-mic studio clarity. Persona: composed care administrator. Emotion: warm, steady, dryly exact. A clear, warm mid-range voice with a flat Michigan vowel under decades of professional polish, healthy and controlled rather than frail. Measured, organized cadence that names the thing, states what it means, then what happens next, softening nothing with false cheer; warmth lives in the steadiness, and under pressure the sentences get shorter and more precise, never louder.",
+  "text": "[warm] I'm not going to tell you it's fine. I'll tell you what the authorization covers... and what it won't. Then we do the next thing by hand. Honest news, delivered early. [deliberate] And that's where we are.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "mercer-elaine-1.mp3",
+      "generated_voice_id": "KzeYAkIIbQK4xRARZYEh",
+      "duration_secs": 15.388875,
+      "language": "en"
+    },
+    {
+      "file": "mercer-elaine-2.mp3",
+      "generated_voice_id": "U9FWnPGqaDtdSLvXv2L0",
+      "duration_secs": 16.3554375,
+      "language": "en"
+    },
+    {
+      "file": "mercer-elaine-3.mp3",
+      "generated_voice_id": "DhBipIcbTjQdQP9DK3GK",
+      "duration_secs": 16.668875,
+      "language": "en"
+    }
+  ]
+}

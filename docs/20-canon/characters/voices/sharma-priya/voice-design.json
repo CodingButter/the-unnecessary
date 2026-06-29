@@ -1,0 +1,27 @@
+{
+  "slug": "sharma-priya",
+  "model": "eleven_ttv_v3",
+  "description": "Native American English. Female, late 20s. Clear, studio-clean. Persona: precise clinic aide. Emotion: quiet, steady, watchful. A soft low timbre kept down for a hushed ward, a flat Detroit vowel with a faint North-Indian lilt beneath it. Short clean sentences, exact numbers given without rounding, calm and unhurried but bright and young, never weary.",
+  "text": "[whispers] One hundred even, last hour... one hundred even now. Time written, number written. If it climbs, I fetch Lena... [serious] not the cabinet. The hand is slower. But it's mine.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "sharma-priya-1.mp3",
+      "generated_voice_id": "29wYIaRDODtW9LdNd0ef",
+      "duration_secs": 14.9970625,
+      "language": "en"
+    },
+    {
+      "file": "sharma-priya-2.mp3",
+      "generated_voice_id": "j8Q1sngXq9xxttrlfwIb",
+      "duration_secs": 15.88525,
+      "language": "en"
+    },
+    {
+      "file": "sharma-priya-3.mp3",
+      "generated_voice_id": "8rtaZfyyIIWEHDNyJDfd",
+      "duration_secs": 17.4003125,
+      "language": "en"
+    }
+  ]
+}

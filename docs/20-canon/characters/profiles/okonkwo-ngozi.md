@@ -53,6 +53,14 @@ source_documents:
 
 ![Portrait of Ngozi Okonkwo](../portraits/okonkwo-ngozi.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/okonkwo-ngozi/okonkwo-ngozi-1.mp3"></audio>
+
+[Play voice](../voices/okonkwo-ngozi/okonkwo-ngozi-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet six inches, broad-shouldered and solid, built for carrying, with the planted, upright stance of a woman used to managing a household and a sick elder at once. She walks in carrying something and sets it down with care, "the Okonkwos brought their thing. It's on the counter." [open that she delivered the eggs] Her posture is squared and certain even when she is tired.

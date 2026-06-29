@@ -51,6 +51,14 @@ source_documents:
 
 ![Portrait of Soo-jin Park](../portraits/park-soojin.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/park-soojin/park-soojin-1.mp3"></audio>
+
+[Play voice](../voices/park-soojin/park-soojin-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet three inches, small and wiry, the build she passed to June. Her posture is upright and braced, the carriage of a woman who lifts and turns an aging parent several times a day. Strong for her size, with a caregiver's practical back and a way of planting herself in a doorway. She does not slump even when exhausted, which is most of the time.

@@ -54,6 +54,14 @@ source_documents:
 
 ![Portrait of Alexandra Kade](../portraits/kade-alexandra.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/kade-alexandra/kade-alexandra-1.mp3"></audio>
+
+[Play voice](../voices/kade-alexandra/kade-alexandra-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Tall and lean, about five feet nine inches, with the flat, functional strength of someone who works on her feet and outdoors rather than in a gym. She inherited her father's height and economy of build (`./kade-adrian.md` describes Kade as tall, lean, and physically disciplined). Her posture is upright but loose, weight ready to move, nothing held for display. She takes up exactly the room she needs and no more.

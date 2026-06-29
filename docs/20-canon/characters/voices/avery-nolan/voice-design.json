@@ -1,0 +1,27 @@
+{
+  "slug": "avery-nolan",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American). Male, early 60s. Professional quality. Persona: Detroit grid elder. Emotion: dry, blunt, gruff. A low gravelled carrying bass with a working-class Detroit cadence, unhurried and certain; he states rather than performs, going quieter and flatter when most sure he is right, with deadpan humor aimed at machines.",
+  "text": "They keep telling me it can't fail. [scoffs] Heard that on every dead grid I walked. A machine's only worth the hands that can open it... so I name the part, name the fault. [serious] No magic. Just the work.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "avery-nolan-1.mp3",
+      "generated_voice_id": "bNQSSqq1O5mXt66V4q2v",
+      "duration_secs": 15.7285,
+      "language": "en"
+    },
+    {
+      "file": "avery-nolan-2.mp3",
+      "generated_voice_id": "XmFSzUpK7bqgF5bWMbW1",
+      "duration_secs": 13.7170625,
+      "language": "en"
+    },
+    {
+      "file": "avery-nolan-3.mp3",
+      "generated_voice_id": "sC0wzwaUCYtAEvHtFalt",
+      "duration_secs": 15.88525,
+      "language": "en"
+    }
+  ]
+}

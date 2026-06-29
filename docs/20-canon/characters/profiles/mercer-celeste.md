@@ -54,6 +54,14 @@ source_documents:
 
 ![Portrait of Celeste Mercer](../portraits/mercer-celeste.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/mercer-celeste/mercer-celeste-1.mp3"></audio>
+
+[Play voice](../voices/mercer-celeste/mercer-celeste-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet seven, level and composed, with the still, economical bearing of a woman who thinks before she moves and rarely fidgets. Good posture held without effort, the body of someone who is healthy, unhurried, and watchful. She takes up exactly as much room as she means to.

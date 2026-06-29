@@ -1,0 +1,27 @@
+{
+  "slug": "mercer-jonah",
+  "model": "eleven_ttv_v3",
+  "description": "Native English. Male, late 30s. High studio quality.\nPersona: smooth political fixer. Emotion: warm, reassuring, attentive.\nPleasant mid-baritone, fluid and unhurried with a polished American delivery, built for the long dinner and the quiet aside; he softens statements and reframes rather than refuses, buying time with grace.",
+  "text": "Let's be realistic. Nobody's asking you to surrender anything... [warm] I just want to keep a few doors open. There's always another way through this, if the right people are still in the room. [laughs] And they always are.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "mercer-jonah-1.mp3",
+      "generated_voice_id": "VV478OlN08kdYWmqpHlJ",
+      "duration_secs": 11.548875,
+      "language": "en"
+    },
+    {
+      "file": "mercer-jonah-2.mp3",
+      "generated_voice_id": "IBvLbKQjgpiRHjcwvg7b",
+      "duration_secs": 12.6721875,
+      "language": "en"
+    },
+    {
+      "file": "mercer-jonah-3.mp3",
+      "generated_voice_id": "WnqemFMOtBMimdA4UP72",
+      "duration_secs": 12.7505625,
+      "language": "en"
+    }
+  ]
+}

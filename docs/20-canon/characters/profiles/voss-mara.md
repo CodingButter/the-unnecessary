@@ -51,6 +51,14 @@ source_documents:
 
 ![Portrait of Mara Voss](../portraits/voss-mara.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/voss-mara/voss-mara-1.mp3"></audio>
+
+[Play voice](../voices/voss-mara/voss-mara-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Tall, elegant, and carefully composed. [canon] She carries a lean, upright, deliberately maintained build, the body of a woman who has had every means to keep it and treats keeping it as a discipline rather than a vanity. Her posture is the most legible thing about her: straight-backed, squared, still. She holds stillness the way other people hold a gesture, and uses it. Even seated she reads as presiding. [canon that anger appears only through stillness]

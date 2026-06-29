@@ -52,6 +52,15 @@ source_documents:
 
 ![Portrait of Raymond Dorsey](../portraits/dorsey-ray.jpg)
 
+
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/dorsey-ray/dorsey-ray-3.mp3"></audio>
+
+[Play voice](../voices/dorsey-ray/dorsey-ray-3.mp3)
+<!-- voice:end -->
 ### Frame
 
 Six feet even, lean and long-limbed, with the slight forward stoop of a tall man who spent years ducking under door frames and bending into junction boxes. Build is rangy and a little hollow now, the leanness of a man who eats irregularly and works at night. His posture is loose-shouldered and easy until something worries him, when he goes still and upright, listening.

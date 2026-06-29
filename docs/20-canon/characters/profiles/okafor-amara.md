@@ -48,6 +48,14 @@ source_documents:
 
 ![Portrait of Amara Okafor](../portraits/okafor-amara.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/okafor-amara/okafor-amara-1.mp3"></audio>
+
+[Play voice](../voices/okafor-amara/okafor-amara-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet two inches, small and compact, with the thickened waist and softened shoulders of a woman who stood behind a counter and over a stove for fifty years. Once visibly strong in the forearms; the strength has receded but the habit of it has not, so she still reaches and lifts as if she expects to be able to. She has lost perhaps an inch of height to her spine. Her posture is upright by deliberate effort and stooped the moment she forgets to hold it.

@@ -51,6 +51,14 @@ source_documents:
 
 ![Portrait of Ruth Rook](../portraits/rook-ruth.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/rook-ruth/rook-ruth-1.mp3"></audio>
+
+[Play voice](../voices/rook-ruth/rook-ruth-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet five inches, slight and upright, with the careful straight-backed carriage of a woman who spent a working life on her feet at a desk and among shelves. Thin now in the way of age and a thinning food supply, but not frail; she carries boxes of books herself and refuses help with them. Posture composed and contained, hands often folded, a stillness of a different quality than Daniel's, the stillness of attention to a person rather than to a machine.

@@ -60,6 +60,14 @@ source_documents:
 
 ![Portrait of Malcolm Mercer](../portraits/mercer-malcolm.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/mercer-malcolm/mercer-malcolm-1.mp3"></audio>
+
+[Play voice](../voices/mercer-malcolm/mercer-malcolm-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Six feet even, the same height his son Jonah carries, though the inch of stoop the disease has put into him hides it now. Once a heavy, deliberate, big-shouldered man who filled a doorway; the build has gone soft and thinned over three years of reduced motion, the muscle wasting faster than the frame. He sits more than he stands. When he stands it is with both hands on something. His posture at rest is a forward lean, chin slightly dropped, that he fights to correct and cannot hold.

@@ -53,6 +53,14 @@ source_documents:
 
 ![Portrait of Marek Vesely](../portraits/vesely-marek.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/vesely-marek/vesely-marek-1.mp3"></audio>
+
+[Play voice](../voices/vesely-marek/vesely-marek-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet ten inches, broad and thickened through the chest and forearms from outdoor work, a soft heaviness over real strength. The slightly bowlegged, ground-planted stance of a man who spends his days on uneven dirt, bending to coops and hauling feed. He stands like someone braced against weather.

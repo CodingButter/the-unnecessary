@@ -53,6 +53,14 @@ source_documents:
 
 ![Portrait of Daniel Park](../portraits/park-daniel.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/park-daniel/park-daniel-1.mp3"></audio>
+
+[Play voice](../voices/park-daniel/park-daniel-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Five feet nine inches, lean, with the wiry build June inherited from him, now gone slightly soft and stooped at forty-nine from years bent into machine bays under enclave light. His posture is a maintenance worker's habitual half-crouch of readiness, weight forward, ready to kneel to a panel. Under observation he holds unnaturally still, a learned economy of motion. He does not take up room. He has spent six years making himself unremarkable to cameras.

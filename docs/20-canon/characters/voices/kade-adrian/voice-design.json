@@ -1,0 +1,27 @@
+{
+  "slug": "kade-adrian",
+  "model": "eleven_ttv_v3",
+  "description": "Native English (American). Male, early 60s. High quality, studio-clean. Persona: patient gatekeeper magnate. Emotion: composed, controlled, quietly assured. Level, low, and unhurried; a faint, placeless old-money East-Coast register sanded smooth by decades of public life. Measured full sentences, rarely contracted, holding the room by stillness rather than by volume.",
+  "text": "[deliberate] You ask me whether it is fair. That is the wrong question... Fairness preserves nothing. Ask instead what is necessary. What is sustainable. [serious] A future is not owed to anyone. It is built, and then it is carried by those willing to make it irreversible.",
+  "default": 0,
+  "previews": [
+    {
+      "file": "kade-adrian-1.mp3",
+      "generated_voice_id": "z6Uhr7X4lni0Ftm4ArFH",
+      "duration_secs": 18.523625,
+      "language": "en"
+    },
+    {
+      "file": "kade-adrian-2.mp3",
+      "generated_voice_id": "deMYtt5jWunqIw0tNgaY",
+      "duration_secs": 24.1138125,
+      "language": "en"
+    },
+    {
+      "file": "kade-adrian-3.mp3",
+      "generated_voice_id": "vry7eEW9oTdBjpkiC9Wf",
+      "duration_secs": 26.5170625,
+      "language": "en"
+    }
+  ]
+}

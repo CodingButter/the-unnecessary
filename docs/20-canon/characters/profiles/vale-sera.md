@@ -43,6 +43,14 @@ source_documents:
 
 ![Portrait of Sera Vale](../portraits/vale-sera.jpg)
 
+
+<!-- voice:start -->
+_Voice (default sample):_
+
+<audio controls src="../voices/vale-sera/vale-sera-1.mp3"></audio>
+
+[Play voice](../voices/vale-sera/vale-sera-1.mp3)
+<!-- voice:end -->
 ### Frame
 
 Sera is of average height. Her build is compact and conditioned, the body of someone who has trained to stay functional rather than for display. She holds herself still and balanced, weight settled and ready, a stillness reinforced by years of compensating for the prosthetic.

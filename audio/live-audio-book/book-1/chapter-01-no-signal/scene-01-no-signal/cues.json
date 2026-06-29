@@ -1,0 +1,236 @@
+{
+  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch1 Scene 1 (No Signal, the opening). Solitary interior scene: no live in-room dialogue. The narrator (Will_Wheaton, clean) carries Eli's perception and interior, which IS the narrator's domain here, and is held verbatim to canon prose (the only trims are the physical action beats the SFX legitimately replace: setting the phone down while the kettle warmed, 'the kettle had boiled'). Three dramatized voice elements: (1) the neighborhood mesh BOARD posts, voiced with a scene-special 'mesh' filter -- Dorsey in his own voice (raymond_dorsey), the institutional library-hub post in the narrator's voice, Eli's terse reply in his own voice (eli_rook); (2) the automated provider NOTICE split into title + body in a flat machine voice via the book-scope 'notice' filter (Will_Wheaton timbre, heavily processed), with the canon visual of the machine-composed mark narrated between the two halves -- 'the politeness is the horror'; (3) SFX for the gas ring, the notice arrival (mesh-chime), the kettle boil, and the phone set face-down. 'text' = canon spelling; 'tts' = pronunciation-corrected line actually sent (past-tense read->'red'). Voices required (all on server): Will_Wheaton, eli_rook, raymond_dorsey. Reveal-safe: no Asterion/Morrow/six-years leak (none in Scene 1 prose). Passed Gemini adaptation-critique (gemini-pro-latest) after fidelity restorations.",
+  "scene": "ch1-scene1-no-signal",
+  "narrator_voice": "Will_Wheaton",
+  "filters": {
+    "_doc": "SCENE-SPECIAL filter only. 'mesh' = a short async neighbor text posted to the local mesh board, read aloud: a light band-limited, mildly compressed coloration that says 'small relayed message' WITHOUT the live-call wobble of book-scope 'link' or the dead institutional clip of 'notice'. Reusable filters (notice) resolve up-scope from the book filters.json.",
+    "mesh": "highpass=f=220,lowpass=f=4800,acompressor=threshold=-20dB:ratio=3:makeup=1,volume=0.9"
+  },
+  "music": [
+    {
+      "asset": "still-morning",
+      "gain": 0.6,
+      "start": 0,
+      "dur": 75,
+      "fade_in": 5,
+      "fade_out": 6
+    },
+    {
+      "asset": "mesh-stir",
+      "gain": 0.63,
+      "start": 70,
+      "dur": 36,
+      "fade_in": 4,
+      "fade_out": 5
+    },
+    {
+      "asset": "the-notice",
+      "gain": 0.66,
+      "start": 100,
+      "dur": 100,
+      "fade_in": 5,
+      "fade_out": 6
+    },
+    {
+      "asset": "route-around",
+      "gain": 0.66,
+      "start": 194,
+      "dur": 48,
+      "fade_in": 6,
+      "fade_out": 7
+    }
+  ],
+  "tuning": {
+    "_doc": "Per-role generation tuning for THIS scene. The narrator stays calm/measured regardless of scene mood (over-expressive narration artifacts). 'notice' falls back to the Will_Wheaton voice id and is tuned flat/institutional. 'dorsey' and 'eli' are mesh text posts: terse, not over-expressive. Per-cue overrides win; short clipped lines get lower temperature + higher cfg_weight to avoid garble.",
+    "narration": {
+      "exaggeration": 0.4,
+      "cfg_weight": 0.5,
+      "temperature": 0.65,
+      "tempo": 1.0
+    },
+    "notice": {
+      "exaggeration": 0.3,
+      "cfg_weight": 0.55,
+      "temperature": 0.5,
+      "tempo": 0.97
+    },
+    "dorsey": {
+      "exaggeration": 0.5,
+      "cfg_weight": 0.5,
+      "temperature": 0.6,
+      "tempo": 1.0
+    },
+    "eli": {
+      "exaggeration": 0.45,
+      "cfg_weight": 0.55,
+      "temperature": 0.6,
+      "tempo": 1.0
+    }
+  },
+  "cues": [
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.0,
+      "text": "The phone woke before he did. It was the habit of years, not the alarm."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "Eli's thumb found the glass while the rest of him was still under sleep, and the screen came up pale in the morning light, and he read the status bar like another man checking the weather through a window. The time. The battery low, as it always was by morning. And along the top, where the external bars should have stood, nothing. Only the small notched icon for the local mesh, lit and steady, a single lamp left burning in an empty house.",
+      "tts": "Eli's thumb found the glass while the rest of him was still under sleep, and the screen came up pale in the morning light, and he red the status bar like another man checking the weather through a window. The time. The battery low, as it always was by morning. And along the top, where the external bars should have stood, nothing. Only the small notched icon for the local mesh, lit and steady, a single lamp left burning in an empty house."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.5,
+      "text": "He lay still a moment and looked at it. The floor was cold when he put his feet down. The room held the silence of a place running on stored power, the small outside noises a phone made when it was talking to the world all gone."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "He thumbed the network off and on, then carried the phone to the window and held it up, something his father would have done with a transistor radio, and it helped about as much. The bars did not come back."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "He had lived through enough of these mornings to take it like a tool that failed in his hand before coffee, with a small flat patience and no surprise left in it. The mesh was up, which meant the library hub still had power, which meant the neighborhood could talk to itself. It just could not talk to anyone past its own edge."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.5,
+      "text": "The local board had collected the night's messages over the mesh, all short, all inside the neighborhood."
+    },
+    {
+      "type": "voice",
+      "role": "dorsey",
+      "filter": "mesh",
+      "gap_before": 0.4,
+      "temperature": 0.5,
+      "cfg_weight": 0.55,
+      "text": "Anybody got signal out. Nothing on mine since maybe two. Dorsey."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "mesh",
+      "gap_before": 0.5,
+      "text": "Towers off again. Hub still good. The library."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "So it was not only him."
+    },
+    {
+      "type": "voice",
+      "role": "eli",
+      "filter": "mesh",
+      "gap_before": 0.35,
+      "temperature": 0.45,
+      "cfg_weight": 0.6,
+      "text": "Same here. Looking."
+    },
+    {
+      "type": "sfx",
+      "asset": "gas-ring",
+      "gain": 0.45,
+      "gap_before": 0.4
+    },
+    {
+      "type": "sfx",
+      "asset": "mesh-chime",
+      "gain": 0.5,
+      "gap_before": 0.8
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.3,
+      "text": "The queued notice arrived, forwarded from the hub, passed hand to hand as mail moved now. He knew the shape of these notices by the sender field alone. He opened it."
+    },
+    {
+      "type": "voice",
+      "role": "notice",
+      "filter": "notice",
+      "gap_before": 0.5,
+      "text": "Notice of Service Continuity Adjustment."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "The provider's name in clean type at the top, the small mark beside it that meant a machine had composed the message with no person anywhere near it."
+    },
+    {
+      "type": "voice",
+      "role": "notice",
+      "filter": "notice",
+      "gap_before": 0.4,
+      "text": "Following a periodic review of regional infrastructure, full restoration of cellular service to your area is no longer supported under current service-continuity thresholds. Local connectivity may remain available through community-operated systems. We thank you for your understanding."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.5,
+      "text": "He read it twice.",
+      "tts": "He red it twice."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "The towers had been down a hundred times, whenever the grid sagged and the provider shed load to keep the protected zones lit, and they had always come back, sullen and slow, but back. The towers were the same dark towers now. What had changed was that someone had written it down. No longer supported. Somewhere, in a building he would never see, a line had been crossed on a spreadsheet. The cost of keeping his street on the network had passed what the street was worth to the people who owned it, and so they let go."
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.4,
+      "text": "There was no error in it to fix, and that was the part his hands kept reaching for and not finding. A dead tower was a problem. Problems had causes, causes had repairs, and he was good at the long quiet work between them. But you could not solder a decision. It was all working exactly as it was meant to. It was simply meant, now, to leave him here."
+    },
+    {
+      "type": "sfx",
+      "asset": "kettle-boil",
+      "gain": 0.4,
+      "gap_before": 0.5
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.3,
+      "text": "He poured it over yesterday's grounds, because the new ones cost money, and did the small arithmetic of the day instead of the large arithmetic of the notice. He would route around it. That was what he did. There would be a way out through the old satellite terminal at the hub, or there would not. Either way it was a job, and a job was manageable, and the day was already moving."
+    },
+    {
+      "type": "sfx",
+      "asset": "phone-dock",
+      "gain": 0.5,
+      "gap_before": 0.4
+    },
+    {
+      "type": "voice",
+      "role": "narration",
+      "filter": "none",
+      "gap_before": 0.3,
+      "text": "He set the phone face down on the counter. The phone was easy to set down. The notice was not. It had settled somewhere behind the sternum the moment he read it, weightless and impossible to put down, and he carried it out the door, and would carry it all morning.",
+      "tts": "He set the phone face down on the counter. The phone was easy to set down. The notice was not. It had settled somewhere behind the sternum the moment he red it, weightless and impossible to put down, and he carried it out the door, and would carry it all morning."
+    }
+  ]
+}
