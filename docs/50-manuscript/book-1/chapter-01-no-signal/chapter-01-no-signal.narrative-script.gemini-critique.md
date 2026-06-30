@@ -1,32 +1,46 @@
 # Gemini Narration-Script Critique
 
-### High Severity
+## High Severity
 
-| Category | Location | Issue | Suggestion | Severity |
-| :--- | :--- | :--- | :--- | :--- |
-| Pacing & Peaks | `... and there was no way back... and no way around it. ... [measured] This was the one... he could not fix.` | The tag `[measured]` is too neutral and emotionally flat for the chapter's final, climactic line. It is the same tag used for routine narration and risks undercutting the weight of Eli's devastating realization. This is the most important beat in the chapter and must land with finality. | Replace `[measured]` with a tag that carries more finality and weight, such as `[heavy]`, `[final]`, or even `[slowly]` with a note to deliver it with gravity. | HIGH |
-| Tone Fit | `[friendly] "I've watched a few do it. You're faster." [measured] A pause,... friendly,... idle.` | The tag `[friendly]` for the old man is too simple and warm. The reference prose notes his "attention" and his dialogue is probing, circling a sensitive topic. "Friendly" misses the underlying tension of his observation and makes his later, more pointed questions less earned. | Replace `[friendly]` with a more observational or appraising tag, like `[observant]` or `[appreciative]`, to better reflect a man watching a skilled craft and trying to place it. | HIGH |
+**Category:** Tag-craft / Register
+**Location:** `[flat] Following a periodic review of regional infrastructure, full restoration of cellular service to your area is no longer supported under current service-continuity thresholds. Local connectivity may remain available through community-operated systems. We thank you for your understanding.` (and all similar long notices/dialogue)
+**Issue:** ElevenLabs v3 tags only color the next 4 to 5 words. The `[flat]` tag here will successfully flatten "Following a periodic review," but the voice will revert to the default, expressive base narrator for the rest of the paragraph, ruining the cold, administrative horror of the notice. The same issue applies to Lena's longer `[tense]` dialogue blocks (e.g., `"The med unit, I don't know yet..."`).
+**Suggestion:** Refresh the register tags at the start of every new sentence or major clause within long blocks. (e.g., `[flat] Following a periodic review... thresholds. [flat] Local connectivity may remain... systems. [flat] We thank you...`).
 
-### Medium Severity
+**Category:** Pacing
+**Location:** `Anybody got signal out. Nothing on mine since maybe two. Dorsey` (and the Library/Lena text messages)
+**Issue:** Without punctuation or pause markers separating the message body from the sender's name, the TTS will read the signature as part of the final sentence, running it all together. It will sound like a spoken non-sequitur rather than a person reading a screen.
+**Suggestion:** Insert a `[beat]` before the sign-offs to indicate the visual break on the screen (e.g., `...since maybe two. [beat] Dorsey`). Do the same for `[beat] The library` and `[beat] Lena`.
 
-| Category | Location | Issue | Suggestion | Severity |
-| :--- | :--- | :--- | :--- | :--- |
-| Register Distinction | Throughout the script, e.g., `[measured] He let his eyes slide over it...`, `[measured] He kept walking,...`, `[measured] By eleven the bench was full.` | The tag `[measured]` is overused as the default for Eli's narrative voice. While fitting for his controlled nature, its repetition risks creating a monotonous, unvarying performance, flattening the distinction between simple action, internal thought, and dawning realization. | Vary the default narration tags. Introduce more `[quiet]`, `[observing]`, or `[steady]` for physical actions, reserving `[measured]` for moments of deliberate thought or control. This will create more texture in the primary register. | MEDIUM |
-| Direction Density | `[measured] The clean type at the top of the cellular notice. The two lit doors of the dairy case and the dark length of it past them. The dead glass of the streetlight on Webb...` | This long paragraph is the chapter's central realization, where disparate facts connect into one shape. The single `[measured]` tag at the start doesn't provide enough direction for this crucial, cumulative sequence of images. The performance could rush through the list. | Add specific pacing and emotional tags to the list of images to build the realization. For example: `[slowly] The clean type... [quiet] The two lit doors... [flat] The dead glass...` to give each item its own weight before the conclusion. | MEDIUM |
-| Direction Density | `[measured] He let his eyes slide over it and kept them moving. He came down into an ordinary October morning,... cool and dry,... the light flat and white off a sky that had not been told anything was wrong.` | This is the first long descriptive paragraph of a new scene, establishing the "wrongness" of the ordinary street. A single `[measured]` tag is insufficient to guide the narrator through the specific details and establish the unsettling tone. | Break up the paragraph with more specific direction. For instance: `[quiet] He let his eyes slide over it... [measured] He came down into an ordinary October morning,... [flat] the light flat and white off a sky...` | MEDIUM |
-| Tone Fit | `[warm] One of the boys said morning, Mr. Rook,...` and `[warm] The grocery was open,...` | The tag `[warm]` is slightly too sentimental for the book's austere tone. While these are moments of human connection, "warm" can tip into a coziness the world of the novel doesn't support. The goal is grounded humanity, not overt warmth. | Replace `[warm]` with a more grounded tag like `[clear]` for the boy's voice or `[steady]` for the grocery's light. These suggest positive presence without adding an emotional layer the prose doesn't explicitly contain. | MEDIUM |
+## Medium Severity
 
-### Low Severity
+**Category:** Pacing
+**Location:** `He typed back, Same here. Looking, and set the phone on the counter...`
+**Issue:** Because the canonical prose uses italics rather than quotation marks for the typed text (and the script stripped the italics), the TTS has no syntactic cue to separate the message from the physical action. It will likely read "and set the phone on the counter" with the same internal-monologue inflection as "Same here. Looking."
+**Suggestion:** Add a `[beat]` immediately after `Looking,` to force the voice to step out of the typed message and back into the physical room.
 
-| Category | Location | Issue | Suggestion | Severity |
-| :--- | :--- | :--- | :--- | :--- |
-| Fidelity | `[measured] Chapter One. ... No Signal.` | The reference prose uses a numeral and a colon: "Chapter 1: No Signal". The script spells out "One" and uses a period. While a common adaptation for audio, it is a deviation from the word-for-word requirement. | For absolute fidelity, change "One" to "1" and the period to a colon, or confirm with the author that this stylistic change is approved for the audio version. | LOW |
-| Tag Craft | `[plainly] "Compressor on the long case quit Tuesday,"` | The tag `[plainly]` is not a standard, reliable v3 tag and its interpretation is ambiguous. The prose note ("the way you would say it had rained Tuesday") suggests a matter-of-fact, non-emotional delivery. | Replace `[plainly]` with a more standard and descriptive v3 tag like `[matter-of-fact]` or `[flat]` to achieve the intended administrative, unbothered tone. | LOW |
-| Tag Craft | `[pointed] That's a company hand,... not a program hand.` | Similar to `[plainly]`, the tag `[pointed]` is not a core v3 tag and may not be interpreted consistently. The intent is clear—the man is zeroing in on the truth—but a more reliable tag would be safer. | Replace `[pointed]` with a more standard tag that conveys the same intent, such as `[insistent]` or `[probing]`. | LOW |
-| Tag Craft | `[faint] Eli?,...` | While `[faint]` is a good direction, the prose implies the link is failing, not just that her voice is quiet. The performance could be more specific to the technical failure. | Consider adding `[glitching]` or `[breaking up]` just before `[faint]` to clarify that the faintness is due to signal loss, consistent with the rest of the call. | LOW |
+**Category:** Direction Density
+**Location:** `A clutch of kids went past at the corner, backpacks and loud morning voices, heading for the program the neighborhood ran out of the old elementary now that the district had stopped paying for buses and teachers both. They walked through the cold like it was nothing, because to them it was nothing, because this was simply the world, the only one they had been given.`
+**Issue:** This is a long, under-directed stretch. The Voice Direction asks for a "slow, deliberate, unhurried" Werner Herzog baseline, but without `[beat]` markers to force the TTS to take its time, the engine will likely rush through this sociological observation. 
+**Suggestion:** Add `[beat]` markers at the natural hinges of the observation to force the deliberate pacing (e.g., after `teachers both.`, after `like it was nothing,`). 
+
+**Category:** Tag-craft / Peaks
+**Location:** `[grave] This was the one he could not fix.`
+**Issue:** Because v3 tags fade after 4-5 words, the `[grave]` tag will color "This was the one" but may lose its grip right before the most critical words in the chapter: "could not fix."
+**Suggestion:** Refresh the tag or use a pause to ensure the final words land with maximum weight. (e.g., `[grave] This was the one [beat] [grave] he could not fix.`)
+
+## Low Severity
+
+**Category:** Fidelity
+**Location:** `Notice of Service Continuity Adjustment.` (Script) vs `*Notice of Service Continuity Adjustment.*` (Reference)
+**Issue:** The script stripped the markdown italics (asterisks) from the mesh messages and the corporate notices. While ElevenLabs TTS generally ignores markdown asterisks anyway, removing them technically violates the strict "WORD FOR WORD" fidelity constraint of the canonical manuscript.
+**Suggestion:** Restore the asterisks to the text messages and notices to maintain a 1:1 match with the reference prose.
+
+**Category:** Pacing
+**Location:** `"You're fast at that," the man said. "I've watched a few do it. You're faster." A pause, friendly, idle. [beat] "Where'd you learn it?`
+**Issue:** The script correctly places a `[beat]` where the prose explicitly calls out "A pause," but the TTS will likely rush the gap between "You're faster." and the narration "A pause, friendly, idle." 
+**Suggestion:** Add a `[beat]` after `"You're faster."` so the silence actually occurs *before* the narrator describes it.
 
 ## Overall
 
-This is an exceptionally strong and well-crafted narration script. Its fidelity to the source prose is perfect, which is the most critical requirement and a significant achievement. The register distinction is clear and effective, particularly the chillingly flat corporate notices and Lena's tense, broken-up transmission. The pacing is thoughtful, and the direction for the midday "opening hand" peak is excellent.
-
-The suggestions above are primarily refinements aimed at elevating an already high-quality script to a truly outstanding performance. The key areas for improvement are varying the default `[measured]` tag to add more texture to Eli's narration, and, most importantly, ensuring the final, devastating line lands with the full weight it has earned. With these adjustments, the script will guide a performance that is not only faithful but also deeply resonant with the novel's grounded, austere tone.
+This is a highly effective, restrained narration script that understands the assignment. The choice to use `[flat]` for the corporate notices and `[tense]` for Lena perfectly captures the chapter's thematic contrast between administrative apathy and human desperation. The placement of `[hold]` markers around the "opening of a hand" thesis and the final climax is excellent. The only critical failure is a technical misunderstanding of ElevenLabs v3 architecture: because v3 tags only shape a 4-5 word radius, the script's single tags at the start of long paragraphs will fade, causing the corporate notices to sound human again by their second sentence. Refreshing those tags and adding a few structural beats to the text messages will make this script production-ready.
