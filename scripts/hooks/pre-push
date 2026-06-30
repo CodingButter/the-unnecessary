@@ -1,0 +1,133 @@
+#!/usr/bin/env bash
+#
+# pre-push -- The Unnecessary's deterministic structural gate (spec section 10).
+#
+# Spec section 10 promises "a structural check ... every commit / git hook." This
+# is that hook. Before any push reaches the remote it runs every canon validator;
+# if any ERRORs (broken ref, locked-value edit, metadata gap, schema violation) the
+# push is BLOCKED. Warnings (coverage notes, un-stated locks, entity_graph parse
+# notes) are advisory and never block -- the validators already encode that
+# distinction in their exit codes (0 = no errors; 1 = errors), so this hook simply
+# trusts the exit code and never passes --strict.
+#
+# It is READ-ONLY on canon: it runs the validators, nothing else. It does not write
+# entity files, does not edit canon, does not author anything.
+#
+# ---------------------------------------------------------------------------------
+# ONE-TIME SETUP (run once per clone, from the repo root):
+#
+#     git config core.hooksPath scripts/hooks
+#
+# That points git at this tracked directory instead of the untracked .git/hooks/,
+# so the gate travels with the repository. scripts/hooks/install.sh does exactly
+# this for you.
+#
+# BYPASS (emergencies only -- you are knowingly pushing un-validated canon):
+#
+#     SKIP_CANON_HOOKS=1 git push        # honored by this hook
+#     git push --no-verify               # git skips the hook entirely
+#
+# OVERRIDE the interpreter if needed:  PYTHON=python3.12 git push
+# ---------------------------------------------------------------------------------
+
+set -uo pipefail
+
+# --- escape hatch ---------------------------------------------------------------
+if [ "${SKIP_CANON_HOOKS:-0}" = "1" ]; then
+    echo "pre-push: SKIP_CANON_HOOKS=1 set -- skipping canon validators (push NOT validated)."
+    exit 0
+fi
+
+# --- run from the repo root, wherever git invoked us ----------------------------
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+if [ -z "${REPO_ROOT}" ]; then
+    echo "pre-push: not inside a git work tree -- cannot locate repo root. Aborting." >&2
+    exit 1
+fi
+cd "${REPO_ROOT}" || { echo "pre-push: cannot cd to ${REPO_ROOT}. Aborting." >&2; exit 1; }
+
+# --- pick the interpreter -------------------------------------------------------
+PY="${PYTHON:-python3}"
+if ! command -v "${PY}" >/dev/null 2>&1; then
+    echo "pre-push: '${PY}' not found on PATH -- cannot run canon validators. Aborting." >&2
+    exit 1
+fi
+
+SCRIPTS="${REPO_ROOT}/scripts"
+TMP_OUT="$(mktemp)"
+trap 'rm -f "${TMP_OUT}"' EXIT
+
+FAILED=()        # labels of blocking validators that exited nonzero
+MISSING=()       # labels whose script file was absent
+
+# run_check <label> <script-basename> [args...]
+#   Runs a blocking validator. Quiet on PASS (one line); on FAIL the captured
+#   output is surfaced and the label is recorded so the push is blocked.
+run_check() {
+    local label="$1"; shift
+    local script="$1"; shift
+    local path="${SCRIPTS}/${script}"
+
+    if [ ! -f "${path}" ]; then
+        echo "  SKIP  ${label}  (scripts/${script} not found)"
+        MISSING+=("${label}")
+        return 0
+    fi
+
+    if "${PY}" "${path}" "$@" >"${TMP_OUT}" 2>&1; then
+        echo "  PASS  ${label}"
+    else
+        echo "  FAIL  ${label}  -- ERRORS below, push blocked:"
+        echo "  ----------------------------------------------------------------"
+        sed 's/^/  | /' "${TMP_OUT}"
+        echo "  ----------------------------------------------------------------"
+        FAILED+=("${label}")
+    fi
+}
+
+# run_info <label> <script-basename> [args...]
+#   Runs an advisory tool. Never blocks the push regardless of exit code; only a
+#   one-line note (plus any 'warning:' lines) is surfaced.
+run_info() {
+    local label="$1"; shift
+    local script="$1"; shift
+    local path="${SCRIPTS}/${script}"
+
+    if [ ! -f "${path}" ]; then
+        echo "  SKIP  ${label}  (scripts/${script} not found)"
+        return 0
+    fi
+
+    "${PY}" "${path}" "$@" >"${TMP_OUT}" 2>&1 || true
+    local warn_count
+    warn_count="$(grep -c 'warning:' "${TMP_OUT}" 2>/dev/null || echo 0)"
+    echo "  INFO  ${label}  (advisory, never blocks; ${warn_count} warning note(s))"
+}
+
+echo "pre-push: canon structural gate (spec section 10) -- validating before push..."
+
+# --- the blocking validators ----------------------------------------------------
+run_check "validate-links"      "validate-links.py"
+run_check "validate-metadata"   "validate-metadata.py"
+run_check "validate-characters" "validate-characters.py"
+run_check "validate-geography"  "validate-geography.py"
+run_check "validate-locks"      "validate-locks.py" --diff HEAD
+
+# --- advisory (info only) -------------------------------------------------------
+run_info  "entity_graph"        "entity_graph.py"
+
+echo ""
+
+# --- verdict --------------------------------------------------------------------
+if [ "${#MISSING[@]}" -gt 0 ]; then
+    echo "pre-push: NOTE -- ${#MISSING[@]} validator(s) missing and skipped: ${MISSING[*]}"
+fi
+
+if [ "${#FAILED[@]}" -gt 0 ]; then
+    echo "pre-push: BLOCKED. ${#FAILED[@]} validator(s) reported ERRORs: ${FAILED[*]}"
+    echo "pre-push: fix the canon defect above, or (emergency only) SKIP_CANON_HOOKS=1 git push / git push --no-verify."
+    exit 1
+fi
+
+echo "pre-push: OK -- all canon validators clean. Push allowed."
+exit 0

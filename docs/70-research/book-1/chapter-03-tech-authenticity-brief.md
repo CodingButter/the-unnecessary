@@ -4,11 +4,20 @@ document_type: "research"
 status: "reference"
 authority: "research-grounding"
 summary: "Real-world technical grounding for Chapter 3 (Eli's hacker/engineer work), produced by the research-consultant. Real-world fact for the drafter to ADAPT into the 2053 setting; NOT canon. Canon (cloud-dependency.md, foundational-rules.md) controls capability; nothing here grants Morrow/Crown or any device a new power."
+tags:
+  - research
+  - technology
+  - chapter-03
+  - authenticity
+  - infrastructure
 source: "research-consultant (WebSearch/WebFetch + Context7); cited inline"
 related:
   - "../../40-blueprints/book-1/chapter-03-borrowed-time/blueprint.md"
   - "../../20-canon/technology/infrastructure/cloud-dependency.md"
   - "../../20-canon/technology/foundational-rules.md"
+source_documents:
+  - "docs/20-canon/technology/infrastructure/cloud-dependency.md"
+  - "docs/20-canon/technology/foundational-rules.md"
 ---
 
 # Chapter 3 Technical-Authenticity Research Brief
