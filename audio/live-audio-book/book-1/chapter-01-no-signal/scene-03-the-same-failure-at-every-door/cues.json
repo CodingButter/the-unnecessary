@@ -37,6 +37,17 @@
       "fade_out": 7
     }
   ],
+  "ducking": {
+    "_doc": "Content-aware ducking (design doc Part A / B.3). The narrator carries almost the whole scene, so music rides -9 dB under solo narration, -6 dB under the dialogue (Eli, Mason, elder), and recedes to a near-mute -15 dB floor under the role:'notice' power-tier cues (the 'Service Tier Reclassification' title + body) -- the second statement of the notice-mute motif, landing harder because it is the neighborhood-wide downgrade, then withdrawal swells back on 'And there it was.' The flashback window ('A monitor, blown white.' + the mentor cue) is auto-PROTECTED: the mixer drops content-duck spans overlapping a flashback window, so the existing muffle/ring treatment owns the level there and is not double-ducked. attack 0.30s pre-rolled, release 0.55s, hold 0.60s. bus 'voice' = music only.",
+    "enabled": true,
+    "depth_db": -6,
+    "narration_depth_db": -9,
+    "floor_under_notice_db": -15,
+    "attack": 0.3,
+    "release": 0.55,
+    "hold": 0.6,
+    "bus": "voice"
+  },
   "tuning": {
     "_doc": "Per-role generation tuning for THIS scene. Narrator stays calm/measured regardless of the scene's cold turn (over-expressive narration artifacts). Eli: dry, terse, competent, privately guarded. Mason: flat, contained teen, clipped (short lines get lower temp + higher cfg). Elder: warm, idle, unhurried, slightly slowed. Notice: flat institutional machine. Per-cue overrides win.",
     "narration": {

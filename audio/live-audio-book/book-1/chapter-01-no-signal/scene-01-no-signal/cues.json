@@ -40,6 +40,17 @@
       "fade_out": 7
     }
   ],
+  "ducking": {
+    "_doc": "Content-aware ducking (design doc Part A / B.1). Music rides UNDER the voice: -9 dB under solo narration, -6 dB under the mesh-post dialogue (Dorsey/Eli), and recedes to a near-mute -15 dB floor under role:'notice' (the machine-voice provider notice, the 'Service Continuity Adjustment' title + body) -- the chapter's first statement of the notice-mute motif, so the flat machine line lands cold and unscored, then the bed returns for 'He read it twice.' attack 0.30s pre-rolled before each onset, release 0.55s, hold 0.60s merges spans so the bed only re-opens in genuine breaths. bus 'voice' = music only (SFX untouched).",
+    "enabled": true,
+    "depth_db": -6,
+    "narration_depth_db": -9,
+    "floor_under_notice_db": -15,
+    "attack": 0.3,
+    "release": 0.55,
+    "hold": 0.6,
+    "bus": "voice"
+  },
   "tuning": {
     "_doc": "Per-role generation tuning for THIS scene. The narrator stays calm/measured regardless of scene mood (over-expressive narration artifacts). 'notice' falls back to the Will_Wheaton voice id and is tuned flat/institutional. 'dorsey' and 'eli' are mesh text posts: terse, not over-expressive. Per-cue overrides win; short clipped lines get lower temperature + higher cfg_weight to avoid garble.",
     "narration": {

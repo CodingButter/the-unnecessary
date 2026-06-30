@@ -1,20 +1,56 @@
 {
-  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch1 Scene 4 (Midnight, the Lena call). Consumed by scripts/build-live-scene.py. Rules: narrator says ONLY what cannot be heard; dialogue tags and audio-conveyed description are cut; Lena is on a degraded mesh link (filter 'link'); Eli is in the shop (clean); one internal thought is Eli's own voice filtered ('thought') and framed by a light narrator cue, placed AFTER his normal voice is well established. 'text' = display/canon spelling; 'tts' = pronunciation-corrected line actually sent to the voice engine (heteronyms, numbers). Voices already uploaded to the server: Will_Wheaton (narrator), eli_rook, lena_okafor.",
+  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch1 Scene 4 (Midnight, the Lena call). Mixed by scripts/mix-live-scene.py. Rules: narrator says ONLY what cannot be heard; dialogue tags and audio-conveyed description are cut; Lena is on a degraded mesh link (filter 'link'); Eli is in the shop (clean); one internal thought is Eli's own voice filtered ('thought') and framed by a light narrator cue, placed AFTER his normal voice is well established. 'text' = display/canon spelling; 'tts' = pronunciation-corrected line actually sent to the voice engine (heteronyms, numbers). Voices already uploaded to the server: Will_Wheaton (narrator), eli_rook, lena_okafor. SOUND-DESIGN REBUILD (design doc Part B.4): the chapter's emotional summit, formerly scored by ONE static looped tension-bed (with dead duck_under_voice/duck_amount keys the mixer discarded), is re-scored as FOUR crossfading scene-scope beds tracking the call's four emotional rooms, plus content-aware ducking. Bed windows were placed against the measured voice timeline. Voice cues + text are UNCHANGED this pass (stems re-used from disk).",
   "scene": "ch1-scene4-midnight",
-  "output": "audio/book-1/chapter-01-no-signal/live-narration/scene4-live.mp3",
   "narrator_voice": "Will_Wheaton",
-  "asset_dirs": {
-    "sfx": "audio/book-1/chapter-01-no-signal/live-narration/sfx",
-    "music": "audio/book-1/chapter-01-no-signal/live-narration/music"
-  },
   "filters": {},
-  "music": {
-    "asset": "tension-bed",
-    "gain": 0.75,
-    "fade_in": 4,
-    "fade_out": 5,
-    "duck_under_voice": true,
-    "duck_amount": 0.45
+  "music": [
+    {
+      "_beat": "midnight-dread (NEW, ElevenLabs music_v1, force_instrumental): thin low held drone, quiet dread. Scores the short message, monitor-drag, dock, call-connect, 'Can you hear me' / 'Most of it' / 'I'm going to read you something.' Sparse so the degraded-link voice cuts through. Window 0-34, crossfades into the-wording at ~28.",
+      "asset": "midnight-dread",
+      "gain": 0.6,
+      "start": 0,
+      "dur": 34,
+      "fade_in": 5,
+      "fade_out": 6
+    },
+    {
+      "_beat": "the-wording (NEW): cold/clinical near-silent bed for Lena reading the manufacturer notice -> the three machines (scanner/med-unit/respiratory controller) -> 'Tell me what stops' -> 'Who's on it.' -> 'A silence that was not the link.' The bed sits LOW (modest gain) and its own composition recedes then makes one slow low swell into the gut-silence after 'Who's on it.' Window 28-114, crossfading dread out at ~28-34 and the-wall in at ~108-114.",
+      "asset": "the-wording",
+      "gain": 0.55,
+      "start": 28,
+      "dur": 86,
+      "fade_in": 6,
+      "fade_out": 6
+    },
+    {
+      "_beat": "the-wall = REUSED existing tension-bed (the one asset already on disk; reused not regenerated per the no-regenerate-up-scope rule). The emotional peak: 'There's a man. Sixty-one.' -> 'Stay down here with me.' -> 'It's the same thing, Lena.' -> the fix realization -> Eli's 'thought' (unforgeable correctness) -> 'every one needing its own forged yes.' A held tension drone rising under the argument and carrying the dread the words keep flat. Window 108-252; tension-bed asset is ~316s so 144s never loops. Crossfades into single-low-note at ~245-252.",
+      "asset": "tension-bed",
+      "gain": 0.66,
+      "start": 108,
+      "dur": 144,
+      "fade_in": 6,
+      "fade_out": 7
+    },
+    {
+      "_beat": "single-low-note (NEW): collapse to ONE sustained low tone (the prose hands us this literally -- 'a transformer he could not see held its single low note'). Scores the link drop, 'The shop was very quiet after', room-ambiance, the final reflection, and 'This was the one he could not fix.' Near-silence into the last line. Window 245-315 (to end ~313.7).",
+      "asset": "single-low-note",
+      "gain": 0.55,
+      "start": 245,
+      "dur": 70,
+      "fade_in": 7,
+      "fade_out": 8
+    }
+  ],
+  "ducking": {
+    "_doc": "Content-aware ducking (design doc Part A / B.4). Music rides UNDER the voice: -9 dB under solo narration, -6 dB under the dialogue (Lena on the degraded link, Eli, and Eli's filtered 'thought' interior) so the four beds support the call and lift in the breaths between lines instead of sitting flat. attack 0.30s pre-rolled, release 0.55s, hold 0.60s. NOTE: Lena's notice-READING here is role:'lena' (filter 'link'), not role:'notice', so the -15 notice-floor does NOT auto-trigger this pass (it would require per-cue duck_depth_db on her reading cues, which is deferred -- voice cues are untouched this pass); the near-mute-under-the-reading intent is approximated by the-wording's deliberately low authored gain + its receding composition. bus 'voice' = music only.",
+    "enabled": true,
+    "depth_db": -6,
+    "narration_depth_db": -9,
+    "floor_under_notice_db": -15,
+    "attack": 0.3,
+    "release": 0.55,
+    "hold": 0.6,
+    "bus": "voice"
   },
   "tuning": {
     "_doc": "Per-role speech-generation tuning for THIS scene (high-stakes: quicker, more expressive). exaggeration=emotional energy, cfg_weight=adherence to reference (lower=looser/more expressive), temperature=variation (keep <=0.8 to avoid garble). Per-cue exaggeration/cfg_weight/temperature override these.",
