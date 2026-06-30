@@ -1,48 +1,48 @@
 {
-  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch1 Scene 4 (Midnight, the Lena call). Mixed by scripts/mix-live-scene.py. Rules: narrator says ONLY what cannot be heard; dialogue tags and audio-conveyed description are cut; Lena is on a degraded mesh link (filter 'link'); Eli is in the shop (clean); one internal thought is Eli's own voice filtered ('thought') and framed by a light narrator cue, placed AFTER his normal voice is well established. 'text' = display/canon spelling; 'tts' = pronunciation-corrected line actually sent to the voice engine (heteronyms, numbers). Voices already uploaded to the server: Will_Wheaton (narrator), eli_rook, lena_okafor. SOUND-DESIGN REBUILD (design doc Part B.4): the chapter's emotional summit, formerly scored by ONE static looped tension-bed (with dead duck_under_voice/duck_amount keys the mixer discarded), is re-scored as FOUR crossfading scene-scope beds tracking the call's four emotional rooms, plus content-aware ducking. Bed windows were placed against the measured voice timeline. Voice cues + text are UNCHANGED this pass (stems re-used from disk).",
+  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch1 Scene 4 (Midnight, the Lena call) -- the chapter's emotional summit. Mixed by scripts/mix-live-scene.py. Rules honored: the narrator says ONLY what cannot be heard (dialogue tags and audio-conveyed description are cut -- the degraded link is the 'link' filter's job, not narrated; the no-greeting launch is heard, not described); narration that DESCRIBES a character ('the quiet she got when she was angriest') stays the narrator's, never in the character's mouth; Lena reads the manufacturer notice ALOUD in her OWN voice (filter 'link'), NOT a separate machine 'notice' filter, because a person reading aloud is still that person; ONE internal thought (the unforgeable-correctness wall) is Eli's OWN voice with the book-scope 'thought' filter, framed by a light narrator cue and placed AFTER Eli's normal voice is well established. The narrator is held at the SET calm tuning regardless of the scene's dread; only the CHARACTERS get scene-expressive tuning + tempo. Short clipped lines ('Most of it.', 'Who's on it.') get per-cue lower temperature + higher cfg_weight to avoid garble. 'text' = canon/display spelling; 'tts' = pronunciation-corrected line actually sent (heteronyms: present 'reed' / past 'red'; 23:59 -> 'eleven fifty-nine'). FIDELITY restorations this pass: the opening keeps the message's gut beat ('She had a notice. It was bad.'); Lena's bench speech keeps the closing tag 'Where the man is.'; the orphaned-neighborhood beat keeps 'No bottom to it. Only him, with a screwdriver...'. narrator_voice corrected to the real rendered id 'narrator' (the renderer resolves voice from ROLE_TUNING; the old 'Will_Wheaton' was stale metadata). SCENE BOUNDARY: begins at this prose's first line, ends at 'This was the one he could not fix.'; no Scene-3 recap bridge, no Scene-5 pre-empt. Reveal-safe: no Asterion/Morrow/Mosaic/Kade/six-years leak (none in this prose). Voices on server (verified): narrator, eli_rook, lena_okafor. Assets ALL reused by scope (none regenerated): SFX monitor-drag + phone-dock + call-connect + link-drop + mesh n/a + room-ambiance (chapter ambiance/), the four scene-scope music beds, and the book-scope link/link_fade/thought filters. Music: four crossfading scene-scope beds tracking the call's four emotional rooms (midnight-dread / the-wording / tension-bed / single-low-note), plus content-aware ducking. Passed Gemini adaptation-critique (gemini-pro-latest) against the exact scene prose.",
   "scene": "ch1-scene4-midnight",
-  "narrator_voice": "Will_Wheaton",
+  "narrator_voice": "narrator",
   "filters": {},
   "music": [
     {
-      "_beat": "midnight-dread (NEW, ElevenLabs music_v1, force_instrumental): thin low held drone, quiet dread. Scores the short message, monitor-drag, dock, call-connect, 'Can you hear me' / 'Most of it' / 'I'm going to read you something.' Sparse so the degraded-link voice cuts through. Window 0-34, crossfades into the-wording at ~28.",
+      "_beat": "midnight-dread: thin low held drone, quiet dread. Scores the message, the screen-pull/dock/connect, and 'Can you hear me' / 'Most of it' / 'I'm going to read you something.' Sparse so the degraded-link voice cuts through. Window 0-38, crossfades into the-wording at ~34.",
       "asset": "midnight-dread",
       "gain": 0.6,
       "start": 0,
-      "dur": 34,
+      "dur": 38,
       "fade_in": 5,
       "fade_out": 6
     },
     {
-      "_beat": "the-wording (NEW): cold/clinical near-silent bed for Lena reading the manufacturer notice -> the three machines (scanner/med-unit/respiratory controller) -> 'Tell me what stops' -> 'Who's on it.' -> 'A silence that was not the link.' The bed sits LOW (modest gain) and its own composition recedes then makes one slow low swell into the gut-silence after 'Who's on it.' Window 28-114, crossfading dread out at ~28-34 and the-wall in at ~108-114.",
+      "_beat": "the-wording: cold/clinical near-silent bed for Lena reading the manufacturer notice -> the three machines -> 'Tell me what stops' -> 'Who's on it.' -> 'A silence that was not the link.' Sits LOW; one slow swell into the gut-silence after 'Who's on it.' Window 34-122, crossfading dread out at ~32-38 and tension-bed in at ~116-122.",
       "asset": "the-wording",
       "gain": 0.55,
-      "start": 28,
-      "dur": 86,
-      "fade_in": 6,
-      "fade_out": 6
-    },
-    {
-      "_beat": "the-wall = REUSED existing tension-bed (the one asset already on disk; reused not regenerated per the no-regenerate-up-scope rule). The emotional peak: 'There's a man. Sixty-one.' -> 'Stay down here with me.' -> 'It's the same thing, Lena.' -> the fix realization -> Eli's 'thought' (unforgeable correctness) -> 'every one needing its own forged yes.' A held tension drone rising under the argument and carrying the dread the words keep flat. Window 108-252; tension-bed asset is ~316s so 144s never loops. Crossfades into single-low-note at ~245-252.",
-      "asset": "tension-bed",
-      "gain": 0.66,
-      "start": 108,
-      "dur": 144,
+      "start": 34,
+      "dur": 88,
       "fade_in": 6,
       "fade_out": 7
     },
     {
-      "_beat": "single-low-note (NEW): collapse to ONE sustained low tone (the prose hands us this literally -- 'a transformer he could not see held its single low note'). Scores the link drop, 'The shop was very quiet after', room-ambiance, the final reflection, and 'This was the one he could not fix.' Near-silence into the last line. Window 245-315 (to end ~313.7).",
+      "_beat": "tension-bed: the emotional peak -- 'There's a man. Sixty-one.' -> 'Stay down here with me. Where the man is.' -> 'It's the same thing, Lena.' -> the fix realization -> Eli's 'thought' (unforgeable correctness) -> 'No bottom to it.' A held drone rising under the argument, carrying the dread the words keep flat. Window 116-340; the asset is ~316s so 224s never loops. Crossfades into single-low-note at ~333-340.",
+      "asset": "tension-bed",
+      "gain": 0.66,
+      "start": 116,
+      "dur": 224,
+      "fade_in": 7,
+      "fade_out": 8
+    },
+    {
+      "_beat": "single-low-note: collapse to ONE sustained low tone (the prose hands us this literally -- 'a transformer he could not see held its single low note'). Scores the link drop, 'The shop was quiet after', room-ambiance, the final reflection, and 'This was the one he could not fix.' Near-silence into the last line. Window 333-376 (to the ~376s end).",
       "asset": "single-low-note",
       "gain": 0.55,
-      "start": 245,
-      "dur": 70,
-      "fade_in": 7,
+      "start": 333,
+      "dur": 43,
+      "fade_in": 6,
       "fade_out": 8
     }
   ],
   "ducking": {
-    "_doc": "Content-aware ducking (design doc Part A / B.4). Music rides UNDER the voice: -9 dB under solo narration, -6 dB under the dialogue (Lena on the degraded link, Eli, and Eli's filtered 'thought' interior) so the four beds support the call and lift in the breaths between lines instead of sitting flat. attack 0.30s pre-rolled, release 0.55s, hold 0.60s. NOTE: Lena's notice-READING here is role:'lena' (filter 'link'), not role:'notice', so the -15 notice-floor does NOT auto-trigger this pass (it would require per-cue duck_depth_db on her reading cues, which is deferred -- voice cues are untouched this pass); the near-mute-under-the-reading intent is approximated by the-wording's deliberately low authored gain + its receding composition. bus 'voice' = music only.",
+    "_doc": "Content-aware ducking. Music rides UNDER the voice: -9 dB under solo narration, -6 dB under the dialogue (Lena on the degraded link, Eli, Eli's filtered 'thought') so the four beds support the call and lift in the breaths between lines instead of sitting flat. attack 0.30s pre-rolled, release 0.55s, hold 0.60s. bus 'voice' = music only (SFX untouched). The near-mute-under-the-reading intent is approximated by the-wording's low authored gain + its receding composition.",
     "enabled": true,
     "depth_db": -6,
     "narration_depth_db": -9,
@@ -53,340 +53,57 @@
     "bus": "voice"
   },
   "tuning": {
-    "_doc": "Per-role speech-generation tuning for THIS scene (high-stakes: quicker, more expressive). exaggeration=emotional energy, cfg_weight=adherence to reference (lower=looser/more expressive), temperature=variation (keep <=0.8 to avoid garble). Per-cue exaggeration/cfg_weight/temperature override these.",
-    "narration": {
-      "exaggeration": 0.4,
-      "cfg_weight": 0.5,
-      "temperature": 0.65,
-      "tempo": 1.0
-    },
-    "eli": {
-      "exaggeration": 0.6,
-      "cfg_weight": 0.45,
-      "temperature": 0.8,
-      "tempo": 1.06
-    },
-    "eli_thought": {
-      "exaggeration": 0.45,
-      "cfg_weight": 0.5,
-      "temperature": 0.72,
-      "tempo": 1.0
-    },
-    "lena": {
-      "exaggeration": 0.65,
-      "cfg_weight": 0.45,
-      "temperature": 0.8,
-      "tempo": 1.07
-    }
+    "_doc": "Per-role generation tuning for THIS scene (high-stakes: quicker, more expressive CHARACTERS; narrator held at the SET calm tuning). exaggeration=energy, cfg_weight=adherence (lower=looser), temperature=variation (<=0.8 to avoid garble). Per-cue overrides win; short clipped lines get lower temperature + higher cfg_weight.",
+    "narration": { "exaggeration": 0.4, "cfg_weight": 0.5, "temperature": 0.65, "tempo": 1.0 },
+    "eli": { "exaggeration": 0.6, "cfg_weight": 0.45, "temperature": 0.78, "tempo": 1.05 },
+    "eli_thought": { "exaggeration": 0.45, "cfg_weight": 0.5, "temperature": 0.7, "tempo": 1.0 },
+    "lena": { "exaggeration": 0.62, "cfg_weight": 0.45, "temperature": 0.78, "tempo": 1.06 }
   },
   "cues": [
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.0,
-      "text": "The message was short, the way she did not write when something could wait."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.3,
-      "text": "She needed him on a call, if the link would hold."
-    },
-    {
-      "type": "sfx",
-      "asset": "monitor-drag",
-      "gain": 0.6,
-      "gap_before": 0.4
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.1,
-      "text": "He pulled the cracked shop screen around on its arm and propped the phone into the cradle that fed the relay."
-    },
-    {
-      "type": "sfx",
-      "asset": "phone-dock",
-      "gain": 0.6,
-      "gap_before": 0.05
-    },
-    {
-      "type": "sfx",
-      "asset": "call-connect",
-      "gain": 0.5,
-      "gap_before": 0.5
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.4,
-      "text": "Can you hear me."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "emotion": "calm",
-      "gap_before": 0.3,
-      "exaggeration": 0.5,
-      "cfg_weight": 0.6,
-      "temperature": 0.45,
-      "text": "Most of it."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.5,
-      "text": "I'm going to read you something.",
-      "tts": "I'm going to reed you something."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.3,
-      "text": "Under the thin voice was the quiet she got when she was angriest, the quiet other people mistook for calm."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.4,
-      "text": "Came an hour ago. Formal notice. From the manufacturer. Three systems. The diagnostic scanner. The medication-management unit. And the respiratory controller. All three lose remote authentication at midnight tonight."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "Eli closed his eyes a second."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "emotion": "serious",
-      "gap_before": 0.3,
-      "text": "Read me the wording.",
-      "tts": "Reed me the wording."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.4,
-      "text": "Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third. We appreciate your continued cooperation.",
-      "tts": "Following a review of supported region status, remote authentication for the listed devices will be discontinued effective end of day, October third. We appreciate your continued cooperation."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "The same flat thank-you as the doorbell and the dairy case, applied now to a scanner that found what was wrong inside a person, a unit that decided how much of a drug went into a body, and a controller that kept a set of lungs breathing that could not do the work on their own."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "emotion": "serious",
-      "gap_before": 0.5,
-      "text": "All right. Tell me what stops. Physically. At midnight, when the authentication goes."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.4,
-      "text": "The scanner won't boot. It checks a license at startup; the server stops answering, it stops booting. The med unit, I don't know yet. It might keep the doses already loaded and refuse new ones, or just lock. The respiratory controller is the one that frightens me. It runs continuous. Phones home on a cycle to confirm it's authorized. If it can't confirm, the safest thing they could have programmed is keep running and complain. The likeliest thing they actually programmed is degrade, or stop. I won't know which until midnight, and I am not going to find out at midnight with somebody on it."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "emotion": "serious",
-      "gap_before": 0.5,
-      "text": "Who's on it.",
-      "exaggeration": 0.5,
-      "cfg_weight": 0.6,
-      "temperature": 0.45
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "A silence that was not the link."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.4,
-      "text": "There's a man. Sixty-one. He comes off it in the day, mostly, but he can't hold a night without it yet. There's a child some nights. Not tonight. But some nights. I'm not giving you their names, Eli. That part isn't mine to give. But I'm not handing you three machines and a deadline either, because the people on them are why I'm calling, instead of just unplugging the things and going home."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "emotion": "calm",
-      "gap_before": 0.4,
-      "text": "I know."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.4,
-      "text": "Do you."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.35,
-      "text": "No cruelty in it. A real question, and she waited for a real answer."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.4,
-      "text": "I can hear you doing it. You've got it on a bench in your head. Scanner, med unit, controller. Three problems, sorting them by how hard they are. It's not three problems. It's one decision somebody made in a building, and the bottom of it is a man who can't breathe through the night. Stay down here with me. Don't climb back up onto that bench, where it's clean and it's just machines and nobody's dying."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "He did not answer right away. He looked at the three machines in plain type, the single time beside them, and the cold came up through the floor of the shop and into him, more of it than the room could account for."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "emotion": "serious",
-      "gap_before": 0.4,
-      "text": "It's the same thing, Lena. The towers this morning. The grocery. They dropped us a tier at noon. No more emergencies. It's not three companies having a bad week. It's everyone, at once, deciding we're not worth it. Your clinic is just where it shows up with a body underneath."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.4,
-      "text": "I know what it is. I've known what it is for a year. I'm asking you what we do about the man tonight."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "And here was the place he had been walking toward all morning. He could see the fix. When a server stopped answering and left a machine stranded, you stood in for the server. You forged the permission it could no longer grant, and the machine, not knowing the difference, ran. A withheld yes and a vanished yes were the same silence to the device. He could counterfeit a yes a hundred times before midnight."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "And under it, the thing he could not say to her."
-    },
-    {
-      "type": "voice",
-      "role": "eli_thought",
-      "filter": "thought",
-      "emotion": "calm",
-      "gap_before": 0.25,
-      "text": "The yes on that controller was vouching for something. The calibration. The dosing. The pressure that holds a body inside it. I can forge the pointer by hand. I cannot forge what it points at. Not in the hours I have. Not ever. And if I forge it anyway, the controller keeps running and kills the man it is keeping alive. Slowly. Correctly. Reporting the whole time that everything is fine."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "And it was not one controller. Behind the man, a clinic. Behind the clinic, a neighborhood, every machine in it orphaned the same way, every one needing its own forged yes and its own certainty he could not forge."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.6,
-      "text": "Eli. You went quiet. Tell me you didn't go quiet because there's nothing."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "emotion": "calm",
-      "gap_before": 0.4,
-      "text": "I'm here. I'm thinking."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "He told her he would come, that he would look at the controller with his own eyes before he called anything impossible."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "emotion": "serious",
-      "gap_before": 0.3,
-      "text": "I'm coming. A couple of hours. No more."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link",
-      "gap_before": 0.35,
-      "text": "Come now. As soon as you can. Not at midnight."
-    },
-    {
-      "type": "voice",
-      "role": "lena",
-      "filter": "link_fade",
-      "gap_before": 0.6,
-      "text": "Eli?"
-    },
-    {
-      "type": "sfx",
-      "asset": "link-drop",
-      "gain": 0.45,
-      "gap_before": 0.0
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 1.0,
-      "text": "The shop was very quiet after."
-    },
-    {
-      "type": "sfx",
-      "asset": "room-ambiance",
-      "gain": 0.35,
-      "gap_before": 0.1
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "The call window had collapsed. What was left on it was the notice she had read him, the three machines in plain type, and the time beside them: eleven fifty-nine. A little under twelve hours away.",
-      "tts": "The call window had collapsed. What was left on it was the notice she had red him, the three machines in plain type, and the time beside them: eleven fifty-nine. A little under twelve hours away."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "He did not move for a while. Under all of it, breathing on a controller that would lose its yes at midnight, a sixty-one-year-old man with a name Lena was keeping back. He looked at the three machines, and the single time beneath them, and there was no way back and no way around it. This was the one he could not fix."
-    }
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.0, "text": "The message was short, and not the way she wrote when something could wait." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3, "text": "She needed him on a call, if the link held. She had a notice. It was bad." },
+    { "type": "sfx", "asset": "monitor-drag", "gain": 0.6, "gap_before": 0.4 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.1, "text": "He pulled the cracked shop screen around on its arm and propped the phone into the cradle that fed the relay." },
+    { "type": "sfx", "asset": "phone-dock", "gain": 0.6, "gap_before": 0.05 },
+    { "type": "sfx", "asset": "call-connect", "gain": 0.5, "gap_before": 0.5 },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.4, "text": "Can you hear me." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.3, "exaggeration": 0.5, "cfg_weight": 0.6, "temperature": 0.45, "text": "Most of it." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.5, "text": "I'm going to read you something.", "tts": "I'm going to reed you something." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3, "text": "Under the thin voice was the quiet she got when she was angriest, the quiet other people mistook for calm." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.4, "text": "Came an hour ago. Formal notice. From the manufacturer. Three systems. The diagnostic scanner. The medication-management unit. And the respiratory controller. All three lose remote authentication at midnight tonight." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "Eli closed his eyes a second." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.3, "text": "Read me the wording.", "tts": "Reed me the wording." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.4, "text": "Following a review of supported-region status, remote authentication for the listed devices will be discontinued effective end of day, October the third. We appreciate your continued cooperation.", "tts": "Following a review of supported region status, remote authentication for the listed devices will be discontinued effective end of day, October third. We appreciate your continued cooperation." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "The same flat thank-you as the doorbell and the dairy case, applied now to a scanner that found what was wrong inside a person, a unit that decided how much of a drug went into a body, and a controller that kept a set of lungs breathing that could not do the work on their own." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.5, "exaggeration": 0.5, "cfg_weight": 0.6, "temperature": 0.45, "text": "All right." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3, "text": "He reached for the bench, for the steadiness of it, because working a problem through, step by step, was the only ground he knew how to stand on." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.3, "text": "Tell me what stops. Physically. At midnight, when the authentication goes." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.4, "text": "The scanner won't boot. It checks a license at startup; the server stops answering, it stops booting. The med unit, I don't know yet. It might keep the doses already loaded and refuse new ones, or just lock. The respiratory controller is the one that frightens me. It runs continuous. Phones home on a cycle to confirm it's authorized. If it can't confirm, the safest thing they could have programmed is keep running and complain. The likeliest thing they actually programmed is degrade, or stop. I won't know which until midnight, and I am not going to find out at midnight with somebody on it." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.5, "exaggeration": 0.5, "cfg_weight": 0.6, "temperature": 0.45, "text": "Who's on it." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "A silence that was not the link." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.4, "text": "There's a man. Sixty-one. He comes off it in the day, mostly, but he can't hold a night without it yet. There's a child some nights. Not tonight. But some nights. I'm not giving you their names, Eli. That part isn't mine to give. But I'm not handing you three machines and a deadline either, because the people on them are why I'm calling, instead of just unplugging the things and going home." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.4, "text": "I know." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.4, "text": "Do you." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.35, "text": "No cruelty in it. A real question, and she waited for a real answer." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.4, "text": "I can hear you doing it. You've got it on a bench in your head. Scanner, med unit, controller. Three problems, sorting them by how hard they are. It's not three problems. It's one decision somebody made in a building, and the bottom of it is a man who can't breathe through the night. Don't climb back up onto that bench, where it's clean and it's just machines and nobody's dying. Stay down here with me. Where the man is." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "He did not answer right away. He looked at the three machines sitting in plain type with a single time beside them, 23:59, three people and one clock, and the cold came up through the floor of the shop and into him, more of it than the room could account for.", "tts": "He did not answer right away. He looked at the three machines sitting in plain type with a single time beside them, eleven fifty-nine, three people and one clock, and the cold came up through the floor of the shop and into him, more of it than the room could account for." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.4, "text": "It's the same thing, Lena. The towers this morning. The grocery. They dropped us a tier at noon. No more emergencies. It's not three companies having a bad week. It's everyone, at once, deciding we're not worth it. Your clinic is just where it shows up with a body underneath." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.4, "text": "I know what it is. I've known what it is for a year. I'm asking you what we do about the man tonight." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "And here was the place he had been walking toward all morning, without letting himself see it. Because he could see the fix. That was the worst of it. He could see exactly the move that had saved the doorbell and the thermostat and the router, the whole of what he did. When a server stopped answering and left a machine stranded, you stood in for the server. You forged the permission it could no longer grant, and the machine, not knowing the difference, ran. A withheld yes and a vanished yes were the same silence to the device. He could counterfeit a yes a hundred times over before midnight." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "And under it, the thing he could not say to her." },
+    { "type": "voice", "role": "eli_thought", "filter": "thought", "gap_before": 0.25, "text": "The yes on that controller was vouching for something. The calibration. The dosing. The pressure that holds a body inside it. I can forge the pointer by hand. I cannot forge what it points at. Not in the hours I have. Not ever." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "That was the wall. The doorbell's permission had stood in front of a chime; cut it loose and the worst it did was ring at the wrong time. The controller's permission stood in front of a man's lungs. Cut that loose on a hand-made yes, and the controller would keep running and kill the man it was keeping alive, slowly, correctly, reporting the whole time that everything was fine." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "And it was not one controller. Behind the man, a clinic. Behind the clinic, a neighborhood, every machine in it orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. No bottom to it. Only him, with a screwdriver, one device at a time, while the whole of it kept coming." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.6, "text": "Eli. You went quiet. Tell me you didn't go quiet because there's nothing." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.4, "text": "I'm here. I'm thinking." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "It was true, and it was not enough, and they both knew it. He told her he would come, he would bring what he had, he would look at the controller with his own eyes before he said anything was impossible, because saying a problem was impossible from across a thin link was a coward's certainty, and he would not give it to her." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.3, "text": "I'm coming. A couple of hours. No more." },
+    { "type": "voice", "role": "lena", "filter": "link", "gap_before": 0.35, "text": "Come now. As soon as you can. Not at midnight." },
+    { "type": "voice", "role": "lena", "filter": "link_fade", "gap_before": 0.6, "text": "Eli?" },
+    { "type": "sfx", "asset": "link-drop", "gain": 0.45, "gap_before": 0.0 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 1.0, "text": "The shop was quiet after." },
+    { "type": "sfx", "asset": "room-ambiance", "gain": 0.35, "gap_before": 0.1 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "Far off, a transformer he could not see held a single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. What was left on it was the notice she had read him, the three machines in plain type, and the time beside them, 23:59, a little under twelve hours away.", "tts": "Far off, a transformer he could not see held a single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. What was left on it was the notice she had red him, the three machines in plain type, and the time beside them, eleven fifty-nine, a little under twelve hours away." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "He did not move for a while. Under all of it, breathing on a controller that would lose its yes at midnight, a sixty-one-year-old man with a name Lena was keeping back. He looked at the three machines, and the single time beneath them, and there was no way back and no way around it. This was the one he could not fix." }
   ]
 }

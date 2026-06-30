@@ -1,44 +1,16 @@
 {
-  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch1 Scene 3 (The Same Failure at Every Door). Eli's repair shop, late morning into midday, the same continuous Friday. The recognition scene: a queue of stranded devices resolves into one administrative withdrawal, named outright by a midday power-tier downgrade. Voiced elements: (1) narrator (Will_Wheaton, clean, calm) carrying all perception, the device diagnostics, the rhyme/recognition, and the reveal-safe deflected-past memory; (2) Eli (eli_rook) in his own voice for the doorbell exchange and the deflection ('Around.'); (3) Vance's boy = Mason (mason_vance), seventeen, flat/clipped, two short lines; (4) the unnamed sixty-ish customer voiced by 'elder' = a RENDER-ONLY generic elder-male timbre provisioned on the server (id elder_customer, an ElevenLabs ttv reference uploaded as a chatterbox cloning reference) -- NOT a canon character: the prose keeps him unnamed and 'forgotten', and Dorsey (canon, age 45) was deliberately NOT reused to avoid implying the stranger is him; (5) the midday provider NOTICE split title+body in the flat machine voice (role 'notice' = Will_Wheaton timbre via the book-scope 'notice' filter), with the canon machine-mark narrated between. SFX: doorbell-ring (the freed bell's single bare ring, scene scope) lands the 'Someone is here. Let me know.' beat; broadcast-pulse (the hub's double-pulse broadcast, BOOK scope sibling of mesh-chime) for the power notice; phone-dock (book) for the recognition pivot; shop-door (CHAPTER scope, Eli's recurring shop) for the old man's exit; mesh-chime (book) the single personal note that ends the scene on Lena. The broadcast double-pulse vs the single mesh-chime is rendered as two distinct SFX so the personal/everyone contrast is HEARD, letting the narration drop the sound-description. Dialogue tags ('Eli told the boy', 'the man said'), the boy's 'flatness Eli knew and let pass' (mason's flat tuning performs it), and the heard sound-descriptions are CUT per narration-discipline. 'text' = canon spelling; 'tts' = pronunciation-corrected line actually sent (heteronym read: past 'red', habitual 'reed'). Reveal-safe: the deflected-past memory ('a voice saying his name with approval, a door he had spent six years learning to keep shut') is kept verbatim as canon's 'shape of a secret' -- it names no Asterion/Morrow/Kade; no future system is implied. Music: RE-SCORED as four crossfading scene-scope beds that follow the emotional sections (replaces the single looped 'still-morning' which repeated audibly): morning-bench [0-166] the steady continuous-Friday repair; the-rhyme [160-334] the dawning recognition + buried-past probe; withdrawal [328-486] the cold institutional gut-punch; personal-note [480-562] the aftermath turning to Lena. Adjacent beds overlap ~6s to crossfade; gains kept modest (1.0-1.2) to sit under the narration. still-morning was only 75s so reusing it forced a loop; scene-scope beds were generated long enough per section. Passed Gemini adaptation-critique (gemini-pro-latest).",
+  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch1 Scene 3 (The Same Failure at Every Door). Eli works the shop bench through a midday of stranded machines and slowly recognizes one administrative shape behind all of them, named outright by a power-tier downgrade. Voiced elements: (1) narrator (the designed 'narrator' voice, clean, calm, held at the SET tuning regardless of the scene's mounting dread) carries all perception, the device diagnostics, the rhyme/recognition, and the deflected-past memory; (2) Eli (eli_rook) in his own voice for the counter exchange and the deflection 'Around.'; (3) Vance's boy = Mason (mason_vance), seventeen, flat/clipped withdrawal-native teen, two short lines with lower temperature + higher cfg_weight so they do not garble; (4) the unnamed sixty-ish customer in the render-only 'elder' voice (id elder_customer) -- an incidental ~60 Detroit male, audibly older than Eli and accent-distinct from the neutral-studio narrator, exactly as the cast sheet routed him to the director; NOT a canon cast slug, and Dorsey (canon, 45) was deliberately NOT reused so the stranger is not misheard as him; (5) the midday provider NOTICE split title+body in the flat machine voice (role 'notice' = narrator timbre via the book-scope 'notice' filter), the chapter's recurring notice-mute motif. FIDELITY CORRECTION over the prior render: the deflected-past memory is dramatized but kept STRICTLY to the manuscript -- the prose says only 'a voice that was not in this room saying his name with approval', so the flashback (mentor-past voice under the book-scope 'flashback' filter) speaks only Eli's NAME, 'Eli.', framed by the narrator's verbatim description; NO invented mentor sentence ('There it is, that's it') and NO invented image ('a monitor blown white') are added. The intrusion lasts one ghosted word and is immediately shut by 'the sound of a door he had spent six years learning to keep shut', preserving the buried quality. Dialogue tags ('Eli told the boy', 'the boy said'), the boy's 'flatness Eli knew' (mason's flat tuning performs it), and heard sound-descriptions are CUT per narration-discipline. Long narration blocks are split into short cues (proven to render cleaner and to give the ducking more breath points). 'text' = canon spelling; 'tts' = pronunciation-corrected line actually sent (heteronym read: past 'red', habitual 'reed'). SFX: shop-door (CHAPTER scope, Eli's recurring shop) for the cold each time the door opens (boy in/out, old man out); doorbell-ring (scene scope) the freed bell's single bare ring landing 'Someone is here. Let me know.'; solder-work (scene scope, new) a soft bench wash under 'He worked through them'; broadcast-pulse (BOOK scope, reused from Scene 1) the hub's double-pulse for the midday notice; phone-dock (BOOK scope, reused) the recognition pivot; mesh-chime (BOOK scope, reused) the single personal note that ends the scene on Lena. The double-pulse broadcast vs the single mesh-chime are two distinct SFX so the everyone/personal contrast is HEARD, letting the narration drop the sound-description. Reveal-safe: the buried-past beat ('a company', 'his name with approval', 'six years learning to keep shut') is kept verbatim; NO Asterion/Morrow/Mosaic/Kade leak added. The dairy-case recognition is this scene's own interior beat, not a Scene-2 recap bridge; the scene ends exactly on 'It was Lena.' and does not pre-empt Scene 4. Music: four crossfading scene-scope beds following the emotional sections (morning-bench 0-166 the steady continuous repair; the-rhyme 160-334 the dawning recognition + buried-past probe; withdrawal 328-486 the cold institutional gut-punch; personal-note 480-562 the aftermath turning to Lena), adjacent beds overlapping ~6s to crossfade, reused from the prior render (already long enough per section, never looped). Voices required (all verified on server): narrator, eli_rook, mason_vance, elder_customer, mentor-past. Passed Gemini adaptation-critique (gemini-pro-latest).",
   "scene": "ch1-scene3-the-same-failure-at-every-door",
-  "narrator_voice": "Will_Wheaton",
+  "narrator_voice": "narrator",
   "filters": {},
   "music": [
-    {
-      "asset": "morning-bench",
-      "gain": 0.66,
-      "start": 0,
-      "dur": 166,
-      "fade_in": 4,
-      "fade_out": 6
-    },
-    {
-      "asset": "the-rhyme",
-      "gain": 0.66,
-      "start": 160,
-      "dur": 174,
-      "fade_in": 5,
-      "fade_out": 6
-    },
-    {
-      "asset": "withdrawal",
-      "gain": 0.72,
-      "start": 328,
-      "dur": 158,
-      "fade_in": 5,
-      "fade_out": 6
-    },
-    {
-      "asset": "personal-note",
-      "gain": 0.6,
-      "start": 480,
-      "dur": 82,
-      "fade_in": 5,
-      "fade_out": 7
-    }
+    { "asset": "morning-bench", "gain": 0.66, "start": 0, "dur": 166, "fade_in": 4, "fade_out": 6 },
+    { "asset": "the-rhyme", "gain": 0.66, "start": 160, "dur": 174, "fade_in": 5, "fade_out": 6 },
+    { "asset": "withdrawal", "gain": 0.72, "start": 328, "dur": 158, "fade_in": 5, "fade_out": 6 },
+    { "asset": "personal-note", "gain": 0.6, "start": 480, "dur": 82, "fade_in": 5, "fade_out": 7 }
   ],
   "ducking": {
-    "_doc": "Content-aware ducking (design doc Part A / B.3). The narrator carries almost the whole scene, so music rides -9 dB under solo narration, -6 dB under the dialogue (Eli, Mason, elder), and recedes to a near-mute -15 dB floor under the role:'notice' power-tier cues (the 'Service Tier Reclassification' title + body) -- the second statement of the notice-mute motif, landing harder because it is the neighborhood-wide downgrade, then withdrawal swells back on 'And there it was.' The flashback window ('A monitor, blown white.' + the mentor cue) is auto-PROTECTED: the mixer drops content-duck spans overlapping a flashback window, so the existing muffle/ring treatment owns the level there and is not double-ducked. attack 0.30s pre-rolled, release 0.55s, hold 0.60s. bus 'voice' = music only.",
+    "_doc": "Content-aware ducking. Music rides UNDER the voice: -9 dB under solo narration, -6 dB under the counter dialogue (Eli, the boy, the old man, the flashback) and recedes to a near-mute -15 dB floor under role:'notice' (the Service Tier Reclassification title + body) so the flat machine lines land cold and unscored, then the bed returns. attack 0.30s pre-rolled, release 0.55s, hold 0.60s. bus 'voice' = music only (SFX untouched).",
     "enabled": true,
     "depth_db": -6,
     "narration_depth_db": -9,
@@ -49,471 +21,74 @@
     "bus": "voice"
   },
   "tuning": {
-    "_doc": "Per-role generation tuning for THIS scene. Narrator stays calm/measured regardless of the scene's cold turn (over-expressive narration artifacts). Eli: dry, terse, competent, privately guarded. Mason: flat, contained teen, clipped (short lines get lower temp + higher cfg). Elder: warm, idle, unhurried, slightly slowed. Notice: flat institutional machine. Per-cue overrides win.",
-    "narration": {
-      "exaggeration": 0.4,
-      "cfg_weight": 0.5,
-      "temperature": 0.65,
-      "tempo": 1.0
-    },
-    "eli": {
-      "exaggeration": 0.45,
-      "cfg_weight": 0.5,
-      "temperature": 0.65,
-      "tempo": 1.0
-    },
-    "mason": {
-      "exaggeration": 0.45,
-      "cfg_weight": 0.55,
-      "temperature": 0.55,
-      "tempo": 1.0
-    },
-    "elder": {
-      "exaggeration": 0.5,
-      "cfg_weight": 0.5,
-      "temperature": 0.6,
-      "tempo": 0.97
-    },
-    "notice": {
-      "exaggeration": 0.3,
-      "cfg_weight": 0.55,
-      "temperature": 0.5,
-      "tempo": 0.97
-    }
+    "_doc": "Per-role generation tuning. Narrator stays calm/measured at the SET tuning regardless of mounting dread (over-expressive narration artifacts). 'notice' = narrator voice id, tuned flat/institutional. Eli: dry, level, weary baritone. Mason: flat withdrawal-native teen, low exaggeration, slightly slowed. Elder: friendly, idle, ~60, slightly slowed for age. Mentor: warm, intimate, slow ghost of approval. Per-cue overrides win; short clipped lines get lower temperature + higher cfg_weight to avoid garble.",
+    "narration": { "exaggeration": 0.4, "cfg_weight": 0.5, "temperature": 0.65, "tempo": 1.0 },
+    "notice": { "exaggeration": 0.3, "cfg_weight": 0.55, "temperature": 0.5, "tempo": 0.97 },
+    "eli": { "exaggeration": 0.45, "cfg_weight": 0.5, "temperature": 0.68, "tempo": 1.0 },
+    "mason": { "exaggeration": 0.4, "cfg_weight": 0.55, "temperature": 0.55, "tempo": 0.98 },
+    "elder": { "exaggeration": 0.5, "cfg_weight": 0.5, "temperature": 0.6, "tempo": 0.97 },
+    "mentor": { "exaggeration": 0.45, "cfg_weight": 0.5, "temperature": 0.55, "tempo": 0.93 }
   },
   "cues": [
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.0,
-      "temperature": 0.55,
-      "cfg_weight": 0.55,
-      "text": "By eleven the shop's bench was full."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "It started as it always started, one after another, the door letting in a thread of cold each time it opened."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "Vance's boy came first with the doorbell, seventeen, his father's narrow face, and Eli set it under the lamp and found what he had known he would find, which was nothing wrong with it."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "The button worked. The chime worked. The little board worked, lit and patient, waiting to be told by a server two thousand miles away that it had permission to make a sound in a house in Detroit."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "The server did not answer. It had not answered, by the firmware log, since a Thursday in August, when its owner finished sunsetting a product line and moved on."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "It's fine. That's the problem. It just wants to ask a company that doesn't exist anymore whether it's allowed to ring."
-    },
-    {
-      "type": "voice",
-      "role": "mason",
-      "filter": "none",
-      "gap_before": 0.4,
-      "temperature": 0.45,
-      "cfg_weight": 0.6,
-      "text": "So can you fix it."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "I can make it forget it ever had a company."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "He pulled the board and began the work he had done a thousand times, less repair than amputation, cutting the board's reach to a sky that would not answer."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "It won't do half what it used to. No app, no chimes you pick, no telling you who's at the door from across town. It'll ring. That's all it'll do. Ring. That what you want?"
-    },
-    {
-      "type": "voice",
-      "role": "mason",
-      "filter": "none",
-      "gap_before": 0.4,
-      "temperature": 0.45,
-      "cfg_weight": 0.6,
-      "text": "That's what we want."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.45,
-      "text": "They wanted the house to know there was somebody at the door. The wanting reduced down to the bell itself, stripped of every feature the cleverness had wrapped around it, until all that was left was the animal need a doorbell had been invented to answer."
-    },
-    {
-      "type": "sfx",
-      "asset": "doorbell-ring",
-      "gain": 0.4,
-      "gap_before": 0.5
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.35,
-      "temperature": 0.55,
-      "cfg_weight": 0.58,
-      "text": "Someone is here. Let me know."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "He fixed it, took no money for it, and the boy left."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "Then it was a thermostat in a canvas bag, a smooth black square that lit up and showed the woman a login screen and would do nothing else, would not warm her house, would not even tell her the temperature of the room it stood in, until she signed into an account on a service that had been folded into another service that had been discontinued."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "It read the room perfectly. It simply refused to say what it read until it had checked her name against a list nobody kept anymore. He bypassed it, and afterward it was only a switch that turned the heat on when the room got cold, which was all she had ever wanted from it.",
-      "tts": "It red the room perfectly. It simply refused to say what it red until it had checked her name against a list nobody kept anymore. He bypassed it, and afterward it was only a switch that turned the heat on when the room got cold, which was all she had ever wanted from it."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "Then it was a router that could no longer find the home it had been born to."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "He worked through them. The smell of the bench settled over him, warm solder and flux, the faint scorch of boards left running too long, and the quiet came as it always did. There was always another stranded machine to talk down off the ledge of its own obedience, and the work left no room in him for anything else."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "But the rhyme would not leave him alone. It was the same failure. He kept telling himself it was not, that a doorbell and a thermostat and a router were three different devices from three different companies built in three different years, that they had nothing to do with one another beyond the accident of all coming through his door on the same cold morning."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "And it was true, and it was a lie, and somewhere around the third one he stopped being able to tell himself the true part. They were not failing. Failing was what a machine did when it broke, and not one of these had broken. Every one of them worked, perfectly."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "Every one sat on his bench refusing to run because somewhere a company had reached across the country and quietly taken back a permission it had once granted. The device, faithful, obedient, well made, had done exactly what it was built to do, which was to stop."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "Machines waiting for permission. The whole bench of them, lit and warm and useless, holding their breath for a word that was never coming."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "He had the router half open when the man spoke."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "He had forgotten the man was there. Older, sixty maybe, on the stool by the window with a tablet Eli had already looked at and set aside, an account locked behind an identity check that ran through a bank that had stopped recognizing the neighborhood as a place that banked. He had been watching Eli work with the attention people gave to someone doing something they could not do themselves."
-    },
-    {
-      "type": "voice",
-      "role": "elder",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "You're fast at that. I've watched a few do it. You're faster."
-    },
-    {
-      "type": "voice",
-      "role": "elder",
-      "filter": "none",
-      "gap_before": 0.8,
-      "text": "Where'd you learn it? You don't pick that up at one of the programs. That's somewhere real. A company. That's a company hand, not a program hand."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "Eli's hands did not stop. That was what he made sure of, that the connector went home and the driver turned at the same even pace. The hands were the part other people read."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "For half a second, the rest of him was somewhere else."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.35,
-      "text": "A room with too much light in it. A monitor, blown white.",
-      "flashback": true
-    },
-    {
-      "type": "voice",
-      "role": "mentor",
-      "filter": "flashback",
-      "gap_before": 0.3,
-      "exaggeration": 0.5,
-      "cfg_weight": 0.6,
-      "temperature": 0.45,
-      "text": "There it is. That's it, Eli.",
-      "tts": "There it is... that's it, Eli.",
-      "flashback": true
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "And the sound of a door he had spent six years learning to keep shut."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "gap_before": 0.4,
-      "temperature": 0.45,
-      "cfg_weight": 0.6,
-      "text": "Around."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "He set the router's cover back and turned it so the man could see the small green light that meant it had found a home, three feet away, with no permission asked of anyone."
-    },
-    {
-      "type": "voice",
-      "role": "eli",
-      "filter": "none",
-      "gap_before": 0.35,
-      "text": "It's done. Try it tonight. That tablet, I'll see what I can do, but the lock on it isn't mine to open. That's the bank. That's not a thing I can solder."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "It worked. The man took the out, because most people were polite and could feel the door close even when they could not see it, and the talk turned to the tablet and away from where Eli had learned what he did."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "The midday notice came in a little after noon."
-    },
-    {
-      "type": "sfx",
-      "asset": "broadcast-pulse",
-      "gain": 0.5,
-      "gap_before": 0.3
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.3,
-      "text": "He felt the phone buzz against the bench and ignored it, and it buzzed again, the double pulse the hub used for a broadcast, a pulse sent to everyone at once and not to anyone in particular, and that was unusual enough that he wiped his hands and looked."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "It was from the power provider. The same clean type. The same small mark of a machine that had written it with no person in the loop."
-    },
-    {
-      "type": "voice",
-      "role": "notice",
-      "filter": "notice",
-      "gap_before": 0.5,
-      "text": "Notice of Service Tier Reclassification."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "He read it standing up, in the cold light from the window, the man's locked tablet set aside on the bench.",
-      "tts": "He red it standing up, in the cold light from the window, the man's locked tablet set aside on the bench."
-    },
-    {
-      "type": "voice",
-      "role": "notice",
-      "filter": "notice",
-      "gap_before": 0.4,
-      "text": "Following a scheduled review, your service area has been reclassified to a lower distribution priority tier. Power interruptions within this area will no longer be processed as emergency restoration events except where strategic infrastructure is affected. Standard maintenance windows continue to apply. We appreciate your continued cooperation."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "temperature": 0.55,
-      "cfg_weight": 0.55,
-      "text": "He stood very still."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "He had known the neighborhood was below the protected zones. Everyone had known it since the winter, when the tiers first came in and they landed on the wrong side of the line, as they had landed on the wrong side of everything."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "But this was lower. This was the line moved again, to a place where an outage in his street no longer brought anyone out in the cold to fix it, one that simply waited now for the next standard maintenance window, whenever that was, if it came. The whole neighborhood, every house and shop and the clinic and the school, reclassified at once, downward, by a machine, in a sentence that thanked him for his cooperation."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "And there it was. What the morning had been circling."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "The two lit doors of the dairy case, and the dark length of it past them. That was where it landed, and the doorbell's patient little board came with it, the same patience, the same clean type at the top of both notices, and the morning would not stay in the separate pockets he had kept it in."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "They were one shape. A series of companies, each in its own building, had decided at the same hour that these people were no longer worth the cost of serving, and had written it down, politely, and moved on."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "Everything physical was exactly where it had been, working, ready, waiting. Destruction would have left a mark, something to point at and repair. This left nothing but a slow opening of a hand that had been holding them up, finger by finger, with a thank-you note for each finger as it let go."
-    },
-    {
-      "type": "sfx",
-      "asset": "phone-dock",
-      "gain": 0.5,
-      "gap_before": 0.4
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.3,
-      "text": "He set the phone down and looked at the crowded bench, the lit machines waiting on servers nobody answered for anymore, and for the first time that morning he did not see a queue of separate jobs."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.4,
-      "text": "He saw the reach behind it all, himself in the middle with a screwdriver, working the small ends while the rest of it came on around him. Against everything in him that wanted the world kept in separate pockets, he let himself start the list of what still worked only because no one had decided yet that it wasn't worth it. The list had no end."
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "text": "The old man rose from the stool by the window, gathered his still-locked tablet off the bench, and let himself out, the door giving one last thread of cold to the room."
-    },
-    {
-      "type": "sfx",
-      "asset": "shop-door",
-      "gain": 0.5,
-      "gap_before": 0.1
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.6,
-      "text": "Eli was still standing there."
-    },
-    {
-      "type": "sfx",
-      "asset": "mesh-chime",
-      "gain": 0.5,
-      "gap_before": 0.25
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.3,
-      "text": "It was not the broadcast pulse. It was a single message, direct, the soft single note the hub gave to something addressed to him alone. He looked down and saw the sender and knew, before he opened it, that this one would not be a doorbell. Not a small dead thing he could open up and talk back into working. The other kind.",
-      "exaggeration": 0.4,
-      "cfg_weight": 0.6,
-      "temperature": 0.45
-    },
-    {
-      "type": "voice",
-      "role": "narration",
-      "filter": "none",
-      "gap_before": 0.5,
-      "temperature": 0.55,
-      "cfg_weight": 0.55,
-      "text": "It was Lena."
-    }
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.0, "temperature": 0.55, "cfg_weight": 0.55, "text": "By eleven the shop's bench was full." },
+    { "type": "sfx", "asset": "shop-door", "gain": 0.42, "gap_before": 0.4 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3, "text": "It started as it always started, one after another, the door letting in a thread of cold each time it opened. Vance's boy came first with the doorbell, seventeen, his father's narrow face, and Eli set it under the lamp and found what he had known he would find, which was nothing wrong with it." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "The button worked. The chime worked. The little board worked, lit and patient, waiting to be told by a server two thousand miles away that it had permission to make a sound in a house in Detroit." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "The server did not answer. It had not answered, by the firmware log, since a Thursday in August, when its owner finished sunsetting a product line and moved on." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.5, "temperature": 0.5, "cfg_weight": 0.58, "tempo": 0.96, "text": "It's fine. That's the problem. It just wants to ask a company that doesn't exist anymore whether it's allowed to ring." },
+    { "type": "voice", "role": "mason", "filter": "none", "gap_before": 0.4, "temperature": 0.45, "cfg_weight": 0.6, "text": "So can you fix it." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.4, "text": "I can make it forget it ever had a company." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "He pulled the board and began the work he had done a thousand times, less repair than amputation, cutting the board's reach to a sky that would not answer." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.4, "text": "It won't do half what it used to. No app, no chimes you pick, no telling you who's at the door from across town. It'll ring. That's all it'll do. Ring. That what you want?" },
+    { "type": "voice", "role": "mason", "filter": "none", "gap_before": 0.4, "temperature": 0.45, "cfg_weight": 0.6, "text": "That's what we want." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "They wanted the house to know there was somebody at the door. The wanting reduced down to the bell itself, stripped of every feature the cleverness had wrapped around it, until all that was left was the animal need a doorbell had been invented to answer." },
+    { "type": "sfx", "asset": "doorbell-ring", "gain": 0.4, "gap_before": 0.5 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "temperature": 0.5, "cfg_weight": 0.58, "text": "Someone is here. Let me know." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "He fixed it, took no money for it, and the boy left." },
+    { "type": "sfx", "asset": "shop-door", "gain": 0.42, "gap_before": 0.35 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "Then it was a thermostat in a canvas bag, a smooth black square that lit up and showed the woman a login screen and would do nothing else, would not warm her house, would not even tell her the temperature of the room it stood in, until she signed into an account on a service that had been folded into another service that had been discontinued." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "It read the room perfectly. It simply refused to say what it read until it had checked her name against a list nobody kept anymore. He bypassed it, and afterward it was only a switch that turned the heat on when the room got cold, which was all she had ever wanted from it.", "tts": "It red the room perfectly. It simply refused to say what it red until it had checked her name against a list nobody kept anymore. He bypassed it, and afterward it was only a switch that turned the heat on when the room got cold, which was all she had ever wanted from it." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45, "text": "Then it was a router that could no longer find the home it had been born to." },
+    { "type": "sfx", "asset": "solder-work", "gain": 0.3, "gap_before": 0.45 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3, "text": "He worked through them. The smell of the bench settled over him, warm solder and flux, the faint scorch of boards left running too long, and the quiet came as it always did. There was always another stranded machine to talk down off the ledge of its own obedience, and the work left no room in him for anything else." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "But the rhyme would not leave him alone. It was the same failure. He kept telling himself it was not, that a doorbell and a thermostat and a router were three different devices from three different companies built in three different years, that they had nothing to do with one another beyond the accident of all coming through his door on the same cold morning." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45, "text": "And it was true, and it was a lie, and somewhere around the third one he stopped being able to tell himself the true part. They were not failing. Failing was what a machine did when it broke, and not one of these had broken. Every one of them worked, perfectly." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "Every one sat on his bench refusing to run because somewhere a company had reached across the country and quietly taken back a permission it had once granted. The device, faithful, obedient, well made, had done exactly what it was built to do, which was to stop." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "Machines waiting for permission. The whole bench of them, lit and warm and useless, holding their breath for a word that was never coming." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "He had the router half-open when the man spoke." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "He had forgotten the man was there. Older, sixty maybe, on the stool by the window with a tablet Eli had already looked at and set aside, an account locked behind an identity check that ran through a bank that had stopped recognizing the neighborhood as a place that banked. He had been watching Eli work with the attention people gave to someone doing something they could not do themselves." },
+    { "type": "voice", "role": "elder", "filter": "none", "gap_before": 0.45, "text": "You're fast at that. I've watched a few do it. You're faster." },
+    { "type": "voice", "role": "elder", "filter": "none", "gap_before": 0.9, "text": "Where'd you learn it? You don't pick that up at one of the programs. That's somewhere real. A company. That's a company hand, not a program hand." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45, "text": "Eli's hands did not stop. That was what he made sure of, that the connector went home and the driver turned at the same even pace, because the hands were the part other people read.", "tts": "Eli's hands did not stop. That was what he made sure of, that the connector went home and the driver turned at the same even pace, because the hands were the part other people reed." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "The rest of him went somewhere for half a second. A room with too much light in it. A voice that was not in this room." },
+    { "type": "voice", "role": "mentor", "filter": "flashback", "gap_before": 0.3, "temperature": 0.4, "cfg_weight": 0.65, "text": "Eli." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45, "text": "The sound of a door he had spent six years learning to keep shut." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.5, "temperature": 0.45, "cfg_weight": 0.62, "text": "Around." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.35, "text": "He set the router's cover back and turned it so the man could see the small green light that meant it had found a home, three feet away, with no permission asked of anyone." },
+    { "type": "voice", "role": "eli", "filter": "none", "gap_before": 0.4, "text": "It's done. Try it tonight. That tablet, I'll see what I can do, but the lock on it isn't mine to open. That's the bank. That's not a thing I can solder." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45, "text": "It worked. The man took the out, because most people were polite and could feel the door close even when they could not see it, and the talk turned to the tablet and away from where Eli had learned what he did." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "The midday notice came in a little after noon." },
+    { "type": "sfx", "asset": "broadcast-pulse", "gain": 0.5, "gap_before": 0.5 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3, "text": "He felt the phone buzz against the bench and ignored it, and it buzzed again, a pulse sent to everyone at once and not to anyone in particular, and that was unusual enough that he wiped his hands and looked." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "It was from the power provider. The same clean type. The same small mark of a machine that had written it with no person in the loop." },
+    { "type": "voice", "role": "notice", "filter": "notice", "gap_before": 0.5, "text": "Notice of Service Tier Reclassification." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "He read it standing up, in the cold light from the window, the man's locked tablet set aside on the bench.", "tts": "He red it standing up, in the cold light from the window, the man's locked tablet set aside on the bench." },
+    { "type": "voice", "role": "notice", "filter": "notice", "gap_before": 0.45, "text": "Following a scheduled review, your service area has been reclassified to a lower distribution priority tier. Power interruptions within this area will no longer be processed as emergency restoration events except where strategic infrastructure is affected. Standard maintenance windows continue to apply. We appreciate your continued cooperation." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "temperature": 0.5, "cfg_weight": 0.58, "text": "He stood still." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "He had known the neighborhood was below the protected zones. Everyone had known it since the winter, when the tiers first came in and they landed on the wrong side of the line, as they had landed on the wrong side of everything." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "But this was lower. This was the line moved again, to a place where an outage in his street no longer brought anyone out in the cold to fix it, one that simply waited now for the next standard maintenance window, whenever that was, if it came. The whole neighborhood, every house and shop and the clinic and the school, reclassified at once, downward, by a machine, in a sentence that thanked him for his cooperation." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "temperature": 0.55, "cfg_weight": 0.55, "text": "And there it was. What the morning had been circling." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45, "text": "The two lit doors of the dairy case, and the dark length past them. That was where the recognition landed, and the doorbell's patient little board came with it, the same patience, the same clean type at the top of both notices, and the morning would not stay in the separate pockets he had kept it in." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "They were one shape. A series of companies, each in its own building, had decided at the same hour that these people were no longer worth the cost of serving, and had written it down, politely, and moved on." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "Everything physical was exactly where it had been, working, ready, waiting. Destruction would have left a mark, something to point at and repair. This left nothing but a slow opening of a hand that had been holding them up, finger by finger, with a thank-you note for each finger as it let go." },
+    { "type": "sfx", "asset": "phone-dock", "gain": 0.5, "gap_before": 0.45 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3, "text": "He set the phone down and looked at the crowded bench, the lit machines waiting on servers nobody answered for anymore, and for the first time that morning he did not see a queue of separate jobs." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "He saw the reach behind it all, himself in the middle with a screwdriver, working the small ends while the rest of it came on around him. Against everything in him that wanted the world kept in separate pockets, he let himself start the list of what still worked only because no one had decided yet that it wasn't worth it. The list had no end." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5, "text": "The old man rose from the stool by the window, gathered his still-locked tablet off the bench, and let himself out, the door giving one last thread of cold to the room." },
+    { "type": "sfx", "asset": "shop-door", "gain": 0.42, "gap_before": 0.3 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4, "text": "Eli was still standing there when the mesh chimed." },
+    { "type": "sfx", "asset": "mesh-chime", "gain": 0.5, "gap_before": 0.45 },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3, "text": "It was not the broadcast pulse. It was a single message, direct, addressed to him alone. He looked down and saw the sender and knew, before he opened it, that this one would not be a doorbell. Not a small dead thing he could open up and talk back into working. The other kind." },
+    { "type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6, "temperature": 0.48, "cfg_weight": 0.6, "text": "It was Lena." }
   ]
 }

@@ -7,8 +7,8 @@
     "file": "stem-000-narration.wav",
     "filter": "none",
     "gap_before": 0.0,
-    "text": "The phone woke before he did. It was the habit of years, not the alarm.",
-    "dur": 4.56,
+    "text": "He woke the phone before he woke himself, Eli's thumb reaching for the glass out of years of habit, the rest of him still asleep.",
+    "dur": 7.44,
     "err": null
   },
   {
@@ -19,8 +19,8 @@
     "file": "stem-001-narration.wav",
     "filter": "none",
     "gap_before": 0.4,
-    "text": "Eli's thumb found the glass while the rest of him was still under sleep, and the screen came up pale in the morning light, and he read the status bar like another man checking the weather through a window. The time. The battery low, as it always was by morning. And along the top, where the external bars should have stood, nothing. Only the small notched icon for the local mesh, lit and steady, a single lamp left burning in an empty house.",
-    "dur": 26.08,
+    "text": "The screen came up pale in the morning light, and he read the status bar like another man checking the weather through a window. The time. The battery low, as it always was by morning. And along the top, where the external bars should have stood, nothing. Only the small notched icon for the local mesh, lit and steady, a single lamp left burning in an empty house.",
+    "dur": 21.12,
     "err": null
   },
   {
@@ -31,8 +31,8 @@
     "file": "stem-002-narration.wav",
     "filter": "none",
     "gap_before": 0.5,
-    "text": "He lay still a moment and looked at it. The floor was cold when he put his feet down. The room held the silence of a place running on stored power, the small outside noises a phone made when it was talking to the world all gone.",
-    "dur": 13.76,
+    "text": "He lay still a moment and looked at it. The floor was cold when he put his feet down. The room held the silence of a place running on stored power. The small sounds a phone made when it was talking to the world were all gone.",
+    "dur": 12.52,
     "err": null
   },
   {
@@ -44,7 +44,7 @@
     "filter": "none",
     "gap_before": 0.4,
     "text": "He thumbed the network off and on, then carried the phone to the window and held it up, something his father would have done with a transistor radio, and it helped about as much. The bars did not come back.",
-    "dur": 10.84,
+    "dur": 11.4,
     "err": null
   },
   {
@@ -56,7 +56,7 @@
     "filter": "none",
     "gap_before": 0.4,
     "text": "He had lived through enough of these mornings to take it like a tool that failed in his hand before coffee, with a small flat patience and no surprise left in it. The mesh was up, which meant the library hub still had power, which meant the neighborhood could talk to itself. It just could not talk to anyone past its own edge.",
-    "dur": 17.8,
+    "dur": 18.52,
     "err": null
   },
   {
@@ -68,7 +68,7 @@
     "filter": "none",
     "gap_before": 0.5,
     "text": "The local board had collected the night's messages over the mesh, all short, all inside the neighborhood.",
-    "dur": 5.6,
+    "dur": 5.76,
     "err": null
   },
   {
@@ -80,7 +80,7 @@
     "filter": "mesh",
     "gap_before": 0.4,
     "text": "Anybody got signal out. Nothing on mine since maybe two. Dorsey.",
-    "dur": 4.421708,
+    "dur": 5.04,
     "err": null
   },
   {
@@ -92,7 +92,7 @@
     "filter": "mesh",
     "gap_before": 0.5,
     "text": "Towers off again. Hub still good. The library.",
-    "dur": 3.6,
+    "dur": 4.04,
     "err": null
   },
   {
@@ -104,7 +104,7 @@
     "filter": "none",
     "gap_before": 0.4,
     "text": "So it was not only him.",
-    "dur": 1.64,
+    "dur": 1.56,
     "err": null
   },
   {
@@ -116,7 +116,7 @@
     "filter": "mesh",
     "gap_before": 0.35,
     "text": "Same here. Looking.",
-    "dur": 1.863,
+    "dur": 2.0,
     "err": null
   },
   {
@@ -141,8 +141,8 @@
     "file": "stem-012-narration.wav",
     "filter": "none",
     "gap_before": 0.3,
-    "text": "The queued notice arrived, forwarded from the hub, passed hand to hand as mail moved now. He knew the shape of these notices by the sender field alone. He opened it.",
-    "dur": 10.0,
+    "text": "The queued notice arrived, forwarded from the hub, passed node to node as mail moved now. He knew the shape of these notices by the sender field alone. He opened it.",
+    "dur": 9.16,
     "err": null
   },
   {
@@ -154,7 +154,7 @@
     "filter": "notice",
     "gap_before": 0.5,
     "text": "Notice of Service Continuity Adjustment.",
-    "dur": 2.88,
+    "dur": 2.56,
     "err": null
   },
   {
@@ -166,7 +166,7 @@
     "filter": "none",
     "gap_before": 0.4,
     "text": "The provider's name in clean type at the top, the small mark beside it that meant a machine had composed the message with no person anywhere near it.",
-    "dur": 8.84,
+    "dur": 8.32,
     "err": null
   },
   {
@@ -178,7 +178,7 @@
     "filter": "notice",
     "gap_before": 0.4,
     "text": "Following a periodic review of regional infrastructure, full restoration of cellular service to your area is no longer supported under current service-continuity thresholds. Local connectivity may remain available through community-operated systems. We thank you for your understanding.",
-    "dur": 17.12,
+    "dur": 17.76,
     "err": null
   },
   {
@@ -190,7 +190,7 @@
     "filter": "none",
     "gap_before": 0.5,
     "text": "He read it twice.",
-    "dur": 1.28,
+    "dur": 1.08,
     "err": null
   },
   {
@@ -201,8 +201,8 @@
     "file": "stem-017-narration.wav",
     "filter": "none",
     "gap_before": 0.4,
-    "text": "The towers had been down a hundred times, whenever the grid sagged and the provider shed load to keep the protected zones lit, and they had always come back, sullen and slow, but back. The towers were the same dark towers now. What had changed was that someone had written it down. No longer supported. Somewhere, in a building he would never see, a line had been crossed on a spreadsheet. The cost of keeping his street on the network had passed what the street was worth to the people who owned it, and so they let go.",
-    "dur": 29.7,
+    "text": "The towers had been down a hundred times, whenever the grid sagged and the provider shed load to keep the protected zones lit, and they had always come back, sullen and slow, but back. The towers stood dark the way they always had. What had changed was that this time someone had written it down. No longer supported. Somewhere, in a building he would never see, a line had been crossed on a spreadsheet. The cost of keeping his street on the network had passed what the street was worth to the people who owned it, and so they let go.",
+    "dur": 30.46,
     "err": null
   },
   {
@@ -214,7 +214,7 @@
     "filter": "none",
     "gap_before": 0.4,
     "text": "There was no error in it to fix, and that was the part his hands kept reaching for and not finding. A dead tower was a problem. Problems had causes, causes had repairs, and he was good at the long quiet work between them. But you could not solder a decision. It was all working exactly as it was meant to. It was simply meant, now, to leave him here.",
-    "dur": 22.04,
+    "dur": 21.6,
     "err": null
   },
   {
@@ -233,7 +233,7 @@
     "filter": "none",
     "gap_before": 0.3,
     "text": "He poured it over yesterday's grounds, because the new ones cost money, and did the small arithmetic of the day instead of the large arithmetic of the notice. He would route around it. That was what he did. There would be a way out through the old satellite terminal at the hub, or there would not. Either way it was a job, and a job was manageable, and the day was already moving.",
-    "dur": 21.48,
+    "dur": 21.04,
     "err": null
   },
   {
@@ -251,8 +251,8 @@
     "file": "stem-022-narration.wav",
     "filter": "none",
     "gap_before": 0.3,
-    "text": "He set the phone face down on the counter. The phone was easy to set down. The notice was not. It had settled somewhere behind the sternum the moment he read it, weightless and impossible to put down, and he carried it out the door, and would carry it all morning.",
-    "dur": 14.36,
+    "text": "He set the phone face down on the counter. The phone was easy to set down. The notice was not. It had settled somewhere behind the sternum the moment he read it, weightless and impossible to set down, and he carried it out the door, and would carry it all morning.",
+    "dur": 13.24,
     "err": null
   }
 ]

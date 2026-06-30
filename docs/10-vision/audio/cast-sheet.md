@@ -127,6 +127,63 @@ the two-hander is routed to live-narration-director as a performance / pacing no
   American. The closest pair on the sheet; if ever co-present, this needs the widest deliberate
   separation (distinct cadence, register, or persona). Highest-priority check.
 
+## Per-chapter sign-off
+
+### chapter-01 -- "No Signal" (book-1) -- SIGNED 2026-06-30
+
+Speaking roster determined from the approved manuscript
+(`docs/50-manuscript/book-1/chapter-01-no-signal/chapter-01-no-signal.md`), not the blueprint's
+placeholder "background" list. Co-presence taken per scene from the manuscript prose.
+
+**Canon-slugged voiced characters in scope (all DESIGNED, assets verified on disk):**
+
+| Character | slug | Scenes voiced | Register (grounded) | default | Asset verified |
+| --- | --- | --- | --- | --- | --- |
+| Eli Rook | `rook-eli` | 1-4 (viewpoint) | M, late 30s, flat Michigan, dry level baritone | 2 | yes |
+| Marisol Vega | `vega-marisol` | 2 (grocery counter) | F, mid 50s, Detroit, weathered grocer | 0 | yes |
+| Mason Vance | `vance-mason` | 3 (the doorbell, "Vance's boy... seventeen") | M, ~17, flat Detroit, clipped withdrawal-native teen | 2 | yes |
+| Lena Okafor | `okafor-lena` | 4 (over the mesh link) | F, late 40s, Detroit under Nigerian-American cadence, low even alto | 0 | yes |
+| Narrator | `narrator` | 1-4 (close third) | M, early 50s, warm studio | 2 | yes |
+
+`vance-mason` description ("late teens, about 17... flat working Detroit accent") matches the
+manuscript's "Vance's boy came first with the doorbell, seventeen" (chapter-01:83); the boy is
+Marcus Vance's son, voiced as Mason.
+
+**Co-presence and contrast map (collision only counts among co-present voices):**
+
+- **Scene 1 (Eli's home):** Eli + narrator only. The night's mesh messages ("Dorsey", "the
+  library") are rendered as TEXT on the board (chapter-01:35,38), narrator-read, not voiced. No
+  character collision. Eli (M late 30s baritone) sits clearly under the narrator (M early 50s warm
+  studio) on age + persona.
+- **Scene 2 (the street / grocery):** Eli + Marisol + narrator. Gender separates Marisol (F mid
+  50s) from both males; the corner boy's "morning, Mr. Rook" (chapter-01:61) is reported speech,
+  incidental. No collision.
+- **Scene 3 (the shop) -- the only dense same-gender cluster:** Eli + Mason + the unnamed old man
+  + narrator are all MALE and co-present. Separated by age band and persona: Mason ~17 clipped teen
+  / Eli late 30s dry baritone / old man ~60 / narrator early 50s neutral studio. The three slugged
+  voices span teen / late-30s / early-50s with distinct personas and are tellable apart by ear. The
+  old man is the one incidental gap (see routing below).
+- **Scene 4 (the mesh call):** Eli + Lena + narrator. Gender separates Lena (F late 40s alto) from
+  both males; her voice is deliberately degraded by the thin-link performance, widening the gap
+  further. No collision.
+
+**Verdict:** every canon speaking character in scope is assigned and contrast-checked; no
+co-present collision is unresolved; all five assets verified present on disk. Nothing to route to
+voice-designer (no un-cast canon slug). SIGNED.
+
+**Incidental voicing routed to live-narration-director (not a designable cast slug):**
+
+- **The unnamed old man** (chapter-01:107-115, "Older, sixty maybe," asks Eli where he learned his
+  work). Substantial single-scene speaker but with NO canon slug or profile, so he is not a
+  voice-designer brief and not a cast-sheet assignment. Director to voice him as an incidental
+  ~60-year-old Detroit-accented male, audibly OLDER than Eli and accent-distinct from the
+  neutral-studio narrator, so the Scene-3 male cluster stays four-way separable. Do NOT borrow a
+  named character's voice for him -- in particular not Nolan Avery (`avery-nolan`), who is
+  referenced by name elsewhere in this same chapter (chapter-01:69) as a different, non-speaking
+  neighbor; reusing Avery's instrument would misidentify the old man on the ear.
+- **Mesh text senders (Dorsey, "the library") and the corner boy:** narrator-read text / reported
+  speech as written; no character voice required this chapter.
+
 ## Cross-chapter consistency ledger
 
 The chosen voice for each character (its `voice-design.json` `default` index, description, and
@@ -134,9 +191,12 @@ tags) is the **locked reference**. Any later re-design or re-render is checked b
 before it ships, so a character is the same instrument in chapter nine as in chapter one. Record
 each legitimate change here with its grounding and the chapters affected.
 
+The five voices above are now the **locked reference** for these characters from chapter-01
+forward; any later re-design or re-render is checked back against them before it ships.
+
 | Date (ISO) | Character | Change | Grounding | Chapters affected |
 | --- | --- | --- | --- | --- |
-| _(none yet)_ | | | | |
+| 2026-06-30 | rook-eli, vega-marisol, vance-mason, okafor-lena, narrator | Locked as Ch1 reference (no change) | Asset descriptions + `default` verified on disk; match chapter-01 prose | ch1 |
 
 ## Sign-off
 
@@ -144,10 +204,16 @@ The casting-director signs off the ensemble before live scenes render: every spe
 in scope is assigned, every candidate collision among co-present speakers is resolved, and the
 consistency ledger is clean.
 
-- **Status: DRAFT.** Seeded from the existing voice assets; pending the casting-director's
-  co-presence verification, contrast resolution, and sign-off.
-- **Last signed:** _(not yet signed)_
+- **Status: ACTIVE.** Per-chapter sign-off in progress. **chapter-01 (book-1): SIGNED 2026-06-30**
+  -- every canon speaking character in scope assigned + contrast-checked, all five assets verified
+  on disk, no co-present collision unresolved, ledger clean. Later chapters pending their own
+  co-presence verification.
+- **Last signed:** 2026-06-30 -- chapter-01-no-signal (book-1).
 
 ## Decisions Made (author may override)
 
-- _(none yet)_
+| Question | Decision | Grounding / authority | Confidence |
+| --- | --- | --- | --- |
+| Is the unnamed "old man, sixty maybe" (chapter-01:107) a designable cast voice? | No. He has no canon slug or profile, so he is not a voice-designer brief. Routed to live-narration-director as an incidental ~60 Detroit-accented male, older than Eli and accent-distinct from the narrator; he does not block sign-off (nothing to design). | Manuscript chapter-01:107-115 (unnamed); charter -- cast strictly at canon level, do not invent canon; needs_design requires a canon slug. | high |
+| Does using `dorsey-ray`'s existing voice for the Dorsey mesh message count him as a voiced character here? | No. Dorsey appears only as a written mesh message on the board (chapter-01:35), narrator-read text, not spoken dialogue. Not a voiced role this chapter. | Manuscript chapter-01:35,38 render the mesh notes as text, not speech. | high |
+| Is the Scene-3 four-way male cluster (Eli, Mason, old man, narrator) tellable apart? | Yes. Age bands span teen / late-30s / ~60 / early-50s with distinct personas; the old man's incidental voice is briefed to stay accent-distinct from the neutral-studio narrator. No re-design of any slugged voice needed. | Asset descriptions (`vance-mason`, `rook-eli`, `narrator`); co-presence from chapter-01 Scene 3 prose. | high |
