@@ -1,13 +1,14 @@
 export const meta = {
   name: 'interpretation-audit',
-  description: "Progressive two-pass clarity audit of a chapter. Two lay-readers (8th-grade and average-adult) read it paragraph by paragraph with only a sliding window of recent prior paragraphs visible (no future context, fed as text so they cannot look ahead), reporting first-read understanding and first-pass confusion; then each rereads with the full chapter and reports which confusions RESOLVED (intended seed/foreshadowing) vs which remain (real clarity bug); a clarity-auditor flags only confusions that never resolve, sparing deliberate seeds. Target via args {chapter, blueprint, window}.",
+  description: "Progressive two-pass clarity audit of a chapter. Two lay-readers (8th-grade and average-adult) read it paragraph by paragraph with only a sliding window of recent prior paragraphs visible (no future context, fed as text so they cannot look ahead), reporting first-read understanding and first-pass confusion; then each rereads with the full chapter and reports which confusions RESOLVED (intended seed/foreshadowing) vs which remain (real clarity bug); a clarity-auditor flags only confusions that never resolve, sparing deliberate seeds. Folded into the same machinery is an active REFERENT-RESOLUTION check: an authorial full-context pass extracts every AMBIGUOUS referent (a pronoun/vague phrase with >1 plausible antecedent) and its intended target, the same windowed first-pass readers resolve each from local context only (intended answer withheld), and the clarity-auditor flags a referent the reader resolves WRONG (confident-but-wrong), UNCLEAR, or that the two readers DISAGREE on -- sparing deliberate, soon-resolved seeds (the Decision 061 payoff discriminator). Target via args {chapter, blueprint, window}.",
   phases: [
     { title: 'Split', detail: 'split the chapter into ordered prose paragraphs' },
     { title: 'Gist', detail: 'precompute a one-clause gist per paragraph (the reader long-term memory)' },
+    { title: 'Referents', detail: 'authorial full-context pass extracts the chapter AMBIGUOUS referents (pronoun/vague phrase with >1 plausible antecedent) + each intended target -- to be resolved blind by the first-pass readers' },
     { title: 'Recap', detail: 'recap-generator writes a "previously on" of prior chapter(s) the readers carry into the first read' },
-    { title: 'FirstRead', detail: 'two readers interpret each paragraph: prior-chapter recap + within-chapter gist + verbatim window' },
+    { title: 'FirstRead', detail: 'two readers interpret each paragraph (prior-chapter recap + within-chapter gist + verbatim window) AND resolve each ambiguous referent in the target paragraph from first-pass context only, intended answer withheld' },
     { title: 'Reread', detail: 'each reader rereads with full context; which first-pass confusions resolved?' },
-    { title: 'Compare', detail: 'clarity-auditor flags confusion that never resolves; spares working seeds' },
+    { title: 'Compare', detail: 'clarity-auditor flags confusion that never resolves AND referents read WRONG/UNCLEAR/DISAGREE vs intended; spares working seeds and deliberate, soon-resolved referent ambiguity' },
     { title: 'Quiz', detail: 'smart agent builds a ~50Q exam; naive readers answer from their interpretation only; grader flags important misses as clarity gaps' },
   ],
 }
@@ -62,6 +63,48 @@ const gistRuns = await parallel(gistBatches.map(batch => () => agent(
 const gistByN = {}
 gistRuns.filter(Boolean).forEach(res => ((res && res.gists) || []).forEach(g => { gistByN[g.n] = g.gist }))
 
+phase('Referents')
+// EXTRACT (the active referent-resolution check, grounded in Decision 061's "untrackable referent" =
+// accidental obscurity = bug). BEFORE the readers read, an authorial pass with FULL context finds the
+// AMBIGUOUS referents -- a pronoun ("it","he","this") or vague noun phrase ("the man","the device") a
+// first-time reader could reasonably attach to MORE THAN ONE antecedent -- and records, for each, the
+// INTENDED target (resolved from the whole chapter) plus the decoy a reader could wrongly land on. The
+// windowed first-pass readers (FirstRead) then resolve these from local context only, WITHOUT the intended
+// answer; Compare grades a referent a clarity bug when a reader lands CONFIDENT-BUT-WRONG, is UNCLEAR, or
+// the two readers DISAGREE -- sparing ambiguity that is a deliberate, soon-resolved seed (same payoff
+// discriminator as resolve-vs-never-resolve). This catches the "It was the habit of years" failure (reader
+// reads "it" = the phone, not the habitual act of reaching for it) that self-reported confusion alone misses.
+// Reuses the chunked-Gist substrate: each batch gets the whole-chapter gist outline (so intended targets,
+// including seeds that pay off later, resolve correctly) + its verbatim slice + a small verbatim lead-in for
+// nearby antecedents. Robust + parallel like Gist; effort high because intended-target accuracy matters.
+const REFS = { type: 'object', required: ['referents'], properties: {
+  referents: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, token: { type: 'string' }, sentence: { type: 'string' }, intended: { type: 'string' }, decoy: { type: 'string' } } }, description: 'ONLY the genuinely AMBIGUOUS referents that occur in the PARAGRAPHS TO ANALYZE -- a pronoun (it/he/she/they/this/that/there) or vague noun phrase ("the man","the device") a first-time reader, having read only up to that point, could reasonably attach to MORE THAN ONE antecedent in scope. Each: n (the paragraph index it occurs in), token (the referent word/phrase verbatim), sentence (the verbatim sentence containing it), intended (what it ACTUALLY refers to, resolved from the whole-chapter context), decoy (the competing antecedent a reader could wrongly land on). Skip referents with a single obvious antecedent -- only the misreadable ones.' },
+} }
+const wholeGistOutline = paras.map(p => `[${p.n}] ${gistByN[p.n] || '...'}`).join('\n')
+const REF_OVERLAP = 3
+const refBatches = []
+for (let i = 0; i < paras.length; i += GIST_BATCH) refBatches.push({ start: i, slice: paras.slice(i, i + GIST_BATCH) })
+const refRuns = await parallel(refBatches.map(b => () => {
+  const leadStart = Math.max(0, b.start - REF_OVERLAP)
+  const leadIn = b.start > leadStart ? paras.slice(leadStart, b.start).map(p => `[${p.n}] ${p.text}`).join('\n\n') : ''
+  const analyze = b.slice.map(p => `[${p.n}] ${p.text}`).join('\n\n')
+  return agent(
+    `You know the WHOLE chapter; a first-time reader does not. Below is a one-line gist outline of the entire chapter (use it to resolve every referent to its TRUE target, including a referent whose meaning is only clear later), then optional preceding context (for antecedents only -- do NOT extract from it), then the paragraphs to analyze.\n\nWHOLE-CHAPTER OUTLINE (gist):\n${wholeGistOutline}\n\n${leadIn ? `PRECEDING CONTEXT (antecedents only -- do NOT extract referents from these):\n${leadIn}\n\n` : ''}PARAGRAPHS TO ANALYZE (verbatim):\n${analyze}\n\nFind every AMBIGUOUS referent that occurs IN THE PARAGRAPHS TO ANALYZE: a pronoun (it/he/she/they/this/that/there) or vague noun phrase ("the man","the device") that a first-time reader, having read only up to that point, could reasonably attach to MORE THAN ONE antecedent. For each give n, token, the verbatim sentence, the INTENDED target (resolved from the whole chapter), and the decoy (the wrong antecedent a reader could land on). Worked example: in "It was the habit of years," "it" intends the habitual ACT of reaching for the phone, yet a reader can confidently read "it" = the phone -- exactly the kind to catch. Only genuinely misreadable referents; skip the obvious ones. Per schema.`,
+    { schema: REFS, effort: 'high', label: 'referents', phase: 'Referents' }
+  )
+}))
+const referentsByN = {}
+const referentById = {}
+let refSeq = 0
+refRuns.filter(Boolean).forEach(res => ((res && res.referents) || []).forEach(r => {
+  if (!r || r.n == null || !r.token) return
+  const id = `${r.n}.${++refSeq}`
+  const rec = { id, n: r.n, token: r.token, sentence: r.sentence || '', intended: r.intended || '', decoy: r.decoy || '' }
+  ;(referentsByN[r.n] = referentsByN[r.n] || []).push(rec)
+  referentById[id] = rec
+}))
+log(`referents: extracted ${Object.keys(referentById).length} ambiguous referent(s) across ${Object.keys(referentsByN).length} paragraph(s)`)
+
 // Two readers, not three: the close-reader (the most capable) rarely bounces on a first pass, and the
 // audit's bar is 8th-grade legibility. 8th-grade is the bar; average-adult is the target reader.
 const LEVELS = [
@@ -73,6 +116,7 @@ const FR = { type: 'object', required: ['understanding', 'confused'], properties
   understanding: { type: 'string', description: 'in your own words, what you understand is happening in the FINAL paragraph, knowing ONLY what you have read so far' },
   confused: { type: 'boolean', description: 'true if this paragraph tripped you on this FIRST read: a pronoun with no referent yet, a jump you could not track, a phrase you could not parse, a metaphor that did not land' },
   what_tripped: { type: 'string', description: 'if confused, the specific thing that tripped you; else empty' },
+  referent_reads: { type: 'array', items: { type: 'object', properties: { id: { type: 'string' }, token: { type: 'string' }, refers_to: { type: 'string' }, sure: { type: 'boolean' } } }, description: 'ONLY if ambiguous referents were listed for the final paragraph: for EACH listed referent, by its id, what YOU read <token> as referring to from ONLY what you have read so far -- report your HONEST first-pass reading even when you feel confident (do NOT hunt for the "right"/author-intended answer). sure:false ONLY if you genuinely cannot tell. Empty array if none were listed.' },
 } }
 
 // --- Prior-chapter memory (recap) ------------------------------------------
@@ -130,9 +174,15 @@ for (const L of LEVELS) for (let i = 0; i < paras.length; i++) {
     ? `STORY SO FAR -- your fuzzy gist memory of the earlier chapter you have already read (what happened, NOT the wording):\n${priorGist}\n\nMOST RECENT, freshest in your mind, verbatim:\n\n`
     : `Here is the chapter from the beginning, up to the paragraph to interpret:\n\n`
   const tn = paras[i].n
+  // RESOLVE step (referent check): if this paragraph has ambiguous referents, the SAME windowed first-pass
+  // reader resolves each from local context only -- the intended target is NEVER shown to them.
+  const myRefs = referentsByN[tn] || []
+  const refBlock = myRefs.length
+    ? ` Also, in paragraph [${tn}] resolve each of these referents using ONLY what you have read above -- for each id, what does the token refer to? Report what you ACTUALLY read it as (even when you feel sure); set sure:false only if you truly cannot tell. Do NOT try to guess the author's intent:\n${myRefs.map(r => `- id ${r.id}: "${r.token}" in: ${r.sentence}`).join('\n')}`
+    : ''
   frMeta.push({ level: L.id, n: tn, opening: paras[i].opening })
   thunks.push(() => agent(
-    `You are ${L.steer}\n\n${recapLead}${lead}${recent}\n\nReading for the first time, you have NOT read past paragraph [${tn}]. In your own words, what is happening in paragraph [${tn}], using only what is above? Mark confused if it tripped you. Per schema.`,
+    `You are ${L.steer}\n\n${recapLead}${lead}${recent}\n\nReading for the first time, you have NOT read past paragraph [${tn}]. In your own words, what is happening in paragraph [${tn}], using only what is above? Mark confused if it tripped you.${refBlock} Per schema.`,
     { agentType: 'lay-reader', schema: FR, model: 'haiku', label: `fr:${L.id}:${tn}`, phase: 'FirstRead' }
   ))
 }
@@ -146,9 +196,15 @@ if (retryIdx.length) {
   const retried = await parallel(retryIdx.map(k => thunks[k]))
   retryIdx.forEach((k, j) => { if (retried[j]) firstReads[k] = retried[j] })
 }
-const fr = frMeta.map((m, k) => ({ ...m, ...(firstReads[k] || { understanding: '(agent failed)', confused: false, what_tripped: '' }) }))
+const fr = frMeta.map((m, k) => ({ ...m, ...(firstReads[k] || { understanding: '(agent failed)', confused: false, what_tripped: '', referent_reads: [] }) }))
 const confusedByReader = {}
 for (const L of LEVELS) confusedByReader[L.id] = fr.filter(x => x.level === L.id && x.confused)
+// Gather each reader's blind first-pass resolution per referent id (intended answer was withheld from them).
+const refReadById = {}
+for (const x of fr) for (const rr of (x.referent_reads || [])) {
+  if (!rr || !rr.id) continue
+  ;(refReadById[rr.id] = refReadById[rr.id] || {})[x.level] = { refers_to: rr.refers_to || '', sure: !!rr.sure }
+}
 
 phase('Reread')
 const RR = { type: 'object', required: ['resolutions'], properties: {
@@ -167,9 +223,11 @@ const rrByReader = {}
 LEVELS.forEach((L, i) => { rrByReader[L.id] = (rereads[i] && rereads[i].resolutions) || [] })
 
 phase('Compare')
-const FLAGS = { type: 'object', required: ['bugs', 'working_seeds'], properties: {
+const FLAGS = { type: 'object', required: ['bugs', 'working_seeds', 'referent_bugs', 'referent_seeds'], properties: {
   bugs: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, opening: { type: 'string' }, who: { type: 'string' }, problem: { type: 'string' }, severity: { type: 'string' } } }, description: 'paragraphs confusing on first read that did NOT resolve even with full context = real clarity bugs to fix' },
   working_seeds: { type: 'array', items: { type: 'object', properties: { n: { type: 'number' }, opening: { type: 'string' }, note: { type: 'string' } } }, description: 'paragraphs confusing on first read but RESOLVED by later context = intended foreshadowing/seeding, spared (NOT bugs)' },
+  referent_bugs: { type: 'array', items: { type: 'object', properties: { id: { type: 'string' }, n: { type: 'number' }, token: { type: 'string' }, intended: { type: 'string' }, misread_as: { type: 'string' }, verdict: { type: 'string' }, who: { type: 'string' }, severity: { type: 'string' }, problem: { type: 'string' } } }, description: 'AMBIGUOUS referents a first-pass reader resolved WRONG (their refers_to denotes something OTHER than the intended target -- confident-but-wrong), UNCLEAR (could not resolve it), or where the two readers DISAGREED -- AND the ambiguity is NOT a deliberate, soon-resolved seed. verdict = wrong|unclear|disagree; misread_as = what the reader(s) wrongly landed on. Real clarity bugs (an untrackable/misreadable referent, Decision 061).' },
+  referent_seeds: { type: 'array', items: { type: 'object', properties: { id: { type: 'string' }, n: { type: 'number' }, token: { type: 'string' }, note: { type: 'string' } } }, description: 'ambiguous referents a reader misread or found unclear on first pass, but whose ambiguity is DELIBERATE and pays off / is clarified soon (a working seed) -- spared, NOT bugs. Same payoff discriminator as working_seeds.' },
   summary: { type: 'string' },
 } }
 const evidence = LEVELS.map(L => ({
@@ -177,10 +235,21 @@ const evidence = LEVELS.map(L => ({
   first_pass_confused: confusedByReader[L.id].map(c => ({ n: c.n, opening: c.opening, tripped: c.what_tripped })),
   resolutions: rrByReader[L.id],
 }))
+// Referent evidence: each extracted ambiguous referent with its INTENDED target + decoy, and how each blind
+// first-pass reader actually resolved it (with confidence). The auditor never sees the readers were given the
+// intended answer -- they were not. Empty when the chapter has no flagged ambiguous referents.
+const referentEvidence = Object.values(referentById).map(r => ({
+  id: r.id, n: r.n, token: r.token, sentence: r.sentence, intended: r.intended, decoy: r.decoy,
+  reader_resolutions: LEVELS.map(L => ({ level: L.id, refers_to: ((refReadById[r.id] || {})[L.id] || {}).refers_to || '(no answer)', sure: !!((refReadById[r.id] || {})[L.id] || {}).sure })),
+}))
+const referentBlock = referentEvidence.length
+  ? `\n\nSEPARATELY, a REFERENT-RESOLUTION check. An authorial pass with FULL context listed the chapter's AMBIGUOUS referents, each with its INTENDED target and the decoy a reader could be misled to; the SAME two windowed first-pass readers were then asked -- WITHOUT ever being shown the intended answer -- what each refers to. Here is each referent and how each reader resolved it (with confidence):\n\n${JSON.stringify(referentEvidence)}\n\nUsing the FULL chapter below, grade each referent into referent_bugs or referent_seeds:\n- REFERENT BUG = a reader resolved it WRONG (their refers_to denotes something OTHER than intended -- the confident-but-wrong failure, e.g. reading "it" = the phone when it means the habitual act of reaching for it), OR UNCLEAR (could not resolve it), OR the two readers DISAGREED (resolved to materially different things) -- AND the ambiguity is NOT deliberate craft. set verdict = wrong|unclear|disagree and misread_as = what was wrongly landed on. Weight a confident-but-wrong read at the 8th-grade level most heavily.\n- REFERENT SEED = the ambiguity is DELIBERATE and pays off / is clarified soon after (an intended brief "wait for it"), or it sits in the blueprint's deliberately-withheld set. Spared, NOT a bug. Apply the SAME payoff discriminator as resolve-vs-never-resolve (Decision 061): accidental, no-payoff ambiguity (an untrackable/misreadable referent) is the bug; a referent whose openness pays off is craft -- the discriminator is PAYOFF, not plainness.\n\nFULL CHAPTER:\n${fullProse}`
+  : '\n\nThe referent-resolution check flagged no ambiguous referents in this chapter; return referent_bugs and referent_seeds as empty arrays.'
 const compare = await tryAgent(() => agent(
-  `You are auditing this chapter for CLARITY using a strict progressive two-pass comprehension test. Read the blueprint at ${BP} (especially Information Deliberately Withheld, Narrative Purpose, Reader Information) for what is INTENDED to be withheld or seeded. Here is the evidence -- for each reading level, the paragraphs that tripped them on a strict FIRST read (no look-ahead, only a window of recent prior context), and whether each RESOLVED once they read the whole chapter:\n\n${JSON.stringify(evidence)}\n\nClassify each first-pass confusion:\n- A real CLARITY BUG = confusing on first read AND did NOT resolve with full context (or resolved only with excessive effort), AND is NOT in the blueprint's deliberately-withheld set. Weight first-pass confusion at the 8th-grade level most heavily.\n- A WORKING SEED = confusing on first read but RESOLVED by later context, or explicitly in the blueprint's deliberately-withheld/foreshadowing set. Intended craft, NOT a bug -- list separately, do not flag.\nReturn per schema: bugs (the real ones to fix) and working_seeds (intended, spared), with a summary.`,
+  `You are auditing this chapter for CLARITY using a strict progressive two-pass comprehension test. Read the blueprint at ${BP} (especially Information Deliberately Withheld, Narrative Purpose, Reader Information) for what is INTENDED to be withheld or seeded. Here is the evidence -- for each reading level, the paragraphs that tripped them on a strict FIRST read (no look-ahead, only a window of recent prior context), and whether each RESOLVED once they read the whole chapter:\n\n${JSON.stringify(evidence)}\n\nClassify each first-pass confusion:\n- A real CLARITY BUG = confusing on first read AND did NOT resolve with full context (or resolved only with excessive effort), AND is NOT in the blueprint's deliberately-withheld set. Weight first-pass confusion at the 8th-grade level most heavily.\n- A WORKING SEED = confusing on first read but RESOLVED by later context, or explicitly in the blueprint's deliberately-withheld/foreshadowing set. Intended craft, NOT a bug -- list separately, do not flag.\nReturn per schema: bugs (the real ones to fix) and working_seeds (intended, spared), with a summary.${referentBlock}`,
   { agentType: 'clarity-auditor', schema: FLAGS, label: 'compare', phase: 'Compare' }
 ))
+log(`referents: ${((compare && compare.referent_bugs) || []).length} bug(s), ${((compare && compare.referent_seeds) || []).length} spared seed(s)`)
 
 phase('Quiz')
 // A smart agent writes a ~50Q exam on what MATTERS in this chapter (answer key hidden from readers).
@@ -251,4 +320,4 @@ const gaps = results.filter(r => r.clarity_gap)
 const pct = key => { const ok = results.filter(r => r[key] === 'correct').length; return results.length ? Math.round(100 * ok / results.length) + '% (' + ok + '/' + results.length + ')' : 'n/a' }
 log('quiz: graded ' + results.length + '; ' + gaps.length + ' clarity gaps')
 
-return { chapter: CH, paragraphs: paras.length, window: WINDOW, readers: LEVELS.map(L => L.id), prior_recap_chars: recap ? recap.length : 0, first_pass_confusions: fr.filter(x => x.confused).length, compare, quiz: { built: built.length, certified: questions.length, graded: results.length, score_8th: pct('grade_8th'), score_avg: pct('grade_avg'), gaps } }
+return { chapter: CH, paragraphs: paras.length, window: WINDOW, readers: LEVELS.map(L => L.id), prior_recap_chars: recap ? recap.length : 0, first_pass_confusions: fr.filter(x => x.confused).length, referents: { extracted: Object.keys(referentById).length, bugs: ((compare && compare.referent_bugs) || []), seeds: ((compare && compare.referent_seeds) || []) }, compare, quiz: { built: built.length, certified: questions.length, graded: results.length, score_8th: pct('grade_8th'), score_avg: pct('grade_avg'), gaps } }
