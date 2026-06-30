@@ -138,6 +138,40 @@ The reader should understand the system by watching characters live inside it.
 
 ---
 
+# Clarity Is the Default
+
+The reader should understand what is happening on the **first pass**. A line that only yields its plain meaning on a second read has already failed, and in audio, where the listener cannot go back, it fails twice. Clarity is the floor under everything else in this guide.
+
+This does not flatten the voice. The restraint, the subtext, and the deliberate slow reveal of the world all stay. What clarity forbids is **accidental** obscurity: a phrasing that confuses the reader by mistake, with nothing earned in exchange.
+
+## Two confusions, and only one is allowed
+
+There is a real line between confusion the author **chose** and confusion that simply leaked in. Hold it precisely.
+
+- **Earned ambiguity stays.** A withheld fact, a seeded foreshadow that pays off later, a subtext the reader feels before they can name it, a new concept introduced a beat before it is explained: this is the design working. A brief, intentional "wait for it" is a tool, not a defect. The reader trusts that the gap will close, and it does.
+- **Accidental obscurity is a clarity bug.** A poetic inversion whose agent is unclear, an untrackable referent, a mini-puzzle with no payoff: this is not depth. It is friction the author did not mean to create and the reader gets nothing for. Fix it the way you would fix a typo.
+
+The test is not "is this plain" but "does it land the first time." Plain prose that lands passes. Vivid, poetic prose that lands passes and is the style's strength: the notice settling behind his sternum is exactly the image to protect. Only the line that forces a re-read, poetic or not, is the target.
+
+## The worked example
+
+> The phone woke before he did.
+
+Read as intended, the man wakes to his ringing phone. Read as written, the phone is the agent: it "woke," on its own, before he did, as if the device acted. The inversion opens a momentary puzzle about who or what is awake, and the puzzle pays off nothing. That is accidental obscurity. The fix is not to drain the image but to make the agent unambiguous:
+
+> The phone was ringing before he was awake.
+
+The mystery of the world is untouched. Only the accidental who-did-what is repaired.
+
+## Doubly true at two places
+
+- **Chapter openings.** The first paragraphs have no prior context to lean on. An opening that makes the reader work to learn who is moving and what is happening spends trust before the chapter has earned any. Openings carry the highest clarity bar.
+- **Audio.** The audiobook is linear and cannot be reread. A sentence a page-reader could rescue with a glance backward is simply lost in the ear. Anything that depends on re-reading is broken for the listener by definition.
+
+The standing bias, stated once and applied everywhere: **clarity over density, show do not tell, trust the image.** Keep the mystery you meant. Cut the confusion you did not.
+
+---
+
 # Free Indirect Style
 
 The narration may absorb the viewpoint character’s voice without using italics or phrases such as “he thought.”
