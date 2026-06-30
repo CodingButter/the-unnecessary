@@ -18,13 +18,13 @@ source_documents:
 
 # Chapter 1: No Signal
 
-The phone woke before he did.
+He woke the phone before he woke himself, Eli's thumb reaching for the glass out of years of habit, the rest of him still asleep.
 
-It was the habit of years, not the alarm. Eli's thumb found the glass while the rest of him was still under sleep, and the screen came up pale in the morning light, and he read the status bar like another man checking the weather through a window. The time. The battery low, as it always was by morning. And along the top, where the external bars should have stood, nothing. Only the small notched icon for the local mesh, lit and steady, a single lamp left burning in an empty house.
+The screen came up pale in the morning light, and he read the status bar like another man checking the weather through a window. The time. The battery low, as it always was by morning. And along the top, where the external bars should have stood, nothing. Only the small notched icon for the local mesh, lit and steady, a single lamp left burning in an empty house.
 
 He lay still a moment and looked at it.
 
-The floor was cold when he put his feet down. The room held the silence of a place running on stored power, the small outside noises a phone made when it was talking to the world all gone. He thumbed the network off and on, then carried the phone to the window and held it up, something his father would have done with a transistor radio, and it helped about as much.
+The floor was cold when he put his feet down. The room held the silence of a place running on stored power. The small outside noises a phone made when it was talking to the world were all gone. He thumbed the network off and on, then carried the phone to the window and held it up, something his father would have done with a transistor radio, and it helped about as much.
 
 The bars did not come back.
 
@@ -36,13 +36,13 @@ The local board had collected the night's messages over the mesh, all short, all
 
 *Towers off again. Hub still good. The library*
 
-So it was not only him. He typed back, *Same here. Looking,* and set the phone on the counter while the kettle warmed on the gas ring, and that was when the queued notice arrived, forwarded from the hub, passed hand to hand as mail moved now. He knew the shape of these notices by the sender field alone. He opened it.
+So it was not only him. He typed back, *Same here. Looking,* and set the phone on the counter while the kettle warmed on the gas ring, and that was when the queued notice arrived, forwarded from the hub, passed node to node as mail moved now. He knew the shape of these notices by the sender field alone. He opened it.
 
 *Notice of Service Continuity Adjustment.* The provider's name in clean type at the top, the small mark beside it that meant a machine had composed the message with no person anywhere near it. *Following a periodic review of regional infrastructure, full restoration of cellular service to your area is no longer supported under current service-continuity thresholds. Local connectivity may remain available through community-operated systems. We thank you for your understanding.*
 
 He read it twice.
 
-The towers had been down a hundred times, whenever the grid sagged and the provider shed load to keep the protected zones lit, and they had always come back, sullen and slow, but back. The towers were the same dark towers now. What had changed was that someone had written it down. *No longer supported.* Somewhere, in a building he would never see, a line had been crossed on a spreadsheet. The cost of keeping his street on the network had passed what the street was worth to the people who owned it, and so they let go.
+The towers had been down a hundred times, whenever the grid sagged and the provider shed load to keep the protected zones lit, and they had always come back, sullen and slow, but back. The towers stood dark the way they always had. What had changed was that this time someone had written it down. *No longer supported.* Somewhere, in a building he would never see, a line had been crossed on a spreadsheet. The cost of keeping his street on the network had passed what the street was worth to the people who owned it, and so they let go.
 
 There was no error in it to fix, and that was the part his hands kept reaching for and not finding. A dead tower was a problem. Problems had causes, causes had repairs, and he was good at the long quiet work between them. But you could not solder a decision. It was all working exactly as it was meant to. It was simply meant, now, to leave him here.
 
@@ -72,7 +72,7 @@ The dairy case along the back wall was dark. Not all of it. The first two doors 
 
 "Everything in your house wants permission now," she said as he turned, almost smiling. "And there's nobody left to give it." He knew what she meant and had no answer for it, and went out into the cold with the day's list already longer than it had been.
 
-Outside the shop a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over it, put the key in the lock, and did not look back at the street lying quiet behind him, kept ordinary by hands.
+Outside the grocery a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over it and walked on to his own repair shop, put the key in the lock, and did not look back at the street lying quiet behind him, kept ordinary by hands.
 
 He went in.
 
@@ -122,7 +122,7 @@ It was from the power provider. The same clean type. The same small mark of a ma
 
 *Notice of Service Tier Reclassification.* He read it standing up, in the cold light from the window, the man's locked tablet set aside on the bench. *Following a scheduled review, your service area has been reclassified to a lower distribution priority tier. Power interruptions within this area will no longer be processed as emergency restoration events except where strategic infrastructure is affected. Standard maintenance windows continue to apply. We appreciate your continued cooperation.*
 
-He stood very still.
+He stood still.
 
 He had known the neighborhood was below the protected zones. Everyone had known it since the winter, when the tiers first came in and they landed on the wrong side of the line, as they had landed on the wrong side of everything. But this was lower. This was the line moved again, to a place where an outage in his street no longer brought anyone out in the cold to fix it, one that simply waited now for the next *standard maintenance window,* whenever that was, if it came. The whole neighborhood, every house and shop and the clinic and the school, reclassified at once, downward, by a machine, in a sentence that thanked him for his cooperation.
 
@@ -182,11 +182,11 @@ He did not answer right away. He looked at the three machines sitting in plain t
 
 And here was the place he had been walking toward all morning without letting himself see it. Because he could see the fix. That was the worst of it. He could see exactly the move that had saved the doorbell and the thermostat and the router, the whole of what he did. When a server stopped answering and left a machine stranded, you stood in for the server. You forged the permission it could no longer be made to grant, and the machine, not knowing the difference, ran. It made no difference whether the company behind it had folded or was still in its building, choosing this morning, in writing, to close its hand. A withheld yes and a vanished yes were the same silence to the device, and he could counterfeit a yes a hundred times over before midnight.
 
-But the yes on the respiratory controller had been vouching for something. The calibration. The dosing and the pressure envelope it held a body inside of. The whole accumulated safety record, every test the manufacturer had ever run on it, certified fresh each time the machine phoned home and was told yes. That was what made the controller right and not merely running, and none of it lived in the permission. The permission only pointed at it. He could forge the pointer by hand in an afternoon. He could not forge what it pointed at, not in the hours he had, not at a bench, not ever.
+But the yes on the respiratory controller had been vouching for something. The calibration. The dosing and the pressure envelope it held a body inside of. The whole accumulated safety record, every test the manufacturer had ever run on it, certified fresh each time the machine phoned home and was told yes. That was what made the controller right and not merely running, and none of it lived in the permission. The permission only pointed at the correctness. He could forge the pointer by hand in an afternoon. He could not forge the correctness it pointed at, not in the hours he had, not at a bench, not ever.
 
-The wall was everything a forged yes would go on claiming and no longer be telling the truth about. The doorbell's permission had stood in front of a chime; cut it loose and the worst it did was ring at the wrong time. The controller's permission had stood in front of a man's lungs. Cut that loose on a hand-made yes, stripped of all of it, and the controller would keep running and kill the man it was keeping alive, slowly, correctly, reporting the whole time that everything was fine.
+That was the wall. A forged yes would keep claiming everything the true one had certified, and none of it would be true anymore. The doorbell's permission had stood in front of a chime; cut it loose and the worst it did was ring at the wrong time. The controller's permission had stood in front of a man's lungs. Cut that loose on a hand-made yes, stripped of all of it, and the controller would keep running and kill the man it was keeping alive, slowly, correctly, reporting the whole time that everything was fine.
 
-And it was not one controller. Behind that man stood a clinic, and behind the clinic a neighborhood, every machine in it orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. The half with no bottom. Only him, with a screwdriver, one device at a time, while the whole of it kept coming.
+And it was not one controller. Behind that man stood a clinic, and behind the clinic a neighborhood, every machine in it orphaned the same way, every one needing its own forged yes and its own certainty he could not forge. No bottom to it. Only him, with a screwdriver, one device at a time, while the whole of it kept coming.
 
 "Eli," Lena said. "You went quiet. Tell me you didn't go quiet because there's nothing."
 
@@ -196,11 +196,11 @@ He looked at the screen a long moment.
 
 It was true and it was not enough and they both knew it. He told her he would come, he would bring what he had, he would look at the controller with his own eyes before he said anything was impossible, because saying a problem was impossible from across a thin link was a coward's certainty and he would not give it to her. She said come now, as soon as he could, not at midnight, and he said he was coming, a couple of hours, no more, once he had what he needed, and the link thinned and dropped and came back once more with only her voice saying his name as a question, *Eli?,* and then it dropped for good.
 
-The shop was very quiet after.
+The shop was quiet after.
 
 The backup fan turned over behind the wall. Far off, faint, a transformer he could not see held its single low note, the sound of power moving, of something still being delivered to someone. The call window had collapsed. What was left on it was the notice she had read him, the three machines in plain type, and the time beside them, *23:59,* a number that was, when he made himself count it, a little under twelve hours away.
 
-He did not move for a while. Under all of it, breathing on a controller that would lose its yes at midnight, a sixty-one-year-old man with a name Lena was keeping back.
+He did not move for a while. Under all of it was a sixty-one-year-old man with a name Lena was keeping back, breathing on a controller that would lose its yes at midnight.
 
 He looked at the three machines, and the single time beneath them, and there was no way back and no way around it. This was the one he could not fix.
 
@@ -249,3 +249,38 @@ Applied per `docs/30-plot/book-1/act-1-revision-morrow-origin.md` (§1 device-em
 - **Phone / notice weight (Scene 1, ~line 51):** CHANGE. The digital notice was being pocketed as a physical object ("the inside pocket... no heavier than a folded receipt"), which mis-renders a forwarded mesh message as folded paper. Recast so the weight is unmistakably mental and carried, not stowed: "There was nothing to put away. The notice was already where it would stay, somewhere behind the sternum, weightless and impossible to set down... in the only place it had ever been." No jacket pocket, no folded paper. (+21 words.)
 - **The "map" (Scene 2, ~line 63):** CHANGE. "he kept the map" read as if a physical prop or already-established object. Recast to make the mental tally explicit and unprompted: "a tally ran under everything else, the kind he never had to start because it never stopped, a map of the neighborhood drawn only in his head and corrected as he went." Clearly a head-map, not a thing he holds. (+18 words.)
 - **Clinic climax obstacle (Scene 4, lines 181-201):** NO CHANGE REQUIRED. Verified the draft already implements the corrected obstacle (brief §1) and contains none of the forbidden dead-vs-alive phrasings the brief quotes (grep-confirmed: "no dead server," "server was not dead," "emulate his way past a hand still holding the key" are all absent). The draft already (a) makes liveness irrelevant ("It made no difference whether the company behind it had folded or was still in its building... A withheld yes and a vanished yes were the same silence to the device"), (b) states he can forge any one yes ("he could counterfeit a yes a hundred times over. The forging was never the wall"), (c) names the true wall as un-hand-forgeable life-critical safety in the time he has ("the calibration and the dosing envelope and the safety record... That he could not counterfeit, not in the hours he had, not by hand"), keeping the canon-gold line "kills the man it is keeping alive, slowly, correctly, while reporting that everything is fine," and (d) names the scale half ("it was not one controller... a whole neighborhood... only him, with a screwdriver, one device at a time"). Ending preserved verbatim on the clinic deadline: "This was the one he could not fix." The brief was evidently drafted against an earlier climax; per the surgical mandate, load-bearing prose was left untouched.
+
+## Revision Log (author may override)
+
+Adjudication of the clarity/prose/continuity/echo gauntlet plus the author's empirical-audit notes. Status held as-is; the chapter remains a draft pending the author's separate re-approval. Eleven surgical edits applied; viewpoint (close third on Eli, past tense), Eli's knowledge state, all reveal gates, and the no-em-dash rule preserved.
+
+### Accepted (applied)
+
+- **clarity #1 / opening agency (medium, FRICTION):** ACCEPT. "The phone woke before he did... not the alarm" read as the phone self-acting plus an unanchored negation; applied the author-decided replacement, restoring agency to Eli (line 21). Highest-bar sentence, audio opening.
+- **clarity #2 = prose minor / elided verb (medium, FRICTION):** ACCEPT. Split into two sentences and restored the linking verb ("were all gone") so the absence of notifications lands first-pass (line 27). Grounds: core-prose.md:143 first-pass floor.
+- **clarity #3 = prose minor / "hand to hand" relay (medium, FRICTION):** ACCEPT. Recast to "passed node to node," disambiguating the mesh relay as machine-to-machine and freeing the literal cash "hand to hand" at line 71 (line 39).
+- **clarity #4 = prose minor / "same...now" paradox (medium, FRICTION):** ACCEPT. Recast to "The towers stood dark the way they always had... this time someone had written it down," untangling physical-sameness vs new permanence (line 45).
+- **clarity #5 = prose major / unanchored shop (medium, LOST):** ACCEPT. Renamed the grocery ("Outside the grocery") to free the overloaded "the shop," and anchored arrival at "his own repair shop" with key in lock per blueprint Scene 2 ending (blueprint.md:391); now Scene 3's "the shop's bench" has a clear antecedent (lines 75 to 81). Continuity guardrail honored: "walked on" implies no home-to-shop distance (elis-home.md:41 one working address).
+- **clarity #6 = prose major / two "it" referents (medium, FRICTION):** ACCEPT. Named the referent ("pointed at the correctness" / "forge the correctness it pointed at") so each pronoun tracks at the climax (line 185).
+- **clarity #7 = prose major / unseated "wall" metaphor (medium, FRICTION):** ACCEPT. Seated the metaphor ("That was the wall.") and simplified the doubled, dangling-preposition clause so the forge-able-permission vs un-forge-able-correctness gap reads first-pass (line 187). Preserves the intended wall = un-forgeable safety metaphor.
+- **clarity #8 = prose major / unset "the half" (medium, FRICTION):** ACCEPT. Recast "The half with no bottom" to "No bottom to it," naming the bottomless scale problem without relying on a two-halves framing the prose never establishes (line 189).
+- **clarity #9 = prose minor / inverted final sentence (low, FRICTION):** ACCEPT. Un-inverted so the man is the subject up front; the withheld name and the midnight-controller detail are preserved verbatim (line 203). Reveal gate (patient name) intact.
+- **prose minor / empty intensifier "very" (minor, cliche):** ACCEPT. Cut "very" at both instances ("He stood still." / "The shop was quiet after."). Grounds: prohibited-patterns.md:68-72 empty-intensifier list (lines 125, 199).
+- **continuity guardrails (low x3):** ACCEPT as guardrails, no defect to repair. Honored: opening rewrite leaves the phone able to travel to the shop (phone-set-down beat at line 51 untouched); the shop anchor implies no home-to-shop distance; no edit near the old man's exit describes the finished router as still on the bench.
+
+### Rejected / out of scope (no edit)
+
+- **prose minor / show-don't-tell, Lena + Eli "it's not X, it's Y" recognition (minor):** REJECT. Protected recognition beat; the prior adjudication (line 242) and blueprint dialogue intent (blueprint.md:824) hold these as in-voice argument, and the empirical audit confirmed the story lands without confusion. Not accidental obscurity; payoff present.
+- **prose minor / side-character "theme-voice" aphorisms, Marisol (minor, dialogue):** REJECT. Taste-level distinctness note, not a clarity bug; would require dialogue rewrite (fresh prose, not surgical) and risks flattening the distinct voice the same review praises. Marisol's "permission" lines are part of the protected bureaucratic-permission device.
+- **prose nit / device-"home" motif density (nit, cliche):** REJECT. Deliberate motif tied to the orphaned-machine theme; the audit confirmed no friction; discriminator is payoff not plainness (Decision 061). One instance is Marisol's protected dialogue.
+- **prose nit + continuity-style / production logs inside the manuscript body (nit, out-of-scope):** REJECT for me; route to the manuscript-hygiene owner. Housekeeping, not craft; out of the adjudicator's lane and unrelated to any accepted finding.
+- **clarity #10 / literal "hand to hand" at line 71 (low, out-of-scope):** REJECT as a standalone clarity item; the only clarity action lived in #3 (line 39), now applied, so the literal cash use stands. Repetition judgment routed to prose-critic.
+- **echo (verdict: fresh):** No actionable finding. Chapter 1 has no predecessor corpus; the listed items are within-chapter clarity, ruled above.
+
+## Decisions Made (author may override)
+
+| Question | Decision | Grounding / authority | Confidence |
+|---|---|---|---|
+| grocery.md:52 attributes the Tuesday dairy-case failure to "the compressor," but the chapter (and grocery.md's own prose body) name the controller. Does the chapter change? | No chapter edit. The chapter is correct; the conflict is a lower-authority canon-file note out of step with approved manuscript. Surfaced for deliberate canon-revision: grocery.md:52 should be reworded to "the controller (cannot reach its withdrawn cloud service), not the compressor." | Approved manuscript outranks a world-entity YAML note (canon-hierarchy.md); chapter-01:69 and grocery.md prose at grocery.md:37 already agree; only grocery.md:52 misstates it. I do not edit canon to match prose; routed to the canon/world-entity owner. | high |
+| Anchoring "his own repair shop" at Scene-2 arrival, does it risk a home-to-shop distance contradiction? | Anchored with neutral "walked on to his own repair shop" (from the grocery, an errand stop), implying no distance between home and shop. | elis-home.md:41 and elis-repair-shop.md:30 fix home and shop as effectively one working address; the grocery is on the morning route, so the walk is an errand loop. | high |
+| "the correctness" as the named referent at the climax, does it introduce canon or alter the gated obstacle? | Used "the correctness" (already glossed in-scene as "what made the controller right": calibration, dosing/pressure envelope, safety record). No new canon; the un-forge-able-correctness-plus-scale obstacle is unchanged. | blueprint.md:585 (Scene 4 obstacle is medical-safety correctness plus scale, not live-vs-dead server); the prose at line 185 already lists these. | high |
