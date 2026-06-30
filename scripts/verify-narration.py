@@ -78,15 +78,20 @@ Usage:
       --mixed .../scene-01-no-signal/scene-live.mp3 [--api ...]
 
 TIMING / PACING PASS (sourcing, cost-critical):
-  The whole-chapter pacing pass uses the FREE local Whisper SEGMENT timestamps (the
-  /api/transcribe response gains a segments[] {start,end,text} array when the request
-  carries timestamps=true). The local endpoint does NOT emit word-level timestamps, so
-  ElevenLabs Scribe word timings are captured ONLY on chunks the metered tiebreaker
-  already touches (sampled / on-flagged), never a blind paid whole-chapter pass. Pacing
-  findings (awkward mid-sentence gaps, over-long holds, rushed spans) are ADVISORY: they
-  ride in qc.json / the report but never change the garble verdict or trigger a re-render
-  (unless --pacing-strict folds them into the exit code). Tunables: --mid-gap (1.2s),
-  --sentence-gap (2.5s), --rushed-cps (23.0); --no-pacing restores the legacy garble-only run.
+  The whole-chapter pacing pass uses the FREE local Whisper timestamps: the
+  /api/transcribe response gains a segments[] {start,end,text,words[]} array when the
+  request carries timestamps=true, and each segment now NESTS per-WORD timings
+  {word,start,end,probability} (the word keeps the leading space Whisper emits, " Chapter").
+  Both SEGMENT gaps and mid-clause WORD gaps are derived from those free local timestamps --
+  the word gaps catch the "forget it [gap] ever had one" case, an over-long silence between
+  two words inside a clause the script does not punctuate. ElevenLabs Scribe word timings
+  are captured ONLY on chunks the metered garble tiebreaker already touches (on-flagged),
+  never a blind paid whole-chapter pass; local words[] are PREFERRED for whole-chapter word
+  pacing. Pacing findings (awkward mid-sentence gaps, mid-clause word gaps, over-long holds,
+  rushed spans) are ADVISORY: they ride in qc.json / the report but never change the garble
+  verdict or trigger a re-render (unless --pacing-strict folds them into the exit code).
+  Tunables: --mid-gap (1.2s), --word-gap (0.7s), --sentence-gap (2.5s), --rushed-cps (23.0);
+  --no-pacing restores the legacy garble-only run.
 """
 
 import argparse
@@ -166,19 +171,23 @@ _EL_OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
 
 # --- pacing / timing pass --------------------------------------------------------------
-# COST FACT (probed 2026-06-30, voice.codingbutter.com): the LOCAL Whisper endpoint
-# (/api/transcribe) exposes SEGMENT-level timestamps for FREE when the multipart request
-# carries a `timestamps=true` field -- the JSON then gains a `segments` array of
-# {start,end,text}. It does NOT honor `word_timestamps` (no word-level array is returned).
-# So the whole-chapter pacing pass runs ENTIRELY on the free local segment timestamps; no
-# blind paid pass is ever needed. ElevenLabs Scribe DOES return word-level `words[]`
-# ({text,start,end,type,logprob}) -- metered -- so its higher-resolution word timings are
-# captured ONLY on chunks the Scribe tiebreaker already touches (sampled / on-flagged),
-# never a whole-chapter paid pass. A pacing finding is ADVISORY: it is emitted into
-# qc.json / the report but NEVER changes the garble verdict and NEVER triggers an auto
-# re-render (a pause/rush is a human/director call, not a Chatterbox garble), unless
-# --pacing-strict folds it into the exit code.
+# COST FACT (updated 2026-06-30, voice.codingbutter.com): the LOCAL Whisper endpoint
+# (/api/transcribe) now exposes BOTH segment- AND word-level timestamps for FREE when the
+# multipart request carries a `timestamps=true` field -- the JSON gains a `segments` array of
+# {start,end,text,words[]}, where each word is {word,start,end,probability} and KEEPS the
+# leading space Whisper emits on its tokens (" Chapter"). So the whole-chapter pacing pass --
+# segment gaps AND mid-clause WORD gaps -- runs ENTIRELY on the free local timestamps; no
+# blind paid pass is ever needed. ElevenLabs Scribe ALSO returns word-level `words[]`
+# ({text,start,end,type,logprob}) -- metered -- but it is now used ONLY as the garble
+# tiebreaker; its word timings are a byproduct captured solely on chunks the tiebreaker
+# already touches (on-flagged), never a whole-chapter paid pass (local words[] are PREFERRED
+# for whole-chapter word pacing). A pacing finding is ADVISORY: it is emitted into qc.json /
+# the report but NEVER changes the garble verdict and NEVER triggers an auto re-render (a
+# pause/rush is a human/director call, not a Chatterbox garble), unless --pacing-strict folds
+# it into the exit code.
 DEFAULT_MID_SENTENCE_GAP = 1.2   # s: inter-segment silence beyond this with NO sentence break == awkward
+DEFAULT_WORD_GAP = 0.7           # s: inter-WORD silence beyond this mid-clause (preceding word does NOT
+                                 # end a sentence) == an awkward within-clause gap (finer than --mid-gap)
 DEFAULT_SENTENCE_GAP = 2.5       # s: even at a sentence/paragraph break, a hold beyond this is notable
 DEFAULT_RUSHED_CPS = 23.0        # chars/sec at/above which a segment is "rushed" (clean narration ~16)
 PACING_MIN_SEG_DUR = 0.6         # ignore sub-0.6s segments -- their edge timing is too noisy to trust
@@ -397,7 +406,9 @@ def transcribe(api, wav_path, language, auth):
 
 def _normalize_segments(segs):
     """Coerce a raw segments array into [{start:float,end:float,text:str}], dropping any
-    element missing usable numeric bounds. Tolerant of a server build that omits segments."""
+    element missing usable numeric bounds. Tolerant of a server build that omits segments.
+    The per-segment words[] (when present) is flattened separately by
+    _local_words_from_segments -- segment pacing only needs the {start,end,text} shape."""
     out = []
     for s in (segs or []):
         try:
@@ -408,14 +419,37 @@ def _normalize_segments(segs):
     return out
 
 
+def _local_words_from_segments(segs):
+    """Flatten the per-word timings the local Whisper endpoint now nests under each segment
+    (segments[].words[] = {word,start,end,probability}) into one render-order list of
+    {text,start,end} -- the SAME shape _compact_el_words gives, so word_gap_findings consumes
+    either source unchanged. Whisper keeps a LEADING SPACE on every word token (" Chapter"),
+    so it is STRIPPED here to match the script's words. Words missing usable numeric bounds
+    are dropped; an empty list is returned when the build emits no word arrays (older,
+    segment-only server build) so the word-gap pass degrades gracefully."""
+    out = []
+    for s in (segs or []):
+        for w in (s.get("words") or []):
+            try:
+                out.append({"text": (w.get("word", "") or "").strip(),
+                            "start": float(w.get("start")), "end": float(w.get("end"))})
+            except (TypeError, ValueError, AttributeError):
+                continue
+    return out
+
+
 def transcribe_timed(api, wav_path, language, auth):
-    """Transcript WITH the free local SEGMENT timestamps. Returns (text, segments, None) or
-    (None, None, err). segments is a normalized list of {start,end,text} (empty if this
-    server build does not emit them -- the pacing pass then degrades gracefully)."""
+    """Transcript WITH the free local SEGMENT *and* WORD timestamps. Returns
+    (text, segments, local_words, None) or (None, None, None, err). segments is a normalized
+    list of {start,end,text}; local_words is the flattened per-word list [{text,start,end}]
+    drawn from segments[].words[] (leading space stripped). Both are empty if this server
+    build omits them -- the pacing pass then degrades gracefully."""
     data, err = _transcribe_request(api, wav_path, language, auth, timestamps=True)
     if err is not None:
-        return (None, None, err)
-    return (data.get("text", "") or "", _normalize_segments(data.get("segments")), None)
+        return (None, None, None, err)
+    raw_segs = data.get("segments")
+    return (data.get("text", "") or "", _normalize_segments(raw_segs),
+            _local_words_from_segments(raw_segs), None)
 
 
 def resolve_elevenlabs_key():
@@ -514,7 +548,8 @@ def transcribe_elevenlabs(wav_path, api_key):
 
 
 def apply_elevenlabs(res, api_key, retry_threshold,
-                     mid_gap=DEFAULT_MID_SENTENCE_GAP, sentence_gap=DEFAULT_SENTENCE_GAP):
+                     mid_gap=DEFAULT_MID_SENTENCE_GAP, sentence_gap=DEFAULT_SENTENCE_GAP,
+                     word_gap=DEFAULT_WORD_GAP):
     """Resolve ONE REVIEW chunk with the ElevenLabs second opinion, mutating res in place.
     Fills el_text and (on success) el_sim / el_whisper_sim, then RE-decides the verdict.
     Also captures Scribe's word timings (res['el_words']) and derives a tiebreaker-grade,
@@ -546,7 +581,10 @@ def apply_elevenlabs(res, api_key, retry_threshold,
         return ("error", err)
     res["el_text"] = text
     res["el_words"] = words
-    res["el_pacing"] = word_gap_findings(words, mid_gap, sentence_gap)
+    # Scribe word-level confirm uses the WORD-gap threshold (same word-level resolution as
+    # the free local words[] pass), not the coarser segment --mid-gap. mid_gap is unused here
+    # now but kept in the signature for call-site compatibility.
+    res["el_pacing"] = word_gap_findings(words, word_gap, sentence_gap)
     el_sim = word_similarity(text, res.get("expected", ""))
     el_whisper_sim = word_similarity(text, res.get("got", ""))
     res["el_sim"] = round(el_sim, 4)
@@ -756,18 +794,23 @@ def analyze_segment_pacing(segments, mid_gap, sentence_gap, rushed_cps):
     return findings, round(max_gap, 2)
 
 
-def word_gap_findings(words, mid_gap, sentence_gap):
-    """Inter-WORD gap findings from ElevenLabs Scribe word timings ([{text,start,end}]) -- a
-    higher-resolution, tiebreaker-grade confirmation of the segment-level awkward-gap signal,
-    produced only on chunks the metered Scribe pass already touched. Same sentence-sanction
-    rule on the preceding word's trailing punctuation. Returns a list of finding dicts."""
+def word_gap_findings(words, word_gap, sentence_gap):
+    """Inter-WORD gap findings from a word-timing list ([{text,start,end}]). The SAME detector
+    serves both word sources: the now-FREE LOCAL Whisper words[] (preferred, whole-chapter) and
+    the metered ElevenLabs Scribe words[] (captured only on chunks the garble tiebreaker already
+    touched). An over-long silence BETWEEN two words where the preceding word does NOT end a
+    sentence is an awkward MID-CLAUSE gap (the "forget it [gap] ever had one" case): gap >=
+    word_gap with no terminal punctuation on the prior word -> awkward-gap. A gap AFTER a word
+    that ends a sentence is sanctioned by the prose, so only a longer hold (>= sentence_gap) is
+    reported (long-pause). Same trailing-punctuation sentence rule as the segment pass. Returns
+    a list of finding dicts."""
     findings = []
     for prev, cur in zip(words or [], (words or [])[1:]):
         gap = round(cur["start"] - prev["end"], 2)
         if gap <= 0:
             continue
         sanctioned = segment_ends_sentence(prev["text"])
-        if not sanctioned and gap >= mid_gap:
+        if not sanctioned and gap >= word_gap:
             findings.append({"kind": "awkward-gap", "gap": gap, "at": round(prev["end"], 2),
                              "after": prev["text"], "before": cur["text"]})
         elif sanctioned and gap >= sentence_gap:
@@ -776,17 +819,29 @@ def word_gap_findings(words, mid_gap, sentence_gap):
     return findings
 
 
-def evaluate_pacing(res, mid_gap, sentence_gap, rushed_cps):
-    """Run the segment-level pacing pass on a result's stored segments (free local Whisper
-    timestamps), writing res['pacing'] (findings list), res['pacing_status'] ('OK'/'FLAG'/'-'),
-    res['max_gap'], res['awkward_gaps'], res['rushed_spans']. ADVISORY only -- it never
-    touches res['verdict']. With no segments (transcription failed, --no-pacing, or a server
-    build that omits them) status is '-' and max_gap falls back to the ffmpeg longest silent
-    run already measured (res['longest_gap'])."""
+def evaluate_pacing(res, mid_gap, sentence_gap, rushed_cps, word_gap=DEFAULT_WORD_GAP):
+    """Run the pacing pass on a result's stored free local Whisper timestamps -- ADVISORY only,
+    it never touches res['verdict']. Two layers, both written here:
+      * SEGMENT layer (res['segments']): awkward-gap / long-pause / rushed, writing res['pacing'],
+        res['max_gap'], res['awkward_gaps'], res['rushed_spans'].
+      * WORD layer (res['local_words'], the per-word timings now nested under segments[].words[]):
+        mid-clause inter-WORD gaps at the finer word_gap threshold, writing res['word_pacing'] and
+        res['word_gaps']. Local words[] are PREFERRED for whole-chapter word pacing (free); Scribe
+        word timings stay the metered tiebreaker byproduct only.
+    res['pacing_status'] is 'FLAG' when EITHER layer has findings, 'OK' when neither does, and '-'
+    when there are no segments at all (transcription failed, --no-pacing, or a server build that
+    omits timestamps), in which case max_gap falls back to the ffmpeg longest silent run already
+    measured (res['longest_gap'])."""
     segs = res.get("segments")
+    local_words = res.get("local_words")
+    # WORD layer: free local word timings (preferred over Scribe for whole-chapter pacing).
+    wfindings = word_gap_findings(local_words, word_gap, sentence_gap) if local_words else []
+    res["word_pacing"] = wfindings
+    res["word_gaps"] = len(wfindings)
     if not segs:
         res["pacing"] = []
-        res["pacing_status"] = "-"
+        # A word-only finding (segments absent but words present) is unusual but still flagged.
+        res["pacing_status"] = "FLAG" if wfindings else "-"
         res["max_gap"] = res.get("longest_gap")
         res["awkward_gaps"] = 0
         res["rushed_spans"] = 0
@@ -796,7 +851,7 @@ def evaluate_pacing(res, mid_gap, sentence_gap, rushed_cps):
     res["max_gap"] = max_gap
     res["awkward_gaps"] = sum(1 for f in findings if f["kind"] in ("awkward-gap", "long-pause"))
     res["rushed_spans"] = sum(1 for f in findings if f["kind"] == "rushed")
-    res["pacing_status"] = "FLAG" if findings else "OK"
+    res["pacing_status"] = "FLAG" if (findings or wfindings) else "OK"
     return res
 
 
@@ -1149,20 +1204,22 @@ def write_report(path, base_stem, results, args, counts, retry_list, review_list
     # --- pacing / timing findings (advisory; from free local SEGMENT timestamps) --------
     A("## Pacing / timing findings (advisory)")
     A("")
-    A("- mid-sentence awkward-gap threshold: **%.2fs** | sentence/paragraph long-pause "
-      "threshold: **%.2fs** | rushed threshold: **%.1f chars/sec**"
-      % (args.mid_gap, args.sentence_gap, args.rushed_cps))
+    A("- mid-sentence awkward-gap threshold: **%.2fs** | local WORD-gap (mid-clause) "
+      "threshold: **%.2fs** | sentence/paragraph long-pause threshold: **%.2fs** | rushed "
+      "threshold: **%.1f chars/sec**"
+      % (args.mid_gap, args.word_gap, args.sentence_gap, args.rushed_cps))
     A("- Pacing is ADVISORY -- it never changes the garble verdict above and never triggers "
-      "an auto re-render. Gaps come from the FREE local Whisper segment timestamps; "
-      "ElevenLabs word timings confirm only on chunks the tiebreaker already touched.")
+      "an auto re-render. Segment gaps AND mid-clause word gaps come from the FREE local "
+      "Whisper timestamps (segments[].words[]); ElevenLabs word timings confirm only on "
+      "chunks the metered garble tiebreaker already touched.")
     A("")
     paced = [r for r in results if r.get("pacing_status") == "FLAG"]
     if not paced:
         A("_None -- every unit's pacing is within thresholds._")
     for r in paced:
-        A("### chunk %02d -- %d awkward gap(s), %d rushed span(s) (max gap %ss)"
-          % (r["index"], r.get("awkward_gaps", 0), r.get("rushed_spans", 0),
-             _cell(r.get("max_gap"), "%.2f")))
+        A("### chunk %02d -- %d awkward gap(s), %d word-gap(s), %d rushed span(s) (max gap %ss)"
+          % (r["index"], r.get("awkward_gaps", 0), r.get("word_gaps", 0),
+             r.get("rushed_spans", 0), _cell(r.get("max_gap"), "%.2f")))
         A("")
         for f in r.get("pacing", []):
             if f["kind"] == "rushed":
@@ -1171,6 +1228,9 @@ def write_report(path, base_stem, results, args, counts, retry_list, review_list
             else:
                 A("- **%s** %.2fs at %ss -- after \"...%s\" before \"%s...\""
                   % (f["kind"], f["gap"], f["at"], f["after"], f["before"]))
+        for f in r.get("word_pacing", []) or []:
+            A("- _(local word-level)_ **%s** %.2fs at %ss -- after \"%s\" before \"%s\""
+              % (f["kind"], f["gap"], f["at"], f["after"], f["before"]))
         for f in r.get("el_pacing", []) or []:
             A("- _(Scribe word-level confirm)_ **%s** %.2fs at %ss -- after \"%s\" before \"%s\""
               % (f["kind"], f["gap"], f["at"], f["after"], f["before"]))
@@ -1186,7 +1246,7 @@ QC_FIELDS = ["chunk", "path", "gap_after", "script_text", "whisper_text", "whisp
              "trimmed_len", "speech_len", "len_status", "speech_ratio", "longest_gap",
              "silence_padded", "repeat", "inflation", "dup_ratio", "status", "reason",
              # pacing / timing pass (appended -- existing column order preserved)
-             "pacing_status", "max_gap", "awkward_gaps", "rushed_spans"]
+             "pacing_status", "max_gap", "awkward_gaps", "rushed_spans", "word_gaps"]
 
 
 def qc_record(r):
@@ -1223,7 +1283,10 @@ def qc_record(r):
         "max_gap": r.get("max_gap"),
         "awkward_gaps": r.get("awkward_gaps", 0),
         "rushed_spans": r.get("rushed_spans", 0),
+        "word_gaps": r.get("word_gaps", 0),
         "pacing": r.get("pacing", []),
+        # local word-level mid-clause gaps (free local words[]) + Scribe word confirm (json-only)
+        "word_pacing": r.get("word_pacing", []),
         "el_pacing": r.get("el_pacing", []),
     }
 
@@ -1270,7 +1333,11 @@ def run_selftest():
     legitimately repeated prose present in BOTH sides (must NOT flag). Silence-padding: the
     Ch3 hang (mostly dead air -> flag + low speech_ratio), normal pacing and a short single-
     pause clip (must NOT flag), the lone-gap OR branch, and the verdict override that makes a
-    silence-padded chunk RETRY even at sim 0.95. Returns 0 if every case behaves, else 1."""
+    silence-padded chunk RETRY even at sim 0.95. Also covers the pacing pass: segment
+    awkward-gap / long-pause / rushed detection, and the now-FREE LOCAL word-gap detector
+    (flatten segments[].words[] with the leading space stripped; FIRE on a synthetic
+    mid-clause gap, STAY SILENT on a legit between-sentence pause). Returns 0 if every case
+    behaves, else 1."""
     fails = []
 
     def expect(name, cond):
@@ -1356,6 +1423,42 @@ def run_selftest():
              {"text": "held", "start": 2.1, "end": 2.4}]
     expect("word-level 1.5s mid-sentence gap -> flag",
            any(x["kind"] == "awkward-gap" for x in word_gap_findings(words, md, sg)))
+
+    # --- local WORD-level gap detector (the now-FREE local segments[].words[] pass) ------
+    wg = DEFAULT_WORD_GAP  # 0.7
+    # Flatten: nested segment words[] -> flat {text,start,end}, leading space STRIPPED so the
+    # tokens match the script (Whisper emits " Chapter", " full"); a build with no words[] -> [].
+    raw_segs = [{"start": 0.0, "end": 0.6, "text": " forget it",
+                 "words": [{"word": " forget", "start": 0.0, "end": 0.3, "probability": 0.9},
+                           {"word": " it", "start": 0.3, "end": 0.6, "probability": 0.9}]}]
+    expect("local words[] flattened + leading space stripped",
+           _local_words_from_segments(raw_segs)
+           == [{"text": "forget", "start": 0.0, "end": 0.3},
+               {"text": "it", "start": 0.3, "end": 0.6}])
+    expect("local words[] empty when segment has no words array",
+           _local_words_from_segments([{"start": 0.0, "end": 1.0, "text": "hi"}]) == [])
+    # FIRES on a synthetic MID-CLAUSE gap: 'forget it [0.9s] ever had one' -- prev word 'it'
+    # does NOT end a sentence and 0.9s >= word_gap (0.7) -> one awkward-gap.
+    mid_words = [{"text": "forget", "start": 0.0, "end": 0.3},
+                 {"text": "it", "start": 0.3, "end": 0.6},
+                 {"text": "ever", "start": 1.5, "end": 1.8},
+                 {"text": "had", "start": 1.8, "end": 2.0},
+                 {"text": "one", "start": 2.0, "end": 2.3}]
+    expect("word-gap FIRES on mid-clause 0.9s gap",
+           any(x["kind"] == "awkward-gap" and x["gap"] == 0.9
+               for x in word_gap_findings(mid_words, wg, sg)))
+    # STAYS SILENT on a legit between-sentence pause: prev word ends with '.', so a 0.9s pause
+    # after it is sanctioned (0.9 < sentence_gap 2.5) -> NO finding.
+    sent_words = [{"text": "one.", "start": 0.0, "end": 0.3},
+                  {"text": "He", "start": 1.2, "end": 1.5},
+                  {"text": "stood.", "start": 1.5, "end": 1.9}]
+    expect("word-gap SILENT on 0.9s between-sentence pause",
+           not word_gap_findings(sent_words, wg, sg))
+    # evaluate_pacing WORD wiring: local_words present, no segments -> word_pacing populated.
+    r_word = {"segments": None, "local_words": mid_words, "longest_gap": 0.4}
+    evaluate_pacing(r_word, md, sg, rc, wg)
+    expect("evaluate_pacing surfaces local word-gaps (FLAG + word_gaps>=1)",
+           r_word["pacing_status"] == "FLAG" and r_word["word_gaps"] >= 1)
     # evaluate_pacing wiring: no segments -> status '-', findings empty (graceful).
     r_nopace = {"segments": None, "longest_gap": 0.4}
     evaluate_pacing(r_nopace, md, sg, rc)
@@ -1416,7 +1519,8 @@ def process(units, out_dir, base_stem, args, source, prior=None):
                 results.append({"index": i, "wav": src.get("wav") or u["wav"],
                                 "expected": src.get("expected", u["expected"]),
                                 "got": src.get("got", ""),
-                                "segments": src.get("segments")})
+                                "segments": src.get("segments"),
+                                "local_words": src.get("local_words")})
     else:
         user, pw = renderer.resolve_credentials(args.user, args.password)
         auth = renderer.auth_header(user, pw)
@@ -1435,18 +1539,18 @@ def process(units, out_dir, base_stem, args, source, prior=None):
                                 "got": "", "segments": None, "error": "missing wav"})
                 continue
             if want_pacing:
-                text, segs, err = transcribe_timed(args.api, wav, args.language, auth)
+                text, segs, lwords, err = transcribe_timed(args.api, wav, args.language, auth)
             else:
                 text, err = transcribe(args.api, wav, args.language, auth)
-                segs = None
+                segs = lwords = None
             if err is not None:
                 print("  unit %02d  TRANSCRIBE ERROR: %s" % (i, err), file=sys.stderr)
                 results.append({"index": i, "wav": wav, "expected": u["expected"],
-                                "got": "", "segments": None,
+                                "got": "", "segments": None, "local_words": None,
                                 "error": "transcribe failed: " + err})
                 continue
             results.append({"index": i, "wav": wav, "expected": u["expected"],
-                            "got": text, "segments": segs})
+                            "got": text, "segments": segs, "local_words": lwords})
 
     # --- evaluate (garble score + SPEECH-length tripwire) then the advisory pacing pass --
     gap_by_index = {u["index"]: u["gap_after"] for u in units}
@@ -1454,12 +1558,14 @@ def process(units, out_dir, base_stem, args, source, prior=None):
         gap = gap_by_index.get(r["index"], "?")
         evaluate(r, gap, args.chars_per_sec, args.short_ratio, args.retry_threshold)
         if want_pacing:
-            evaluate_pacing(r, args.mid_gap, args.sentence_gap, args.rushed_cps)
+            evaluate_pacing(r, args.mid_gap, args.sentence_gap, args.rushed_cps, args.word_gap)
         else:
             r["pacing"] = []
+            r["word_pacing"] = []
             r["pacing_status"] = "-"
             r["max_gap"] = r.get("longest_gap")
             r["awkward_gaps"] = 0
+            r["word_gaps"] = 0
             r["rushed_spans"] = 0
 
     # --- ElevenLabs tiebreaker (second transcriber, REVIEW chunks ONLY) ----------------
@@ -1478,7 +1584,8 @@ def process(units, out_dir, base_stem, args, source, prior=None):
                       file=sys.stderr)
                 for r in review_now:
                     _outcome, el_err = apply_elevenlabs(r, el_key, args.retry_threshold,
-                                                        args.mid_gap, args.sentence_gap)
+                                                        args.mid_gap, args.sentence_gap,
+                                                        args.word_gap)
                     if el_err is not None:
                         print("  chunk %02d  ELEVENLABS ERROR: %s (stays REVIEW)"
                               % (r["index"], el_err), file=sys.stderr)
@@ -1491,9 +1598,9 @@ def process(units, out_dir, base_stem, args, source, prior=None):
                 _cell(r["el_sim"], "%.2f"), _cell(r["el_whisper_sim"], "%.2f"))
         pacing_part = ""
         if r.get("pacing_status") and r["pacing_status"] != "-":
-            pacing_part = "  pacing=%s gaps=%d rushed=%d maxgap=%ss" % (
-                r["pacing_status"], r.get("awkward_gaps", 0), r.get("rushed_spans", 0),
-                _cell(r.get("max_gap"), "%.1f"))
+            pacing_part = "  pacing=%s gaps=%d wgaps=%d rushed=%d maxgap=%ss" % (
+                r["pacing_status"], r.get("awkward_gaps", 0), r.get("word_gaps", 0),
+                r.get("rushed_spans", 0), _cell(r.get("max_gap"), "%.1f"))
         print("  chunk %02d  %-6s sim=%s pres=%s foreign=%d raw=%ss speech=%ss exp=%ss "
               "len=%-12s%s%s%s"
               % (r["index"], r["verdict"],
@@ -1511,6 +1618,7 @@ def process(units, out_dir, base_stem, args, source, prior=None):
     review_list = [r["index"] for r in results if r["verdict"] == "REVIEW"]
     pacing_list = [r["index"] for r in results if r.get("pacing_status") == "FLAG"]
     total_awkward = sum(r.get("awkward_gaps", 0) for r in results)
+    total_word_gaps = sum(r.get("word_gaps", 0) for r in results)
     total_rushed = sum(r.get("rushed_spans", 0) for r in results)
 
     print("", file=sys.stderr)
@@ -1528,8 +1636,8 @@ def process(units, out_dir, base_stem, args, source, prior=None):
     print("REVIEW (human ear, do NOT auto-retry): %s"
           % (", ".join("%02d" % i for i in review_list) if review_list else "none"),
           file=sys.stderr)
-    print("PACING (advisory -- awkward gaps %d, rushed spans %d): %s"
-          % (total_awkward, total_rushed,
+    print("PACING (advisory -- awkward gaps %d, word gaps %d, rushed spans %d): %s"
+          % (total_awkward, total_word_gaps, total_rushed,
              ", ".join("%02d" % i for i in pacing_list) if pacing_list else "none"),
           file=sys.stderr)
     for r in results:
@@ -1549,6 +1657,10 @@ def process(units, out_dir, base_stem, args, source, prior=None):
                 print("    pacing: %s %.2fs at %ss (\"...%s\" | \"%s...\")"
                       % (f["kind"], f["gap"], f["at"], f["after"], f["before"]),
                       file=sys.stderr)
+        for f in r.get("word_pacing", []):
+            print("    pacing(word): %s %.2fs at %ss (\"%s\" | \"%s\")"
+                  % (f["kind"], f["gap"], f["at"], f["after"], f["before"]),
+                  file=sys.stderr)
 
     if args.json_path:
         with open(args.json_path, "w", encoding="utf-8") as fh:
@@ -1663,6 +1775,12 @@ def main():
                     help="Awkward-gap threshold (s): an inter-segment silence >= this where "
                          "the prior segment does NOT end a sentence is a mid-sentence pause. "
                          "Default %.2f." % DEFAULT_MID_SENTENCE_GAP)
+    ap.add_argument("--word-gap", type=float, default=DEFAULT_WORD_GAP, dest="word_gap",
+                    help="Local WORD-level mid-clause gap threshold (s): an inter-WORD silence "
+                         ">= this where the preceding word does NOT end a sentence is an awkward "
+                         "within-clause pause (the 'forget it [gap] ever had one' case), measured "
+                         "from the now-FREE local Whisper word timestamps (segments[].words[]). "
+                         "Finer than --mid-gap. Default %.2f." % DEFAULT_WORD_GAP)
     ap.add_argument("--sentence-gap", type=float, default=DEFAULT_SENTENCE_GAP,
                     dest="sentence_gap",
                     help="Long-pause threshold (s): even at a sentence/paragraph break, a "
