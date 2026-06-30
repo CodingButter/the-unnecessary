@@ -67,6 +67,26 @@ Usage:
   # Re-score already-captured transcripts WITHOUT calling the server:
   python3 scripts/verify-narration.py <script.md> \
       --from-json verify-ch01.json --report verify-ch01.md
+
+  # LIVE per-line voice stems (render-voice-stems.py output) -- full garble + pacing QC:
+  python3 scripts/verify-narration.py \
+      --live-scene audio/live-audio-book/book-1/chapter-01-no-signal/scene-01-no-signal \
+      [--api http://voice.codingbutter.com] [--report scene01-qc.md]
+
+  # Pacing-ONLY pass on a mixed scene/chapter render:
+  python3 scripts/verify-narration.py \
+      --mixed .../scene-01-no-signal/scene-live.mp3 [--api ...]
+
+TIMING / PACING PASS (sourcing, cost-critical):
+  The whole-chapter pacing pass uses the FREE local Whisper SEGMENT timestamps (the
+  /api/transcribe response gains a segments[] {start,end,text} array when the request
+  carries timestamps=true). The local endpoint does NOT emit word-level timestamps, so
+  ElevenLabs Scribe word timings are captured ONLY on chunks the metered tiebreaker
+  already touches (sampled / on-flagged), never a blind paid whole-chapter pass. Pacing
+  findings (awkward mid-sentence gaps, over-long holds, rushed spans) are ADVISORY: they
+  ride in qc.json / the report but never change the garble verdict or trigger a re-render
+  (unless --pacing-strict folds them into the exit code). Tunables: --mid-gap (1.2s),
+  --sentence-gap (2.5s), --rushed-cps (23.0); --no-pacing restores the legacy garble-only run.
 """
 
 import argparse
@@ -143,6 +163,30 @@ EL_AGREE_THRESHOLD = 0.7
 # it must never escalate to a stitch-blocking RETRY. See apply_elevenlabs().
 EL_GUARD_AGREE_THRESHOLD = 0.9
 _EL_OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+
+
+# --- pacing / timing pass --------------------------------------------------------------
+# COST FACT (probed 2026-06-30, voice.codingbutter.com): the LOCAL Whisper endpoint
+# (/api/transcribe) exposes SEGMENT-level timestamps for FREE when the multipart request
+# carries a `timestamps=true` field -- the JSON then gains a `segments` array of
+# {start,end,text}. It does NOT honor `word_timestamps` (no word-level array is returned).
+# So the whole-chapter pacing pass runs ENTIRELY on the free local segment timestamps; no
+# blind paid pass is ever needed. ElevenLabs Scribe DOES return word-level `words[]`
+# ({text,start,end,type,logprob}) -- metered -- so its higher-resolution word timings are
+# captured ONLY on chunks the Scribe tiebreaker already touches (sampled / on-flagged),
+# never a whole-chapter paid pass. A pacing finding is ADVISORY: it is emitted into
+# qc.json / the report but NEVER changes the garble verdict and NEVER triggers an auto
+# re-render (a pause/rush is a human/director call, not a Chatterbox garble), unless
+# --pacing-strict folds it into the exit code.
+DEFAULT_MID_SENTENCE_GAP = 1.2   # s: inter-segment silence beyond this with NO sentence break == awkward
+DEFAULT_SENTENCE_GAP = 2.5       # s: even at a sentence/paragraph break, a hold beyond this is notable
+DEFAULT_RUSHED_CPS = 23.0        # chars/sec at/above which a segment is "rushed" (clean narration ~16)
+PACING_MIN_SEG_DUR = 0.6         # ignore sub-0.6s segments -- their edge timing is too noisy to trust
+PACING_MIN_SEG_CHARS = 16        # ...and tiny segments where chars/sec is unstable
+# A transcript segment "ends a sentence" when its last non-quote char is terminal
+# punctuation; the pause AFTER such a segment is sanctioned by the prose, so only a LONGER
+# hold there (>= sentence_gap) is reported. A gap after a non-terminal segment is awkward.
+SENTENCE_END_RE = re.compile(r'[.!?…]["\'\)\]]*$')
 
 
 # --- number-word <-> digit normalization (scoring only) --------------------------------
@@ -261,13 +305,15 @@ def build_chunks_meta(script_path, max_chars, min_chars, ellipsis):
              "gap_after": ch.get("gap_after", "register")} for ch in chunks]
 
 
-def encode_multipart(audio_bytes, filename, language):
+def encode_multipart(audio_bytes, filename, language, timestamps=False):
     """Build a multipart/form-data body in pure stdlib for POST /api/transcribe.
 
-    Two parts: the audio `file` (Content-Type audio/wav) and a `language` field. Each
-    part is delimited by --<boundary>; the body ends with --<boundary>--. Returns
-    (content_type_header_value, body_bytes). The boundary is randomized per call so it
-    can't collide with anything inside the audio payload.
+    Parts: the audio `file` (Content-Type audio/wav), a `language` field, and -- when
+    timestamps=True -- a `timestamps=true` field that makes the local Whisper endpoint add
+    a free SEGMENT-level `segments` array ({start,end,text}) to its JSON response (no extra
+    cost; same call). Each part is delimited by --<boundary>; the body ends with
+    --<boundary>--. Returns (content_type_header_value, body_bytes). The boundary is
+    randomized per call so it can't collide with anything inside the audio payload.
     """
     boundary = "----verifynarration" + os.urandom(16).hex()
     bb = boundary.encode("ascii")
@@ -288,18 +334,25 @@ def encode_multipart(audio_bytes, filename, language):
     parts.append(crlf)
     parts.append((language or "").encode("utf-8"))
     parts.append(crlf)
+    # timestamps part (free SEGMENT-level timing from the local Whisper endpoint)
+    if timestamps:
+        parts.append(b"--" + bb + crlf)
+        parts.append(b'Content-Disposition: form-data; name="timestamps"' + crlf)
+        parts.append(crlf)
+        parts.append(b"true")
+        parts.append(crlf)
     # closing boundary
     parts.append(b"--" + bb + b"--" + crlf)
     body = b"".join(parts)
     return "multipart/form-data; boundary=" + boundary, body
 
 
-def transcribe(api, wav_path, language, auth):
-    """Transcribe one WAV via POST {api}/api/transcribe (multipart). Returns
-    (text, None) on success or (None, error_string). Uses the renderer's proxy-
+def _transcribe_request(api, wav_path, language, auth, timestamps=False):
+    """POST one WAV to {api}/api/transcribe (multipart) and return (data_dict, None) on
+    success or (None, error_string) -- the raw parsed JSON, so callers can pick out `text`
+    and (when timestamps=True) the free `segments` array. Uses the renderer's proxy-
     bypassing opener and HTTP Basic auth; retries up to twice on a 5xx (server is
-    single-instance and 502s under load, so a transient 5xx is worth one or two waits).
-    """
+    single-instance and 502s under load, so a transient 5xx is worth one or two waits)."""
     url = api.rstrip("/") + "/api/transcribe"
     with open(wav_path, "rb") as fh:
         audio = fh.read()
@@ -307,7 +360,7 @@ def transcribe(api, wav_path, language, auth):
 
     last_err = None
     for attempt in range(1, 4):  # initial try + up to 2 retries
-        content_type, body = encode_multipart(audio, filename, language)
+        content_type, body = encode_multipart(audio, filename, language, timestamps)
         headers = {"Content-Type": content_type, "Accept": "application/json"}
         if auth:
             headers.update(auth)
@@ -319,7 +372,7 @@ def transcribe(api, wav_path, language, auth):
                 data = json.loads(raw)
             except ValueError:
                 return (None, "non-JSON response: " + raw[:200])
-            return (data.get("text", "") or "", None)
+            return (data, None)
         except urllib.error.HTTPError as err:
             detail = err.read().decode("utf-8", "replace")
             last_err = "HTTP " + str(err.code) + ": " + detail[:300]
@@ -332,6 +385,37 @@ def transcribe(api, wav_path, language, auth):
                 continue
             return (None, last_err)
     return (None, last_err or "unknown error")
+
+
+def transcribe(api, wav_path, language, auth):
+    """Text-only transcript (back-compatible 2-tuple). Returns (text, None) or (None, err)."""
+    data, err = _transcribe_request(api, wav_path, language, auth, timestamps=False)
+    if err is not None:
+        return (None, err)
+    return (data.get("text", "") or "", None)
+
+
+def _normalize_segments(segs):
+    """Coerce a raw segments array into [{start:float,end:float,text:str}], dropping any
+    element missing usable numeric bounds. Tolerant of a server build that omits segments."""
+    out = []
+    for s in (segs or []):
+        try:
+            out.append({"start": float(s.get("start")), "end": float(s.get("end")),
+                        "text": s.get("text", "") or ""})
+        except (TypeError, ValueError, AttributeError):
+            continue
+    return out
+
+
+def transcribe_timed(api, wav_path, language, auth):
+    """Transcript WITH the free local SEGMENT timestamps. Returns (text, segments, None) or
+    (None, None, err). segments is a normalized list of {start,end,text} (empty if this
+    server build does not emit them -- the pacing pass then degrades gracefully)."""
+    data, err = _transcribe_request(api, wav_path, language, auth, timestamps=True)
+    if err is not None:
+        return (None, None, err)
+    return (data.get("text", "") or "", _normalize_segments(data.get("segments")), None)
 
 
 def resolve_elevenlabs_key():
@@ -381,16 +465,35 @@ def encode_multipart_el(audio_bytes, filename):
     return "multipart/form-data; boundary=" + boundary, b"".join(parts)
 
 
+def _compact_el_words(words):
+    """Project Scribe's words[] down to the spoken WORD tokens with usable timing:
+    [{text,start,end}], dropping `spacing` tokens and anything without numeric bounds.
+    This is the tiebreaker-grade, word-level timing source the segment pass cannot give."""
+    out = []
+    for w in (words or []):
+        if w.get("type") != "word":
+            continue
+        try:
+            out.append({"text": (w.get("text", "") or "").strip(),
+                        "start": float(w.get("start")), "end": float(w.get("end"))})
+        except (TypeError, ValueError, AttributeError):
+            continue
+    return out
+
+
 def transcribe_elevenlabs(wav_path, api_key):
     """Transcribe one WAV with ElevenLabs Scribe (POST {EL_STT_URL}, xi-api-key header,
-    multipart model_id=scribe_v1 + file). Returns (text, None) or (None, error_string).
-    Uses a direct, proxy-bypassing opener. No retry loop -- this is a metered, on-demand
-    second opinion fired only on already-doubtful chunks, so we make exactly one call."""
+    multipart model_id=scribe_v1 + file). Returns (text, words, None) or (None, None,
+    error_string), where words is Scribe's compacted word-timing list ([{text,start,end}],
+    `spacing` tokens dropped) -- previously discarded, now captured as a tiebreaker-grade
+    word-level pacing source. Uses a direct, proxy-bypassing opener. No retry loop -- this
+    is a metered, on-demand second opinion fired only on already-doubtful chunks, so we
+    make exactly one call."""
     try:
         with open(wav_path, "rb") as fh:
             audio = fh.read()
     except OSError as err:
-        return (None, str(err)[:300])
+        return (None, None, str(err)[:300])
     content_type, body = encode_multipart_el(audio, os.path.basename(wav_path))
     headers = {"xi-api-key": api_key, "Content-Type": content_type,
                "Accept": "application/json"}
@@ -400,19 +503,23 @@ def transcribe_elevenlabs(wav_path, api_key):
             raw = resp.read().decode("utf-8", "replace")
     except urllib.error.HTTPError as err:
         detail = err.read().decode("utf-8", "replace")
-        return (None, "HTTP " + str(err.code) + ": " + detail[:300])
+        return (None, None, "HTTP " + str(err.code) + ": " + detail[:300])
     except Exception as err:  # noqa: BLE001  (network / socket errors)
-        return (None, str(err)[:300])
+        return (None, None, str(err)[:300])
     try:
         data = json.loads(raw)
     except ValueError:
-        return (None, "non-JSON response: " + raw[:200])
-    return (data.get("text", "") or "", None)
+        return (None, None, "non-JSON response: " + raw[:200])
+    return (data.get("text", "") or "", _compact_el_words(data.get("words")), None)
 
 
-def apply_elevenlabs(res, api_key, retry_threshold):
+def apply_elevenlabs(res, api_key, retry_threshold,
+                     mid_gap=DEFAULT_MID_SENTENCE_GAP, sentence_gap=DEFAULT_SENTENCE_GAP):
     """Resolve ONE REVIEW chunk with the ElevenLabs second opinion, mutating res in place.
-    Fills el_text and (on success) el_sim / el_whisper_sim, then RE-decides the verdict:
+    Fills el_text and (on success) el_sim / el_whisper_sim, then RE-decides the verdict.
+    Also captures Scribe's word timings (res['el_words']) and derives a tiebreaker-grade,
+    word-level pacing confirmation (res['el_pacing']) for the chunk -- the only place metered
+    Scribe word timestamps are used, and only because this chunk already warranted a paid call:
 
       * REPEAT/INFLATION OVERRIDE: if the EL transcript itself is looped/inflated vs the
         script -> RETRY immediately, ahead of every OK guard below (a loop must never be
@@ -433,11 +540,13 @@ def apply_elevenlabs(res, api_key, retry_threshold):
 
     Returns (outcome, error). On a transcription error the chunk stays REVIEW and el_text
     is left None so the failure is visible in qc.json."""
-    text, err = transcribe_elevenlabs(res.get("wav"), api_key)
+    text, words, err = transcribe_elevenlabs(res.get("wav"), api_key)
     if err is not None:
         res["el_text"] = None
         return ("error", err)
     res["el_text"] = text
+    res["el_words"] = words
+    res["el_pacing"] = word_gap_findings(words, mid_gap, sentence_gap)
     el_sim = word_similarity(text, res.get("expected", ""))
     el_whisper_sim = word_similarity(text, res.get("got", ""))
     res["el_sim"] = round(el_sim, 4)
@@ -585,6 +694,110 @@ def foreign_words(exp_words, got_words):
     exp_set = set(exp_words)
     return [w for w in got_words
             if w not in exp_set and len(w) > 1 and not w.isdigit()]
+
+
+# --- pacing / timing analysis (from free local SEGMENT timestamps) --------------------
+def segment_ends_sentence(text):
+    """True when a transcript segment / word token's text ends a sentence -- terminal
+    .!?... optionally followed by a closing quote or bracket. The pause AFTER it is then
+    sanctioned by the prose, so only a LONGER hold there counts as a finding."""
+    return bool(SENTENCE_END_RE.search((text or "").strip()))
+
+
+def _edge_words(text, n=5, tail=False):
+    """First (or, tail=True, last) n words of a span's text, for a readable finding label."""
+    ws = (text or "").split()
+    if not ws:
+        return ""
+    return " ".join(ws[-n:] if tail else ws[:n])
+
+
+def analyze_segment_pacing(segments, mid_gap, sentence_gap, rushed_cps):
+    """Derive ADVISORY pacing findings from a unit's SEGMENT timestamps (free local Whisper).
+    Returns (findings, max_gap). Two finding families, neither of which ever changes the
+    garble verdict:
+
+      * awkward-gap / long-pause -- the silence between two consecutive segments
+        (next.start - prev.end). When the earlier segment does NOT end a sentence, any gap
+        >= mid_gap is an awkward MID-SENTENCE pause (awkward-gap); when it DOES end a
+        sentence, only a gap >= sentence_gap (a deliberate-looking hold) is reported
+        (long-pause). Whisper inserts a segment boundary exactly WHERE it heard a pause, so
+        every inter-segment gap is a real silence -- the only question is whether the script
+        sanctions a pause there.
+      * rushed -- a segment whose speech rate (chars/second) is >= rushed_cps, well above the
+        clean-narration ~16 cps, i.e. the line is gabbled. Sub-PACING_MIN_SEG_DUR /
+        sub-PACING_MIN_SEG_CHARS segments are skipped (their edge timing is too noisy)."""
+    findings = []
+    max_gap = 0.0
+    for prev, cur in zip(segments, segments[1:]):
+        gap = round(cur["start"] - prev["end"], 2)
+        if gap > max_gap:
+            max_gap = gap
+        if gap <= 0:
+            continue
+        sanctioned = segment_ends_sentence(prev["text"])
+        if not sanctioned and gap >= mid_gap:
+            findings.append({"kind": "awkward-gap", "gap": gap, "at": round(prev["end"], 2),
+                             "after": _edge_words(prev["text"], tail=True),
+                             "before": _edge_words(cur["text"])})
+        elif sanctioned and gap >= sentence_gap:
+            findings.append({"kind": "long-pause", "gap": gap, "at": round(prev["end"], 2),
+                             "after": _edge_words(prev["text"], tail=True),
+                             "before": _edge_words(cur["text"])})
+    for seg in segments:
+        dur = seg["end"] - seg["start"]
+        chars = len((seg["text"] or "").strip())
+        if dur >= PACING_MIN_SEG_DUR and chars >= PACING_MIN_SEG_CHARS:
+            cps = chars / dur
+            if cps >= rushed_cps:
+                findings.append({"kind": "rushed", "cps": round(cps, 1),
+                                 "at": round(seg["start"], 2), "dur": round(dur, 2),
+                                 "text": _edge_words(seg["text"], n=8)})
+    return findings, round(max_gap, 2)
+
+
+def word_gap_findings(words, mid_gap, sentence_gap):
+    """Inter-WORD gap findings from ElevenLabs Scribe word timings ([{text,start,end}]) -- a
+    higher-resolution, tiebreaker-grade confirmation of the segment-level awkward-gap signal,
+    produced only on chunks the metered Scribe pass already touched. Same sentence-sanction
+    rule on the preceding word's trailing punctuation. Returns a list of finding dicts."""
+    findings = []
+    for prev, cur in zip(words or [], (words or [])[1:]):
+        gap = round(cur["start"] - prev["end"], 2)
+        if gap <= 0:
+            continue
+        sanctioned = segment_ends_sentence(prev["text"])
+        if not sanctioned and gap >= mid_gap:
+            findings.append({"kind": "awkward-gap", "gap": gap, "at": round(prev["end"], 2),
+                             "after": prev["text"], "before": cur["text"]})
+        elif sanctioned and gap >= sentence_gap:
+            findings.append({"kind": "long-pause", "gap": gap, "at": round(prev["end"], 2),
+                             "after": prev["text"], "before": cur["text"]})
+    return findings
+
+
+def evaluate_pacing(res, mid_gap, sentence_gap, rushed_cps):
+    """Run the segment-level pacing pass on a result's stored segments (free local Whisper
+    timestamps), writing res['pacing'] (findings list), res['pacing_status'] ('OK'/'FLAG'/'-'),
+    res['max_gap'], res['awkward_gaps'], res['rushed_spans']. ADVISORY only -- it never
+    touches res['verdict']. With no segments (transcription failed, --no-pacing, or a server
+    build that omits them) status is '-' and max_gap falls back to the ffmpeg longest silent
+    run already measured (res['longest_gap'])."""
+    segs = res.get("segments")
+    if not segs:
+        res["pacing"] = []
+        res["pacing_status"] = "-"
+        res["max_gap"] = res.get("longest_gap")
+        res["awkward_gaps"] = 0
+        res["rushed_spans"] = 0
+        return res
+    findings, max_gap = analyze_segment_pacing(segs, mid_gap, sentence_gap, rushed_cps)
+    res["pacing"] = findings
+    res["max_gap"] = max_gap
+    res["awkward_gaps"] = sum(1 for f in findings if f["kind"] in ("awkward-gap", "long-pause"))
+    res["rushed_spans"] = sum(1 for f in findings if f["kind"] == "rushed")
+    res["pacing_status"] = "FLAG" if findings else "OK"
+    return res
 
 
 # --- repeat / inflation detector (looping audio that HIGH similarity misses) ----------
@@ -933,6 +1146,35 @@ def write_report(path, base_stem, results, args, counts, retry_list, review_list
         A("")
         A("> " + (oneline(r["got"]) or "_(empty transcript)_"))
         A("")
+    # --- pacing / timing findings (advisory; from free local SEGMENT timestamps) --------
+    A("## Pacing / timing findings (advisory)")
+    A("")
+    A("- mid-sentence awkward-gap threshold: **%.2fs** | sentence/paragraph long-pause "
+      "threshold: **%.2fs** | rushed threshold: **%.1f chars/sec**"
+      % (args.mid_gap, args.sentence_gap, args.rushed_cps))
+    A("- Pacing is ADVISORY -- it never changes the garble verdict above and never triggers "
+      "an auto re-render. Gaps come from the FREE local Whisper segment timestamps; "
+      "ElevenLabs word timings confirm only on chunks the tiebreaker already touched.")
+    A("")
+    paced = [r for r in results if r.get("pacing_status") == "FLAG"]
+    if not paced:
+        A("_None -- every unit's pacing is within thresholds._")
+    for r in paced:
+        A("### chunk %02d -- %d awkward gap(s), %d rushed span(s) (max gap %ss)"
+          % (r["index"], r.get("awkward_gaps", 0), r.get("rushed_spans", 0),
+             _cell(r.get("max_gap"), "%.2f")))
+        A("")
+        for f in r.get("pacing", []):
+            if f["kind"] == "rushed":
+                A("- **rushed** %.1f cps over %.2fs at %ss: \"%s\""
+                  % (f["cps"], f["dur"], f["at"], f["text"]))
+            else:
+                A("- **%s** %.2fs at %ss -- after \"...%s\" before \"%s...\""
+                  % (f["kind"], f["gap"], f["at"], f["after"], f["before"]))
+        for f in r.get("el_pacing", []) or []:
+            A("- _(Scribe word-level confirm)_ **%s** %.2fs at %ss -- after \"%s\" before \"%s\""
+              % (f["kind"], f["gap"], f["at"], f["after"], f["before"]))
+        A("")
     with open(path, "w", encoding="utf-8") as fh:
         fh.write("\n".join(L) + "\n")
 
@@ -942,7 +1184,9 @@ def write_report(path, base_stem, results, args, counts, retry_list, review_list
 QC_FIELDS = ["chunk", "path", "gap_after", "script_text", "whisper_text", "whisper_sim",
              "el_text", "el_sim", "el_whisper_sim", "chars", "expected_len", "raw_len",
              "trimmed_len", "speech_len", "len_status", "speech_ratio", "longest_gap",
-             "silence_padded", "repeat", "inflation", "dup_ratio", "status", "reason"]
+             "silence_padded", "repeat", "inflation", "dup_ratio", "status", "reason",
+             # pacing / timing pass (appended -- existing column order preserved)
+             "pacing_status", "max_gap", "awkward_gaps", "rushed_spans"]
 
 
 def qc_record(r):
@@ -973,6 +1217,14 @@ def qc_record(r):
         "dup_ratio": r.get("dup_ratio"),
         "status": r.get("verdict"),
         "reason": r.get("reason", "") or "",
+        # pacing / timing pass -- advisory, never changes status. The scalar summary columns
+        # also feed qc.csv; the full per-finding lists (json-only) ride along for qc.json.
+        "pacing_status": r.get("pacing_status", "-"),
+        "max_gap": r.get("max_gap"),
+        "awkward_gaps": r.get("awkward_gaps", 0),
+        "rushed_spans": r.get("rushed_spans", 0),
+        "pacing": r.get("pacing", []),
+        "el_pacing": r.get("el_pacing", []),
     }
 
 
@@ -1062,9 +1314,270 @@ def run_selftest():
     expect("no silence flag at high sim -> OK",
            compute_verdict(0.95, 0, False, False, 0.80, silence_flagged=False) == "OK")
 
+    # --- pacing / timing pass (segment-level gaps + rushed; offline, deterministic) -----
+    md, sg, rc = DEFAULT_MID_SENTENCE_GAP, DEFAULT_SENTENCE_GAP, DEFAULT_RUSHED_CPS
+    expect("sentence-end detects terminal period", segment_ends_sentence("he looked at it."))
+    expect("sentence-end detects ?\" close-quote", segment_ends_sentence('"who is it?"'))
+    expect("sentence-end rejects mid-clause comma", not segment_ends_sentence("the room held,"))
+    # awkward MID-SENTENCE gap: prev segment does NOT end a sentence, 1.6s silence after it.
+    segs_awk = [
+        {"start": 0.0, "end": 2.0, "text": "He lay still a moment and looked at it."},
+        {"start": 2.3, "end": 4.0, "text": "The room held the silence of a place running on"},
+        {"start": 5.6, "end": 7.0, "text": "stored power and nothing else at all."},
+    ]
+    f_awk, max_awk = analyze_segment_pacing(segs_awk, md, sg, rc)
+    expect("awkward mid-sentence gap (1.6s) -> flag",
+           any(x["kind"] == "awkward-gap" and x["gap"] == 1.6 for x in f_awk))
+    expect("  ...sentence-boundary 0.3s gap -> NOT flagged",
+           not any(x.get("gap") == 0.3 for x in f_awk))
+    expect("  ...max_gap reported (1.6)", max_awk == 1.6)
+    # long-pause: a 3.0s hold AFTER a sentence end is past sentence_gap (2.5).
+    segs_hold = [
+        {"start": 0.0, "end": 2.0, "text": "The bars did not come back."},
+        {"start": 5.0, "end": 7.0, "text": "He set the phone down on the sill."},
+    ]
+    f_hold, _ = analyze_segment_pacing(segs_hold, md, sg, rc)
+    expect("3.0s hold after sentence end -> long-pause",
+           any(x["kind"] == "long-pause" and x["gap"] == 3.0 for x in f_hold))
+    expect("  ...a 2.0s hold after sentence end -> NOT flagged",
+           not analyze_segment_pacing(
+               [{"start": 0.0, "end": 2.0, "text": "Done."},
+                {"start": 4.0, "end": 6.0, "text": "He stood up."}], md, sg, rc)[0])
+    # rushed: 72 chars over 2.0s == 36 cps (>= 23) -> flag; same chars over 5.0s == 14.4 -> no.
+    rushed_txt = "the room held the silence of a place running on stored power and nothing"
+    expect("36 cps segment -> rushed",
+           any(x["kind"] == "rushed" for x in analyze_segment_pacing(
+               [{"start": 0.0, "end": 2.0, "text": rushed_txt}], md, sg, rc)[0]))
+    expect("14 cps segment -> NOT rushed",
+           not analyze_segment_pacing(
+               [{"start": 0.0, "end": 5.0, "text": rushed_txt}], md, sg, rc)[0])
+    # Scribe word-level confirm: a 1.5s inter-WORD gap mid-sentence -> flagged.
+    words = [{"text": "the", "start": 0.0, "end": 0.3}, {"text": "room", "start": 0.3, "end": 0.6},
+             {"text": "held", "start": 2.1, "end": 2.4}]
+    expect("word-level 1.5s mid-sentence gap -> flag",
+           any(x["kind"] == "awkward-gap" for x in word_gap_findings(words, md, sg)))
+    # evaluate_pacing wiring: no segments -> status '-', findings empty (graceful).
+    r_nopace = {"segments": None, "longest_gap": 0.4}
+    evaluate_pacing(r_nopace, md, sg, rc)
+    expect("evaluate_pacing with no segments -> status '-'", r_nopace["pacing_status"] == "-")
+    r_pace = {"segments": segs_awk}
+    evaluate_pacing(r_pace, md, sg, rc)
+    expect("evaluate_pacing with segments -> FLAG + counts",
+           r_pace["pacing_status"] == "FLAG" and r_pace["awkward_gaps"] >= 1)
+
     print("selftest: %s" % ("PASS" if not fails else "FAIL (%s)" % ", ".join(fails)),
           file=sys.stderr)
     return 0 if not fails else 1
+
+
+def build_live_units(scene_dir):
+    """Build QC units from a LIVE scene's stems.manifest.json (render-voice-stems.py output).
+    One unit per {type:voice} cue -> {index: cue i, wav: scene/voice/<file>, expected: the
+    cue text, gap_after: the role label}. sfx/music cues are skipped (no spoken script to
+    score). Returns (units, manifest_path). Raises if the manifest is absent."""
+    manifest_path = os.path.join(scene_dir, "stems.manifest.json")
+    with open(manifest_path, "r", encoding="utf-8") as fh:
+        manifest = json.load(fh)
+    voice_dir = os.path.join(scene_dir, "voice")
+    units = []
+    for e in manifest:
+        if e.get("type") != "voice":
+            continue
+        units.append({"index": int(e.get("i", len(units))),
+                      "wav": os.path.join(voice_dir, e.get("file", "")),
+                      "expected": e.get("text", "") or "",
+                      "gap_after": e.get("role", "voice")})
+    return units, manifest_path
+
+
+def process(units, out_dir, base_stem, args, source, prior=None):
+    """Shared per-unit QC pipeline for every input mode (single-narrator chunks, live per-line
+    voice stems, or one mixed file). A unit is {index, wav, expected, gap_after}. Transcribes
+    each wav -- with the FREE local SEGMENT timestamps unless --no-pacing -- scores garble /
+    drop / loop EXACTLY as before, runs the advisory pacing pass, fires the ElevenLabs
+    tiebreaker (capturing its word timings) on REVIEW chunks only, prints, and writes
+    qc.json / qc.csv into out_dir (+ optional --json / --report). Returns the exit code.
+
+    prior (a {index: prior-result} map from --from-json) re-scores captured transcripts --
+    and their captured segments, when present -- WITHOUT calling the server."""
+    want_pacing = not args.no_pacing
+
+    # --- gather raw results (transcript [+ segments] per unit) --------------------------
+    results = []
+    if prior is not None:
+        for u in units:
+            i = u["index"]
+            src = prior.get(i)
+            if src is None:
+                results.append({"index": i, "wav": u["wav"], "expected": u["expected"],
+                                "got": "", "segments": None,
+                                "error": "no transcript in --from-json"})
+            else:
+                results.append({"index": i, "wav": src.get("wav") or u["wav"],
+                                "expected": src.get("expected", u["expected"]),
+                                "got": src.get("got", ""),
+                                "segments": src.get("segments")})
+    else:
+        user, pw = renderer.resolve_credentials(args.user, args.password)
+        auth = renderer.auth_header(user, pw)
+        if not auth:
+            print("WARNING: no API credentials found (--user/--password, VOICE_API_USER/"
+                  "VOICE_API_PASSWORD env, or .mcp.json); /api/transcribe will 401.",
+                  file=sys.stderr)
+        else:
+            print("Auth: HTTP Basic as %s" % user, file=sys.stderr)
+        for u in units:
+            i, wav = u["index"], u["wav"]
+            if not os.path.exists(wav):
+                print("  unit %02d  MISSING wav (%s) -- not rendered" % (i, wav),
+                      file=sys.stderr)
+                results.append({"index": i, "wav": wav, "expected": u["expected"],
+                                "got": "", "segments": None, "error": "missing wav"})
+                continue
+            if want_pacing:
+                text, segs, err = transcribe_timed(args.api, wav, args.language, auth)
+            else:
+                text, err = transcribe(args.api, wav, args.language, auth)
+                segs = None
+            if err is not None:
+                print("  unit %02d  TRANSCRIBE ERROR: %s" % (i, err), file=sys.stderr)
+                results.append({"index": i, "wav": wav, "expected": u["expected"],
+                                "got": "", "segments": None,
+                                "error": "transcribe failed: " + err})
+                continue
+            results.append({"index": i, "wav": wav, "expected": u["expected"],
+                            "got": text, "segments": segs})
+
+    # --- evaluate (garble score + SPEECH-length tripwire) then the advisory pacing pass --
+    gap_by_index = {u["index"]: u["gap_after"] for u in units}
+    for r in results:
+        gap = gap_by_index.get(r["index"], "?")
+        evaluate(r, gap, args.chars_per_sec, args.short_ratio, args.retry_threshold)
+        if want_pacing:
+            evaluate_pacing(r, args.mid_gap, args.sentence_gap, args.rushed_cps)
+        else:
+            r["pacing"] = []
+            r["pacing_status"] = "-"
+            r["max_gap"] = r.get("longest_gap")
+            r["awkward_gaps"] = 0
+            r["rushed_spans"] = 0
+
+    # --- ElevenLabs tiebreaker (second transcriber, REVIEW chunks ONLY) ----------------
+    if not args.no_elevenlabs:
+        review_now = [r for r in results if r["verdict"] == "REVIEW"]
+        if review_now:
+            el_key = resolve_elevenlabs_key()
+            if not el_key:
+                print("WARNING: no ELEVENLABS_API_KEY found (env or .mcp.json); leaving "
+                      "%d REVIEW chunk(s) unresolved (pass --no-elevenlabs to silence)."
+                      % len(review_now), file=sys.stderr)
+            else:
+                print("ElevenLabs Scribe tiebreaker on %d REVIEW chunk(s): %s"
+                      % (len(review_now),
+                         ", ".join("%02d" % r["index"] for r in review_now)),
+                      file=sys.stderr)
+                for r in review_now:
+                    _outcome, el_err = apply_elevenlabs(r, el_key, args.retry_threshold,
+                                                        args.mid_gap, args.sentence_gap)
+                    if el_err is not None:
+                        print("  chunk %02d  ELEVENLABS ERROR: %s (stays REVIEW)"
+                              % (r["index"], el_err), file=sys.stderr)
+
+    # --- per-chunk lines (printed AFTER the tiebreaker so verdicts are final) ----------
+    for r in results:
+        el_part = ""
+        if r.get("el_sim") is not None:
+            el_part = "  el=%s el/whisper=%s" % (
+                _cell(r["el_sim"], "%.2f"), _cell(r["el_whisper_sim"], "%.2f"))
+        pacing_part = ""
+        if r.get("pacing_status") and r["pacing_status"] != "-":
+            pacing_part = "  pacing=%s gaps=%d rushed=%d maxgap=%ss" % (
+                r["pacing_status"], r.get("awkward_gaps", 0), r.get("rushed_spans", 0),
+                _cell(r.get("max_gap"), "%.1f"))
+        print("  chunk %02d  %-6s sim=%s pres=%s foreign=%d raw=%ss speech=%ss exp=%ss "
+              "len=%-12s%s%s%s"
+              % (r["index"], r["verdict"],
+                 _cell(r["sim"], "%.2f"), _cell(r["present"], "%.2f"), r["foreign"],
+                 _cell(r["raw_len"], "%.1f"), _cell(r["speech_len"], "%.1f"),
+                 _cell(r["expected_len"], "%.1f"), r["len_status"], el_part, pacing_part,
+                 ("  [%s]" % r["reason"]) if r["reason"] else ""),
+              file=sys.stderr)
+
+    # --- summary -----------------------------------------------------------------------
+    counts = {"OK": 0, "REVIEW": 0, "RETRY": 0}
+    for r in results:
+        counts[r["verdict"]] = counts.get(r["verdict"], 0) + 1
+    retry_list = [r["index"] for r in results if r["verdict"] == "RETRY"]
+    review_list = [r["index"] for r in results if r["verdict"] == "REVIEW"]
+    pacing_list = [r["index"] for r in results if r.get("pacing_status") == "FLAG"]
+    total_awkward = sum(r.get("awkward_gaps", 0) for r in results)
+    total_rushed = sum(r.get("rushed_spans", 0) for r in results)
+
+    print("", file=sys.stderr)
+    print("--- summary ---", file=sys.stderr)
+    print("thresholds: retry-threshold=%.2f  chars-per-sec=%.1f  short-ratio=%.2f"
+          % (args.retry_threshold, args.chars_per_sec, args.short_ratio), file=sys.stderr)
+    print("pacing thresholds: mid-gap=%.2fs  sentence-gap=%.2fs  rushed-cps=%.1f%s"
+          % (args.mid_gap, args.sentence_gap, args.rushed_cps,
+             "  (DISABLED via --no-pacing)" if args.no_pacing else ""), file=sys.stderr)
+    print("total: %d   OK: %d   REVIEW: %d   RETRY: %d"
+          % (len(results), counts["OK"], counts["REVIEW"], counts["RETRY"]), file=sys.stderr)
+    print("RETRY (re-render these): %s"
+          % (", ".join("%02d" % i for i in retry_list) if retry_list else "none"),
+          file=sys.stderr)
+    print("REVIEW (human ear, do NOT auto-retry): %s"
+          % (", ".join("%02d" % i for i in review_list) if review_list else "none"),
+          file=sys.stderr)
+    print("PACING (advisory -- awkward gaps %d, rushed spans %d): %s"
+          % (total_awkward, total_rushed,
+             ", ".join("%02d" % i for i in pacing_list) if pacing_list else "none"),
+          file=sys.stderr)
+    for r in results:
+        if r["verdict"] == "OK" and r.get("pacing_status") != "FLAG":
+            continue
+        head = r["verdict"]
+        if r.get("pacing_status") == "FLAG":
+            head += "+PACING"
+        print("", file=sys.stderr)
+        print("  chunk %02d  %s  [%s]" % (r["index"], head, r["reason"] or "pacing"),
+              file=sys.stderr)
+        for f in r.get("pacing", []):
+            if f["kind"] == "rushed":
+                print("    pacing: rushed %.1f cps at %ss -- \"%s\""
+                      % (f["cps"], f["at"], f["text"]), file=sys.stderr)
+            else:
+                print("    pacing: %s %.2fs at %ss (\"...%s\" | \"%s...\")"
+                      % (f["kind"], f["gap"], f["at"], f["after"], f["before"]),
+                      file=sys.stderr)
+
+    if args.json_path:
+        with open(args.json_path, "w", encoding="utf-8") as fh:
+            json.dump(results, fh, ensure_ascii=False, indent=2)
+        print("", file=sys.stderr)
+        print("results written to %s" % args.json_path, file=sys.stderr)
+
+    if args.report_path:
+        write_report(args.report_path, base_stem, results, args, counts,
+                     retry_list, review_list, source)
+        print("report written to %s" % args.report_path, file=sys.stderr)
+
+    # --- DEFAULT structured outputs: qc.json + qc.csv into out_dir ----------------------
+    records = [qc_record(r) for r in results]
+    qc_json_path = os.path.join(out_dir, "qc.json")
+    qc_csv_path = os.path.join(out_dir, "qc.csv")
+    try:
+        os.makedirs(out_dir, exist_ok=True)
+        write_qc_json(qc_json_path, records)
+        write_qc_csv(qc_csv_path, records)
+        print("", file=sys.stderr)
+        print("qc.json written to %s" % qc_json_path, file=sys.stderr)
+        print("qc.csv  written to %s" % qc_csv_path, file=sys.stderr)
+    except OSError as err:
+        print("WARNING: could not write qc.json/qc.csv to %s: %s" % (out_dir, err),
+              file=sys.stderr)
+
+    pacing_fail = bool(args.pacing_strict and pacing_list)
+    return 1 if (counts["RETRY"] or counts["REVIEW"] or pacing_fail) else 0
 
 
 def main():
@@ -1129,175 +1642,112 @@ def main():
     ap.add_argument("--report", default=None, dest="report_path",
                     help="Write a human-readable markdown QC report (aligned per-chunk "
                          "table + EXPECTED vs WHISPER for every non-OK chunk).")
+    # --- LIVE-pipeline coverage (per-line voice stems / mixed scene) -------------------
+    ap.add_argument("--live-scene", default=None, dest="live_scene",
+                    help="QC a LIVE scene directory: read <dir>/stems.manifest.json "
+                         "(render-voice-stems.py output) and verify every per-line voice "
+                         "stem in <dir>/voice -- full garble + pacing QC, qc.json/csv into "
+                         "<dir>. Use INSTEAD of the script positional.")
+    ap.add_argument("--mixed", default=None,
+                    help="Pacing-ONLY pass on one mixed audio file (scene-live.mp3 / "
+                         "chapter-live.mp3): no per-line script to score, so only the "
+                         "advisory timing findings are emitted. Use INSTEAD of the script.")
+    ap.add_argument("--limit", type=int, default=0,
+                    help="Process only the first N units (0 = all). Handy for a cheap "
+                         "spot-check on a long scene/chapter.")
+    # --- pacing / timing pass ----------------------------------------------------------
+    ap.add_argument("--no-pacing", action="store_true", dest="no_pacing",
+                    help="Skip the timing/pacing pass (no free SEGMENT timestamps requested; "
+                         "garble QC only -- the legacy behavior).")
+    ap.add_argument("--mid-gap", type=float, default=DEFAULT_MID_SENTENCE_GAP, dest="mid_gap",
+                    help="Awkward-gap threshold (s): an inter-segment silence >= this where "
+                         "the prior segment does NOT end a sentence is a mid-sentence pause. "
+                         "Default %.2f." % DEFAULT_MID_SENTENCE_GAP)
+    ap.add_argument("--sentence-gap", type=float, default=DEFAULT_SENTENCE_GAP,
+                    dest="sentence_gap",
+                    help="Long-pause threshold (s): even at a sentence/paragraph break, a "
+                         "hold >= this is reported. Default %.2f." % DEFAULT_SENTENCE_GAP)
+    ap.add_argument("--rushed-cps", type=float, default=DEFAULT_RUSHED_CPS, dest="rushed_cps",
+                    help="Rushed threshold (chars/sec): a segment at/above this is gabbled "
+                         "(clean narration ~16). Default %.1f." % DEFAULT_RUSHED_CPS)
+    ap.add_argument("--pacing-strict", action="store_true", dest="pacing_strict",
+                    help="Fold pacing FLAGs into the exit code (default: pacing is advisory "
+                         "and never changes exit status -- only RETRY/REVIEW do).")
     args = ap.parse_args()
 
     if args.selftest:
         return run_selftest()
-    if not args.script:
-        ap.error("the script argument is required (omit it only with --selftest)")
 
-    if not os.path.exists(args.script):
-        print("ERROR: script not found: " + args.script, file=sys.stderr)
-        return 2
+    # Exactly one input mode: the script positional (single-narrator chunks), --live-scene
+    # (live per-line voice stems), or --mixed (pacing-only on one mixed file).
+    modes = sum(bool(x) for x in (args.script, args.live_scene, args.mixed))
+    if modes == 0:
+        ap.error("provide a script, --live-scene DIR, or --mixed FILE (or --selftest)")
+    if modes > 1:
+        ap.error("use only ONE of: script positional, --live-scene, --mixed")
 
-    # Re-derive chunk texts + gaps and the chunk dir EXACTLY as the renderer would.
-    chunks_meta = build_chunks_meta(args.script, args.max_chars, args.min_chars, args.ellipsis)
-    in_stem = os.path.splitext(os.path.basename(args.script))[0]
-    base_stem = in_stem.replace(".narrative-script", "")
-    chunk_dir = args.chunk_dir or os.path.join("audio", "book-1", base_stem, "chunks")
+    prior = None
 
-    if not chunks_meta:
-        print("ERROR: no narratable chunks derived from performance script", file=sys.stderr)
-        return 1
-
-    if args.from_json:
-        source = "re-score --from-json %s" % args.from_json
-    else:
-        source = "live transcribe %s" % args.api
-    print("Verifying %s: %d chunk(s) against %s  [%s]"
-          % (base_stem, len(chunks_meta), chunk_dir, source), file=sys.stderr)
-
-    # --- gather raw results (transcript per chunk) -------------------------------------
-    results = []
-    if args.from_json:
-        with open(args.from_json, "r", encoding="utf-8") as fh:
-            prior = json.load(fh)
-        by_index = {int(r["index"]): r for r in prior}
-        for i, meta in enumerate(chunks_meta, 1):
-            wav = os.path.join(chunk_dir, "%02d.wav" % i)
-            src = by_index.get(i)
-            if src is None:
-                results.append({"index": i, "wav": wav, "expected": meta["text"],
-                                "got": "", "error": "no transcript in --from-json"})
-            else:
-                results.append({"index": i, "wav": src.get("wav") or wav,
-                                "expected": src.get("expected", meta["text"]),
-                                "got": src.get("got", "")})
-    else:
-        user, pw = renderer.resolve_credentials(args.user, args.password)
-        auth = renderer.auth_header(user, pw)
-        if not auth:
-            print("WARNING: no API credentials found (--user/--password, VOICE_API_USER/"
-                  "VOICE_API_PASSWORD env, or .mcp.json); /api/transcribe will 401.",
+    # --- MODE: live per-line voice stems (render-voice-stems.py output) ----------------
+    if args.live_scene:
+        scene_dir = args.live_scene.rstrip("/")
+        if not os.path.isdir(scene_dir):
+            print("ERROR: --live-scene not a directory: " + scene_dir, file=sys.stderr)
+            return 2
+        try:
+            units, manifest_path = build_live_units(scene_dir)
+        except (OSError, ValueError, KeyError) as err:
+            print("ERROR: cannot read %s/stems.manifest.json: %s" % (scene_dir, err),
                   file=sys.stderr)
+            return 2
+        out_dir = scene_dir
+        base_stem = os.path.basename(scene_dir)
+        source = "live stems %s (%s)" % (manifest_path, args.api)
+
+    # --- MODE: pacing-only on one mixed file (scene-live.mp3 / chapter-live.mp3) --------
+    elif args.mixed:
+        if not os.path.exists(args.mixed):
+            print("ERROR: --mixed file not found: " + args.mixed, file=sys.stderr)
+            return 2
+        units = [{"index": 1, "wav": args.mixed, "expected": "", "gap_after": "mixed"}]
+        out_dir = os.path.dirname(os.path.abspath(args.mixed))
+        base_stem = os.path.splitext(os.path.basename(args.mixed))[0]
+        source = "mixed pacing-only %s (%s)" % (args.mixed, args.api)
+        if args.no_pacing:
+            print("WARNING: --mixed with --no-pacing has nothing to do (no script to "
+                  "score against); enabling pacing.", file=sys.stderr)
+            args.no_pacing = False
+
+    # --- MODE: single-narrator chunks (the original path) ------------------------------
+    else:
+        if not os.path.exists(args.script):
+            print("ERROR: script not found: " + args.script, file=sys.stderr)
+            return 2
+        chunks_meta = build_chunks_meta(args.script, args.max_chars, args.min_chars,
+                                        args.ellipsis)
+        if not chunks_meta:
+            print("ERROR: no narratable chunks derived from performance script",
+                  file=sys.stderr)
+            return 1
+        in_stem = os.path.splitext(os.path.basename(args.script))[0]
+        base_stem = in_stem.replace(".narrative-script", "")
+        out_dir = args.chunk_dir or os.path.join("audio", "book-1", base_stem, "chunks")
+        units = [{"index": i, "wav": os.path.join(out_dir, "%02d.wav" % i),
+                  "expected": meta["text"], "gap_after": meta["gap_after"]}
+                 for i, meta in enumerate(chunks_meta, 1)]
+        if args.from_json:
+            with open(args.from_json, "r", encoding="utf-8") as fh:
+                prior = {int(r["index"]): r for r in json.load(fh)}
+            source = "re-score --from-json %s" % args.from_json
         else:
-            print("Auth: HTTP Basic as %s" % user, file=sys.stderr)
-        for i, meta in enumerate(chunks_meta, 1):
-            wav = os.path.join(chunk_dir, "%02d.wav" % i)
-            if not os.path.exists(wav):
-                print("  chunk %02d  MISSING wav (%s) -- not rendered" % (i, wav),
-                      file=sys.stderr)
-                results.append({"index": i, "wav": wav, "expected": meta["text"],
-                                "got": "", "error": "missing wav"})
-                continue
-            text, err = transcribe(args.api, wav, args.language, auth)
-            if err is not None:
-                print("  chunk %02d  TRANSCRIBE ERROR: %s" % (i, err), file=sys.stderr)
-                results.append({"index": i, "wav": wav, "expected": meta["text"],
-                                "got": "", "error": "transcribe failed: " + err})
-                continue
-            results.append({"index": i, "wav": wav, "expected": meta["text"], "got": text})
+            source = "live transcribe %s" % args.api
 
-    # --- evaluate (score + SPEECH-length tripwire + provisional verdict) ---------------
-    for r in results:
-        idx = r["index"]
-        gap = chunks_meta[idx - 1]["gap_after"] if 1 <= idx <= len(chunks_meta) else "?"
-        evaluate(r, gap, args.chars_per_sec, args.short_ratio, args.retry_threshold)
+    if args.limit and args.limit > 0:
+        units = units[:args.limit]
 
-    # --- ElevenLabs tiebreaker (second transcriber, REVIEW chunks ONLY) ----------------
-    # Cost-smart: only the doubtful chunks (provisional verdict REVIEW -- low whisper_sim,
-    # foreign<=2, not short) get a second, metered opinion. OK and already-RETRY chunks are
-    # never sent. apply_elevenlabs resolves each REVIEW: both transcribers disagreeing with
-    # the script -> RETRY; ElevenLabs reading it fine -> OK (a confirmed Whisper artifact).
-    if not args.no_elevenlabs:
-        review_now = [r for r in results if r["verdict"] == "REVIEW"]
-        if review_now:
-            el_key = resolve_elevenlabs_key()
-            if not el_key:
-                print("WARNING: no ELEVENLABS_API_KEY found (env or .mcp.json); leaving "
-                      "%d REVIEW chunk(s) unresolved (pass --no-elevenlabs to silence)."
-                      % len(review_now), file=sys.stderr)
-            else:
-                print("ElevenLabs Scribe tiebreaker on %d REVIEW chunk(s): %s"
-                      % (len(review_now),
-                         ", ".join("%02d" % r["index"] for r in review_now)),
-                      file=sys.stderr)
-                for r in review_now:
-                    _outcome, el_err = apply_elevenlabs(r, el_key, args.retry_threshold)
-                    if el_err is not None:
-                        print("  chunk %02d  ELEVENLABS ERROR: %s (stays REVIEW)"
-                              % (r["index"], el_err), file=sys.stderr)
-
-    # --- per-chunk lines (printed AFTER the tiebreaker so verdicts are final) ----------
-    for r in results:
-        el_part = ""
-        if r.get("el_sim") is not None:
-            el_part = "  el=%s el/whisper=%s" % (
-                _cell(r["el_sim"], "%.2f"), _cell(r["el_whisper_sim"], "%.2f"))
-        print("  chunk %02d  %-6s sim=%s pres=%s foreign=%d raw=%ss speech=%ss exp=%ss "
-              "len=%-12s%s%s"
-              % (r["index"], r["verdict"],
-                 _cell(r["sim"], "%.2f"), _cell(r["present"], "%.2f"), r["foreign"],
-                 _cell(r["raw_len"], "%.1f"), _cell(r["speech_len"], "%.1f"),
-                 _cell(r["expected_len"], "%.1f"), r["len_status"], el_part,
-                 ("  [%s]" % r["reason"]) if r["reason"] else ""),
-              file=sys.stderr)
-
-    # --- summary -----------------------------------------------------------------------
-    counts = {"OK": 0, "REVIEW": 0, "RETRY": 0}
-    for r in results:
-        counts[r["verdict"]] = counts.get(r["verdict"], 0) + 1
-    retry_list = [r["index"] for r in results if r["verdict"] == "RETRY"]
-    review_list = [r["index"] for r in results if r["verdict"] == "REVIEW"]
-
-    print("", file=sys.stderr)
-    print("--- summary ---", file=sys.stderr)
-    print("thresholds: retry-threshold=%.2f  chars-per-sec=%.1f  short-ratio=%.2f"
-          % (args.retry_threshold, args.chars_per_sec, args.short_ratio), file=sys.stderr)
-    print("total: %d   OK: %d   REVIEW: %d   RETRY: %d"
-          % (len(results), counts["OK"], counts["REVIEW"], counts["RETRY"]), file=sys.stderr)
-    print("RETRY (re-render these): %s"
-          % (", ".join("%02d" % i for i in retry_list) if retry_list else "none"),
-          file=sys.stderr)
-    print("REVIEW (human ear, do NOT auto-retry): %s"
-          % (", ".join("%02d" % i for i in review_list) if review_list else "none"),
-          file=sys.stderr)
-    for r in results:
-        if r["verdict"] == "OK":
-            continue
-        print("", file=sys.stderr)
-        print("  chunk %02d  %s  [%s]" % (r["index"], r["verdict"], r["reason"]),
-              file=sys.stderr)
-        print("    expected: %s" % (oneline(r["expected"])[:140]), file=sys.stderr)
-        print("    got:      %s" % (oneline(r["got"])[:140]), file=sys.stderr)
-
-    if args.json_path:
-        with open(args.json_path, "w", encoding="utf-8") as fh:
-            json.dump(results, fh, ensure_ascii=False, indent=2)
-        print("", file=sys.stderr)
-        print("results written to %s" % args.json_path, file=sys.stderr)
-
-    if args.report_path:
-        write_report(args.report_path, base_stem, results, args, counts,
-                     retry_list, review_list, source)
-        print("report written to %s" % args.report_path, file=sys.stderr)
-
-    # --- DEFAULT structured outputs: qc.json + qc.csv into the chunk dir ----------------
-    records = [qc_record(r) for r in results]
-    qc_json_path = os.path.join(chunk_dir, "qc.json")
-    qc_csv_path = os.path.join(chunk_dir, "qc.csv")
-    try:
-        os.makedirs(chunk_dir, exist_ok=True)
-        write_qc_json(qc_json_path, records)
-        write_qc_csv(qc_csv_path, records)
-        print("", file=sys.stderr)
-        print("qc.json written to %s" % qc_json_path, file=sys.stderr)
-        print("qc.csv  written to %s" % qc_csv_path, file=sys.stderr)
-    except OSError as err:
-        print("WARNING: could not write qc.json/qc.csv to %s: %s" % (chunk_dir, err),
-              file=sys.stderr)
-
-    return 1 if (counts["RETRY"] or counts["REVIEW"]) else 0
+    print("Verifying %s: %d unit(s) -> %s  [%s]"
+          % (base_stem, len(units), out_dir, source), file=sys.stderr)
+    return process(units, out_dir, base_stem, args, source, prior)
 
 
 if __name__ == "__main__":
