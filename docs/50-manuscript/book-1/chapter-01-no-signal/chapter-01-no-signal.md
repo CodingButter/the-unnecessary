@@ -24,7 +24,7 @@ The screen came up pale in the morning light, and he read the status bar like an
 
 He lay still a moment and looked at it.
 
-The floor was cold when he put his feet down. The room held the silence of a place running on stored power. The small outside noises a phone made when it was talking to the world were all gone. He thumbed the network off and on, then carried the phone to the window and held it up, something his father would have done with a transistor radio, and it helped about as much.
+The floor was cold when he put his feet down. The room held the silence of a place running on stored power. The small sounds a phone made when it was talking to the world were all gone. He thumbed the network off and on, then carried the phone to the window and held it up, something his father would have done with a transistor radio, and it helped about as much.
 
 The bars did not come back.
 
@@ -72,7 +72,7 @@ The dairy case along the back wall was dark. Not all of it. The first two doors 
 
 "Everything in your house wants permission now," she said as he turned, almost smiling. "And there's nobody left to give it." He knew what she meant and had no answer for it, and went out into the cold with the day's list already longer than it had been.
 
-Outside the grocery a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over it and walked on to his own repair shop, put the key in the lock, and did not look back at the street lying quiet behind him, kept ordinary by hands.
+Outside his own repair shop a parked car sat at the curb with a thick orange cable run from a port in its flank across the sidewalk and into the side of a house, taped flat so nobody tripped, the car spending its battery into the home it belonged to. He stepped over the cable, put the key in his own shop door, and did not look back at the street lying quiet behind him, kept ordinary by hands.
 
 He went in.
 
@@ -128,7 +128,7 @@ He had known the neighborhood was below the protected zones. Everyone had known 
 
 And there it was. What the morning had been circling.
 
-The two lit doors of the dairy case, and the dark length of it past them. That was where it landed, and the doorbell's patient little board came with it, the same patience, the same clean type at the top of both notices, and the morning would not stay in the separate pockets he had kept it in. They were one shape. A series of companies, each in its own building, had decided at the same hour that these people were no longer worth the cost of serving, and had written it down, politely, and moved on. Everything physical was exactly where it had been, working, ready, waiting. Destruction would have left a mark, something to point at and repair. This left nothing but a slow opening of a hand that had been holding them up, finger by finger, with a thank-you note for each finger as it let go.
+The two lit doors of the dairy case, and the dark length past them. That was where the recognition landed, and the doorbell's patient little board came with it, the same patience, the same clean type at the top of both notices, and the morning would not stay in the separate pockets he had kept it in. They were one shape. A series of companies, each in its own building, had decided at the same hour that these people were no longer worth the cost of serving, and had written it down, politely, and moved on. Everything physical was exactly where it had been, working, ready, waiting. Destruction would have left a mark, something to point at and repair. This left nothing but a slow opening of a hand that had been holding them up, finger by finger, with a thank-you note for each finger as it let go.
 
 He set the phone down and looked at the crowded bench, the lit machines waiting on servers nobody answered for anymore, and for the first time that morning he did not see a queue of separate jobs. He saw the reach behind it all, himself in the middle with a screwdriver, working the small ends while the rest of it came on around him. Against everything in him that wanted the world kept in separate pockets, he let himself start the list of what still worked only because no one had decided yet that it wasn't worth it. The list had no end.
 
@@ -172,7 +172,7 @@ A silence that was not the link.
 
 "I know."
 
-"Do you." There was no cruelty in it. She had asked a real question, and she waited for a real answer. "I can hear you doing it. You've got it on a bench in your head, scanner, med unit, controller, three problems, sorting them by how hard they are. It's not three problems. It's one decision somebody made in a building, and the bottom of it is a man who can't breathe through the night. Stay down here with me. Don't climb back up onto that bench, where it's clean and it's just machines and nobody's dying."
+"Do you." There was no cruelty in it. She had asked a real question, and she waited for a real answer. "I can hear you doing it. You've got it on a bench in your head, scanner, med unit, controller, three problems, sorting them by how hard they are. It's not three problems. It's one decision somebody made in a building, and the bottom of it is a man who can't breathe through the night. Don't climb back up onto that bench in your head, where it's clean and it's just machines and nobody's dying. Stay down here with me, where the man is."
 
 He did not answer right away. He looked at the three machines sitting in plain type with a single time beside them, *23:59,* three people and one clock, and the cold came up through the floor of the shop and into him, more of it than the room could account for.
 
@@ -284,3 +284,50 @@ Adjudication of the clarity/prose/continuity/echo gauntlet plus the author's emp
 | grocery.md:52 attributes the Tuesday dairy-case failure to "the compressor," but the chapter (and grocery.md's own prose body) name the controller. Does the chapter change? | No chapter edit. The chapter is correct; the conflict is a lower-authority canon-file note out of step with approved manuscript. Surfaced for deliberate canon-revision: grocery.md:52 should be reworded to "the controller (cannot reach its withdrawn cloud service), not the compressor." | Approved manuscript outranks a world-entity YAML note (canon-hierarchy.md); chapter-01:69 and grocery.md prose at grocery.md:37 already agree; only grocery.md:52 misstates it. I do not edit canon to match prose; routed to the canon/world-entity owner. | high |
 | Anchoring "his own repair shop" at Scene-2 arrival, does it risk a home-to-shop distance contradiction? | Anchored with neutral "walked on to his own repair shop" (from the grocery, an errand stop), implying no distance between home and shop. | elis-home.md:41 and elis-repair-shop.md:30 fix home and shop as effectively one working address; the grocery is on the morning route, so the walk is an errand loop. | high |
 | "the correctness" as the named referent at the climax, does it introduce canon or alter the gated obstacle? | Used "the correctness" (already glossed in-scene as "what made the controller right": calibration, dosing/pressure envelope, safety record). No new canon; the un-forge-able-correctness-plus-scale obstacle is unchanged. | blueprint.md:585 (Scene 4 obstacle is medical-safety correctness plus scale, not live-vs-dead server); the prose at line 185 already lists these. | high |
+
+## Revision Log (author may override): Second Clarity/Prose Pass
+
+Adjudication of the second (enhanced interpretation-audit) clarity gauntlet plus the prose-critic, continuity-auditor, and echo-auditor findings and the author's friction notes. Operated under Decision 060 (autonomous, hierarchy-grounded resolution; nothing left blocking the author) and Decision 061 (clarity-first; accidental obscurity is a bug, the discriminator is payoff not plainness). Four surgical edits applied; viewpoint (close third on Eli, past tense), Eli's knowledge state, all reveal gates (Asterion/Mosaic/Morrow withheld), and the no-em-dash rule preserved. Status held as-is; the chapter remains a draft pending the author's separate re-approval.
+
+### Accepted (applied)
+
+| Finding | Ruling | Reason / grounding |
+|---|---|---|
+| clarity+prose / line 131 recognition climax: four close "it"s point at different things (dairy case / realization / landing / morning) at the exact payoff | ACCEPT, applied | Named the realization ("That was where **the recognition** landed") to match "what the morning had been circling" (line 129) and dropped the dairy-case pronoun ("the dark length past them"); the two surviving "it"s now bind to immediately-named antecedents. Opening-hand metaphor and "separate pockets" motif left byte-for-byte intact (protected seeds). Continuity guardrail honored: board/dairy-case stay memory-collage, not physically on the bench. |
+| clarity+prose / line 75 "He stepped over it" misreads as the parked car | ACCEPT, applied | Replaced "it" with "the cable"; you step over a taped-flat cable, not a curbside car. Car/cable kept "Outside the grocery" per continuity guardrail (no relocation to the shop). |
+| clarity+prose / line 27 "small outside noises" reads locatively (outside the room) | ACCEPT, applied | Dropped "outside"; "The small sounds a phone made when it was talking to the world" can no longer open the outside-the-room reading and still names the phone's own connection chatter. |
+| clarity+prose / line 175 "nobody's dying" polarity-inverts; up/down geography slippery | ACCEPT, applied | Reordered so the inverting clause no longer carries final stress and the line lands on human stakes ("Stay down here with me, where the man is"); added "in your head" so "that bench" reads as Eli's mental refuge, not his literal shop bench. Bench metaphor preserved (protected). |
+
+### Rejected / out of scope (no edit)
+
+| Finding | Ruling | Reason / grounding | Override path |
+|---|---|---|---|
+| prose minor / show-don't-tell, line 45 spreadsheet gloss ("had passed what the street was worth... and so they let go") | REJECT | Not accidental obscurity; in-voice close-third interpretation, and "and so they let go" seeds the line-131 opening-hand "as it let go" payoff (Decision 061: discriminator is payoff). Outside the author's scoped four. | If the author wants compression, route to chapter-drafter; do not sever the "let go" setup. |
+| prose minor / voice 'you'-generalization dosage (lines 47, 57, 59, 197) | REJECT | Guide-endorsed free-indirect register, explicitly "thin, not remove"; a multi-line dosage/taste adjustment, not a clarity bug; risks flattening voice the same review praises. | Author may request a rhythm-thinning pass via chapter-drafter. |
+| prose minor / sensory bareness at the climax (lines 185-189) | REJECT (route if desired) | Not obscurity; the climax is already sensory-bracketed (line 177 cold through the floor, line 201 fan/transformer). Inserting body-beats into the reasoning is additive fresh prose (not a surgical repair) and risks diluting the deliberately abstract "wall" and the protected forging-mechanics seed. | If wanted, route to chapter-drafter for a blueprint-driven grounding pass (ground the thinker, not the method). |
+| prose nit / Marisol "wants permission... nobody left to give it" (line 73) | REJECT | Protected bureaucratic-permission motif; prior adjudication already held it (line 274); critic concedes "author's call, not a rewrite." Not accidental obscurity. | Author's discretion; ground back to the specific device only if it ever reads as theme-handed-to-reader. |
+| continuity low / router-vs-tablet referent (lines 107 vs 113) | REJECT (route) | Reads coherently as the man owning both devices (router introduced 97, man revealed watching Eli work it at 105-107); the enhanced reader-audit did not flag it as a confusion, so it is not the accidental obscurity the author scoped. No state/possession contradiction (continuity-auditor concurs). | Route to prose-critic if a future pass wants the router's ownership made explicit. |
+| prose / manuscript-hygiene: production logs inside the manuscript body | OUT OF LANE (route) | Housekeeping, not craft; out of the adjudicator's lane and unrelated to any accepted finding. (This second-pass log is appended per the task instruction.) | Route to the manuscript-hygiene owner. |
+| echo (verdict: fresh), within-chapter clarity items; SPARE-list seeds | NO ACTION | Chapter 1 has no predecessor corpus; the listed items are within-chapter clarity (ruled above) or originating motif seeds for future chapters to be measured against. | n/a |
+
+### Routed to canon / world-entity owner (manuscript wins; no prose change)
+
+These are external collisions where the **approved manuscript is correct** and a lower-authority canon file is stale (canon-hierarchy: approved manuscript outranks world-entity / character canon). Per the one-file mandate I do **not** edit canon to match prose; I surface them for deliberate canon-revision. No chapter edit.
+
+| Stale canon file | Conflict | Resolution |
+|---|---|---|
+| elis-repair-shop.md:45-47 and grocery.md:48 | Place the EV-cable car at "the shop's own curb" and misquote the chapter; the approved manuscript places it "Outside the grocery" (clarity-#5 rename) | Manuscript wins. Honored as the guardrail for clarity edit #2 (car kept at the grocery). Canon owner should update both notes to the grocery curb and acknowledge the short "walked on" grocery-to-shop transition. |
+| grocery.md:52 | Attributes the Tuesday dairy-case failure to "the compressor"; chapter-01:69 and grocery.md:37 both say the controller | Manuscript wins. Canon owner should reword grocery.md:52 to "the controller (cannot reach its withdrawn cloud service), not the compressor." |
+| vega-marisol.md:200-201 (and echoing body :99, :107) | "Continuity Anchors" quote pre-revision Marisol dialogue that differs from approved chapter-01:69,73 | Manuscript wins. Canon owner should update the Anchors and body quotes to the approved-manuscript wording. |
+
+## Decisions Made (author may override): Second Pass
+
+| Question | Decision | Grounding / authority | Confidence |
+|---|---|---|---|
+| At line 131, how to name the bare "it" that carries the realization without flattening the protected metaphors? | Named it "the recognition," matching "what the morning had been circling" (line 129), and removed the dairy-case pronoun. Opening-hand + separate-pockets seeds untouched. | Author brief (name the realization where the bare 'it' carries it, spare the metaphor/motif); core-prose.md:141-145 first-pass legibility; blueprint.md:159 (recognition is the scene's reveal). | high |
+| Line 175: how to make the irony unmistakable without losing the deliberate bench metaphor or risking a continuity/medical-state overstatement? | Reordered so the line lands on "where the man is" (stakes, not a present-tense "dying" claim that would clash with the patient's day-stable state) and added "in your head" to lock the bench as mental, not Eli's literal shop bench. | core-prose.md:141-145; blueprint.md:604 (Lena drags Eli from system to patient); patient is night-dependent, day-stable (chapter-01:171), so "where the man is" avoids a false present-tense medical claim. | high |
+| Should the adjudicator edit the three stale canon files the continuity-auditor flagged? | No. Routed to the canon/world-entity owner; applied no prose change (manuscript already correct). | One-file mandate (edit the manuscript prose only) + "never edit canon to match prose"; canon-hierarchy (approved manuscript outranks world-entity/character canon). | high |
+
+### Continuity repair (verify phase, canon wins)
+
+- **EV-cable car conformed to canon (chapter-vs-canon, low):** The clarity rename that moved the parked EV-cable car to the grocery curb and introduced a grocery-to-shop walk was reversed. The car now sits at Eli's own repair-shop curb and the measured grocery-to-shop transit is removed, per elis-repair-shop.md:45-47 and grocery.md:48 (the car sits at the shop's own curb; no grocery-to-shop distance is canon). The EV-as-neighborhood-battery image and the closing "kept ordinary by hands" are preserved, and the destination still reads unambiguously as Eli's own repair shop. This supersedes the Second-Pass row above that had kept the car at the grocery: the prose now conforms to canon rather than the reverse.
