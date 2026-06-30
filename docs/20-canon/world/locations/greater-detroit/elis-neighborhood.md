@@ -76,4 +76,10 @@ timeline:
   - when: 2053-10-03
     set: { withdrawal_factor: 0.65, emergency_power_restore: false }
     note: "Midday reclassification to a lower power distribution tier; outages here are no longer processed as emergency restoration events (Ch1; act-1-timeline.md)."
+locks:
+  facts.named:             { state: open }                          # "no name" is asserted only by the ARCHIVED story-monolith (non-canon); approved prose never names it
+  facts.withdrawal_factor: { state: open }                          # self-described model ESTIMATE, not a stated-canon number
+  timeline.0:              { state: locked, by: master-timeline }   # Jan-2053 tier intro + below-protected = pre-book-2053.md (the 0.5 scalar is an estimate rider)
+  timeline.1:              { state: locked, by: b1-ch1 }            # cellular formally withdrawn Oct 3
+  timeline.2:              { state: locked, by: b1-ch1 }            # midday reclassification, no emergency restore (the 0.65 scalar is an estimate rider)
 ```
