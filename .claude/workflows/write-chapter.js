@@ -3,11 +3,12 @@ export const meta = {
   description: 'Full chapter authorship pipeline for the novel The Unnecessary: build the context pack, provision missing referenced canon entities, Opus drafts, the full review crew runs a parallel gauntlet (prose-critic, focus-reviewer, continuity-auditor, echo-auditor, clarity-auditor, logic-auditor + the Gemini cross-model lens), the adjudicator decides accept/reject on every finding and applies the accepted fixes, the entity-extractor mines the draft for new canon (backfilled PROPOSED, not locked), then a 3-part narration-script pass (Opus directs, Gemini critiques the performance, Opus revises). Parameterized per chapter via args {number, slug, title}. Leaves the chapter as a draft for the author to approve; audio is generated separately.',
   phases: [
     { title: 'Prep', detail: 'Build the chapter context pack from its per-chapter manifest' },
-    { title: 'Provision', detail: 'Birth any blueprint-referenced canon entity whose file does not exist yet (entity-author, one per missing entity, in parallel) so both references exist before drafting (spec section 8)' },
+    { title: 'Provision', detail: 'Birth any blueprint-referenced canon entity whose file does not exist yet (entity-author, one per missing entity, in parallel) so both references exist before drafting (spec section 8), then ACTUALLY validate the born canon: a Bash-capable agent runs validate-metadata.py + validate-locks.py (entity-author has no Bash and cannot run them itself); ERROR lines are surfaced but do not abort the run' },
     { title: 'Draft', detail: 'chapter-drafter writes the chapter from the blueprint and pack (canon-safe, on-voice)' },
     { title: 'Gauntlet', detail: 'Full review crew in parallel: prose-critic, focus-reviewer, continuity-auditor, echo-auditor, clarity-auditor, logic-auditor, plus the Gemini cross-model critique. A barrier: all findings collected before adjudication' },
-    { title: 'Adjudicate', detail: 'adjudicator decides accept/reject on every gauntlet finding, applies the accepted fixes to the manuscript prose, and logs each decision' },
-    { title: 'Extract', detail: 'entity-extractor mines the drafted prose for new canon entities + timeline events (PROPOSED, since the chapter is still draft), then entity-author births any new entity files (spec sections 10a + 14)' },
+    { title: 'Adjudicate', detail: 'adjudicator decides accept/reject on every gauntlet finding, applies the accepted fixes to the manuscript prose, logs each decision, resolves in-context what canon supports (## Decisions Made), and ESCALATES what it cannot ground from canon alone (Decision 060)' },
+    { title: 'Resolution', detail: 'autonomously clear the adjudicator escalations the in-context pass could not ground (Decision 060): in parallel, research-consultant researches real-world questions online and canon-scout runs deep sourced canon sweeps; then one adjudicator pass decides on the gathered evidence, applies any warranted surgical prose edit, and extends the ## Decisions Made (author may override) log. Skips with zero spend when nothing was escalated' },
+    { title: 'Extract', detail: 'entity-extractor mines the drafted prose for new canon entities + timeline events (PROPOSED, since the chapter is still draft), then entity-author births any new entity files (spec sections 10a + 14); when files are born, a Bash-capable agent then ACTUALLY validates them (validate-metadata.py + validate-locks.py) and surfaces ERROR lines without aborting' },
     { title: 'Narration Script', detail: 'Opus directs a v3 performance script, Gemini critiques it, Opus revises (3-part)' },
   ],
 }
@@ -44,6 +45,31 @@ const REPORT = {
     details: { type: 'string' },
   },
   required: ['ok', 'summary'],
+}
+
+// Adjudicator return: the standard REPORT shape PLUS an `escalations` array — the items the in-context
+// adjudicator (Read/Grep/Glob only) could NOT confidently ground from canon alone. High-confidence
+// in-context resolutions stay in the manuscript's "## Decisions Made (author may override)" log and are
+// NOT escalated, so a cleanly-groundable chapter escalates nothing and the Resolution phase no-ops. Each
+// escalation is routed by `kind`: 'research' -> research-consultant (online), 'canon' -> canon-scout (sweep).
+const ADJUDICATE = {
+  type: 'object',
+  required: ['ok', 'summary'],
+  properties: {
+    ok: { type: 'boolean' },
+    summary: { type: 'string' },
+    details: { type: 'string' },
+    escalations: { type: 'array', items: {
+      type: 'object', additionalProperties: false,
+      properties: {
+        question: { type: 'string' },        // the precise question canon alone could not settle
+        why_unresolved: { type: 'string' },  // why an in-context canon read could not close it
+        kind: { type: 'string' },            // 'research' (real-world plausibility/logistics/technical) | 'canon' (deeper sweep)
+        where: { type: 'string' },           // manuscript/canon locator the question attaches to (file:line or short quote)
+      },
+      required: ['question', 'why_unresolved', 'kind'],
+    } },
+  },
 }
 
 // Provision scout output: the blueprint's referenced entities and whether each canon file already exists.
@@ -117,10 +143,47 @@ const EXTRACT = {
   },
 }
 
+// Born-canon validation result: the ERROR lines (if any) the validators emit against just-born canon.
+// entity-author has no Bash, so a Bash-capable agent runs the validators in a dedicated step (below).
+const VALIDATION = {
+  type: 'object', additionalProperties: false,
+  required: ['ok', 'summary'],
+  properties: {
+    ok: { type: 'boolean' },                                       // true ONLY if BOTH validators produced zero ERROR lines
+    metadata_errors: { type: 'array', items: { type: 'string' } }, // ERROR lines from validate-metadata.py
+    lock_errors: { type: 'array', items: { type: 'string' } },     // ERROR lines from validate-locks.py
+    summary: { type: 'string' },
+  },
+}
+
 // Resilience: a single agent() call THROWS on retry-cap / API error / dropped connection, which would
 // abort the whole pipeline. Wrap the lone (non-parallel) calls so a transient drop retries instead of
 // losing the run; on a real result it returns immediately, so behavior is unchanged on success.
 async function tryAgent(make, tries) { tries = tries || 3; let last; for (let i = 0; i < tries; i++) { try { const r = await make(); if (r) return r; last = new Error('empty result'); } catch (e) { last = e; log('retry ' + (i + 1) + '/' + tries + ': ' + String(e).slice(0, 140)); } } throw last; }
+
+// Born-canon validation step. The entity-author crew has tools Read/Grep/Glob/Write/Edit and NO Bash, so it
+// cannot run a validator — it can only read the validator's source. This dispatches a Bash-CAPABLE agent
+// (general-purpose) to ACTUALLY run the validators against the just-born canon and report any ERROR lines.
+// Non-aborting by design: the result is logged loudly and returned, but the drafted chapter is preserved
+// (the author + the pre-push hook are the hard gates). Wrapped in tryAgent so a transient drop retries.
+async function validateBornCanon(stage, phaseName) {
+  const v = await tryAgent(() => agent(
+    `Run EXACTLY these two commands from ${NOVEL} and report the result. They validate the canon entity files just born in the ${stage} phase — entity-author cannot run them itself (it has no Bash), so the pipeline runs them here:\n` +
+    `  python3 scripts/validate-metadata.py\n` +
+    `  python3 scripts/validate-locks.py --root docs/20-canon\n` +
+    `Run BOTH even if the first reports problems. Capture every output line that contains "ERROR" from each command separately. Return per schema: ok=true ONLY if BOTH commands produced zero ERROR lines; metadata_errors = the verbatim ERROR lines from validate-metadata.py; lock_errors = the verbatim ERROR lines from validate-locks.py; summary = one line. This is READ-ONLY: do not edit any file, do not fix anything — just run and report.`,
+    { agentType: 'general-purpose', label: `ch${num}:validate-${stage}`, phase: phaseName, effort: 'low', schema: VALIDATION }
+  ))
+  if (v) {
+    const errs = ((v.metadata_errors || []).length) + ((v.lock_errors || []).length)
+    if (v.ok === false || errs) {
+      log(`VALIDATION (${stage}): ${errs} ERROR line(s) in born canon — NOT aborting (drafted chapter preserved; the pre-push hook is the hard gate). ${v.summary || ''}`)
+    } else {
+      log(`validation (${stage}): born canon passed validate-metadata + validate-locks (no ERROR lines)`)
+    }
+  }
+  return v
+}
 
 // House rules shared by the creative (Opus) stages.
 const RULES = `This is the literary near-future novel "The Unnecessary". Authoritative grounding for THIS chapter is the context pack at ${NOVEL}/${pack} (canon, the Style Guide, character profiles, continuity, the project rules in CLAUDE.md) and the approved blueprint at ${NOVEL}/${blueprint} (the scene-by-scene plan). Defer to them; the blueprint provides every per-chapter specific (viewpoint, date, scenes, beats, ending).
@@ -163,11 +226,19 @@ if (toBirth.length) {
     `You are the entity-author. Construct (or extend, if a partial file exists) the ONE canon entity file the chapter ${ch.number} blueprint references but which does not exist yet: intended path ${NOVEL}/${e.intended_path}.\n` +
     `entity_type ${e.entity_type}; containment parent / residence anchor: ${e.parent || '(root — none)'}; door crossed (§3): ${e.door || '(see blueprint)'}; blueprint focus: ${e.focus || '(see blueprint)'}. The blueprint is ${NOVEL}/${blueprint}; the project's entity spec is ${NOVEL}/docs/00-governance/entity-spec.md.\n` +
     `This is PRE-DRAFT: no chapter prose exists yet, so a STUB is the right default (frontmatter + parent + a one-line description), going deeper ONLY where established canon already supports it. Ground every fact ONLY in established canon (the bibles, plot, the Decision Log). Per §14 lock state: bible-established facts are locked/as-is; anything you deduce to furnish the file is \`open\` — there is NO draft prose yet, so nothing here is \`proposed\`.\n` +
-    `Place it by containment (parent on the CHILD, never edit an ancestor). Self-validate against scripts/validate-metadata.py. Report the absolute path, created vs extended, entity_type, parent, the door that justified it, edges + any timeline, validation status, and any canon-silence or conflict flagged (never resolved).`,
+    `Place it by containment (parent on the CHILD, never edit an ancestor). Do NOT run any validator yourself (you have no Bash); the pipeline validates the born canon in a dedicated step right after this phase — a Bash-capable agent runs scripts/validate-metadata.py and scripts/validate-locks.py. Write the file spec-faithfully so it passes. Report the absolute path, created vs extended, entity_type, parent, the door that justified it, edges + any timeline, your self-assessed validation status, and any canon-silence or conflict flagged (never resolved).`,
     { agentType: 'entity-author', label: `ch${num}:provision:${(e.ref || e.intended_path).slice(-40)}`, phase: 'Provision', schema: REPORT }
   )))
 } else {
   log('provision: all referenced entities already have canon files; nothing to birth')
+}
+
+// Validate the canon JUST BORN above for real. entity-author has Read/Grep/Glob/Write/Edit and NO Bash, so it
+// could not run a validator itself — only when entities were actually birthed do we dispatch a Bash-capable
+// agent to run validate-metadata.py + validate-locks.py and surface any ERROR lines. Non-aborting by design.
+let provisionValidation = null
+if (toBirth.length) {
+  provisionValidation = await validateBornCanon('provision', 'Provision')
 }
 
 // ---- Stage 3: Draft (chapter-drafter) ----
@@ -249,16 +320,60 @@ const adj = await tryAgent(() => agent(
   `ALSO read the Gemini cross-model critique at ${NOVEL}/${critique} and treat each of its suggestions as additional findings. (echo-auditor and logic-auditor are extra lenses beyond your named four; rule on their findings the same way.)\n` +
   `For EVERY finding decide ACCEPT or REJECT with a one-line reason grounded in the draft or a controlling authority (Style Guide for craft; the bibles/approved manuscript for facts; the blueprint for focus + reveal timing). Reject anything that fights an authority, leaks a gated reveal, breaks viewpoint, or is out of scope. APPLY every accepted ruling as a surgical Edit to ${manuscript} ONLY — never touch the narration / performance script (it is the audiobook-director's derived artifact, regenerated from your corrected manuscript). If an accepted finding needs FRESH scene prose (more than a local repair), ACCEPT it but ROUTE it back to chapter-drafter by name; do not draft it yourself.\n` +
   `Append a "## Adjudication Log" section at the END of ${manuscript} (after the prose) with one row per finding: [source lens] severity — short claim -> ACCEPT/REJECT, one-line reason. Keep the chapter status "draft" (the author approves separately).\n` +
-  `Before finishing: grep to confirm STILL zero em dashes, viewpoint and the POV character's knowledge state are intact, and no forbidden reveal was introduced by any accepted edit. Report: number accepted, number rejected, items routed back to chapter-drafter, final word count, any unresolved canon conflict (flagged, never resolved), and the confirmations. Do not write memories.`,
-  { agentType: 'adjudicator', label: `ch${num}:adjudicate`, phase: 'Adjudicate', schema: REPORT }
+  `AUTONOMOUS RESOLUTION (Decision 060): resolve every canon question you CAN ground from canon alone IN-CONTEXT — apply the reveal-safe best-effort resolution to the prose and record each call in a "## Decisions Made (author may override)" section of ${manuscript} (question, decision, grounding path:line, confidence, override path). Those are DECIDED and must NOT be escalated. For anything you CANNOT confidently ground from canon alone, do NOT guess and do NOT block — emit it in the schema's \`escalations\` array, each item { question, why_unresolved, kind, where }, where kind is 'research' for a real-world plausibility / logistics / technical question that needs ONLINE RESEARCH, or 'canon' for a question that needs a DEEPER CANON SWEEP than your in-context read. The Resolution phase immediately after you dispatches the research-consultant (online) or canon-scout (deep sweep) per kind, then a final pass decides on the gathered evidence and extends the Decisions Made log. A cleanly-groundable chapter escalates NOTHING (escalations: []).\n` +
+  `Before finishing: grep to confirm STILL zero em dashes, viewpoint and the POV character's knowledge state are intact, and no forbidden reveal was introduced by any accepted edit. Report: number accepted, number rejected, items routed back to chapter-drafter, items resolved in-context (logged in Decisions Made) vs escalated, final word count, any true canon-file conflict flagged for deliberate canon-revision, and the confirmations. Do not write memories.`,
+  { agentType: 'adjudicator', label: `ch${num}:adjudicate`, phase: 'Adjudicate', schema: ADJUDICATE }
 ))
+
+// ---- Stage 5b: Resolution — clear the adjudicator's escalations autonomously (Decision 060) ----
+// The in-context adjudicator (Read/Grep/Glob only) resolves everything it CAN ground from canon and logs it
+// in the manuscript's "## Decisions Made (author may override)" section; what it could NOT confidently ground
+// it ESCALATES instead of guessing or blocking. This phase fills the two reaches the adjudicator cannot make
+// itself: ONLINE RESEARCH (research-consultant, has WebSearch/WebFetch) for real-world plausibility/logistics/
+// technical questions, and a DEEPER CANON SWEEP (canon-scout) for questions needing more sourced reading than
+// one in-context pass. A final adjudicator pass then DECIDES on the gathered evidence, applies any warranted
+// surgical prose edit, and EXTENDS the Decisions Made log — so the author's stopAfter="adjudicate" checkpoint
+// read already includes every resolved item. Skip-when-empty: a cleanly-groundable chapter escalates nothing,
+// so this phase no-ops with zero agent spend.
+phase('Resolution')
+let resolution = null
+const escalations = (adj && Array.isArray(adj.escalations)) ? adj.escalations.filter(e => e && e.question) : []
+if (!escalations.length) {
+  log('resolution: nothing escalated')
+} else {
+  const nResearch = escalations.filter(e => e.kind === 'research').length
+  log(`resolution: ${escalations.length} escalation(s) — ${nResearch} research (online), ${escalations.length - nResearch} canon (deep sweep)`)
+  // Gather evidence for every escalation IN PARALLEL: research-consultant (online) or canon-scout (sweep).
+  const evidence = await parallel(escalations.map(e => () => agent(
+    (e.kind === 'research'
+      ? `You are the research-consultant. The chapter adjudicator could NOT ground this from canon alone and flagged it for ONLINE RESEARCH — a real-world plausibility / logistics / technical question. Use WebSearch/WebFetch to settle it against authoritative real-world sources.\n` +
+        `QUESTION: ${e.question}\nWHY CANON COULD NOT SETTLE IT: ${e.why_unresolved || '(unspecified)'}\nWHERE IT ATTACHES (manuscript locator): ${e.where || '(see manuscript)'}\n` +
+        `The drafted chapter is ${NOVEL}/${manuscript}; the world model — a plausibility ANCHOR, not a value checklist — is the Technology Rules + Master Timeline in the context pack ${NOVEL}/${pack}. Return CITED findings (each load-bearing claim with its source URL) and ONE clear, defensible recommendation for how the prose should read, with your confidence. Research and report ONLY; do not edit any file.`
+      : `You are the canon-scout. The chapter adjudicator could NOT settle this from its single in-context read and flagged it for a DEEPER CANON SWEEP. Read more widely and more sourced than one pass: the bibles under ${NOVEL}/docs/20-canon/**, the plot + blueprints, the Master Timeline, the continuity baselines under ${NOVEL}/docs/60-continuity/**, the Creative Decision Log, and any prior approved chapter that bears on it.\n` +
+        `QUESTION: ${e.question}\nWHY THE IN-CONTEXT PASS COULD NOT SETTLE IT: ${e.why_unresolved || '(unspecified)'}\nWHERE IT ATTACHES (manuscript/canon locator): ${e.where || '(see manuscript)'}\n` +
+        `The drafted chapter is ${NOVEL}/${manuscript}; the entity spec is ${NOVEL}/docs/00-governance/entity-spec.md. Apply the canon authority hierarchy (a bible wins by subject; the more-specific / more-authoritative source wins; a bible reveal-gate beats a blueprint; when a plan is internally contradictory the reveal-SAFE reading wins). Return a SOURCED finding (each load-bearing fact pinned to its path:line) and ONE clear, decided recommendation with your confidence. Read-only: do not edit any file.`),
+    { agentType: e.kind === 'research' ? 'research-consultant' : 'canon-scout',
+      label: `ch${num}:resolution:${e.kind}:${String(e.question).slice(0, 28)}`, phase: 'Resolution', schema: REPORT }
+  )))
+  // ONE final decider closes every escalation on the gathered evidence, edits the prose where warranted, and
+  // extends the Decisions Made log. It NEVER blocks: every item leaves DECIDED (worst case a logged default).
+  const decide = await tryAgent(() => agent(
+    `${RULES}\n\nYou are the adjudicator making the FINAL call on the escalations your in-context pass could not ground from canon alone. The crew has now gathered the evidence you could not reach yourself (online research and/or a deeper canon sweep). READ the FULL drafted chapter ${NOVEL}/${manuscript} first.\n` +
+    `THE ESCALATED QUESTIONS, each paired with the gathered evidence (JSON):\n${JSON.stringify(escalations.map((e, i) => ({ question: e.question, why_unresolved: e.why_unresolved, kind: e.kind, where: e.where, evidence: evidence[i] || '(no evidence returned)' })))}\n\n` +
+    `For EACH escalated question: DECIDE it now on the gathered evidence + canon. If the decision warrants a prose change, apply it as a SURGICAL Edit to ${manuscript} ONLY (a local repair — if it needs fresh scene prose, ROUTE it to chapter-drafter by name rather than drafting it yourself; never touch the narration script). Then APPEND or EXTEND the "## Decisions Made (author may override)" section at the END of ${manuscript} with one entry per newly-resolved item: the QUESTION, the DECISION, the GROUNDING (cite path:line for canon and the source URL for any research finding), your CONFIDENCE, and the OVERRIDE PATH (one line on how the author flips it).\n` +
+    `NEVER BLOCK and never wait on the author: every escalation leaves here DECIDED. Reserve a true author-note ONLY for a pure creative preference with no grounded answer — and even then pick the most defensible default, log THAT as the decision, and proceed. Do not weaken canon, leak a gated reveal, break viewpoint, or introduce an em dash; grep to confirm ZERO em dashes after any edit. Report: number resolved, how many changed the prose vs were log-only, any item left as a logged author-preference default, and the confirmations. Do not write memories.`,
+    { agentType: 'adjudicator', label: `ch${num}:resolution:decide`, phase: 'Resolution', schema: REPORT }
+  ))
+  resolution = { escalations, evidence, decide }
+  log(`resolution: ${escalations.length} escalation(s) cleared; Decisions Made log extended in ${manuscript}`)
+}
 
 if (stopAfter === 'adjudicate' || stopAfter === 'manuscript') {
   log(`Stopping after Adjudicate (stopAfter="${stopAfter}"); Extract + narration script deferred.`)
   return {
     chapter: { number: ch.number, slug, title },
     files: { manuscript, critique, blueprint, pack },
-    prep, provision: provisioned, draft, gauntlet: gauntletFindings, gemini: geminiRun, adjudicate: adj,
+    prep, provision: provisioned, provisionValidation, draft, gauntlet: gauntletFindings, gemini: geminiRun, adjudicate: adj, resolution,
     next: `Review and approve ${manuscript} per Decision 046 (set status, update docs/60-continuity). ` +
           `Entity extraction (proposed-canon backfill) and the narration script were deferred; rerun without stopAfter, or with stopAfter="extract", when ready.`,
   }
@@ -272,6 +387,7 @@ if (stopAfter === 'adjudicate' || stopAfter === 'manuscript') {
 phase('Extract')
 let extract = null
 let born = []
+let extractValidation = null
 try {
   extract = await tryAgent(() => agent(
     `You are the entity-extractor. Mine the just-DRAFTED chapter prose for new canon along the two channels of spec §10a. Drafted prose: ${NOVEL}/${manuscript} (read the STORY PROSE only — IGNORE the YAML front matter and the "## Adjudication Log"). The scene anchor date(s) come from the blueprint ${NOVEL}/${blueprint} (ISO 8601). The governing spec is ${NOVEL}/docs/00-governance/entity-spec.md (§3 the three doors, §9 timelines, §10a backfill, §14 lock state).\n` +
@@ -288,9 +404,11 @@ try {
       `You are the entity-author. Construct the ONE new canon entity file the entity-extractor flagged from the drafted chapter ${ch.number}: intended path ${NOVEL}/${f.path}.\n` +
       `entity_type ${f.entity_type}; containment parent / residence anchor: ${f.parent || '(determine from §3 containment)'}; door crossed (§3): ${f.door || '(see why)'}. Why / seed: ${f.why}. The drafted prose is ${NOVEL}/${manuscript}; the entity spec is ${NOVEL}/docs/00-governance/entity-spec.md.\n` +
       `Ground every fact ONLY in established canon plus this chapter's drafted prose. CRITICAL — lock state (§14): the prose that establishes this entity is a DRAFT (chapter ${ch.number}), so EVERY fact / edge / timeline you record FROM this chapter's prose is lock state PROPOSED, stamped \`by: ${proposedBy}\`, using the §14 \`locks:\` dotted-path encoding ({ state: proposed, by: ${proposedBy} }) — NOT locked. Facts you pull from already-established bible canon keep their locked/established state; pure deductions stay \`open\`.\n` +
-      `Place it by containment (parent on the CHILD; never edit an ancestor). Self-validate against scripts/validate-metadata.py. Report the absolute path, created vs extended, entity_type, parent, the door that justified it, edges written, timeline + the lock state of each entry, validation status, and any conflict flagged (never resolved).`,
+      `Place it by containment (parent on the CHILD; never edit an ancestor). Do NOT run any validator yourself (you have no Bash); the pipeline validates the born canon in a dedicated step right after this phase — a Bash-capable agent runs scripts/validate-metadata.py and scripts/validate-locks.py. Write the file spec-faithfully so it passes. Report the absolute path, created vs extended, entity_type, parent, the door that justified it, edges written, timeline + the lock state of each entry, your self-assessed validation status, and any conflict flagged (never resolved).`,
       { agentType: 'entity-author', label: `ch${num}:extract-birth:${f.path.slice(-40)}`, phase: 'Extract', schema: REPORT }
     )))
+    // Validate the canon JUST BORN from the drafted prose, for real (entity-author has no Bash). Non-aborting.
+    extractValidation = await validateBornCanon('extract', 'Extract')
   } else {
     log('extract: no new entity files needed; backfills (if any) landed in existing files')
   }
@@ -303,8 +421,8 @@ if (stopAfter === 'extract') {
   return {
     chapter: { number: ch.number, slug, title },
     files: { manuscript, critique, blueprint, pack },
-    prep, provision: provisioned, draft, gauntlet: gauntletFindings, gemini: geminiRun, adjudicate: adj,
-    extract: { report: extract, born },
+    prep, provision: provisioned, provisionValidation, draft, gauntlet: gauntletFindings, gemini: geminiRun, adjudicate: adj, resolution,
+    extract: { report: extract, born }, extractValidation,
     next: `Review and approve ${manuscript} per Decision 046; on approval, the proposed entity facts harden to locked (§14). ` +
           `Narration script deferred; generate it separately with the faithful sparse-ellipsis pass when ready.`,
   }
@@ -342,9 +460,9 @@ const narrFix = await tryAgent(() => agent(
 return {
   chapter: { number: ch.number, slug, title },
   files: { manuscript, critique, blueprint, pack, narrativeScript, narrCritique },
-  prep, provision: provisioned, draft,
-  gauntlet: gauntletFindings, gemini: geminiRun, adjudicate: adj,
-  extract: { report: extract, born },
+  prep, provision: provisioned, provisionValidation, draft,
+  gauntlet: gauntletFindings, gemini: geminiRun, adjudicate: adj, resolution,
+  extract: { report: extract, born }, extractValidation,
   narration: { write: narrWrite, critique: narrCrit, fix: narrFix },
   next: `Review ${manuscript} and approve it (set status approved-canon, update docs/60-continuity) per Decision 046 — on approval the proposed entity facts (§14) harden to locked. ` +
         `Review ${narrativeScript}, then generate audio on your go: python3 scripts/narrate-chapter.py ${narrativeScript}`,
