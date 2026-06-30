@@ -1,0 +1,93 @@
+{
+  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch2 Scene 4 (It Is Down to Him) -- the chapter close, delivered entirely through Lena's third-person interior. Begins at this scene's first manuscript line ('She did one more pass...') and ends at its last ('...run down toward midnight'); does NOT recap Scene 3's close (the sleeve / 'the rest of the night was no longer hers') and does NOT enter Chapter 3 (Eli's vigil). This scene is SOLITARY: Lena does not speak aloud, and Eli is glimpsed but never quoted -- the prose gives him only 'a low word he said to himself or to the machine,' indistinct, which the cleanest hand-off keeps as the narrator's report (NOT an invented line), faithful to 'a small precise motion she could not read.' So there is exactly ONE speaking voice -- the narrator (already on server) -- carrying Lena's perception and interior VERBATIM to canon, including the canon-gold turn (anger from the company, to the faceless arrangement; 'the one fuel she trusted not to run out') and the closing image (the card over the dead light, the warm casing, 'the cycle pushed and released... breathing for the man she had chosen to keep'). Trims are ONLY what SFX legitimately carry: 'There were sounds, the click and tick of work' -> a low backroom-work SFX (mechanical only, no voice) heard down the hall at the doorway; the controller cycle -> the chapter's room-ambiance ventilator bed brought up under the bedside close (kept from Scene 3, promoted to chapter scope; same asset, no drift); footsteps as she takes up the ward -> ward-footsteps (also promoted to chapter scope). 'text' = canon spelling; 'tts' = pronunciation-corrected line actually sent (present-tense read->reed; Diallo->Dee-ah-loh, Reyes->Ray-ess, Dembele->Dem-beh-leh, Tomas->Toh-mahs, Adeyemi->Ah-deh-yeh-mee). Narrator stays at the fixed calm/measured tuning regardless of scene intensity; short isolated beats get a small per-cue temperature drop to avoid garble. Reveal-safe: no Morrow/Asterion/Mars-Aurelia/six-years/Kade; 'a stranger's hands' and 'the arrangement' are Lena's own framing, all within her knowledge. Four timed music beds follow the emotional movement (spent inventory -> the faceless anger turning -> no-one-to-blame / the arrangement -> the wait and the clock toward midnight), crossfading. Passed Gemini adaptation-critique (gemini-pro-latest).",
+  "scene": "ch2-scene4-it-is-down-to-him",
+  "narrator_voice": "narrator",
+  "filters": {
+    "_doc": "No filters used beyond 'none' (provided by the mixer). Entirely in-Lena's-head narration; no machine notice, degraded link, or thought-voice. Reusable filters resolve up-scope if ever needed."
+  },
+  "music": [
+    {"asset": "bottom-of-the-list", "gain": 0.58, "start": 0, "dur": 70, "fade_in": 5, "fade_out": 10},
+    {"asset": "the-faceless-anger", "gain": 0.6, "start": 60, "dur": 114, "fade_in": 9, "fade_out": 10},
+    {"asset": "no-one-to-blame", "gain": 0.6, "start": 164, "dur": 78, "fade_in": 9, "fade_out": 11},
+    {"asset": "the-clock-toward-midnight", "gain": 0.6, "start": 234, "dur": 57, "fade_in": 9, "fade_out": 11}
+  ],
+  "tuning": {
+    "_doc": "Narrator stays calm/measured throughout (over-expressive narration artifacts; only characters would get scene-expressive tuning, and there are none speaking here). Short isolated beats get lower temperature + higher cfg_weight to avoid garble.",
+    "narration": {"exaggeration": 0.4, "cfg_weight": 0.5, "temperature": 0.65, "tempo": 1.0}
+  },
+  "cues": [
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.0,
+     "text": "She did one more pass because she could not not do it."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5,
+     "text": "There was no medicine left in any move she had. The Caldwell girl's fever held at a hundred, watched by hand, written down. Mrs. Diallo slept, or lay still in the dark with her dread; either way there was nothing tonight. The Reyes leg was dressed. Dembélé had finally put down the notebook and gone under the blanket. Tomas sat at the front with the lights low, awake, dependable, watching the door no one would come through.",
+     "tts": "There was no medicine left in any move she had. The Caldwell girl's fever held at a hundred, watched by hand, written down. Missus Dee-ah-loh slept, or lay still in the dark with her dread; either way there was nothing tonight. The Ray-ess leg was dressed. Dem-beh-leh had finally put down the notebook and gone under the blanket. Toh-mahs sat at the front with the lights low, awake, dependable, watching the door no one would come through."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45,
+     "text": "She checked the cabinet's screen one more time. The medication unit stood gray and locked-faced in its corner and told her it was ready, and she did not believe it any more than she believed the scanner. So she wrote the doses she might need on a card in her own hand, as she had written the controller's numbers, in case the machine that knew them decided at midnight it no longer would."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5,
+     "text": "Then there was nothing. She had reached the place she always reached and always hated, the bottom of the list, where the only move left was the one she could not make."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6,
+     "text": "She came back down the hall, and the back-room door stood as she had left it, a hand's width open, a slice of work light falling out across the corridor floor and up the opposite wall. She stopped at it but did not push it."},
+
+    {"type": "sfx", "asset": "backroom-work", "gain": 0.3, "gap_before": 0.4},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "Through the gap she could see a piece of him, the work light and his bent back and the rack and a hand moving, a small precise motion she could not read, no more able to follow what he was doing than Mr. Adeyemi could follow what she did with a syringe. And a low word he said to himself, or to the machine.",
+     "tts": "Through the gap she could see a piece of him, the work light and his bent back and the rack and a hand moving, a small precise motion she could not reed, no more able to follow what he was doing than Mr. Ah-deh-yeh-mee could follow what she did with a syringe. And a low word he said to himself, or to the machine."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5,
+     "text": "She looked at the strip of him a moment, the one man, the single light, and did not go in."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6,
+     "text": "She had been angry since the afternoon, and had kept it banked, because anger that became panic stopped moving patients and anger that stayed cold kept her precise, and she had needed precise all evening. It had changed while she was not looking."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45,
+     "text": "In the afternoon it had aimed cleanly at the company, at the clean type, at whatever room they wrote those sentences in, and there had been a comfort in that, a target with a face. The anger she had now had no face."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45,
+     "text": "The eggs on the counter. The woman who came too late for fear of a bill that no longer existed. The old man matching crates in a borrowed bed because the wall-sized screen was gone. The company at least had a name on a notice."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45,
+     "text": "What she stood in now had no name and no office to write to, and it had put her here, in a corridor, on the wrong side of a door, while the night that belonged to her patients went on without her in a room she had handed to one man."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6,
+     "text": "That was the worst of it, standing there. Not the company's hand opening; that hand had been opening finger by finger all year, letting go of the towers and the dairy case and the streetlights, and she had hated it and understood it. This was past that."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45,
+     "text": "The people she was responsible for, the man who had just held her sleeve, the child with the falling fever, the woman with the chest, now hung on whatever a stranger's hands could forge before a minute no one had chosen, and that was a worse abandonment than the notice, because the notice had at least come from someone."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45,
+     "text": "There was no one to be angry at for this. There was only the arrangement, and she stood inside it, responsible and able to do nothing. What kept her upright was the anger, and the anger was not despair. It was the one fuel she trusted not to run out."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6,
+     "text": "Eli's bent shape did not turn. He had not heard her, or had heard and known there was nothing to say, which was likelier, and was its own kind of mercy."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45,
+     "text": "She did not speak. She had nothing to give him that would help and a great deal she could take by speaking, the thread of whatever he held in his head. So she gave him the one mercy she could, leaving him alone with it, and shut the door no further than she had found it."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6, "temperature": 0.5, "cfg_weight": 0.55,
+     "text": "She went back to the ward."},
+
+    {"type": "sfx", "asset": "ward-footsteps", "gain": 0.38, "gap_before": 0.3},
+
+    {"type": "sfx", "asset": "room-ambiance", "gain": 0.28, "gap_before": 0.2},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3,
+     "text": "She took the chair beside the bed again. The man slept now, his hand fallen slack off her sleeve and back to the blanket, his chest rising on the count that was not his own."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.45,
+     "text": "Down the hall the work light burned in the gap of the not-quite-closed door. Somewhere outside, the grid held, the batteries held, the low tier held what little it was allowed to hold."},
+
+    {"type": "sfx", "asset": "room-ambiance", "gain": 0.32, "gap_before": 0.3},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3,
+     "text": "On the wall her phone said the hour, and the hour was not yet midnight, and the machines were still running on a permission that had hours left in it and not many, and the card was taped over the dead light where she could read it, and her hand was flat and warm on the casing, and the cycle pushed and released, pushed and released, breathing for the man she had chosen to keep.",
+     "tts": "On the wall her phone said the hour, and the hour was not yet midnight, and the machines were still running on a permission that had hours left in it and not many, and the card was taped over the dead light where she could reed it, and her hand was flat and warm on the casing, and the cycle pushed and released, pushed and released, breathing for the man she had chosen to keep."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5,
+     "text": "She kept still inside her anger and waited, and let the clock she had not set run down toward midnight."}
+  ]
+}

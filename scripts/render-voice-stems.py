@@ -41,11 +41,31 @@ ROLE_TUNING = {
     "eli":         ("eli_rook",     0.45, 0.50, 0.70),
     "eli_thought": ("eli_rook",     0.35, 0.55, 0.65),
     "lena":        ("lena_okafor",  0.50, 0.50, 0.72),
+    "tomas":       ("tomas_herrera", 0.45, 0.50, 0.62),  # steady night nurse, calm/dry (ch2)
     "dorsey":      ("raymond_dorsey", 0.50, 0.50, 0.65),
     "marisol":     ("marisol_vega",   0.50, 0.50, 0.70),
     "mason":       ("mason_vance",     0.50, 0.50, 0.70),
     "elder":       ("elder_customer",  0.50, 0.50, 0.60),  # render-only generic elder customer (ch1 s3 stranger; not canon)
     "mentor":      ("mentor-past",     0.50, 0.50, 0.55),  # reveal-safe past mentor (flashback voice; unnamed, not canon)
+    # ch2 s3 ward patients -- rendered by CLONING each character's canon voice-design sample
+    # inline (see ROLE_SAMPLE); not saved as named server voices, so the id below is a label.
+    "reyes":       ("hector_reyes",    0.50, 0.50, 0.60),
+    "diallo":      ("aminata_diallo",  0.45, 0.50, 0.60),
+    "dembele":     ("sekou_dembele",   0.45, 0.52, 0.58),
+    "adeyemi":     ("bayo_adeyemi",    0.45, 0.52, 0.58),
+}
+
+# Roles rendered by cloning a character's LOCAL canon voice-design sample inline via
+# /api/generate's sample_base64 (no saved/named server voice needed). The sample is the
+# default preview from each character's voice-design.json -- their canon voice, nothing invented.
+_REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+def _vsample(slug, fname):
+    return os.path.join(_REPO, "docs", "20-canon", "characters", "voices", slug, fname)
+ROLE_SAMPLE = {
+    "reyes":   _vsample("reyes-hector", "reyes-hector-1.mp3"),
+    "diallo":  _vsample("diallo-aminata", "diallo-aminata-1.mp3"),
+    "dembele": _vsample("dembele-sekou", "dembele-sekou-1.mp3"),
+    "adeyemi": _vsample("adeyemi-bayo", "adeyemi-bayo-1.mp3"),
 }
 
 
@@ -68,10 +88,17 @@ def probe_dur(path):
         return None
 
 
-def generate(api, voice, text, exg, cfg, temp, auth, out_path):
+def generate(api, voice, text, exg, cfg, temp, auth, out_path, sample_path=None):
     url = api.rstrip("/") + "/api/generate"
-    payload = {"voice": voice, "text": text, "format": "wav", "normalize": True,
+    payload = {"text": text, "format": "wav", "normalize": True,
                "exaggeration": exg, "cfg_weight": cfg, "temperature": temp}
+    if sample_path:
+        # clone-from-sample: send the character's canon voice sample inline; no server voice id
+        with open(sample_path, "rb") as fh:
+            payload["sample_base64"] = base64.b64encode(fh.read()).decode("ascii")
+        payload["sample_format"] = (os.path.splitext(sample_path)[1].lstrip(".").lower() or "mp3")
+    else:
+        payload["voice"] = voice
     body = json.dumps(payload).encode("utf-8")
     headers = {"Content-Type": "application/json", "Accept": "audio/wav", "User-Agent": UA}
     headers.update(auth)
@@ -162,8 +189,9 @@ def main():
             skip += 1
             continue
         text = cue.get("tts") or cue["text"]
+        sample_path = ROLE_SAMPLE.get(role)
         print("[%03d] %-11s %s ..." % (idx, role, text[:46].replace("\n", " ")), file=sys.stderr)
-        dur, err = generate(a.api, voice, text, exg, cfg, temp, auth, out)
+        dur, err = generate(a.api, voice, text, exg, cfg, temp, auth, out, sample_path)
         if err:
             print("      ERROR: %s" % err, file=sys.stderr)
             fail += 1

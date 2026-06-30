@@ -4,18 +4,29 @@ export const meta = {
   phases: [
     { title: 'Discover', detail: 'split the chapter manuscript into scenes; skip ones already produced' },
     { title: 'Produce', detail: 'one live-narration-director per scene, sequential (single voice server)' },
+    { title: 'Stitch', detail: 'concatenate the per-scene mixes into one chapter .live.mp3' },
   ],
 }
 
-const BOOK = (args && args.book) || 'book-1'
-const CHAPTER = (args && args.chapter) || 'chapter-01-no-signal'
-const ONLY = (args && args.scenes) || null
-const VUSER = (args && args.voiceUser) || 'codingbutter'
-const VPASS = (args && args.voicePassword) || ''
+// args may arrive as a parsed object OR (depending on launch path) a JSON string -- normalize both so a
+// stringified payload can't silently fall through to the chapter-1 defaults and "produce" nothing.
+let A = args
+if (typeof A === 'string') { try { A = JSON.parse(A) } catch (e) { A = {} } }
+A = A || {}
+const BOOK = A.book || 'book-1'
+const CHAPTER = A.chapter || 'chapter-01-no-signal'
+const ONLY = A.scenes || null
+const VUSER = A.voiceUser || 'codingbutter'
+const VPASS = A.voicePassword || ''
 const CRED = VPASS ? ("--user " + VUSER + " --password '" + VPASS + "'") : ""
 const MS = `docs/50-manuscript/${BOOK}/${CHAPTER}/${CHAPTER}.md`
 const BP = `docs/40-blueprints/${BOOK}/${CHAPTER}/blueprint.md`
 const ROOT = `audio/live-audio-book/${BOOK}/${CHAPTER}`
+// Canonical already-produced scene the directors read for format/quality/conventions. Must point at a
+// scene that actually EXISTS on disk -- NOT inside ROOT (the current chapter may be a clean slate, e.g.
+// producing chapter 2 before any of its scenes exist). Defaults to chapter 1's first produced scene.
+const REF = A.refCues || `audio/live-audio-book/${BOOK}/chapter-01-no-signal/scene-01-no-signal/cues.json`
+log('live-audiobook args bound: book=' + BOOK + ' chapter=' + CHAPTER + ' (argsType=' + (typeof args) + ')')
 
 // Resilience: a single agent() call THROWS on retry-cap / API error / dropped connection, which would
 // abort the whole production. Wrap the lone (non-parallel) calls so a transient drop retries instead of
@@ -91,7 +102,7 @@ for (const s of todo) {                 // SEQUENTIAL: the voice server is a sin
     'Produce the LIVE / dramatized audiobook for ONE scene, fully and autonomously, per your standing rules and the proven pipeline.\n' +
     'Scene: Chapter "' + CHAPTER + '", scene ' + s.n + ' -> ' + s.slug + '\n' +
     'Scene directory (create it; write cues.json + voice/ here): ' + sceneDir + '\n' +
-    'Reference an already-produced scene for format/quality/conventions (READ it first): ' + ROOT + '/scene-01-no-signal/cues.json\n' +
+    'Reference an already-produced scene for format/quality/conventions (READ it first): ' + REF + '\n' +
     'Original scene prose -- adapt from THIS, faithfully:\n"""\n' + s.prose + '\n"""\n' +
     'SCENE BOUNDARY: adapt ONLY this prose. Do NOT recap the previous scene closing beat or pre-empt the next scene opening; begin at this prose first line and end at its last. (Recapping/overrunning duplicates audio when scenes are stitched.)\n' +
     'Run the WHOLE pipeline yourself: author ' + sceneDir + '/cues.json (all adaptation rules) -> Gemini gate against this exact prose, revise until CLEAN -> resolve/generate SFX + music + filters by scope (reuse book/chapter assets; generate only genuinely-new ones via ElevenLabs REST) -> render (scripts/render-voice-stems.py ' + sceneDir + '/cues.json ' + CRED + ') -> normalize (scripts/normalize-stems.py ' + sceneDir + '/cues.json) -> mix (scripts/mix-live-scene.py ' + sceneDir + '/cues.json) -> ' + sceneDir + '/scene-live.mp3.\n' +
@@ -100,4 +111,23 @@ for (const s of todo) {                 // SEQUENTIAL: the voice server is a sin
   ))
   reports.push({ slug: s.slug, report: r })
 }
-return { chapter: CHAPTER, produced: reports.map(x => x.slug), reports }
+
+phase('Stitch')
+// Concatenate the per-scene mixes into one continuous chapter file. Deterministic Bash step; one agent
+// runs it and reports the result so the workflow is end-to-end (script -> final chapter .live.mp3).
+const STITCH_SCHEMA = {
+  type: 'object', additionalProperties: false,
+  properties: { ok: { type: 'boolean' }, out: { type: 'string' }, duration_s: { type: 'number' }, scenes_stitched: { type: 'integer' }, note: { type: 'string' } },
+  required: ['ok', 'out', 'note'],
+}
+const stitch = await tryAgent(() => agent(
+  'Stitch a chapter of "The Unnecessary" live audiobook into ONE continuous chapter file, then report.\n' +
+  'Run EXACTLY: python3 scripts/stitch-chapter.py ' + ROOT + '\n' +
+  'It concatenates ' + ROOT + '/scene-*/scene-live.mp3 in slug order and writes ' + ROOT + '/' + CHAPTER + '.live.mp3.\n' +
+  'After it runs, verify the output exists and probe it: ffprobe -v error -show_entries format=duration -of csv=p=0 ' + ROOT + '/' + CHAPTER + '.live.mp3\n' +
+  'Also count the scene inputs: ls ' + ROOT + '/scene-*/scene-live.mp3 | wc -l\n' +
+  'Return ok=true ONLY if the .live.mp3 exists with a positive duration. Report out=output path, duration_s, scenes_stitched, and a one-line note (or the error if it failed).',
+  { schema: STITCH_SCHEMA, label: 'stitch:' + CHAPTER, phase: 'Stitch', agentType: 'live-narration-director' }
+))
+
+return { chapter: CHAPTER, produced: reports.map(x => x.slug), reports, stitch }

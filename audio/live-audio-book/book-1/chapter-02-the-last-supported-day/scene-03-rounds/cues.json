@@ -1,0 +1,197 @@
+{
+  "_doc": "Live-narration ADAPTATION cue sheet for The Unnecessary, Ch2 Scene 3 (Rounds) -- the chapter's heart and the book's first sustained lens on 2053 for ordinary, non-technical people, delivered entirely through Lena on her rounds. Begins at this scene's first manuscript line ('The ward was quiet...') and ends at its last ('...the rest of the night was no longer hers'); does NOT recap Scene 2's hand-off or pre-empt Scene 4. ALL in-room live voice -- no machine notice, no degraded link, no thought-voice -- so every voice cue uses filter 'none'. Five speaking roles: narration (narrator, calm/fixed), lena_okafor, and the four ward patients rendered by inline-cloning each character's canon voice-design sample (reyes=hector_reyes, diallo=aminata_diallo, dembele=sekou_dembele, adeyemi=bayo_adeyemi; pre-registered in render-voice-stems.py ROLE_SAMPLE). The narrator carries Lena's third-person perception/interior verbatim to canon and keeps the gut-punch beats (the bulletin maxim 'accurate diagnosis does not matter...', the withheld truth in Lena's throat, the career that ended in a notebook, Lena's 'I'm not dressing it up', the hand on the warm casing). Trims are only what is HEARD or what the voices carry: 'he said'/'she said' tags; the controller-cycle descriptions ('his voice came thin around the controller's work, the cycle pushing under his words' / 'the cycle going under him' / 'A small breath, the machine's and his together') -- replaced by a soft ventilator bed (room-ambiance SFX, scene-scope) that comes up at Adeyemi's bedside and returns under the closing image, plus the actors' breath-limited delivery; and the approach footsteps that Adeyemi names ('I know your feet') replaced by a ward-footsteps SFX. The controller is IDLE in daylight (Scenes 1-2 canon) and only running here at night under Adeyemi -- so the vent appears ONLY in his bedside section, never at the daytime open. 'text' = canon spelling; 'tts' = pronunciation-corrected line actually sent (present-tense read->reed, past-tense read->red; Reyes->Ray-ess, Diallo->Dee-ah-loh, Dembele->Dem-beh-leh, Vesely->Vess-eh-lee, Okonkwo->Oh-konk-woh, Adeyemi->Ah-deh-yeh-mee, Tomas->Toh-mahs). Short clipped lines get per-cue lower temperature + higher cfg_weight to avoid garble. Reveal-safe: no Morrow, no buried-ASI secret, no Mars/Aurelia, no six-years, no borrowed-uptime outcome; Eli 'making a closet stand in for a company' is in-manuscript and inside Lena's knowledge. Four timed music beds follow the emotional beats (Reyes/worn dignity -> Diallo/the counting -> Dembele/faded grandeur -> Adeyemi/bare honest dread), crossfading. Passed Gemini adaptation-critique (gemini-pro-latest).",
+  "scene": "ch2-scene3-rounds",
+  "narrator_voice": "narrator",
+  "filters": {
+    "_doc": "No filters used beyond 'none' (provided by the mixer). This scene is entirely in-room live voice; reusable filters (thought/link/notice) resolve up-scope but none are needed here."
+  },
+  "music": [
+    {"asset": "thin-yellow-light", "gain": 0.6, "start": 0, "dur": 112, "fade_in": 5, "fade_out": 9},
+    {"asset": "the-counting", "gain": 0.6, "start": 100, "dur": 152, "fade_in": 9, "fade_out": 9},
+    {"asset": "the-same-shape", "gain": 0.6, "start": 242, "dur": 130, "fade_in": 9, "fade_out": 9},
+    {"asset": "not-dressing-it-up", "gain": 0.62, "start": 364, "dur": 205, "fade_in": 9, "fade_out": 11}
+  ],
+  "tuning": {
+    "_doc": "Narrator stays calm/measured regardless of scene intensity (over-expressive narration artifacts). Characters carry the scene's worn dignity, weary fear, pride-and-loss, and bare honesty. Patients are elderly/breath-worn -> slightly slower tempo. Per-cue overrides win; short clipped lines get lower temperature + higher cfg_weight.",
+    "narration": {"exaggeration": 0.4, "cfg_weight": 0.5, "temperature": 0.65, "tempo": 1.0},
+    "lena":      {"exaggeration": 0.5, "cfg_weight": 0.5, "temperature": 0.6, "tempo": 1.0},
+    "reyes":     {"exaggeration": 0.45, "cfg_weight": 0.5, "temperature": 0.58, "tempo": 0.97},
+    "diallo":    {"exaggeration": 0.5, "cfg_weight": 0.5, "temperature": 0.6, "tempo": 0.97},
+    "dembele":   {"exaggeration": 0.52, "cfg_weight": 0.5, "temperature": 0.6, "tempo": 0.98},
+    "adeyemi":   {"exaggeration": 0.45, "cfg_weight": 0.52, "temperature": 0.6, "tempo": 0.96}
+  },
+  "cues": [
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.0,
+     "text": "The ward was quiet, which in a ward never means silence. Six beds, four of them filled, the small machine-sounds and body-sounds of people sleeping or pretending to. The afternoon stood in the high windows still, gone thin and yellow, the kind of light that does not last. Lena came into it, let it close around her, and started where she always started, at the first bed."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "The Reyes man in the second bed had a leg that should have had a smart foam, the kind that read the wound and wicked and reported. The foam came from a supplier that had stopped supplying. So she had a tin of plain gauze and a salve a woman three streets over cooked from something her grandmother had cooked, and she had decided the salve worked, or worked well enough, by watching the leg rather than reading a report off a dressing that knew more than she did and was not here.",
+     "tts": "The Ray-ess man in the second bed had a leg that should have had a smart foam, the kind that red the wound and wicked and reported. The foam came from a supplier that had stopped supplying. So she had a tin of plain gauze and a salve a woman three streets over cooked from something her grandmother had cooked, and she had decided the salve worked, or worked well enough, by watching the leg rather than reeding a report off a dressing that knew more than she did and was not here."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "She changed it by hand under the work light, the old slow way, and the man watched her with the patience of someone who had learned the slow way was the only way left, and not the worst of them."},
+
+    {"type": "voice", "role": "reyes", "filter": "none", "gap_before": 0.5,
+     "text": "You'd have had me scanned and stitched and out the door in an hour, time was."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.4, "temperature": 0.45, "cfg_weight": 0.6,
+     "text": "Time was."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5,
+     "text": "The leg was clean. The leg was healing. The scanner could have told her in a minute what her eyes told her in five; tonight and after tonight it would tell her nothing, and her eyes would have to be enough. They were, this time, on this leg."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5,
+     "text": "Accurate diagnosis does not matter if the treatment cannot be obtained. She had read that somewhere once, in some bulletin from when there were still bulletins, and thought it a cruelty, and understood it now as a plain description of where she lived. A machine that could be right and could not run was no better tonight than no machine at all, and worse in one way: it sat there being right and out of reach and made her feel the size of what she had lost.",
+     "tts": "Accurate diagnosis does not matter if the treatment cannot be obtained. She had red that somewhere once, in some bulletin from when there were still bulletins, and thought it a cruelty, and understood it now as a plain description of where she lived. A machine that could be right and could not run was no better tonight than no machine at all, and worse in one way: it sat there being right and out of reach and made her feel the size of what she had lost."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6,
+     "text": "In the next bed was Mrs. Diallo, who had come in that afternoon with a cough that was not really a cough, the kind a chest holds for months before it becomes what it was always going to be. She had not come months ago, when it was small, because months ago she had still believed, in the old part of her that had not caught up with the world, that coming in cost money she did not have.",
+     "tts": "In the next bed was Missus Dee-ah-loh, who had come in that afternoon with a cough that was not really a cough, the kind a chest holds for months before it becomes what it was always going to be. She had not come months ago, when it was small, because months ago she had still believed, in the old part of her that had not caught up with the world, that coming in cost money she did not have."},
+
+    {"type": "voice", "role": "diallo", "filter": "none", "gap_before": 0.5,
+     "text": "I should have come before."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "before Lena had asked anything, the apology already loaded, like the eggs."},
+
+    {"type": "voice", "role": "diallo", "filter": "none", "gap_before": 0.4,
+     "text": "I kept thinking. I kept thinking what it would run me. Old foolishness. My husband used to say I'd let a thing kill me before I'd let it bill me."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "She tried to laugh, and the laugh turned into the cough."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.4,
+     "text": "There's no bill. There hasn't been a bill here in two years. There's nobody to send it to."},
+
+    {"type": "voice", "role": "diallo", "filter": "none", "gap_before": 0.5,
+     "text": "I know it. I knew it. It doesn't go out of you, though, the counting. You spend fifty years afraid of the cost of a doctor and then one day the cost is gone and you're still afraid, like a dog that flinches at a hand that's only ever fed it."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "Mrs. Diallo looked at her with eyes that were tired and clear.",
+     "tts": "Missus Dee-ah-loh looked at her with eyes that were tired and clear."},
+
+    {"type": "voice", "role": "diallo", "filter": "none", "gap_before": 0.4,
+     "text": "So now I'm here too late instead of broke. That's the trade I made with myself. Cheaper, anyway."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6,
+     "text": "The months were not something Lena could fix. The insurer that would once have argued with Mrs. Diallo about whether her chest was worth a scan had pulled out of the whole district two winters ago in a letter that thanked her for her loyalty. Everything after it had folded just as quietly, until there was no one left to send a bill to and only the old fear of one still standing.",
+     "tts": "The months were not something Lena could fix. The insurer that would once have argued with Missus Dee-ah-loh about whether her chest was worth a scan had pulled out of the whole district two winters ago in a letter that thanked her for her loyalty. Everything after it had folded just as quietly, until there was no one left to send a bill to and only the old fear of one still standing."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.5,
+     "text": "You're here now."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "which was the honest fraction. She did not say the rest, what the scan she could not run would have found, what the months had probably already decided."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "The withheld part sat in her throat like something swallowed wrong. She told herself the truth would do this frightened woman no good at midnight in a cold ward, that morning was time enough. She was not sure she believed it, and did it anyway."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.4,
+     "text": "We'll look at you properly tomorrow. Rest tonight. You're warm here, that's something."},
+
+    {"type": "voice", "role": "diallo", "filter": "none", "gap_before": 0.4, "temperature": 0.45, "cfg_weight": 0.6,
+     "text": "It's something."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "and let her keep the rest back, as patients did, both of them in on it."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6,
+     "text": "At the ward's end old Dembele sat up in the spare bed where he was not a patient. He came some evenings because his own house had gone too cold and the clinic had not yet, and he had his board-keeper's notebook open on his knees, working the columns by the work lamp she had carried down to him. The afternoon had drained out of the windows while she moved bed to bed; the dusk was in the glass now, going blue, going to nothing.",
+     "tts": "At the ward's end old Dem-beh-leh sat up in the spare bed where he was not a patient. He came some evenings because his own house had gone too cold and the clinic had not yet, and he had his board-keeper's notebook open on his knees, working the columns by the work lamp she had carried down to him. The afternoon had drained out of the windows while she moved bed to bed; the dusk was in the glass now, going blue, going to nothing."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "Forty years he had run logistics for a freight network, routing container ships and trucks and the long autonomous trains across half a continent, a man who had once moved the contents of the world from where it was made to where it was wanted. Now he sat in a borrowed bed and matched a crate of the Vesely place's brown eggs against the Reyes family's need for them, working out who carried what to whom, the whole supply chain of three streets held in a paper notebook on an old man's knees.",
+     "tts": "Forty years he had run logistics for a freight network, routing container ships and trucks and the long autonomous trains across half a continent, a man who had once moved the contents of the world from where it was made to where it was wanted. Now he sat in a borrowed bed and matched a crate of the Vess-eh-lee place's brown eggs against the Ray-ess family's need for them, working out who carried what to whom, the whole supply chain of three streets held in a paper notebook on an old man's knees."},
+
+    {"type": "voice", "role": "dembele", "filter": "none", "gap_before": 0.5,
+     "text": "The Okonkwos paid you in my eggs. I sent those eggs across. Vesely to Okonkwo Wednesday, against a thing they owed the Veselys from August. Now they've come to you. Three moves, those eggs.",
+     "tts": "The Oh-konk-wohs paid you in my eggs. I sent those eggs across. Vess-eh-lee to Oh-konk-woh Wednesday, against a thing they owed the Vess-eh-leez from August. Now they've come to you. Three moves, those eggs."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "He did not look up from his columns. He tapped the notebook."},
+
+    {"type": "voice", "role": "dembele", "filter": "none", "gap_before": 0.4,
+     "text": "I can still see a chain when it's in front of me. Used to be ten thousand of them at once, on a screen the size of a wall. Now it's eggs. But it's the same shape, you know. It's exactly the same shape. A thing's here, a thing's wanted there, somebody has to know the road between."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.5,
+     "text": "The wall-sized screen. The ten thousand chains. The career that had ended in a notebook."},
+
+    {"type": "voice", "role": "dembele", "filter": "none", "gap_before": 0.4,
+     "text": "You take the eggs, doctor. They've earned their trip."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.5, "temperature": 0.45, "cfg_weight": 0.6,
+     "text": "I took them."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "She put her hand on his shoulder a moment, the bone close under the cardigan. The notebook lay open on his knees, careful columns in a hand that had been trained on a wall-sized screen. A kindness and an indictment at once, and she had stopped trying to tell them apart. He was warm. The bed was warm. She left her hand where it was."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6,
+     "text": "She left Dembele to his columns and went the length of the ward to the last room, to the man on the controller. She had kept him for last as she kept the hardest call for last. The dark had come down beyond the windows now, the long afternoon used up bed by bed, the evening settled in behind it, and there was no putting him off any longer.",
+     "tts": "She left Dem-beh-leh to his columns and went the length of the ward to the last room, to the man on the controller. She had kept him for last as she kept the hardest call for last. The dark had come down beyond the windows now, the long afternoon used up bed by bed, the evening settled in behind it, and there was no putting him off any longer."},
+
+    {"type": "sfx", "asset": "ward-footsteps", "gain": 0.4, "gap_before": 0.3},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3, "temperature": 0.5, "cfg_weight": 0.6,
+     "text": "Mr. Adeyemi was awake.",
+     "tts": "Mr. Ah-deh-yeh-mee was awake."},
+
+    {"type": "sfx", "asset": "room-ambiance", "gain": 0.28, "gap_before": 0.0},
+
+    {"type": "voice", "role": "adeyemi", "filter": "none", "gap_before": 0.4,
+     "text": "You've been all the way round."},
+
+    {"type": "voice", "role": "adeyemi", "filter": "none", "gap_before": 0.4,
+     "text": "I heard you. You go the same way every night, I know your feet. You saved me for last."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.4,
+     "text": "I save the talkers for last."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "She sat down on the edge of the chair beside the bed, which she did not usually do, and he noticed that she did it."},
+
+    {"type": "voice", "role": "adeyemi", "filter": "none", "gap_before": 0.5, "temperature": 0.5, "cfg_weight": 0.55,
+     "text": "So it's true then. The machines."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "He had heard. Everyone had heard. There were no secrets in a ward at night."},
+
+    {"type": "voice", "role": "adeyemi", "filter": "none", "gap_before": 0.4,
+     "text": "Tomas wouldn't say straight. He's a good boy, he can't lie worth anything, his face does it for him.",
+     "tts": "Toh-mahs wouldn't say straight. He's a good boy, he can't lie worth anything, his face does it for him."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.6,
+     "text": "She could move him. She had turned it over all day, in the corner of her mind that never stopped. There was a clinic two towns over that might still be authorized, that might still be running its own controllers come morning, and she could put him in a neighbor's electric car on its borrowed charge and send him across the dark to a place that might take him and might ask him for papers and might already be as far gone as her own."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "Or she could keep him here, on a machine that might run all night and might lie to her at one minute past midnight and might simply stop, with Eli three feet down the hall trying to make a closet stand in for a company, and herself in this chair, awake, watching the card and not the dead light. There was no safe one. There was no right one to find, only one to choose and stand inside and carry, whatever the night decided to hand her."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.6,
+     "text": "I'm keeping you here. On the machine. With me in this chair. I want to tell you it's the safe choice and it isn't. There's a man down the hall working on it. He's good. He may make it hold."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.3,
+     "text": "I'm not going to promise you it holds, because I don't know what happens to it at midnight and neither does he and neither does anybody, and you deserve better than a promise I'd be making up. But you can't hold the night without it, and the road to anywhere else is colder and longer and no surer. So you're here. And I'm here. That's all I've got, and I'm not dressing it up."},
+
+    {"type": "voice", "role": "adeyemi", "filter": "none", "gap_before": 1.0,
+     "text": "My mother had a doctor used to tell her everything was going to be fine. Every time. Right up until the time it wasn't, and then he still said it."},
+
+    {"type": "voice", "role": "adeyemi", "filter": "none", "gap_before": 0.7,
+     "text": "You're not restful, you know that? You're a terrible comfort."},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.4,
+     "text": "But his hand had come out from under the blanket while he said it and found the edge of her sleeve, held it the way a man holds a railing on a stair he is not sure of, and she let him and did not move her arm."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.5,
+     "text": "I know. Sleep if you can. I'll be right here. If anything changes I'll know before you do."},
+
+    {"type": "voice", "role": "adeyemi", "filter": "none", "gap_before": 0.4, "temperature": 0.45, "cfg_weight": 0.6,
+     "text": "That's not restful either."},
+
+    {"type": "voice", "role": "lena", "filter": "none", "gap_before": 0.4, "temperature": 0.45, "cfg_weight": 0.6,
+     "text": "No. It isn't."},
+
+    {"type": "sfx", "asset": "room-ambiance", "gain": 0.32, "gap_before": 0.5},
+
+    {"type": "voice", "role": "narration", "filter": "none", "gap_before": 0.3,
+     "text": "She put her hand on the warm casing of the controller, the card above her fingers, the cycle steady under her palm. She watched the man's eyes close and listened to the machine breathe for him in the dark. Everything her hands and her judgment could do was done, and the rest of the night was no longer hers."}
+  ]
+}
