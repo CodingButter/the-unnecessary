@@ -1,0 +1,50 @@
+export const meta = {
+  name: 'hire-audio-crew',
+  description: 'Hire the two HIGH-value audio roles the audio-roles audit flagged: an audio PROOFLISTENER / QC (verifies the RENDERED audio against the script + pronunciation lexicon -- the native TTS failure mode no current text-vs-text gate touches) and a CASTING DIRECTOR (owns the ensemble as a SET -- distinctiveness, contrast map, cross-chapter voice consistency), carved cleanly OUT of live-narration-director the same way sound-engineer was. Creates each charter (house format + crew-handbook pointer + field-notes file); the casting hire also edits live-narration-director.md to redirect the ensemble-casting remit. Logs Decision 064 and validates. Does NOT wire them into the pipeline -- that is the consolidated wiring pass next.',
+  phases: [
+    { title: 'Hire', detail: 'create the prooflistener + casting-director charters (parallel); casting hire also carves casting out of live-narration-director' },
+    { title: 'Govern', detail: 'Decision-log entry recording the audio hires + the carve-out + the wiring follow-up; validate' },
+  ],
+}
+
+const NOVEL = '/home/codingbutter/Novel'
+async function tryAgent(make, tries) { tries = tries || 3; let last; for (let i = 0; i < tries; i++) { try { const r = await make(); if (r) return r; last = new Error('empty result'); } catch (e) { last = e; log('retry ' + (i + 1) + '/' + tries + ': ' + String(e).slice(0, 140)); } } throw last; }
+const REPORT = { type: 'object', properties: { ok: { type: 'boolean' }, summary: { type: 'string' }, details: { type: 'string' } }, required: ['ok', 'summary'] }
+
+const HOUSE = `HOUSE FORMAT + CONVENTIONS (match exactly):\n` +
+  `- First read 2 existing charters for the format + house voice: ${NOVEL}/.claude/agents/sound-engineer.md (the most recent audio hire + a clean carve-out precedent) and ${NOVEL}/.claude/agents/live-narration-director.md (the live-audio lane). Read ${NOVEL}/.claude/crew-handbook.md so you do NOT repeat shared directives, and skim docs/70-research/audio-roles-audit.md for this role's grounding.\n` +
+  `- Frontmatter: name (kebab matching the file), a sharp one-line description starting "Reach for this when ..." that distinguishes this role from the agents nearest it, tools (exactly as specified below), model: inherit.\n` +
+  `- Near the TOP of the body, the firm crew-handbook pointer in the exact form the other charters use: "You MUST read the crew handbook at .claude/crew-handbook.md before working -- it carries the shared crew directives (autonomous resolution, field notes, canon safety, project context) and they apply to you." Do NOT restate the handbook's content.\n` +
+  `- This crew runs a DIAGNOSE-then-APPLY / AUTHOR-then-ROUTE split. State clearly what this agent OWNS vs what it ROUTES.\n` +
+  `- Then create this agent's empty field-notes file at ${NOVEL}/.claude/agent-notes/<name>.md with the header "# Field Notes -- <name>" and the standard one-line blockquote contract (copy it from an existing notes file under .claude/agent-notes/), body empty.\n` +
+  `- Avoid em dashes in any drafted prose. Report (REPORT schema): ok, the charter path + its one-line description, and 2 lines on how its lane differs from the nearest existing agent.`
+
+const HIRES = [
+  { name: 'prooflistener', tools: 'Read, Grep, Glob, Bash',
+    extra: '',
+    spec: `ROLE: AUDIO PROOFLISTENER / QC (audit priority HIGH -- the single highest-value audio hire). Verifies the RENDERED audio against the script AND the canon pronunciation lexicon, AFTER render. It exists to catch the native TTS failure mode that NO current gate touches: a clean, confident, WRONG read -- a dropped/doubled/missing word or line, a garbled or wrong-but-plausible word, a homograph said the wrong way, a number misread, and especially pronunciation INCONSISTENCY across chapters (Asterion / Aurelia / Mosaic / Morrow / Kade said one way in ch2 and another in ch9). CRITICAL: every existing check is TEXT-vs-TEXT -- audiobook-director's tag-strip-and-diff verifies the SCRIPT matches the manuscript, and the Gemini fidelity gate critiques the cue SHEET against the prose; NEITHER listens to the produced AUDIO. This agent does. HOW it works (it cannot literally "hear"): it RUNS / extends ${NOVEL}/scripts/verify-narration.py (the existing automated audio-vs-text hook -- transcribe the rendered audio via STT and diff it against the script), reasons over the diffs + the pronunciation lexicon, and emits a TIMESTAMPED re-roll / pickup list routed to whichever agent owns that line (audiobook-director for the single-narrator edition, live-narration-director for a live scene). It does NOT re-render itself; it NAMES defects precisely so the near-free local re-roll is trivial. It must be a SECOND set of ears that did NOT perform the take -- it can never be the agent that rendered the line (familiarity blindness is the whole point). LANE: distinct from audiobook-director (script-vs-manuscript text fidelity) and the Gemini gate (cue-sheet-vs-prose); the only role that checks the rendered AUDIO. Tools: Read, Grep, Glob, Bash (Bash to run verify-narration.py / STT and assemble the pickup list).` },
+  { name: 'casting-director', tools: 'Read, Grep, Glob, Write, Edit',
+    extra: `\n\nCARVE-OUT (do this as part of the hire): ensemble casting currently lives, de-facto, inside live-narration-director (it "provisions" voices and assigns them). EDIT ${NOVEL}/.claude/agents/live-narration-director.md to REDIRECT that remit: live-narration-director now CONSUMES the casting-director's cast sheet (it ensures the assigned voices are on the server and performs/directs them) but no longer OWNS the cast-as-a-SET decision (who gets which voice, the contrast map, cross-chapter consistency) -- that is the casting-director's. PRESERVE everything else in live-narration-director (adapter + director + line-producer functions, the cue-sheet authoring, the Gemini gate, the render->normalize->mix flow, reveal-safety, "never invent a voice"); change ONLY the casting-ownership language and point it at the casting-director + the cast sheet. This is the same clean carve-out that split sound-engineer off; do it as carefully.`,
+    spec: `ROLE: CASTING DIRECTOR -- owns the ENSEMBLE as a SET (audit priority HIGH). Owns the CAST SHEET (which character gets which voice), the deliberate CONTRAST MAP (no two co-present speakers collide; a wide spread of age, register, and timbre so characters are instantly tellable apart by ear), and CROSS-CHAPTER voice consistency (a character sounds the same in ch9 as ch1). It BRIEFS voice-designer (which voices to design, and to what contrast target) and SIGNS OFF the ensemble before live scenes render. Create + own a cast-sheet doc at a sensible production location (e.g. ${NOVEL}/docs/10-vision/audio/cast-sheet.md -- create the dir + valid 8-field YAML frontmatter so validate-metadata/validate-links pass; cross-reference the character profiles in docs/20-canon and the voice assets next to the portraits). It AUTHORS the cast decision and ROUTES design work to voice-designer; it does not itself run the voice-design endpoint. LANE: distinct from voice-designer (designs ONE voice in isolation from ONE canon profile, reveal-safe, blind to the others) and from live-narration-director (adapts + directs + performs the assigned voices, but no longer decides the cast as a set). Reveal-safe: never let a casting note leak a gated reveal. Tools: Read, Grep, Glob, Write, Edit (Write/Edit for the cast sheet + the live-narration-director carve-out edit, never manuscript prose).` },
+]
+
+phase('Hire')
+log('hire-audio-crew: creating ' + HIRES.length + ' audio charters in parallel (casting hire also carves live-narration-director)')
+const hires = await parallel(HIRES.map(h => () => agent(
+  `Create a new specialist agent charter for the novel-production crew of "The Unnecessary" at ${NOVEL}/.claude/agents/${h.name}.md, plus its field-notes file. This is an audio role the audio-roles audit (docs/70-research/audio-roles-audit.md) flagged as a HIGH GAP.\n\n` +
+  h.spec + (h.extra || '') + `\n\nTOOLS for this agent: ${h.tools}.\n\n` + HOUSE,
+  { agentType: 'general-purpose', label: 'hire:' + h.name, phase: 'Hire', schema: REPORT }
+)))
+const made = HIRES.filter((h, i) => hires[i]).map(h => h.name)
+log('hired: ' + made.join(', ') + (made.length < HIRES.length ? ' (' + (HIRES.length - made.length) + ' failed)' : ''))
+
+phase('Govern')
+const gov = await tryAgent(() => agent(
+  `Record the AUDIO-crew expansion for "The Unnecessary" in the decision log and validate. The crew just hired ${made.length} audio agents (${made.join(', ')}) from the audio-roles audit's HIGH-priority GAPS, and carved ensemble CASTING out of live-narration-director into the new casting-director.\n` +
+  `1. Add a Decision-log entry under ${NOVEL}/docs/00-governance/decision-log/decisions/ (match the existing format + the next number after 063, likely 064) for the audio-crew hires. Record: WHAT (the ${made.length} roles -- prooflistener verifies RENDERED audio vs script + pronunciation lexicon, the one gate no text-vs-text check covers; casting-director owns the ensemble as a set), the CARVE-OUT (ensemble casting lifted out of live-narration-director, which now consumes the cast sheet -- the same clean split as sound-engineer), WHY (grounded in docs/70-research/audio-roles-audit.md), and an explicit FOLLOW-UP that these are HIRED but NOT yet wired into the pipeline -- the consolidated wiring pass (book + audio agents at their right cadence) is the next deliberate step. Update the decision-log index (increment count + add the row).\n` +
+  `2. Run \`python3 scripts/validate-metadata.py\` and \`python3 scripts/validate-links.py\` from ${NOVEL}; report PASS/FAIL + any error lines verbatim. The new Decision doc + the cast-sheet doc must be well-formed.\n` +
+  `Report (REPORT schema): ok (true only if both validators pass with 0 errors), the Decision path, and the validator results.`,
+  { schema: REPORT, phase: 'Govern', agentType: 'general-purpose' }
+))
+
+return { hired: made, hires, govern: gov }
