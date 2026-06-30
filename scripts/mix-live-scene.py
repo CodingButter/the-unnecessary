@@ -31,6 +31,10 @@ import sys
 
 PRE = "aresample=44100,aformat=channel_layouts=stereo"
 
+# Single global knob for MUSIC level across ALL scenes (present + future). Voice and SFX
+# are NOT scaled by this. 0.72 ~= -3 dB, pulling beds modestly under the narration.
+MUSIC_GAIN_SCALE = 0.72
+
 
 def _nested_max(terms):
     """max() in ffmpeg's expr eval is binary, so fold a list into nested max(a,max(b,...))."""
@@ -176,7 +180,7 @@ def main():
         # windows crossfade through the abutting fades. All fold into the existing amix.
         for bed in mc:
             masset = bed["asset"]
-            bg = bed.get("gain", 0.2)
+            bg = bed.get("gain", 0.2) * MUSIC_GAIN_SCALE
             bstart = bed.get("start", 0.0)
             bdur = bed.get("dur")
             if bdur is None:
@@ -192,7 +196,7 @@ def main():
             n += 1
     else:
         # (a) single bed: looped to fill the whole scene (unchanged back-compat path).
-        mg = mc.get("gain", 0.2)
+        mg = mc.get("gain", 0.2) * MUSIC_GAIN_SCALE
         masset = mc.get("asset", "tension-bed")
         chains.append("[%d:a]%s,atrim=0:%.2f,volume=%s,afade=t=in:st=0:d=4,afade=t=out:st=%.2f:d=5%s[mus]"
                       % (n, PRE, total, mg, max(0.0, total - 5), MUFFLE))
@@ -206,9 +210,9 @@ def main():
     for s, e in fbw:
         wd = e - s
         sms = int(s * 1000)
-        chains.append("[%d:a]%s,atrim=0:%.2f,volume=0.5,afade=t=in:st=0:d=0.2,"
+        chains.append("[%d:a]%s,atrim=0:%.2f,volume=%.4f,afade=t=in:st=0:d=0.2,"
                       "afade=t=out:st=%.2f:d=0.2,adelay=%d|%d[ring%d]"
-                      % (n, PRE, wd, max(0.0, wd - 0.2), sms, sms, n))
+                      % (n, PRE, wd, 0.5 * MUSIC_GAIN_SCALE, max(0.0, wd - 0.2), sms, sms, n))
         labels.append("[ring%d]" % n)
         inputs.append((SDIR + "/ear-ring.mp3", ["-stream_loop", "-1"]))
         n += 1
