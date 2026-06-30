@@ -26,4 +26,5 @@ Stub. Listed in the clinic's layout in Chapter 2 ("an exam room") but not entere
 edges: {}
 facts: {}
 timeline: []
+locks: {}   # no edges/facts/timeline entries to classify (reviewed)
 ```

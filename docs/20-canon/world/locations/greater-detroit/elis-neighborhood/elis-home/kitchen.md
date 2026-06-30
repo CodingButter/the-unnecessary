@@ -37,4 +37,5 @@ Warmth is rationed to the gas ring; the home runs on stored power. Ordinary, kep
 edges: {}
 facts: {}
 timeline: []
+locks: {}   # no edges/facts/timeline entries to classify (reviewed)
 ```

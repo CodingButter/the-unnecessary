@@ -42,4 +42,7 @@ facts:
   beds: 6
   filled: 4                            # on the night of Oct 3 (Ch2)
 timeline: []
+locks:
+  facts.beds:   { state: locked, by: b1-ch2 }   # "a ward of six beds"
+  facts.filled: { state: locked, by: b1-ch2 }   # "Six beds, four of them filled"
 ```

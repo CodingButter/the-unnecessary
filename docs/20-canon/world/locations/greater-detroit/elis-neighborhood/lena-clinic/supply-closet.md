@@ -26,4 +26,5 @@ Stub. The back hall "ran past a supply closet" (Chapter 2) to the server-room do
 edges: {}
 facts: {}
 timeline: []
+locks: {}   # no edges/facts/timeline entries to classify (reviewed)
 ```

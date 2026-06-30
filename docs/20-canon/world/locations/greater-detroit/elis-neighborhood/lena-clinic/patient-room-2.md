@@ -38,4 +38,6 @@ edges: {}
 facts:
   holds: [diagnostic-scanner, medication-unit]   # both derived by walking patient-room-2/
 timeline: []
+locks:
+  facts.holds: { state: locked, by: b1-ch2 }   # "In the second room" Lena stops at the scanner and, "in the same room," the cabinet
 ```

@@ -51,4 +51,10 @@ timeline:
   - when: 2053-10-04T06:00
     set: { condition: unknown-after-restart }
     note: "Pre-dawn outage restarts the equipment; canon does not resolve the cabinet's exact post-restart state (act-1-timeline.md)."
+locks:
+  edges.owner:      { state: locked, by: b1-ch2 }          # clinic equipment; the clinic is Lena's
+  facts.capability: { state: locked, by: b1-ch2 }          # "held the doses, decided how much and how often"
+  timeline.0:       { state: locked, by: b1-ch1 }          # 23:59 auth loss
+  timeline.1:       { state: locked, by: master-timeline } # borrowed uptime = act-1-timeline.md
+  timeline.2:       { state: open }                        # the cabinet's post-restart condition is canonically UNRESOLVED ("no one knew which"); OPEN so a later chapter that restarts it promotes cleanly (unlike the scanner's "will-not-boot" and the controller's "failed", which canon DOES resolve -> those stay locked). The 06:00 restart event itself is act-1-timeline.md.
 ```

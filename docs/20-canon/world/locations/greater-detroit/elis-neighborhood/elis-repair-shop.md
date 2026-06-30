@@ -52,4 +52,9 @@ facts:
   function: stranded-device-repair    # cloud-dependency removal, local emulation, firmware reflashing
   power_tier: low                     # neighborhood reclassified Oct 3; no emergency restore
 timeline: []
+locks:
+  edges.owner:      { state: locked, by: b1-ch1 }    # "the shop's bench"; the whole midday scene is his shop
+  edges.neighbor:   { state: locked, by: rook-eli }  # attached quarters (Character Bible, Decision 056)
+  facts.function:   { state: locked, by: b1-ch1 }    # Ch1 is him doing exactly this (doorbell, thermostat, router)
+  facts.power_tier: { state: locked, by: b1-ch1 }    # neighborhood low-tier reclassification Oct 3
 ```

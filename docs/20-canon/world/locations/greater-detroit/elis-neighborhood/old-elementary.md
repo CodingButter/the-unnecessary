@@ -27,4 +27,6 @@ edges: {}
 facts:
   use: neighborhood-run-school-program   # the district defunded buses and teachers; the community runs the program here
 timeline: []
+locks:
+  facts.use: { state: locked, by: b1-ch1 }   # "the program the neighborhood ran out of the old elementary now that the district had stopped paying for buses and teachers"
 ```

@@ -54,4 +54,11 @@ timeline:
   - when: 2053-10-04T06:00
     set: { condition: failed }
     note: "Pre-dawn outage; the generators lag; the controller restarts and does not come back. Mr. Adeyemi dies, off the page. This is the ignition of everything that follows (act-1-timeline.md). Cross-reference the adeyemi-bayo character state."
+locks:
+  edges.owner:      { state: locked, by: b1-ch2 }          # clinic equipment; the clinic is Lena's
+  facts.capability: { state: locked, by: b1-ch1 }          # "a controller that kept a set of lungs breathing" (Ch1 call), "a small even push and release" (Ch2)
+  facts.patient:    { state: locked, by: b1-ch2 }          # Mr. Adeyemi on the controller
+  timeline.0:       { state: locked, by: b1-ch1 }          # 23:59 auth loss
+  timeline.1:       { state: locked, by: master-timeline } # borrowed uptime = act-1-timeline.md
+  timeline.2:       { state: locked, by: master-timeline } # restart-failure + death = act-1-timeline.md (the exact 06:00 clock is approximate: "roughly 6 a.m.")
 ```

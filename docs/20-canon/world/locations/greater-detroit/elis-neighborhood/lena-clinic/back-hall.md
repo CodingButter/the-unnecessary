@@ -41,4 +41,7 @@ facts:
   fixtures: [food-trade-board]         # cork panel by the back door; the economy it tracks is owned by community-infrastructure.md, linked not duplicated
   leads_to: [supply-closet, server-room]
 timeline: []
+locks:
+  facts.fixtures: { state: locked, by: b1-ch2 }   # the food-trade board pinned by the back door
+  facts.leads_to: { state: locked, by: b1-ch2 }   # "a back hall that ran past a supply closet to a door [the server room]"
 ```

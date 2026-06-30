@@ -44,4 +44,7 @@ facts:
   holds: clinic-records-server         # old, amber-lit, a decade older than the scanner; kept for records only
   window: painted-shut
 timeline: []                           # the room is fixed; the machine work and its stakes are rendered on the night of Oct 3
+locks:
+  facts.holds:  { state: locked, by: b1-ch2 }   # the clinic's own server on the steel rack
+  facts.window: { state: locked, by: b1-ch2 }   # "a window painted shut"
 ```

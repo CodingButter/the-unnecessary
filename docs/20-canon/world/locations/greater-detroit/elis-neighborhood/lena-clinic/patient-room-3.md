@@ -45,4 +45,7 @@ facts:
   holds: [respiratory-controller]      # derived by walking patient-room-3/
   occupant: adeyemi-bayo               # string reference; people are not spatially contained (spec section 12), this is the room's clinical use
 timeline: []                           # the room is fixed; the controller object carries the borrowed-uptime and death events
+locks:
+  facts.holds:    { state: locked, by: b1-ch2 }   # "The controller's down the end, in with the man"
+  facts.occupant: { state: locked, by: b1-ch2 }   # Mr. Adeyemi lies in the end room (the "Bayo" given name is a Character-Bible detail, not in approved prose)
 ```

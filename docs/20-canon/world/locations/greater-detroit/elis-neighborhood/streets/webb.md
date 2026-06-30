@@ -37,4 +37,5 @@ Webb carries the neighborhood's withdrawn maintenance: at least one streetlight 
 edges: {}
 facts: {}
 timeline: []
+locks: {}   # no edges/facts/timeline entries to classify; the street's run/frontage are deliberately uninvented (reviewed)
 ```

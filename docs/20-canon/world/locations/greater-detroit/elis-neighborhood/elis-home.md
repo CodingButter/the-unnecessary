@@ -51,4 +51,8 @@ edges:
 facts:
   power: stored-battery               # runs on stored power; mesh-only network via the library hub
 timeline: []
+locks:
+  edges.owner:    { state: locked, by: b1-ch1 }    # Ch1 opens in his home
+  edges.neighbor: { state: locked, by: rook-eli }  # "quarters attached to his repair shop" (Character Bible, Decision 056)
+  facts.power:    { state: locked, by: b1-ch1 }    # "the silence of a place running on stored power"
 ```

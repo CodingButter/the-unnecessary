@@ -26,4 +26,5 @@ Stub. Chapter 2 establishes the clinic as "three patient rooms"; the second room
 edges: {}
 facts: {}
 timeline: []
+locks: {}   # no edges/facts/timeline entries to classify (reviewed)
 ```

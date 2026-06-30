@@ -42,4 +42,6 @@ edges: {}
 facts:
   holds: [dark-payment-terminal, front-bench, counter]   # the terminal is dead furniture; barter runs on the counter (community-infrastructure.md owns the economy)
 timeline: []
+locks:
+  facts.holds: { state: locked, by: b1-ch2 }   # bench, counter, and the dark card terminal all rendered in Ch2
 ```

@@ -41,4 +41,8 @@ facts:
   posts_as: "The library"
   power_dependency: true              # while the hub has power the mesh is up; the community's comms live and die with it
 timeline: []
+locks:
+  facts.hosts:            { state: locked, by: b1-ch1 }   # mesh, local board, old satellite terminal all named in Ch1
+  facts.posts_as:         { state: locked, by: b1-ch1 }   # board message signed "The library"
+  facts.power_dependency: { state: locked, by: b1-ch1 }   # "the mesh was up, which meant the library hub still had power"
 ```

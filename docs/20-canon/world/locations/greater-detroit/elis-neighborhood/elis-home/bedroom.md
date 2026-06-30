@@ -38,4 +38,5 @@ The floor is cold underfoot when Eli puts his feet down. The room runs on stored
 edges: {}
 facts: {}
 timeline: []
+locks: {}   # no edges/facts/timeline entries to classify (reviewed)
 ```

@@ -28,4 +28,7 @@ facts:
   contains: empty-automated-dispensing-systems
   state: closed
 timeline: []
+locks:
+  facts.contains: { state: open }   # the closed pharmacy is in the ARCHIVED story-monolith only; absent from approved prose & active bibles
+  facts.state:    { state: open }   # same; no approved-prose / active-bible basis
 ```

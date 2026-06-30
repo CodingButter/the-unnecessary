@@ -75,4 +75,13 @@ timeline:
   - when: 2053-10-04T06:00
     set: { equipment_state: dead }
     note: "A pre-dawn outage; the generators lag; the borrowed-uptime equipment restarts and does not come back. The man on the respiratory controller dies, off the page (act-1-timeline.md). Recorded in full on the respiratory-controller object."
+locks:
+  edges.owner:               { state: locked, by: b1-ch2 }          # "an independent community clinic run by Dr. Lena Okafor"
+  facts.former_use:          { state: locked, by: b1-ch2 }          # "a dentist who had taken it over from an insurance office"
+  facts.power_tier:          { state: locked, by: b1-ch2 }          # "you're on the low tier, no emergency restore"
+  facts.unsupported_systems: { state: locked, by: b1-ch1 }          # the three systems named in Ch1's clinic call
+  timeline.0:                { state: locked, by: master-timeline } # Mar-2053 support warning = pre-book-2053.md
+  timeline.1:                { state: locked, by: b1-ch1 }          # 23:59 auth loss
+  timeline.2:                { state: locked, by: master-timeline } # borrowed uptime = act-1-timeline.md (also draft Ch3)
+  timeline.3:                { state: locked, by: master-timeline } # ~6am death/failure = act-1-timeline.md (the exact 06:00 clock is approximate: "roughly 6 a.m.")
 ```

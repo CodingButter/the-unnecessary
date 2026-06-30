@@ -46,4 +46,8 @@ timeline:
   - when: { circa: 2053-04 }
     set: { streetlight: dead }
     note: "Dead since spring ('dead since spring, the glass gone milky'); still dead through October 3 (Ch1). Spring date is approximate."
+locks:
+  edges.connects:     { state: locked, by: b1-ch1 }   # "the corner of Webb"
+  facts.cross_street: { state: open }                 # canon NAMES a corner of Webb but is SILENT on the cross street; silence is not an assertion, and a name added later is a clean promotion, not a conflict (cf. elis-neighborhood facts.named: open)
+  timeline.0:         { state: open }                 # the dead-light FACT is Ch1, but the {circa: 2053-04} date is approximate -> open per the date heuristic
 ```

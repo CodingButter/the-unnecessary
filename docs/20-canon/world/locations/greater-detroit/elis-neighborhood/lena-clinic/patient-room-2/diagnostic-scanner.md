@@ -53,4 +53,10 @@ timeline:
   - when: 2053-10-04T06:00
     set: { condition: "will-not-boot" }
     note: "Pre-dawn outage restarts the equipment; the scanner checks its license, the server is silent, it does not come on (act-1-timeline.md)."
+locks:
+  edges.owner:      { state: locked, by: b1-ch2 }          # clinic equipment; the clinic is Lena's
+  facts.capability: { state: locked, by: b1-ch2 }          # found the pancreatic tumor; "the best doctor in the building"
+  timeline.0:       { state: locked, by: b1-ch1 }          # 23:59 auth loss
+  timeline.1:       { state: locked, by: master-timeline } # borrowed uptime = act-1-timeline.md
+  timeline.2:       { state: locked, by: b1-ch2 }          # "the wheel would turn and turn... it will not boot" (restart per act-1-timeline.md; exact 06:00 approximate)
 ```

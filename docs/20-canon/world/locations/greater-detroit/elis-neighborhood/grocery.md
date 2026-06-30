@@ -50,4 +50,9 @@ timeline:
   - when: 2053-09-30
     set: { dairy_case: "two lit doors only" }
     note: "The compressor on the long dairy case 'quit Tuesday' (the Tuesday before Friday Oct 3); the controller cannot reach its withdrawn cloud service. Marisol expects to lose the two remaining doors soon (Ch1)."
+locks:
+  edges.owner:      { state: locked, by: b1-ch1 }   # Marisol runs the grocery on-page
+  facts.warm_front: { state: locked, by: b1-ch1 }   # "the good warm yellow of a place that wanted you to come in"
+  facts.route_note: { state: locked, by: b1-ch1 }   # he goes in on his morning walk
+  timeline.0:       { state: locked, by: b1-ch1 }   # "Long case quit Tuesday" + "down to two doors" (the 09-30 date is derived from the Fri-Oct-3 weekday anchor)
 ```
