@@ -49,7 +49,7 @@ facts:
 timeline:
   - when: 2053-09-30
     set: { dairy_case: "two lit doors only" }
-    note: "The compressor on the long dairy case 'quit Tuesday' (the Tuesday before Friday Oct 3); the controller cannot reach its withdrawn cloud service. Marisol expects to lose the two remaining doors soon (Ch1)."
+    note: "The long dairy case 'quit Tuesday' (the Tuesday before Friday Oct 3); the fault is not the compressor but the controller, which cannot reach its withdrawn cloud service ('wants to call home and nobody's home'). Marisol expects to lose the two remaining doors soon (Ch1)."
 locks:
   edges.owner:      { state: locked, by: b1-ch1 }   # Marisol runs the grocery on-page
   facts.warm_front: { state: locked, by: b1-ch1 }   # "the good warm yellow of a place that wanted you to come in"
