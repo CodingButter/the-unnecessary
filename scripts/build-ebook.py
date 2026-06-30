@@ -142,20 +142,47 @@ def title_from_slug(slug):
     return " ".join(w.capitalize() for w in slug.split("-"))
 
 
+APPROVED_STATUSES = {"approved-canon", "approved"}
+
+
+def chapter_status(md_path):
+    """Return the manuscript's frontmatter `status:` value (lowercased), or '' if none."""
+    with open(md_path, "r", encoding="utf-8") as fh:
+        in_fm = False
+        for i, line in enumerate(fh):
+            s = line.strip()
+            if i == 0 and s == "---":
+                in_fm = True
+                continue
+            if in_fm:
+                if s == "---":
+                    break
+                if s.lower().startswith("status:"):
+                    return s.split(":", 1)[1].strip().strip('"').strip("'").lower()
+    return ""
+
+
 def discover_chapters(book_dir):
-    """Glob chapter-* folders, sorted, returning (slug, md_path) for each."""
+    """Glob chapter-* folders, sorted; publish ONLY approved chapters (drafts are skipped + logged)."""
     chapters = []
     for folder in sorted(glob.glob(os.path.join(book_dir, "chapter-*"))):
         if not os.path.isdir(folder):
             continue
         slug = os.path.basename(folder)
         md_path = os.path.join(folder, slug + ".md")
-        if os.path.isfile(md_path):
-            chapters.append((slug, md_path))
-        else:
+        if not os.path.isfile(md_path):
             sys.stderr.write(
                 "WARN: no main manuscript for {} (expected {})\n".format(slug, md_path)
             )
+            continue
+        status = chapter_status(md_path)
+        if status not in APPROVED_STATUSES:
+            sys.stderr.write(
+                "SKIP: {} status is '{}', not approved -- excluded from the published ebook\n".format(
+                    slug, status or "none")
+            )
+            continue
+        chapters.append((slug, md_path))
     return chapters
 
 

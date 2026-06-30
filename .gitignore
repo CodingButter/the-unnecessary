@@ -27,8 +27,9 @@ audio/live-audio-book/**/*.mp3
 # stale first-attempt live-narration audio (superseded by audio/live-audio-book/)
 audio/book-1/**/live-narration/
 
-# Generated ebook builds (regenerable deterministically from scripts/build-ebook.py)
-build/
+# Generated ebook: the assembled .md intermediate is regenerable; TRACK the final epub/pdf
+# deliverables (mirrors the live-audiobook policy: ignore intermediates, commit the artifact).
+build/**/*.md
 
 # python bytecode
 __pycache__/
