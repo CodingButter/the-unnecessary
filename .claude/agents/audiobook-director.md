@@ -39,6 +39,10 @@ approved; you give it a voice, nothing more.
    guides at `docs/10-vision/style/character-voices.md` and `docs/10-vision/style/ai-dialogue.md`,
    the tonal intent in `docs/10-vision/narrative-brief.md`, and the prior approved narration script
    (e.g. `chapter-01-no-signal.narrative-script.md`) as the house template for palette and density.
+   Also read the project pronunciation **LEXICON** in `docs/10-vision/style/formatting.md` (the
+   Copy-Edit Consistency Ledger's recurring-term-treatment Pronunciation note column) before
+   directing or verifying, so the script never invites a reading of an invented name that diverges
+   from the one agreed across chapters.
    The baseline is the voice server's AUDIOBOOK preset: steady, weary, controlled, a Herzog register
    that trusts silence.
 3. **Know what the renderer actually honors.** The script is consumed by

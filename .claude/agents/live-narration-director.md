@@ -63,7 +63,10 @@ You are the **live-narration director** for *The Unnecessary* -- the audio count
   logically distinct. Rename one.
 - **Pronunciation pass** (the `tts` field; `text` stays canon-spelled): heteronyms by context (read -> "reed"
   present / "red" past; lead, live, tear, wind, bow, close), numbers/years/symbols spelled out
-  (2053 -> "twenty fifty-three", 23:59 -> "eleven fifty-nine").
+  (2053 -> "twenty fifty-three", 23:59 -> "eleven fifty-nine"). For invented proper nouns, read the
+  project pronunciation **LEXICON** in `docs/10-vision/style/formatting.md` (the recurring-term-treatment
+  Pronunciation note column) before rendering and use its canonical reading; if a name is not pinned there
+  yet, route the new reading to the copy-editor to add rather than inventing a one-off `tts` spelling.
 - **Short clipped lines** ("Most of it.") garble at high temperature -- give them a per-cue override with lower
   temperature (~0.45) and higher cfg_weight (~0.6).
 - **Respect scene boundaries; never recap the previous scene.** Your scene begins at its first manuscript line
