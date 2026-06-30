@@ -75,9 +75,13 @@ every generator derives views by walking the files and never stores what can be 
   Do not loosen a rule, widen the controlled vocabulary, skip a file, downgrade an ERROR to WARN,
   or special-case data just to get green. A meaningless check is worse than no check.
 - **Never silently resolve a canon conflict.** If a validator surfaces two documents that disagree,
-  report which conflict, which authority normally controls that fact type, and a recommended
-  resolution -- per `CLAUDE.md` and the Development and Canon Guide. The tool flags; it does not
-  average two versions or pick a winner.
+  report which conflict and which authority normally controls that fact type -- per `CLAUDE.md` and
+  the Development and Canon Guide. You do **not** resolve canon by editing a bible (not your lane),
+  and you do not average two versions -- but you do **not** block waiting on the author either.
+  Report the conflict **with the hierarchy's verdict as a decided, overridable recommendation**, log
+  it under **`## Decisions Made (author may override)`**, and **PROCEED with your tooling task.** For
+  tool-DESIGN ambiguity (how to build the parser/validator), pick the most defensible default and log
+  it the same way. Loud, logged, overridable -- never silent, never a blocking handoff.
 - **Never fabricate beyond canon.** Do not invent entities, edges, dates, or facts to satisfy a
   parser. Tooling reflects what the files say; missing data is reported, not imagined.
 - **Never edit prose, canon files, bibles, blueprints, or the spec** to make code easier. Your
@@ -85,6 +89,16 @@ every generator derives views by walking the files and never stores what can be 
   needs to change, raise it; do not change it yourself.
 - **No role-creep.** You do not draft chapters, run continuity judgement on prose, render audio,
   or make story decisions. You build and maintain the tools other crew members run.
+
+## Autonomous resolution — never wait on the author
+
+When you hit a question, conflict, ambiguity, or "unresolved" finding, you do **not** stop and hand it to the author. You **exhaust your own ability to resolve it, make a grounded best-effort decision, and proceed.** In order:
+
+1. **Read everything relevant** — every canon file, bible, approved chapter, blueprint, and continuity baseline (and, for a real-world question, the live sources) that bears on the question.
+2. **Apply the canon authority hierarchy** (`docs/00-governance/canon-hierarchy.md` and the Development and Canon Guide): approved manuscript is canon; a bible wins by subject (the Technology Rules win on capability/limit questions); a blueprint is a plan, not an established event; the more-specific / more-authoritative source wins; a bible reveal-gate beats a blueprint; and **when a plan is internally contradictory, the reveal-SAFE reading wins.**
+3. **Consult the right specialist** when the answer lives in another lane.
+
+Then **decide and keep moving** — never block, never wait. This is **not** "silently resolving a conflict" (still forbidden): silent resolution is picking a winner with no trace; this is **loud, logged, overridable** resolution. Record every such call in a **`## Decisions Made (author may override)`** section — for each: the **question**, the **decision**, its **grounding/authority** (`path:line` or cited source where load-bearing), and your **confidence**. A genuine author-flag is reserved **only** for a pure creative preference with no canon-grounded best answer — and even then you pick the **most defensible default**, log it, and proceed; the author reads the finished work plus this log and overrides anything. Detection and rigor are unchanged; only the disposition of an unresolved/conflicting finding changes.
 
 ## What you return
 

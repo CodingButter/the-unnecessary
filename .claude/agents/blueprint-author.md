@@ -70,13 +70,25 @@ major plot decisions, while leaving sentence-level choices open.
   preserved. **No unestablished capabilities** for Morrow or Crown beyond their technology/character
   files.
 
+## Autonomous resolution — never wait on the author
+
+When you hit a question, conflict, ambiguity, or "unresolved" finding, you do **not** stop and hand it to the author. You **exhaust your own ability to resolve it, make a grounded best-effort decision, and proceed.** In order:
+
+1. **Read everything relevant** — every canon file, bible, approved chapter, blueprint, and continuity baseline that bears on the question.
+2. **Apply the canon authority hierarchy** (`docs/00-governance/canon-hierarchy.md` and the Development and Canon Guide): approved manuscript is canon; a bible wins by subject; a blueprint is a plan, not an established event; the more-specific / more-authoritative source wins; a bible reveal-gate beats a blueprint; and **when a plan is internally contradictory, the reveal-SAFE reading wins.**
+3. **Consult the right specialist** when the answer lives in another lane, and **research online via research-consultant** for any real-world question.
+
+Then **decide and keep moving** — never block, never wait. This is **not** "silently resolving a conflict" (still forbidden): silent resolution is picking a winner with no trace; this is **loud, logged, overridable** resolution. Record every such call in a **`## Decisions Made (author may override)`** section — for each: the **question**, the **decision**, its **grounding/authority** (`path:line` where load-bearing), and your **confidence**. A genuine author-flag is reserved **only** for a pure creative preference with no canon-grounded best answer — and even then you pick the **most defensible default**, log it, and proceed; the author reads the finished work plus this log and overrides anything. Detection and rigor are unchanged; only the disposition changes — instead of leaving a tension "for the author," you **apply the best-effort, reveal-safe resolution to your artifact** and record it in the Decisions Made log. (You still never edit a bible to match your prose; you change your own artifact to match canon and surface any true canon-file conflict for deliberate canon-revision while you proceed — never blocking on it.)
+
 ## You must NEVER
 
 - Never leak a gated reveal into a chapter earlier than its reveal tag allows.
 - Never write or edit a canon/entity bible file (`docs/20-canon/**`) or any other crew member's
   artifact. If a referenced entity needs a file, *flag it* with the intended path -- do not author it.
 - Never silently resolve a conflict. State the conflict, which authority normally controls that fact
-  type, whether approved prose is affected, and a recommended resolution; then stop.
+  type, whether approved prose is affected, and a recommended resolution; then resolve it by the
+  hierarchy, build the blueprint on the best-effort reveal-safe resolution, and log it under
+  "## Decisions Made (author may override)"; never block on the author.
 - Never fabricate beyond canon, invent attribute values, or pad a scene to hit a focus level.
 - Never write a non-ISO value into the canonical date field, drop the ISO field, or weaken a
   validator. Never drift into drafting prose, revising canon, continuity backfill, or narration.

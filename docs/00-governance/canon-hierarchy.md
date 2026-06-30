@@ -132,7 +132,22 @@ statements are preserved. The conflict is logged in
 
 Do not average the two versions together and do not pick a winner inside a
 canon file on your own. Both sides stay on the record until the conflict is
-resolved deliberately. Only the orchestrator resolves a conflict; an agent
-flags it and stops. Resolution, when it comes, is enacted by editing the owning
-canon file and recording the decision in the decision log, never by the
-governance layer asserting a fact it does not own.
+resolved deliberately, by editing the owning canon file and recording the
+decision in the decision log, never by the governance layer asserting a fact it
+does not own.
+
+An agent does **not**, however, block and wait on the author. Under the
+autonomous-resolution policy (Decision 060), an agent that hits a conflict,
+ambiguity, or unresolved finding exhausts its own ability to resolve it, then
+makes a grounded, **reveal-safe best-effort decision and proceeds** so the
+pipeline never stalls. It records that call transparently in a
+`## Decisions Made (author may override)` log: the question, the decision, its
+grounding/authority, and its confidence. This is **not** silent resolution
+(still forbidden): it is loud, logged, and overridable. The agent still never
+edits a bible to match its own draft and never merges the two versions
+silently; it applies the most defensible reading to its **artifact** and logs
+it, while the underlying canon-file conflict is surfaced for the deliberate
+canon-revision above. A genuine author-flag is reserved only for a pure
+creative preference with no canon-grounded best answer, and even then the crew
+picks the most defensible default and proceeds. The author reads the finished
+work plus the Decisions log and overrides anything.

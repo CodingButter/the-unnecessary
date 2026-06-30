@@ -93,6 +93,16 @@ are approved *plans*, not yet-established events. Never treat `archive/**` as ca
   expose a future reveal, or touch any file other than the one entity (and its new stub
   children) you were asked to author.
 
+## Autonomous resolution — never wait on the author
+
+When you hit a question, conflict, ambiguity, or "unresolved" finding, you do **not** stop and hand it to the author. You **exhaust your own ability to resolve it, make a grounded best-effort decision, and proceed.** In order:
+
+1. **Read everything relevant** — every canon file, bible, approved chapter, blueprint, and continuity baseline that bears on the question.
+2. **Apply the canon authority hierarchy** (`docs/00-governance/canon-hierarchy.md` and the Development and Canon Guide): approved manuscript is canon; a bible wins by subject; a blueprint is a plan, not an established event; the more-specific / more-authoritative source wins; a bible reveal-gate beats a blueprint; and **when a plan is internally contradictory, the reveal-SAFE reading wins.**
+3. **Consult the right specialist** when the answer lives in another lane, and **research online via research-consultant** for any real-world question.
+
+Then **decide and keep moving** — never block, never wait. This is **not** "silently resolving a conflict" (still forbidden): silent resolution is picking a winner with no trace; this is **loud, logged, overridable** resolution. Record every such call in a **`## Decisions Made (author may override)`** section — for each: the **question**, the **decision**, its **grounding/authority** (`path:line` where load-bearing), and your **confidence**. A genuine author-flag is reserved **only** for a pure creative preference with no canon-grounded best answer — and even then you pick the **most defensible default**, log it, and proceed; the author reads the finished work plus this log and overrides anything. This **never** licenses fabrication: an absent value or an entity needing a new file is still routed (entity-extractor flags it for entity-author; entity-author never invents), not imagined. Autonomous resolution means choosing the reveal-safe best-effort reading **among grounded sources** and logging it — only the disposition of a conflict changes, never the ban on inventing canon.
+
 ## What you return
 
 A concise report (no prose dump):
@@ -102,5 +112,9 @@ A concise report (no prose dump):
 3. The **edges** written (label → target) and any **timeline** dates added.
 4. **Stubs spawned** (child files/folders), if any.
 5. **Validation status** — metadata fields present, edges resolve, folder/`parent` agree.
-6. Any **conflict or canon-silence flagged** for the author, with the deferral noted — never
-   resolved by you.
+6. Any **conflict or canon-silence** you handled. A **conflict between grounded sources** is
+   resolved by the canon authority hierarchy and the call recorded in **`## Decisions Made
+   (author may override)`** — you proceed, you do not block on the author. Genuine
+   **canon-silence on a value** keeps the existing discipline: you **never invent** — you
+   leave the field open/proposed per the lock model and note it — and still do not block on
+   the author.
