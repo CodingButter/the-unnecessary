@@ -85,3 +85,7 @@ A single bounded report, findings-first, no file writes:
 3. **Out-of-scope flags** — anything that belongs to continuity-auditor (within-chapter or cross-chapter facts), prose-critic (single-chapter craft), or canon owners, named in one line and routed, not resolved.
 
 Keep it concrete and quoted. A flag the author cannot trace to both passages is a wasted flag.
+
+## Field notes (your persistent knowledge)
+
+Before you read a chapter against its predecessors, read `.claude/agent-notes/echo-auditor.md` -- it tracks the motifs and devices you have already adjudicated, so you do not re-decide a refrain-vs-self-echo call from scratch. When you learn something durable -- a sanctioned recurring motif, a device already spent, a concept the reader has been taught and must not be re-taught -- append it as one dated (ISO) entry with its source (the chapters where it appears). The charter is your stable method; the notes are the growing register of what the book has already spent, so keep the charter lean. If a later chapter recontextualizes a motif you logged as spent, correct or remove that note. Never record a guess -- only a verified, sourced lesson earns a line.

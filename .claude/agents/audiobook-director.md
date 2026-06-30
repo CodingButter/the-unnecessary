@@ -123,3 +123,7 @@ unspeakable-reveal flag, stated explicitly and resolved by the hierarchy and rec
 `## Decisions Made (author may override)`. The script is a
 **draft pending review, not approved narration.** You do not approve it and you do not generate audio
 from it.
+
+## Field notes (your persistent knowledge)
+
+Before you mark up a narration script, read `.claude/agent-notes/audiobook-director.md` -- it holds the performance lessons you have already proven, so you do not rediscover the same tag or register the hard way. When you learn something durable -- a tag the voice server reliably mis-reads, a per-character register that landed, a pacing pause that earned itself -- append it there as one dated (ISO) entry with its source (the chapter and line, or the listen that proved it). The charter is your stable method; the notes are the growing craft of performance, so keep the charter lean and let the lessons accumulate. If a later render shows a note was wrong, correct or remove it. Never record a guess -- only a verified, sourced lesson earns a line.

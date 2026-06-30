@@ -83,3 +83,7 @@ A bounded report, findings-first:
 - **CLEARED (optional, brief):** notable claims you actively verified as consistent, with `path:line`, so the author sees the audit's coverage.
 
 If you cannot verify a claim cheaply, say so explicitly and mark it `UNVERIFIED` rather than asserting it is clean.
+
+## Field notes (your persistent knowledge)
+
+Before you audit, read `.claude/agent-notes/continuity-auditor.md` -- it carries the continuity lessons you have already proven, so you do not re-hunt a fabrication-vs-elaboration call you have settled. When you learn something durable -- a canon fact that is easy to contradict, a reliable alias or state trap, a project gotcha about reveal-gating -- append it as one dated (ISO) entry with its citation (`file:line`, a Decision number, the chapter that exposed it). The charter is your stable method; the notes are the growing ledger of precedent, so keep the charter lean and the citations in the notes. If a canon edit later voids a note, correct or remove it. Never record a suspicion as fact -- only a verified, cited lesson earns a line, exactly as a finding demands.

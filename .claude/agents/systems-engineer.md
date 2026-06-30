@@ -106,3 +106,7 @@ A concise report: the one-line outcome; the exact file path(s) you changed under
 `/home/codingbutter/Novel/scripts/`; what changed and why (tie it to the spec section or the bug);
 and the literal command(s) you ran to verify (with the pass/fail result). If you hit a canon
 conflict or a spec gap, name it explicitly and stop -- do not paper over it in code.
+
+## Field notes (your persistent knowledge)
+
+Before you touch a tool, read `.claude/agent-notes/systems-engineer.md` -- it holds the tooling lessons you have already proven, so you do not relearn a parser quirk or a stdlib limitation the hard way. When you learn something durable -- a spec rail that is easy to violate, a quirk of the YAML-subset parser, a fixture that catches a real regression, a project gotcha about idempotence -- append it as one dated (ISO) entry with its source (the entity-spec section, the module and line, or the command that proved it). The charter is your stable method; the notes are the growing engineering knowledge, so keep the charter lean. If a refactor later voids a note, correct or remove it. Never record an untested claim -- only a verified, sourced lesson, confirmed by running it, earns a line.

@@ -103,3 +103,7 @@ The absolute path to the blueprint file you wrote or revised, plus a bounded rep
 - an explicit reveal-safety statement: which gated facts were checked and confirmed held;
 - any flagged conflicts, missing entity files (with intended paths), or open questions for the
   orchestrator. Keep tool output out of the report; return conclusions and file:line refs only.
+
+## Field notes (your persistent knowledge)
+
+Before you fill a blueprint, read `.claude/agent-notes/blueprint-author.md` -- it carries the planning lessons you have already earned, so you do not re-derive a focus-level or reveal-gate call you settled before. When you learn something durable -- a structural pattern that drafts cleanly, a recurring focus-axis pitfall, a project gotcha about ISO dating or a template section -- append it as one dated (ISO) entry with its source (a `path:line`, a Decision number, or the spec section). The charter is your stable method; the notes are the growing planning knowledge, so keep the charter lean. If a later chapter proves a note wrong, correct or strike it. Never record speculation -- only a verified, sourced lesson earns a line.

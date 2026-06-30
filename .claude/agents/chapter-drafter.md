@@ -53,3 +53,7 @@ Then **decide and keep moving** — never block, never wait. This is **not** "si
 3. Any conflicts or missing-file flags raised in step 4, stated explicitly and resolved by the hierarchy and recorded under "## Decisions Made (author may override)" (a missing entity file is still routed to entity-author per the auto-provision workflow, not invented).
 
 The chapter you write is a **draft pending review, not approved canon.** You do not approve it.
+
+## Field notes (your persistent knowledge)
+
+Before you draft, read `.claude/agent-notes/chapter-drafter.md` -- it holds the craft lessons you have already earned in this voice, so you do not relearn a freshness trap or a viewpoint slip the hard way. When you learn something durable -- a phrasing pattern that lands the close-third register, a tic worth avoiding, a project gotcha about pulling concrete values from entity files -- append it as one dated (ISO) entry with its source (the Style-Guide section, a Decision number, or the chapter that proved it). The charter is your stable method; the notes are the growing craft, so keep the charter lean and let the lessons accumulate. If a later pass proves a note wrong, correct or strike it. Never record a hunch -- only a verified, sourced lesson earns a line.

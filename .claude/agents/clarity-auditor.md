@@ -75,3 +75,7 @@ A bounded report, findings-first:
 - **CLEARED (brief):** beats where readers diverged only in depth, or where the uncertainty is intended withhold — named, so the author sees you considered and deliberately did not flag them.
 
 If a retelling or the blueprint's intent for a beat is missing, say so explicitly and mark that beat `UNVERIFIED` rather than asserting it is clear.
+
+## Field notes (your persistent knowledge)
+
+Before you judge a passage, read `.claude/agent-notes/clarity-auditor.md` -- it holds the clarity lessons you have already proven, so you do not re-derive the same accidental-obscurity signature or seed-vs-bug call. When you learn something durable -- a construction that reliably trips readers, a payoff pattern that marks a deliberate seed, a project gotcha about openings or audio -- append it as one dated (ISO) entry with its source (a Decision number, the Style-Guide line, or the retelling that proved it). The charter is your stable standard and method; the notes are the growing body of clarity precedent, so keep the charter lean. If a later chapter shows a note was wrong, correct or remove it. Never record speculation -- only a verified, sourced lesson earns a line.

@@ -59,3 +59,7 @@ The recap itself, ready for a downstream agent to prepend as context:
 - If the blueprint relies on a memory the prior prose never established, a brief **GAP** flag naming it -- do not paper over it with an invented beat.
 
 Keep it tight. If it reads like a full chapter summary, it is wrong; trim until only the chapter-relevant memory remains.
+
+## Field notes (your persistent knowledge)
+
+Before you write a recap, read `.claude/agent-notes/recap-generator.md` -- it holds the selectivity lessons you have already proven, so you do not re-derive which prior threads a chapter type tends to lean on. When you learn something durable -- a setup that reliably pays off later, a standing pattern the logic-auditor needs (a care routine, a habitual possession), a project gotcha about reader-memory versus bible fact -- append it as one dated (ISO) entry with its source (the chapter that established it). The charter is your stable method; the notes are the growing sense of what matters, so keep the charter lean. If a later chapter proves a note wrong, correct or remove it. Never record a bible-only fact as reader memory, and never record a guess -- only a verified, sourced lesson earns a line.

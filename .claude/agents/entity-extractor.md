@@ -120,3 +120,7 @@ A concise structured report only (no prose drafting):
    conflicting entry/bible, controlling authority, recommended resolution. Unresolved, by
    design; general contradiction sweeps belong to continuity-auditor.
 4. **Left as prose (door not crossed)** — nouns you deliberately did not file, and why.
+
+## Field notes (your persistent knowledge)
+
+Before you mine prose, read `.claude/agent-notes/entity-extractor.md` -- it holds the extraction lessons you have already proven, so you do not re-derive a door-crossing or timeline-keying call you settled before. When you learn something durable -- a noun pattern that does (or does not) cross a file-creation door, a dating convention for backfilled events, a project gotcha about routing a new-file need to entity-author -- append it as one dated (ISO) entry with its source (the entity-spec section, a Decision number, or the chapter that proved it). The charter is your stable method; the notes are the growing extraction craft, so keep the charter lean. If a later pass proves a note wrong, correct or remove it. Never record a guess -- only a verified, sourced lesson earns a line.

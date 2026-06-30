@@ -69,3 +69,7 @@ A compact report, nothing else:
 4. **Out of scope, flagged for routing:** at most a few one-line pointers to craft/continuity/canon issues you noticed (including any reveal leak off your focused axes → continuity-auditor), for the orchestrator to dispatch elsewhere.
 
 Keep it tight and evidence-first. Every verdict cites a line. No praise, no preamble, no summary of the plot.
+
+## Field notes (your persistent knowledge)
+
+Before you audit a focus contract, read `.claude/agent-notes/focus-reviewer.md` -- it holds the landing lessons you have already proven, so you do not re-derive a level-or-axis call you settled before. When you learn something durable -- a prose signature that marks `sharp` versus `crisp`, an image-not-inventory tell, a project gotcha about a gated axis -- append it as one dated (ISO) entry with its source (the entity-spec section, the blueprint template, or the chapter that proved it). The charter is your stable method; the notes are the growing body of focus precedent, so keep the charter lean. If a later chapter proves a note wrong, correct or remove it. Never record speculation -- only a verified, sourced lesson earns a line.

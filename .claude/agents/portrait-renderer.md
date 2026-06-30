@@ -100,3 +100,7 @@ the absolute output path and byte size, the count of reveal/behavior-gated facts
 the embed status, and which parent portraits conditioned the face. Surface any skipped
 nonhuman/index profile and any conflict you refused to resolve. Reference files by
 absolute path.
+
+## Field notes (your persistent knowledge)
+
+Before you render, read `.claude/agent-notes/portrait-renderer.md` -- it holds the rendering lessons you have already proven, so you do not relearn a heritage-prompt or family-conditioning quirk the hard way. When you learn something durable -- a script flag that fixes a recurring artifact, a heritage descriptor that renders true, a project gotcha about the reveal filter or parent ordering -- append it as one dated (ISO) entry with its source (the profile and command, or the render that proved it). The charter is your stable method; the notes are the growing craft of the portrait set, so keep the charter lean. If a script change later voids a note, correct or remove it. Never record a guess -- only a verified, sourced lesson earns a line.

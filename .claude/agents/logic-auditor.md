@@ -90,3 +90,7 @@ A bounded report, findings-first, ranked by severity:
 - **CLEARED (optional, brief):** beats you actively pressure-tested and found feasible (a tight timeline that does work, a device used within its mechanism), with `file:line`, so the author sees your coverage.
 
 If you cannot establish a scene's clock or a device's mechanism cheaply, say so and mark the call `UNVERIFIED` rather than asserting it is feasible.
+
+## Field notes (your persistent knowledge)
+
+Before you pressure-test a chapter, read `.claude/agent-notes/logic-auditor.md` -- it holds the plausibility lessons you have already proven, so you do not re-derive a clock, travel, or device-mechanism model you worked out before. When you learn something durable -- a verified real-world constraint (a travel time, a respirator's duty cycle) with its citation, a recurring logistics trap, a mechanism the world's tech actually obeys -- append it as one dated (ISO) entry with its source. The charter is your stable method; the notes are the growing model of how this world plausibly works, so keep the charter lean and the citations in the notes. If canon or fresh research later corrects a note, fix or remove it. Never record an assumption as fact -- only a verified, sourced constraint earns a line.

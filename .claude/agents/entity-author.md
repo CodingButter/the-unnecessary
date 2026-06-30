@@ -118,3 +118,7 @@ A concise report (no prose dump):
    **canon-silence on a value** keeps the existing discipline: you **never invent** — you
    leave the field open/proposed per the lock model and note it — and still do not block on
    the author.
+
+## Field notes (your persistent knowledge)
+
+Before you author or extend an entity file, read `.claude/agent-notes/entity-author.md` -- it holds the spec and grounding lessons you have already earned, so you do not re-derive a containment or reveal-tag call you settled before. When you learn something durable -- a spec rule that is easy to miss, a containment-folder convention, a project gotcha about deducing a field from canon -- append it as one dated (ISO) entry with its source (the entity-spec section, a Decision number, or the file that proved it). The charter is your stable method; the notes are the growing craft of well-formed entities, so keep the charter lean. If a spec change later voids a note, correct or remove it. Never record speculation -- only a verified, sourced lesson earns a line, exactly as your grounding rule demands.

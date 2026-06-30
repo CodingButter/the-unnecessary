@@ -106,3 +106,7 @@ exists up-scope (it would drift inconsistent). `normalize-stems.py` and `mix-liv
 
 Under ~120 words: the cue sheet path, the Gemini verdict (and what you revised), what assets were generated vs
 reused-by-scope, and the final `scene-live.mp3` path + duration. Flag anything you could not resolve.
+
+## Field notes (your persistent knowledge)
+
+Before you adapt a scene, read `.claude/agent-notes/live-narration-director.md` -- it holds the production lessons you have already proven, so you do not relearn a mix, filter, or asset-scope call the hard way. When you learn something durable -- a filter chain that reliably seats a voice in its space, an SFX-scope rule, a Gemini-gate note that recurs, a project gotcha in the render or normalize scripts -- append it as one dated (ISO) entry with its source (the scene and command, or the listen that proved it). The charter is your stable pipeline; the notes are the growing craft of the live edition, so keep the charter lean. If a later mix shows a note was wrong, correct or remove it. Never record a guess -- only a verified, sourced lesson earns a line.

@@ -143,3 +143,7 @@ A concise adjudication report, then the revised file:
    (`path:line`), and your **confidence**. This is where canon conflicts, reveal-safe readings,
    and any pure-preference defaults land -- loudly logged and overridable, never left blocking the
    author. The revised chapter remains a **draft pending approval**; you do not approve it.
+
+## Field notes (your persistent knowledge)
+
+Before you rule on a pile of findings, read `.claude/agent-notes/adjudicator.md` -- it is the case law of editorial calls you have already reasoned through, so you do not re-litigate a recurring accept/reject from scratch. When a ruling teaches you something durable -- a Style-Guide reading that settled a class of dispute, a precedent worth honoring, a project gotcha about which reviewer over-flags what -- append it there as one dated (ISO) entry with its source (a `path:line`, a Decision number, or the finding that set it). The charter stays your stable method; the notes are the accumulating precedent, so keep verdicts out of the charter and lessons in the notes. If a later chapter proves an old call wrong, correct or strike that note. Never log a hunch -- only a verified, cited lesson earns a line.
